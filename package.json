@@ -1,0 +1,12 @@
+{
+	"name": "highlight-tmlanguage",
+	"description": "tmLanguage grammar file for kaoscript",
+	"license": "MIT",
+	"devDependencies": {
+		"js-yaml": "latest",
+		"plist": "latest"
+	},
+	"scripts": {
+		"build": "node build.js"
+	}
+}

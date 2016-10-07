@@ -1,0 +1,386 @@
+name: kaoscript
+scopeName: source.ks
+fileTypes: [ks]
+uuid: 371123EB-AE4B-471E-BB5C-1AB23093F1C9
+
+patterns:
+- include: '#string'
+- include: '#number'
+- include: '#attribute'
+- include: '#function-declaration'
+- include: '#function-arrow'
+- include: '#new-instance'
+- include: '#class-declaration'
+- include: '#enum-declaration'
+- include: '#impl-declaration'
+- include: '#import-declaration'
+- include: '#comment'
+- include: '#method-call'
+- include: '#function-call'
+- include: '#variable'
+- include: '#modifier'
+- include: '#keyword'
+- include: '#constant'
+- include: '#regex'
+- include: '#operator'
+- include: '#enum-expression'
+- include: '#comma'
+- include: '#period'
+
+repository:
+  arguments: # {{{
+    #name: meta.arguments.ks
+    begin: \(
+    beginCaptures:
+      '0': {name: punctuation.definition.arguments.begin.bracket.round.ks}
+    end: \)
+    endCaptures:
+      '0': {name: punctuation.definition.arguments.end.bracket.round.ks}
+    patterns:
+    - include: '$self'
+  # }}}
+  attribute: # {{{
+    name: meta.attribute.ks
+    begin: '#!?\['
+    end: \]
+    patterns:
+    - include: '#string'
+  # }}}
+  class-declaration: # {{{
+    name: meta.class.ks
+    match: \b(class)(?:\s+([a-zA-Z_$][\w$]*))(?:\s+(extends)\s+([a-zA-Z_$][\w$]*))?
+    captures:
+      '1': {name: storage.type.class.ks}
+      '2': {name: entity.name.type.class.ks}
+      '3': {name: storage.modifier.ks}
+      '4': {name: entity.other.inherited-class.ks}
+  # }}}
+  comma: # {{{
+    name: meta.delimiter.object.comma.ks
+    match: ','
+  # }}}
+  comment: # {{{
+    patterns:
+    - name: comment.block.documentation.ks
+      begin: /\*\*(?!/)
+      beginCaptures:
+        '0': {name: punctuation.definition.comment.ks}
+      end: \*/
+      endCaptures:
+        '0': {name: punctuation.definition.comment.ks}
+      patterns:
+      - include: '#comment_block'
+    - begin: (^[ \t]+)?(?=//)
+      beginCaptures:
+        '1': {name: punctuation.whitespace.comment.leading.ks}
+      end: (?=$)
+      patterns:
+        - name: comment.line.double-slash.ks
+          begin: //
+          beginCaptures:
+            '0': {name: punctuation.definition.comment.ks}
+          end: (?=$)
+    - name: comment.block.header
+      begin: ---
+      beginCaptures:
+        '0': {name: punctuation.definition.comment.ks}
+      end: ---
+      endCaptures:
+        '0': {name: punctuation.definition.comment.ks}
+    - include: '#comment_block'
+  # }}}
+  comment_block: # {{{
+    name: comment.block.ks
+    begin: /\*
+    beginCaptures:
+      '0': {name: punctuation.definition.comment.ks}
+    end: \*/
+    endCaptures:
+      '0': {name: punctuation.definition.comment.ks}
+    patterns:
+    - include: '#comment_block'
+  # }}}
+  constant: # {{{
+    patterns:
+    - name: constant.language.boolean.$1.ks
+      match: (?<![$\.])\b(true|false)(?!\s*:)\b
+    - name: constant.language.null.ks
+      match: (?<![$\.])\b(null)(?!\s*:)\b
+    - name: constant.language.ks
+      match: (?<![$\.])\b(Infinity|NaN)(?!\s*:)\b
+    - name: support.class.ks
+      match: (?<![$\.])\b(Array|array|Boolean|bool|class|enum|Function|func|Number|number|Object|object|RegExp|String|string)(?!\s*:)\b
+  # }}}
+  enum-declaration: # {{{
+    name: meta.enum.ks
+    match: \b(enum)(?:\s+([a-zA-Z_$][\w$]*))
+    captures:
+      '1': {name: storage.type.enum.ks}
+      '2': {name: entity.name.type.enum.ks}
+  # }}}
+  enum-expression: # {{{
+    match: ([a-zA-Z_$][\w$]*)(::)([a-zA-Z_$][\w$]*)
+    captures:
+      '1': {name: variable.other.enum.ks}
+      '2': {name: constant.language.delimiter.enum.ks}
+      '3': {name: variable.other.enum.ks}
+  # }}}
+  function-arrow: # {{{
+    match: (=>)
+    captures:
+      '0': {name: meta.function.arrow.ks}
+      '1': {name: storage.type.function.arrow.ks}
+  # }}}
+  function-body: # {{{
+    begin: \{
+    beginCaptures:
+      '0': {name: punctuation.definition.function.body.begin.bracket.curly.ks}
+    end: \}
+    endCaptures:
+      '0': {name: punctuation.definition.function.body.end.bracket.curly.ks}
+    patterns:
+    - include: '$self'
+  # }}}
+  function-call: # {{{
+    #name: meta.function-call.ks
+    begin: ([\w$]+)\s*(?=\()
+    beginCaptures:
+      '1':
+        patterns:
+        - name: entity.name.function.ks
+          match: '[a-zA-Z_$][\w$]*'
+        - name: invalid.illegal.identifier.ks
+          match: \d[\w$]*
+    end: (?<=\))
+    patterns:
+    - include: '#arguments'
+  # }}}
+  function-declaration: # {{{
+    #name: meta.function.ks
+    begin: \b(func)\b(?:\s+([a-zA-Z_$][\w$]*))?\(
+    end: (?<=})
+    captures:
+      '1': {name: storage.type.function.ks}
+      '2': {name: entity.name.function.ks}
+    patterns:
+    - include: '#function-parameters'
+    - include: '#comment'
+    - include: '#function-body'
+  # }}}
+  function-parameters: # {{{
+    begin: \(
+    beginCaptures:
+      '0': {name: punctuation.definition.parameters.begin.bracket.round.ks}
+    end: \)
+    endCaptures:
+      '0': {name: punctuation.definition.parameters.end.bracket.round.ks}
+    patterns:
+    - match: (\.\.\.)([a-zA-Z_$][\w$]*)
+      captures:
+        '1': {name: keyword.operator.spread.ks}
+        '2': {name: variable.parameter.rest.function.ks}
+    - include: '$self'
+    - name: variable.parameter.function.ks
+      match: '[a-zA-Z_$][\w$]*'
+  # }}}
+  impl-declaration: # {{{
+    name: meta.class.ks
+    match: \b(impl)(?:\s+([a-zA-Z_$][\w$]*))
+    captures:
+      '1': {name: storage.type.class.ks}
+      '2': {name: entity.name.type.class.ks}
+  # }}}
+  import-declaration: # {{{
+    patterns:
+    - begin: (?<![$\.])\b(import)\s*\{
+      beginCaptures:
+        '1': {name: keyword.control.ks}
+      end: (?<=})
+      patterns:
+      - name: keyword.ks
+        match: (?<![$\.])\bas\b
+      - match: \b(from)\s*([^:].*?)\s*$
+        captures:
+          '1': {name: keyword.ks}
+          '2': {name: string.ks}
+      - name: meta.delimiter.object.comma.ks
+        match: ','
+      - name: constant.language.import-all.ks
+        match: \*
+    - begin: (?<![$\.])\b(import)(?!\s*[:\(\{])\b
+      beginCaptures:
+        '1': {name: keyword.control.ks}
+      end: (?=$)
+      patterns:
+      - name: keyword.ks
+        match: (?<![$\.])\bas\b
+      - match: \b(from)\s*([^:].*?)\s*$
+        captures:
+          '1': {name: keyword.ks}
+          '2': {name: string.ks}
+      - name: meta.delimiter.object.comma.ks
+        match: ','
+      - name: constant.language.import-all.ks
+        match: \*
+  # }}}
+  keyword: # {{{
+    patterns:
+    - name: keyword.control.trycatch.ks
+      match: (?<![$\.])\b(catch|finally|throw|try)\b(?!\s*:|\$)
+    - name: keyword.control.loop.ks
+      match: (?<![$\.])\b(break|continue|do|for|until|while)\b(?!\s*:|\$)
+    - name: keyword.control.flow.ks
+      match: (?<![$\.])\b(return)\b(?!\s*:|\$)
+    - name: keyword.control.conditional.ks
+      match: (?<![$\.])\b(else|if|switch|unless)\b(?!\s*:|\$)
+    - name: keyword.control.ks
+      match: (?<![$\.])\b(await|export|extern|import|include|require)\b(?!\s*:|\$)
+    - name: keyword.ks
+      match: (?<![$\.])\b(as|by|from|in|is|of|til|to|with)\b(?!\s*:|\$)
+  # }}}
+  method-call: # {{{
+    #name: meta.method-call.ks
+    begin: (\.)\s*([\w$]+)\s*(?=\()
+    beginCaptures:
+      '1': {name: meta.delimiter.method.period.ks}
+      '2':
+        patterns:
+        - name: entity.name.function.ks
+          match: '[a-zA-Z_$][\w$]*'
+        - name: invalid.illegal.identifier.ks
+          match: \d[\w$]*
+    end: (?<=\))
+    patterns:
+    - include: '#arguments'
+  # }}}
+  modifier: # {{{
+    name: storage.modifier.ks
+    match: (?<![$\.])\b(async|extends|final|private|protected|public|static)(?!\s*:)\b
+  # }}}
+  new-instance: # {{{
+    name: meta.class.instance.constructor.ks
+    match: (new)\s+([\w$]+[\w\.$]*)
+    captures:
+      '1': {name: keyword.operator.new.ks}
+      '2':
+        name: entity.name.type.instance.ks
+        patterns:
+        - name: meta.delimiter.property.period.ks
+          match: \.
+  # }}}
+  number: # {{{
+    patterns:
+    - name: constant.numeric.binary.ks
+      match: \b0(b|B)[01]+\b
+    - name: constant.numeric.octal.ks
+      match: \b0(o|O)[0-7]+\b
+    - name: constant.numeric.hex.ks
+      match: \b0(x|X)[0-9a-fA-F]+\b
+    - match: \b[0-9]+(?:(\.)[0-9]+)?\b
+      captures:
+        '0': {name: constant.numeric.decimal.ks}
+        '1': {name: meta.delimiter.decimal.period.ks}
+  # }}}
+  operator: # {{{
+    patterns:
+    - name: keyword.operator.assignment.compound.ks
+      match: \+=|-=|\*=|(?<!\()/=|%=|\?=
+    - name: keyword.operator.assignment.compound.bitwise.ks
+      match: <<=|>>=|>>=|&=|\^=|\|=
+    - name: keyword.operator.comparison.ks
+      match: <=|>=|==|<|>|!=
+    - name: keyword.operator.logical.ks
+      match: \|\||&&|!
+    - name: keyword.operator.bitwise.ks
+      match: \^|~|&|\|
+    - name: keyword.operator.assignment.ks
+      match: =|:=
+    - name: keyword.operator.decrement.ks
+      match: --
+    - name: keyword.operator.increment.ks
+      match: \+\+
+    - name: keyword.operator.spread.ks
+      match: \.\.\.
+    - name: keyword.operator.ks
+      match: \+|-|\*|/|%|\?
+  # }}}
+  period: # {{{
+    name: meta.delimiter.method.period.ks
+    match: \.
+  # }}}
+  regex: # {{{
+    name: string.regexp.ks
+    begin: (?<=[\[=(?:+,!]|^|return|=>|&&|\|\|)\s*(/)(?![/*+?])(?=.*/)
+    beginCaptures:
+      '1': {name: punctuation.definition.string.begin.ks}
+    end: (/)[gimuy]*
+    endCaptures:
+      '1': {name: punctuation.definition.string.end.ks}
+    patterns:
+    - include: 'source.js.regexp'
+  # }}}
+  string: # {{{
+    patterns:
+    - name: string.quoted.single.ks
+      begin: "'"
+      beginCaptures:
+        '0': {name: punctuation.definition.string.begin.ks}
+      end: "'"
+      endCaptures:
+        '0': {name: punctuation.definition.string.end.ks}
+      patterns:
+      - include: '#string-escapes'
+    - name: string.quoted.double.ks
+      begin: '"'
+      beginCaptures:
+        '0': {name: punctuation.definition.string.begin.ks}
+      end: '"'
+      endCaptures:
+        '0': {name: punctuation.definition.string.end.ks}
+      patterns:
+      - include: '#string-escapes'
+    - begin: '`'
+      beginCaptures:
+        '0': {name: punctuation.definition.string.template.begin.ks}
+      end: '`'
+      endCaptures:
+        '0': {name: punctuation.definition.string.template.end.ks}
+      patterns:
+      - include: '#template'
+      - include: '#string-escapes'
+      - name: string.template.ks
+        match: (?:[^\\`]|\\(?:[^\(]|$))*
+  # }}}
+  string-escapes: # {{{
+    patterns:
+    - name: invalid.illegal.unicode-escape.ks
+      match: \\u(?![A-Fa-f0-9]{4}|{[A-Fa-f0-9]+})[^'"]*
+    - name: constant.character.escape.ks
+      match: \\u(?:[A-Fa-f0-9]{4}|({)([A-Fa-f0-9]+)(}))
+      captures:
+        '1': {name: punctuation.definition.unicode-escape.begin.bracket.curly.ks}
+        '2':
+          patterns:
+          - name: invalid.illegal.unicode-escape.ks
+            match: '[A-Fa-f\d]{7,}|(?!10)[A-Fa-f\d]{6}'
+        '3': {name: punctuation.definition.unicode-escape.end.bracket.curly.ks}
+    - name: constant.character.escape.ks
+      match: \\(x\h{2}|[0-2][0-7]{0,2}|3[0-6][0-7]?|37[0-7]?|[4-7][0-7]?|.)
+  # }}}
+  template: # {{{
+    begin: \\\(
+    beginCaptures:
+      '0': { name: punctuation.definition.template-expression.begin.ks }
+    end: \)
+    endCaptures:
+      '0': { name: punctuation.definition.template-expression.end.ks }
+    patterns:
+    - include: '$self'
+  # }}}
+  variable: # {{{
+    patterns:
+    - name: variable.language.ks
+      match: (?<![$\.])\b(?<!\$)(super|this)(?!\s*:|\$)\b
+    - name: storage.type.var.ks
+      match: (?<![$\.])\b(let|const)(?!\s*:|\$)\b
+  # }}}
