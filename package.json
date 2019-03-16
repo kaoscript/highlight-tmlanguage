@@ -1,12 +1,27 @@
 {
 	"name": "highlight-tmlanguage",
 	"description": "tmLanguage grammar file for kaoscript",
+	"version": "0.1.0",
+	"publisher": "kaoscript",
+	"homepage": "https://github.com/kaoscript/highlight-tmlanguage",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/kaoscript/highlight-tmlanguage.git"
+	},
+	"bugs": {
+		"url": "https://github.com/kaoscript/highlight-tmlanguage/issues"
+	},
+	"author": {
+		"name": "Baptiste Augrain",
+		"email": "daiyam@zokugun.org"
+	},
 	"license": "MIT",
 	"devDependencies": {
 		"js-yaml": "latest",
+		"kaoscript": "github:kaoscript/kaoscript",
 		"plist": "latest"
 	},
 	"scripts": {
-		"build": "node build.js"
+		"build": "npx kaoscript build.ks"
 	}
 }
