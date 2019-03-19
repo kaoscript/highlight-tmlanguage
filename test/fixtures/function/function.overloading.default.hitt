@@ -1,0 +1,180 @@
+original file
+-----------------------------------
+func reverse(value: String): String => value.split('').reverse().join('')
+func reverse(value: Array): Array => value.slice().reverse()
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>func reverse(value: String): String => value.split('').reverse().join('')
+ func
+ ^^^^
+ source.ks storage.type.function.ks
+      
+     ^
+     source.ks
+      reverse
+      ^^^^^^^
+      source.ks entity.name.function.ks
+             (
+             ^
+             source.ks punctuation.definition.parameters.begin.bracket.round.ks
+              value
+              ^^^^^
+              source.ks variable.parameter.ks
+                   :
+                   ^
+                   source.ks meta.type.annotation.ks storage.modifier.type.ks
+                     
+                    ^
+                    source.ks meta.type.annotation.ks
+                     String
+                     ^^^^^^
+                     source.ks meta.type.annotation.ks support.type.primitive.ks
+                           )
+                           ^
+                           source.ks punctuation.definition.parameters.end.bracket.round.ks
+                            :
+                            ^
+                            source.ks meta.function.return-type.ks storage.modifier.type.ks
+                              
+                             ^
+                             source.ks meta.function.return-type.ks
+                              String
+                              ^^^^^^
+                              source.ks meta.function.return-type.ks support.type.primitive.ks
+                                     
+                                    ^
+                                    source.ks
+                                     =>
+                                     ^^
+                                     source.ks storage.type.function.arrow.ks
+                                        
+                                       ^
+                                       source.ks
+                                        value
+                                        ^^^^^
+                                        source.ks variable.other.object.ks
+                                             .
+                                             ^
+                                             source.ks punctuation.accessor.object.ks
+                                              split
+                                              ^^^^^
+                                              source.ks entity.name.function.ks
+                                                   (
+                                                   ^
+                                                   source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                                                    '
+                                                    ^
+                                                    source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
+                                                     '
+                                                     ^
+                                                     source.ks string.quoted.single.ks punctuation.definition.string.end.ks
+                                                      )
+                                                      ^
+                                                      source.ks punctuation.definition.arguments.end.bracket.round.ks
+                                                       .
+                                                       ^
+                                                       source.ks
+                                                        reverse
+                                                        ^^^^^^^
+                                                        source.ks entity.name.function.ks
+                                                               (
+                                                               ^
+                                                               source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                                                                )
+                                                                ^
+                                                                source.ks punctuation.definition.arguments.end.bracket.round.ks
+                                                                 .
+                                                                 ^
+                                                                 source.ks
+                                                                  join
+                                                                  ^^^^
+                                                                  source.ks entity.name.function.ks
+                                                                      (
+                                                                      ^
+                                                                      source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                                                                       '
+                                                                       ^
+                                                                       source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
+                                                                        '
+                                                                        ^
+                                                                        source.ks string.quoted.single.ks punctuation.definition.string.end.ks
+                                                                         )
+                                                                         ^
+                                                                         source.ks punctuation.definition.arguments.end.bracket.round.ks
+>
+>func reverse(value: Array): Array => value.slice().reverse()
+ func
+ ^^^^
+ source.ks storage.type.function.ks
+      
+     ^
+     source.ks
+      reverse
+      ^^^^^^^
+      source.ks entity.name.function.ks
+             (
+             ^
+             source.ks punctuation.definition.parameters.begin.bracket.round.ks
+              value
+              ^^^^^
+              source.ks variable.parameter.ks
+                   :
+                   ^
+                   source.ks meta.type.annotation.ks storage.modifier.type.ks
+                     
+                    ^
+                    source.ks meta.type.annotation.ks
+                     Array
+                     ^^^^^
+                     source.ks meta.type.annotation.ks support.type.primitive.ks
+                          )
+                          ^
+                          source.ks punctuation.definition.parameters.end.bracket.round.ks
+                           :
+                           ^
+                           source.ks meta.function.return-type.ks storage.modifier.type.ks
+                             
+                            ^
+                            source.ks meta.function.return-type.ks
+                             Array
+                             ^^^^^
+                             source.ks meta.function.return-type.ks support.type.primitive.ks
+                                   
+                                  ^
+                                  source.ks
+                                   =>
+                                   ^^
+                                   source.ks storage.type.function.arrow.ks
+                                      
+                                     ^
+                                     source.ks
+                                      value
+                                      ^^^^^
+                                      source.ks variable.other.object.ks
+                                           .
+                                           ^
+                                           source.ks punctuation.accessor.object.ks
+                                            slice
+                                            ^^^^^
+                                            source.ks entity.name.function.ks
+                                                 (
+                                                 ^
+                                                 source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                                                  )
+                                                  ^
+                                                  source.ks punctuation.definition.arguments.end.bracket.round.ks
+                                                   .
+                                                   ^
+                                                   source.ks
+                                                    reverse
+                                                    ^^^^^^^
+                                                    source.ks entity.name.function.ks
+                                                           (
+                                                           ^
+                                                           source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                                                            )
+                                                            ^
+                                                            source.ks punctuation.definition.arguments.end.bracket.round.ks

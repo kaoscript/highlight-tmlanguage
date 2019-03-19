@@ -20,6 +20,12 @@ func replacePatternVariables(value, variables) {
 
 func transformGrammar(grammar) {
 	if grammar.variables? {
+		for const name, value of grammar.variables {
+			for const key of grammar.variables {
+				grammar.variables[key] = grammar.variables[key].replace(new RegExp(`{{\(name)}}`, 'gim'), value)
+			}
+		}
+
 		const variables = []
 		for const name, value of grammar.variables {
 			variables.push([new RegExp(`{{\(name)}}`, 'gim'), value])

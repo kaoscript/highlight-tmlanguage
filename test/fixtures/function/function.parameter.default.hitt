@@ -1,0 +1,465 @@
+original file
+-----------------------------------
+func foo(item = 1) {
+    console.log(item)
+}
+func bar(item: any = 1) {
+    console.log(item)
+}
+func baz(item: any? = 1) {
+    console.log(item)
+}
+func qux(item: int = 1) {
+    console.log(item)
+}
+func quux(item: int? = 1) {
+    console.log(item)
+}
+func corge(item? = 1) {
+    console.log(item)
+}
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>func foo(item = 1) {
+ func
+ ^^^^
+ source.ks storage.type.function.ks
+      
+     ^
+     source.ks
+      foo
+      ^^^
+      source.ks entity.name.function.ks
+         (
+         ^
+         source.ks punctuation.definition.parameters.begin.bracket.round.ks
+          item
+          ^^^^
+          source.ks variable.parameter.ks
+               
+              ^
+              source.ks
+               =
+               ^
+               source.ks keyword.operator.assignment.ks
+                 
+                ^
+                source.ks
+                 1
+                 ^
+                 source.ks constant.numeric.decimal.ks
+                  )
+                  ^
+                  source.ks punctuation.definition.parameters.end.bracket.round.ks
+                    
+                   ^
+                   source.ks
+                    {
+                    ^
+                    source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>    console.log(item)
+     
+ ^^^^
+ source.ks
+     console
+     ^^^^^^^
+     source.ks variable.other.object.ks
+            .
+            ^
+            source.ks punctuation.accessor.object.ks
+             log
+             ^^^
+             source.ks entity.name.function.ks
+                (
+                ^
+                source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                 item
+                 ^^^^
+                 source.ks variable.other.ks
+                     )
+                     ^
+                     source.ks punctuation.definition.arguments.end.bracket.round.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.block.end.bracket.curly.ks
+>
+>func bar(item: any = 1) {
+ func
+ ^^^^
+ source.ks storage.type.function.ks
+      
+     ^
+     source.ks
+      bar
+      ^^^
+      source.ks entity.name.function.ks
+         (
+         ^
+         source.ks punctuation.definition.parameters.begin.bracket.round.ks
+          item
+          ^^^^
+          source.ks variable.parameter.ks
+              :
+              ^
+              source.ks meta.type.annotation.ks storage.modifier.type.ks
+                
+               ^
+               source.ks meta.type.annotation.ks
+                any
+                ^^^
+                source.ks meta.type.annotation.ks support.type.primitive.ks
+                    
+                   ^
+                   source.ks
+                    =
+                    ^
+                    source.ks keyword.operator.assignment.ks
+                      
+                     ^
+                     source.ks
+                      1
+                      ^
+                      source.ks constant.numeric.decimal.ks
+                       )
+                       ^
+                       source.ks punctuation.definition.parameters.end.bracket.round.ks
+                         
+                        ^
+                        source.ks
+                         {
+                         ^
+                         source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>    console.log(item)
+     
+ ^^^^
+ source.ks
+     console
+     ^^^^^^^
+     source.ks variable.other.object.ks
+            .
+            ^
+            source.ks punctuation.accessor.object.ks
+             log
+             ^^^
+             source.ks entity.name.function.ks
+                (
+                ^
+                source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                 item
+                 ^^^^
+                 source.ks variable.other.ks
+                     )
+                     ^
+                     source.ks punctuation.definition.arguments.end.bracket.round.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.block.end.bracket.curly.ks
+>
+>func baz(item: any? = 1) {
+ func
+ ^^^^
+ source.ks storage.type.function.ks
+      
+     ^
+     source.ks
+      baz
+      ^^^
+      source.ks entity.name.function.ks
+         (
+         ^
+         source.ks punctuation.definition.parameters.begin.bracket.round.ks
+          item
+          ^^^^
+          source.ks variable.parameter.ks
+              :
+              ^
+              source.ks meta.type.annotation.ks storage.modifier.type.ks
+                
+               ^
+               source.ks meta.type.annotation.ks
+                any
+                ^^^
+                source.ks meta.type.annotation.ks support.type.primitive.ks
+                   ?
+                   ^
+                   source.ks meta.type.annotation.ks storage.modifier.nullable.ks
+                     
+                    ^
+                    source.ks
+                     =
+                     ^
+                     source.ks keyword.operator.assignment.ks
+                       
+                      ^
+                      source.ks
+                       1
+                       ^
+                       source.ks constant.numeric.decimal.ks
+                        )
+                        ^
+                        source.ks punctuation.definition.parameters.end.bracket.round.ks
+                          
+                         ^
+                         source.ks
+                          {
+                          ^
+                          source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>    console.log(item)
+     
+ ^^^^
+ source.ks
+     console
+     ^^^^^^^
+     source.ks variable.other.object.ks
+            .
+            ^
+            source.ks punctuation.accessor.object.ks
+             log
+             ^^^
+             source.ks entity.name.function.ks
+                (
+                ^
+                source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                 item
+                 ^^^^
+                 source.ks variable.other.ks
+                     )
+                     ^
+                     source.ks punctuation.definition.arguments.end.bracket.round.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.block.end.bracket.curly.ks
+>
+>func qux(item: int = 1) {
+ func
+ ^^^^
+ source.ks storage.type.function.ks
+      
+     ^
+     source.ks
+      qux
+      ^^^
+      source.ks entity.name.function.ks
+         (
+         ^
+         source.ks punctuation.definition.parameters.begin.bracket.round.ks
+          item
+          ^^^^
+          source.ks variable.parameter.ks
+              :
+              ^
+              source.ks meta.type.annotation.ks storage.modifier.type.ks
+                
+               ^
+               source.ks meta.type.annotation.ks
+                int
+                ^^^
+                source.ks meta.type.annotation.ks entity.name.type.ks
+                    
+                   ^
+                   source.ks
+                    =
+                    ^
+                    source.ks keyword.operator.assignment.ks
+                      
+                     ^
+                     source.ks
+                      1
+                      ^
+                      source.ks constant.numeric.decimal.ks
+                       )
+                       ^
+                       source.ks punctuation.definition.parameters.end.bracket.round.ks
+                         
+                        ^
+                        source.ks
+                         {
+                         ^
+                         source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>    console.log(item)
+     
+ ^^^^
+ source.ks
+     console
+     ^^^^^^^
+     source.ks variable.other.object.ks
+            .
+            ^
+            source.ks punctuation.accessor.object.ks
+             log
+             ^^^
+             source.ks entity.name.function.ks
+                (
+                ^
+                source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                 item
+                 ^^^^
+                 source.ks variable.other.ks
+                     )
+                     ^
+                     source.ks punctuation.definition.arguments.end.bracket.round.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.block.end.bracket.curly.ks
+>
+>func quux(item: int? = 1) {
+ func
+ ^^^^
+ source.ks storage.type.function.ks
+      
+     ^
+     source.ks
+      quux
+      ^^^^
+      source.ks entity.name.function.ks
+          (
+          ^
+          source.ks punctuation.definition.parameters.begin.bracket.round.ks
+           item
+           ^^^^
+           source.ks variable.parameter.ks
+               :
+               ^
+               source.ks meta.type.annotation.ks storage.modifier.type.ks
+                 
+                ^
+                source.ks meta.type.annotation.ks
+                 int
+                 ^^^
+                 source.ks meta.type.annotation.ks entity.name.type.ks
+                    ?
+                    ^
+                    source.ks meta.type.annotation.ks storage.modifier.nullable.ks
+                      
+                     ^
+                     source.ks
+                      =
+                      ^
+                      source.ks keyword.operator.assignment.ks
+                        
+                       ^
+                       source.ks
+                        1
+                        ^
+                        source.ks constant.numeric.decimal.ks
+                         )
+                         ^
+                         source.ks punctuation.definition.parameters.end.bracket.round.ks
+                           
+                          ^
+                          source.ks
+                           {
+                           ^
+                           source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>    console.log(item)
+     
+ ^^^^
+ source.ks
+     console
+     ^^^^^^^
+     source.ks variable.other.object.ks
+            .
+            ^
+            source.ks punctuation.accessor.object.ks
+             log
+             ^^^
+             source.ks entity.name.function.ks
+                (
+                ^
+                source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                 item
+                 ^^^^
+                 source.ks variable.other.ks
+                     )
+                     ^
+                     source.ks punctuation.definition.arguments.end.bracket.round.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.block.end.bracket.curly.ks
+>
+>func corge(item? = 1) {
+ func
+ ^^^^
+ source.ks storage.type.function.ks
+      
+     ^
+     source.ks
+      corge
+      ^^^^^
+      source.ks entity.name.function.ks
+           (
+           ^
+           source.ks punctuation.definition.parameters.begin.bracket.round.ks
+            item
+            ^^^^
+            source.ks variable.parameter.ks
+                ?
+                ^
+                source.ks storage.modifier.nullable.ks
+                  
+                 ^
+                 source.ks
+                  =
+                  ^
+                  source.ks keyword.operator.assignment.ks
+                    
+                   ^
+                   source.ks
+                    1
+                    ^
+                    source.ks constant.numeric.decimal.ks
+                     )
+                     ^
+                     source.ks punctuation.definition.parameters.end.bracket.round.ks
+                       
+                      ^
+                      source.ks
+                       {
+                       ^
+                       source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>    console.log(item)
+     
+ ^^^^
+ source.ks
+     console
+     ^^^^^^^
+     source.ks variable.other.object.ks
+            .
+            ^
+            source.ks punctuation.accessor.object.ks
+             log
+             ^^^
+             source.ks entity.name.function.ks
+                (
+                ^
+                source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                 item
+                 ^^^^
+                 source.ks variable.other.ks
+                     )
+                     ^
+                     source.ks punctuation.definition.arguments.end.bracket.round.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.block.end.bracket.curly.ks

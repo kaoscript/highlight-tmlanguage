@@ -24,10 +24,10 @@ grammar: kaoscript.tmLanguage
          source.ks punctuation.definition.parameters.begin.bracket.round.ks
           ...
           ^^^
-          source.ks keyword.operator.spread.ks
+          source.ks keyword.operator.rest.ks
              args
              ^^^^
-             source.ks variable.parameter.rest.function.ks
+             source.ks variable.parameter.ks
                  )
                  ^
                  source.ks punctuation.definition.parameters.end.bracket.round.ks

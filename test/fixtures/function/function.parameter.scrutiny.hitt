@@ -1,0 +1,297 @@
+original file
+-----------------------------------
+extern console
+func foo(item?) {
+    console.log(item)
+}
+func bar(item = null) {
+    console.log(item)
+}
+func baz(item: String?) {
+    console.log(item)
+}
+func qux(item: String? = null) {
+    console.log(item)
+}
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>extern console
+ extern
+ ^^^^^^
+ source.ks variable.other.ks
+        
+       ^
+       source.ks
+        console
+        ^^^^^^^
+        source.ks variable.other.ks
+>
+>func foo(item?) {
+ func
+ ^^^^
+ source.ks storage.type.function.ks
+      
+     ^
+     source.ks
+      foo
+      ^^^
+      source.ks entity.name.function.ks
+         (
+         ^
+         source.ks punctuation.definition.parameters.begin.bracket.round.ks
+          item
+          ^^^^
+          source.ks variable.parameter.ks
+              ?
+              ^
+              source.ks storage.modifier.nullable.ks
+               )
+               ^
+               source.ks punctuation.definition.parameters.end.bracket.round.ks
+                 
+                ^
+                source.ks
+                 {
+                 ^
+                 source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>    console.log(item)
+     
+ ^^^^
+ source.ks
+     console
+     ^^^^^^^
+     source.ks variable.other.object.ks
+            .
+            ^
+            source.ks punctuation.accessor.object.ks
+             log
+             ^^^
+             source.ks entity.name.function.ks
+                (
+                ^
+                source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                 item
+                 ^^^^
+                 source.ks variable.other.ks
+                     )
+                     ^
+                     source.ks punctuation.definition.arguments.end.bracket.round.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.block.end.bracket.curly.ks
+>
+>func bar(item = null) {
+ func
+ ^^^^
+ source.ks storage.type.function.ks
+      
+     ^
+     source.ks
+      bar
+      ^^^
+      source.ks entity.name.function.ks
+         (
+         ^
+         source.ks punctuation.definition.parameters.begin.bracket.round.ks
+          item
+          ^^^^
+          source.ks variable.parameter.ks
+               
+              ^
+              source.ks
+               =
+               ^
+               source.ks keyword.operator.assignment.ks
+                 
+                ^
+                source.ks
+                 null
+                 ^^^^
+                 source.ks constant.language.null.ks
+                     )
+                     ^
+                     source.ks punctuation.definition.parameters.end.bracket.round.ks
+                       
+                      ^
+                      source.ks
+                       {
+                       ^
+                       source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>    console.log(item)
+     
+ ^^^^
+ source.ks
+     console
+     ^^^^^^^
+     source.ks variable.other.object.ks
+            .
+            ^
+            source.ks punctuation.accessor.object.ks
+             log
+             ^^^
+             source.ks entity.name.function.ks
+                (
+                ^
+                source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                 item
+                 ^^^^
+                 source.ks variable.other.ks
+                     )
+                     ^
+                     source.ks punctuation.definition.arguments.end.bracket.round.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.block.end.bracket.curly.ks
+>
+>func baz(item: String?) {
+ func
+ ^^^^
+ source.ks storage.type.function.ks
+      
+     ^
+     source.ks
+      baz
+      ^^^
+      source.ks entity.name.function.ks
+         (
+         ^
+         source.ks punctuation.definition.parameters.begin.bracket.round.ks
+          item
+          ^^^^
+          source.ks variable.parameter.ks
+              :
+              ^
+              source.ks meta.type.annotation.ks storage.modifier.type.ks
+                
+               ^
+               source.ks meta.type.annotation.ks
+                String
+                ^^^^^^
+                source.ks meta.type.annotation.ks support.type.primitive.ks
+                      ?
+                      ^
+                      source.ks meta.type.annotation.ks storage.modifier.nullable.ks
+                       )
+                       ^
+                       source.ks punctuation.definition.parameters.end.bracket.round.ks
+                         
+                        ^
+                        source.ks
+                         {
+                         ^
+                         source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>    console.log(item)
+     
+ ^^^^
+ source.ks
+     console
+     ^^^^^^^
+     source.ks variable.other.object.ks
+            .
+            ^
+            source.ks punctuation.accessor.object.ks
+             log
+             ^^^
+             source.ks entity.name.function.ks
+                (
+                ^
+                source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                 item
+                 ^^^^
+                 source.ks variable.other.ks
+                     )
+                     ^
+                     source.ks punctuation.definition.arguments.end.bracket.round.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.block.end.bracket.curly.ks
+>
+>func qux(item: String? = null) {
+ func
+ ^^^^
+ source.ks storage.type.function.ks
+      
+     ^
+     source.ks
+      qux
+      ^^^
+      source.ks entity.name.function.ks
+         (
+         ^
+         source.ks punctuation.definition.parameters.begin.bracket.round.ks
+          item
+          ^^^^
+          source.ks variable.parameter.ks
+              :
+              ^
+              source.ks meta.type.annotation.ks storage.modifier.type.ks
+                
+               ^
+               source.ks meta.type.annotation.ks
+                String
+                ^^^^^^
+                source.ks meta.type.annotation.ks support.type.primitive.ks
+                      ?
+                      ^
+                      source.ks meta.type.annotation.ks storage.modifier.nullable.ks
+                        
+                       ^
+                       source.ks
+                        =
+                        ^
+                        source.ks keyword.operator.assignment.ks
+                          
+                         ^
+                         source.ks
+                          null
+                          ^^^^
+                          source.ks constant.language.null.ks
+                              )
+                              ^
+                              source.ks punctuation.definition.parameters.end.bracket.round.ks
+                                
+                               ^
+                               source.ks
+                                {
+                                ^
+                                source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>    console.log(item)
+     
+ ^^^^
+ source.ks
+     console
+     ^^^^^^^
+     source.ks variable.other.object.ks
+            .
+            ^
+            source.ks punctuation.accessor.object.ks
+             log
+             ^^^
+             source.ks entity.name.function.ks
+                (
+                ^
+                source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                 item
+                 ^^^^
+                 source.ks variable.other.ks
+                     )
+                     ^
+                     source.ks punctuation.definition.arguments.end.bracket.round.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.block.end.bracket.curly.ks

@@ -300,7 +300,7 @@
       <key>const-statement</key>
       <dict>
         <key>begin</key>
-        <string>(^\s*const)\s+</string>
+        <string>^\s*(const)\s+</string>
         <key>beginCaptures</key>
         <dict>
           <key>1</key>
@@ -418,7 +418,7 @@
               <key>1</key>
               <dict>
                 <key>name</key>
-                <string>keyword.operator.type.annotation.ks</string>
+                <string>storage.modifier.type.ks</string>
               </dict>
             </dict>
             <key>end</key>
@@ -560,6 +560,10 @@
           </dict>
           <dict>
             <key>include</key>
+            <string>#function-expression</string>
+          </dict>
+          <dict>
+            <key>include</key>
             <string>#function-call</string>
           </dict>
           <dict>
@@ -644,12 +648,300 @@
           </dict>
         </array>
       </dict>
+      <key>function-expression</key>
+      <dict>
+        <key>patterns</key>
+        <array>
+          <dict>
+            <key>begin</key>
+            <string>(?=(?:(?:\bfunc)\s*\((?:\s*(?:\.\.\.(?:\{\d*,?\d*\})?)?[_$[:alpha:]][_$[:alnum:]]*(?::\s*[_$[:alpha:]][_$[:alnum:]]*(?:&lt;[_$[:alpha:]][_$[:alnum:]]*&gt;)?(?:\s*\|\s*[_$[:alpha:]][_$[:alnum:]]*(?:&lt;[_$[:alpha:]][_$[:alnum:]]*&gt;)?)*|\?)?(?:\s*=\s*(?:\(.*\)|[^\)])+)?\s*|\s*,\s*)*\)(?::\s*[_$[:alpha:]][_$[:alnum:]]*(?:&lt;[_$[:alpha:]][_$[:alnum:]]*&gt;)?(?:\s*\|\s*[_$[:alpha:]][_$[:alnum:]]*(?:&lt;[_$[:alpha:]][_$[:alnum:]]*&gt;)?)*)?|\((?:\s*(?:\.\.\.(?:\{\d*,?\d*\})?)?[_$[:alpha:]][_$[:alnum:]]*(?::\s*[_$[:alpha:]][_$[:alnum:]]*(?:&lt;[_$[:alpha:]][_$[:alnum:]]*&gt;)?(?:\s*\|\s*[_$[:alpha:]][_$[:alnum:]]*(?:&lt;[_$[:alpha:]][_$[:alnum:]]*&gt;)?)*|\?)?(?:\s*=\s*(?:\(.*\)|[^\)])+)?\s*|\s*,\s*)*\)(?::\s*[_$[:alpha:]][_$[:alnum:]]*(?:&lt;[_$[:alpha:]][_$[:alnum:]]*&gt;)?(?:\s*\|\s*[_$[:alpha:]][_$[:alnum:]]*(?:&lt;[_$[:alpha:]][_$[:alnum:]]*&gt;)?)*)?\s*=&gt;\s*|[_$[:alpha:]][_$[:alnum:]]*\s*=&gt;\s*)\s*\{)</string>
+            <key>end</key>
+            <string>(?&lt;=\}|$)</string>
+            <key>patterns</key>
+            <array>
+              <dict>
+                <key>name</key>
+                <string>storage.type.function.ks</string>
+                <key>match</key>
+                <string>\bfunc\b</string>
+              </dict>
+              <dict>
+                <key>include</key>
+                <string>#function-parameters</string>
+              </dict>
+              <dict>
+                <key>match</key>
+                <string>([_$[:alpha:]][_$[:alnum:]]*)(?=\s*=&gt;)</string>
+                <key>captures</key>
+                <dict>
+                  <key>1</key>
+                  <dict>
+                    <key>name</key>
+                    <string>variable.parameter.ks</string>
+                  </dict>
+                </dict>
+              </dict>
+              <dict>
+                <key>include</key>
+                <string>#function-return-type</string>
+              </dict>
+              <dict>
+                <key>include</key>
+                <string>#function-throwables</string>
+              </dict>
+              <dict>
+                <key>include</key>
+                <string>#block</string>
+              </dict>
+              <dict>
+                <key>begin</key>
+                <string>(=&gt;)(?=\s*{)</string>
+                <key>beginCaptures</key>
+                <dict>
+                  <key>1</key>
+                  <dict>
+                    <key>name</key>
+                    <string>storage.type.function.arrow.ks</string>
+                  </dict>
+                </dict>
+                <key>end</key>
+                <string>(?&lt;=\}|$)</string>
+                <key>patterns</key>
+                <array>
+                  <dict>
+                    <key>include</key>
+                    <string>#block</string>
+                  </dict>
+                </array>
+              </dict>
+            </array>
+          </dict>
+          <dict>
+            <key>begin</key>
+            <string>(?=(?:(?:\bfunc\s*)?\((?:\s*(?:\.\.\.(?:\{\d*,?\d*\})?)?[_$[:alpha:]][_$[:alnum:]]*(?::\s*[_$[:alpha:]][_$[:alnum:]]*(?:&lt;[_$[:alpha:]][_$[:alnum:]]*&gt;)?(?:\s*\|\s*[_$[:alpha:]][_$[:alnum:]]*(?:&lt;[_$[:alpha:]][_$[:alnum:]]*&gt;)?)*|\?)?(?:\s*=\s*(?:\(.*\)|[^\)])+)?\s*|\s*,\s*)*\)(?::\s*[_$[:alpha:]][_$[:alnum:]]*(?:&lt;[_$[:alpha:]][_$[:alnum:]]*&gt;)?(?:\s*\|\s*[_$[:alpha:]][_$[:alnum:]]*(?:&lt;[_$[:alpha:]][_$[:alnum:]]*&gt;)?)*)?|[_$[:alpha:]][_$[:alnum:]]*)\s*=&gt;\s*(?!=\{))</string>
+            <key>end</key>
+            <string>(?=$|[,\)\]])</string>
+            <key>patterns</key>
+            <array>
+              <dict>
+                <key>name</key>
+                <string>storage.type.function.ks</string>
+                <key>match</key>
+                <string>\bfunc\b</string>
+              </dict>
+              <dict>
+                <key>include</key>
+                <string>#function-parameters</string>
+              </dict>
+              <dict>
+                <key>match</key>
+                <string>([_$[:alpha:]][_$[:alnum:]]*)(?=\s*=&gt;)</string>
+                <key>captures</key>
+                <dict>
+                  <key>1</key>
+                  <dict>
+                    <key>name</key>
+                    <string>variable.parameter.ks</string>
+                  </dict>
+                </dict>
+              </dict>
+              <dict>
+                <key>include</key>
+                <string>#function-return-type</string>
+              </dict>
+              <dict>
+                <key>include</key>
+                <string>#function-throwables</string>
+              </dict>
+              <dict>
+                <key>begin</key>
+                <string>=&gt;</string>
+                <key>beginCaptures</key>
+                <dict>
+                  <key>0</key>
+                  <dict>
+                    <key>name</key>
+                    <string>storage.type.function.arrow.ks</string>
+                  </dict>
+                </dict>
+                <key>end</key>
+                <string>(?=$|[,\)\]])</string>
+                <key>patterns</key>
+                <array>
+                  <dict>
+                    <key>include</key>
+                    <string>#expression</string>
+                  </dict>
+                </array>
+              </dict>
+            </array>
+          </dict>
+        </array>
+      </dict>
+      <key>function-parameters</key>
+      <dict>
+        <key>begin</key>
+        <string>\(</string>
+        <key>beginCaptures</key>
+        <dict>
+          <key>0</key>
+          <dict>
+            <key>name</key>
+            <string>punctuation.definition.parameters.begin.bracket.round.ks</string>
+          </dict>
+        </dict>
+        <key>end</key>
+        <string>\)</string>
+        <key>endCaptures</key>
+        <dict>
+          <key>0</key>
+          <dict>
+            <key>name</key>
+            <string>punctuation.definition.parameters.end.bracket.round.ks</string>
+          </dict>
+        </dict>
+        <key>patterns</key>
+        <array>
+          <dict>
+            <key>match</key>
+            <string>(\.\.\.)(?:(\{)(\d*)(,?)(\d*)(\}))?</string>
+            <key>captures</key>
+            <dict>
+              <key>1</key>
+              <dict>
+                <key>name</key>
+                <string>keyword.operator.rest.ks</string>
+              </dict>
+              <key>2</key>
+              <dict>
+                <key>name</key>
+                <string>punctuation.definition.rest.begin.bracket.curly</string>
+              </dict>
+              <key>3</key>
+              <dict>
+                <key>name</key>
+                <string>constant.numeric.decimal.ks</string>
+              </dict>
+              <key>4</key>
+              <dict>
+                <key>name</key>
+                <string>punctuation.separator.comma.ks</string>
+              </dict>
+              <key>5</key>
+              <dict>
+                <key>name</key>
+                <string>constant.numeric.decimal.ks</string>
+              </dict>
+              <key>6</key>
+              <dict>
+                <key>name</key>
+                <string>punctuation.definition.rest.end.bracket.curly</string>
+              </dict>
+            </dict>
+          </dict>
+          <dict>
+            <key>begin</key>
+            <string>[_$[:alpha:]][_$[:alnum:]]*</string>
+            <key>beginCaptures</key>
+            <dict>
+              <key>0</key>
+              <dict>
+                <key>name</key>
+                <string>variable.parameter.ks</string>
+              </dict>
+            </dict>
+            <key>end</key>
+            <string>(?=\,|\))</string>
+            <key>patterns</key>
+            <array>
+              <dict>
+                <key>name</key>
+                <string>storage.modifier.nullable.ks</string>
+                <key>match</key>
+                <string>\?</string>
+              </dict>
+              <dict>
+                <key>name</key>
+                <string>meta.type.annotation.ks</string>
+                <key>begin</key>
+                <string>(\:)(?!\=)</string>
+                <key>beginCaptures</key>
+                <dict>
+                  <key>1</key>
+                  <dict>
+                    <key>name</key>
+                    <string>storage.modifier.type.ks</string>
+                  </dict>
+                </dict>
+                <key>end</key>
+                <string>(?=\s*[\=\),])</string>
+                <key>patterns</key>
+                <array>
+                  <dict>
+                    <key>include</key>
+                    <string>#type</string>
+                  </dict>
+                </array>
+              </dict>
+              <dict>
+                <key>begin</key>
+                <string>(\=)</string>
+                <key>beginCaptures</key>
+                <dict>
+                  <key>1</key>
+                  <dict>
+                    <key>name</key>
+                    <string>keyword.operator.assignment.ks</string>
+                  </dict>
+                </dict>
+                <key>end</key>
+                <string>(?=,|\))</string>
+                <key>patterns</key>
+                <array>
+                  <dict>
+                    <key>include</key>
+                    <string>#expression</string>
+                  </dict>
+                </array>
+              </dict>
+            </array>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#comma</string>
+          </dict>
+        </array>
+      </dict>
+      <key>function-return-type</key>
+      <dict>
+        <key>name</key>
+        <string>meta.function.return-type.ks</string>
+        <key>begin</key>
+        <string>(\:)(?!\=)</string>
+        <key>beginCaptures</key>
+        <dict>
+          <key>1</key>
+          <dict>
+            <key>name</key>
+            <string>storage.modifier.type.ks</string>
+          </dict>
+        </dict>
+        <key>end</key>
+        <string>(?=\s*[\{~=])</string>
+        <key>patterns</key>
+        <array>
+          <dict>
+            <key>include</key>
+            <string>#type</string>
+          </dict>
+        </array>
+      </dict>
       <key>function-statement</key>
       <dict>
         <key>begin</key>
-        <string>(?=\bfunc\s+)</string>
+        <string>^\s*(?=\bfunc\s+)</string>
         <key>end</key>
-        <string>(?&lt;=\})</string>
+        <string>(?&lt;=\}|$)</string>
         <key>patterns</key>
         <array>
           <dict>
@@ -669,98 +961,75 @@
               </dict>
             </dict>
             <key>end</key>
-            <string>(?=\{)</string>
+            <string>(?=\{|=&gt;)</string>
             <key>patterns</key>
             <array>
               <dict>
-                <key>begin</key>
-                <string>\(</string>
-                <key>beginCaptures</key>
-                <dict>
-                  <key>0</key>
-                  <dict>
-                    <key>name</key>
-                    <string>punctuation.definition.parameters.begin.bracket.round.ks</string>
-                  </dict>
-                </dict>
-                <key>end</key>
-                <string>\)</string>
-                <key>endCaptures</key>
-                <dict>
-                  <key>0</key>
-                  <dict>
-                    <key>name</key>
-                    <string>punctuation.definition.parameters.end.bracket.round.ks</string>
-                  </dict>
-                </dict>
-                <key>patterns</key>
-                <array>
-                  <dict>
-                    <key>match</key>
-                    <string>(\.\.\.)([_$[:alpha:]][_$[:alnum:]]*)</string>
-                    <key>captures</key>
-                    <dict>
-                      <key>1</key>
-                      <dict>
-                        <key>name</key>
-                        <string>keyword.operator.spread.ks</string>
-                      </dict>
-                      <key>2</key>
-                      <dict>
-                        <key>name</key>
-                        <string>variable.parameter.rest.function.ks</string>
-                      </dict>
-                    </dict>
-                  </dict>
-                  <dict>
-                    <key>begin</key>
-                    <string>[_$[:alpha:]][_$[:alnum:]]*</string>
-                    <key>beginCaptures</key>
-                    <dict>
-                      <key>0</key>
-                      <dict>
-                        <key>name</key>
-                        <string>variable.parameter.function.ks</string>
-                      </dict>
-                    </dict>
-                    <key>end</key>
-                    <string>(?=\,|\))</string>
-                    <key>patterns</key>
-                    <array>
-                      <dict>
-                        <key>begin</key>
-                        <string>(\=)</string>
-                        <key>beginCaptures</key>
-                        <dict>
-                          <key>1</key>
-                          <dict>
-                            <key>name</key>
-                            <string>keyword.operator.assignment.ks</string>
-                          </dict>
-                        </dict>
-                        <key>end</key>
-                        <string>(?=,|\))</string>
-                        <key>patterns</key>
-                        <array>
-                          <dict>
-                            <key>include</key>
-                            <string>#expression</string>
-                          </dict>
-                        </array>
-                      </dict>
-                    </array>
-                  </dict>
-                  <dict>
-                    <key>include</key>
-                    <string>#comma</string>
-                  </dict>
-                </array>
+                <key>include</key>
+                <string>#function-parameters</string>
+              </dict>
+              <dict>
+                <key>include</key>
+                <string>#function-return-type</string>
+              </dict>
+              <dict>
+                <key>include</key>
+                <string>#function-throwables</string>
               </dict>
             </array>
           </dict>
           <dict>
             <key>include</key>
             <string>#block</string>
+          </dict>
+          <dict>
+            <key>begin</key>
+            <string>=&gt;</string>
+            <key>beginCaptures</key>
+            <dict>
+              <key>0</key>
+              <dict>
+                <key>name</key>
+                <string>storage.type.function.arrow.ks</string>
+              </dict>
+            </dict>
+            <key>end</key>
+            <string>$</string>
+            <key>patterns</key>
+            <array>
+              <dict>
+                <key>include</key>
+                <string>#expression</string>
+              </dict>
+            </array>
+          </dict>
+        </array>
+      </dict>
+      <key>function-throwables</key>
+      <dict>
+        <key>name</key>
+        <string>meta.throwables.ks</string>
+        <key>begin</key>
+        <string>(\~)</string>
+        <key>beginCaptures</key>
+        <dict>
+          <key>1</key>
+          <dict>
+            <key>name</key>
+            <string>storage.modifier.throwables.ks</string>
+          </dict>
+        </dict>
+        <key>end</key>
+        <string>(?=\s*[\{=])</string>
+        <key>patterns</key>
+        <array>
+          <dict>
+            <key>include</key>
+            <string>#type</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#comma</string>
           </dict>
         </array>
       </dict>
@@ -1044,7 +1313,7 @@
       <key>let-statement</key>
       <dict>
         <key>begin</key>
-        <string>(^\s*let)\s+</string>
+        <string>^\s*(let)\s+</string>
         <key>beginCaptures</key>
         <dict>
           <key>1</key>
@@ -1162,7 +1431,7 @@
               <key>1</key>
               <dict>
                 <key>name</key>
-                <string>keyword.operator.type.annotation.ks</string>
+                <string>storage.modifier.type.ks</string>
               </dict>
             </dict>
             <key>end</key>
@@ -1322,7 +1591,7 @@
             <key>name</key>
             <string>keyword.operator.assignment.compound.ks</string>
             <key>match</key>
-            <string>\+=|-=|\*=|(?&lt;!\()/=|%=|\?=</string>
+            <string>\+=|-=|\*=|(?&lt;!\()/=|%=|\?\?=|\?=</string>
           </dict>
           <dict>
             <key>name</key>
@@ -1689,6 +1958,28 @@
           </dict>
         </array>
       </dict>
+      <key>return-statement</key>
+      <dict>
+        <key>begin</key>
+        <string>^\s*(return)\s+</string>
+        <key>beginCaptures</key>
+        <dict>
+          <key>1</key>
+          <dict>
+            <key>name</key>
+            <string>keyword.control.flow.return.ks</string>
+          </dict>
+        </dict>
+        <key>end</key>
+        <string>$</string>
+        <key>patterns</key>
+        <array>
+          <dict>
+            <key>include</key>
+            <string>#expression</string>
+          </dict>
+        </array>
+      </dict>
       <key>statements</key>
       <dict>
         <key>patterns</key>
@@ -1720,6 +2011,10 @@
           <dict>
             <key>include</key>
             <string>#let-statement</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#return-statement</string>
           </dict>
           <dict>
             <key>include</key>
@@ -1929,13 +2224,19 @@
             <key>name</key>
             <string>support.type.primitive.ks</string>
             <key>match</key>
-            <string>\b(Array|array|Boolean|bool|class|enum|Function|func|Number|number|Object|object|RegExp|String|string)\b</string>
+            <string>\b(Any|any|Array|array|Boolean|bool|class|enum|Function|func|Number|number|Object|object|RegExp|String|string|Void|void)\b</string>
           </dict>
           <dict>
             <key>name</key>
             <string>entity.name.type.ks</string>
             <key>match</key>
             <string>[_$[:alpha:]][_$[:alnum:]]*</string>
+          </dict>
+          <dict>
+            <key>name</key>
+            <string>storage.modifier.nullable.ks</string>
+            <key>match</key>
+            <string>\?</string>
           </dict>
           <dict>
             <key>begin</key>
@@ -1948,6 +2249,8 @@
                 <string>keyword.operator.type.ks</string>
               </dict>
             </dict>
+            <key>end</key>
+            <string>(?=[,:=\{\)])</string>
             <key>patterns</key>
             <array>
               <dict>

@@ -1,0 +1,456 @@
+original file
+-----------------------------------
+let a = [
+    "Hydrogen",
+    "Helium",
+    "Lithium",
+    "Beryl­lium"
+]
+let a2 = a.map(func(s) {
+    return s.length
+})
+let a3 = a.map((s) => {
+    return s.length
+})
+let a3 = a.map(func(s) => s.length)
+let a4 = a.map((s) => s.length)
+let a5 = a.map(s => s.length)
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>let a = [
+ let
+ ^^^
+ source.ks storage.type.readwrite.ks
+     
+    ^
+    source.ks
+     a
+     ^
+     source.ks meta.definition.variable.ks variable.other.readwrite.ks
+       
+      ^
+      source.ks
+       =
+       ^
+       source.ks keyword.operator.assignment.ks
+         
+        ^
+        source.ks
+         [
+         ^
+         source.ks punctuation.definition.array.begin.bracket.square.ks
+>
+>    "Hydrogen",
+     
+ ^^^^
+ source.ks
+     "
+     ^
+     source.ks string.quoted.double.ks punctuation.definition.string.begin.ks
+      Hydrogen
+      ^^^^^^^^
+      source.ks string.quoted.double.ks
+              "
+              ^
+              source.ks string.quoted.double.ks punctuation.definition.string.end.ks
+               ,
+               ^
+               source.ks punctuation.separator.comma.ks
+>
+>    "Helium",
+     
+ ^^^^
+ source.ks
+     "
+     ^
+     source.ks string.quoted.double.ks punctuation.definition.string.begin.ks
+      Helium
+      ^^^^^^
+      source.ks string.quoted.double.ks
+            "
+            ^
+            source.ks string.quoted.double.ks punctuation.definition.string.end.ks
+             ,
+             ^
+             source.ks punctuation.separator.comma.ks
+>
+>    "Lithium",
+     
+ ^^^^
+ source.ks
+     "
+     ^
+     source.ks string.quoted.double.ks punctuation.definition.string.begin.ks
+      Lithium
+      ^^^^^^^
+      source.ks string.quoted.double.ks
+             "
+             ^
+             source.ks string.quoted.double.ks punctuation.definition.string.end.ks
+              ,
+              ^
+              source.ks punctuation.separator.comma.ks
+>
+>    "Beryl­lium"
+     
+ ^^^^
+ source.ks
+     "
+     ^
+     source.ks string.quoted.double.ks punctuation.definition.string.begin.ks
+      Beryl­lium
+      ^^^^^^^^^^
+      source.ks string.quoted.double.ks
+                "
+                ^
+                source.ks string.quoted.double.ks punctuation.definition.string.end.ks
+>
+>]
+ ]
+ ^
+ source.ks punctuation.definition.array.end.bracket.square.ks
+>
+>let a2 = a.map(func(s) {
+ let
+ ^^^
+ source.ks storage.type.readwrite.ks
+     
+    ^
+    source.ks
+     a2
+     ^^
+     source.ks meta.definition.variable.ks variable.other.readwrite.ks
+        
+       ^
+       source.ks
+        =
+        ^
+        source.ks keyword.operator.assignment.ks
+          
+         ^
+         source.ks
+          a
+          ^
+          source.ks variable.other.object.ks
+           .
+           ^
+           source.ks punctuation.accessor.object.ks
+            map
+            ^^^
+            source.ks entity.name.function.ks
+               (
+               ^
+               source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                func
+                ^^^^
+                source.ks storage.type.function.ks
+                    (
+                    ^
+                    source.ks punctuation.definition.parameters.begin.bracket.round.ks
+                     s
+                     ^
+                     source.ks variable.parameter.ks
+                      )
+                      ^
+                      source.ks punctuation.definition.parameters.end.bracket.round.ks
+                        
+                       ^
+                       source.ks
+                        {
+                        ^
+                        source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>    return s.length
+     
+ ^^^^
+ source.ks
+     return
+     ^^^^^^
+     source.ks keyword.control.flow.return.ks
+            
+           ^
+           source.ks
+            s
+            ^
+            source.ks variable.other.object.ks
+             .
+             ^
+             source.ks punctuation.accessor.object.ks
+              length
+              ^^^^^^
+              source.ks variable.other.property.ks
+>
+>})
+ }
+ ^
+ source.ks punctuation.definition.block.end.bracket.curly.ks
+  )
+  ^
+  source.ks punctuation.definition.arguments.end.bracket.round.ks
+>
+>let a3 = a.map((s) => {
+ let
+ ^^^
+ source.ks storage.type.readwrite.ks
+     
+    ^
+    source.ks
+     a3
+     ^^
+     source.ks meta.definition.variable.ks variable.other.readwrite.ks
+        
+       ^
+       source.ks
+        =
+        ^
+        source.ks keyword.operator.assignment.ks
+          
+         ^
+         source.ks
+          a
+          ^
+          source.ks variable.other.object.ks
+           .
+           ^
+           source.ks punctuation.accessor.object.ks
+            map
+            ^^^
+            source.ks entity.name.function.ks
+               (
+               ^
+               source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                (
+                ^
+                source.ks punctuation.definition.parameters.begin.bracket.round.ks
+                 s
+                 ^
+                 source.ks variable.parameter.ks
+                  )
+                  ^
+                  source.ks punctuation.definition.parameters.end.bracket.round.ks
+                    
+                   ^
+                   source.ks
+                    =>
+                    ^^
+                    source.ks storage.type.function.arrow.ks
+                       
+                      ^
+                      source.ks
+                       {
+                       ^
+                       source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>    return s.length
+     
+ ^^^^
+ source.ks
+     return
+     ^^^^^^
+     source.ks keyword.control.flow.return.ks
+            
+           ^
+           source.ks
+            s
+            ^
+            source.ks variable.other.object.ks
+             .
+             ^
+             source.ks punctuation.accessor.object.ks
+              length
+              ^^^^^^
+              source.ks variable.other.property.ks
+>
+>})
+ }
+ ^
+ source.ks punctuation.definition.block.end.bracket.curly.ks
+  )
+  ^
+  source.ks punctuation.definition.arguments.end.bracket.round.ks
+>
+>let a3 = a.map(func(s) => s.length)
+ let
+ ^^^
+ source.ks storage.type.readwrite.ks
+     
+    ^
+    source.ks
+     a3
+     ^^
+     source.ks meta.definition.variable.ks variable.other.readwrite.ks
+        
+       ^
+       source.ks
+        =
+        ^
+        source.ks keyword.operator.assignment.ks
+          
+         ^
+         source.ks
+          a
+          ^
+          source.ks variable.other.object.ks
+           .
+           ^
+           source.ks punctuation.accessor.object.ks
+            map
+            ^^^
+            source.ks entity.name.function.ks
+               (
+               ^
+               source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                func
+                ^^^^
+                source.ks storage.type.function.ks
+                    (
+                    ^
+                    source.ks punctuation.definition.parameters.begin.bracket.round.ks
+                     s
+                     ^
+                     source.ks variable.parameter.ks
+                      )
+                      ^
+                      source.ks punctuation.definition.parameters.end.bracket.round.ks
+                        
+                       ^
+                       source.ks
+                        =>
+                        ^^
+                        source.ks storage.type.function.arrow.ks
+                           
+                          ^
+                          source.ks
+                           s
+                           ^
+                           source.ks variable.other.object.ks
+                            .
+                            ^
+                            source.ks punctuation.accessor.object.ks
+                             length
+                             ^^^^^^
+                             source.ks variable.other.property.ks
+                                   )
+                                   ^
+                                   source.ks punctuation.definition.arguments.end.bracket.round.ks
+>
+>let a4 = a.map((s) => s.length)
+ let
+ ^^^
+ source.ks storage.type.readwrite.ks
+     
+    ^
+    source.ks
+     a4
+     ^^
+     source.ks meta.definition.variable.ks variable.other.readwrite.ks
+        
+       ^
+       source.ks
+        =
+        ^
+        source.ks keyword.operator.assignment.ks
+          
+         ^
+         source.ks
+          a
+          ^
+          source.ks variable.other.object.ks
+           .
+           ^
+           source.ks punctuation.accessor.object.ks
+            map
+            ^^^
+            source.ks entity.name.function.ks
+               (
+               ^
+               source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                (
+                ^
+                source.ks punctuation.definition.parameters.begin.bracket.round.ks
+                 s
+                 ^
+                 source.ks variable.parameter.ks
+                  )
+                  ^
+                  source.ks punctuation.definition.parameters.end.bracket.round.ks
+                    
+                   ^
+                   source.ks
+                    =>
+                    ^^
+                    source.ks storage.type.function.arrow.ks
+                       
+                      ^
+                      source.ks
+                       s
+                       ^
+                       source.ks variable.other.object.ks
+                        .
+                        ^
+                        source.ks punctuation.accessor.object.ks
+                         length
+                         ^^^^^^
+                         source.ks variable.other.property.ks
+                               )
+                               ^
+                               source.ks punctuation.definition.arguments.end.bracket.round.ks
+>
+>let a5 = a.map(s => s.length)
+ let
+ ^^^
+ source.ks storage.type.readwrite.ks
+     
+    ^
+    source.ks
+     a5
+     ^^
+     source.ks meta.definition.variable.ks variable.other.readwrite.ks
+        
+       ^
+       source.ks
+        =
+        ^
+        source.ks keyword.operator.assignment.ks
+          
+         ^
+         source.ks
+          a
+          ^
+          source.ks variable.other.object.ks
+           .
+           ^
+           source.ks punctuation.accessor.object.ks
+            map
+            ^^^
+            source.ks entity.name.function.ks
+               (
+               ^
+               source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                s
+                ^
+                source.ks variable.parameter.ks
+                  
+                 ^
+                 source.ks
+                  =>
+                  ^^
+                  source.ks storage.type.function.arrow.ks
+                     
+                    ^
+                    source.ks
+                     s
+                     ^
+                     source.ks variable.other.object.ks
+                      .
+                      ^
+                      source.ks punctuation.accessor.object.ks
+                       length
+                       ^^^^^^
+                       source.ks variable.other.property.ks
+                             )
+                             ^
+                             source.ks punctuation.definition.arguments.end.bracket.round.ks

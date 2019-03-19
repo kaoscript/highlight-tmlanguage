@@ -1,0 +1,42 @@
+original file
+-----------------------------------
+func hello() => 'Hello :)'
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>func hello() => 'Hello :)'
+ func
+ ^^^^
+ source.ks storage.type.function.ks
+      
+     ^
+     source.ks
+      hello
+      ^^^^^
+      source.ks entity.name.function.ks
+           (
+           ^
+           source.ks punctuation.definition.parameters.begin.bracket.round.ks
+            )
+            ^
+            source.ks punctuation.definition.parameters.end.bracket.round.ks
+              
+             ^
+             source.ks
+              =>
+              ^^
+              source.ks storage.type.function.arrow.ks
+                 
+                ^
+                source.ks
+                 '
+                 ^
+                 source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
+                  Hello :)
+                  ^^^^^^^^
+                  source.ks string.quoted.single.ks
+                          '
+                          ^
+                          source.ks string.quoted.single.ks punctuation.definition.string.end.ks

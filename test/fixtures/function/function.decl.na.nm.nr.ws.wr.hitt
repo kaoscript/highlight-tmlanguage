@@ -1,0 +1,90 @@
+original file
+-----------------------------------
+func foo() {
+    let bar = 'hello'
+    
+    return bar
+}
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>func foo() {
+ func
+ ^^^^
+ source.ks storage.type.function.ks
+      
+     ^
+     source.ks
+      foo
+      ^^^
+      source.ks entity.name.function.ks
+         (
+         ^
+         source.ks punctuation.definition.parameters.begin.bracket.round.ks
+          )
+          ^
+          source.ks punctuation.definition.parameters.end.bracket.round.ks
+            
+           ^
+           source.ks
+            {
+            ^
+            source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>    let bar = 'hello'
+     
+ ^^^^
+ source.ks
+     let
+     ^^^
+     source.ks storage.type.readwrite.ks
+         
+        ^
+        source.ks
+         bar
+         ^^^
+         source.ks meta.definition.variable.ks variable.other.readwrite.ks
+             
+            ^
+            source.ks
+             =
+             ^
+             source.ks keyword.operator.assignment.ks
+               
+              ^
+              source.ks
+               '
+               ^
+               source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
+                hello
+                ^^^^^
+                source.ks string.quoted.single.ks
+                     '
+                     ^
+                     source.ks string.quoted.single.ks punctuation.definition.string.end.ks
+>
+>    
+     
+ ^^^^^
+ source.ks
+>
+>    return bar
+     
+ ^^^^
+ source.ks
+     return
+     ^^^^^^
+     source.ks keyword.control.flow.return.ks
+            
+           ^
+           source.ks
+            bar
+            ^^^
+            source.ks variable.other.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.block.end.bracket.curly.ks

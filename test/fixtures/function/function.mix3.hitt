@@ -1,0 +1,300 @@
+original file
+-----------------------------------
+func f1(foo) {
+    return 42
+}
+let f2 = func(foo) {
+    return 42
+}
+let f3 = (foo) => {
+    return 42
+}
+let f4 = (foo) => 42
+let f5 = func(foo) => 42
+let f6 = foo => 42
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>func f1(foo) {
+ func
+ ^^^^
+ source.ks storage.type.function.ks
+      
+     ^
+     source.ks
+      f1
+      ^^
+      source.ks entity.name.function.ks
+        (
+        ^
+        source.ks punctuation.definition.parameters.begin.bracket.round.ks
+         foo
+         ^^^
+         source.ks variable.parameter.ks
+            )
+            ^
+            source.ks punctuation.definition.parameters.end.bracket.round.ks
+              
+             ^
+             source.ks
+              {
+              ^
+              source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>    return 42
+     
+ ^^^^
+ source.ks
+     return
+     ^^^^^^
+     source.ks keyword.control.flow.return.ks
+            
+           ^
+           source.ks
+            42
+            ^^
+            source.ks constant.numeric.decimal.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.block.end.bracket.curly.ks
+>
+>let f2 = func(foo) {
+ let
+ ^^^
+ source.ks storage.type.readwrite.ks
+     
+    ^
+    source.ks
+     f2
+     ^^
+     source.ks meta.definition.variable.ks variable.other.readwrite.ks
+        
+       ^
+       source.ks
+        =
+        ^
+        source.ks keyword.operator.assignment.ks
+          
+         ^
+         source.ks
+          func
+          ^^^^
+          source.ks storage.type.function.ks
+              (
+              ^
+              source.ks punctuation.definition.parameters.begin.bracket.round.ks
+               foo
+               ^^^
+               source.ks variable.parameter.ks
+                  )
+                  ^
+                  source.ks punctuation.definition.parameters.end.bracket.round.ks
+                    
+                   ^
+                   source.ks
+                    {
+                    ^
+                    source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>    return 42
+     
+ ^^^^
+ source.ks
+     return
+     ^^^^^^
+     source.ks keyword.control.flow.return.ks
+            
+           ^
+           source.ks
+            42
+            ^^
+            source.ks constant.numeric.decimal.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.block.end.bracket.curly.ks
+>
+>let f3 = (foo) => {
+ let
+ ^^^
+ source.ks storage.type.readwrite.ks
+     
+    ^
+    source.ks
+     f3
+     ^^
+     source.ks meta.definition.variable.ks variable.other.readwrite.ks
+        
+       ^
+       source.ks
+        =
+        ^
+        source.ks keyword.operator.assignment.ks
+          
+         ^
+         source.ks
+          (
+          ^
+          source.ks punctuation.definition.parameters.begin.bracket.round.ks
+           foo
+           ^^^
+           source.ks variable.parameter.ks
+              )
+              ^
+              source.ks punctuation.definition.parameters.end.bracket.round.ks
+                
+               ^
+               source.ks
+                =>
+                ^^
+                source.ks storage.type.function.arrow.ks
+                   
+                  ^
+                  source.ks
+                   {
+                   ^
+                   source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>    return 42
+     
+ ^^^^
+ source.ks
+     return
+     ^^^^^^
+     source.ks keyword.control.flow.return.ks
+            
+           ^
+           source.ks
+            42
+            ^^
+            source.ks constant.numeric.decimal.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.block.end.bracket.curly.ks
+>
+>let f4 = (foo) => 42
+ let
+ ^^^
+ source.ks storage.type.readwrite.ks
+     
+    ^
+    source.ks
+     f4
+     ^^
+     source.ks meta.definition.variable.ks variable.other.readwrite.ks
+        
+       ^
+       source.ks
+        =
+        ^
+        source.ks keyword.operator.assignment.ks
+          
+         ^
+         source.ks
+          (
+          ^
+          source.ks punctuation.definition.parameters.begin.bracket.round.ks
+           foo
+           ^^^
+           source.ks variable.parameter.ks
+              )
+              ^
+              source.ks punctuation.definition.parameters.end.bracket.round.ks
+                
+               ^
+               source.ks
+                =>
+                ^^
+                source.ks storage.type.function.arrow.ks
+                   
+                  ^
+                  source.ks
+                   42
+                   ^^
+                   source.ks constant.numeric.decimal.ks
+>
+>let f5 = func(foo) => 42
+ let
+ ^^^
+ source.ks storage.type.readwrite.ks
+     
+    ^
+    source.ks
+     f5
+     ^^
+     source.ks meta.definition.variable.ks variable.other.readwrite.ks
+        
+       ^
+       source.ks
+        =
+        ^
+        source.ks keyword.operator.assignment.ks
+          
+         ^
+         source.ks
+          func
+          ^^^^
+          source.ks storage.type.function.ks
+              (
+              ^
+              source.ks punctuation.definition.parameters.begin.bracket.round.ks
+               foo
+               ^^^
+               source.ks variable.parameter.ks
+                  )
+                  ^
+                  source.ks punctuation.definition.parameters.end.bracket.round.ks
+                    
+                   ^
+                   source.ks
+                    =>
+                    ^^
+                    source.ks storage.type.function.arrow.ks
+                       
+                      ^
+                      source.ks
+                       42
+                       ^^
+                       source.ks constant.numeric.decimal.ks
+>
+>let f6 = foo => 42
+ let
+ ^^^
+ source.ks storage.type.readwrite.ks
+     
+    ^
+    source.ks
+     f6
+     ^^
+     source.ks meta.definition.variable.ks variable.other.readwrite.ks
+        
+       ^
+       source.ks
+        =
+        ^
+        source.ks keyword.operator.assignment.ks
+          
+         ^
+         source.ks
+          foo
+          ^^^
+          source.ks variable.parameter.ks
+              
+             ^
+             source.ks
+              =>
+              ^^
+              source.ks storage.type.function.arrow.ks
+                 
+                ^
+                source.ks
+                 42
+                 ^^
+                 source.ks constant.numeric.decimal.ks

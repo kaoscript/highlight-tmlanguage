@@ -1,0 +1,183 @@
+original file
+-----------------------------------
+func hex(n: string | number): int { // {{{
+    return Float.parse(n).limit(0, 255).round()
+} // }}}
+console.log(hex(128))
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>func hex(n: string | number): int { // {{{
+ func
+ ^^^^
+ source.ks storage.type.function.ks
+      
+     ^
+     source.ks
+      hex
+      ^^^
+      source.ks entity.name.function.ks
+         (
+         ^
+         source.ks punctuation.definition.parameters.begin.bracket.round.ks
+          n
+          ^
+          source.ks variable.parameter.ks
+           :
+           ^
+           source.ks meta.type.annotation.ks storage.modifier.type.ks
+             
+            ^
+            source.ks meta.type.annotation.ks
+             string
+             ^^^^^^
+             source.ks meta.type.annotation.ks support.type.primitive.ks
+                    
+                   ^
+                   source.ks meta.type.annotation.ks
+                    |
+                    ^
+                    source.ks meta.type.annotation.ks keyword.operator.type.ks
+                      
+                     ^
+                     source.ks meta.type.annotation.ks
+                      number
+                      ^^^^^^
+                      source.ks meta.type.annotation.ks support.type.primitive.ks
+                            )
+                            ^
+                            source.ks punctuation.definition.parameters.end.bracket.round.ks
+                             :
+                             ^
+                             source.ks meta.function.return-type.ks storage.modifier.type.ks
+                               
+                              ^
+                              source.ks meta.function.return-type.ks
+                               int
+                               ^^^
+                               source.ks meta.function.return-type.ks entity.name.type.ks
+                                   
+                                  ^
+                                  source.ks
+                                   {
+                                   ^
+                                   source.ks punctuation.definition.block.begin.bracket.curly.ks
+                                     
+                                    ^
+                                    source.ks
+                                     //
+                                     ^^
+                                     source.ks comment.line.double-slash.ks punctuation.definition.comment.ks
+                                        {{{
+                                       ^^^^
+                                       source.ks comment.line.double-slash.ks
+>
+>    return Float.parse(n).limit(0, 255).round()
+     
+ ^^^^
+ source.ks
+     return
+     ^^^^^^
+     source.ks keyword.control.flow.return.ks
+            
+           ^
+           source.ks
+            Float
+            ^^^^^
+            source.ks variable.other.object.ks
+                 .
+                 ^
+                 source.ks punctuation.accessor.object.ks
+                  parse
+                  ^^^^^
+                  source.ks entity.name.function.ks
+                       (
+                       ^
+                       source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                        n
+                        ^
+                        source.ks variable.other.ks
+                         )
+                         ^
+                         source.ks punctuation.definition.arguments.end.bracket.round.ks
+                          .
+                          ^
+                          source.ks
+                           limit
+                           ^^^^^
+                           source.ks entity.name.function.ks
+                                (
+                                ^
+                                source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                                 0
+                                 ^
+                                 source.ks constant.numeric.decimal.ks
+                                  ,
+                                  ^
+                                  source.ks punctuation.separator.comma.ks
+                                    
+                                   ^
+                                   source.ks
+                                    255
+                                    ^^^
+                                    source.ks constant.numeric.decimal.ks
+                                       )
+                                       ^
+                                       source.ks punctuation.definition.arguments.end.bracket.round.ks
+                                        .
+                                        ^
+                                        source.ks
+                                         round
+                                         ^^^^^
+                                         source.ks entity.name.function.ks
+                                              (
+                                              ^
+                                              source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                                               )
+                                               ^
+                                               source.ks punctuation.definition.arguments.end.bracket.round.ks
+>
+>} // }}}
+ }
+ ^
+ source.ks punctuation.definition.block.end.bracket.curly.ks
+   
+  ^
+  source.ks
+   //
+   ^^
+   source.ks comment.line.double-slash.ks punctuation.definition.comment.ks
+      }}}
+     ^^^^
+     source.ks comment.line.double-slash.ks
+>
+>console.log(hex(128))
+ console
+ ^^^^^^^
+ source.ks variable.other.object.ks
+        .
+        ^
+        source.ks punctuation.accessor.object.ks
+         log
+         ^^^
+         source.ks entity.name.function.ks
+            (
+            ^
+            source.ks punctuation.definition.arguments.begin.bracket.round.ks
+             hex
+             ^^^
+             source.ks entity.name.function.ks
+                (
+                ^
+                source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                 128
+                 ^^^
+                 source.ks constant.numeric.decimal.ks
+                    )
+                    ^
+                    source.ks punctuation.definition.arguments.end.bracket.round.ks
+                     )
+                     ^
+                     source.ks punctuation.definition.arguments.end.bracket.round.ks

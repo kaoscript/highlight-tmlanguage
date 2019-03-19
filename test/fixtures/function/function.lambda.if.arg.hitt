@@ -1,0 +1,63 @@
+original file
+-----------------------------------
+if foo(x => x * x) {
+}
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>if foo(x => x * x) {
+ if
+ ^^
+ source.ks keyword.control.conditional.if.ks
+    
+   ^
+   source.ks
+    foo
+    ^^^
+    source.ks entity.name.function.ks
+       (
+       ^
+       source.ks punctuation.definition.arguments.begin.bracket.round.ks
+        x
+        ^
+        source.ks variable.parameter.ks
+          
+         ^
+         source.ks
+          =>
+          ^^
+          source.ks storage.type.function.arrow.ks
+             
+            ^
+            source.ks
+             x
+             ^
+             source.ks variable.other.ks
+               
+              ^
+              source.ks
+               *
+               ^
+               source.ks keyword.operator.ks
+                 
+                ^
+                source.ks
+                 x
+                 ^
+                 source.ks variable.other.ks
+                  )
+                  ^
+                  source.ks punctuation.definition.arguments.end.bracket.round.ks
+                    
+                   ^
+                   source.ks
+                    {
+                    ^
+                    source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.block.end.bracket.curly.ks
