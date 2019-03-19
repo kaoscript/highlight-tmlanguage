@@ -1,0 +1,78 @@
+original file
+-----------------------------------
+console.log(
+    'hello',
+    'world',
+    '!'
+)
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>console.log(
+ console
+ ^^^^^^^
+ source.ks variable.other.object.ks
+        .
+        ^
+        source.ks punctuation.accessor.object.ks
+         log
+         ^^^
+         source.ks entity.name.function.ks
+            (
+            ^
+            source.ks punctuation.definition.arguments.begin.bracket.round.ks
+>
+>    'hello',
+     
+ ^^^^
+ source.ks
+     '
+     ^
+     source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
+      hello
+      ^^^^^
+      source.ks string.quoted.single.ks
+           '
+           ^
+           source.ks string.quoted.single.ks punctuation.definition.string.end.ks
+            ,
+            ^
+            source.ks punctuation.separator.comma.ks
+>
+>    'world',
+     
+ ^^^^
+ source.ks
+     '
+     ^
+     source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
+      world
+      ^^^^^
+      source.ks string.quoted.single.ks
+           '
+           ^
+           source.ks string.quoted.single.ks punctuation.definition.string.end.ks
+            ,
+            ^
+            source.ks punctuation.separator.comma.ks
+>
+>    '!'
+     
+ ^^^^
+ source.ks
+     '
+     ^
+     source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
+      !
+      ^
+      source.ks string.quoted.single.ks
+       '
+       ^
+       source.ks string.quoted.single.ks punctuation.definition.string.end.ks
+>
+>)
+ )
+ ^
+ source.ks punctuation.definition.arguments.end.bracket.round.ks

@@ -1,0 +1,159 @@
+original file
+-----------------------------------
+heroes = ['leto', 'duncan', 'goku']
+evenHeroes = [hero for hero, index in heroes when index % 2 == 0]
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>heroes = ['leto', 'duncan', 'goku']
+ heroes
+ ^^^^^^
+ source.ks variable.other.ks
+        
+       ^
+       source.ks
+        =
+        ^
+        source.ks keyword.operator.assignment.ks
+          
+         ^
+         source.ks
+          [
+          ^
+          source.ks punctuation.definition.array.begin.bracket.square.ks
+           '
+           ^
+           source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
+            leto
+            ^^^^
+            source.ks string.quoted.single.ks
+                '
+                ^
+                source.ks string.quoted.single.ks punctuation.definition.string.end.ks
+                 ,
+                 ^
+                 source.ks punctuation.separator.comma.ks
+                   
+                  ^
+                  source.ks
+                   '
+                   ^
+                   source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
+                    duncan
+                    ^^^^^^
+                    source.ks string.quoted.single.ks
+                          '
+                          ^
+                          source.ks string.quoted.single.ks punctuation.definition.string.end.ks
+                           ,
+                           ^
+                           source.ks punctuation.separator.comma.ks
+                             
+                            ^
+                            source.ks
+                             '
+                             ^
+                             source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
+                              goku
+                              ^^^^
+                              source.ks string.quoted.single.ks
+                                  '
+                                  ^
+                                  source.ks string.quoted.single.ks punctuation.definition.string.end.ks
+                                   ]
+                                   ^
+                                   source.ks punctuation.definition.array.end.bracket.square.ks
+>
+>evenHeroes = [hero for hero, index in heroes when index % 2 == 0]
+ evenHeroes
+ ^^^^^^^^^^
+ source.ks variable.other.ks
+            
+           ^
+           source.ks
+            =
+            ^
+            source.ks keyword.operator.assignment.ks
+              
+             ^
+             source.ks
+              [
+              ^
+              source.ks punctuation.definition.array.begin.bracket.square.ks
+               hero
+               ^^^^
+               source.ks variable.other.ks
+                    
+                   ^
+                   source.ks
+                    for
+                    ^^^
+                    source.ks keyword.control.loop.for.ks
+                        
+                       ^
+                       source.ks
+                        hero
+                        ^^^^
+                        source.ks variable.other.ks
+                            ,
+                            ^
+                            source.ks punctuation.separator.comma.ks
+                              
+                             ^
+                             source.ks
+                              index
+                              ^^^^^
+                              source.ks variable.other.ks
+                                    
+                                   ^
+                                   source.ks
+                                    in
+                                    ^^
+                                    source.ks keyword.control.loop.ks
+                                       
+                                      ^
+                                      source.ks
+                                       heroes
+                                       ^^^^^^
+                                       source.ks variable.other.ks
+                                              
+                                             ^
+                                             source.ks
+                                              when
+                                              ^^^^
+                                              source.ks keyword.control.loop.ks
+                                                   
+                                                  ^
+                                                  source.ks
+                                                   index
+                                                   ^^^^^
+                                                   source.ks variable.other.ks
+                                                         
+                                                        ^
+                                                        source.ks
+                                                         %
+                                                         ^
+                                                         source.ks keyword.operator.ks
+                                                           
+                                                          ^
+                                                          source.ks
+                                                           2
+                                                           ^
+                                                           source.ks constant.numeric.decimal.ks
+                                                             
+                                                            ^
+                                                            source.ks
+                                                             ==
+                                                             ^^
+                                                             source.ks keyword.operator.comparison.ks
+                                                                
+                                                               ^
+                                                               source.ks
+                                                                0
+                                                                ^
+                                                                source.ks constant.numeric.decimal.ks
+                                                                 ]
+                                                                 ^
+                                                                 source.ks punctuation.definition.array.end.bracket.square.ks

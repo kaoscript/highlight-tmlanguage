@@ -1,0 +1,480 @@
+original file
+-----------------------------------
+// #ff0000aa
+if match ?= /^#?([0-9a-f]{2})([0-9a-f]{2})([0-9a-f]{2})([0-9a-f]{2})$/.exec(color) {
+    console.log('red', Integer.parse(match[1], 16))
+    console.log('green', Integer.parse(match[2], 16))
+    console.log('blue', Integer.parse(match[3], 16))
+    console.log('alpha', $caster.alpha(Integer.parse(match[4], 16) / 255))
+}
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>// #ff0000aa
+ //
+ ^^
+ source.ks comment.line.double-slash.ks punctuation.definition.comment.ks
+    #ff0000aa
+   ^^^^^^^^^^
+   source.ks comment.line.double-slash.ks
+>
+>if match ?= /^#?([0-9a-f]{2})([0-9a-f]{2})([0-9a-f]{2})([0-9a-f]{2})$/.exec(color) {
+ if
+ ^^
+ source.ks keyword.control.conditional.if.ks
+    
+   ^
+   source.ks
+    match
+    ^^^^^
+    source.ks variable.other.ks
+          
+         ^
+         source.ks
+          ?=
+          ^^
+          source.ks keyword.operator.assignment.compound.ks
+             
+            ^
+            source.ks string.regexp.ks
+             /
+             ^
+             source.ks string.regexp.ks punctuation.definition.string.begin.ks
+              ^
+              ^
+              source.ks string.regexp.ks keyword.control.anchor.regexp
+               #
+               ^
+               source.ks string.regexp.ks
+                ?
+                ^
+                source.ks string.regexp.ks keyword.operator.quantifier.regexp
+                 (
+                 ^
+                 source.ks string.regexp.ks meta.group.regexp punctuation.definition.group.regexp
+                  [
+                  ^
+                  source.ks string.regexp.ks meta.group.regexp constant.other.character-class.set.regexp punctuation.definition.character-class.regexp
+                   0-9
+                   ^^^
+                   source.ks string.regexp.ks meta.group.regexp constant.other.character-class.set.regexp constant.other.character-class.range.regexp
+                      a-f
+                      ^^^
+                      source.ks string.regexp.ks meta.group.regexp constant.other.character-class.set.regexp constant.other.character-class.range.regexp
+                         ]
+                         ^
+                         source.ks string.regexp.ks meta.group.regexp constant.other.character-class.set.regexp punctuation.definition.character-class.regexp
+                          {2}
+                          ^^^
+                          source.ks string.regexp.ks meta.group.regexp keyword.operator.quantifier.regexp
+                             )
+                             ^
+                             source.ks string.regexp.ks meta.group.regexp punctuation.definition.group.regexp
+                              (
+                              ^
+                              source.ks string.regexp.ks meta.group.regexp punctuation.definition.group.regexp
+                               [
+                               ^
+                               source.ks string.regexp.ks meta.group.regexp constant.other.character-class.set.regexp punctuation.definition.character-class.regexp
+                                0-9
+                                ^^^
+                                source.ks string.regexp.ks meta.group.regexp constant.other.character-class.set.regexp constant.other.character-class.range.regexp
+                                   a-f
+                                   ^^^
+                                   source.ks string.regexp.ks meta.group.regexp constant.other.character-class.set.regexp constant.other.character-class.range.regexp
+                                      ]
+                                      ^
+                                      source.ks string.regexp.ks meta.group.regexp constant.other.character-class.set.regexp punctuation.definition.character-class.regexp
+                                       {2}
+                                       ^^^
+                                       source.ks string.regexp.ks meta.group.regexp keyword.operator.quantifier.regexp
+                                          )
+                                          ^
+                                          source.ks string.regexp.ks meta.group.regexp punctuation.definition.group.regexp
+                                           (
+                                           ^
+                                           source.ks string.regexp.ks meta.group.regexp punctuation.definition.group.regexp
+                                            [
+                                            ^
+                                            source.ks string.regexp.ks meta.group.regexp constant.other.character-class.set.regexp punctuation.definition.character-class.regexp
+                                             0-9
+                                             ^^^
+                                             source.ks string.regexp.ks meta.group.regexp constant.other.character-class.set.regexp constant.other.character-class.range.regexp
+                                                a-f
+                                                ^^^
+                                                source.ks string.regexp.ks meta.group.regexp constant.other.character-class.set.regexp constant.other.character-class.range.regexp
+                                                   ]
+                                                   ^
+                                                   source.ks string.regexp.ks meta.group.regexp constant.other.character-class.set.regexp punctuation.definition.character-class.regexp
+                                                    {2}
+                                                    ^^^
+                                                    source.ks string.regexp.ks meta.group.regexp keyword.operator.quantifier.regexp
+                                                       )
+                                                       ^
+                                                       source.ks string.regexp.ks meta.group.regexp punctuation.definition.group.regexp
+                                                        (
+                                                        ^
+                                                        source.ks string.regexp.ks meta.group.regexp punctuation.definition.group.regexp
+                                                         [
+                                                         ^
+                                                         source.ks string.regexp.ks meta.group.regexp constant.other.character-class.set.regexp punctuation.definition.character-class.regexp
+                                                          0-9
+                                                          ^^^
+                                                          source.ks string.regexp.ks meta.group.regexp constant.other.character-class.set.regexp constant.other.character-class.range.regexp
+                                                             a-f
+                                                             ^^^
+                                                             source.ks string.regexp.ks meta.group.regexp constant.other.character-class.set.regexp constant.other.character-class.range.regexp
+                                                                ]
+                                                                ^
+                                                                source.ks string.regexp.ks meta.group.regexp constant.other.character-class.set.regexp punctuation.definition.character-class.regexp
+                                                                 {2}
+                                                                 ^^^
+                                                                 source.ks string.regexp.ks meta.group.regexp keyword.operator.quantifier.regexp
+                                                                    )
+                                                                    ^
+                                                                    source.ks string.regexp.ks meta.group.regexp punctuation.definition.group.regexp
+                                                                     $
+                                                                     ^
+                                                                     source.ks string.regexp.ks keyword.control.anchor.regexp
+                                                                      /
+                                                                      ^
+                                                                      source.ks string.regexp.ks punctuation.definition.string.end.ks
+                                                                       .
+                                                                       ^
+                                                                       source.ks
+                                                                        exec
+                                                                        ^^^^
+                                                                        source.ks entity.name.function.ks
+                                                                            (
+                                                                            ^
+                                                                            source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                                                                             color
+                                                                             ^^^^^
+                                                                             source.ks variable.other.ks
+                                                                                  )
+                                                                                  ^
+                                                                                  source.ks punctuation.definition.arguments.end.bracket.round.ks
+                                                                                    
+                                                                                   ^
+                                                                                   source.ks
+                                                                                    {
+                                                                                    ^
+                                                                                    source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>    console.log('red', Integer.parse(match[1], 16))
+     
+ ^^^^
+ source.ks
+     console
+     ^^^^^^^
+     source.ks variable.other.object.ks
+            .
+            ^
+            source.ks punctuation.accessor.object.ks
+             log
+             ^^^
+             source.ks entity.name.function.ks
+                (
+                ^
+                source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                 '
+                 ^
+                 source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
+                  red
+                  ^^^
+                  source.ks string.quoted.single.ks
+                     '
+                     ^
+                     source.ks string.quoted.single.ks punctuation.definition.string.end.ks
+                      ,
+                      ^
+                      source.ks punctuation.separator.comma.ks
+                        
+                       ^
+                       source.ks
+                        Integer
+                        ^^^^^^^
+                        source.ks variable.other.object.ks
+                               .
+                               ^
+                               source.ks punctuation.accessor.object.ks
+                                parse
+                                ^^^^^
+                                source.ks entity.name.function.ks
+                                     (
+                                     ^
+                                     source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                                      match
+                                      ^^^^^
+                                      source.ks variable.other.ks
+                                           [
+                                           ^
+                                           source.ks punctuation.accessor.array.begin.bracket.square.ks
+                                            1
+                                            ^
+                                            source.ks constant.numeric.decimal.ks
+                                             ]
+                                             ^
+                                             source.ks punctuation.accessor.array.end.bracket.square.ks
+                                              ,
+                                              ^
+                                              source.ks punctuation.separator.comma.ks
+                                                
+                                               ^
+                                               source.ks
+                                                16
+                                                ^^
+                                                source.ks constant.numeric.decimal.ks
+                                                  )
+                                                  ^
+                                                  source.ks punctuation.definition.arguments.end.bracket.round.ks
+                                                   )
+                                                   ^
+                                                   source.ks punctuation.definition.arguments.end.bracket.round.ks
+>
+>    console.log('green', Integer.parse(match[2], 16))
+     
+ ^^^^
+ source.ks
+     console
+     ^^^^^^^
+     source.ks variable.other.object.ks
+            .
+            ^
+            source.ks punctuation.accessor.object.ks
+             log
+             ^^^
+             source.ks entity.name.function.ks
+                (
+                ^
+                source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                 '
+                 ^
+                 source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
+                  green
+                  ^^^^^
+                  source.ks string.quoted.single.ks
+                       '
+                       ^
+                       source.ks string.quoted.single.ks punctuation.definition.string.end.ks
+                        ,
+                        ^
+                        source.ks punctuation.separator.comma.ks
+                          
+                         ^
+                         source.ks
+                          Integer
+                          ^^^^^^^
+                          source.ks variable.other.object.ks
+                                 .
+                                 ^
+                                 source.ks punctuation.accessor.object.ks
+                                  parse
+                                  ^^^^^
+                                  source.ks entity.name.function.ks
+                                       (
+                                       ^
+                                       source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                                        match
+                                        ^^^^^
+                                        source.ks variable.other.ks
+                                             [
+                                             ^
+                                             source.ks punctuation.accessor.array.begin.bracket.square.ks
+                                              2
+                                              ^
+                                              source.ks constant.numeric.decimal.ks
+                                               ]
+                                               ^
+                                               source.ks punctuation.accessor.array.end.bracket.square.ks
+                                                ,
+                                                ^
+                                                source.ks punctuation.separator.comma.ks
+                                                  
+                                                 ^
+                                                 source.ks
+                                                  16
+                                                  ^^
+                                                  source.ks constant.numeric.decimal.ks
+                                                    )
+                                                    ^
+                                                    source.ks punctuation.definition.arguments.end.bracket.round.ks
+                                                     )
+                                                     ^
+                                                     source.ks punctuation.definition.arguments.end.bracket.round.ks
+>
+>    console.log('blue', Integer.parse(match[3], 16))
+     
+ ^^^^
+ source.ks
+     console
+     ^^^^^^^
+     source.ks variable.other.object.ks
+            .
+            ^
+            source.ks punctuation.accessor.object.ks
+             log
+             ^^^
+             source.ks entity.name.function.ks
+                (
+                ^
+                source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                 '
+                 ^
+                 source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
+                  blue
+                  ^^^^
+                  source.ks string.quoted.single.ks
+                      '
+                      ^
+                      source.ks string.quoted.single.ks punctuation.definition.string.end.ks
+                       ,
+                       ^
+                       source.ks punctuation.separator.comma.ks
+                         
+                        ^
+                        source.ks
+                         Integer
+                         ^^^^^^^
+                         source.ks variable.other.object.ks
+                                .
+                                ^
+                                source.ks punctuation.accessor.object.ks
+                                 parse
+                                 ^^^^^
+                                 source.ks entity.name.function.ks
+                                      (
+                                      ^
+                                      source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                                       match
+                                       ^^^^^
+                                       source.ks variable.other.ks
+                                            [
+                                            ^
+                                            source.ks punctuation.accessor.array.begin.bracket.square.ks
+                                             3
+                                             ^
+                                             source.ks constant.numeric.decimal.ks
+                                              ]
+                                              ^
+                                              source.ks punctuation.accessor.array.end.bracket.square.ks
+                                               ,
+                                               ^
+                                               source.ks punctuation.separator.comma.ks
+                                                 
+                                                ^
+                                                source.ks
+                                                 16
+                                                 ^^
+                                                 source.ks constant.numeric.decimal.ks
+                                                   )
+                                                   ^
+                                                   source.ks punctuation.definition.arguments.end.bracket.round.ks
+                                                    )
+                                                    ^
+                                                    source.ks punctuation.definition.arguments.end.bracket.round.ks
+>
+>    console.log('alpha', $caster.alpha(Integer.parse(match[4], 16) / 255))
+     
+ ^^^^
+ source.ks
+     console
+     ^^^^^^^
+     source.ks variable.other.object.ks
+            .
+            ^
+            source.ks punctuation.accessor.object.ks
+             log
+             ^^^
+             source.ks entity.name.function.ks
+                (
+                ^
+                source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                 '
+                 ^
+                 source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
+                  alpha
+                  ^^^^^
+                  source.ks string.quoted.single.ks
+                       '
+                       ^
+                       source.ks string.quoted.single.ks punctuation.definition.string.end.ks
+                        ,
+                        ^
+                        source.ks punctuation.separator.comma.ks
+                          
+                         ^
+                         source.ks
+                          $caster
+                          ^^^^^^^
+                          source.ks variable.other.object.ks
+                                 .
+                                 ^
+                                 source.ks punctuation.accessor.object.ks
+                                  alpha
+                                  ^^^^^
+                                  source.ks entity.name.function.ks
+                                       (
+                                       ^
+                                       source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                                        Integer
+                                        ^^^^^^^
+                                        source.ks variable.other.object.ks
+                                               .
+                                               ^
+                                               source.ks punctuation.accessor.object.ks
+                                                parse
+                                                ^^^^^
+                                                source.ks entity.name.function.ks
+                                                     (
+                                                     ^
+                                                     source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                                                      match
+                                                      ^^^^^
+                                                      source.ks variable.other.ks
+                                                           [
+                                                           ^
+                                                           source.ks punctuation.accessor.array.begin.bracket.square.ks
+                                                            4
+                                                            ^
+                                                            source.ks constant.numeric.decimal.ks
+                                                             ]
+                                                             ^
+                                                             source.ks punctuation.accessor.array.end.bracket.square.ks
+                                                              ,
+                                                              ^
+                                                              source.ks punctuation.separator.comma.ks
+                                                                
+                                                               ^
+                                                               source.ks
+                                                                16
+                                                                ^^
+                                                                source.ks constant.numeric.decimal.ks
+                                                                  )
+                                                                  ^
+                                                                  source.ks punctuation.definition.arguments.end.bracket.round.ks
+                                                                    
+                                                                   ^
+                                                                   source.ks
+                                                                    /
+                                                                    ^
+                                                                    source.ks keyword.operator.ks
+                                                                      
+                                                                     ^
+                                                                     source.ks
+                                                                      255
+                                                                      ^^^
+                                                                      source.ks constant.numeric.decimal.ks
+                                                                         )
+                                                                         ^
+                                                                         source.ks punctuation.definition.arguments.end.bracket.round.ks
+                                                                          )
+                                                                          ^
+                                                                          source.ks punctuation.definition.arguments.end.bracket.round.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.block.end.bracket.curly.ks

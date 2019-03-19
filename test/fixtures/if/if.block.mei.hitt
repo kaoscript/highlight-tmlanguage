@@ -1,0 +1,210 @@
+original file
+-----------------------------------
+let x = 5
+if x == 5 {
+}
+else if x == 6 {
+}
+else if x == 7 {
+}
+else if x == 8 {
+}
+else {
+}
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>let x = 5
+ let
+ ^^^
+ source.ks storage.type.readwrite.ks
+     
+    ^
+    source.ks
+     x
+     ^
+     source.ks meta.definition.variable.ks variable.other.readwrite.ks
+       
+      ^
+      source.ks
+       =
+       ^
+       source.ks keyword.operator.assignment.ks
+         
+        ^
+        source.ks
+         5
+         ^
+         source.ks constant.numeric.decimal.ks
+>
+>if x == 5 {
+ if
+ ^^
+ source.ks keyword.control.conditional.if.ks
+    
+   ^
+   source.ks
+    x
+    ^
+    source.ks variable.other.ks
+      
+     ^
+     source.ks
+      ==
+      ^^
+      source.ks keyword.operator.comparison.ks
+         
+        ^
+        source.ks
+         5
+         ^
+         source.ks constant.numeric.decimal.ks
+           
+          ^
+          source.ks
+           {
+           ^
+           source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.block.end.bracket.curly.ks
+>
+>else if x == 6 {
+ else
+ ^^^^
+ source.ks keyword.control.conditional.else.ks
+      
+     ^
+     source.ks
+      if
+      ^^
+      source.ks keyword.control.conditional.if.ks
+         
+        ^
+        source.ks
+         x
+         ^
+         source.ks variable.other.ks
+           
+          ^
+          source.ks
+           ==
+           ^^
+           source.ks keyword.operator.comparison.ks
+              
+             ^
+             source.ks
+              6
+              ^
+              source.ks constant.numeric.decimal.ks
+                
+               ^
+               source.ks
+                {
+                ^
+                source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.block.end.bracket.curly.ks
+>
+>else if x == 7 {
+ else
+ ^^^^
+ source.ks keyword.control.conditional.else.ks
+      
+     ^
+     source.ks
+      if
+      ^^
+      source.ks keyword.control.conditional.if.ks
+         
+        ^
+        source.ks
+         x
+         ^
+         source.ks variable.other.ks
+           
+          ^
+          source.ks
+           ==
+           ^^
+           source.ks keyword.operator.comparison.ks
+              
+             ^
+             source.ks
+              7
+              ^
+              source.ks constant.numeric.decimal.ks
+                
+               ^
+               source.ks
+                {
+                ^
+                source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.block.end.bracket.curly.ks
+>
+>else if x == 8 {
+ else
+ ^^^^
+ source.ks keyword.control.conditional.else.ks
+      
+     ^
+     source.ks
+      if
+      ^^
+      source.ks keyword.control.conditional.if.ks
+         
+        ^
+        source.ks
+         x
+         ^
+         source.ks variable.other.ks
+           
+          ^
+          source.ks
+           ==
+           ^^
+           source.ks keyword.operator.comparison.ks
+              
+             ^
+             source.ks
+              8
+              ^
+              source.ks constant.numeric.decimal.ks
+                
+               ^
+               source.ks
+                {
+                ^
+                source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.block.end.bracket.curly.ks
+>
+>else {
+ else
+ ^^^^
+ source.ks keyword.control.conditional.else.ks
+      
+     ^
+     source.ks
+      {
+      ^
+      source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.block.end.bracket.curly.ks

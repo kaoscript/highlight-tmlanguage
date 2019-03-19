@@ -1,0 +1,102 @@
+original file
+-----------------------------------
+let x = 5
+if    x == 3 || // comment
+    x == 7
+{
+}
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>let x = 5
+ let
+ ^^^
+ source.ks storage.type.readwrite.ks
+     
+    ^
+    source.ks
+     x
+     ^
+     source.ks meta.definition.variable.ks variable.other.readwrite.ks
+       
+      ^
+      source.ks
+       =
+       ^
+       source.ks keyword.operator.assignment.ks
+         
+        ^
+        source.ks
+         5
+         ^
+         source.ks constant.numeric.decimal.ks
+>
+>if    x == 3 || // comment
+ if
+ ^^
+ source.ks keyword.control.conditional.if.ks
+       
+   ^^^^
+   source.ks
+       x
+       ^
+       source.ks variable.other.ks
+         
+        ^
+        source.ks
+         ==
+         ^^
+         source.ks keyword.operator.comparison.ks
+            
+           ^
+           source.ks
+            3
+            ^
+            source.ks constant.numeric.decimal.ks
+              
+             ^
+             source.ks
+              ||
+              ^^
+              source.ks keyword.operator.logical.ks
+                 
+                ^
+                source.ks
+                 //
+                 ^^
+                 source.ks comment.line.double-slash.ks punctuation.definition.comment.ks
+                    comment
+                   ^^^^^^^^
+                   source.ks comment.line.double-slash.ks
+>
+>    x == 7
+     
+ ^^^^
+ source.ks
+     x
+     ^
+     source.ks variable.other.ks
+       
+      ^
+      source.ks
+       ==
+       ^^
+       source.ks keyword.operator.comparison.ks
+          
+         ^
+         source.ks
+          7
+          ^
+          source.ks constant.numeric.decimal.ks
+>
+>{
+ {
+ ^
+ source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.block.end.bracket.curly.ks

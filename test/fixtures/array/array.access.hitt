@@ -1,0 +1,72 @@
+original file
+-----------------------------------
+let n = [1..3]
+console.log(n[0])
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>let n = [1..3]
+ let
+ ^^^
+ source.ks storage.type.readwrite.ks
+     
+    ^
+    source.ks
+     n
+     ^
+     source.ks meta.definition.variable.ks variable.other.readwrite.ks
+       
+      ^
+      source.ks
+       =
+       ^
+       source.ks keyword.operator.assignment.ks
+         
+        ^
+        source.ks
+         [
+         ^
+         source.ks punctuation.definition.array.begin.bracket.square.ks
+          1
+          ^
+          source.ks constant.numeric.decimal.ks
+           ..
+           ^^
+           source.ks keyword.operator.range.ks
+             3
+             ^
+             source.ks constant.numeric.decimal.ks
+              ]
+              ^
+              source.ks punctuation.definition.array.end.bracket.square.ks
+>
+>console.log(n[0])
+ console
+ ^^^^^^^
+ source.ks variable.other.object.ks
+        .
+        ^
+        source.ks punctuation.accessor.object.ks
+         log
+         ^^^
+         source.ks entity.name.function.ks
+            (
+            ^
+            source.ks punctuation.definition.arguments.begin.bracket.round.ks
+             n
+             ^
+             source.ks variable.other.ks
+              [
+              ^
+              source.ks punctuation.accessor.array.begin.bracket.square.ks
+               0
+               ^
+               source.ks constant.numeric.decimal.ks
+                ]
+                ^
+                source.ks punctuation.accessor.array.end.bracket.square.ks
+                 )
+                 ^
+                 source.ks punctuation.definition.arguments.end.bracket.round.ks

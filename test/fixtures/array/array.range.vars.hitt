@@ -1,0 +1,99 @@
+original file
+-----------------------------------
+let min = 1
+let max = 5
+let a = [min..max]
+// 1, 2, 3, 4, 5
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>let min = 1
+ let
+ ^^^
+ source.ks storage.type.readwrite.ks
+     
+    ^
+    source.ks
+     min
+     ^^^
+     source.ks meta.definition.variable.ks variable.other.readwrite.ks
+         
+        ^
+        source.ks
+         =
+         ^
+         source.ks keyword.operator.assignment.ks
+           
+          ^
+          source.ks
+           1
+           ^
+           source.ks constant.numeric.decimal.ks
+>
+>let max = 5
+ let
+ ^^^
+ source.ks storage.type.readwrite.ks
+     
+    ^
+    source.ks
+     max
+     ^^^
+     source.ks meta.definition.variable.ks variable.other.readwrite.ks
+         
+        ^
+        source.ks
+         =
+         ^
+         source.ks keyword.operator.assignment.ks
+           
+          ^
+          source.ks
+           5
+           ^
+           source.ks constant.numeric.decimal.ks
+>
+>let a = [min..max]
+ let
+ ^^^
+ source.ks storage.type.readwrite.ks
+     
+    ^
+    source.ks
+     a
+     ^
+     source.ks meta.definition.variable.ks variable.other.readwrite.ks
+       
+      ^
+      source.ks
+       =
+       ^
+       source.ks keyword.operator.assignment.ks
+         
+        ^
+        source.ks
+         [
+         ^
+         source.ks punctuation.definition.array.begin.bracket.square.ks
+          min
+          ^^^
+          source.ks variable.other.ks
+             ..
+             ^^
+             source.ks keyword.operator.range.ks
+               max
+               ^^^
+               source.ks variable.other.ks
+                  ]
+                  ^
+                  source.ks punctuation.definition.array.end.bracket.square.ks
+>
+>// 1, 2, 3, 4, 5
+ //
+ ^^
+ source.ks comment.line.double-slash.ks punctuation.definition.comment.ks
+    1, 2, 3, 4, 5
+   ^^^^^^^^^^^^^^
+   source.ks comment.line.double-slash.ks

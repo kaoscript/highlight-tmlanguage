@@ -1,0 +1,57 @@
+original file
+-----------------------------------
+let while = {}
+while.foo = 42
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>let while = {}
+ let
+ ^^^
+ source.ks storage.type.readwrite.ks
+     
+    ^
+    source.ks
+     while
+     ^^^^^
+     source.ks meta.definition.variable.ks variable.other.readwrite.ks
+           
+          ^
+          source.ks
+           =
+           ^
+           source.ks keyword.operator.assignment.ks
+             
+            ^
+            source.ks
+             {
+             ^
+             source.ks punctuation.definition.object.begin.bracket.curly.ks
+              }
+              ^
+              source.ks punctuation.definition.object.end.bracket.curly.ks
+>
+>while.foo = 42
+ while
+ ^^^^^
+ source.ks variable.other.object.ks
+      .
+      ^
+      source.ks punctuation.accessor.object.ks
+       foo
+       ^^^
+       source.ks variable.other.property.ks
+           
+          ^
+          source.ks
+           =
+           ^
+           source.ks keyword.operator.assignment.ks
+             
+            ^
+            source.ks
+             42
+             ^^
+             source.ks constant.numeric.decimal.ks

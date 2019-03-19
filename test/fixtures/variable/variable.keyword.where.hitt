@@ -1,0 +1,36 @@
+original file
+-----------------------------------
+let where = 'home'
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>let where = 'home'
+ let
+ ^^^
+ source.ks storage.type.readwrite.ks
+     
+    ^
+    source.ks
+     where
+     ^^^^^
+     source.ks meta.definition.variable.ks variable.other.readwrite.ks
+           
+          ^
+          source.ks
+           =
+           ^
+           source.ks keyword.operator.assignment.ks
+             
+            ^
+            source.ks
+             '
+             ^
+             source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
+              home
+              ^^^^
+              source.ks string.quoted.single.ks
+                  '
+                  ^
+                  source.ks string.quoted.single.ks punctuation.definition.string.end.ks

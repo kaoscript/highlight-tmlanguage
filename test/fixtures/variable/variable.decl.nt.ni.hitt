@@ -1,0 +1,18 @@
+original file
+-----------------------------------
+let a
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>let a
+ let
+ ^^^
+ source.ks storage.type.readwrite.ks
+     
+    ^
+    source.ks
+     a
+     ^
+     source.ks meta.definition.variable.ks variable.other.readwrite.ks

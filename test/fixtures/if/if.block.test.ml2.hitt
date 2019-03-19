@@ -1,0 +1,483 @@
+original file
+-----------------------------------
+if    !arrow &&
+    (
+        (rest != -1 && !fr && (db == 0 || db + 1 == rest)) ||
+        (
+            rest == -1 &&
+            (
+                (!signature.async && signature.max == l && (db == 0 || db == l)) ||
+                (signature.async && signature.max == l + 1 && (db == 0 || db == l + 1))
+            )
+        )
+    )
+{
+}
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>if    !arrow &&
+ if
+ ^^
+ source.ks keyword.control.conditional.if.ks
+       
+   ^^^^
+   source.ks
+       !
+       ^
+       source.ks keyword.operator.logical.ks
+        arrow
+        ^^^^^
+        source.ks variable.other.ks
+              
+             ^
+             source.ks
+              &&
+              ^^
+              source.ks keyword.operator.logical.ks
+>
+>    (
+     
+ ^^^^
+ source.ks
+     (
+     ^
+     source.ks meta.brace.round.ks
+>
+>        (rest != -1 && !fr && (db == 0 || db + 1 == rest)) ||
+         
+ ^^^^^^^^
+ source.ks
+         (
+         ^
+         source.ks meta.brace.round.ks
+          rest
+          ^^^^
+          source.ks variable.other.ks
+               
+              ^
+              source.ks
+               !=
+               ^^
+               source.ks keyword.operator.comparison.ks
+                  
+                 ^
+                 source.ks
+                  -
+                  ^
+                  source.ks keyword.operator.ks
+                   1
+                   ^
+                   source.ks constant.numeric.decimal.ks
+                     
+                    ^
+                    source.ks
+                     &&
+                     ^^
+                     source.ks keyword.operator.logical.ks
+                        
+                       ^
+                       source.ks
+                        !
+                        ^
+                        source.ks keyword.operator.logical.ks
+                         fr
+                         ^^
+                         source.ks variable.other.ks
+                            
+                           ^
+                           source.ks
+                            &&
+                            ^^
+                            source.ks keyword.operator.logical.ks
+                               
+                              ^
+                              source.ks
+                               (
+                               ^
+                               source.ks meta.brace.round.ks
+                                db
+                                ^^
+                                source.ks variable.other.ks
+                                   
+                                  ^
+                                  source.ks
+                                   ==
+                                   ^^
+                                   source.ks keyword.operator.comparison.ks
+                                      
+                                     ^
+                                     source.ks
+                                      0
+                                      ^
+                                      source.ks constant.numeric.decimal.ks
+                                        
+                                       ^
+                                       source.ks
+                                        ||
+                                        ^^
+                                        source.ks keyword.operator.logical.ks
+                                           
+                                          ^
+                                          source.ks
+                                           db
+                                           ^^
+                                           source.ks variable.other.ks
+                                              
+                                             ^
+                                             source.ks
+                                              +
+                                              ^
+                                              source.ks keyword.operator.ks
+                                                
+                                               ^
+                                               source.ks
+                                                1
+                                                ^
+                                                source.ks constant.numeric.decimal.ks
+                                                  
+                                                 ^
+                                                 source.ks
+                                                  ==
+                                                  ^^
+                                                  source.ks keyword.operator.comparison.ks
+                                                     
+                                                    ^
+                                                    source.ks
+                                                     rest
+                                                     ^^^^
+                                                     source.ks variable.other.ks
+                                                         )
+                                                         ^
+                                                         source.ks meta.brace.round.ks
+                                                          )
+                                                          ^
+                                                          source.ks meta.brace.round.ks
+                                                            
+                                                           ^
+                                                           source.ks
+                                                            ||
+                                                            ^^
+                                                            source.ks keyword.operator.logical.ks
+>
+>        (
+         
+ ^^^^^^^^
+ source.ks
+         (
+         ^
+         source.ks meta.brace.round.ks
+>
+>            rest == -1 &&
+             
+ ^^^^^^^^^^^^
+ source.ks
+             rest
+             ^^^^
+             source.ks variable.other.ks
+                  
+                 ^
+                 source.ks
+                  ==
+                  ^^
+                  source.ks keyword.operator.comparison.ks
+                     
+                    ^
+                    source.ks
+                     -
+                     ^
+                     source.ks keyword.operator.ks
+                      1
+                      ^
+                      source.ks constant.numeric.decimal.ks
+                        
+                       ^
+                       source.ks
+                        &&
+                        ^^
+                        source.ks keyword.operator.logical.ks
+>
+>            (
+             
+ ^^^^^^^^^^^^
+ source.ks
+             (
+             ^
+             source.ks meta.brace.round.ks
+>
+>                (!signature.async && signature.max == l && (db == 0 || db == l)) ||
+                 
+ ^^^^^^^^^^^^^^^^
+ source.ks
+                 (
+                 ^
+                 source.ks meta.brace.round.ks
+                  !
+                  ^
+                  source.ks keyword.operator.logical.ks
+                   signature
+                   ^^^^^^^^^
+                   source.ks variable.other.object.ks
+                            .
+                            ^
+                            source.ks punctuation.accessor.object.ks
+                             async
+                             ^^^^^
+                             source.ks variable.other.property.ks
+                                   
+                                  ^
+                                  source.ks
+                                   &&
+                                   ^^
+                                   source.ks keyword.operator.logical.ks
+                                      
+                                     ^
+                                     source.ks
+                                      signature
+                                      ^^^^^^^^^
+                                      source.ks variable.other.object.ks
+                                               .
+                                               ^
+                                               source.ks punctuation.accessor.object.ks
+                                                max
+                                                ^^^
+                                                source.ks variable.other.property.ks
+                                                    
+                                                   ^
+                                                   source.ks
+                                                    ==
+                                                    ^^
+                                                    source.ks keyword.operator.comparison.ks
+                                                       
+                                                      ^
+                                                      source.ks
+                                                       l
+                                                       ^
+                                                       source.ks variable.other.ks
+                                                         
+                                                        ^
+                                                        source.ks
+                                                         &&
+                                                         ^^
+                                                         source.ks keyword.operator.logical.ks
+                                                            
+                                                           ^
+                                                           source.ks
+                                                            (
+                                                            ^
+                                                            source.ks meta.brace.round.ks
+                                                             db
+                                                             ^^
+                                                             source.ks variable.other.ks
+                                                                
+                                                               ^
+                                                               source.ks
+                                                                ==
+                                                                ^^
+                                                                source.ks keyword.operator.comparison.ks
+                                                                   
+                                                                  ^
+                                                                  source.ks
+                                                                   0
+                                                                   ^
+                                                                   source.ks constant.numeric.decimal.ks
+                                                                     
+                                                                    ^
+                                                                    source.ks
+                                                                     ||
+                                                                     ^^
+                                                                     source.ks keyword.operator.logical.ks
+                                                                        
+                                                                       ^
+                                                                       source.ks
+                                                                        db
+                                                                        ^^
+                                                                        source.ks variable.other.ks
+                                                                           
+                                                                          ^
+                                                                          source.ks
+                                                                           ==
+                                                                           ^^
+                                                                           source.ks keyword.operator.comparison.ks
+                                                                              
+                                                                             ^
+                                                                             source.ks
+                                                                              l
+                                                                              ^
+                                                                              source.ks variable.other.ks
+                                                                               )
+                                                                               ^
+                                                                               source.ks meta.brace.round.ks
+                                                                                )
+                                                                                ^
+                                                                                source.ks meta.brace.round.ks
+                                                                                  
+                                                                                 ^
+                                                                                 source.ks
+                                                                                  ||
+                                                                                  ^^
+                                                                                  source.ks keyword.operator.logical.ks
+>
+>                (signature.async && signature.max == l + 1 && (db == 0 || db == l + 1))
+                 
+ ^^^^^^^^^^^^^^^^
+ source.ks
+                 (
+                 ^
+                 source.ks meta.brace.round.ks
+                  signature
+                  ^^^^^^^^^
+                  source.ks variable.other.object.ks
+                           .
+                           ^
+                           source.ks punctuation.accessor.object.ks
+                            async
+                            ^^^^^
+                            source.ks variable.other.property.ks
+                                  
+                                 ^
+                                 source.ks
+                                  &&
+                                  ^^
+                                  source.ks keyword.operator.logical.ks
+                                     
+                                    ^
+                                    source.ks
+                                     signature
+                                     ^^^^^^^^^
+                                     source.ks variable.other.object.ks
+                                              .
+                                              ^
+                                              source.ks punctuation.accessor.object.ks
+                                               max
+                                               ^^^
+                                               source.ks variable.other.property.ks
+                                                   
+                                                  ^
+                                                  source.ks
+                                                   ==
+                                                   ^^
+                                                   source.ks keyword.operator.comparison.ks
+                                                      
+                                                     ^
+                                                     source.ks
+                                                      l
+                                                      ^
+                                                      source.ks variable.other.ks
+                                                        
+                                                       ^
+                                                       source.ks
+                                                        +
+                                                        ^
+                                                        source.ks keyword.operator.ks
+                                                          
+                                                         ^
+                                                         source.ks
+                                                          1
+                                                          ^
+                                                          source.ks constant.numeric.decimal.ks
+                                                            
+                                                           ^
+                                                           source.ks
+                                                            &&
+                                                            ^^
+                                                            source.ks keyword.operator.logical.ks
+                                                               
+                                                              ^
+                                                              source.ks
+                                                               (
+                                                               ^
+                                                               source.ks meta.brace.round.ks
+                                                                db
+                                                                ^^
+                                                                source.ks variable.other.ks
+                                                                   
+                                                                  ^
+                                                                  source.ks
+                                                                   ==
+                                                                   ^^
+                                                                   source.ks keyword.operator.comparison.ks
+                                                                      
+                                                                     ^
+                                                                     source.ks
+                                                                      0
+                                                                      ^
+                                                                      source.ks constant.numeric.decimal.ks
+                                                                        
+                                                                       ^
+                                                                       source.ks
+                                                                        ||
+                                                                        ^^
+                                                                        source.ks keyword.operator.logical.ks
+                                                                           
+                                                                          ^
+                                                                          source.ks
+                                                                           db
+                                                                           ^^
+                                                                           source.ks variable.other.ks
+                                                                              
+                                                                             ^
+                                                                             source.ks
+                                                                              ==
+                                                                              ^^
+                                                                              source.ks keyword.operator.comparison.ks
+                                                                                 
+                                                                                ^
+                                                                                source.ks
+                                                                                 l
+                                                                                 ^
+                                                                                 source.ks variable.other.ks
+                                                                                   
+                                                                                  ^
+                                                                                  source.ks
+                                                                                   +
+                                                                                   ^
+                                                                                   source.ks keyword.operator.ks
+                                                                                     
+                                                                                    ^
+                                                                                    source.ks
+                                                                                     1
+                                                                                     ^
+                                                                                     source.ks constant.numeric.decimal.ks
+                                                                                      )
+                                                                                      ^
+                                                                                      source.ks meta.brace.round.ks
+                                                                                       )
+                                                                                       ^
+                                                                                       source.ks meta.brace.round.ks
+>
+>            )
+             
+ ^^^^^^^^^^^^
+ source.ks
+             )
+             ^
+             source.ks meta.brace.round.ks
+>
+>        )
+         
+ ^^^^^^^^
+ source.ks
+         )
+         ^
+         source.ks meta.brace.round.ks
+>
+>    )
+     
+ ^^^^
+ source.ks
+     )
+     ^
+     source.ks meta.brace.round.ks
+>
+>{
+ {
+ ^
+ source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.block.end.bracket.curly.ks

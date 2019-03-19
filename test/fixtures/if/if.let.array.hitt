@@ -1,0 +1,120 @@
+original file
+-----------------------------------
+if let [x, y, z] = foobar() {
+    console.log(x, y, z)
+}
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>if let [x, y, z] = foobar() {
+ if
+ ^^
+ source.ks keyword.control.conditional.if.ks
+    
+   ^
+   source.ks
+    let
+    ^^^
+    source.ks storage.type.readwrite.ks
+        
+       ^
+       source.ks
+        [
+        ^
+        source.ks punctuation.definition.binding-pattern.array.begin.bracket.square.ks
+         x
+         ^
+         source.ks meta.definition.variable.ks variable.other.readwrite.ks
+          ,
+          ^
+          source.ks punctuation.separator.comma.ks
+            
+           ^
+           source.ks
+            y
+            ^
+            source.ks meta.definition.variable.ks variable.other.readwrite.ks
+             ,
+             ^
+             source.ks punctuation.separator.comma.ks
+               
+              ^
+              source.ks
+               z
+               ^
+               source.ks meta.definition.variable.ks variable.other.readwrite.ks
+                ]
+                ^
+                source.ks punctuation.definition.binding-pattern.array.end.bracket.square.ks
+                  
+                 ^
+                 source.ks
+                  =
+                  ^
+                  source.ks keyword.operator.assignment.ks
+                    
+                   ^
+                   source.ks
+                    foobar
+                    ^^^^^^
+                    source.ks entity.name.function.ks
+                          (
+                          ^
+                          source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                           )
+                           ^
+                           source.ks punctuation.definition.arguments.end.bracket.round.ks
+                             
+                            ^
+                            source.ks
+                             {
+                             ^
+                             source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>    console.log(x, y, z)
+     
+ ^^^^
+ source.ks
+     console
+     ^^^^^^^
+     source.ks variable.other.object.ks
+            .
+            ^
+            source.ks punctuation.accessor.object.ks
+             log
+             ^^^
+             source.ks entity.name.function.ks
+                (
+                ^
+                source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                 x
+                 ^
+                 source.ks variable.other.ks
+                  ,
+                  ^
+                  source.ks punctuation.separator.comma.ks
+                    
+                   ^
+                   source.ks
+                    y
+                    ^
+                    source.ks variable.other.ks
+                     ,
+                     ^
+                     source.ks punctuation.separator.comma.ks
+                       
+                      ^
+                      source.ks
+                       z
+                       ^
+                       source.ks variable.other.ks
+                        )
+                        ^
+                        source.ks punctuation.definition.arguments.end.bracket.round.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.block.end.bracket.curly.ks

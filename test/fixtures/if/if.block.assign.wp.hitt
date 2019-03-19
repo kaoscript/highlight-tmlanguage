@@ -1,0 +1,78 @@
+original file
+-----------------------------------
+let x
+if (x = 5) {
+}
+else {
+}
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>let x
+ let
+ ^^^
+ source.ks storage.type.readwrite.ks
+     
+    ^
+    source.ks
+     x
+     ^
+     source.ks meta.definition.variable.ks variable.other.readwrite.ks
+>
+>if (x = 5) {
+ if
+ ^^
+ source.ks keyword.control.conditional.if.ks
+    
+   ^
+   source.ks
+    (
+    ^
+    source.ks meta.brace.round.ks
+     x
+     ^
+     source.ks variable.other.ks
+       
+      ^
+      source.ks
+       =
+       ^
+       source.ks keyword.operator.assignment.ks
+         
+        ^
+        source.ks
+         5
+         ^
+         source.ks constant.numeric.decimal.ks
+          )
+          ^
+          source.ks meta.brace.round.ks
+            
+           ^
+           source.ks
+            {
+            ^
+            source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.block.end.bracket.curly.ks
+>
+>else {
+ else
+ ^^^^
+ source.ks keyword.control.conditional.else.ks
+      
+     ^
+     source.ks
+      {
+      ^
+      source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.block.end.bracket.curly.ks

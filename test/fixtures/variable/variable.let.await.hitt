@@ -1,0 +1,51 @@
+original file
+-----------------------------------
+let a, b = await foo()
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>let a, b = await foo()
+ let
+ ^^^
+ source.ks storage.type.readwrite.ks
+     
+    ^
+    source.ks
+     a
+     ^
+     source.ks meta.definition.variable.ks variable.other.readwrite.ks
+      ,
+      ^
+      source.ks punctuation.separator.comma.ks
+        
+       ^
+       source.ks
+        b
+        ^
+        source.ks meta.definition.variable.ks variable.other.readwrite.ks
+          
+         ^
+         source.ks
+          =
+          ^
+          source.ks keyword.operator.assignment.ks
+            
+           ^
+           source.ks
+            await
+            ^^^^^
+            source.ks keyword.control.flow
+                  
+                 ^
+                 source.ks
+                  foo
+                  ^^^
+                  source.ks entity.name.function.ks
+                     (
+                     ^
+                     source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                      )
+                      ^
+                      source.ks punctuation.definition.arguments.end.bracket.round.ks

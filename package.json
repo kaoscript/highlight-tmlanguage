@@ -17,11 +17,20 @@
 	},
 	"license": "MIT",
 	"devDependencies": {
-		"js-yaml": "latest",
+		"@zokugun/lang": "github:ZokugunKS/lang",
+		"chai": "^4.2.0",
+		"coveralls": "^3.0.3",
+		"istanbul": "^0.4.5",
+		"js-yaml": "^3.12.2",
 		"kaoscript": "github:kaoscript/kaoscript",
-		"plist": "latest"
+		"klaw-sync": "^6.0.0",
+		"mocha": "^5.2.0",
+		"output-file-sync": "^2.0.1",
+		"plist": "^2.1.0",
+		"vscode-textmate": "^3.0.1"
 	},
 	"scripts": {
-		"build": "npx kaoscript build.ks"
+		"build": "npx kaoscript build.ks",
+		"test": "mocha --colors --check-leaks --require kaoscript/register --reporter spec test/test.ks"
 	}
 }

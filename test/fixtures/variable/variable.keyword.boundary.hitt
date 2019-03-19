@@ -1,0 +1,51 @@
+original file
+-----------------------------------
+let domain = {}
+domain.foo()
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>let domain = {}
+ let
+ ^^^
+ source.ks storage.type.readwrite.ks
+     
+    ^
+    source.ks
+     domain
+     ^^^^^^
+     source.ks meta.definition.variable.ks variable.other.readwrite.ks
+            
+           ^
+           source.ks
+            =
+            ^
+            source.ks keyword.operator.assignment.ks
+              
+             ^
+             source.ks
+              {
+              ^
+              source.ks punctuation.definition.object.begin.bracket.curly.ks
+               }
+               ^
+               source.ks punctuation.definition.object.end.bracket.curly.ks
+>
+>domain.foo()
+ domain
+ ^^^^^^
+ source.ks variable.other.object.ks
+       .
+       ^
+       source.ks punctuation.accessor.object.ks
+        foo
+        ^^^
+        source.ks entity.name.function.ks
+           (
+           ^
+           source.ks punctuation.definition.arguments.begin.bracket.round.ks
+            )
+            ^
+            source.ks punctuation.definition.arguments.end.bracket.round.ks

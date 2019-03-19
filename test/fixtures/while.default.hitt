@@ -1,0 +1,57 @@
+original file
+-----------------------------------
+while supply > demand {
+    buy()
+}
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>while supply > demand {
+ while
+ ^^^^^
+ source.ks keyword.control.loop.while.ks
+       
+      ^
+      source.ks
+       supply
+       ^^^^^^
+       source.ks variable.other.ks
+              
+             ^
+             source.ks
+              >
+              ^
+              source.ks keyword.operator.comparison.ks
+                
+               ^
+               source.ks
+                demand
+                ^^^^^^
+                source.ks variable.other.ks
+                       
+                      ^
+                      source.ks
+                       {
+                       ^
+                       source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>    buy()
+     
+ ^^^^
+ source.ks
+     buy
+     ^^^
+     source.ks entity.name.function.ks
+        (
+        ^
+        source.ks punctuation.definition.arguments.begin.bracket.round.ks
+         )
+         ^
+         source.ks punctuation.definition.arguments.end.bracket.round.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.block.end.bracket.curly.ks

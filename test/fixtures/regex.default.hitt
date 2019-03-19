@@ -1,0 +1,39 @@
+original file
+-----------------------------------
+let r = /foobar/gim
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>let r = /foobar/gim
+ let
+ ^^^
+ source.ks storage.type.readwrite.ks
+     
+    ^
+    source.ks
+     r
+     ^
+     source.ks meta.definition.variable.ks variable.other.readwrite.ks
+       
+      ^
+      source.ks
+       =
+       ^
+       source.ks keyword.operator.assignment.ks
+         
+        ^
+        source.ks string.regexp.ks
+         /
+         ^
+         source.ks string.regexp.ks punctuation.definition.string.begin.ks
+          foobar
+          ^^^^^^
+          source.ks string.regexp.ks
+                /
+                ^
+                source.ks string.regexp.ks punctuation.definition.string.end.ks
+                 gim
+                 ^^^
+                 source.ks string.regexp.ks

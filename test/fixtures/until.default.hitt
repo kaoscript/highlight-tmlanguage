@@ -1,0 +1,57 @@
+original file
+-----------------------------------
+until supply > demand {
+    sell()
+}
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>until supply > demand {
+ until
+ ^^^^^
+ source.ks keyword.control.loop.until.ks
+       
+      ^
+      source.ks
+       supply
+       ^^^^^^
+       source.ks variable.other.ks
+              
+             ^
+             source.ks
+              >
+              ^
+              source.ks keyword.operator.comparison.ks
+                
+               ^
+               source.ks
+                demand
+                ^^^^^^
+                source.ks variable.other.ks
+                       
+                      ^
+                      source.ks
+                       {
+                       ^
+                       source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>    sell()
+     
+ ^^^^
+ source.ks
+     sell
+     ^^^^
+     source.ks entity.name.function.ks
+         (
+         ^
+         source.ks punctuation.definition.arguments.begin.bracket.round.ks
+          )
+          ^
+          source.ks punctuation.definition.arguments.end.bracket.round.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.block.end.bracket.curly.ks

@@ -1,0 +1,384 @@
+original file
+-----------------------------------
+let a = [1..5]
+// 1, 2, 3, 4, 5
+let b = [1..<5]
+// 1, 2, 3, 4
+let c = [1<..5]
+// 2, 3, 4, 5
+let d = [1<..<5]
+// 2, 3, 4
+let e = [1..6..2]
+// 1, 3, 5
+let f = [1<..<6..2]
+// 3, 5
+let g = [5..1]
+// 5, 4, 3, 2, 1
+let h = [5..1..2]
+// 5, 3, 1
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>let a = [1..5]
+ let
+ ^^^
+ source.ks storage.type.readwrite.ks
+     
+    ^
+    source.ks
+     a
+     ^
+     source.ks meta.definition.variable.ks variable.other.readwrite.ks
+       
+      ^
+      source.ks
+       =
+       ^
+       source.ks keyword.operator.assignment.ks
+         
+        ^
+        source.ks
+         [
+         ^
+         source.ks punctuation.definition.array.begin.bracket.square.ks
+          1
+          ^
+          source.ks constant.numeric.decimal.ks
+           ..
+           ^^
+           source.ks keyword.operator.range.ks
+             5
+             ^
+             source.ks constant.numeric.decimal.ks
+              ]
+              ^
+              source.ks punctuation.definition.array.end.bracket.square.ks
+>
+>// 1, 2, 3, 4, 5
+ //
+ ^^
+ source.ks comment.line.double-slash.ks punctuation.definition.comment.ks
+    1, 2, 3, 4, 5
+   ^^^^^^^^^^^^^^
+   source.ks comment.line.double-slash.ks
+>
+>let b = [1..<5]
+ let
+ ^^^
+ source.ks storage.type.readwrite.ks
+     
+    ^
+    source.ks
+     b
+     ^
+     source.ks meta.definition.variable.ks variable.other.readwrite.ks
+       
+      ^
+      source.ks
+       =
+       ^
+       source.ks keyword.operator.assignment.ks
+         
+        ^
+        source.ks
+         [
+         ^
+         source.ks punctuation.definition.array.begin.bracket.square.ks
+          1
+          ^
+          source.ks constant.numeric.decimal.ks
+           ..<
+           ^^^
+           source.ks keyword.operator.range.ks
+              5
+              ^
+              source.ks constant.numeric.decimal.ks
+               ]
+               ^
+               source.ks punctuation.definition.array.end.bracket.square.ks
+>
+>// 1, 2, 3, 4
+ //
+ ^^
+ source.ks comment.line.double-slash.ks punctuation.definition.comment.ks
+    1, 2, 3, 4
+   ^^^^^^^^^^^
+   source.ks comment.line.double-slash.ks
+>
+>let c = [1<..5]
+ let
+ ^^^
+ source.ks storage.type.readwrite.ks
+     
+    ^
+    source.ks
+     c
+     ^
+     source.ks meta.definition.variable.ks variable.other.readwrite.ks
+       
+      ^
+      source.ks
+       =
+       ^
+       source.ks keyword.operator.assignment.ks
+         
+        ^
+        source.ks
+         [
+         ^
+         source.ks punctuation.definition.array.begin.bracket.square.ks
+          1
+          ^
+          source.ks constant.numeric.decimal.ks
+           <..
+           ^^^
+           source.ks keyword.operator.range.ks
+              5
+              ^
+              source.ks constant.numeric.decimal.ks
+               ]
+               ^
+               source.ks punctuation.definition.array.end.bracket.square.ks
+>
+>// 2, 3, 4, 5
+ //
+ ^^
+ source.ks comment.line.double-slash.ks punctuation.definition.comment.ks
+    2, 3, 4, 5
+   ^^^^^^^^^^^
+   source.ks comment.line.double-slash.ks
+>
+>let d = [1<..<5]
+ let
+ ^^^
+ source.ks storage.type.readwrite.ks
+     
+    ^
+    source.ks
+     d
+     ^
+     source.ks meta.definition.variable.ks variable.other.readwrite.ks
+       
+      ^
+      source.ks
+       =
+       ^
+       source.ks keyword.operator.assignment.ks
+         
+        ^
+        source.ks
+         [
+         ^
+         source.ks punctuation.definition.array.begin.bracket.square.ks
+          1
+          ^
+          source.ks constant.numeric.decimal.ks
+           <..<
+           ^^^^
+           source.ks keyword.operator.range.ks
+               5
+               ^
+               source.ks constant.numeric.decimal.ks
+                ]
+                ^
+                source.ks punctuation.definition.array.end.bracket.square.ks
+>
+>// 2, 3, 4
+ //
+ ^^
+ source.ks comment.line.double-slash.ks punctuation.definition.comment.ks
+    2, 3, 4
+   ^^^^^^^^
+   source.ks comment.line.double-slash.ks
+>
+>let e = [1..6..2]
+ let
+ ^^^
+ source.ks storage.type.readwrite.ks
+     
+    ^
+    source.ks
+     e
+     ^
+     source.ks meta.definition.variable.ks variable.other.readwrite.ks
+       
+      ^
+      source.ks
+       =
+       ^
+       source.ks keyword.operator.assignment.ks
+         
+        ^
+        source.ks
+         [
+         ^
+         source.ks punctuation.definition.array.begin.bracket.square.ks
+          1
+          ^
+          source.ks constant.numeric.decimal.ks
+           ..
+           ^^
+           source.ks keyword.operator.range.ks
+             6
+             ^
+             source.ks constant.numeric.decimal.ks
+              ..
+              ^^
+              source.ks keyword.operator.range.ks
+                2
+                ^
+                source.ks constant.numeric.decimal.ks
+                 ]
+                 ^
+                 source.ks punctuation.definition.array.end.bracket.square.ks
+>
+>// 1, 3, 5
+ //
+ ^^
+ source.ks comment.line.double-slash.ks punctuation.definition.comment.ks
+    1, 3, 5
+   ^^^^^^^^
+   source.ks comment.line.double-slash.ks
+>
+>let f = [1<..<6..2]
+ let
+ ^^^
+ source.ks storage.type.readwrite.ks
+     
+    ^
+    source.ks
+     f
+     ^
+     source.ks meta.definition.variable.ks variable.other.readwrite.ks
+       
+      ^
+      source.ks
+       =
+       ^
+       source.ks keyword.operator.assignment.ks
+         
+        ^
+        source.ks
+         [
+         ^
+         source.ks punctuation.definition.array.begin.bracket.square.ks
+          1
+          ^
+          source.ks constant.numeric.decimal.ks
+           <..<
+           ^^^^
+           source.ks keyword.operator.range.ks
+               6
+               ^
+               source.ks constant.numeric.decimal.ks
+                ..
+                ^^
+                source.ks keyword.operator.range.ks
+                  2
+                  ^
+                  source.ks constant.numeric.decimal.ks
+                   ]
+                   ^
+                   source.ks punctuation.definition.array.end.bracket.square.ks
+>
+>// 3, 5
+ //
+ ^^
+ source.ks comment.line.double-slash.ks punctuation.definition.comment.ks
+    3, 5
+   ^^^^^
+   source.ks comment.line.double-slash.ks
+>
+>let g = [5..1]
+ let
+ ^^^
+ source.ks storage.type.readwrite.ks
+     
+    ^
+    source.ks
+     g
+     ^
+     source.ks meta.definition.variable.ks variable.other.readwrite.ks
+       
+      ^
+      source.ks
+       =
+       ^
+       source.ks keyword.operator.assignment.ks
+         
+        ^
+        source.ks
+         [
+         ^
+         source.ks punctuation.definition.array.begin.bracket.square.ks
+          5
+          ^
+          source.ks constant.numeric.decimal.ks
+           ..
+           ^^
+           source.ks keyword.operator.range.ks
+             1
+             ^
+             source.ks constant.numeric.decimal.ks
+              ]
+              ^
+              source.ks punctuation.definition.array.end.bracket.square.ks
+>
+>// 5, 4, 3, 2, 1
+ //
+ ^^
+ source.ks comment.line.double-slash.ks punctuation.definition.comment.ks
+    5, 4, 3, 2, 1
+   ^^^^^^^^^^^^^^
+   source.ks comment.line.double-slash.ks
+>
+>let h = [5..1..2]
+ let
+ ^^^
+ source.ks storage.type.readwrite.ks
+     
+    ^
+    source.ks
+     h
+     ^
+     source.ks meta.definition.variable.ks variable.other.readwrite.ks
+       
+      ^
+      source.ks
+       =
+       ^
+       source.ks keyword.operator.assignment.ks
+         
+        ^
+        source.ks
+         [
+         ^
+         source.ks punctuation.definition.array.begin.bracket.square.ks
+          5
+          ^
+          source.ks constant.numeric.decimal.ks
+           ..
+           ^^
+           source.ks keyword.operator.range.ks
+             1
+             ^
+             source.ks constant.numeric.decimal.ks
+              ..
+              ^^
+              source.ks keyword.operator.range.ks
+                2
+                ^
+                source.ks constant.numeric.decimal.ks
+                 ]
+                 ^
+                 source.ks punctuation.definition.array.end.bracket.square.ks
+>
+>// 5, 3, 1
+ //
+ ^^
+ source.ks comment.line.double-slash.ks punctuation.definition.comment.ks
+    5, 3, 1
+   ^^^^^^^^
+   source.ks comment.line.double-slash.ks

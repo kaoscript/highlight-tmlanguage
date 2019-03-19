@@ -1,0 +1,519 @@
+original file
+-----------------------------------
+let x, y, z, foo, bar, qux
+if x {
+    if foo {
+    }
+    else if bar {
+    }
+    else if qux {
+    }
+    else {
+    }
+}
+else if y {
+}
+else if z {
+    if foo {
+    }
+    else if bar {
+    }
+    else if qux {
+    }
+    else {
+    }
+}
+else {
+    if foo {
+    }
+    else if bar {
+    }
+    else if qux {
+    }
+}
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>let x, y, z, foo, bar, qux
+ let
+ ^^^
+ source.ks storage.type.readwrite.ks
+     
+    ^
+    source.ks
+     x
+     ^
+     source.ks meta.definition.variable.ks variable.other.readwrite.ks
+      ,
+      ^
+      source.ks punctuation.separator.comma.ks
+        
+       ^
+       source.ks
+        y
+        ^
+        source.ks meta.definition.variable.ks variable.other.readwrite.ks
+         ,
+         ^
+         source.ks punctuation.separator.comma.ks
+           
+          ^
+          source.ks
+           z
+           ^
+           source.ks meta.definition.variable.ks variable.other.readwrite.ks
+            ,
+            ^
+            source.ks punctuation.separator.comma.ks
+              
+             ^
+             source.ks
+              foo
+              ^^^
+              source.ks meta.definition.variable.ks variable.other.readwrite.ks
+                 ,
+                 ^
+                 source.ks punctuation.separator.comma.ks
+                   
+                  ^
+                  source.ks
+                   bar
+                   ^^^
+                   source.ks meta.definition.variable.ks variable.other.readwrite.ks
+                      ,
+                      ^
+                      source.ks punctuation.separator.comma.ks
+                        
+                       ^
+                       source.ks
+                        qux
+                        ^^^
+                        source.ks meta.definition.variable.ks variable.other.readwrite.ks
+>
+>if x {
+ if
+ ^^
+ source.ks keyword.control.conditional.if.ks
+    
+   ^
+   source.ks
+    x
+    ^
+    source.ks variable.other.ks
+      
+     ^
+     source.ks
+      {
+      ^
+      source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>    if foo {
+     
+ ^^^^
+ source.ks
+     if
+     ^^
+     source.ks keyword.control.conditional.if.ks
+        
+       ^
+       source.ks
+        foo
+        ^^^
+        source.ks variable.other.ks
+            
+           ^
+           source.ks
+            {
+            ^
+            source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>    }
+     
+ ^^^^
+ source.ks
+     }
+     ^
+     source.ks punctuation.definition.block.end.bracket.curly.ks
+>
+>    else if bar {
+     
+ ^^^^
+ source.ks
+     else
+     ^^^^
+     source.ks keyword.control.conditional.else.ks
+          
+         ^
+         source.ks
+          if
+          ^^
+          source.ks keyword.control.conditional.if.ks
+             
+            ^
+            source.ks
+             bar
+             ^^^
+             source.ks variable.other.ks
+                 
+                ^
+                source.ks
+                 {
+                 ^
+                 source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>    }
+     
+ ^^^^
+ source.ks
+     }
+     ^
+     source.ks punctuation.definition.block.end.bracket.curly.ks
+>
+>    else if qux {
+     
+ ^^^^
+ source.ks
+     else
+     ^^^^
+     source.ks keyword.control.conditional.else.ks
+          
+         ^
+         source.ks
+          if
+          ^^
+          source.ks keyword.control.conditional.if.ks
+             
+            ^
+            source.ks
+             qux
+             ^^^
+             source.ks variable.other.ks
+                 
+                ^
+                source.ks
+                 {
+                 ^
+                 source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>    }
+     
+ ^^^^
+ source.ks
+     }
+     ^
+     source.ks punctuation.definition.block.end.bracket.curly.ks
+>
+>    else {
+     
+ ^^^^
+ source.ks
+     else
+     ^^^^
+     source.ks keyword.control.conditional.else.ks
+          
+         ^
+         source.ks
+          {
+          ^
+          source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>    }
+     
+ ^^^^
+ source.ks
+     }
+     ^
+     source.ks punctuation.definition.block.end.bracket.curly.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.block.end.bracket.curly.ks
+>
+>else if y {
+ else
+ ^^^^
+ source.ks keyword.control.conditional.else.ks
+      
+     ^
+     source.ks
+      if
+      ^^
+      source.ks keyword.control.conditional.if.ks
+         
+        ^
+        source.ks
+         y
+         ^
+         source.ks variable.other.ks
+           
+          ^
+          source.ks
+           {
+           ^
+           source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.block.end.bracket.curly.ks
+>
+>else if z {
+ else
+ ^^^^
+ source.ks keyword.control.conditional.else.ks
+      
+     ^
+     source.ks
+      if
+      ^^
+      source.ks keyword.control.conditional.if.ks
+         
+        ^
+        source.ks
+         z
+         ^
+         source.ks variable.other.ks
+           
+          ^
+          source.ks
+           {
+           ^
+           source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>    if foo {
+     
+ ^^^^
+ source.ks
+     if
+     ^^
+     source.ks keyword.control.conditional.if.ks
+        
+       ^
+       source.ks
+        foo
+        ^^^
+        source.ks variable.other.ks
+            
+           ^
+           source.ks
+            {
+            ^
+            source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>    }
+     
+ ^^^^
+ source.ks
+     }
+     ^
+     source.ks punctuation.definition.block.end.bracket.curly.ks
+>
+>    else if bar {
+     
+ ^^^^
+ source.ks
+     else
+     ^^^^
+     source.ks keyword.control.conditional.else.ks
+          
+         ^
+         source.ks
+          if
+          ^^
+          source.ks keyword.control.conditional.if.ks
+             
+            ^
+            source.ks
+             bar
+             ^^^
+             source.ks variable.other.ks
+                 
+                ^
+                source.ks
+                 {
+                 ^
+                 source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>    }
+     
+ ^^^^
+ source.ks
+     }
+     ^
+     source.ks punctuation.definition.block.end.bracket.curly.ks
+>
+>    else if qux {
+     
+ ^^^^
+ source.ks
+     else
+     ^^^^
+     source.ks keyword.control.conditional.else.ks
+          
+         ^
+         source.ks
+          if
+          ^^
+          source.ks keyword.control.conditional.if.ks
+             
+            ^
+            source.ks
+             qux
+             ^^^
+             source.ks variable.other.ks
+                 
+                ^
+                source.ks
+                 {
+                 ^
+                 source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>    }
+     
+ ^^^^
+ source.ks
+     }
+     ^
+     source.ks punctuation.definition.block.end.bracket.curly.ks
+>
+>    else {
+     
+ ^^^^
+ source.ks
+     else
+     ^^^^
+     source.ks keyword.control.conditional.else.ks
+          
+         ^
+         source.ks
+          {
+          ^
+          source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>    }
+     
+ ^^^^
+ source.ks
+     }
+     ^
+     source.ks punctuation.definition.block.end.bracket.curly.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.block.end.bracket.curly.ks
+>
+>else {
+ else
+ ^^^^
+ source.ks keyword.control.conditional.else.ks
+      
+     ^
+     source.ks
+      {
+      ^
+      source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>    if foo {
+     
+ ^^^^
+ source.ks
+     if
+     ^^
+     source.ks keyword.control.conditional.if.ks
+        
+       ^
+       source.ks
+        foo
+        ^^^
+        source.ks variable.other.ks
+            
+           ^
+           source.ks
+            {
+            ^
+            source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>    }
+     
+ ^^^^
+ source.ks
+     }
+     ^
+     source.ks punctuation.definition.block.end.bracket.curly.ks
+>
+>    else if bar {
+     
+ ^^^^
+ source.ks
+     else
+     ^^^^
+     source.ks keyword.control.conditional.else.ks
+          
+         ^
+         source.ks
+          if
+          ^^
+          source.ks keyword.control.conditional.if.ks
+             
+            ^
+            source.ks
+             bar
+             ^^^
+             source.ks variable.other.ks
+                 
+                ^
+                source.ks
+                 {
+                 ^
+                 source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>    }
+     
+ ^^^^
+ source.ks
+     }
+     ^
+     source.ks punctuation.definition.block.end.bracket.curly.ks
+>
+>    else if qux {
+     
+ ^^^^
+ source.ks
+     else
+     ^^^^
+     source.ks keyword.control.conditional.else.ks
+          
+         ^
+         source.ks
+          if
+          ^^
+          source.ks keyword.control.conditional.if.ks
+             
+            ^
+            source.ks
+             qux
+             ^^^
+             source.ks variable.other.ks
+                 
+                ^
+                source.ks
+                 {
+                 ^
+                 source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>    }
+     
+ ^^^^
+ source.ks
+     }
+     ^
+     source.ks punctuation.definition.block.end.bracket.curly.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.block.end.bracket.curly.ks
