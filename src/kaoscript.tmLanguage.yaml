@@ -13,6 +13,7 @@ variables:
   type-identifier: '{{identifier}}(?:<{{identifier}}>)?'
 
 patterns:
+- include: '#extern-statement'
 - include: '#statements'
 
 repository:
@@ -204,6 +205,25 @@ repository:
       match: '[()]'
     - include: '#comma'
   # }}}
+  extern-statement: # {{{
+    begin: '^(extern)\s+'
+    beginCaptures:
+      '1': { name: 'keyword.control.extern.ks' }
+    end: '(?<=\}|$)'
+    patterns:
+    - begin: '{{identifier}}'
+      beginCaptures:
+        '0': { name: 'variable.other.constant.ks' }
+      end: (?=\,|$)
+      patterns:
+      - name: 'meta.type.annotation.ks'
+        begin: '(\:)'
+        beginCaptures:
+          '1': { name: 'storage.modifier.type.ks' }
+        end: '(?=\s*,|$)'
+        patterns:
+        - include: '#type'
+  # }}}
   function-call: # {{{
     begin: ({{identifier}})(\*[$*])?(?=\()
     beginCaptures:
@@ -335,6 +355,54 @@ repository:
     patterns:
     - include: '#type'
     - include: '#comma'
+  # }}}
+  for-statement: # {{{
+    begin: '^\s*(for)\s+'
+    beginCaptures:
+      '1': { name: 'keyword.control.loop.for.ks' }
+    end: '(?<=\})'
+    patterns:
+      - begin: 'const'
+        beginCaptures:
+          '0': { name: 'storage.type.constant.ks' }
+        end: '(?=\bfrom\b|\bin\b|\bof\b)'
+        patterns:
+        - include: '#const-statement-variable'
+      - begin: 'let'
+        beginCaptures:
+          '0': { name: 'storage.type.readwrite.ks' }
+        end: '(?=\bfrom\b|\bin\b|\bof\b)'
+        patterns:
+        - include: '#let-statement-variable'
+      - name: 'keyword.operator.loop.from.ks'
+        match: '\bfrom\b(?!=[\[\]\(\)\.])'
+      - name: 'keyword.operator.loop.til.ks'
+        match: '\btil\b(?!=[\[\]\(\)\.])'
+      - name: 'keyword.operator.loop.to.ks'
+        match: '\bto\b(?!=[\[\]\(\)\.])'
+      - name: 'keyword.operator.loop.by.ks'
+        match: '\bby\b(?!=[\[\]\(\)\.])'
+      - name: 'keyword.operator.loop.in.ks'
+        match: '\bin\b(?!=[\[\]\(\)\.])'
+      - name: 'keyword.operator.loop.desc.ks'
+        match: '\bdesc\b(?!=[\[\]\(\)\.])'
+      - name: 'keyword.operator.loop.of.ks'
+        match: '\bof\b(?!=[\[\]\(\)\.])'
+      - name: 'keyword.operator.loop.while.ks'
+        match: '\bwhile\b(?!=[\[\]\(\)\.])'
+      - name: 'keyword.operator.loop.until.ks'
+        match: '\buntil\b(?!=[\[\]\(\)\.])'
+      - name: 'keyword.operator.conditional.when.ks'
+        match: '\bwhen\b(?!=[\[\]\(\)\.])'
+      - include: '#block'
+      - name: 'keyword.operator.range.ks'
+        match: '(?<!\.)\<?\.\.\<?(?!\.)'
+      - name: 'punctuation.separator.alternative-value.ks'
+        match: ':'
+      - begin: '(?=.)'
+        end: '(?=\bfrom\b|\btil\b|\bto\b|\bby\b|\bin\b|\bdesc\b|\bof\b|\bwhile\b|\buntil\b|\bwhen\b|\{|\<?\.\.\<?)'
+        patterns:
+        - include: '#expression'
   # }}}
   if-statement: # {{{
     begin: '(?=^\s*if\s+)'
@@ -475,16 +543,16 @@ repository:
   object: # {{{
     begin: '\{'
     beginCaptures:
-      '0': { name: punctuation.definition.object.begin.bracket.curly.ks }
+      '0': { name: 'punctuation.definition.object.begin.bracket.curly.ks' }
     end: '\}'
     endCaptures:
-      '0': { name: punctuation.definition.object.end.bracket.curly.ks }
+      '0': { name: 'punctuation.definition.object.end.bracket.curly.ks' }
     patterns:
-    - name: meta.object.key.ks
-      match: ({{identifier}})
+    - name: 'meta.object.key.ks'
+      match: '({{identifier}})'
     - begin: '\:'
       beginCaptures:
-        '0': { name: punctuation.separator.key-value.ks }
+        '0': { name: 'punctuation.separator.key-value.ks' }
       end: '$|\,'
       patterns:
       - include: '#expression'
@@ -626,6 +694,7 @@ repository:
     - include: '#else-statement'
     - include: '#else-if-statement'
     - include: '#function-statement'
+    - include: '#for-statement'
     - include: '#if-statement'
     - include: '#let-statement'
     - include: '#return-statement'
@@ -713,6 +782,23 @@ repository:
           '1': { name: 'punctuation.definition.typeparameters.end.ks' }
         patterns:
         - include: '#type'
+      - begin: '(\{)'
+        beginCaptures:
+          '1': { name: 'punctuation.definition.object.begin.bracket.curly.ks' }
+        end: '(\})'
+        endCaptures:
+          '1': { name: 'punctuation.definition.object.end.bracket.curly.ks' }
+        patterns:
+        - include: '#type-object'
+  # }}}
+  type-object: # // {{{
+    patterns:
+    - begin: '({{identifier}})(?=\()'
+      beginCaptures:
+        '1': { name: 'entity.name.function.ks' }
+      end: '(?<=\))'
+      patterns:
+      - include: '#function-parameters'
   # }}}
   until-statement: # {{{
     begin: '(?=^\s*until\s+)'

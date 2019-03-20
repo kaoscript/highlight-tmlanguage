@@ -1,0 +1,75 @@
+original file
+-----------------------------------
+for x from 0 til 10 when test(x) {
+}
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>for x from 0 til 10 when test(x) {
+ for
+ ^^^
+ source.ks keyword.control.loop.for.ks
+     
+    ^
+    source.ks
+     x
+     ^
+     source.ks variable.other.ks
+       
+      ^
+      source.ks
+       from
+       ^^^^
+       source.ks keyword.operator.loop.from.ks
+            
+           ^
+           source.ks
+            0
+            ^
+            source.ks constant.numeric.decimal.ks
+              
+             ^
+             source.ks
+              til
+              ^^^
+              source.ks keyword.operator.loop.til.ks
+                  
+                 ^
+                 source.ks
+                  10
+                  ^^
+                  source.ks constant.numeric.decimal.ks
+                     
+                    ^
+                    source.ks
+                     when
+                     ^^^^
+                     source.ks keyword.operator.conditional.when.ks
+                          
+                         ^
+                         source.ks
+                          test
+                          ^^^^
+                          source.ks entity.name.function.ks
+                              (
+                              ^
+                              source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                               x
+                               ^
+                               source.ks variable.other.ks
+                                )
+                                ^
+                                source.ks punctuation.definition.arguments.end.bracket.round.ks
+                                  
+                                 ^
+                                 source.ks
+                                  {
+                                  ^
+                                  source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.block.end.bracket.curly.ks

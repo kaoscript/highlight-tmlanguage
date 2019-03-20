@@ -1,0 +1,78 @@
+original file
+-----------------------------------
+for x from 0 til 10 until y > x {
+}
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>for x from 0 til 10 until y > x {
+ for
+ ^^^
+ source.ks keyword.control.loop.for.ks
+     
+    ^
+    source.ks
+     x
+     ^
+     source.ks variable.other.ks
+       
+      ^
+      source.ks
+       from
+       ^^^^
+       source.ks keyword.operator.loop.from.ks
+            
+           ^
+           source.ks
+            0
+            ^
+            source.ks constant.numeric.decimal.ks
+              
+             ^
+             source.ks
+              til
+              ^^^
+              source.ks keyword.operator.loop.til.ks
+                  
+                 ^
+                 source.ks
+                  10
+                  ^^
+                  source.ks constant.numeric.decimal.ks
+                     
+                    ^
+                    source.ks
+                     until
+                     ^^^^^
+                     source.ks keyword.operator.loop.until.ks
+                           
+                          ^
+                          source.ks
+                           y
+                           ^
+                           source.ks variable.other.ks
+                             
+                            ^
+                            source.ks
+                             >
+                             ^
+                             source.ks keyword.operator.comparison.ks
+                               
+                              ^
+                              source.ks
+                               x
+                               ^
+                               source.ks variable.other.ks
+                                 
+                                ^
+                                source.ks
+                                 {
+                                 ^
+                                 source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.block.end.bracket.curly.ks

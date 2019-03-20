@@ -21,13 +21,13 @@ grammar: kaoscript.tmLanguage
 >extern console
  extern
  ^^^^^^
- source.ks variable.other.ks
+ source.ks keyword.control.extern.ks
         
        ^
        source.ks
         console
         ^^^^^^^
-        source.ks variable.other.ks
+        source.ks variable.other.constant.ks
 >
 >func foo(item?) {
  func

@@ -1,0 +1,219 @@
+original file
+-----------------------------------
+extern console: {
+    log(...args)
+}
+heroes = ['leto', 'duncan', 'goku']
+for hero, index in heroes from 2 {
+    console.log('The hero at index %d is %s', index, hero)
+}
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>extern console: {
+ extern
+ ^^^^^^
+ source.ks keyword.control.extern.ks
+        
+       ^
+       source.ks
+        console
+        ^^^^^^^
+        source.ks variable.other.constant.ks
+               :
+               ^
+               source.ks meta.type.annotation.ks storage.modifier.type.ks
+                 
+                ^
+                source.ks meta.type.annotation.ks
+                 {
+                 ^
+                 source.ks meta.type.annotation.ks punctuation.definition.object.begin.bracket.curly.ks
+>
+>    log(...args)
+     
+ ^^^^
+ source.ks meta.type.annotation.ks
+     log
+     ^^^
+     source.ks meta.type.annotation.ks entity.name.function.ks
+        (
+        ^
+        source.ks meta.type.annotation.ks punctuation.definition.parameters.begin.bracket.round.ks
+         ...
+         ^^^
+         source.ks meta.type.annotation.ks keyword.operator.rest.ks
+            args
+            ^^^^
+            source.ks meta.type.annotation.ks variable.parameter.ks
+                )
+                ^
+                source.ks meta.type.annotation.ks punctuation.definition.parameters.end.bracket.round.ks
+>
+>}
+ }
+ ^
+ source.ks meta.type.annotation.ks punctuation.definition.object.end.bracket.curly.ks
+>
+>heroes = ['leto', 'duncan', 'goku']
+ heroes
+ ^^^^^^
+ source.ks variable.other.ks
+        
+       ^
+       source.ks
+        =
+        ^
+        source.ks keyword.operator.assignment.ks
+          
+         ^
+         source.ks
+          [
+          ^
+          source.ks punctuation.definition.array.begin.bracket.square.ks
+           '
+           ^
+           source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
+            leto
+            ^^^^
+            source.ks string.quoted.single.ks
+                '
+                ^
+                source.ks string.quoted.single.ks punctuation.definition.string.end.ks
+                 ,
+                 ^
+                 source.ks punctuation.separator.comma.ks
+                   
+                  ^
+                  source.ks
+                   '
+                   ^
+                   source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
+                    duncan
+                    ^^^^^^
+                    source.ks string.quoted.single.ks
+                          '
+                          ^
+                          source.ks string.quoted.single.ks punctuation.definition.string.end.ks
+                           ,
+                           ^
+                           source.ks punctuation.separator.comma.ks
+                             
+                            ^
+                            source.ks
+                             '
+                             ^
+                             source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
+                              goku
+                              ^^^^
+                              source.ks string.quoted.single.ks
+                                  '
+                                  ^
+                                  source.ks string.quoted.single.ks punctuation.definition.string.end.ks
+                                   ]
+                                   ^
+                                   source.ks punctuation.definition.array.end.bracket.square.ks
+>
+>for hero, index in heroes from 2 {
+ for
+ ^^^
+ source.ks keyword.control.loop.for.ks
+     
+    ^
+    source.ks
+     hero
+     ^^^^
+     source.ks variable.other.ks
+         ,
+         ^
+         source.ks punctuation.separator.comma.ks
+           
+          ^
+          source.ks
+           index
+           ^^^^^
+           source.ks variable.other.ks
+                 
+                ^
+                source.ks
+                 in
+                 ^^
+                 source.ks keyword.operator.loop.in.ks
+                    
+                   ^
+                   source.ks
+                    heroes
+                    ^^^^^^
+                    source.ks variable.other.ks
+                           
+                          ^
+                          source.ks
+                           from
+                           ^^^^
+                           source.ks keyword.operator.loop.from.ks
+                                
+                               ^
+                               source.ks
+                                2
+                                ^
+                                source.ks constant.numeric.decimal.ks
+                                  
+                                 ^
+                                 source.ks
+                                  {
+                                  ^
+                                  source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>    console.log('The hero at index %d is %s', index, hero)
+     
+ ^^^^
+ source.ks
+     console
+     ^^^^^^^
+     source.ks variable.other.object.ks
+            .
+            ^
+            source.ks punctuation.accessor.object.ks
+             log
+             ^^^
+             source.ks entity.name.function.ks
+                (
+                ^
+                source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                 '
+                 ^
+                 source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
+                  The hero at index %d is %s
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^
+                  source.ks string.quoted.single.ks
+                                            '
+                                            ^
+                                            source.ks string.quoted.single.ks punctuation.definition.string.end.ks
+                                             ,
+                                             ^
+                                             source.ks punctuation.separator.comma.ks
+                                               
+                                              ^
+                                              source.ks
+                                               index
+                                               ^^^^^
+                                               source.ks variable.other.ks
+                                                    ,
+                                                    ^
+                                                    source.ks punctuation.separator.comma.ks
+                                                      
+                                                     ^
+                                                     source.ks
+                                                      hero
+                                                      ^^^^
+                                                      source.ks variable.other.ks
+                                                          )
+                                                          ^
+                                                          source.ks punctuation.definition.arguments.end.bracket.round.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.block.end.bracket.curly.ks

@@ -1,0 +1,129 @@
+original file
+-----------------------------------
+heroes = ['leto', 'duncan', 'goku']
+for :index in heroes {
+    console.log(index)
+}
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>heroes = ['leto', 'duncan', 'goku']
+ heroes
+ ^^^^^^
+ source.ks variable.other.ks
+        
+       ^
+       source.ks
+        =
+        ^
+        source.ks keyword.operator.assignment.ks
+          
+         ^
+         source.ks
+          [
+          ^
+          source.ks punctuation.definition.array.begin.bracket.square.ks
+           '
+           ^
+           source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
+            leto
+            ^^^^
+            source.ks string.quoted.single.ks
+                '
+                ^
+                source.ks string.quoted.single.ks punctuation.definition.string.end.ks
+                 ,
+                 ^
+                 source.ks punctuation.separator.comma.ks
+                   
+                  ^
+                  source.ks
+                   '
+                   ^
+                   source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
+                    duncan
+                    ^^^^^^
+                    source.ks string.quoted.single.ks
+                          '
+                          ^
+                          source.ks string.quoted.single.ks punctuation.definition.string.end.ks
+                           ,
+                           ^
+                           source.ks punctuation.separator.comma.ks
+                             
+                            ^
+                            source.ks
+                             '
+                             ^
+                             source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
+                              goku
+                              ^^^^
+                              source.ks string.quoted.single.ks
+                                  '
+                                  ^
+                                  source.ks string.quoted.single.ks punctuation.definition.string.end.ks
+                                   ]
+                                   ^
+                                   source.ks punctuation.definition.array.end.bracket.square.ks
+>
+>for :index in heroes {
+ for
+ ^^^
+ source.ks keyword.control.loop.for.ks
+     
+    ^
+    source.ks
+     :
+     ^
+     source.ks punctuation.separator.alternative-value.ks
+      index
+      ^^^^^
+      source.ks variable.other.ks
+            
+           ^
+           source.ks
+            in
+            ^^
+            source.ks keyword.operator.loop.in.ks
+               
+              ^
+              source.ks
+               heroes
+               ^^^^^^
+               source.ks variable.other.ks
+                      
+                     ^
+                     source.ks
+                      {
+                      ^
+                      source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>    console.log(index)
+     
+ ^^^^
+ source.ks
+     console
+     ^^^^^^^
+     source.ks variable.other.object.ks
+            .
+            ^
+            source.ks punctuation.accessor.object.ks
+             log
+             ^^^
+             source.ks entity.name.function.ks
+                (
+                ^
+                source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                 index
+                 ^^^^^
+                 source.ks variable.other.ks
+                      )
+                      ^
+                      source.ks punctuation.definition.arguments.end.bracket.round.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.block.end.bracket.curly.ks

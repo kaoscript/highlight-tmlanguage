@@ -1,0 +1,102 @@
+original file
+-----------------------------------
+let x = 3.14
+for let x from 0 to 10 by 2 {
+}
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>let x = 3.14
+ let
+ ^^^
+ source.ks storage.type.readwrite.ks
+     
+    ^
+    source.ks
+     x
+     ^
+     source.ks meta.definition.variable.ks variable.other.readwrite.ks
+       
+      ^
+      source.ks
+       =
+       ^
+       source.ks keyword.operator.assignment.ks
+         
+        ^
+        source.ks
+         3
+         ^
+         source.ks constant.numeric.decimal.ks
+          .
+          ^
+          source.ks constant.numeric.decimal.ks meta.delimiter.decimal.period.ks
+           14
+           ^^
+           source.ks constant.numeric.decimal.ks
+>
+>for let x from 0 to 10 by 2 {
+ for
+ ^^^
+ source.ks keyword.control.loop.for.ks
+     
+    ^
+    source.ks
+     let
+     ^^^
+     source.ks storage.type.readwrite.ks
+         
+        ^
+        source.ks
+         x
+         ^
+         source.ks meta.definition.variable.ks variable.other.readwrite.ks
+           
+          ^
+          source.ks
+           from
+           ^^^^
+           source.ks keyword.operator.loop.from.ks
+                
+               ^
+               source.ks
+                0
+                ^
+                source.ks constant.numeric.decimal.ks
+                  
+                 ^
+                 source.ks
+                  to
+                  ^^
+                  source.ks keyword.operator.loop.to.ks
+                     
+                    ^
+                    source.ks
+                     10
+                     ^^
+                     source.ks constant.numeric.decimal.ks
+                        
+                       ^
+                       source.ks
+                        by
+                        ^^
+                        source.ks keyword.operator.loop.by.ks
+                           
+                          ^
+                          source.ks
+                           2
+                           ^
+                           source.ks constant.numeric.decimal.ks
+                             
+                            ^
+                            source.ks
+                             {
+                             ^
+                             source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.block.end.bracket.curly.ks

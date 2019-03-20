@@ -1,0 +1,42 @@
+original file
+-----------------------------------
+for x in 0 {
+}
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>for x in 0 {
+ for
+ ^^^
+ source.ks keyword.control.loop.for.ks
+     
+    ^
+    source.ks
+     x
+     ^
+     source.ks variable.other.ks
+       
+      ^
+      source.ks
+       in
+       ^^
+       source.ks keyword.operator.loop.in.ks
+          
+         ^
+         source.ks
+          0
+          ^
+          source.ks constant.numeric.decimal.ks
+            
+           ^
+           source.ks
+            {
+            ^
+            source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.block.end.bracket.curly.ks

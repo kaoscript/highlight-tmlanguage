@@ -1,0 +1,69 @@
+original file
+-----------------------------------
+for x in 0..10 while test(x) {
+}
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>for x in 0..10 while test(x) {
+ for
+ ^^^
+ source.ks keyword.control.loop.for.ks
+     
+    ^
+    source.ks
+     x
+     ^
+     source.ks variable.other.ks
+       
+      ^
+      source.ks
+       in
+       ^^
+       source.ks keyword.operator.loop.in.ks
+          
+         ^
+         source.ks
+          0
+          ^
+          source.ks constant.numeric.decimal.ks
+           ..
+           ^^
+           source.ks keyword.operator.range.ks
+             10
+             ^^
+             source.ks constant.numeric.decimal.ks
+                
+               ^
+               source.ks
+                while
+                ^^^^^
+                source.ks keyword.operator.loop.while.ks
+                      
+                     ^
+                     source.ks
+                      test
+                      ^^^^
+                      source.ks entity.name.function.ks
+                          (
+                          ^
+                          source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                           x
+                           ^
+                           source.ks variable.other.ks
+                            )
+                            ^
+                            source.ks punctuation.definition.arguments.end.bracket.round.ks
+                              
+                             ^
+                             source.ks
+                              {
+                              ^
+                              source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.block.end.bracket.curly.ks
