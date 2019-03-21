@@ -465,6 +465,34 @@
           </dict>
         </array>
       </dict>
+      <key>create-expression</key>
+      <dict>
+        <key>begin</key>
+        <string>(\bnew\b)</string>
+        <key>beginCaptures</key>
+        <dict>
+          <key>1</key>
+          <dict>
+            <key>name</key>
+            <string>keyword.operator.new.ks</string>
+          </dict>
+        </dict>
+        <key>end</key>
+        <string>(?&lt;=$|[\)\]\},])</string>
+        <key>patterns</key>
+        <array>
+          <dict>
+            <key>name</key>
+            <string>entity.name.type.ks</string>
+            <key>match</key>
+            <string>([_$[:alpha:]][_$[:alnum:]]*)</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#expression</string>
+          </dict>
+        </array>
+      </dict>
       <key>else-statement</key>
       <dict>
         <key>begin</key>
@@ -564,11 +592,19 @@
           </dict>
           <dict>
             <key>include</key>
+            <string>#create-expression</string>
+          </dict>
+          <dict>
+            <key>include</key>
             <string>#function-expression</string>
           </dict>
           <dict>
             <key>include</key>
-            <string>#function-call</string>
+            <string>#function-call-name</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#function-call-arguments</string>
           </dict>
           <dict>
             <key>include</key>
@@ -581,6 +617,10 @@
           <dict>
             <key>include</key>
             <string>#operator</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#tagged-template</string>
           </dict>
           <dict>
             <key>name</key>
@@ -602,8 +642,6 @@
       </dict>
       <key>expression-statement</key>
       <dict>
-        <key>name</key>
-        <string>es</string>
         <key>patterns</key>
         <array>
           <dict>
@@ -712,10 +750,10 @@
           </dict>
         </array>
       </dict>
-      <key>function-call</key>
+      <key>function-call-name</key>
       <dict>
         <key>begin</key>
-        <string>([_$[:alpha:]][_$[:alnum:]]*)(\*[$*])?(?=\()</string>
+        <string>([_$[:alpha:]][_$[:alnum:]]*)(?=(?:\*[$*])?\()</string>
         <key>beginCaptures</key>
         <dict>
           <key>1</key>
@@ -723,44 +761,42 @@
             <key>name</key>
             <string>entity.name.function.ks</string>
           </dict>
-          <key>2</key>
+        </dict>
+        <key>end</key>
+        <string>(?=[$*\(])</string>
+      </dict>
+      <key>function-call-arguments</key>
+      <dict>
+        <key>begin</key>
+        <string>(?&lt;=[_$[:alnum:]\)\]])(\*[$*])?(\()</string>
+        <key>beginCaptures</key>
+        <dict>
+          <key>1</key>
           <dict>
             <key>name</key>
             <string>keyword.operator.function.scope.ks</string>
           </dict>
+          <key>2</key>
+          <dict>
+            <key>name</key>
+            <string>punctuation.definition.arguments.begin.bracket.round.ks</string>
+          </dict>
         </dict>
         <key>end</key>
-        <string>(?&lt;=\))</string>
+        <string>\)</string>
+        <key>endCaptures</key>
+        <dict>
+          <key>0</key>
+          <dict>
+            <key>name</key>
+            <string>punctuation.definition.arguments.end.bracket.round.ks</string>
+          </dict>
+        </dict>
         <key>patterns</key>
         <array>
           <dict>
-            <key>begin</key>
-            <string>\(</string>
-            <key>beginCaptures</key>
-            <dict>
-              <key>0</key>
-              <dict>
-                <key>name</key>
-                <string>punctuation.definition.arguments.begin.bracket.round.ks</string>
-              </dict>
-            </dict>
-            <key>end</key>
-            <string>\)</string>
-            <key>endCaptures</key>
-            <dict>
-              <key>0</key>
-              <dict>
-                <key>name</key>
-                <string>punctuation.definition.arguments.end.bracket.round.ks</string>
-              </dict>
-            </dict>
-            <key>patterns</key>
-            <array>
-              <dict>
-                <key>include</key>
-                <string>#expression</string>
-              </dict>
-            </array>
+            <key>include</key>
+            <string>#expression</string>
           </dict>
         </array>
       </dict>
@@ -2320,6 +2356,14 @@
           </dict>
           <dict>
             <key>include</key>
+            <string>#throw-statement</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#trycatch-statement</string>
+          </dict>
+          <dict>
+            <key>include</key>
             <string>#type-statement</string>
           </dict>
           <dict>
@@ -2496,6 +2540,19 @@
           </dict>
         </array>
       </dict>
+      <key>tagged-template</key>
+      <dict>
+        <key>match</key>
+        <string>([_$[:alpha:]][_$[:alnum:]]*)(?=`)</string>
+        <key>captures</key>
+        <dict>
+          <key>1</key>
+          <dict>
+            <key>name</key>
+            <string>entity.name.function.tagged-template.ks</string>
+          </dict>
+        </dict>
+      </dict>
       <key>template</key>
       <dict>
         <key>begin</key>
@@ -2523,6 +2580,139 @@
           <dict>
             <key>include</key>
             <string>#expression</string>
+          </dict>
+        </array>
+      </dict>
+      <key>throw-statement</key>
+      <dict>
+        <key>begin</key>
+        <string>^\s*(throw)\s+</string>
+        <key>beginCaptures</key>
+        <dict>
+          <key>1</key>
+          <dict>
+            <key>name</key>
+            <string>keyword.control.trycatch.throw.ks</string>
+          </dict>
+        </dict>
+        <key>end</key>
+        <string>$</string>
+        <key>patterns</key>
+        <array>
+          <dict>
+            <key>include</key>
+            <string>#expression</string>
+          </dict>
+        </array>
+      </dict>
+      <key>trycatch-statement</key>
+      <dict>
+        <key>patterns</key>
+        <array>
+          <dict>
+            <key>begin</key>
+            <string>^\s*(try\b)\s*(?=\{)</string>
+            <key>beginCaptures</key>
+            <dict>
+              <key>1</key>
+              <dict>
+                <key>name</key>
+                <string>keyword.control.trycatch.try.ks</string>
+              </dict>
+            </dict>
+            <key>end</key>
+            <string>(?&lt;=\})</string>
+            <key>patterns</key>
+            <array>
+              <dict>
+                <key>include</key>
+                <string>#block</string>
+              </dict>
+            </array>
+          </dict>
+          <dict>
+            <key>begin</key>
+            <string>^\s*(catch\b)</string>
+            <key>beginCaptures</key>
+            <dict>
+              <key>1</key>
+              <dict>
+                <key>name</key>
+                <string>keyword.control.trycatch.catch.ks</string>
+              </dict>
+            </dict>
+            <key>end</key>
+            <string>(?&lt;=\})</string>
+            <key>patterns</key>
+            <array>
+              <dict>
+                <key>include</key>
+                <string>#block</string>
+              </dict>
+              <dict>
+                <key>name</key>
+                <string>variable.parameter.ks</string>
+                <key>match</key>
+                <string>[_$[:alpha:]][_$[:alnum:]]*</string>
+              </dict>
+            </array>
+          </dict>
+          <dict>
+            <key>begin</key>
+            <string>^\s*(finally\b)\s*(?=\{)</string>
+            <key>beginCaptures</key>
+            <dict>
+              <key>1</key>
+              <dict>
+                <key>name</key>
+                <string>keyword.control.trycatch.finally.ks</string>
+              </dict>
+            </dict>
+            <key>end</key>
+            <string>(?&lt;=\})</string>
+            <key>patterns</key>
+            <array>
+              <dict>
+                <key>include</key>
+                <string>#block</string>
+              </dict>
+            </array>
+          </dict>
+          <dict>
+            <key>begin</key>
+            <string>^\s*(on\b)\s+(\b[_$[:alpha:]][_$[:alnum:]]*\b)\s*(?:(\bcatch)\s+([_$[:alpha:]][_$[:alnum:]]*))?</string>
+            <key>beginCaptures</key>
+            <dict>
+              <key>1</key>
+              <dict>
+                <key>name</key>
+                <string>keyword.control.trycatch.on.ks</string>
+              </dict>
+              <key>2</key>
+              <dict>
+                <key>name</key>
+                <string>entity.name.type.ks</string>
+              </dict>
+              <key>3</key>
+              <dict>
+                <key>name</key>
+                <string>keyword.control.trycatch.catch.ks</string>
+              </dict>
+              <key>4</key>
+              <dict>
+                <key>name</key>
+                <string>variable.parameter.ks</string>
+              </dict>
+            </dict>
+            <key>end</key>
+            <string>(?&lt;=\})</string>
+            <key>patterns</key>
+            <array>
+              <dict>
+                <key>include</key>
+                <string>#block</string>
+              </dict>
+            </array>
           </dict>
         </array>
       </dict>

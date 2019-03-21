@@ -1,0 +1,267 @@
+original file
+-----------------------------------
+try {
+    console.log('foobar')
+}
+on RangeError catch error {
+    console.log('RangeError', error)
+}
+on SyntaxError catch error {
+    console.log('SyntaxError', error)
+}
+catch error {
+    console.log('Error', error)
+}
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>try {
+ try
+ ^^^
+ source.ks keyword.control.trycatch.try.ks
+     
+    ^
+    source.ks
+     {
+     ^
+     source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>    console.log('foobar')
+     
+ ^^^^
+ source.ks
+     console
+     ^^^^^^^
+     source.ks variable.other.object.ks
+            .
+            ^
+            source.ks punctuation.accessor.object.ks
+             log
+             ^^^
+             source.ks entity.name.function.ks
+                (
+                ^
+                source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                 '
+                 ^
+                 source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
+                  foobar
+                  ^^^^^^
+                  source.ks string.quoted.single.ks
+                        '
+                        ^
+                        source.ks string.quoted.single.ks punctuation.definition.string.end.ks
+                         )
+                         ^
+                         source.ks punctuation.definition.arguments.end.bracket.round.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.block.end.bracket.curly.ks
+>
+>on RangeError catch error {
+ on
+ ^^
+ source.ks keyword.control.trycatch.on.ks
+    
+   ^
+   source.ks
+    RangeError
+    ^^^^^^^^^^
+    source.ks entity.name.type.ks
+               
+              ^
+              source.ks
+               catch
+               ^^^^^
+               source.ks keyword.control.trycatch.catch.ks
+                     
+                    ^
+                    source.ks
+                     error
+                     ^^^^^
+                     source.ks variable.parameter.ks
+                           
+                          ^
+                          source.ks
+                           {
+                           ^
+                           source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>    console.log('RangeError', error)
+     
+ ^^^^
+ source.ks
+     console
+     ^^^^^^^
+     source.ks variable.other.object.ks
+            .
+            ^
+            source.ks punctuation.accessor.object.ks
+             log
+             ^^^
+             source.ks entity.name.function.ks
+                (
+                ^
+                source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                 '
+                 ^
+                 source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
+                  RangeError
+                  ^^^^^^^^^^
+                  source.ks string.quoted.single.ks
+                            '
+                            ^
+                            source.ks string.quoted.single.ks punctuation.definition.string.end.ks
+                             ,
+                             ^
+                             source.ks punctuation.separator.comma.ks
+                               
+                              ^
+                              source.ks
+                               error
+                               ^^^^^
+                               source.ks variable.other.ks
+                                    )
+                                    ^
+                                    source.ks punctuation.definition.arguments.end.bracket.round.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.block.end.bracket.curly.ks
+>
+>on SyntaxError catch error {
+ on
+ ^^
+ source.ks keyword.control.trycatch.on.ks
+    
+   ^
+   source.ks
+    SyntaxError
+    ^^^^^^^^^^^
+    source.ks entity.name.type.ks
+                
+               ^
+               source.ks
+                catch
+                ^^^^^
+                source.ks keyword.control.trycatch.catch.ks
+                      
+                     ^
+                     source.ks
+                      error
+                      ^^^^^
+                      source.ks variable.parameter.ks
+                            
+                           ^
+                           source.ks
+                            {
+                            ^
+                            source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>    console.log('SyntaxError', error)
+     
+ ^^^^
+ source.ks
+     console
+     ^^^^^^^
+     source.ks variable.other.object.ks
+            .
+            ^
+            source.ks punctuation.accessor.object.ks
+             log
+             ^^^
+             source.ks entity.name.function.ks
+                (
+                ^
+                source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                 '
+                 ^
+                 source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
+                  SyntaxError
+                  ^^^^^^^^^^^
+                  source.ks string.quoted.single.ks
+                             '
+                             ^
+                             source.ks string.quoted.single.ks punctuation.definition.string.end.ks
+                              ,
+                              ^
+                              source.ks punctuation.separator.comma.ks
+                                
+                               ^
+                               source.ks
+                                error
+                                ^^^^^
+                                source.ks variable.other.ks
+                                     )
+                                     ^
+                                     source.ks punctuation.definition.arguments.end.bracket.round.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.block.end.bracket.curly.ks
+>
+>catch error {
+ catch
+ ^^^^^
+ source.ks keyword.control.trycatch.catch.ks
+       
+      ^
+      source.ks
+       error
+       ^^^^^
+       source.ks variable.parameter.ks
+             
+            ^
+            source.ks
+             {
+             ^
+             source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>    console.log('Error', error)
+     
+ ^^^^
+ source.ks
+     console
+     ^^^^^^^
+     source.ks variable.other.object.ks
+            .
+            ^
+            source.ks punctuation.accessor.object.ks
+             log
+             ^^^
+             source.ks entity.name.function.ks
+                (
+                ^
+                source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                 '
+                 ^
+                 source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
+                  Error
+                  ^^^^^
+                  source.ks string.quoted.single.ks
+                       '
+                       ^
+                       source.ks string.quoted.single.ks punctuation.definition.string.end.ks
+                        ,
+                        ^
+                        source.ks punctuation.separator.comma.ks
+                          
+                         ^
+                         source.ks
+                          error
+                          ^^^^^
+                          source.ks variable.other.ks
+                               )
+                               ^
+                               source.ks punctuation.definition.arguments.end.bracket.round.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.block.end.bracket.curly.ks

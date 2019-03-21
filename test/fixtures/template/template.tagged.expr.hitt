@@ -1,0 +1,81 @@
+original file
+-----------------------------------
+console.log(foo.bar()`That \( person ) is a \( age )`)
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>console.log(foo.bar()`That \( person ) is a \( age )`)
+ console
+ ^^^^^^^
+ source.ks variable.other.object.ks
+        .
+        ^
+        source.ks punctuation.accessor.object.ks
+         log
+         ^^^
+         source.ks entity.name.function.ks
+            (
+            ^
+            source.ks punctuation.definition.arguments.begin.bracket.round.ks
+             foo
+             ^^^
+             source.ks variable.other.object.ks
+                .
+                ^
+                source.ks punctuation.accessor.object.ks
+                 bar
+                 ^^^
+                 source.ks entity.name.function.ks
+                    (
+                    ^
+                    source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                     )
+                     ^
+                     source.ks punctuation.definition.arguments.end.bracket.round.ks
+                      `
+                      ^
+                      source.ks punctuation.definition.string.template.begin.ks
+                       That 
+                       ^^^^^
+                       source.ks string.template.ks
+                            \(
+                            ^^
+                            source.ks punctuation.definition.template-expression.begin.ks
+                               
+                              ^
+                              source.ks
+                               person
+                               ^^^^^^
+                               source.ks variable.other.ks
+                                      
+                                     ^
+                                     source.ks
+                                      )
+                                      ^
+                                      source.ks punctuation.definition.template-expression.end.ks
+                                        is a 
+                                       ^^^^^^
+                                       source.ks string.template.ks
+                                             \(
+                                             ^^
+                                             source.ks punctuation.definition.template-expression.begin.ks
+                                                
+                                               ^
+                                               source.ks
+                                                age
+                                                ^^^
+                                                source.ks variable.other.ks
+                                                    
+                                                   ^
+                                                   source.ks
+                                                    )
+                                                    ^
+                                                    source.ks punctuation.definition.template-expression.end.ks
+                                                     `
+                                                     ^
+                                                     source.ks punctuation.definition.string.template.end.ks
+                                                      )
+                                                      ^
+                                                      source.ks punctuation.definition.arguments.end.bracket.round.ks

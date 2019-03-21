@@ -1,0 +1,102 @@
+original file
+-----------------------------------
+try {
+    console.log('foobar')
+}
+catch error {
+    console.log(error)
+}
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>try {
+ try
+ ^^^
+ source.ks keyword.control.trycatch.try.ks
+     
+    ^
+    source.ks
+     {
+     ^
+     source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>    console.log('foobar')
+     
+ ^^^^
+ source.ks
+     console
+     ^^^^^^^
+     source.ks variable.other.object.ks
+            .
+            ^
+            source.ks punctuation.accessor.object.ks
+             log
+             ^^^
+             source.ks entity.name.function.ks
+                (
+                ^
+                source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                 '
+                 ^
+                 source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
+                  foobar
+                  ^^^^^^
+                  source.ks string.quoted.single.ks
+                        '
+                        ^
+                        source.ks string.quoted.single.ks punctuation.definition.string.end.ks
+                         )
+                         ^
+                         source.ks punctuation.definition.arguments.end.bracket.round.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.block.end.bracket.curly.ks
+>
+>catch error {
+ catch
+ ^^^^^
+ source.ks keyword.control.trycatch.catch.ks
+       
+      ^
+      source.ks
+       error
+       ^^^^^
+       source.ks variable.parameter.ks
+             
+            ^
+            source.ks
+             {
+             ^
+             source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>    console.log(error)
+     
+ ^^^^
+ source.ks
+     console
+     ^^^^^^^
+     source.ks variable.other.object.ks
+            .
+            ^
+            source.ks punctuation.accessor.object.ks
+             log
+             ^^^
+             source.ks entity.name.function.ks
+                (
+                ^
+                source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                 error
+                 ^^^^^
+                 source.ks variable.other.ks
+                      )
+                      ^
+                      source.ks punctuation.definition.arguments.end.bracket.round.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.block.end.bracket.curly.ks

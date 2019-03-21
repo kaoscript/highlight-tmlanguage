@@ -161,6 +161,16 @@ repository:
     - name: constant.language.ks
       match: (?<![$\.])\b(Infinity|NaN)(?!\s*:)\b
   # }}}
+  create-expression: # {{{
+    begin: '(\bnew\b)'
+    beginCaptures:
+      '1': { name: 'keyword.operator.new.ks' }
+    end: '(?<=$|[\)\]\},])'
+    patterns:
+      - name: 'entity.name.type.ks'
+        match: '({{identifier}})'
+      - include: '#expression'
+  # }}}
   else-statement: # {{{
     begin: '^\s*(else\b)(?=\s*\{|$)'
     beginCaptures:
@@ -193,11 +203,14 @@ repository:
     - include: '#string'
     - include: '#template'
     #
+    - include: '#create-expression'
     - include: '#function-expression'
-    - include: '#function-call'
+    - include: '#function-call-name'
+    - include: '#function-call-arguments'
     - include: '#array-accessor'
     - include: '#object-accessor'
     - include: '#operator'
+    - include: '#tagged-template'
     #
     - name: 'variable.other.ks'
       match: '({{identifier}})'
@@ -206,7 +219,6 @@ repository:
     - include: '#comma'
   # }}}
   expression-statement: # {{{
-    name: es
     patterns:
     - begin: '(\bif\b)'
       beginCaptures:
@@ -241,21 +253,22 @@ repository:
         patterns:
         - include: '#type'
   # }}}
-  function-call: # {{{
-    begin: ({{identifier}})(\*[$*])?(?=\()
+  function-call-name: # {{{
+    begin: '({{identifier}})(?=(?:\*[$*])?\()'
     beginCaptures:
-      '1': { name: entity.name.function.ks }
-      '2': { name: keyword.operator.function.scope.ks }
-    end: (?<=\))
+      '1': { name: 'entity.name.function.ks' }
+    end: '(?=[$*\(])'
+  # }}}
+  function-call-arguments: # {{{
+    begin: '(?<=[_$[:alnum:]\)\]])(\*[$*])?(\()'
+    beginCaptures:
+      '1': { name: 'keyword.operator.function.scope.ks' }
+      '2': { name: 'punctuation.definition.arguments.begin.bracket.round.ks' }
+    end: \)
+    endCaptures:
+      '0': { name: 'punctuation.definition.arguments.end.bracket.round.ks' }
     patterns:
-    - begin: \(
-      beginCaptures:
-        '0': { name: punctuation.definition.arguments.begin.bracket.round.ks }
-      end: \)
-      endCaptures:
-        '0': { name: punctuation.definition.arguments.end.bracket.round.ks }
-      patterns:
-      - include: '#expression'
+    - include: '#expression'
   # }}}
   function-expression: # {{{
     patterns:
@@ -724,6 +737,8 @@ repository:
     - include: '#if-statement'
     - include: '#let-statement'
     - include: '#return-statement'
+    - include: '#throw-statement'
+    - include: '#trycatch-statement'
     - include: '#type-statement'
     - include: '#unless-statement'
     - include: '#until-statement'
@@ -778,6 +793,11 @@ repository:
     - name: constant.character.escape.ks
       match: \\(x\h{2}|[0-2][0-7]{0,2}|3[0-6][0-7]?|37[0-7]?|[4-7][0-7]?|.)
   # }}}
+  tagged-template: # {{{
+    match: '({{identifier}})(?=`)'
+    captures:
+      '1': { name: 'entity.name.function.tagged-template.ks' }
+  # }}}
   template: # {{{
     begin: \\\(
     beginCaptures:
@@ -787,6 +807,46 @@ repository:
       '0': { name: punctuation.definition.template-expression.end.ks }
     patterns:
     - include: '#expression'
+  # }}}
+  throw-statement: # {{{
+    begin: '^\s*(throw)\s+'
+    beginCaptures:
+      '1': { name: 'keyword.control.trycatch.throw.ks' }
+    end: '$'
+    patterns:
+      - include: '#expression'
+  # }}}
+  trycatch-statement: # {{{
+    patterns:
+      - begin: '^\s*(try\b)\s*(?=\{)'
+        beginCaptures:
+          '1': { name: 'keyword.control.trycatch.try.ks' }
+        end: '(?<=\})'
+        patterns:
+        - include: '#block'
+      - begin: '^\s*(catch\b)'
+        beginCaptures:
+          '1': { name: 'keyword.control.trycatch.catch.ks' }
+        end: '(?<=\})'
+        patterns:
+        - include: '#block'
+        - name: 'variable.parameter.ks'
+          match: '{{identifier}}'
+      - begin: '^\s*(finally\b)\s*(?=\{)'
+        beginCaptures:
+          '1': { name: 'keyword.control.trycatch.finally.ks' }
+        end: '(?<=\})'
+        patterns:
+        - include: '#block'
+      - begin: '^\s*(on\b)\s+(\b{{identifier}}\b)\s*(?:(\bcatch)\s+({{identifier}}))?'
+        beginCaptures:
+          '1': { name: 'keyword.control.trycatch.on.ks' }
+          '2': { name: 'entity.name.type.ks' }
+          '3': { name: 'keyword.control.trycatch.catch.ks' }
+          '4': { name: 'variable.parameter.ks' }
+        end: '(?<=\})'
+        patterns:
+        - include: '#block'
   # }}}
   type: # {{{
     patterns:

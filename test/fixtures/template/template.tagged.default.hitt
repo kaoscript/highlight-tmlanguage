@@ -1,0 +1,534 @@
+original file
+-----------------------------------
+let person = 'Mike'
+let age = 28
+func myTag(strings, personExp, ageExp) {
+    const str0 = strings[0]
+    const str1 = strings[1]
+    let ageStr
+    if ageExp > 99 {
+        ageStr = 'centenarian'
+    }
+    else {
+        ageStr = 'youngster'
+    }
+    return `\(str0)\(personExp)\(str1)\(ageStr)`
+}
+const output = myTag`That \( person ) is a \( age )`
+console.log(output + 12)
+console.log(myTag`That \( person ) is a \( age )`)
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>let person = 'Mike'
+ let
+ ^^^
+ source.ks storage.type.readwrite.ks
+     
+    ^
+    source.ks
+     person
+     ^^^^^^
+     source.ks meta.definition.variable.ks variable.other.readwrite.ks
+            
+           ^
+           source.ks
+            =
+            ^
+            source.ks keyword.operator.assignment.ks
+              
+             ^
+             source.ks
+              '
+              ^
+              source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
+               Mike
+               ^^^^
+               source.ks string.quoted.single.ks
+                   '
+                   ^
+                   source.ks string.quoted.single.ks punctuation.definition.string.end.ks
+>
+>let age = 28
+ let
+ ^^^
+ source.ks storage.type.readwrite.ks
+     
+    ^
+    source.ks
+     age
+     ^^^
+     source.ks meta.definition.variable.ks variable.other.readwrite.ks
+         
+        ^
+        source.ks
+         =
+         ^
+         source.ks keyword.operator.assignment.ks
+           
+          ^
+          source.ks
+           28
+           ^^
+           source.ks constant.numeric.decimal.ks
+>
+>func myTag(strings, personExp, ageExp) {
+ func
+ ^^^^
+ source.ks storage.type.function.ks
+      
+     ^
+     source.ks
+      myTag
+      ^^^^^
+      source.ks entity.name.function.ks
+           (
+           ^
+           source.ks punctuation.definition.parameters.begin.bracket.round.ks
+            strings
+            ^^^^^^^
+            source.ks variable.parameter.ks
+                   ,
+                   ^
+                   source.ks punctuation.separator.comma.ks
+                     
+                    ^
+                    source.ks
+                     personExp
+                     ^^^^^^^^^
+                     source.ks variable.parameter.ks
+                              ,
+                              ^
+                              source.ks punctuation.separator.comma.ks
+                                
+                               ^
+                               source.ks
+                                ageExp
+                                ^^^^^^
+                                source.ks variable.parameter.ks
+                                      )
+                                      ^
+                                      source.ks punctuation.definition.parameters.end.bracket.round.ks
+                                        
+                                       ^
+                                       source.ks
+                                        {
+                                        ^
+                                        source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>    const str0 = strings[0]
+     
+ ^^^^
+ source.ks
+     const
+     ^^^^^
+     source.ks storage.type.constant.ks
+           
+          ^
+          source.ks
+           str0
+           ^^^^
+           source.ks meta.definition.variable.ks variable.other.constant.ks
+                
+               ^
+               source.ks
+                =
+                ^
+                source.ks keyword.operator.assignment.ks
+                  
+                 ^
+                 source.ks
+                  strings
+                  ^^^^^^^
+                  source.ks variable.other.ks
+                         [
+                         ^
+                         source.ks punctuation.accessor.array.begin.bracket.square.ks
+                          0
+                          ^
+                          source.ks constant.numeric.decimal.ks
+                           ]
+                           ^
+                           source.ks punctuation.accessor.array.end.bracket.square.ks
+>
+>    const str1 = strings[1]
+     
+ ^^^^
+ source.ks
+     const
+     ^^^^^
+     source.ks storage.type.constant.ks
+           
+          ^
+          source.ks
+           str1
+           ^^^^
+           source.ks meta.definition.variable.ks variable.other.constant.ks
+                
+               ^
+               source.ks
+                =
+                ^
+                source.ks keyword.operator.assignment.ks
+                  
+                 ^
+                 source.ks
+                  strings
+                  ^^^^^^^
+                  source.ks variable.other.ks
+                         [
+                         ^
+                         source.ks punctuation.accessor.array.begin.bracket.square.ks
+                          1
+                          ^
+                          source.ks constant.numeric.decimal.ks
+                           ]
+                           ^
+                           source.ks punctuation.accessor.array.end.bracket.square.ks
+>
+>    let ageStr
+     
+ ^^^^
+ source.ks
+     let
+     ^^^
+     source.ks storage.type.readwrite.ks
+         
+        ^
+        source.ks
+         ageStr
+         ^^^^^^
+         source.ks meta.definition.variable.ks variable.other.readwrite.ks
+>
+>    if ageExp > 99 {
+     
+ ^^^^
+ source.ks
+     if
+     ^^
+     source.ks keyword.control.conditional.if.ks
+        
+       ^
+       source.ks
+        ageExp
+        ^^^^^^
+        source.ks variable.other.ks
+               
+              ^
+              source.ks
+               >
+               ^
+               source.ks keyword.operator.comparison.ks
+                 
+                ^
+                source.ks
+                 99
+                 ^^
+                 source.ks constant.numeric.decimal.ks
+                    
+                   ^
+                   source.ks
+                    {
+                    ^
+                    source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>        ageStr = 'centenarian'
+         
+ ^^^^^^^^
+ source.ks
+         ageStr
+         ^^^^^^
+         source.ks variable.other.ks
+                
+               ^
+               source.ks
+                =
+                ^
+                source.ks keyword.operator.assignment.ks
+                  
+                 ^
+                 source.ks
+                  '
+                  ^
+                  source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
+                   centenarian
+                   ^^^^^^^^^^^
+                   source.ks string.quoted.single.ks
+                              '
+                              ^
+                              source.ks string.quoted.single.ks punctuation.definition.string.end.ks
+>
+>    }
+     
+ ^^^^
+ source.ks
+     }
+     ^
+     source.ks punctuation.definition.block.end.bracket.curly.ks
+>
+>    else {
+     
+ ^^^^
+ source.ks
+     else
+     ^^^^
+     source.ks keyword.control.conditional.else.ks
+          
+         ^
+         source.ks
+          {
+          ^
+          source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>        ageStr = 'youngster'
+         
+ ^^^^^^^^
+ source.ks
+         ageStr
+         ^^^^^^
+         source.ks variable.other.ks
+                
+               ^
+               source.ks
+                =
+                ^
+                source.ks keyword.operator.assignment.ks
+                  
+                 ^
+                 source.ks
+                  '
+                  ^
+                  source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
+                   youngster
+                   ^^^^^^^^^
+                   source.ks string.quoted.single.ks
+                            '
+                            ^
+                            source.ks string.quoted.single.ks punctuation.definition.string.end.ks
+>
+>    }
+     
+ ^^^^
+ source.ks
+     }
+     ^
+     source.ks punctuation.definition.block.end.bracket.curly.ks
+>
+>    return `\(str0)\(personExp)\(str1)\(ageStr)`
+     
+ ^^^^
+ source.ks
+     return
+     ^^^^^^
+     source.ks keyword.control.flow.return.ks
+            
+           ^
+           source.ks
+            `
+            ^
+            source.ks punctuation.definition.string.template.begin.ks
+             \(
+             ^^
+             source.ks punctuation.definition.template-expression.begin.ks
+               str0
+               ^^^^
+               source.ks variable.other.ks
+                   )
+                   ^
+                   source.ks punctuation.definition.template-expression.end.ks
+                    \(
+                    ^^
+                    source.ks punctuation.definition.template-expression.begin.ks
+                      personExp
+                      ^^^^^^^^^
+                      source.ks variable.other.ks
+                               )
+                               ^
+                               source.ks punctuation.definition.template-expression.end.ks
+                                \(
+                                ^^
+                                source.ks punctuation.definition.template-expression.begin.ks
+                                  str1
+                                  ^^^^
+                                  source.ks variable.other.ks
+                                      )
+                                      ^
+                                      source.ks punctuation.definition.template-expression.end.ks
+                                       \(
+                                       ^^
+                                       source.ks punctuation.definition.template-expression.begin.ks
+                                         ageStr
+                                         ^^^^^^
+                                         source.ks variable.other.ks
+                                               )
+                                               ^
+                                               source.ks punctuation.definition.template-expression.end.ks
+                                                `
+                                                ^
+                                                source.ks punctuation.definition.string.template.end.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.block.end.bracket.curly.ks
+>
+>const output = myTag`That \( person ) is a \( age )`
+ const
+ ^^^^^
+ source.ks storage.type.constant.ks
+       
+      ^
+      source.ks
+       output
+       ^^^^^^
+       source.ks meta.definition.variable.ks variable.other.constant.ks
+              
+             ^
+             source.ks
+              =
+              ^
+              source.ks keyword.operator.assignment.ks
+                
+               ^
+               source.ks
+                myTag
+                ^^^^^
+                source.ks entity.name.function.tagged-template.ks
+                     `
+                     ^
+                     source.ks punctuation.definition.string.template.begin.ks
+                      That 
+                      ^^^^^
+                      source.ks string.template.ks
+                           \(
+                           ^^
+                           source.ks punctuation.definition.template-expression.begin.ks
+                              
+                             ^
+                             source.ks
+                              person
+                              ^^^^^^
+                              source.ks variable.other.ks
+                                     
+                                    ^
+                                    source.ks
+                                     )
+                                     ^
+                                     source.ks punctuation.definition.template-expression.end.ks
+                                       is a 
+                                      ^^^^^^
+                                      source.ks string.template.ks
+                                            \(
+                                            ^^
+                                            source.ks punctuation.definition.template-expression.begin.ks
+                                               
+                                              ^
+                                              source.ks
+                                               age
+                                               ^^^
+                                               source.ks variable.other.ks
+                                                   
+                                                  ^
+                                                  source.ks
+                                                   )
+                                                   ^
+                                                   source.ks punctuation.definition.template-expression.end.ks
+                                                    `
+                                                    ^
+                                                    source.ks punctuation.definition.string.template.end.ks
+>
+>console.log(output + 12)
+ console
+ ^^^^^^^
+ source.ks variable.other.object.ks
+        .
+        ^
+        source.ks punctuation.accessor.object.ks
+         log
+         ^^^
+         source.ks entity.name.function.ks
+            (
+            ^
+            source.ks punctuation.definition.arguments.begin.bracket.round.ks
+             output
+             ^^^^^^
+             source.ks variable.other.ks
+                    
+                   ^
+                   source.ks
+                    +
+                    ^
+                    source.ks keyword.operator.ks
+                      
+                     ^
+                     source.ks
+                      12
+                      ^^
+                      source.ks constant.numeric.decimal.ks
+                        )
+                        ^
+                        source.ks punctuation.definition.arguments.end.bracket.round.ks
+>
+>console.log(myTag`That \( person ) is a \( age )`)
+ console
+ ^^^^^^^
+ source.ks variable.other.object.ks
+        .
+        ^
+        source.ks punctuation.accessor.object.ks
+         log
+         ^^^
+         source.ks entity.name.function.ks
+            (
+            ^
+            source.ks punctuation.definition.arguments.begin.bracket.round.ks
+             myTag
+             ^^^^^
+             source.ks entity.name.function.tagged-template.ks
+                  `
+                  ^
+                  source.ks punctuation.definition.string.template.begin.ks
+                   That 
+                   ^^^^^
+                   source.ks string.template.ks
+                        \(
+                        ^^
+                        source.ks punctuation.definition.template-expression.begin.ks
+                           
+                          ^
+                          source.ks
+                           person
+                           ^^^^^^
+                           source.ks variable.other.ks
+                                  
+                                 ^
+                                 source.ks
+                                  )
+                                  ^
+                                  source.ks punctuation.definition.template-expression.end.ks
+                                    is a 
+                                   ^^^^^^
+                                   source.ks string.template.ks
+                                         \(
+                                         ^^
+                                         source.ks punctuation.definition.template-expression.begin.ks
+                                            
+                                           ^
+                                           source.ks
+                                            age
+                                            ^^^
+                                            source.ks variable.other.ks
+                                                
+                                               ^
+                                               source.ks
+                                                )
+                                                ^
+                                                source.ks punctuation.definition.template-expression.end.ks
+                                                 `
+                                                 ^
+                                                 source.ks punctuation.definition.string.template.end.ks
+                                                  )
+                                                  ^
+                                                  source.ks punctuation.definition.arguments.end.bracket.round.ks
