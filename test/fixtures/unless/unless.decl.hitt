@@ -1,0 +1,54 @@
+original file
+-----------------------------------
+let x = 1 unless x == 0
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>let x = 1 unless x == 0
+ let
+ ^^^
+ source.ks storage.type.readwrite.ks
+     
+    ^
+    source.ks
+     x
+     ^
+     source.ks meta.definition.variable.ks variable.other.readwrite.ks
+       
+      ^
+      source.ks
+       =
+       ^
+       source.ks keyword.operator.assignment.ks
+         
+        ^
+        source.ks
+         1
+         ^
+         source.ks constant.numeric.decimal.ks
+           
+          ^
+          source.ks
+           unless
+           ^^^^^^
+           source.ks keyword.control.conditional.unless.ks
+                  
+                 ^
+                 source.ks
+                  x
+                  ^
+                  source.ks variable.other.ks
+                    
+                   ^
+                   source.ks
+                    ==
+                    ^^
+                    source.ks keyword.operator.comparison.ks
+                       
+                      ^
+                      source.ks
+                       0
+                       ^
+                       source.ks constant.numeric.decimal.ks

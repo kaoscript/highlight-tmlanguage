@@ -25,7 +25,7 @@ grammar: kaoscript.tmLanguage
           source.ks variable.parameter.ks
              :
              ^
-             source.ks meta.type.annotation.ks storage.modifier.type.ks
+             source.ks meta.type.annotation.ks keyword.operator.type.annotation.ks
                
               ^
               source.ks meta.type.annotation.ks
@@ -37,7 +37,7 @@ grammar: kaoscript.tmLanguage
                      source.ks meta.type.annotation.ks
                       |
                       ^
-                      source.ks meta.type.annotation.ks keyword.operator.type.ks
+                      source.ks meta.type.annotation.ks keyword.operator.type.union.ks
                         
                        ^
                        source.ks meta.type.annotation.ks
@@ -55,7 +55,7 @@ grammar: kaoscript.tmLanguage
                              source.ks variable.parameter.ks
                                 :
                                 ^
-                                source.ks meta.type.annotation.ks storage.modifier.type.ks
+                                source.ks meta.type.annotation.ks keyword.operator.type.annotation.ks
                                   
                                  ^
                                  source.ks meta.type.annotation.ks

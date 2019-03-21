@@ -1,0 +1,42 @@
+original file
+-----------------------------------
+unless x == 0 {
+}
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>unless x == 0 {
+ unless
+ ^^^^^^
+ source.ks keyword.control.conditional.unless.ks
+        
+       ^
+       source.ks
+        x
+        ^
+        source.ks variable.other.ks
+          
+         ^
+         source.ks
+          ==
+          ^^
+          source.ks keyword.operator.comparison.ks
+             
+            ^
+            source.ks
+             0
+             ^
+             source.ks constant.numeric.decimal.ks
+               
+              ^
+              source.ks
+               {
+               ^
+               source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.block.end.bracket.curly.ks

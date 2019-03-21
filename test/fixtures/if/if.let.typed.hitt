@@ -26,7 +26,7 @@ grammar: kaoscript.tmLanguage
         source.ks meta.definition.variable.ks variable.other.readwrite.ks
          :
          ^
-         source.ks meta.type.annotation.ks storage.modifier.type.ks
+         source.ks meta.type.annotation.ks keyword.operator.type.annotation.ks
            
           ^
           source.ks meta.type.annotation.ks

@@ -38,7 +38,7 @@ grammar: kaoscript.tmLanguage
                 source.ks variable.parameter.ks
                  :
                  ^
-                 source.ks meta.type.annotation.ks storage.modifier.type.ks
+                 source.ks meta.type.annotation.ks keyword.operator.type.annotation.ks
                    
                   ^
                   source.ks meta.type.annotation.ks
@@ -56,7 +56,7 @@ grammar: kaoscript.tmLanguage
                         source.ks variable.parameter.ks
                          :
                          ^
-                         source.ks meta.type.annotation.ks storage.modifier.type.ks
+                         source.ks meta.type.annotation.ks keyword.operator.type.annotation.ks
                            
                           ^
                           source.ks meta.type.annotation.ks
@@ -68,7 +68,7 @@ grammar: kaoscript.tmLanguage
                               source.ks punctuation.definition.parameters.end.bracket.round.ks
                                :
                                ^
-                               source.ks meta.function.return-type.ks storage.modifier.type.ks
+                               source.ks meta.function.return-type.ks keyword.operator.type.annotation.ks
                                  
                                 ^
                                 source.ks meta.function.return-type.ks

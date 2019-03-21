@@ -1,0 +1,498 @@
+original file
+-----------------------------------
+type D = func(value: Number): Number | String
+type U = func(value: Number): Number || func(value: String): String
+type M =
+    func(value: Number): Number
+    |
+    func(value: String): String
+type M2 =
+    func(value: Number): Number |
+    func(value: String): String
+type M3 =
+    func(value: Number): Number
+    | func(value: String): String
+type M4 =
+    func(value: Number): Number ||
+    func(value: String): String
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>type D = func(value: Number): Number | String
+ type
+ ^^^^
+ source.ks storage.type.type.ks
+      
+     ^
+     source.ks
+      D
+      ^
+      source.ks entity.name.type.alias.ks
+        
+       ^
+       source.ks
+        =
+        ^
+        source.ks keyword.operator.assignment.ks
+          
+         ^
+         source.ks
+          func
+          ^^^^
+          source.ks storage.type.function.ks
+              (
+              ^
+              source.ks punctuation.definition.parameters.begin.bracket.round.ks
+               value
+               ^^^^^
+               source.ks variable.parameter.ks
+                    :
+                    ^
+                    source.ks meta.type.annotation.ks keyword.operator.type.annotation.ks
+                      
+                     ^
+                     source.ks meta.type.annotation.ks
+                      Number
+                      ^^^^^^
+                      source.ks meta.type.annotation.ks support.type.primitive.ks
+                            )
+                            ^
+                            source.ks punctuation.definition.parameters.end.bracket.round.ks
+                             :
+                             ^
+                             source.ks meta.function.return-type.ks
+                               
+                              ^
+                              source.ks meta.function.return-type.ks
+                               Number
+                               ^^^^^^
+                               source.ks meta.function.return-type.ks support.type.primitive.ks
+                                      
+                                     ^
+                                     source.ks meta.function.return-type.ks
+                                      |
+                                      ^
+                                      source.ks meta.function.return-type.ks keyword.operator.type.union.ks
+                                        
+                                       ^
+                                       source.ks meta.function.return-type.ks
+                                        String
+                                        ^^^^^^
+                                        source.ks meta.function.return-type.ks support.type.primitive.ks
+>
+>type U = func(value: Number): Number || func(value: String): String
+ type
+ ^^^^
+ source.ks storage.type.type.ks
+      
+     ^
+     source.ks
+      U
+      ^
+      source.ks entity.name.type.alias.ks
+        
+       ^
+       source.ks
+        =
+        ^
+        source.ks keyword.operator.assignment.ks
+          
+         ^
+         source.ks
+          func
+          ^^^^
+          source.ks storage.type.function.ks
+              (
+              ^
+              source.ks punctuation.definition.parameters.begin.bracket.round.ks
+               value
+               ^^^^^
+               source.ks variable.parameter.ks
+                    :
+                    ^
+                    source.ks meta.type.annotation.ks keyword.operator.type.annotation.ks
+                      
+                     ^
+                     source.ks meta.type.annotation.ks
+                      Number
+                      ^^^^^^
+                      source.ks meta.type.annotation.ks support.type.primitive.ks
+                            )
+                            ^
+                            source.ks punctuation.definition.parameters.end.bracket.round.ks
+                             :
+                             ^
+                             source.ks meta.function.return-type.ks
+                               
+                              ^
+                              source.ks meta.function.return-type.ks
+                               Number
+                               ^^^^^^
+                               source.ks meta.function.return-type.ks support.type.primitive.ks
+                                      
+                                     ^
+                                     source.ks
+                                      ||
+                                      ^^
+                                      source.ks keyword.operator.type.union.ks
+                                         
+                                        ^
+                                        source.ks
+                                         func
+                                         ^^^^
+                                         source.ks storage.type.function.ks
+                                             (
+                                             ^
+                                             source.ks punctuation.definition.parameters.begin.bracket.round.ks
+                                              value
+                                              ^^^^^
+                                              source.ks variable.parameter.ks
+                                                   :
+                                                   ^
+                                                   source.ks meta.type.annotation.ks keyword.operator.type.annotation.ks
+                                                     
+                                                    ^
+                                                    source.ks meta.type.annotation.ks
+                                                     String
+                                                     ^^^^^^
+                                                     source.ks meta.type.annotation.ks support.type.primitive.ks
+                                                           )
+                                                           ^
+                                                           source.ks punctuation.definition.parameters.end.bracket.round.ks
+                                                            :
+                                                            ^
+                                                            source.ks meta.function.return-type.ks
+                                                              
+                                                             ^
+                                                             source.ks meta.function.return-type.ks
+                                                              String
+                                                              ^^^^^^
+                                                              source.ks meta.function.return-type.ks support.type.primitive.ks
+>
+>type M =
+ type
+ ^^^^
+ source.ks storage.type.type.ks
+      
+     ^
+     source.ks
+      M
+      ^
+      source.ks entity.name.type.alias.ks
+        
+       ^
+       source.ks
+        =
+        ^
+        source.ks keyword.operator.assignment.ks
+>
+>    func(value: Number): Number
+     
+ ^^^^
+ source.ks
+     func
+     ^^^^
+     source.ks entity.name.function.ks
+         (
+         ^
+         source.ks punctuation.definition.arguments.begin.bracket.round.ks
+          value
+          ^^^^^
+          source.ks variable.other.ks
+               : 
+               ^^
+               source.ks
+                 Number
+                 ^^^^^^
+                 source.ks variable.other.ks
+                       )
+                       ^
+                       source.ks punctuation.definition.arguments.end.bracket.round.ks
+                        : 
+                        ^^
+                        source.ks
+                          Number
+                          ^^^^^^
+                          source.ks variable.other.ks
+>
+>    |
+     
+ ^^^^
+ source.ks
+     |
+     ^
+     source.ks keyword.operator.bitwise.ks
+>
+>    func(value: String): String
+     
+ ^^^^
+ source.ks
+     func
+     ^^^^
+     source.ks entity.name.function.ks
+         (
+         ^
+         source.ks punctuation.definition.arguments.begin.bracket.round.ks
+          value
+          ^^^^^
+          source.ks variable.other.ks
+               : 
+               ^^
+               source.ks
+                 String
+                 ^^^^^^
+                 source.ks variable.other.ks
+                       )
+                       ^
+                       source.ks punctuation.definition.arguments.end.bracket.round.ks
+                        : 
+                        ^^
+                        source.ks
+                          String
+                          ^^^^^^
+                          source.ks variable.other.ks
+>
+>type M2 =
+ type
+ ^^^^
+ source.ks storage.type.type.ks
+      
+     ^
+     source.ks
+      M2
+      ^^
+      source.ks entity.name.type.alias.ks
+         
+        ^
+        source.ks
+         =
+         ^
+         source.ks keyword.operator.assignment.ks
+>
+>    func(value: Number): Number |
+     
+ ^^^^
+ source.ks
+     func
+     ^^^^
+     source.ks entity.name.function.ks
+         (
+         ^
+         source.ks punctuation.definition.arguments.begin.bracket.round.ks
+          value
+          ^^^^^
+          source.ks variable.other.ks
+               : 
+               ^^
+               source.ks
+                 Number
+                 ^^^^^^
+                 source.ks variable.other.ks
+                       )
+                       ^
+                       source.ks punctuation.definition.arguments.end.bracket.round.ks
+                        : 
+                        ^^
+                        source.ks
+                          Number
+                          ^^^^^^
+                          source.ks variable.other.ks
+                                 
+                                ^
+                                source.ks
+                                 |
+                                 ^
+                                 source.ks keyword.operator.bitwise.ks
+>
+>    func(value: String): String
+     
+ ^^^^
+ source.ks
+     func
+     ^^^^
+     source.ks entity.name.function.ks
+         (
+         ^
+         source.ks punctuation.definition.arguments.begin.bracket.round.ks
+          value
+          ^^^^^
+          source.ks variable.other.ks
+               : 
+               ^^
+               source.ks
+                 String
+                 ^^^^^^
+                 source.ks variable.other.ks
+                       )
+                       ^
+                       source.ks punctuation.definition.arguments.end.bracket.round.ks
+                        : 
+                        ^^
+                        source.ks
+                          String
+                          ^^^^^^
+                          source.ks variable.other.ks
+>
+>type M3 =
+ type
+ ^^^^
+ source.ks storage.type.type.ks
+      
+     ^
+     source.ks
+      M3
+      ^^
+      source.ks entity.name.type.alias.ks
+         
+        ^
+        source.ks
+         =
+         ^
+         source.ks keyword.operator.assignment.ks
+>
+>    func(value: Number): Number
+     
+ ^^^^
+ source.ks
+     func
+     ^^^^
+     source.ks entity.name.function.ks
+         (
+         ^
+         source.ks punctuation.definition.arguments.begin.bracket.round.ks
+          value
+          ^^^^^
+          source.ks variable.other.ks
+               : 
+               ^^
+               source.ks
+                 Number
+                 ^^^^^^
+                 source.ks variable.other.ks
+                       )
+                       ^
+                       source.ks punctuation.definition.arguments.end.bracket.round.ks
+                        : 
+                        ^^
+                        source.ks
+                          Number
+                          ^^^^^^
+                          source.ks variable.other.ks
+>
+>    | func(value: String): String
+     
+ ^^^^
+ source.ks
+     |
+     ^
+     source.ks keyword.operator.bitwise.ks
+       
+      ^
+      source.ks
+       func
+       ^^^^
+       source.ks entity.name.function.ks
+           (
+           ^
+           source.ks punctuation.definition.arguments.begin.bracket.round.ks
+            value
+            ^^^^^
+            source.ks variable.other.ks
+                 : 
+                 ^^
+                 source.ks
+                   String
+                   ^^^^^^
+                   source.ks variable.other.ks
+                         )
+                         ^
+                         source.ks punctuation.definition.arguments.end.bracket.round.ks
+                          : 
+                          ^^
+                          source.ks
+                            String
+                            ^^^^^^
+                            source.ks variable.other.ks
+>
+>type M4 =
+ type
+ ^^^^
+ source.ks storage.type.type.ks
+      
+     ^
+     source.ks
+      M4
+      ^^
+      source.ks entity.name.type.alias.ks
+         
+        ^
+        source.ks
+         =
+         ^
+         source.ks keyword.operator.assignment.ks
+>
+>    func(value: Number): Number ||
+     
+ ^^^^
+ source.ks
+     func
+     ^^^^
+     source.ks entity.name.function.ks
+         (
+         ^
+         source.ks punctuation.definition.arguments.begin.bracket.round.ks
+          value
+          ^^^^^
+          source.ks variable.other.ks
+               : 
+               ^^
+               source.ks
+                 Number
+                 ^^^^^^
+                 source.ks variable.other.ks
+                       )
+                       ^
+                       source.ks punctuation.definition.arguments.end.bracket.round.ks
+                        : 
+                        ^^
+                        source.ks
+                          Number
+                          ^^^^^^
+                          source.ks variable.other.ks
+                                 
+                                ^
+                                source.ks
+                                 ||
+                                 ^^
+                                 source.ks keyword.operator.logical.ks
+>
+>    func(value: String): String
+     
+ ^^^^
+ source.ks
+     func
+     ^^^^
+     source.ks entity.name.function.ks
+         (
+         ^
+         source.ks punctuation.definition.arguments.begin.bracket.round.ks
+          value
+          ^^^^^
+          source.ks variable.other.ks
+               : 
+               ^^
+               source.ks
+                 String
+                 ^^^^^^
+                 source.ks variable.other.ks
+                       )
+                       ^
+                       source.ks punctuation.definition.arguments.end.bracket.round.ks
+                        : 
+                        ^^
+                        source.ks
+                          String
+                          ^^^^^^
+                          source.ks variable.other.ks

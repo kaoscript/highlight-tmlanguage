@@ -1,0 +1,216 @@
+original file
+-----------------------------------
+type S = func(value: Number): Number
+type A = async func(value: Number): Number
+type S2 = (value: Number): Number
+type A2 = async (value: Number): Number
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>type S = func(value: Number): Number
+ type
+ ^^^^
+ source.ks storage.type.type.ks
+      
+     ^
+     source.ks
+      S
+      ^
+      source.ks entity.name.type.alias.ks
+        
+       ^
+       source.ks
+        =
+        ^
+        source.ks keyword.operator.assignment.ks
+          
+         ^
+         source.ks
+          func
+          ^^^^
+          source.ks storage.type.function.ks
+              (
+              ^
+              source.ks punctuation.definition.parameters.begin.bracket.round.ks
+               value
+               ^^^^^
+               source.ks variable.parameter.ks
+                    :
+                    ^
+                    source.ks meta.type.annotation.ks keyword.operator.type.annotation.ks
+                      
+                     ^
+                     source.ks meta.type.annotation.ks
+                      Number
+                      ^^^^^^
+                      source.ks meta.type.annotation.ks support.type.primitive.ks
+                            )
+                            ^
+                            source.ks punctuation.definition.parameters.end.bracket.round.ks
+                             :
+                             ^
+                             source.ks meta.function.return-type.ks
+                               
+                              ^
+                              source.ks meta.function.return-type.ks
+                               Number
+                               ^^^^^^
+                               source.ks meta.function.return-type.ks support.type.primitive.ks
+>
+>type A = async func(value: Number): Number
+ type
+ ^^^^
+ source.ks storage.type.type.ks
+      
+     ^
+     source.ks
+      A
+      ^
+      source.ks entity.name.type.alias.ks
+        
+       ^
+       source.ks
+        =
+        ^
+        source.ks keyword.operator.assignment.ks
+          
+         ^
+         source.ks
+          async
+          ^^^^^
+          source.ks storage.modifier.async.ks
+                
+               ^
+               source.ks
+                func
+                ^^^^
+                source.ks storage.type.function.ks
+                    (
+                    ^
+                    source.ks punctuation.definition.parameters.begin.bracket.round.ks
+                     value
+                     ^^^^^
+                     source.ks variable.parameter.ks
+                          :
+                          ^
+                          source.ks meta.type.annotation.ks keyword.operator.type.annotation.ks
+                            
+                           ^
+                           source.ks meta.type.annotation.ks
+                            Number
+                            ^^^^^^
+                            source.ks meta.type.annotation.ks support.type.primitive.ks
+                                  )
+                                  ^
+                                  source.ks punctuation.definition.parameters.end.bracket.round.ks
+                                   :
+                                   ^
+                                   source.ks meta.function.return-type.ks
+                                     
+                                    ^
+                                    source.ks meta.function.return-type.ks
+                                     Number
+                                     ^^^^^^
+                                     source.ks meta.function.return-type.ks support.type.primitive.ks
+>
+>type S2 = (value: Number): Number
+ type
+ ^^^^
+ source.ks storage.type.type.ks
+      
+     ^
+     source.ks
+      S2
+      ^^
+      source.ks entity.name.type.alias.ks
+         
+        ^
+        source.ks
+         =
+         ^
+         source.ks keyword.operator.assignment.ks
+           
+          ^
+          source.ks
+           (
+           ^
+           source.ks punctuation.definition.parameters.begin.bracket.round.ks
+            value
+            ^^^^^
+            source.ks variable.parameter.ks
+                 :
+                 ^
+                 source.ks meta.type.annotation.ks keyword.operator.type.annotation.ks
+                   
+                  ^
+                  source.ks meta.type.annotation.ks
+                   Number
+                   ^^^^^^
+                   source.ks meta.type.annotation.ks support.type.primitive.ks
+                         )
+                         ^
+                         source.ks punctuation.definition.parameters.end.bracket.round.ks
+                          :
+                          ^
+                          source.ks meta.function.return-type.ks
+                            
+                           ^
+                           source.ks meta.function.return-type.ks
+                            Number
+                            ^^^^^^
+                            source.ks meta.function.return-type.ks support.type.primitive.ks
+>
+>type A2 = async (value: Number): Number
+ type
+ ^^^^
+ source.ks storage.type.type.ks
+      
+     ^
+     source.ks
+      A2
+      ^^
+      source.ks entity.name.type.alias.ks
+         
+        ^
+        source.ks
+         =
+         ^
+         source.ks keyword.operator.assignment.ks
+           
+          ^
+          source.ks
+           async
+           ^^^^^
+           source.ks storage.modifier.async.ks
+                 
+                ^
+                source.ks
+                 (
+                 ^
+                 source.ks punctuation.definition.parameters.begin.bracket.round.ks
+                  value
+                  ^^^^^
+                  source.ks variable.parameter.ks
+                       :
+                       ^
+                       source.ks meta.type.annotation.ks keyword.operator.type.annotation.ks
+                         
+                        ^
+                        source.ks meta.type.annotation.ks
+                         Number
+                         ^^^^^^
+                         source.ks meta.type.annotation.ks support.type.primitive.ks
+                               )
+                               ^
+                               source.ks punctuation.definition.parameters.end.bracket.round.ks
+                                :
+                                ^
+                                source.ks meta.function.return-type.ks
+                                  
+                                 ^
+                                 source.ks meta.function.return-type.ks
+                                  Number
+                                  ^^^^^^
+                                  source.ks meta.function.return-type.ks support.type.primitive.ks
