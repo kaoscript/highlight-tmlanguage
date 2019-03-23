@@ -1,0 +1,72 @@
+original file
+-----------------------------------
+let pair = [2, -2]
+switch pair {
+}
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>let pair = [2, -2]
+ let
+ ^^^
+ source.ks storage.type.readwrite.ks
+     
+    ^
+    source.ks
+     pair
+     ^^^^
+     source.ks meta.definition.variable.ks variable.other.readwrite.ks
+          
+         ^
+         source.ks
+          =
+          ^
+          source.ks keyword.operator.assignment.ks
+            
+           ^
+           source.ks
+            [
+            ^
+            source.ks punctuation.definition.array.begin.bracket.square.ks
+             2
+             ^
+             source.ks constant.numeric.decimal.ks
+              ,
+              ^
+              source.ks punctuation.separator.comma.ks
+                
+               ^
+               source.ks
+                -
+                ^
+                source.ks keyword.operator.ks
+                 2
+                 ^
+                 source.ks constant.numeric.decimal.ks
+                  ]
+                  ^
+                  source.ks punctuation.definition.array.end.bracket.square.ks
+>
+>switch pair {
+ switch
+ ^^^^^^
+ source.ks keyword.control.switch.switch.ks
+        
+       ^
+       source.ks
+        pair
+        ^^^^
+        source.ks variable.other.ks
+             
+            ^
+            source.ks
+             {
+             ^
+             source.ks punctuation.definition.switch.begin.bracket.curly.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.switch.end.bracket.curly.ks

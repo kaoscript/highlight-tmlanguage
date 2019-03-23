@@ -192,6 +192,19 @@ repository:
       - include: '#if-statement-body'
     - include: '#block'
   # }}}
+  enum-statement: # {{{
+    begin: '^\s*(enum)\s+({{identifier}})\s+(\{)'
+    beginCaptures:
+      '1': { name: 'storage.type.enum.ks' }
+      '2': { name: 'entity.name.type.enum.ks' }
+      '3': { name: 'punctuation.definition.enum.begin.bracket.curly.ks' }
+    end: '\}'
+    endCaptures:
+      '0': { name: 'punctuation.definition.enum.end.bracket.curly.ks' }
+    patterns:
+    - name: 'variable.other.enummember.ks'
+      match: '{{identifier}}'
+  # }}}
   expression: # {{{
     patterns:
     - include: '#array'
@@ -211,6 +224,7 @@ repository:
     - include: '#object-accessor'
     - include: '#operator'
     - include: '#tagged-template'
+    - include: '#switch-expression'
     #
     - name: 'variable.other.ks'
       match: '({{identifier}})'
@@ -233,6 +247,31 @@ repository:
       patterns:
       - include: '#expression'
     - include: '#expression'
+  # }}}
+  expression-without-function: # {{{
+    patterns:
+    - include: '#array'
+    - include: '#comment'
+    - include: '#constant'
+    - include: '#number'
+    - include: '#object'
+    - include: '#regex'
+    - include: '#string'
+    - include: '#template'
+    #
+    - include: '#create-expression'
+    - include: '#function-call-name'
+    - include: '#function-call-arguments'
+    - include: '#array-accessor'
+    - include: '#object-accessor'
+    - include: '#operator'
+    - include: '#tagged-template'
+    #
+    - name: 'variable.other.ks'
+      match: '({{identifier}})'
+    - name: 'meta.brace.round.ks'
+      match: '[()]'
+    - include: '#comma'
   # }}}
   extern-statement: # {{{
     begin: '^(extern)\s+'
@@ -592,7 +631,7 @@ repository:
     - begin: '\:'
       beginCaptures:
         '0': { name: 'punctuation.separator.key-value.ks' }
-      end: '$|\,'
+      end: '(?=$|\,|\})'
       patterns:
       - include: '#expression'
     - include: '#comma'
@@ -631,6 +670,8 @@ repository:
       match: '\+|-|\*|/|%|\?'
     - name: 'keyword.control.flow'
       match: '\bawait\b'
+    - name: 'keyword.control.type-checking'
+      match: '\bis(?:\s+not)?\b'
     - match: '(?<=[_$[:alnum:]\)\]])\s*(if\b)'
       captures:
         '1': { name: 'keyword.control.conditional.if.ks' }
@@ -718,6 +759,14 @@ repository:
     - name: constant.character.escape.backslash.regexp
       match: \\.
   # }}}
+  return-expression: # {{{
+    begin: '(\breturn)\s+'
+    beginCaptures:
+      '1': { name: 'keyword.control.flow.return.ks' }
+    end: '$'
+    patterns:
+    - include: '#expression'
+  # }}}
   return-statement: # {{{
     begin: '^\s*(return)\s+'
     beginCaptures:
@@ -732,11 +781,13 @@ repository:
     - include: '#const-statement'
     - include: '#else-statement'
     - include: '#else-if-statement'
+    - include: '#enum-statement'
     - include: '#function-statement'
     - include: '#for-statement'
     - include: '#if-statement'
     - include: '#let-statement'
     - include: '#return-statement'
+    - include: '#switch-statement'
     - include: '#throw-statement'
     - include: '#trycatch-statement'
     - include: '#type-statement'
@@ -793,6 +844,65 @@ repository:
     - name: constant.character.escape.ks
       match: \\(x\h{2}|[0-2][0-7]{0,2}|3[0-6][0-7]?|37[0-7]?|[4-7][0-7]?|.)
   # }}}
+  switch-clause: # {{{
+    patterns:
+    - begin: 'with'
+      beginCaptures:
+        '0': { name: 'keyword.control.switch.binding.ks' }
+      end: (?=\bwhere\b|=>)
+      patterns:
+      - include: '#expression-without-function'
+    - begin: 'where'
+      beginCaptures:
+        '0': { name: 'keyword.control.switch.binding-condition.ks' }
+      end: (?==>)
+      patterns:
+      - include: '#expression-without-function'
+    - begin: '=>'
+      beginCaptures:
+        '0': { name: 'keyword.control.switch.body.ks' }
+      end: (?<=$|\})
+      patterns:
+      - include: '#block'
+      - include: '#return-expression'
+      - include: '#throw-expression'
+      - include: '#expression'
+    - include: '#expression-without-function'
+    - name: 'keyword.operator.range.ks'
+      match: '(?<!\.)\<?\.\.\<?(?!\.)'
+  # }}}
+  switch-expression: # {{{
+    begin: '(\bswitch\b)'
+    beginCaptures:
+      '1': { name: 'keyword.control.switch.switch.ks' }
+    end: '(?<=\})'
+    patterns:
+    - begin: '\{'
+      beginCaptures:
+        '0': { name: 'punctuation.definition.switch.begin.bracket.curly.ks' }
+      end: '\}'
+      endCaptures:
+        '0': { name: 'punctuation.definition.switch.end.bracket.curly.ks' }
+      patterns:
+      - include: '#switch-clause'
+    - include: '#expression'
+  # }}}
+  switch-statement: # {{{
+    begin: '^\s*(switch)\s+'
+    beginCaptures:
+      '1': { name: 'keyword.control.switch.switch.ks' }
+    end: '(?<=\})'
+    patterns:
+    - begin: '\{'
+      beginCaptures:
+        '0': { name: 'punctuation.definition.switch.begin.bracket.curly.ks' }
+      end: '\}'
+      endCaptures:
+        '0': { name: 'punctuation.definition.switch.end.bracket.curly.ks' }
+      patterns:
+      - include: '#switch-clause'
+    - include: '#expression'
+  # }}}
   tagged-template: # {{{
     match: '({{identifier}})(?=`)'
     captures:
@@ -807,6 +917,14 @@ repository:
       '0': { name: punctuation.definition.template-expression.end.ks }
     patterns:
     - include: '#expression'
+  # }}}
+  throw-expression: # {{{
+    begin: '(\bthrow)\s+'
+    beginCaptures:
+      '1': { name: 'keyword.control.trycatch.throw.ks' }
+    end: '$'
+    patterns:
+      - include: '#expression'
   # }}}
   throw-statement: # {{{
     begin: '^\s*(throw)\s+'

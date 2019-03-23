@@ -1,0 +1,630 @@
+original file
+-----------------------------------
+let somePoint = [1, 1]
+switch somePoint {
+    with [x, y] where x == 0 && y == 0                        => console.log("(0, 0) is at the origin")
+    with [x, y] where y == 0                                => console.log("(\(x), 0) is on the x-axis")
+    with [x, y] where x == 0                                => console.log("(0, \(y)) is on the y-axis")
+    with [x, y] where -2 <= x <= 2 && -2 <= y <= 2            => console.log("(\(x), \(y)) is inside the box")
+    with [x, y]                                                => console.log("(\(x), \(y)) is outside of the box")
+                                                            => console.log("Not a point")
+}
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>let somePoint = [1, 1]
+ let
+ ^^^
+ source.ks storage.type.readwrite.ks
+     
+    ^
+    source.ks
+     somePoint
+     ^^^^^^^^^
+     source.ks meta.definition.variable.ks variable.other.readwrite.ks
+               
+              ^
+              source.ks
+               =
+               ^
+               source.ks keyword.operator.assignment.ks
+                 
+                ^
+                source.ks
+                 [
+                 ^
+                 source.ks punctuation.definition.array.begin.bracket.square.ks
+                  1
+                  ^
+                  source.ks constant.numeric.decimal.ks
+                   ,
+                   ^
+                   source.ks punctuation.separator.comma.ks
+                     
+                    ^
+                    source.ks
+                     1
+                     ^
+                     source.ks constant.numeric.decimal.ks
+                      ]
+                      ^
+                      source.ks punctuation.definition.array.end.bracket.square.ks
+>
+>switch somePoint {
+ switch
+ ^^^^^^
+ source.ks keyword.control.switch.switch.ks
+        
+       ^
+       source.ks
+        somePoint
+        ^^^^^^^^^
+        source.ks variable.other.ks
+                  
+                 ^
+                 source.ks
+                  {
+                  ^
+                  source.ks punctuation.definition.switch.begin.bracket.curly.ks
+>
+>    with [x, y] where x == 0 && y == 0                        => console.log("(0, 0) is at the origin")
+     
+ ^^^^
+ source.ks
+     with
+     ^^^^
+     source.ks keyword.control.switch.binding.ks
+          
+         ^
+         source.ks
+          [
+          ^
+          source.ks punctuation.definition.array.begin.bracket.square.ks
+           x
+           ^
+           source.ks variable.other.ks
+            ,
+            ^
+            source.ks punctuation.separator.comma.ks
+              
+             ^
+             source.ks
+              y
+              ^
+              source.ks variable.other.ks
+               ]
+               ^
+               source.ks punctuation.definition.array.end.bracket.square.ks
+                 
+                ^
+                source.ks
+                 where
+                 ^^^^^
+                 source.ks keyword.control.switch.binding-condition.ks
+                       
+                      ^
+                      source.ks
+                       x
+                       ^
+                       source.ks variable.other.ks
+                         
+                        ^
+                        source.ks
+                         ==
+                         ^^
+                         source.ks keyword.operator.comparison.ks
+                            
+                           ^
+                           source.ks
+                            0
+                            ^
+                            source.ks constant.numeric.decimal.ks
+                              
+                             ^
+                             source.ks
+                              &&
+                              ^^
+                              source.ks keyword.operator.logical.ks
+                                 
+                                ^
+                                source.ks
+                                 y
+                                 ^
+                                 source.ks variable.other.ks
+                                   
+                                  ^
+                                  source.ks
+                                   ==
+                                   ^^
+                                   source.ks keyword.operator.comparison.ks
+                                      
+                                     ^
+                                     source.ks
+                                      0
+                                      ^
+                                      source.ks constant.numeric.decimal.ks
+                                                               
+                                       ^^^^^^^^^^^^^^^^^^^^^^^^
+                                       source.ks
+                                                               =>
+                                                               ^^
+                                                               source.ks keyword.control.switch.body.ks
+                                                                  
+                                                                 ^
+                                                                 source.ks
+                                                                  console
+                                                                  ^^^^^^^
+                                                                  source.ks variable.other.object.ks
+                                                                         .
+                                                                         ^
+                                                                         source.ks punctuation.accessor.object.ks
+                                                                          log
+                                                                          ^^^
+                                                                          source.ks entity.name.function.ks
+                                                                             (
+                                                                             ^
+                                                                             source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                                                                              "
+                                                                              ^
+                                                                              source.ks string.quoted.double.ks punctuation.definition.string.begin.ks
+                                                                               (0, 0) is at the origin
+                                                                               ^^^^^^^^^^^^^^^^^^^^^^^
+                                                                               source.ks string.quoted.double.ks
+                                                                                                      "
+                                                                                                      ^
+                                                                                                      source.ks string.quoted.double.ks punctuation.definition.string.end.ks
+                                                                                                       )
+                                                                                                       ^
+                                                                                                       source.ks punctuation.definition.arguments.end.bracket.round.ks
+>
+>    with [x, y] where y == 0                                => console.log("(\(x), 0) is on the x-axis")
+     
+ ^^^^
+ source.ks
+     with
+     ^^^^
+     source.ks keyword.control.switch.binding.ks
+          
+         ^
+         source.ks
+          [
+          ^
+          source.ks punctuation.definition.array.begin.bracket.square.ks
+           x
+           ^
+           source.ks variable.other.ks
+            ,
+            ^
+            source.ks punctuation.separator.comma.ks
+              
+             ^
+             source.ks
+              y
+              ^
+              source.ks variable.other.ks
+               ]
+               ^
+               source.ks punctuation.definition.array.end.bracket.square.ks
+                 
+                ^
+                source.ks
+                 where
+                 ^^^^^
+                 source.ks keyword.control.switch.binding-condition.ks
+                       
+                      ^
+                      source.ks
+                       y
+                       ^
+                       source.ks variable.other.ks
+                         
+                        ^
+                        source.ks
+                         ==
+                         ^^
+                         source.ks keyword.operator.comparison.ks
+                            
+                           ^
+                           source.ks
+                            0
+                            ^
+                            source.ks constant.numeric.decimal.ks
+                                                             
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                             source.ks
+                                                             =>
+                                                             ^^
+                                                             source.ks keyword.control.switch.body.ks
+                                                                
+                                                               ^
+                                                               source.ks
+                                                                console
+                                                                ^^^^^^^
+                                                                source.ks variable.other.object.ks
+                                                                       .
+                                                                       ^
+                                                                       source.ks punctuation.accessor.object.ks
+                                                                        log
+                                                                        ^^^
+                                                                        source.ks entity.name.function.ks
+                                                                           (
+                                                                           ^
+                                                                           source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                                                                            "
+                                                                            ^
+                                                                            source.ks string.quoted.double.ks punctuation.definition.string.begin.ks
+                                                                             (
+                                                                             ^
+                                                                             source.ks string.quoted.double.ks
+                                                                              \(
+                                                                              ^^
+                                                                              source.ks string.quoted.double.ks constant.character.escape.ks
+                                                                                x), 0) is on the x-axis
+                                                                                ^^^^^^^^^^^^^^^^^^^^^^^
+                                                                                source.ks string.quoted.double.ks
+                                                                                                       "
+                                                                                                       ^
+                                                                                                       source.ks string.quoted.double.ks punctuation.definition.string.end.ks
+                                                                                                        )
+                                                                                                        ^
+                                                                                                        source.ks punctuation.definition.arguments.end.bracket.round.ks
+>
+>    with [x, y] where x == 0                                => console.log("(0, \(y)) is on the y-axis")
+     
+ ^^^^
+ source.ks
+     with
+     ^^^^
+     source.ks keyword.control.switch.binding.ks
+          
+         ^
+         source.ks
+          [
+          ^
+          source.ks punctuation.definition.array.begin.bracket.square.ks
+           x
+           ^
+           source.ks variable.other.ks
+            ,
+            ^
+            source.ks punctuation.separator.comma.ks
+              
+             ^
+             source.ks
+              y
+              ^
+              source.ks variable.other.ks
+               ]
+               ^
+               source.ks punctuation.definition.array.end.bracket.square.ks
+                 
+                ^
+                source.ks
+                 where
+                 ^^^^^
+                 source.ks keyword.control.switch.binding-condition.ks
+                       
+                      ^
+                      source.ks
+                       x
+                       ^
+                       source.ks variable.other.ks
+                         
+                        ^
+                        source.ks
+                         ==
+                         ^^
+                         source.ks keyword.operator.comparison.ks
+                            
+                           ^
+                           source.ks
+                            0
+                            ^
+                            source.ks constant.numeric.decimal.ks
+                                                             
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                             source.ks
+                                                             =>
+                                                             ^^
+                                                             source.ks keyword.control.switch.body.ks
+                                                                
+                                                               ^
+                                                               source.ks
+                                                                console
+                                                                ^^^^^^^
+                                                                source.ks variable.other.object.ks
+                                                                       .
+                                                                       ^
+                                                                       source.ks punctuation.accessor.object.ks
+                                                                        log
+                                                                        ^^^
+                                                                        source.ks entity.name.function.ks
+                                                                           (
+                                                                           ^
+                                                                           source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                                                                            "
+                                                                            ^
+                                                                            source.ks string.quoted.double.ks punctuation.definition.string.begin.ks
+                                                                             (0, 
+                                                                             ^^^^
+                                                                             source.ks string.quoted.double.ks
+                                                                                 \(
+                                                                                 ^^
+                                                                                 source.ks string.quoted.double.ks constant.character.escape.ks
+                                                                                   y)) is on the y-axis
+                                                                                   ^^^^^^^^^^^^^^^^^^^^
+                                                                                   source.ks string.quoted.double.ks
+                                                                                                       "
+                                                                                                       ^
+                                                                                                       source.ks string.quoted.double.ks punctuation.definition.string.end.ks
+                                                                                                        )
+                                                                                                        ^
+                                                                                                        source.ks punctuation.definition.arguments.end.bracket.round.ks
+>
+>    with [x, y] where -2 <= x <= 2 && -2 <= y <= 2            => console.log("(\(x), \(y)) is inside the box")
+     
+ ^^^^
+ source.ks
+     with
+     ^^^^
+     source.ks keyword.control.switch.binding.ks
+          
+         ^
+         source.ks
+          [
+          ^
+          source.ks punctuation.definition.array.begin.bracket.square.ks
+           x
+           ^
+           source.ks variable.other.ks
+            ,
+            ^
+            source.ks punctuation.separator.comma.ks
+              
+             ^
+             source.ks
+              y
+              ^
+              source.ks variable.other.ks
+               ]
+               ^
+               source.ks punctuation.definition.array.end.bracket.square.ks
+                 
+                ^
+                source.ks
+                 where
+                 ^^^^^
+                 source.ks keyword.control.switch.binding-condition.ks
+                       
+                      ^
+                      source.ks
+                       -
+                       ^
+                       source.ks keyword.operator.ks
+                        2
+                        ^
+                        source.ks constant.numeric.decimal.ks
+                          
+                         ^
+                         source.ks
+                          <=
+                          ^^
+                          source.ks keyword.operator.comparison.ks
+                             
+                            ^
+                            source.ks
+                             x
+                             ^
+                             source.ks variable.other.ks
+                               
+                              ^
+                              source.ks
+                               <=
+                               ^^
+                               source.ks keyword.operator.comparison.ks
+                                  
+                                 ^
+                                 source.ks
+                                  2
+                                  ^
+                                  source.ks constant.numeric.decimal.ks
+                                    
+                                   ^
+                                   source.ks
+                                    &&
+                                    ^^
+                                    source.ks keyword.operator.logical.ks
+                                       
+                                      ^
+                                      source.ks
+                                       -
+                                       ^
+                                       source.ks keyword.operator.ks
+                                        2
+                                        ^
+                                        source.ks constant.numeric.decimal.ks
+                                          
+                                         ^
+                                         source.ks
+                                          <=
+                                          ^^
+                                          source.ks keyword.operator.comparison.ks
+                                             
+                                            ^
+                                            source.ks
+                                             y
+                                             ^
+                                             source.ks variable.other.ks
+                                               
+                                              ^
+                                              source.ks
+                                               <=
+                                               ^^
+                                               source.ks keyword.operator.comparison.ks
+                                                  
+                                                 ^
+                                                 source.ks
+                                                  2
+                                                  ^
+                                                  source.ks constant.numeric.decimal.ks
+                                                               
+                                                   ^^^^^^^^^^^^
+                                                   source.ks
+                                                               =>
+                                                               ^^
+                                                               source.ks keyword.control.switch.body.ks
+                                                                  
+                                                                 ^
+                                                                 source.ks
+                                                                  console
+                                                                  ^^^^^^^
+                                                                  source.ks variable.other.object.ks
+                                                                         .
+                                                                         ^
+                                                                         source.ks punctuation.accessor.object.ks
+                                                                          log
+                                                                          ^^^
+                                                                          source.ks entity.name.function.ks
+                                                                             (
+                                                                             ^
+                                                                             source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                                                                              "
+                                                                              ^
+                                                                              source.ks string.quoted.double.ks punctuation.definition.string.begin.ks
+                                                                               (
+                                                                               ^
+                                                                               source.ks string.quoted.double.ks
+                                                                                \(
+                                                                                ^^
+                                                                                source.ks string.quoted.double.ks constant.character.escape.ks
+                                                                                  x), 
+                                                                                  ^^^^
+                                                                                  source.ks string.quoted.double.ks
+                                                                                      \(
+                                                                                      ^^
+                                                                                      source.ks string.quoted.double.ks constant.character.escape.ks
+                                                                                        y)) is inside the box
+                                                                                        ^^^^^^^^^^^^^^^^^^^^^
+                                                                                        source.ks string.quoted.double.ks
+                                                                                                             "
+                                                                                                             ^
+                                                                                                             source.ks string.quoted.double.ks punctuation.definition.string.end.ks
+                                                                                                              )
+                                                                                                              ^
+                                                                                                              source.ks punctuation.definition.arguments.end.bracket.round.ks
+>
+>    with [x, y]                                                => console.log("(\(x), \(y)) is outside of the box")
+     
+ ^^^^
+ source.ks
+     with
+     ^^^^
+     source.ks keyword.control.switch.binding.ks
+          
+         ^
+         source.ks
+          [
+          ^
+          source.ks punctuation.definition.array.begin.bracket.square.ks
+           x
+           ^
+           source.ks variable.other.ks
+            ,
+            ^
+            source.ks punctuation.separator.comma.ks
+              
+             ^
+             source.ks
+              y
+              ^
+              source.ks variable.other.ks
+               ]
+               ^
+               source.ks punctuation.definition.array.end.bracket.square.ks
+                                                                
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                source.ks
+                                                                =>
+                                                                ^^
+                                                                source.ks keyword.control.switch.body.ks
+                                                                   
+                                                                  ^
+                                                                  source.ks
+                                                                   console
+                                                                   ^^^^^^^
+                                                                   source.ks variable.other.object.ks
+                                                                          .
+                                                                          ^
+                                                                          source.ks punctuation.accessor.object.ks
+                                                                           log
+                                                                           ^^^
+                                                                           source.ks entity.name.function.ks
+                                                                              (
+                                                                              ^
+                                                                              source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                                                                               "
+                                                                               ^
+                                                                               source.ks string.quoted.double.ks punctuation.definition.string.begin.ks
+                                                                                (
+                                                                                ^
+                                                                                source.ks string.quoted.double.ks
+                                                                                 \(
+                                                                                 ^^
+                                                                                 source.ks string.quoted.double.ks constant.character.escape.ks
+                                                                                   x), 
+                                                                                   ^^^^
+                                                                                   source.ks string.quoted.double.ks
+                                                                                       \(
+                                                                                       ^^
+                                                                                       source.ks string.quoted.double.ks constant.character.escape.ks
+                                                                                         y)) is outside of the box
+                                                                                         ^^^^^^^^^^^^^^^^^^^^^^^^^
+                                                                                         source.ks string.quoted.double.ks
+                                                                                                                  "
+                                                                                                                  ^
+                                                                                                                  source.ks string.quoted.double.ks punctuation.definition.string.end.ks
+                                                                                                                   )
+                                                                                                                   ^
+                                                                                                                   source.ks punctuation.definition.arguments.end.bracket.round.ks
+>
+>                                                            => console.log("Not a point")
+                                                             
+ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ source.ks
+                                                             =>
+                                                             ^^
+                                                             source.ks keyword.control.switch.body.ks
+                                                                
+                                                               ^
+                                                               source.ks
+                                                                console
+                                                                ^^^^^^^
+                                                                source.ks variable.other.object.ks
+                                                                       .
+                                                                       ^
+                                                                       source.ks punctuation.accessor.object.ks
+                                                                        log
+                                                                        ^^^
+                                                                        source.ks entity.name.function.ks
+                                                                           (
+                                                                           ^
+                                                                           source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                                                                            "
+                                                                            ^
+                                                                            source.ks string.quoted.double.ks punctuation.definition.string.begin.ks
+                                                                             Not a point
+                                                                             ^^^^^^^^^^^
+                                                                             source.ks string.quoted.double.ks
+                                                                                        "
+                                                                                        ^
+                                                                                        source.ks string.quoted.double.ks punctuation.definition.string.end.ks
+                                                                                         )
+                                                                                         ^
+                                                                                         source.ks punctuation.definition.arguments.end.bracket.round.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.switch.end.bracket.curly.ks

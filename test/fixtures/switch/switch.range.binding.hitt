@@ -1,0 +1,360 @@
+original file
+-----------------------------------
+func age(): int => 15
+func main() {
+    switch age() {
+        0                    => console.log(`I'm not born yet I guess`)
+        1  .. 12     with n    => console.log(`I'm a child of age \(n)`)
+        13 .. 19     with n    => console.log(`I'm a teen of age \(n)`)
+                    with n    => console.log(`I'm an old person of age \(n)`)
+    }
+}
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>func age(): int => 15
+ func
+ ^^^^
+ source.ks storage.type.function.ks
+      
+     ^
+     source.ks
+      age
+      ^^^
+      source.ks entity.name.function.ks
+         (
+         ^
+         source.ks punctuation.definition.parameters.begin.bracket.round.ks
+          )
+          ^
+          source.ks punctuation.definition.parameters.end.bracket.round.ks
+           :
+           ^
+           source.ks meta.function.return-type.ks keyword.operator.type.annotation.ks
+             
+            ^
+            source.ks meta.function.return-type.ks
+             int
+             ^^^
+             source.ks meta.function.return-type.ks entity.name.type.ks
+                 
+                ^
+                source.ks
+                 =>
+                 ^^
+                 source.ks storage.type.function.arrow.ks
+                    
+                   ^
+                   source.ks
+                    15
+                    ^^
+                    source.ks constant.numeric.decimal.ks
+>
+>func main() {
+ func
+ ^^^^
+ source.ks storage.type.function.ks
+      
+     ^
+     source.ks
+      main
+      ^^^^
+      source.ks entity.name.function.ks
+          (
+          ^
+          source.ks punctuation.definition.parameters.begin.bracket.round.ks
+           )
+           ^
+           source.ks punctuation.definition.parameters.end.bracket.round.ks
+             
+            ^
+            source.ks
+             {
+             ^
+             source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>    switch age() {
+     
+ ^^^^
+ source.ks
+     switch
+     ^^^^^^
+     source.ks keyword.control.switch.switch.ks
+            
+           ^
+           source.ks
+            age
+            ^^^
+            source.ks entity.name.function.ks
+               (
+               ^
+               source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                )
+                ^
+                source.ks punctuation.definition.arguments.end.bracket.round.ks
+                  
+                 ^
+                 source.ks
+                  {
+                  ^
+                  source.ks punctuation.definition.switch.begin.bracket.curly.ks
+>
+>        0                    => console.log(`I'm not born yet I guess`)
+         
+ ^^^^^^^^
+ source.ks
+         0
+         ^
+         source.ks constant.numeric.decimal.ks
+                              
+          ^^^^^^^^^^^^^^^^^^^^
+          source.ks
+                              =>
+                              ^^
+                              source.ks keyword.control.switch.body.ks
+                                 
+                                ^
+                                source.ks
+                                 console
+                                 ^^^^^^^
+                                 source.ks variable.other.object.ks
+                                        .
+                                        ^
+                                        source.ks punctuation.accessor.object.ks
+                                         log
+                                         ^^^
+                                         source.ks entity.name.function.ks
+                                            (
+                                            ^
+                                            source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                                             `
+                                             ^
+                                             source.ks punctuation.definition.string.template.begin.ks
+                                              I'm not born yet I guess
+                                              ^^^^^^^^^^^^^^^^^^^^^^^^
+                                              source.ks string.template.ks
+                                                                      `
+                                                                      ^
+                                                                      source.ks punctuation.definition.string.template.end.ks
+                                                                       )
+                                                                       ^
+                                                                       source.ks punctuation.definition.arguments.end.bracket.round.ks
+>
+>        1  .. 12     with n    => console.log(`I'm a child of age \(n)`)
+         
+ ^^^^^^^^
+ source.ks
+         1
+         ^
+         source.ks constant.numeric.decimal.ks
+            
+          ^^
+          source.ks
+            ..
+            ^^
+            source.ks keyword.operator.range.ks
+               
+              ^
+              source.ks
+               12
+               ^^
+               source.ks constant.numeric.decimal.ks
+                      
+                 ^^^^^
+                 source.ks
+                      with
+                      ^^^^
+                      source.ks keyword.control.switch.binding.ks
+                           
+                          ^
+                          source.ks
+                           n
+                           ^
+                           source.ks variable.other.ks
+                                
+                            ^^^^
+                            source.ks
+                                =>
+                                ^^
+                                source.ks keyword.control.switch.body.ks
+                                   
+                                  ^
+                                  source.ks
+                                   console
+                                   ^^^^^^^
+                                   source.ks variable.other.object.ks
+                                          .
+                                          ^
+                                          source.ks punctuation.accessor.object.ks
+                                           log
+                                           ^^^
+                                           source.ks entity.name.function.ks
+                                              (
+                                              ^
+                                              source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                                               `
+                                               ^
+                                               source.ks punctuation.definition.string.template.begin.ks
+                                                I'm a child of age 
+                                                ^^^^^^^^^^^^^^^^^^^
+                                                source.ks string.template.ks
+                                                                   \(
+                                                                   ^^
+                                                                   source.ks punctuation.definition.template-expression.begin.ks
+                                                                     n
+                                                                     ^
+                                                                     source.ks variable.other.ks
+                                                                      )
+                                                                      ^
+                                                                      source.ks punctuation.definition.template-expression.end.ks
+                                                                       `
+                                                                       ^
+                                                                       source.ks punctuation.definition.string.template.end.ks
+                                                                        )
+                                                                        ^
+                                                                        source.ks punctuation.definition.arguments.end.bracket.round.ks
+>
+>        13 .. 19     with n    => console.log(`I'm a teen of age \(n)`)
+         
+ ^^^^^^^^
+ source.ks
+         13
+         ^^
+         source.ks constant.numeric.decimal.ks
+            
+           ^
+           source.ks
+            ..
+            ^^
+            source.ks keyword.operator.range.ks
+               
+              ^
+              source.ks
+               19
+               ^^
+               source.ks constant.numeric.decimal.ks
+                      
+                 ^^^^^
+                 source.ks
+                      with
+                      ^^^^
+                      source.ks keyword.control.switch.binding.ks
+                           
+                          ^
+                          source.ks
+                           n
+                           ^
+                           source.ks variable.other.ks
+                                
+                            ^^^^
+                            source.ks
+                                =>
+                                ^^
+                                source.ks keyword.control.switch.body.ks
+                                   
+                                  ^
+                                  source.ks
+                                   console
+                                   ^^^^^^^
+                                   source.ks variable.other.object.ks
+                                          .
+                                          ^
+                                          source.ks punctuation.accessor.object.ks
+                                           log
+                                           ^^^
+                                           source.ks entity.name.function.ks
+                                              (
+                                              ^
+                                              source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                                               `
+                                               ^
+                                               source.ks punctuation.definition.string.template.begin.ks
+                                                I'm a teen of age 
+                                                ^^^^^^^^^^^^^^^^^^
+                                                source.ks string.template.ks
+                                                                  \(
+                                                                  ^^
+                                                                  source.ks punctuation.definition.template-expression.begin.ks
+                                                                    n
+                                                                    ^
+                                                                    source.ks variable.other.ks
+                                                                     )
+                                                                     ^
+                                                                     source.ks punctuation.definition.template-expression.end.ks
+                                                                      `
+                                                                      ^
+                                                                      source.ks punctuation.definition.string.template.end.ks
+                                                                       )
+                                                                       ^
+                                                                       source.ks punctuation.definition.arguments.end.bracket.round.ks
+>
+>                    with n    => console.log(`I'm an old person of age \(n)`)
+                     
+ ^^^^^^^^^^^^^^^^^^^^
+ source.ks
+                     with
+                     ^^^^
+                     source.ks keyword.control.switch.binding.ks
+                          
+                         ^
+                         source.ks
+                          n
+                          ^
+                          source.ks variable.other.ks
+                               
+                           ^^^^
+                           source.ks
+                               =>
+                               ^^
+                               source.ks keyword.control.switch.body.ks
+                                  
+                                 ^
+                                 source.ks
+                                  console
+                                  ^^^^^^^
+                                  source.ks variable.other.object.ks
+                                         .
+                                         ^
+                                         source.ks punctuation.accessor.object.ks
+                                          log
+                                          ^^^
+                                          source.ks entity.name.function.ks
+                                             (
+                                             ^
+                                             source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                                              `
+                                              ^
+                                              source.ks punctuation.definition.string.template.begin.ks
+                                               I'm an old person of age 
+                                               ^^^^^^^^^^^^^^^^^^^^^^^^^
+                                               source.ks string.template.ks
+                                                                        \(
+                                                                        ^^
+                                                                        source.ks punctuation.definition.template-expression.begin.ks
+                                                                          n
+                                                                          ^
+                                                                          source.ks variable.other.ks
+                                                                           )
+                                                                           ^
+                                                                           source.ks punctuation.definition.template-expression.end.ks
+                                                                            `
+                                                                            ^
+                                                                            source.ks punctuation.definition.string.template.end.ks
+                                                                             )
+                                                                             ^
+                                                                             source.ks punctuation.definition.arguments.end.bracket.round.ks
+>
+>    }
+     
+ ^^^^
+ source.ks
+     }
+     ^
+     source.ks punctuation.definition.switch.end.bracket.curly.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.block.end.bracket.curly.ks

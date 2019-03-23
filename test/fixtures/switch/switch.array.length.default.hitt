@@ -1,0 +1,267 @@
+original file
+-----------------------------------
+let v = [1, 2, 3, 4, 5]
+switch v {
+    []                                => console.log("empty")
+    with [elem]                        => console.log(elem) // <- 1
+    with [,, ...rest]                => console.log(rest) // <- [3, 4, 5]
+}
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>let v = [1, 2, 3, 4, 5]
+ let
+ ^^^
+ source.ks storage.type.readwrite.ks
+     
+    ^
+    source.ks
+     v
+     ^
+     source.ks meta.definition.variable.ks variable.other.readwrite.ks
+       
+      ^
+      source.ks
+       =
+       ^
+       source.ks keyword.operator.assignment.ks
+         
+        ^
+        source.ks
+         [
+         ^
+         source.ks punctuation.definition.array.begin.bracket.square.ks
+          1
+          ^
+          source.ks constant.numeric.decimal.ks
+           ,
+           ^
+           source.ks punctuation.separator.comma.ks
+             
+            ^
+            source.ks
+             2
+             ^
+             source.ks constant.numeric.decimal.ks
+              ,
+              ^
+              source.ks punctuation.separator.comma.ks
+                
+               ^
+               source.ks
+                3
+                ^
+                source.ks constant.numeric.decimal.ks
+                 ,
+                 ^
+                 source.ks punctuation.separator.comma.ks
+                   
+                  ^
+                  source.ks
+                   4
+                   ^
+                   source.ks constant.numeric.decimal.ks
+                    ,
+                    ^
+                    source.ks punctuation.separator.comma.ks
+                      
+                     ^
+                     source.ks
+                      5
+                      ^
+                      source.ks constant.numeric.decimal.ks
+                       ]
+                       ^
+                       source.ks punctuation.definition.array.end.bracket.square.ks
+>
+>switch v {
+ switch
+ ^^^^^^
+ source.ks keyword.control.switch.switch.ks
+        
+       ^
+       source.ks
+        v
+        ^
+        source.ks variable.other.ks
+          
+         ^
+         source.ks
+          {
+          ^
+          source.ks punctuation.definition.switch.begin.bracket.curly.ks
+>
+>    []                                => console.log("empty")
+     
+ ^^^^
+ source.ks
+     [
+     ^
+     source.ks punctuation.definition.array.begin.bracket.square.ks
+      ]
+      ^
+      source.ks punctuation.definition.array.end.bracket.square.ks
+                                       
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+       source.ks
+                                       =>
+                                       ^^
+                                       source.ks keyword.control.switch.body.ks
+                                          
+                                         ^
+                                         source.ks
+                                          console
+                                          ^^^^^^^
+                                          source.ks variable.other.object.ks
+                                                 .
+                                                 ^
+                                                 source.ks punctuation.accessor.object.ks
+                                                  log
+                                                  ^^^
+                                                  source.ks entity.name.function.ks
+                                                     (
+                                                     ^
+                                                     source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                                                      "
+                                                      ^
+                                                      source.ks string.quoted.double.ks punctuation.definition.string.begin.ks
+                                                       empty
+                                                       ^^^^^
+                                                       source.ks string.quoted.double.ks
+                                                            "
+                                                            ^
+                                                            source.ks string.quoted.double.ks punctuation.definition.string.end.ks
+                                                             )
+                                                             ^
+                                                             source.ks punctuation.definition.arguments.end.bracket.round.ks
+>
+>    with [elem]                        => console.log(elem) // <- 1
+     
+ ^^^^
+ source.ks
+     with
+     ^^^^
+     source.ks keyword.control.switch.binding.ks
+          
+         ^
+         source.ks
+          [
+          ^
+          source.ks punctuation.definition.array.begin.bracket.square.ks
+           elem
+           ^^^^
+           source.ks variable.other.ks
+               ]
+               ^
+               source.ks punctuation.definition.array.end.bracket.square.ks
+                                        
+                ^^^^^^^^^^^^^^^^^^^^^^^^
+                source.ks
+                                        =>
+                                        ^^
+                                        source.ks keyword.control.switch.body.ks
+                                           
+                                          ^
+                                          source.ks
+                                           console
+                                           ^^^^^^^
+                                           source.ks variable.other.object.ks
+                                                  .
+                                                  ^
+                                                  source.ks punctuation.accessor.object.ks
+                                                   log
+                                                   ^^^
+                                                   source.ks entity.name.function.ks
+                                                      (
+                                                      ^
+                                                      source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                                                       elem
+                                                       ^^^^
+                                                       source.ks variable.other.ks
+                                                           )
+                                                           ^
+                                                           source.ks punctuation.definition.arguments.end.bracket.round.ks
+                                                             
+                                                            ^
+                                                            source.ks
+                                                             //
+                                                             ^^
+                                                             source.ks comment.line.double-slash.ks punctuation.definition.comment.ks
+                                                                <- 1
+                                                               ^^^^^
+                                                               source.ks comment.line.double-slash.ks
+>
+>    with [,, ...rest]                => console.log(rest) // <- [3, 4, 5]
+     
+ ^^^^
+ source.ks
+     with
+     ^^^^
+     source.ks keyword.control.switch.binding.ks
+          
+         ^
+         source.ks
+          [
+          ^
+          source.ks punctuation.definition.array.begin.bracket.square.ks
+           ,
+           ^
+           source.ks punctuation.separator.comma.ks
+            ,
+            ^
+            source.ks punctuation.separator.comma.ks
+              
+             ^
+             source.ks
+              ...
+              ^^^
+              source.ks keyword.operator.spread.ks
+                 rest
+                 ^^^^
+                 source.ks variable.other.ks
+                     ]
+                     ^
+                     source.ks punctuation.definition.array.end.bracket.square.ks
+                                      
+                      ^^^^^^^^^^^^^^^^
+                      source.ks
+                                      =>
+                                      ^^
+                                      source.ks keyword.control.switch.body.ks
+                                         
+                                        ^
+                                        source.ks
+                                         console
+                                         ^^^^^^^
+                                         source.ks variable.other.object.ks
+                                                .
+                                                ^
+                                                source.ks punctuation.accessor.object.ks
+                                                 log
+                                                 ^^^
+                                                 source.ks entity.name.function.ks
+                                                    (
+                                                    ^
+                                                    source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                                                     rest
+                                                     ^^^^
+                                                     source.ks variable.other.ks
+                                                         )
+                                                         ^
+                                                         source.ks punctuation.definition.arguments.end.bracket.round.ks
+                                                           
+                                                          ^
+                                                          source.ks
+                                                           //
+                                                           ^^
+                                                           source.ks comment.line.double-slash.ks punctuation.definition.comment.ks
+                                                              <- [3, 4, 5]
+                                                             ^^^^^^^^^^^^^
+                                                             source.ks comment.line.double-slash.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.switch.end.bracket.curly.ks

@@ -1,0 +1,258 @@
+original file
+-----------------------------------
+let number = 13
+switch number {
+    1                => console.log("One!")
+    2, 3, 5, 7, 11    => console.log("This is a prime")
+    13..19            => console.log("A teen")
+                    => console.log("Ain't special")
+}
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>let number = 13
+ let
+ ^^^
+ source.ks storage.type.readwrite.ks
+     
+    ^
+    source.ks
+     number
+     ^^^^^^
+     source.ks meta.definition.variable.ks variable.other.readwrite.ks
+            
+           ^
+           source.ks
+            =
+            ^
+            source.ks keyword.operator.assignment.ks
+              
+             ^
+             source.ks
+              13
+              ^^
+              source.ks constant.numeric.decimal.ks
+>
+>switch number {
+ switch
+ ^^^^^^
+ source.ks keyword.control.switch.switch.ks
+        
+       ^
+       source.ks
+        number
+        ^^^^^^
+        source.ks variable.other.ks
+               
+              ^
+              source.ks
+               {
+               ^
+               source.ks punctuation.definition.switch.begin.bracket.curly.ks
+>
+>    1                => console.log("One!")
+     
+ ^^^^
+ source.ks
+     1
+     ^
+     source.ks constant.numeric.decimal.ks
+                      
+      ^^^^^^^^^^^^^^^^
+      source.ks
+                      =>
+                      ^^
+                      source.ks keyword.control.switch.body.ks
+                         
+                        ^
+                        source.ks
+                         console
+                         ^^^^^^^
+                         source.ks variable.other.object.ks
+                                .
+                                ^
+                                source.ks punctuation.accessor.object.ks
+                                 log
+                                 ^^^
+                                 source.ks entity.name.function.ks
+                                    (
+                                    ^
+                                    source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                                     "
+                                     ^
+                                     source.ks string.quoted.double.ks punctuation.definition.string.begin.ks
+                                      One!
+                                      ^^^^
+                                      source.ks string.quoted.double.ks
+                                          "
+                                          ^
+                                          source.ks string.quoted.double.ks punctuation.definition.string.end.ks
+                                           )
+                                           ^
+                                           source.ks punctuation.definition.arguments.end.bracket.round.ks
+>
+>    2, 3, 5, 7, 11    => console.log("This is a prime")
+     
+ ^^^^
+ source.ks
+     2
+     ^
+     source.ks constant.numeric.decimal.ks
+      ,
+      ^
+      source.ks punctuation.separator.comma.ks
+        
+       ^
+       source.ks
+        3
+        ^
+        source.ks constant.numeric.decimal.ks
+         ,
+         ^
+         source.ks punctuation.separator.comma.ks
+           
+          ^
+          source.ks
+           5
+           ^
+           source.ks constant.numeric.decimal.ks
+            ,
+            ^
+            source.ks punctuation.separator.comma.ks
+              
+             ^
+             source.ks
+              7
+              ^
+              source.ks constant.numeric.decimal.ks
+               ,
+               ^
+               source.ks punctuation.separator.comma.ks
+                 
+                ^
+                source.ks
+                 11
+                 ^^
+                 source.ks constant.numeric.decimal.ks
+                       
+                   ^^^^
+                   source.ks
+                       =>
+                       ^^
+                       source.ks keyword.control.switch.body.ks
+                          
+                         ^
+                         source.ks
+                          console
+                          ^^^^^^^
+                          source.ks variable.other.object.ks
+                                 .
+                                 ^
+                                 source.ks punctuation.accessor.object.ks
+                                  log
+                                  ^^^
+                                  source.ks entity.name.function.ks
+                                     (
+                                     ^
+                                     source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                                      "
+                                      ^
+                                      source.ks string.quoted.double.ks punctuation.definition.string.begin.ks
+                                       This is a prime
+                                       ^^^^^^^^^^^^^^^
+                                       source.ks string.quoted.double.ks
+                                                      "
+                                                      ^
+                                                      source.ks string.quoted.double.ks punctuation.definition.string.end.ks
+                                                       )
+                                                       ^
+                                                       source.ks punctuation.definition.arguments.end.bracket.round.ks
+>
+>    13..19            => console.log("A teen")
+     
+ ^^^^
+ source.ks
+     13
+     ^^
+     source.ks constant.numeric.decimal.ks
+       ..
+       ^^
+       source.ks keyword.operator.range.ks
+         19
+         ^^
+         source.ks constant.numeric.decimal.ks
+                       
+           ^^^^^^^^^^^^
+           source.ks
+                       =>
+                       ^^
+                       source.ks keyword.control.switch.body.ks
+                          
+                         ^
+                         source.ks
+                          console
+                          ^^^^^^^
+                          source.ks variable.other.object.ks
+                                 .
+                                 ^
+                                 source.ks punctuation.accessor.object.ks
+                                  log
+                                  ^^^
+                                  source.ks entity.name.function.ks
+                                     (
+                                     ^
+                                     source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                                      "
+                                      ^
+                                      source.ks string.quoted.double.ks punctuation.definition.string.begin.ks
+                                       A teen
+                                       ^^^^^^
+                                       source.ks string.quoted.double.ks
+                                             "
+                                             ^
+                                             source.ks string.quoted.double.ks punctuation.definition.string.end.ks
+                                              )
+                                              ^
+                                              source.ks punctuation.definition.arguments.end.bracket.round.ks
+>
+>                    => console.log("Ain't special")
+                     
+ ^^^^^^^^^^^^^^^^^^^^
+ source.ks
+                     =>
+                     ^^
+                     source.ks keyword.control.switch.body.ks
+                        
+                       ^
+                       source.ks
+                        console
+                        ^^^^^^^
+                        source.ks variable.other.object.ks
+                               .
+                               ^
+                               source.ks punctuation.accessor.object.ks
+                                log
+                                ^^^
+                                source.ks entity.name.function.ks
+                                   (
+                                   ^
+                                   source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                                    "
+                                    ^
+                                    source.ks string.quoted.double.ks punctuation.definition.string.begin.ks
+                                     Ain't special
+                                     ^^^^^^^^^^^^^
+                                     source.ks string.quoted.double.ks
+                                                  "
+                                                  ^
+                                                  source.ks string.quoted.double.ks punctuation.definition.string.end.ks
+                                                   )
+                                                   ^
+                                                   source.ks punctuation.definition.arguments.end.bracket.round.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.switch.end.bracket.curly.ks

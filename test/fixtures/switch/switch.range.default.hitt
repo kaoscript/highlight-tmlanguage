@@ -1,0 +1,234 @@
+original file
+-----------------------------------
+let temperature = 83
+switch temperature {
+    0..49    => console.log("Cold")
+    50..79    => console.log("Warm")
+    80..110    => console.log("Hot")
+            => console.log("Temperature out of range")
+}
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>let temperature = 83
+ let
+ ^^^
+ source.ks storage.type.readwrite.ks
+     
+    ^
+    source.ks
+     temperature
+     ^^^^^^^^^^^
+     source.ks meta.definition.variable.ks variable.other.readwrite.ks
+                 
+                ^
+                source.ks
+                 =
+                 ^
+                 source.ks keyword.operator.assignment.ks
+                   
+                  ^
+                  source.ks
+                   83
+                   ^^
+                   source.ks constant.numeric.decimal.ks
+>
+>switch temperature {
+ switch
+ ^^^^^^
+ source.ks keyword.control.switch.switch.ks
+        
+       ^
+       source.ks
+        temperature
+        ^^^^^^^^^^^
+        source.ks variable.other.ks
+                    
+                   ^
+                   source.ks
+                    {
+                    ^
+                    source.ks punctuation.definition.switch.begin.bracket.curly.ks
+>
+>    0..49    => console.log("Cold")
+     
+ ^^^^
+ source.ks
+     0
+     ^
+     source.ks constant.numeric.decimal.ks
+      ..
+      ^^
+      source.ks keyword.operator.range.ks
+        49
+        ^^
+        source.ks constant.numeric.decimal.ks
+              
+          ^^^^
+          source.ks
+              =>
+              ^^
+              source.ks keyword.control.switch.body.ks
+                 
+                ^
+                source.ks
+                 console
+                 ^^^^^^^
+                 source.ks variable.other.object.ks
+                        .
+                        ^
+                        source.ks punctuation.accessor.object.ks
+                         log
+                         ^^^
+                         source.ks entity.name.function.ks
+                            (
+                            ^
+                            source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                             "
+                             ^
+                             source.ks string.quoted.double.ks punctuation.definition.string.begin.ks
+                              Cold
+                              ^^^^
+                              source.ks string.quoted.double.ks
+                                  "
+                                  ^
+                                  source.ks string.quoted.double.ks punctuation.definition.string.end.ks
+                                   )
+                                   ^
+                                   source.ks punctuation.definition.arguments.end.bracket.round.ks
+>
+>    50..79    => console.log("Warm")
+     
+ ^^^^
+ source.ks
+     50
+     ^^
+     source.ks constant.numeric.decimal.ks
+       ..
+       ^^
+       source.ks keyword.operator.range.ks
+         79
+         ^^
+         source.ks constant.numeric.decimal.ks
+               
+           ^^^^
+           source.ks
+               =>
+               ^^
+               source.ks keyword.control.switch.body.ks
+                  
+                 ^
+                 source.ks
+                  console
+                  ^^^^^^^
+                  source.ks variable.other.object.ks
+                         .
+                         ^
+                         source.ks punctuation.accessor.object.ks
+                          log
+                          ^^^
+                          source.ks entity.name.function.ks
+                             (
+                             ^
+                             source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                              "
+                              ^
+                              source.ks string.quoted.double.ks punctuation.definition.string.begin.ks
+                               Warm
+                               ^^^^
+                               source.ks string.quoted.double.ks
+                                   "
+                                   ^
+                                   source.ks string.quoted.double.ks punctuation.definition.string.end.ks
+                                    )
+                                    ^
+                                    source.ks punctuation.definition.arguments.end.bracket.round.ks
+>
+>    80..110    => console.log("Hot")
+     
+ ^^^^
+ source.ks
+     80
+     ^^
+     source.ks constant.numeric.decimal.ks
+       ..
+       ^^
+       source.ks keyword.operator.range.ks
+         110
+         ^^^
+         source.ks constant.numeric.decimal.ks
+                
+            ^^^^
+            source.ks
+                =>
+                ^^
+                source.ks keyword.control.switch.body.ks
+                   
+                  ^
+                  source.ks
+                   console
+                   ^^^^^^^
+                   source.ks variable.other.object.ks
+                          .
+                          ^
+                          source.ks punctuation.accessor.object.ks
+                           log
+                           ^^^
+                           source.ks entity.name.function.ks
+                              (
+                              ^
+                              source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                               "
+                               ^
+                               source.ks string.quoted.double.ks punctuation.definition.string.begin.ks
+                                Hot
+                                ^^^
+                                source.ks string.quoted.double.ks
+                                   "
+                                   ^
+                                   source.ks string.quoted.double.ks punctuation.definition.string.end.ks
+                                    )
+                                    ^
+                                    source.ks punctuation.definition.arguments.end.bracket.round.ks
+>
+>            => console.log("Temperature out of range")
+             
+ ^^^^^^^^^^^^
+ source.ks
+             =>
+             ^^
+             source.ks keyword.control.switch.body.ks
+                
+               ^
+               source.ks
+                console
+                ^^^^^^^
+                source.ks variable.other.object.ks
+                       .
+                       ^
+                       source.ks punctuation.accessor.object.ks
+                        log
+                        ^^^
+                        source.ks entity.name.function.ks
+                           (
+                           ^
+                           source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                            "
+                            ^
+                            source.ks string.quoted.double.ks punctuation.definition.string.begin.ks
+                             Temperature out of range
+                             ^^^^^^^^^^^^^^^^^^^^^^^^
+                             source.ks string.quoted.double.ks
+                                                     "
+                                                     ^
+                                                     source.ks string.quoted.double.ks punctuation.definition.string.end.ks
+                                                      )
+                                                      ^
+                                                      source.ks punctuation.definition.arguments.end.bracket.round.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.switch.end.bracket.curly.ks
