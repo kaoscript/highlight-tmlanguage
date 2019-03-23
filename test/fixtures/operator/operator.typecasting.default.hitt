@@ -1,0 +1,42 @@
+original file
+-----------------------------------
+(foo as String).trim()
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>(foo as String).trim()
+ (
+ ^
+ source.ks meta.brace.round.ks
+  foo
+  ^^^
+  source.ks variable.other.ks
+      
+     ^
+     source.ks
+      as
+      ^^
+      source.ks keyword.operator.type-casting.ks
+         
+        ^
+        source.ks
+         String
+         ^^^^^^
+         source.ks support.type.primitive.ks
+               )
+               ^
+               source.ks meta.brace.round.ks
+                .
+                ^
+                source.ks punctuation.accessor.object.ks
+                 trim
+                 ^^^^
+                 source.ks entity.name.function.ks
+                     (
+                     ^
+                     source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                      )
+                      ^
+                      source.ks punctuation.definition.arguments.end.bracket.round.ks

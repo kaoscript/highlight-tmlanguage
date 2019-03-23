@@ -1,0 +1,42 @@
+original file
+-----------------------------------
+if value is string {
+}
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>if value is string {
+ if
+ ^^
+ source.ks keyword.control.conditional.if.ks
+    
+   ^
+   source.ks
+    value
+    ^^^^^
+    source.ks variable.other.ks
+          
+         ^
+         source.ks
+          is
+          ^^
+          source.ks keyword.operator.type-checking.ks
+             
+            ^
+            source.ks
+             string
+             ^^^^^^
+             source.ks support.type.primitive.ks
+                    
+                   ^
+                   source.ks
+                    {
+                    ^
+                    source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.block.end.bracket.curly.ks

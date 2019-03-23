@@ -1,0 +1,42 @@
+original file
+-----------------------------------
+new pack.Shape().draw()
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>new pack.Shape().draw()
+ new
+ ^^^
+ source.ks keyword.operator.new.ks
+     
+    ^
+    source.ks
+     pack
+     ^^^^
+     source.ks variable.other.object.ks
+         .
+         ^
+         source.ks punctuation.accessor.object.ks
+          Shape
+          ^^^^^
+          source.ks entity.name.function.ks
+               (
+               ^
+               source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                )
+                ^
+                source.ks punctuation.definition.arguments.end.bracket.round.ks
+                 .
+                 ^
+                 source.ks punctuation.accessor.object.ks
+                  draw
+                  ^^^^
+                  source.ks entity.name.function.ks
+                      (
+                      ^
+                      source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                       )
+                       ^
+                       source.ks punctuation.definition.arguments.end.bracket.round.ks

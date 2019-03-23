@@ -1,0 +1,168 @@
+original file
+-----------------------------------
+func foo(intro, name) {
+    return `\(intro) \(name)!`
+}
+let bar = foo^^('Hello')
+console.log(bar('world'))
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>func foo(intro, name) {
+ func
+ ^^^^
+ source.ks storage.type.function.ks
+      
+     ^
+     source.ks
+      foo
+      ^^^
+      source.ks entity.name.function.ks
+         (
+         ^
+         source.ks punctuation.definition.parameters.begin.bracket.round.ks
+          intro
+          ^^^^^
+          source.ks variable.parameter.ks
+               ,
+               ^
+               source.ks punctuation.separator.comma.ks
+                 
+                ^
+                source.ks
+                 name
+                 ^^^^
+                 source.ks variable.parameter.ks
+                     )
+                     ^
+                     source.ks punctuation.definition.parameters.end.bracket.round.ks
+                       
+                      ^
+                      source.ks
+                       {
+                       ^
+                       source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>    return `\(intro) \(name)!`
+     
+ ^^^^
+ source.ks
+     return
+     ^^^^^^
+     source.ks keyword.control.flow.return.ks
+            
+           ^
+           source.ks
+            `
+            ^
+            source.ks punctuation.definition.string.template.begin.ks
+             \(
+             ^^
+             source.ks punctuation.definition.template-expression.begin.ks
+               intro
+               ^^^^^
+               source.ks variable.other.ks
+                    )
+                    ^
+                    source.ks punctuation.definition.template-expression.end.ks
+                      
+                     ^
+                     source.ks string.template.ks
+                      \(
+                      ^^
+                      source.ks punctuation.definition.template-expression.begin.ks
+                        name
+                        ^^^^
+                        source.ks variable.other.ks
+                            )
+                            ^
+                            source.ks punctuation.definition.template-expression.end.ks
+                             !
+                             ^
+                             source.ks string.template.ks
+                              `
+                              ^
+                              source.ks punctuation.definition.string.template.end.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.block.end.bracket.curly.ks
+>
+>let bar = foo^^('Hello')
+ let
+ ^^^
+ source.ks storage.type.readwrite.ks
+     
+    ^
+    source.ks
+     bar
+     ^^^
+     source.ks meta.definition.variable.ks variable.other.readwrite.ks
+         
+        ^
+        source.ks
+         =
+         ^
+         source.ks keyword.operator.assignment.ks
+           
+          ^
+          source.ks
+           foo
+           ^^^
+           source.ks entity.name.function.ks
+              ^^
+              ^^
+              source.ks keyword.operator.function.scope.ks
+                (
+                ^
+                source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                 '
+                 ^
+                 source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
+                  Hello
+                  ^^^^^
+                  source.ks string.quoted.single.ks
+                       '
+                       ^
+                       source.ks string.quoted.single.ks punctuation.definition.string.end.ks
+                        )
+                        ^
+                        source.ks punctuation.definition.arguments.end.bracket.round.ks
+>
+>console.log(bar('world'))
+ console
+ ^^^^^^^
+ source.ks variable.other.object.ks
+        .
+        ^
+        source.ks punctuation.accessor.object.ks
+         log
+         ^^^
+         source.ks entity.name.function.ks
+            (
+            ^
+            source.ks punctuation.definition.arguments.begin.bracket.round.ks
+             bar
+             ^^^
+             source.ks entity.name.function.ks
+                (
+                ^
+                source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                 '
+                 ^
+                 source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
+                  world
+                  ^^^^^
+                  source.ks string.quoted.single.ks
+                       '
+                       ^
+                       source.ks string.quoted.single.ks punctuation.definition.string.end.ks
+                        )
+                        ^
+                        source.ks punctuation.definition.arguments.end.bracket.round.ks
+                         )
+                         ^
+                         source.ks punctuation.definition.arguments.end.bracket.round.ks

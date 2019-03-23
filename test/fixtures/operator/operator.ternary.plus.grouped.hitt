@@ -1,0 +1,102 @@
+original file
+-----------------------------------
+let foo = 0
+let bar = false
+(foo += bar) ? 42 : 24
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>let foo = 0
+ let
+ ^^^
+ source.ks storage.type.readwrite.ks
+     
+    ^
+    source.ks
+     foo
+     ^^^
+     source.ks meta.definition.variable.ks variable.other.readwrite.ks
+         
+        ^
+        source.ks
+         =
+         ^
+         source.ks keyword.operator.assignment.ks
+           
+          ^
+          source.ks
+           0
+           ^
+           source.ks constant.numeric.decimal.ks
+>
+>let bar = false
+ let
+ ^^^
+ source.ks storage.type.readwrite.ks
+     
+    ^
+    source.ks
+     bar
+     ^^^
+     source.ks meta.definition.variable.ks variable.other.readwrite.ks
+         
+        ^
+        source.ks
+         =
+         ^
+         source.ks keyword.operator.assignment.ks
+           
+          ^
+          source.ks
+           false
+           ^^^^^
+           source.ks constant.language.boolean.false.ks
+>
+>(foo += bar) ? 42 : 24
+ (
+ ^
+ source.ks meta.brace.round.ks
+  foo
+  ^^^
+  source.ks variable.other.ks
+      
+     ^
+     source.ks
+      +=
+      ^^
+      source.ks keyword.operator.assignment.compound.ks
+         
+        ^
+        source.ks
+         bar
+         ^^^
+         source.ks variable.other.ks
+            )
+            ^
+            source.ks meta.brace.round.ks
+              
+             ^
+             source.ks
+              ?
+              ^
+              source.ks keyword.operator.ternary.ks
+                
+               ^
+               source.ks
+                42
+                ^^
+                source.ks constant.numeric.decimal.ks
+                   
+                  ^
+                  source.ks
+                   :
+                   ^
+                   source.ks keyword.operator.ternary.ks
+                     
+                    ^
+                    source.ks
+                     24
+                     ^^
+                     source.ks constant.numeric.decimal.ks

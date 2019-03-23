@@ -1,0 +1,105 @@
+original file
+-----------------------------------
+extern foo
+if foo? {
+    console.log(foo)
+}
+console.log(foo) if foo?
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>extern foo
+ extern
+ ^^^^^^
+ source.ks keyword.control.extern.ks
+        
+       ^
+       source.ks
+        foo
+        ^^^
+        source.ks variable.other.constant.ks
+>
+>if foo? {
+ if
+ ^^
+ source.ks keyword.control.conditional.if.ks
+    
+   ^
+   source.ks
+    foo
+    ^^^
+    source.ks variable.other.ks
+       ?
+       ^
+       source.ks keyword.operator.existential.ks
+         
+        ^
+        source.ks
+         {
+         ^
+         source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>    console.log(foo)
+     
+ ^^^^
+ source.ks
+     console
+     ^^^^^^^
+     source.ks variable.other.object.ks
+            .
+            ^
+            source.ks punctuation.accessor.object.ks
+             log
+             ^^^
+             source.ks entity.name.function.ks
+                (
+                ^
+                source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                 foo
+                 ^^^
+                 source.ks variable.other.ks
+                    )
+                    ^
+                    source.ks punctuation.definition.arguments.end.bracket.round.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.block.end.bracket.curly.ks
+>
+>console.log(foo) if foo?
+ console
+ ^^^^^^^
+ source.ks variable.other.object.ks
+        .
+        ^
+        source.ks punctuation.accessor.object.ks
+         log
+         ^^^
+         source.ks entity.name.function.ks
+            (
+            ^
+            source.ks punctuation.definition.arguments.begin.bracket.round.ks
+             foo
+             ^^^
+             source.ks variable.other.ks
+                )
+                ^
+                source.ks punctuation.definition.arguments.end.bracket.round.ks
+                  
+                 ^
+                 source.ks
+                  if
+                  ^^
+                  source.ks keyword.control.conditional.if.ks
+                     
+                    ^
+                    source.ks
+                     foo
+                     ^^^
+                     source.ks variable.other.ks
+                        ?
+                        ^
+                        source.ks keyword.operator.existential.ks

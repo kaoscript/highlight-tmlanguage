@@ -1,0 +1,576 @@
+original file
+-----------------------------------
+z = x + y
+z = x - y
+z = x * y
+z = x / y
+z = x % y
+z = x > y
+z = x >= y
+z = x < y
+z = x <= y
+z = x == y
+z = x != y
+z = x && y
+z = x || y
+z = x >> y
+z = x << y
+z = x & y
+z = x | y
+z = x ^ y
+z = x ?? y
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>z = x + y
+ z
+ ^
+ source.ks variable.other.ks
+   
+  ^
+  source.ks
+   =
+   ^
+   source.ks keyword.operator.assignment.ks
+     
+    ^
+    source.ks
+     x
+     ^
+     source.ks variable.other.ks
+       
+      ^
+      source.ks
+       +
+       ^
+       source.ks keyword.operator.arithmetic.ks
+         
+        ^
+        source.ks
+         y
+         ^
+         source.ks variable.other.ks
+>
+>z = x - y
+ z
+ ^
+ source.ks variable.other.ks
+   
+  ^
+  source.ks
+   =
+   ^
+   source.ks keyword.operator.assignment.ks
+     
+    ^
+    source.ks
+     x
+     ^
+     source.ks variable.other.ks
+       
+      ^
+      source.ks
+       -
+       ^
+       source.ks keyword.operator.arithmetic.ks
+         
+        ^
+        source.ks
+         y
+         ^
+         source.ks variable.other.ks
+>
+>z = x * y
+ z
+ ^
+ source.ks variable.other.ks
+   
+  ^
+  source.ks
+   =
+   ^
+   source.ks keyword.operator.assignment.ks
+     
+    ^
+    source.ks
+     x
+     ^
+     source.ks variable.other.ks
+       
+      ^
+      source.ks
+       *
+       ^
+       source.ks keyword.operator.arithmetic.ks
+         
+        ^
+        source.ks
+         y
+         ^
+         source.ks variable.other.ks
+>
+>z = x / y
+ z
+ ^
+ source.ks variable.other.ks
+   
+  ^
+  source.ks
+   =
+   ^
+   source.ks keyword.operator.assignment.ks
+     
+    ^
+    source.ks
+     x
+     ^
+     source.ks variable.other.ks
+       
+      ^
+      source.ks
+       /
+       ^
+       source.ks keyword.operator.arithmetic.ks
+         
+        ^
+        source.ks
+         y
+         ^
+         source.ks variable.other.ks
+>
+>z = x % y
+ z
+ ^
+ source.ks variable.other.ks
+   
+  ^
+  source.ks
+   =
+   ^
+   source.ks keyword.operator.assignment.ks
+     
+    ^
+    source.ks
+     x
+     ^
+     source.ks variable.other.ks
+       
+      ^
+      source.ks
+       %
+       ^
+       source.ks keyword.operator.arithmetic.ks
+         
+        ^
+        source.ks
+         y
+         ^
+         source.ks variable.other.ks
+>
+>z = x > y
+ z
+ ^
+ source.ks variable.other.ks
+   
+  ^
+  source.ks
+   =
+   ^
+   source.ks keyword.operator.assignment.ks
+     
+    ^
+    source.ks
+     x
+     ^
+     source.ks variable.other.ks
+       
+      ^
+      source.ks
+       >
+       ^
+       source.ks keyword.operator.comparison.ks
+         
+        ^
+        source.ks
+         y
+         ^
+         source.ks variable.other.ks
+>
+>z = x >= y
+ z
+ ^
+ source.ks variable.other.ks
+   
+  ^
+  source.ks
+   =
+   ^
+   source.ks keyword.operator.assignment.ks
+     
+    ^
+    source.ks
+     x
+     ^
+     source.ks variable.other.ks
+       
+      ^
+      source.ks
+       >=
+       ^^
+       source.ks keyword.operator.comparison.ks
+          
+         ^
+         source.ks
+          y
+          ^
+          source.ks variable.other.ks
+>
+>z = x < y
+ z
+ ^
+ source.ks variable.other.ks
+   
+  ^
+  source.ks
+   =
+   ^
+   source.ks keyword.operator.assignment.ks
+     
+    ^
+    source.ks
+     x
+     ^
+     source.ks variable.other.ks
+       
+      ^
+      source.ks
+       <
+       ^
+       source.ks keyword.operator.comparison.ks
+         
+        ^
+        source.ks
+         y
+         ^
+         source.ks variable.other.ks
+>
+>z = x <= y
+ z
+ ^
+ source.ks variable.other.ks
+   
+  ^
+  source.ks
+   =
+   ^
+   source.ks keyword.operator.assignment.ks
+     
+    ^
+    source.ks
+     x
+     ^
+     source.ks variable.other.ks
+       
+      ^
+      source.ks
+       <=
+       ^^
+       source.ks keyword.operator.comparison.ks
+          
+         ^
+         source.ks
+          y
+          ^
+          source.ks variable.other.ks
+>
+>z = x == y
+ z
+ ^
+ source.ks variable.other.ks
+   
+  ^
+  source.ks
+   =
+   ^
+   source.ks keyword.operator.assignment.ks
+     
+    ^
+    source.ks
+     x
+     ^
+     source.ks variable.other.ks
+       
+      ^
+      source.ks
+       ==
+       ^^
+       source.ks keyword.operator.comparison.ks
+          
+         ^
+         source.ks
+          y
+          ^
+          source.ks variable.other.ks
+>
+>z = x != y
+ z
+ ^
+ source.ks variable.other.ks
+   
+  ^
+  source.ks
+   =
+   ^
+   source.ks keyword.operator.assignment.ks
+     
+    ^
+    source.ks
+     x
+     ^
+     source.ks variable.other.ks
+       
+      ^
+      source.ks
+       !=
+       ^^
+       source.ks keyword.operator.comparison.ks
+          
+         ^
+         source.ks
+          y
+          ^
+          source.ks variable.other.ks
+>
+>z = x && y
+ z
+ ^
+ source.ks variable.other.ks
+   
+  ^
+  source.ks
+   =
+   ^
+   source.ks keyword.operator.assignment.ks
+     
+    ^
+    source.ks
+     x
+     ^
+     source.ks variable.other.ks
+       
+      ^
+      source.ks
+       &&
+       ^^
+       source.ks keyword.operator.logical.ks
+          
+         ^
+         source.ks
+          y
+          ^
+          source.ks variable.other.ks
+>
+>z = x || y
+ z
+ ^
+ source.ks variable.other.ks
+   
+  ^
+  source.ks
+   =
+   ^
+   source.ks keyword.operator.assignment.ks
+     
+    ^
+    source.ks
+     x
+     ^
+     source.ks variable.other.ks
+       
+      ^
+      source.ks
+       ||
+       ^^
+       source.ks keyword.operator.logical.ks
+          
+         ^
+         source.ks
+          y
+          ^
+          source.ks variable.other.ks
+>
+>z = x >> y
+ z
+ ^
+ source.ks variable.other.ks
+   
+  ^
+  source.ks
+   =
+   ^
+   source.ks keyword.operator.assignment.ks
+     
+    ^
+    source.ks
+     x
+     ^
+     source.ks variable.other.ks
+       
+      ^
+      source.ks
+       >>
+       ^^
+       source.ks keyword.operator.bitwise.ks
+          
+         ^
+         source.ks
+          y
+          ^
+          source.ks variable.other.ks
+>
+>z = x << y
+ z
+ ^
+ source.ks variable.other.ks
+   
+  ^
+  source.ks
+   =
+   ^
+   source.ks keyword.operator.assignment.ks
+     
+    ^
+    source.ks
+     x
+     ^
+     source.ks variable.other.ks
+       
+      ^
+      source.ks
+       <<
+       ^^
+       source.ks keyword.operator.bitwise.ks
+          
+         ^
+         source.ks
+          y
+          ^
+          source.ks variable.other.ks
+>
+>z = x & y
+ z
+ ^
+ source.ks variable.other.ks
+   
+  ^
+  source.ks
+   =
+   ^
+   source.ks keyword.operator.assignment.ks
+     
+    ^
+    source.ks
+     x
+     ^
+     source.ks variable.other.ks
+       
+      ^
+      source.ks
+       &
+       ^
+       source.ks keyword.operator.bitwise.ks
+         
+        ^
+        source.ks
+         y
+         ^
+         source.ks variable.other.ks
+>
+>z = x | y
+ z
+ ^
+ source.ks variable.other.ks
+   
+  ^
+  source.ks
+   =
+   ^
+   source.ks keyword.operator.assignment.ks
+     
+    ^
+    source.ks
+     x
+     ^
+     source.ks variable.other.ks
+       
+      ^
+      source.ks
+       |
+       ^
+       source.ks keyword.operator.bitwise.ks
+         
+        ^
+        source.ks
+         y
+         ^
+         source.ks variable.other.ks
+>
+>z = x ^ y
+ z
+ ^
+ source.ks variable.other.ks
+   
+  ^
+  source.ks
+   =
+   ^
+   source.ks keyword.operator.assignment.ks
+     
+    ^
+    source.ks
+     x
+     ^
+     source.ks variable.other.ks
+       
+      ^
+      source.ks
+       ^
+       ^
+       source.ks keyword.operator.bitwise.ks
+         
+        ^
+        source.ks
+         y
+         ^
+         source.ks variable.other.ks
+>
+>z = x ?? y
+ z
+ ^
+ source.ks variable.other.ks
+   
+  ^
+  source.ks
+   =
+   ^
+   source.ks keyword.operator.assignment.ks
+     
+    ^
+    source.ks
+     x
+     ^
+     source.ks variable.other.ks
+       
+      ^
+      source.ks
+       ??
+       ^^
+       source.ks keyword.operator.null-coalescing.ks
+          
+         ^
+         source.ks
+          y
+          ^
+          source.ks variable.other.ks

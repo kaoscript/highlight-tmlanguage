@@ -1,0 +1,78 @@
+original file
+-----------------------------------
+let m = 'qux'
+let qux = foo?[m]()
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>let m = 'qux'
+ let
+ ^^^
+ source.ks storage.type.readwrite.ks
+     
+    ^
+    source.ks
+     m
+     ^
+     source.ks meta.definition.variable.ks variable.other.readwrite.ks
+       
+      ^
+      source.ks
+       =
+       ^
+       source.ks keyword.operator.assignment.ks
+         
+        ^
+        source.ks
+         '
+         ^
+         source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
+          qux
+          ^^^
+          source.ks string.quoted.single.ks
+             '
+             ^
+             source.ks string.quoted.single.ks punctuation.definition.string.end.ks
+>
+>let qux = foo?[m]()
+ let
+ ^^^
+ source.ks storage.type.readwrite.ks
+     
+    ^
+    source.ks
+     qux
+     ^^^
+     source.ks meta.definition.variable.ks variable.other.readwrite.ks
+         
+        ^
+        source.ks
+         =
+         ^
+         source.ks keyword.operator.assignment.ks
+           
+          ^
+          source.ks
+           foo
+           ^^^
+           source.ks variable.other.ks
+              ?
+              ^
+              source.ks keyword.operator.nullable.ks
+               [
+               ^
+               source.ks punctuation.accessor.array.begin.bracket.square.ks
+                m
+                ^
+                source.ks variable.other.ks
+                 ]
+                 ^
+                 source.ks punctuation.accessor.array.end.bracket.square.ks
+                  (
+                  ^
+                  source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                   )
+                   ^
+                   source.ks punctuation.definition.arguments.end.bracket.round.ks

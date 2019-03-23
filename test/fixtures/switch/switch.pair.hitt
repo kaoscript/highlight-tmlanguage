@@ -45,7 +45,7 @@ grammar: kaoscript.tmLanguage
                source.ks
                 -
                 ^
-                source.ks keyword.operator.ks
+                source.ks keyword.operator.arithmetic.ks
                  2
                  ^
                  source.ks constant.numeric.decimal.ks
@@ -201,7 +201,7 @@ grammar: kaoscript.tmLanguage
                            source.ks
                             +
                             ^
-                            source.ks keyword.operator.ks
+                            source.ks keyword.operator.arithmetic.ks
                               
                              ^
                              source.ks
@@ -293,7 +293,7 @@ grammar: kaoscript.tmLanguage
                          source.ks
                           %
                           ^
-                          source.ks keyword.operator.ks
+                          source.ks keyword.operator.arithmetic.ks
                             
                            ^
                            source.ks

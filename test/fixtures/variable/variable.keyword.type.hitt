@@ -42,7 +42,7 @@ grammar: kaoscript.tmLanguage
      source.ks punctuation.accessor.object.ks
       foo
       ^^^
-      source.ks variable.other.property.ks
+      source.ks variable.other.property.object.ks
           
          ^
          source.ks

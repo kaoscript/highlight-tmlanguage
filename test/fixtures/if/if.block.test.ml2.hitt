@@ -67,7 +67,7 @@ grammar: kaoscript.tmLanguage
                  source.ks
                   -
                   ^
-                  source.ks keyword.operator.ks
+                  source.ks keyword.operator.arithmetic.ks
                    1
                    ^
                    source.ks constant.numeric.decimal.ks
@@ -130,7 +130,7 @@ grammar: kaoscript.tmLanguage
                                              source.ks
                                               +
                                               ^
-                                              source.ks keyword.operator.ks
+                                              source.ks keyword.operator.arithmetic.ks
                                                 
                                                ^
                                                source.ks
@@ -188,7 +188,7 @@ grammar: kaoscript.tmLanguage
                     source.ks
                      -
                      ^
-                     source.ks keyword.operator.ks
+                     source.ks keyword.operator.arithmetic.ks
                       1
                       ^
                       source.ks constant.numeric.decimal.ks
@@ -225,7 +225,7 @@ grammar: kaoscript.tmLanguage
                             source.ks punctuation.accessor.object.ks
                              async
                              ^^^^^
-                             source.ks variable.other.property.ks
+                             source.ks variable.other.property.object.ks
                                    
                                   ^
                                   source.ks
@@ -243,7 +243,7 @@ grammar: kaoscript.tmLanguage
                                                source.ks punctuation.accessor.object.ks
                                                 max
                                                 ^^^
-                                                source.ks variable.other.property.ks
+                                                source.ks variable.other.property.object.ks
                                                     
                                                    ^
                                                    source.ks
@@ -335,7 +335,7 @@ grammar: kaoscript.tmLanguage
                            source.ks punctuation.accessor.object.ks
                             async
                             ^^^^^
-                            source.ks variable.other.property.ks
+                            source.ks variable.other.property.object.ks
                                   
                                  ^
                                  source.ks
@@ -353,7 +353,7 @@ grammar: kaoscript.tmLanguage
                                               source.ks punctuation.accessor.object.ks
                                                max
                                                ^^^
-                                               source.ks variable.other.property.ks
+                                               source.ks variable.other.property.object.ks
                                                    
                                                   ^
                                                   source.ks
@@ -371,7 +371,7 @@ grammar: kaoscript.tmLanguage
                                                        source.ks
                                                         +
                                                         ^
-                                                        source.ks keyword.operator.ks
+                                                        source.ks keyword.operator.arithmetic.ks
                                                           
                                                          ^
                                                          source.ks
@@ -434,7 +434,7 @@ grammar: kaoscript.tmLanguage
                                                                                   source.ks
                                                                                    +
                                                                                    ^
-                                                                                   source.ks keyword.operator.ks
+                                                                                   source.ks keyword.operator.arithmetic.ks
                                                                                      
                                                                                     ^
                                                                                     source.ks

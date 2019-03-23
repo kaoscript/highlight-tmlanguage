@@ -1,0 +1,54 @@
+original file
+-----------------------------------
+let isHealthy = 200 > cholesterol > 60
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>let isHealthy = 200 > cholesterol > 60
+ let
+ ^^^
+ source.ks storage.type.readwrite.ks
+     
+    ^
+    source.ks
+     isHealthy
+     ^^^^^^^^^
+     source.ks meta.definition.variable.ks variable.other.readwrite.ks
+               
+              ^
+              source.ks
+               =
+               ^
+               source.ks keyword.operator.assignment.ks
+                 
+                ^
+                source.ks
+                 200
+                 ^^^
+                 source.ks constant.numeric.decimal.ks
+                     
+                    ^
+                    source.ks
+                     >
+                     ^
+                     source.ks keyword.operator.comparison.ks
+                       
+                      ^
+                      source.ks
+                       cholesterol
+                       ^^^^^^^^^^^
+                       source.ks variable.other.ks
+                                   
+                                  ^
+                                  source.ks
+                                   >
+                                   ^
+                                   source.ks keyword.operator.comparison.ks
+                                     
+                                    ^
+                                    source.ks
+                                     60
+                                     ^^
+                                     source.ks constant.numeric.decimal.ks

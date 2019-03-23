@@ -6,7 +6,7 @@ uuid: 371123EB-AE4B-471E-BB5C-1AB23093F1C9
 variables:
   identifier: '[_$[:alpha:]][_$[:alnum:]]*'
   function-block: '(?:(?:\basync\s+)?\bfunc\s*{{function-sig}}|(?:\basync\s+)?{{function-sig}}\s*=>\s*|{{identifier}}\s*=>\s*)\s*\{'
-  function-line: '(?:(?:\basync\s*)?(?:\bfunc\s*)?{{function-sig}}|{{identifier}})\s*=>\s*(?!=\{)'
+  function-line: '(?:(?:\basync\s*)?(?:\bfunc\s*)?{{function-sig}}|{{identifier}})\s*=>\s*(?!\{)'
   function-sig: '\((?:\s*{{parameter}}\s*|\s*,\s*)*\)(?:{{type}})?'
   parameter: '(?:\.\.\.(?:\{\d*,?\d*\})?)?{{identifier}}(?:{{type}}|\?)?(?:\s*=\s*(?:\(.*\)|[^\)])+)?'
   type: ':\s*{{type-identifier}}(?:\s*\|\s*{{type-identifier}})*'
@@ -38,9 +38,10 @@ repository:
     - include: '#expression'
   # }}}
   array-accessor: # {{{
-    begin: '(?<=[_$[:alnum:]\)\]])\['
+    begin: '(?<=[_$[:alnum:]\)\]])(\?)?(\[)'
     beginCaptures:
-      '0': { name: 'punctuation.accessor.array.begin.bracket.square.ks' }
+      '1': { name: 'keyword.operator.nullable.ks' }
+      '2': { name: 'punctuation.accessor.array.begin.bracket.square.ks' }
     end: '\]'
     endCaptures:
       '0': { name: 'punctuation.accessor.array.end.bracket.square.ks' }
@@ -63,6 +64,54 @@ repository:
       '0': { name: 'punctuation.definition.block.end.bracket.curly.ks' }
     patterns:
     - include: '#statements'
+  # }}}
+  class-member: # {{{
+    patterns:
+    - begin: '({{identifier}})(?=\()'
+      beginCaptures:
+        '1': { name: 'entity.name.function.ks' }
+      end: '(?<=\}|$)'
+      patterns:
+      - include: '#function-parameters'
+      - include: '#function-return-type'
+      - include: '#function-throwables'
+      - include: '#block'
+      - begin: '=>'
+        beginCaptures:
+          '0': { name: 'storage.type.function.arrow.ks' }
+        end: '$'
+        patterns:
+        - include: '#expression'
+    - begin: '{{identifier}}'
+      beginCaptures:
+        '0': { name: 'variable.object.property.ks' }
+      end: '$'
+  # }}}
+  class-statement: # {{{
+    begin: '^\s*(?:(abstract)\s+)?(class)\s*({{identifier}})'
+    beginCaptures:
+      '1': { name: 'storage.modifier.abstract.ks' }
+      '2': { name: 'storage.type.class.ks' }
+      '3': { name: 'entity.name.type.class.ks' }
+    end: '(?<=\})'
+    patterns:
+    - begin: '\{'
+      beginCaptures:
+        '0': { name: 'punctuation.definition.class.begin.bracket.curly.ks' }
+      end: '\}'
+      endCaptures:
+        '0': { name: 'punctuation.definition.class.end.bracket.curly.ks' }
+      patterns:
+      - begin: '(private|protected|public)\s*(\{)'
+        beginCaptures:
+          '1': { name: 'storage.modifier.ks' }
+          '2': { name: 'punctuation.definition.members.begin.bracket.curly.ks' }
+        end: '\}'
+        endCaptures:
+          '0': { name: 'punctuation.definition.members.end.bracket.curly.ks' }
+        patterns:
+        - include: '#class-member'
+      - include: '#class-member'
   # }}}
   comma: # {{{
     name: 'punctuation.separator.comma.ks'
@@ -162,14 +211,28 @@ repository:
       match: (?<![$\.])\b(Infinity|NaN)(?!\s*:)\b
   # }}}
   create-expression: # {{{
-    begin: '(\bnew\b)'
-    beginCaptures:
-      '1': { name: 'keyword.operator.new.ks' }
-    end: '(?<=$|[\)\]\},])'
     patterns:
-      - name: 'entity.name.type.ks'
-        match: '({{identifier}})'
+    - begin: '(\bnew)\s+({{identifier}})(?=\(|$)'
+      beginCaptures:
+        '1': { name: 'keyword.operator.new.ks' }
+        '2': { name: 'entity.name.type.ks' }
+      end: '(?<=$|[\)\]\},])'
+      patterns:
       - include: '#expression'
+    - begin: '\bnew\b'
+      beginCaptures:
+        '0': { name: 'keyword.operator.new.ks' }
+      end: '(?<=$|[\)\]\},])'
+      patterns:
+      - include: '#expression'
+  # }}}
+  delete-statement: # {{{
+    begin: '^\s*(delete)\s+'
+    beginCaptures:
+      '1': { name: 'keyword.control.delete.ks' }
+    end: '$'
+    patterns:
+    - include: '#expression'
   # }}}
   else-statement: # {{{
     begin: '^\s*(else\b)(?=\s*\{|$)'
@@ -191,6 +254,13 @@ repository:
       patterns:
       - include: '#if-statement-body'
     - include: '#block'
+  # }}}
+  enum-accessor: # {{{
+    match: '({{identifier}})(::)({{identifier}})'
+    captures:
+      '1': { name: 'variable.other.enum.ks' }
+      '2': { name: 'punctuation.accessor.enum.ks' }
+      '3': { name: 'variable.other.property.enum.ks' }
   # }}}
   enum-statement: # {{{
     begin: '^\s*(enum)\s+({{identifier}})\s+(\{)'
@@ -221,11 +291,13 @@ repository:
     - include: '#function-call-name'
     - include: '#function-call-arguments'
     - include: '#array-accessor'
+    - include: '#enum-accessor'
     - include: '#object-accessor'
-    - include: '#operator'
     - include: '#tagged-template'
+    - include: '#this-expression'
     - include: '#switch-expression'
     #
+    - include: '#operator'
     - name: 'variable.other.ks'
       match: '({{identifier}})'
     - name: 'meta.brace.round.ks'
@@ -263,10 +335,12 @@ repository:
     - include: '#function-call-name'
     - include: '#function-call-arguments'
     - include: '#array-accessor'
+    - include: '#enum-accessor'
     - include: '#object-accessor'
-    - include: '#operator'
+    - include: '#this-expression'
     - include: '#tagged-template'
     #
+    - include: '#operator'
     - name: 'variable.other.ks'
       match: '({{identifier}})'
     - name: 'meta.brace.round.ks'
@@ -293,16 +367,15 @@ repository:
         - include: '#type'
   # }}}
   function-call-name: # {{{
-    begin: '({{identifier}})(?=(?:\*[$*])?\()'
-    beginCaptures:
-      '1': { name: 'entity.name.function.ks' }
-    end: '(?=[$*\(])'
+    name: 'entity.name.function.ks'
+    match: '({{identifier}})(?=(?:\?)?(?:\*[$*]|\^[$^@])?\()'
   # }}}
   function-call-arguments: # {{{
-    begin: '(?<=[_$[:alnum:]\)\]])(\*[$*])?(\()'
+    begin: '(?<=[_$[:alnum:]\)\]])(\?)?(\*[$*]|\^[$^@])?(\()'
     beginCaptures:
-      '1': { name: 'keyword.operator.function.scope.ks' }
-      '2': { name: 'punctuation.definition.arguments.begin.bracket.round.ks' }
+      '1': { name: 'keyword.operator.nullable.ks' }
+      '2': { name: 'keyword.operator.function.scope.ks' }
+      '3': { name: 'punctuation.definition.arguments.begin.bracket.round.ks' }
     end: \)
     endCaptures:
       '0': { name: 'punctuation.definition.arguments.end.bracket.round.ks' }
@@ -446,25 +519,25 @@ repository:
         patterns:
         - include: '#let-statement-variable'
       - name: 'keyword.operator.loop.from.ks'
-        match: '\bfrom\b(?!=[\[\]\(\)\.])'
+        match: '\bfrom\b(?![\[\]\(\)\.])'
       - name: 'keyword.operator.loop.til.ks'
-        match: '\btil\b(?!=[\[\]\(\)\.])'
+        match: '\btil\b(?![\[\]\(\)\.])'
       - name: 'keyword.operator.loop.to.ks'
-        match: '\bto\b(?!=[\[\]\(\)\.])'
+        match: '\bto\b(?![\[\]\(\)\.])'
       - name: 'keyword.operator.loop.by.ks'
-        match: '\bby\b(?!=[\[\]\(\)\.])'
+        match: '\bby\b(?![\[\]\(\)\.])'
       - name: 'keyword.operator.loop.in.ks'
-        match: '\bin\b(?!=[\[\]\(\)\.])'
+        match: '\bin\b(?![\[\]\(\)\.])'
       - name: 'keyword.operator.loop.desc.ks'
-        match: '\bdesc\b(?!=[\[\]\(\)\.])'
+        match: '\bdesc\b(?![\[\]\(\)\.])'
       - name: 'keyword.operator.loop.of.ks'
-        match: '\bof\b(?!=[\[\]\(\)\.])'
+        match: '\bof\b(?![\[\]\(\)\.])'
       - name: 'keyword.operator.loop.while.ks'
-        match: '\bwhile\b(?!=[\[\]\(\)\.])'
+        match: '\bwhile\b(?![\[\]\(\)\.])'
       - name: 'keyword.operator.loop.until.ks'
-        match: '\buntil\b(?!=[\[\]\(\)\.])'
+        match: '\buntil\b(?![\[\]\(\)\.])'
       - name: 'keyword.operator.conditional.when.ks'
-        match: '\bwhen\b(?!=[\[\]\(\)\.])'
+        match: '\bwhen\b(?![\[\]\(\)\.])'
       - include: '#block'
       - name: 'keyword.operator.range.ks'
         match: '(?<!\.)\<?\.\.\<?(?!\.)'
@@ -662,26 +735,29 @@ repository:
   # }}}
   object-accessor: # {{{
     patterns:
-      - match: ({{identifier}})\s*(\.)(?!\.)
+      - match: '({{identifier}})\s*(?:(\?\.)|(\.))(?!\.)'
         captures:
-          '1': { name: variable.other.object.ks }
-          '2': { name: punctuation.accessor.object.ks }
-      - match: (?<=[_$[:alnum:]\)\]]\.)({{identifier}})
+          '1': { name: 'variable.other.object.ks' }
+          '2': { name: 'punctuation.accessor.optional.ks' }
+          '3': { name: 'punctuation.accessor.object.ks' }
+      - match: '(?<=[_$[:alnum:]\)\]]\.)({{identifier}})'
         captures:
-          '1': { name: variable.other.property.ks }
+          '1': { name: 'variable.other.property.object.ks' }
   # }}}
   operator: # {{{
     patterns:
     - name: 'keyword.operator.assignment.compound.ks'
-      match: '\+=|-=|\*=|(?<!\()/=|%=|\?\?=|\?='
+      match: '\+=|-=|\*=|(?<!\()/=|%=|\?\?=|!\?=|\?='
     - name: 'keyword.operator.assignment.compound.bitwise.ks'
       match: '<<=|>>=|>>=|&=|\^=|\|='
+    - name: 'keyword.operator.bitwise.ks'
+      match: '<<|>>'
     - name: 'keyword.operator.comparison.ks'
       match: '<=|>=|==|<|>|!='
     - name: 'keyword.operator.logical.ks'
       match: '\|\||&&|!'
     - name: 'keyword.operator.bitwise.ks'
-      match: '\^|~|&|\|'
+      match: '\^|~|&|\||<<|>>'
     - name: 'keyword.operator.assignment.ks'
       match: '=|:='
     - name: 'keyword.operator.decrement.ks'
@@ -690,12 +766,42 @@ repository:
       match: '\+\+'
     - name: 'keyword.operator.spread.ks'
       match: '\.\.\.'
-    - name: 'keyword.operator.ks'
-      match: '\+|-|\*|/|%|\?|\:'
+    - name: 'keyword.operator.arithmetic.ks'
+      match: '\+|-|\*|/|%'
+    - name: 'keyword.operator.null-coalescing.ks'
+      match: '\?\?'
     - name: 'keyword.control.flow'
       match: '\bawait\b'
-    - name: 'keyword.control.type-checking'
-      match: '\bis(?:\s+not)?\b'
+    - begin: '(?<=\s)\?(?=\s|$)'
+      beginCaptures:
+        '0': { name: 'keyword.operator.ternary.ks' }
+      end: '(?=$|[\)\{\]\?,&\|])'
+      patterns:
+      - include: '#expression'
+    - name: 'keyword.operator.ternary.ks'
+      match: '(?<=\s):(?=\s|$)'
+    - begin: '\b(is(?:\s+not)?)\b\s*'
+      beginCaptures:
+        '1': { name: 'keyword.operator.type-checking.ks' }
+      end: '(?=$|[\)\{\]\?,&\|\s])'
+      patterns:
+      - include: '#type'
+    - begin: '(\bas\b)\s*'
+      beginCaptures:
+        '1': { name: 'keyword.operator.type-casting.ks' }
+      end: '(?=$|[\)\{\]\?,&\|\.\s])'
+      patterns:
+      - include: '#type'
+    - begin: '(?!<\s):(?!\s)'
+      beginCaptures:
+        '0': { name: 'keyword.operator.type-casting.ks' }
+      end: '(?=$|[\)\{\]\?,&\|\.])'
+      patterns:
+      - include: '#type'
+    - name: 'punctuation.accessor.object.ks'
+      match: '\.'
+    - name: 'keyword.operator.existential.ks'
+      match: '\?'
     - match: '(?<=[_$[:alnum:]\)\]])\s*(if\b)'
       captures:
         '1': { name: 'keyword.control.conditional.if.ks' }
@@ -820,7 +926,9 @@ repository:
   statements: # {{{
     patterns:
     - include: '#attribute'
+    - include: '#class-statement'
     - include: '#const-statement'
+    - include: '#delete-statement'
     - include: '#else-statement'
     - include: '#else-if-statement'
     - include: '#enum-statement'
@@ -909,9 +1017,9 @@ repository:
       - include: '#return-expression'
       - include: '#throw-expression'
       - include: '#expression'
-    - include: '#expression-without-function'
     - name: 'keyword.operator.range.ks'
       match: '(?<!\.)\<?\.\.\<?(?!\.)'
+    - include: '#expression-without-function'
   # }}}
   switch-expression: # {{{
     begin: '(\bswitch\b)'
@@ -951,14 +1059,21 @@ repository:
       '1': { name: 'entity.name.function.tagged-template.ks' }
   # }}}
   template: # {{{
-    begin: \\\(
+    begin: '\\\('
     beginCaptures:
-      '0': { name: punctuation.definition.template-expression.begin.ks }
-    end: \)
+      '0': { name: 'punctuation.definition.template-expression.begin.ks' }
+    end: '\)'
     endCaptures:
-      '0': { name: punctuation.definition.template-expression.end.ks }
+      '0': { name: 'punctuation.definition.template-expression.end.ks' }
     patterns:
     - include: '#expression'
+  # }}}
+  this-expression: # {{{
+    patterns:
+    - match: '(@)({{identifier}})\s*(?!\()'
+      captures:
+        '1': { name: 'storage.modifier.instance.ks' }
+        '2': { name: 'variable.other.instance.ks' }
   # }}}
   throw-expression: # {{{
     begin: '(\bthrow)\s+'
@@ -1080,7 +1195,7 @@ repository:
     - include: '#comma'
   # }}}
   type-statement: # {{{
-    begin: '^\s*(type)\s+({{identifier}})\s*(=)(?m)'
+    begin: '^\s*(type)\s+({{identifier}})\s*(=)'
     beginCaptures:
       '1': { name: 'storage.type.type.ks' }
       '2': { name: 'entity.name.type.alias.ks' }

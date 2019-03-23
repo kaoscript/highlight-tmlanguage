@@ -1,0 +1,78 @@
+original file
+-----------------------------------
+if value is Number {
+}
+if value is number {
+}
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>if value is Number {
+ if
+ ^^
+ source.ks keyword.control.conditional.if.ks
+    
+   ^
+   source.ks
+    value
+    ^^^^^
+    source.ks variable.other.ks
+          
+         ^
+         source.ks
+          is
+          ^^
+          source.ks keyword.operator.type-checking.ks
+             
+            ^
+            source.ks
+             Number
+             ^^^^^^
+             source.ks support.type.primitive.ks
+                    
+                   ^
+                   source.ks
+                    {
+                    ^
+                    source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.block.end.bracket.curly.ks
+>
+>if value is number {
+ if
+ ^^
+ source.ks keyword.control.conditional.if.ks
+    
+   ^
+   source.ks
+    value
+    ^^^^^
+    source.ks variable.other.ks
+          
+         ^
+         source.ks
+          is
+          ^^
+          source.ks keyword.operator.type-checking.ks
+             
+            ^
+            source.ks
+             number
+             ^^^^^^
+             source.ks support.type.primitive.ks
+                    
+                   ^
+                   source.ks
+                    {
+                    ^
+                    source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.block.end.bracket.curly.ks

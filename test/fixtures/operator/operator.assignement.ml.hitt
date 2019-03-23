@@ -1,0 +1,87 @@
+original file
+-----------------------------------
+x =
+    y &&
+    z &&
+    a &&
+    b &&
+    c
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>x =
+ x
+ ^
+ source.ks variable.other.ks
+   
+  ^
+  source.ks
+   =
+   ^
+   source.ks keyword.operator.assignment.ks
+>
+>    y &&
+     
+ ^^^^
+ source.ks
+     y
+     ^
+     source.ks variable.other.ks
+       
+      ^
+      source.ks
+       &&
+       ^^
+       source.ks keyword.operator.logical.ks
+>
+>    z &&
+     
+ ^^^^
+ source.ks
+     z
+     ^
+     source.ks variable.other.ks
+       
+      ^
+      source.ks
+       &&
+       ^^
+       source.ks keyword.operator.logical.ks
+>
+>    a &&
+     
+ ^^^^
+ source.ks
+     a
+     ^
+     source.ks variable.other.ks
+       
+      ^
+      source.ks
+       &&
+       ^^
+       source.ks keyword.operator.logical.ks
+>
+>    b &&
+     
+ ^^^^
+ source.ks
+     b
+     ^
+     source.ks variable.other.ks
+       
+      ^
+      source.ks
+       &&
+       ^^
+       source.ks keyword.operator.logical.ks
+>
+>    c
+     
+ ^^^^
+ source.ks
+     c
+     ^
+     source.ks variable.other.ks

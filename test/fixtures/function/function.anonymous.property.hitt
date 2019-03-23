@@ -17,7 +17,7 @@ grammar: kaoscript.tmLanguage
     source.ks punctuation.accessor.object.ks
      bar
      ^^^
-     source.ks variable.other.property.ks
+     source.ks variable.other.property.object.ks
          
         ^
         source.ks
@@ -100,7 +100,7 @@ grammar: kaoscript.tmLanguage
              source.ks
               -
               ^
-              source.ks keyword.operator.ks
+              source.ks keyword.operator.arithmetic.ks
                 
                ^
                source.ks

@@ -291,7 +291,7 @@ grammar: kaoscript.tmLanguage
      source.ks punctuation.definition.array.begin.bracket.square.ks
       -
       ^
-      source.ks keyword.operator.ks
+      source.ks keyword.operator.arithmetic.ks
        2
        ^
        source.ks constant.numeric.decimal.ks
@@ -309,7 +309,7 @@ grammar: kaoscript.tmLanguage
             source.ks
              -
              ^
-             source.ks keyword.operator.ks
+             source.ks keyword.operator.arithmetic.ks
               2
               ^
               source.ks constant.numeric.decimal.ks

@@ -104,7 +104,7 @@ grammar: kaoscript.tmLanguage
                          source.ks punctuation.definition.arguments.end.bracket.round.ks
                           .
                           ^
-                          source.ks
+                          source.ks punctuation.accessor.object.ks
                            limit
                            ^^^^^
                            source.ks entity.name.function.ks
@@ -128,7 +128,7 @@ grammar: kaoscript.tmLanguage
                                        source.ks punctuation.definition.arguments.end.bracket.round.ks
                                         .
                                         ^
-                                        source.ks
+                                        source.ks punctuation.accessor.object.ks
                                          round
                                          ^^^^^
                                          source.ks entity.name.function.ks

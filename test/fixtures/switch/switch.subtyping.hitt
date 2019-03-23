@@ -58,13 +58,13 @@ grammar: kaoscript.tmLanguage
  source.ks
      is
      ^^
-     source.ks keyword.control.type-checking
+     source.ks keyword.operator.type-checking.ks
         
        ^
        source.ks
         UIImageView
         ^^^^^^^^^^^
-        source.ks variable.other.ks
+        source.ks entity.name.type.ks
                                                    
                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
                    source.ks
@@ -105,13 +105,13 @@ grammar: kaoscript.tmLanguage
  source.ks
      is
      ^^
-     source.ks keyword.control.type-checking
+     source.ks keyword.operator.type-checking.ks
         
        ^
        source.ks
         UILabel
         ^^^^^^^
-        source.ks variable.other.ks
+        source.ks entity.name.type.ks
                        
                ^^^^^^^^
                source.ks
@@ -129,13 +129,13 @@ grammar: kaoscript.tmLanguage
                                  source.ks
                                   as
                                   ^^
-                                  source.ks variable.other.ks
+                                  source.ks keyword.operator.type-casting.ks
                                      
                                     ^
                                     source.ks
                                      UILabel
                                      ^^^^^^^
-                                     source.ks variable.other.ks
+                                     source.ks entity.name.type.ks
                                                     
                                             ^^^^^^^^
                                             source.ks
@@ -176,13 +176,13 @@ grammar: kaoscript.tmLanguage
  source.ks
      is
      ^^
-     source.ks keyword.control.type-checking
+     source.ks keyword.operator.type-checking.ks
         
        ^
        source.ks
         UITableView
         ^^^^^^^^^^^
-        source.ks variable.other.ks
+        source.ks entity.name.type.ks
                        
                    ^^^^
                    source.ks
@@ -200,13 +200,13 @@ grammar: kaoscript.tmLanguage
                                 source.ks
                                  as
                                  ^^
-                                 source.ks variable.other.ks
+                                 source.ks keyword.operator.type-casting.ks
                                     
                                    ^
                                    source.ks
                                     UITableView
                                     ^^^^^^^^^^^
-                                    source.ks variable.other.ks
+                                    source.ks entity.name.type.ks
                                                    
                                                ^^^^
                                                source.ks

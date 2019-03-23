@@ -1,0 +1,210 @@
+original file
+-----------------------------------
+foo.bar
+foo(bar)
+foo[bar]
+foo?.bar
+foo?(bar)
+foo?[bar]
+foo^^(bar)
+foo^$(bar)
+foo^@(bar)
+foo**(bar)
+foo*$(bar)
+foo::bar
+foo:bar
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>foo.bar
+ foo
+ ^^^
+ source.ks variable.other.object.ks
+    .
+    ^
+    source.ks punctuation.accessor.object.ks
+     bar
+     ^^^
+     source.ks variable.other.property.object.ks
+>
+>foo(bar)
+ foo
+ ^^^
+ source.ks entity.name.function.ks
+    (
+    ^
+    source.ks punctuation.definition.arguments.begin.bracket.round.ks
+     bar
+     ^^^
+     source.ks variable.other.ks
+        )
+        ^
+        source.ks punctuation.definition.arguments.end.bracket.round.ks
+>
+>foo[bar]
+ foo
+ ^^^
+ source.ks variable.other.ks
+    [
+    ^
+    source.ks punctuation.accessor.array.begin.bracket.square.ks
+     bar
+     ^^^
+     source.ks variable.other.ks
+        ]
+        ^
+        source.ks punctuation.accessor.array.end.bracket.square.ks
+>
+>foo?.bar
+ foo
+ ^^^
+ source.ks variable.other.object.ks
+    ?.
+    ^^
+    source.ks punctuation.accessor.optional.ks
+      bar
+      ^^^
+      source.ks variable.other.ks
+>
+>foo?(bar)
+ foo
+ ^^^
+ source.ks entity.name.function.ks
+    ?
+    ^
+    source.ks keyword.operator.nullable.ks
+     (
+     ^
+     source.ks punctuation.definition.arguments.begin.bracket.round.ks
+      bar
+      ^^^
+      source.ks variable.other.ks
+         )
+         ^
+         source.ks punctuation.definition.arguments.end.bracket.round.ks
+>
+>foo?[bar]
+ foo
+ ^^^
+ source.ks variable.other.ks
+    ?
+    ^
+    source.ks keyword.operator.nullable.ks
+     [
+     ^
+     source.ks punctuation.accessor.array.begin.bracket.square.ks
+      bar
+      ^^^
+      source.ks variable.other.ks
+         ]
+         ^
+         source.ks punctuation.accessor.array.end.bracket.square.ks
+>
+>foo^^(bar)
+ foo
+ ^^^
+ source.ks entity.name.function.ks
+    ^^
+    ^^
+    source.ks keyword.operator.function.scope.ks
+      (
+      ^
+      source.ks punctuation.definition.arguments.begin.bracket.round.ks
+       bar
+       ^^^
+       source.ks variable.other.ks
+          )
+          ^
+          source.ks punctuation.definition.arguments.end.bracket.round.ks
+>
+>foo^$(bar)
+ foo
+ ^^^
+ source.ks entity.name.function.ks
+    ^$
+    ^^
+    source.ks keyword.operator.function.scope.ks
+      (
+      ^
+      source.ks punctuation.definition.arguments.begin.bracket.round.ks
+       bar
+       ^^^
+       source.ks variable.other.ks
+          )
+          ^
+          source.ks punctuation.definition.arguments.end.bracket.round.ks
+>
+>foo^@(bar)
+ foo
+ ^^^
+ source.ks entity.name.function.ks
+    ^@
+    ^^
+    source.ks keyword.operator.function.scope.ks
+      (
+      ^
+      source.ks punctuation.definition.arguments.begin.bracket.round.ks
+       bar
+       ^^^
+       source.ks variable.other.ks
+          )
+          ^
+          source.ks punctuation.definition.arguments.end.bracket.round.ks
+>
+>foo**(bar)
+ foo
+ ^^^
+ source.ks entity.name.function.ks
+    **
+    ^^
+    source.ks keyword.operator.function.scope.ks
+      (
+      ^
+      source.ks punctuation.definition.arguments.begin.bracket.round.ks
+       bar
+       ^^^
+       source.ks variable.other.ks
+          )
+          ^
+          source.ks punctuation.definition.arguments.end.bracket.round.ks
+>
+>foo*$(bar)
+ foo
+ ^^^
+ source.ks entity.name.function.ks
+    *$
+    ^^
+    source.ks keyword.operator.function.scope.ks
+      (
+      ^
+      source.ks punctuation.definition.arguments.begin.bracket.round.ks
+       bar
+       ^^^
+       source.ks variable.other.ks
+          )
+          ^
+          source.ks punctuation.definition.arguments.end.bracket.round.ks
+>
+>foo::bar
+ foo
+ ^^^
+ source.ks variable.other.enum.ks
+    ::
+    ^^
+    source.ks punctuation.accessor.enum.ks
+      bar
+      ^^^
+      source.ks variable.other.property.enum.ks
+>
+>foo:bar
+ foo
+ ^^^
+ source.ks variable.other.ks
+    :
+    ^
+    source.ks keyword.operator.type-casting.ks
+     bar
+     ^^^
+     source.ks entity.name.type.ks

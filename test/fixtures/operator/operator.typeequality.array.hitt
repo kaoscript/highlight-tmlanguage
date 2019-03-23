@@ -1,0 +1,51 @@
+original file
+-----------------------------------
+if value is array<string> {
+}
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>if value is array<string> {
+ if
+ ^^
+ source.ks keyword.control.conditional.if.ks
+    
+   ^
+   source.ks
+    value
+    ^^^^^
+    source.ks variable.other.ks
+          
+         ^
+         source.ks
+          is
+          ^^
+          source.ks keyword.operator.type-checking.ks
+             
+            ^
+            source.ks
+             array
+             ^^^^^
+             source.ks support.type.primitive.ks
+                  <
+                  ^
+                  source.ks punctuation.definition.typeparameters.begin.ks
+                   string
+                   ^^^^^^
+                   source.ks support.type.primitive.ks
+                         >
+                         ^
+                         source.ks punctuation.definition.typeparameters.end.ks
+                           
+                          ^
+                          source.ks
+                           {
+                           ^
+                           source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.block.end.bracket.curly.ks

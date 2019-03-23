@@ -1,0 +1,36 @@
+original file
+-----------------------------------
+new (foo())()
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>new (foo())()
+ new
+ ^^^
+ source.ks keyword.operator.new.ks
+     
+    ^
+    source.ks
+     (
+     ^
+     source.ks meta.brace.round.ks
+      foo
+      ^^^
+      source.ks entity.name.function.ks
+         (
+         ^
+         source.ks punctuation.definition.arguments.begin.bracket.round.ks
+          )
+          ^
+          source.ks punctuation.definition.arguments.end.bracket.round.ks
+           )
+           ^
+           source.ks meta.brace.round.ks
+            (
+            ^
+            source.ks punctuation.definition.arguments.begin.bracket.round.ks
+             )
+             ^
+             source.ks punctuation.definition.arguments.end.bracket.round.ks

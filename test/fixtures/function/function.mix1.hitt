@@ -181,7 +181,7 @@ grammar: kaoscript.tmLanguage
              source.ks punctuation.accessor.object.ks
               length
               ^^^^^^
-              source.ks variable.other.property.ks
+              source.ks variable.other.property.object.ks
 >
 >})
  }
@@ -262,7 +262,7 @@ grammar: kaoscript.tmLanguage
              source.ks punctuation.accessor.object.ks
               length
               ^^^^^^
-              source.ks variable.other.property.ks
+              source.ks variable.other.property.object.ks
 >
 >})
  }
@@ -332,7 +332,7 @@ grammar: kaoscript.tmLanguage
                             source.ks punctuation.accessor.object.ks
                              length
                              ^^^^^^
-                             source.ks variable.other.property.ks
+                             source.ks variable.other.property.object.ks
                                    )
                                    ^
                                    source.ks punctuation.definition.arguments.end.bracket.round.ks
@@ -394,7 +394,7 @@ grammar: kaoscript.tmLanguage
                         source.ks punctuation.accessor.object.ks
                          length
                          ^^^^^^
-                         source.ks variable.other.property.ks
+                         source.ks variable.other.property.object.ks
                                )
                                ^
                                source.ks punctuation.definition.arguments.end.bracket.round.ks
@@ -450,7 +450,7 @@ grammar: kaoscript.tmLanguage
                       source.ks punctuation.accessor.object.ks
                        length
                        ^^^^^^
-                       source.ks variable.other.property.ks
+                       source.ks variable.other.property.object.ks
                              )
                              ^
                              source.ks punctuation.definition.arguments.end.bracket.round.ks

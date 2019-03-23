@@ -1,0 +1,84 @@
+original file
+-----------------------------------
+let foo = (lang) ? ('hello') : ('bonjour')
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>let foo = (lang) ? ('hello') : ('bonjour')
+ let
+ ^^^
+ source.ks storage.type.readwrite.ks
+     
+    ^
+    source.ks
+     foo
+     ^^^
+     source.ks meta.definition.variable.ks variable.other.readwrite.ks
+         
+        ^
+        source.ks
+         =
+         ^
+         source.ks keyword.operator.assignment.ks
+           
+          ^
+          source.ks
+           (
+           ^
+           source.ks meta.brace.round.ks
+            lang
+            ^^^^
+            source.ks variable.other.ks
+                )
+                ^
+                source.ks meta.brace.round.ks
+                  
+                 ^
+                 source.ks
+                  ?
+                  ^
+                  source.ks keyword.operator.ternary.ks
+                    
+                   ^
+                   source.ks
+                    (
+                    ^
+                    source.ks meta.brace.round.ks
+                     '
+                     ^
+                     source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
+                      hello
+                      ^^^^^
+                      source.ks string.quoted.single.ks
+                           '
+                           ^
+                           source.ks string.quoted.single.ks punctuation.definition.string.end.ks
+                            )
+                            ^
+                            source.ks meta.brace.round.ks
+                              
+                             ^
+                             source.ks
+                              :
+                              ^
+                              source.ks keyword.operator.ternary.ks
+                                
+                               ^
+                               source.ks
+                                (
+                                ^
+                                source.ks meta.brace.round.ks
+                                 '
+                                 ^
+                                 source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
+                                  bonjour
+                                  ^^^^^^^
+                                  source.ks string.quoted.single.ks
+                                         '
+                                         ^
+                                         source.ks string.quoted.single.ks punctuation.definition.string.end.ks
+                                          )
+                                          ^
+                                          source.ks meta.brace.round.ks

@@ -78,7 +78,7 @@ grammar: kaoscript.tmLanguage
                source.ks meta.brace.round.ks
                 .
                 ^
-                source.ks
+                source.ks punctuation.accessor.object.ks
                  toLowerCase
                  ^^^^^^^^^^^
                  source.ks entity.name.function.ks

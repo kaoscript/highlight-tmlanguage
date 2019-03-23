@@ -1,0 +1,120 @@
+original file
+-----------------------------------
+let list = [1, 2]
+list = [...list, 3, 4]
+console.log(list)
+//: [1,2,3,4]
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>let list = [1, 2]
+ let
+ ^^^
+ source.ks storage.type.readwrite.ks
+     
+    ^
+    source.ks
+     list
+     ^^^^
+     source.ks meta.definition.variable.ks variable.other.readwrite.ks
+          
+         ^
+         source.ks
+          =
+          ^
+          source.ks keyword.operator.assignment.ks
+            
+           ^
+           source.ks
+            [
+            ^
+            source.ks punctuation.definition.array.begin.bracket.square.ks
+             1
+             ^
+             source.ks constant.numeric.decimal.ks
+              ,
+              ^
+              source.ks punctuation.separator.comma.ks
+                
+               ^
+               source.ks
+                2
+                ^
+                source.ks constant.numeric.decimal.ks
+                 ]
+                 ^
+                 source.ks punctuation.definition.array.end.bracket.square.ks
+>
+>list = [...list, 3, 4]
+ list
+ ^^^^
+ source.ks variable.other.ks
+      
+     ^
+     source.ks
+      =
+      ^
+      source.ks keyword.operator.assignment.ks
+        
+       ^
+       source.ks
+        [
+        ^
+        source.ks punctuation.definition.array.begin.bracket.square.ks
+         ...
+         ^^^
+         source.ks keyword.operator.spread.ks
+            list
+            ^^^^
+            source.ks variable.other.ks
+                ,
+                ^
+                source.ks punctuation.separator.comma.ks
+                  
+                 ^
+                 source.ks
+                  3
+                  ^
+                  source.ks constant.numeric.decimal.ks
+                   ,
+                   ^
+                   source.ks punctuation.separator.comma.ks
+                     
+                    ^
+                    source.ks
+                     4
+                     ^
+                     source.ks constant.numeric.decimal.ks
+                      ]
+                      ^
+                      source.ks punctuation.definition.array.end.bracket.square.ks
+>
+>console.log(list)
+ console
+ ^^^^^^^
+ source.ks variable.other.object.ks
+        .
+        ^
+        source.ks punctuation.accessor.object.ks
+         log
+         ^^^
+         source.ks entity.name.function.ks
+            (
+            ^
+            source.ks punctuation.definition.arguments.begin.bracket.round.ks
+             list
+             ^^^^
+             source.ks variable.other.ks
+                 )
+                 ^
+                 source.ks punctuation.definition.arguments.end.bracket.round.ks
+>
+>//: [1,2,3,4]
+ //
+ ^^
+ source.ks comment.line.double-slash.ks punctuation.definition.comment.ks
+   : [1,2,3,4]
+   ^^^^^^^^^^^
+   source.ks comment.line.double-slash.ks

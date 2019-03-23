@@ -76,7 +76,7 @@ grammar: kaoscript.tmLanguage
                                                       source.ks punctuation.definition.arguments.end.bracket.round.ks
                                                        .
                                                        ^
-                                                       source.ks
+                                                       source.ks punctuation.accessor.object.ks
                                                         reverse
                                                         ^^^^^^^
                                                         source.ks entity.name.function.ks
@@ -88,7 +88,7 @@ grammar: kaoscript.tmLanguage
                                                                 source.ks punctuation.definition.arguments.end.bracket.round.ks
                                                                  .
                                                                  ^
-                                                                 source.ks
+                                                                 source.ks punctuation.accessor.object.ks
                                                                   join
                                                                   ^^^^
                                                                   source.ks entity.name.function.ks
@@ -168,7 +168,7 @@ grammar: kaoscript.tmLanguage
                                                   source.ks punctuation.definition.arguments.end.bracket.round.ks
                                                    .
                                                    ^
-                                                   source.ks
+                                                   source.ks punctuation.accessor.object.ks
                                                     reverse
                                                     ^^^^^^^
                                                     source.ks entity.name.function.ks

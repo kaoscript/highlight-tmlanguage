@@ -1,0 +1,66 @@
+original file
+-----------------------------------
+if value is string ? foo : bar {
+}
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>if value is string ? foo : bar {
+ if
+ ^^
+ source.ks keyword.control.conditional.if.ks
+    
+   ^
+   source.ks
+    value
+    ^^^^^
+    source.ks variable.other.ks
+          
+         ^
+         source.ks
+          is
+          ^^
+          source.ks keyword.operator.type-checking.ks
+             
+            ^
+            source.ks
+             string
+             ^^^^^^
+             source.ks support.type.primitive.ks
+                    
+                   ^
+                   source.ks
+                    ?
+                    ^
+                    source.ks keyword.operator.ternary.ks
+                      
+                     ^
+                     source.ks
+                      foo
+                      ^^^
+                      source.ks variable.other.ks
+                          
+                         ^
+                         source.ks
+                          :
+                          ^
+                          source.ks keyword.operator.ternary.ks
+                            
+                           ^
+                           source.ks
+                            bar
+                            ^^^
+                            source.ks variable.other.ks
+                                
+                               ^
+                               source.ks
+                                {
+                                ^
+                                source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.block.end.bracket.curly.ks

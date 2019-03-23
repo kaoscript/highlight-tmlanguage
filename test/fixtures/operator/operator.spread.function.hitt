@@ -1,0 +1,123 @@
+original file
+-----------------------------------
+func foo(x, y, z) {
+}
+let args = [0, 1, 2]
+foo(...args)
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>func foo(x, y, z) {
+ func
+ ^^^^
+ source.ks storage.type.function.ks
+      
+     ^
+     source.ks
+      foo
+      ^^^
+      source.ks entity.name.function.ks
+         (
+         ^
+         source.ks punctuation.definition.parameters.begin.bracket.round.ks
+          x
+          ^
+          source.ks variable.parameter.ks
+           ,
+           ^
+           source.ks punctuation.separator.comma.ks
+             
+            ^
+            source.ks
+             y
+             ^
+             source.ks variable.parameter.ks
+              ,
+              ^
+              source.ks punctuation.separator.comma.ks
+                
+               ^
+               source.ks
+                z
+                ^
+                source.ks variable.parameter.ks
+                 )
+                 ^
+                 source.ks punctuation.definition.parameters.end.bracket.round.ks
+                   
+                  ^
+                  source.ks
+                   {
+                   ^
+                   source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.block.end.bracket.curly.ks
+>
+>let args = [0, 1, 2]
+ let
+ ^^^
+ source.ks storage.type.readwrite.ks
+     
+    ^
+    source.ks
+     args
+     ^^^^
+     source.ks meta.definition.variable.ks variable.other.readwrite.ks
+          
+         ^
+         source.ks
+          =
+          ^
+          source.ks keyword.operator.assignment.ks
+            
+           ^
+           source.ks
+            [
+            ^
+            source.ks punctuation.definition.array.begin.bracket.square.ks
+             0
+             ^
+             source.ks constant.numeric.decimal.ks
+              ,
+              ^
+              source.ks punctuation.separator.comma.ks
+                
+               ^
+               source.ks
+                1
+                ^
+                source.ks constant.numeric.decimal.ks
+                 ,
+                 ^
+                 source.ks punctuation.separator.comma.ks
+                   
+                  ^
+                  source.ks
+                   2
+                   ^
+                   source.ks constant.numeric.decimal.ks
+                    ]
+                    ^
+                    source.ks punctuation.definition.array.end.bracket.square.ks
+>
+>foo(...args)
+ foo
+ ^^^
+ source.ks entity.name.function.ks
+    (
+    ^
+    source.ks punctuation.definition.arguments.begin.bracket.round.ks
+     ...
+     ^^^
+     source.ks keyword.operator.spread.ks
+        args
+        ^^^^
+        source.ks variable.other.ks
+            )
+            ^
+            source.ks punctuation.definition.arguments.end.bracket.round.ks

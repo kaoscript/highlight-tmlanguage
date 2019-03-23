@@ -1,0 +1,87 @@
+original file
+-----------------------------------
+let a = 4
+let b = 5
+console.log(4 + 5)
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>let a = 4
+ let
+ ^^^
+ source.ks storage.type.readwrite.ks
+     
+    ^
+    source.ks
+     a
+     ^
+     source.ks meta.definition.variable.ks variable.other.readwrite.ks
+       
+      ^
+      source.ks
+       =
+       ^
+       source.ks keyword.operator.assignment.ks
+         
+        ^
+        source.ks
+         4
+         ^
+         source.ks constant.numeric.decimal.ks
+>
+>let b = 5
+ let
+ ^^^
+ source.ks storage.type.readwrite.ks
+     
+    ^
+    source.ks
+     b
+     ^
+     source.ks meta.definition.variable.ks variable.other.readwrite.ks
+       
+      ^
+      source.ks
+       =
+       ^
+       source.ks keyword.operator.assignment.ks
+         
+        ^
+        source.ks
+         5
+         ^
+         source.ks constant.numeric.decimal.ks
+>
+>console.log(4 + 5)
+ console
+ ^^^^^^^
+ source.ks variable.other.object.ks
+        .
+        ^
+        source.ks punctuation.accessor.object.ks
+         log
+         ^^^
+         source.ks entity.name.function.ks
+            (
+            ^
+            source.ks punctuation.definition.arguments.begin.bracket.round.ks
+             4
+             ^
+             source.ks constant.numeric.decimal.ks
+               
+              ^
+              source.ks
+               +
+               ^
+               source.ks keyword.operator.arithmetic.ks
+                 
+                ^
+                source.ks
+                 5
+                 ^
+                 source.ks constant.numeric.decimal.ks
+                  )
+                  ^
+                  source.ks punctuation.definition.arguments.end.bracket.round.ks

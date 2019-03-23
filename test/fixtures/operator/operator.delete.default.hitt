@@ -1,0 +1,18 @@
+original file
+-----------------------------------
+delete foo
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>delete foo
+ delete
+ ^^^^^^
+ source.ks keyword.control.delete.ks
+        
+       ^
+       source.ks
+        foo
+        ^^^
+        source.ks variable.other.ks

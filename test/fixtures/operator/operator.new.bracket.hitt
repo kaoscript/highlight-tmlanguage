@@ -1,0 +1,33 @@
+original file
+-----------------------------------
+new foo[bar]()
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>new foo[bar]()
+ new
+ ^^^
+ source.ks keyword.operator.new.ks
+     
+    ^
+    source.ks
+     foo
+     ^^^
+     source.ks variable.other.ks
+        [
+        ^
+        source.ks punctuation.accessor.array.begin.bracket.square.ks
+         bar
+         ^^^
+         source.ks variable.other.ks
+            ]
+            ^
+            source.ks punctuation.accessor.array.end.bracket.square.ks
+             (
+             ^
+             source.ks punctuation.definition.arguments.begin.bracket.round.ks
+              )
+              ^
+              source.ks punctuation.definition.arguments.end.bracket.round.ks

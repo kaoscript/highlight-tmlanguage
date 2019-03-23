@@ -123,7 +123,7 @@ grammar: kaoscript.tmLanguage
                source.ks
                 %
                 ^
-                source.ks keyword.operator.ks
+                source.ks keyword.operator.arithmetic.ks
                   
                  ^
                  source.ks

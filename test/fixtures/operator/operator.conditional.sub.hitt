@@ -1,0 +1,192 @@
+original file
+-----------------------------------
+let text = foo && bar ? qux || corge ? 'a' : 'b' : grault + garply ? 'c' : waldo ? 'd' : 'e'
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>let text = foo && bar ? qux || corge ? 'a' : 'b' : grault + garply ? 'c' : waldo ? 'd' : 'e'
+ let
+ ^^^
+ source.ks storage.type.readwrite.ks
+     
+    ^
+    source.ks
+     text
+     ^^^^
+     source.ks meta.definition.variable.ks variable.other.readwrite.ks
+          
+         ^
+         source.ks
+          =
+          ^
+          source.ks keyword.operator.assignment.ks
+            
+           ^
+           source.ks
+            foo
+            ^^^
+            source.ks variable.other.ks
+                
+               ^
+               source.ks
+                &&
+                ^^
+                source.ks keyword.operator.logical.ks
+                   
+                  ^
+                  source.ks
+                   bar
+                   ^^^
+                   source.ks variable.other.ks
+                       
+                      ^
+                      source.ks
+                       ?
+                       ^
+                       source.ks keyword.operator.ternary.ks
+                         
+                        ^
+                        source.ks
+                         qux
+                         ^^^
+                         source.ks variable.other.ks
+                             
+                            ^
+                            source.ks
+                             ||
+                             ^^
+                             source.ks keyword.operator.logical.ks
+                                
+                               ^
+                               source.ks
+                                corge
+                                ^^^^^
+                                source.ks variable.other.ks
+                                      
+                                     ^
+                                     source.ks
+                                      ?
+                                      ^
+                                      source.ks keyword.operator.ternary.ks
+                                        
+                                       ^
+                                       source.ks
+                                        '
+                                        ^
+                                        source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
+                                         a
+                                         ^
+                                         source.ks string.quoted.single.ks
+                                          '
+                                          ^
+                                          source.ks string.quoted.single.ks punctuation.definition.string.end.ks
+                                            
+                                           ^
+                                           source.ks
+                                            :
+                                            ^
+                                            source.ks keyword.operator.ternary.ks
+                                              
+                                             ^
+                                             source.ks
+                                              '
+                                              ^
+                                              source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
+                                               b
+                                               ^
+                                               source.ks string.quoted.single.ks
+                                                '
+                                                ^
+                                                source.ks string.quoted.single.ks punctuation.definition.string.end.ks
+                                                  
+                                                 ^
+                                                 source.ks
+                                                  :
+                                                  ^
+                                                  source.ks keyword.operator.ternary.ks
+                                                    
+                                                   ^
+                                                   source.ks
+                                                    grault
+                                                    ^^^^^^
+                                                    source.ks variable.other.ks
+                                                           
+                                                          ^
+                                                          source.ks
+                                                           +
+                                                           ^
+                                                           source.ks keyword.operator.arithmetic.ks
+                                                             
+                                                            ^
+                                                            source.ks
+                                                             garply
+                                                             ^^^^^^
+                                                             source.ks variable.other.ks
+                                                                    
+                                                                   ^
+                                                                   source.ks
+                                                                    ?
+                                                                    ^
+                                                                    source.ks keyword.operator.ternary.ks
+                                                                      
+                                                                     ^
+                                                                     source.ks
+                                                                      '
+                                                                      ^
+                                                                      source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
+                                                                       c
+                                                                       ^
+                                                                       source.ks string.quoted.single.ks
+                                                                        '
+                                                                        ^
+                                                                        source.ks string.quoted.single.ks punctuation.definition.string.end.ks
+                                                                          
+                                                                         ^
+                                                                         source.ks
+                                                                          :
+                                                                          ^
+                                                                          source.ks keyword.operator.ternary.ks
+                                                                            
+                                                                           ^
+                                                                           source.ks
+                                                                            waldo
+                                                                            ^^^^^
+                                                                            source.ks variable.other.ks
+                                                                                  
+                                                                                 ^
+                                                                                 source.ks
+                                                                                  ?
+                                                                                  ^
+                                                                                  source.ks keyword.operator.ternary.ks
+                                                                                    
+                                                                                   ^
+                                                                                   source.ks
+                                                                                    '
+                                                                                    ^
+                                                                                    source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
+                                                                                     d
+                                                                                     ^
+                                                                                     source.ks string.quoted.single.ks
+                                                                                      '
+                                                                                      ^
+                                                                                      source.ks string.quoted.single.ks punctuation.definition.string.end.ks
+                                                                                        
+                                                                                       ^
+                                                                                       source.ks
+                                                                                        :
+                                                                                        ^
+                                                                                        source.ks keyword.operator.ternary.ks
+                                                                                          
+                                                                                         ^
+                                                                                         source.ks
+                                                                                          '
+                                                                                          ^
+                                                                                          source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
+                                                                                           e
+                                                                                           ^
+                                                                                           source.ks string.quoted.single.ks
+                                                                                            '
+                                                                                            ^
+                                                                                            source.ks string.quoted.single.ks punctuation.definition.string.end.ks

@@ -1,0 +1,27 @@
+original file
+-----------------------------------
+delete foo[bar]
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>delete foo[bar]
+ delete
+ ^^^^^^
+ source.ks keyword.control.delete.ks
+        
+       ^
+       source.ks
+        foo
+        ^^^
+        source.ks variable.other.ks
+           [
+           ^
+           source.ks punctuation.accessor.array.begin.bracket.square.ks
+            bar
+            ^^^
+            source.ks variable.other.ks
+               ]
+               ^
+               source.ks punctuation.accessor.array.end.bracket.square.ks
