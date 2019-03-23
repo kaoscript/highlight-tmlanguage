@@ -1,0 +1,96 @@
+original file
+-----------------------------------
+let a = 4
+let b = 5
+let c = (b) * a
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>let a = 4
+ let
+ ^^^
+ source.ks storage.type.readwrite.ks
+     
+    ^
+    source.ks
+     a
+     ^
+     source.ks meta.definition.variable.ks variable.other.readwrite.ks
+       
+      ^
+      source.ks
+       =
+       ^
+       source.ks keyword.operator.assignment.ks
+         
+        ^
+        source.ks
+         4
+         ^
+         source.ks constant.numeric.decimal.ks
+>
+>let b = 5
+ let
+ ^^^
+ source.ks storage.type.readwrite.ks
+     
+    ^
+    source.ks
+     b
+     ^
+     source.ks meta.definition.variable.ks variable.other.readwrite.ks
+       
+      ^
+      source.ks
+       =
+       ^
+       source.ks keyword.operator.assignment.ks
+         
+        ^
+        source.ks
+         5
+         ^
+         source.ks constant.numeric.decimal.ks
+>
+>let c = (b) * a
+ let
+ ^^^
+ source.ks storage.type.readwrite.ks
+     
+    ^
+    source.ks
+     c
+     ^
+     source.ks meta.definition.variable.ks variable.other.readwrite.ks
+       
+      ^
+      source.ks
+       =
+       ^
+       source.ks keyword.operator.assignment.ks
+         
+        ^
+        source.ks
+         (
+         ^
+         source.ks meta.brace.round.ks
+          b
+          ^
+          source.ks variable.other.ks
+           )
+           ^
+           source.ks meta.brace.round.ks
+             
+            ^
+            source.ks
+             *
+             ^
+             source.ks keyword.operator.ks
+               
+              ^
+              source.ks
+               a
+               ^
+               source.ks variable.other.ks

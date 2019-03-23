@@ -201,18 +201,24 @@ grammar: kaoscript.tmLanguage
           value
           ^^^^^
           source.ks variable.other.ks
-               : 
-               ^^
-               source.ks
+               :
+               ^
+               source.ks keyword.operator.ks
+                 
+                ^
+                source.ks
                  Number
                  ^^^^^^
                  source.ks variable.other.ks
                        )
                        ^
                        source.ks punctuation.definition.arguments.end.bracket.round.ks
-                        : 
-                        ^^
-                        source.ks
+                        :
+                        ^
+                        source.ks keyword.operator.ks
+                          
+                         ^
+                         source.ks
                           Number
                           ^^^^^^
                           source.ks variable.other.ks
@@ -238,18 +244,24 @@ grammar: kaoscript.tmLanguage
           value
           ^^^^^
           source.ks variable.other.ks
-               : 
-               ^^
-               source.ks
+               :
+               ^
+               source.ks keyword.operator.ks
+                 
+                ^
+                source.ks
                  String
                  ^^^^^^
                  source.ks variable.other.ks
                        )
                        ^
                        source.ks punctuation.definition.arguments.end.bracket.round.ks
-                        : 
-                        ^^
-                        source.ks
+                        :
+                        ^
+                        source.ks keyword.operator.ks
+                          
+                         ^
+                         source.ks
                           String
                           ^^^^^^
                           source.ks variable.other.ks
@@ -284,18 +296,24 @@ grammar: kaoscript.tmLanguage
           value
           ^^^^^
           source.ks variable.other.ks
-               : 
-               ^^
-               source.ks
+               :
+               ^
+               source.ks keyword.operator.ks
+                 
+                ^
+                source.ks
                  Number
                  ^^^^^^
                  source.ks variable.other.ks
                        )
                        ^
                        source.ks punctuation.definition.arguments.end.bracket.round.ks
-                        : 
-                        ^^
-                        source.ks
+                        :
+                        ^
+                        source.ks keyword.operator.ks
+                          
+                         ^
+                         source.ks
                           Number
                           ^^^^^^
                           source.ks variable.other.ks
@@ -319,18 +337,24 @@ grammar: kaoscript.tmLanguage
           value
           ^^^^^
           source.ks variable.other.ks
-               : 
-               ^^
-               source.ks
+               :
+               ^
+               source.ks keyword.operator.ks
+                 
+                ^
+                source.ks
                  String
                  ^^^^^^
                  source.ks variable.other.ks
                        )
                        ^
                        source.ks punctuation.definition.arguments.end.bracket.round.ks
-                        : 
-                        ^^
-                        source.ks
+                        :
+                        ^
+                        source.ks keyword.operator.ks
+                          
+                         ^
+                         source.ks
                           String
                           ^^^^^^
                           source.ks variable.other.ks
@@ -365,18 +389,24 @@ grammar: kaoscript.tmLanguage
           value
           ^^^^^
           source.ks variable.other.ks
-               : 
-               ^^
-               source.ks
+               :
+               ^
+               source.ks keyword.operator.ks
+                 
+                ^
+                source.ks
                  Number
                  ^^^^^^
                  source.ks variable.other.ks
                        )
                        ^
                        source.ks punctuation.definition.arguments.end.bracket.round.ks
-                        : 
-                        ^^
-                        source.ks
+                        :
+                        ^
+                        source.ks keyword.operator.ks
+                          
+                         ^
+                         source.ks
                           Number
                           ^^^^^^
                           source.ks variable.other.ks
@@ -400,18 +430,24 @@ grammar: kaoscript.tmLanguage
             value
             ^^^^^
             source.ks variable.other.ks
-                 : 
-                 ^^
-                 source.ks
+                 :
+                 ^
+                 source.ks keyword.operator.ks
+                   
+                  ^
+                  source.ks
                    String
                    ^^^^^^
                    source.ks variable.other.ks
                          )
                          ^
                          source.ks punctuation.definition.arguments.end.bracket.round.ks
-                          : 
-                          ^^
-                          source.ks
+                          :
+                          ^
+                          source.ks keyword.operator.ks
+                            
+                           ^
+                           source.ks
                             String
                             ^^^^^^
                             source.ks variable.other.ks
@@ -446,18 +482,24 @@ grammar: kaoscript.tmLanguage
           value
           ^^^^^
           source.ks variable.other.ks
-               : 
-               ^^
-               source.ks
+               :
+               ^
+               source.ks keyword.operator.ks
+                 
+                ^
+                source.ks
                  Number
                  ^^^^^^
                  source.ks variable.other.ks
                        )
                        ^
                        source.ks punctuation.definition.arguments.end.bracket.round.ks
-                        : 
-                        ^^
-                        source.ks
+                        :
+                        ^
+                        source.ks keyword.operator.ks
+                          
+                         ^
+                         source.ks
                           Number
                           ^^^^^^
                           source.ks variable.other.ks
@@ -481,18 +523,24 @@ grammar: kaoscript.tmLanguage
           value
           ^^^^^
           source.ks variable.other.ks
-               : 
-               ^^
-               source.ks
+               :
+               ^
+               source.ks keyword.operator.ks
+                 
+                ^
+                source.ks
                  String
                  ^^^^^^
                  source.ks variable.other.ks
                        )
                        ^
                        source.ks punctuation.definition.arguments.end.bracket.round.ks
-                        : 
-                        ^^
-                        source.ks
+                        :
+                        ^
+                        source.ks keyword.operator.ks
+                          
+                         ^
+                         source.ks
                           String
                           ^^^^^^
                           source.ks variable.other.ks

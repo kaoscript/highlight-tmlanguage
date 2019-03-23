@@ -1,0 +1,72 @@
+original file
+-----------------------------------
+return 'hello' if lang == 'en' else 'bonjour'
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>return 'hello' if lang == 'en' else 'bonjour'
+ return
+ ^^^^^^
+ source.ks keyword.control.flow.return.ks
+        
+       ^
+       source.ks
+        '
+        ^
+        source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
+         hello
+         ^^^^^
+         source.ks string.quoted.single.ks
+              '
+              ^
+              source.ks string.quoted.single.ks punctuation.definition.string.end.ks
+                
+               ^
+               source.ks
+                if
+                ^^
+                source.ks keyword.control.conditional.if.ks
+                   
+                  ^
+                  source.ks
+                   lang
+                   ^^^^
+                   source.ks variable.other.ks
+                        
+                       ^
+                       source.ks
+                        ==
+                        ^^
+                        source.ks keyword.operator.comparison.ks
+                           
+                          ^
+                          source.ks
+                           '
+                           ^
+                           source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
+                            en
+                            ^^
+                            source.ks string.quoted.single.ks
+                              '
+                              ^
+                              source.ks string.quoted.single.ks punctuation.definition.string.end.ks
+                                
+                               ^
+                               source.ks
+                                else
+                                ^^^^
+                                source.ks keyword.control.conditional.else.ks
+                                     
+                                    ^
+                                    source.ks
+                                     '
+                                     ^
+                                     source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
+                                      bonjour
+                                      ^^^^^^^
+                                      source.ks string.quoted.single.ks
+                                             '
+                                             ^
+                                             source.ks string.quoted.single.ks punctuation.definition.string.end.ks

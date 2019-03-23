@@ -692,10 +692,10 @@
         <array>
           <dict>
             <key>begin</key>
-            <string>(\bif\b)</string>
+            <string>\bif\b</string>
             <key>beginCaptures</key>
             <dict>
-              <key>1</key>
+              <key>0</key>
               <dict>
                 <key>name</key>
                 <string>keyword.control.conditional.if.ks</string>
@@ -713,10 +713,10 @@
           </dict>
           <dict>
             <key>begin</key>
-            <string>(\bunless\b)</string>
+            <string>\bunless\b</string>
             <key>beginCaptures</key>
             <dict>
-              <key>1</key>
+              <key>0</key>
               <dict>
                 <key>name</key>
                 <string>keyword.control.conditional.unless.ks</string>
@@ -934,11 +934,17 @@
         <array>
           <dict>
             <key>begin</key>
-            <string>(?=(?:(?:\bfunc)\s*\((?:\s*(?:\.\.\.(?:\{\d*,?\d*\})?)?[_$[:alpha:]][_$[:alnum:]]*(?::\s*[_$[:alpha:]][_$[:alnum:]]*(?:&lt;[_$[:alpha:]][_$[:alnum:]]*&gt;)?(?:\s*\|\s*[_$[:alpha:]][_$[:alnum:]]*(?:&lt;[_$[:alpha:]][_$[:alnum:]]*&gt;)?)*|\?)?(?:\s*=\s*(?:\(.*\)|[^\)])+)?\s*|\s*,\s*)*\)(?::\s*[_$[:alpha:]][_$[:alnum:]]*(?:&lt;[_$[:alpha:]][_$[:alnum:]]*&gt;)?(?:\s*\|\s*[_$[:alpha:]][_$[:alnum:]]*(?:&lt;[_$[:alpha:]][_$[:alnum:]]*&gt;)?)*)?|\((?:\s*(?:\.\.\.(?:\{\d*,?\d*\})?)?[_$[:alpha:]][_$[:alnum:]]*(?::\s*[_$[:alpha:]][_$[:alnum:]]*(?:&lt;[_$[:alpha:]][_$[:alnum:]]*&gt;)?(?:\s*\|\s*[_$[:alpha:]][_$[:alnum:]]*(?:&lt;[_$[:alpha:]][_$[:alnum:]]*&gt;)?)*|\?)?(?:\s*=\s*(?:\(.*\)|[^\)])+)?\s*|\s*,\s*)*\)(?::\s*[_$[:alpha:]][_$[:alnum:]]*(?:&lt;[_$[:alpha:]][_$[:alnum:]]*&gt;)?(?:\s*\|\s*[_$[:alpha:]][_$[:alnum:]]*(?:&lt;[_$[:alpha:]][_$[:alnum:]]*&gt;)?)*)?\s*=&gt;\s*|[_$[:alpha:]][_$[:alnum:]]*\s*=&gt;\s*)\s*\{)</string>
+            <string>(?=(?:(?:\basync\s+)?\bfunc\s*\((?:\s*(?:\.\.\.(?:\{\d*,?\d*\})?)?[_$[:alpha:]][_$[:alnum:]]*(?::\s*[_$[:alpha:]][_$[:alnum:]]*(?:&lt;[_$[:alpha:]][_$[:alnum:]]*&gt;)?(?:\s*\|\s*[_$[:alpha:]][_$[:alnum:]]*(?:&lt;[_$[:alpha:]][_$[:alnum:]]*&gt;)?)*|\?)?(?:\s*=\s*(?:\(.*\)|[^\)])+)?\s*|\s*,\s*)*\)(?::\s*[_$[:alpha:]][_$[:alnum:]]*(?:&lt;[_$[:alpha:]][_$[:alnum:]]*&gt;)?(?:\s*\|\s*[_$[:alpha:]][_$[:alnum:]]*(?:&lt;[_$[:alpha:]][_$[:alnum:]]*&gt;)?)*)?|(?:\basync\s+)?\((?:\s*(?:\.\.\.(?:\{\d*,?\d*\})?)?[_$[:alpha:]][_$[:alnum:]]*(?::\s*[_$[:alpha:]][_$[:alnum:]]*(?:&lt;[_$[:alpha:]][_$[:alnum:]]*&gt;)?(?:\s*\|\s*[_$[:alpha:]][_$[:alnum:]]*(?:&lt;[_$[:alpha:]][_$[:alnum:]]*&gt;)?)*|\?)?(?:\s*=\s*(?:\(.*\)|[^\)])+)?\s*|\s*,\s*)*\)(?::\s*[_$[:alpha:]][_$[:alnum:]]*(?:&lt;[_$[:alpha:]][_$[:alnum:]]*&gt;)?(?:\s*\|\s*[_$[:alpha:]][_$[:alnum:]]*(?:&lt;[_$[:alpha:]][_$[:alnum:]]*&gt;)?)*)?\s*=&gt;\s*|[_$[:alpha:]][_$[:alnum:]]*\s*=&gt;\s*)\s*\{)</string>
             <key>end</key>
             <string>(?&lt;=\}|$)</string>
             <key>patterns</key>
             <array>
+              <dict>
+                <key>name</key>
+                <string>storage.modifier.async.ks</string>
+                <key>match</key>
+                <string>\basync\b</string>
+              </dict>
               <dict>
                 <key>name</key>
                 <string>storage.type.function.ks</string>
@@ -998,7 +1004,7 @@
           </dict>
           <dict>
             <key>begin</key>
-            <string>(?=(?:(?:\bfunc\s*)?\((?:\s*(?:\.\.\.(?:\{\d*,?\d*\})?)?[_$[:alpha:]][_$[:alnum:]]*(?::\s*[_$[:alpha:]][_$[:alnum:]]*(?:&lt;[_$[:alpha:]][_$[:alnum:]]*&gt;)?(?:\s*\|\s*[_$[:alpha:]][_$[:alnum:]]*(?:&lt;[_$[:alpha:]][_$[:alnum:]]*&gt;)?)*|\?)?(?:\s*=\s*(?:\(.*\)|[^\)])+)?\s*|\s*,\s*)*\)(?::\s*[_$[:alpha:]][_$[:alnum:]]*(?:&lt;[_$[:alpha:]][_$[:alnum:]]*&gt;)?(?:\s*\|\s*[_$[:alpha:]][_$[:alnum:]]*(?:&lt;[_$[:alpha:]][_$[:alnum:]]*&gt;)?)*)?|[_$[:alpha:]][_$[:alnum:]]*)\s*=&gt;\s*(?!=\{))</string>
+            <string>(?=(?:(?:\basync\s*)?(?:\bfunc\s*)?\((?:\s*(?:\.\.\.(?:\{\d*,?\d*\})?)?[_$[:alpha:]][_$[:alnum:]]*(?::\s*[_$[:alpha:]][_$[:alnum:]]*(?:&lt;[_$[:alpha:]][_$[:alnum:]]*&gt;)?(?:\s*\|\s*[_$[:alpha:]][_$[:alnum:]]*(?:&lt;[_$[:alpha:]][_$[:alnum:]]*&gt;)?)*|\?)?(?:\s*=\s*(?:\(.*\)|[^\)])+)?\s*|\s*,\s*)*\)(?::\s*[_$[:alpha:]][_$[:alnum:]]*(?:&lt;[_$[:alpha:]][_$[:alnum:]]*&gt;)?(?:\s*\|\s*[_$[:alpha:]][_$[:alnum:]]*(?:&lt;[_$[:alpha:]][_$[:alnum:]]*&gt;)?)*)?|[_$[:alpha:]][_$[:alnum:]]*)\s*=&gt;\s*(?!=\{))</string>
             <key>end</key>
             <string>(?=$|[,\)\]])</string>
             <key>patterns</key>
@@ -1978,17 +1984,16 @@
         <key>patterns</key>
         <array>
           <dict>
-            <key>name</key>
-            <string>meta.object.key.ks</string>
-            <key>match</key>
-            <string>([_$[:alpha:]][_$[:alnum:]]*)</string>
-          </dict>
-          <dict>
             <key>begin</key>
-            <string>\:</string>
+            <string>([_$[:alpha:]][_$[:alnum:]]*)\s*(\:)</string>
             <key>beginCaptures</key>
             <dict>
-              <key>0</key>
+              <key>1</key>
+              <dict>
+                <key>name</key>
+                <string>meta.object.key.ks</string>
+              </dict>
+              <key>2</key>
               <dict>
                 <key>name</key>
                 <string>punctuation.separator.key-value.ks</string>
@@ -2003,6 +2008,80 @@
                 <string>#expression</string>
               </dict>
             </array>
+          </dict>
+          <dict>
+            <key>begin</key>
+            <string>(?=['"`\[])</string>
+            <key>end</key>
+            <string>(?=$|\,|\})</string>
+            <key>patterns</key>
+            <array>
+              <dict>
+                <key>name</key>
+                <string>meta.object-literal.key.ks</string>
+                <key>begin</key>
+                <string>(?=['"`\[])</string>
+                <key>end</key>
+                <string>(?=:)</string>
+                <key>patterns</key>
+                <array>
+                  <dict>
+                    <key>include</key>
+                    <string>#expression</string>
+                  </dict>
+                </array>
+              </dict>
+              <dict>
+                <key>begin</key>
+                <string>\:</string>
+                <key>beginCaptures</key>
+                <dict>
+                  <key>0</key>
+                  <dict>
+                    <key>name</key>
+                    <string>punctuation.separator.key-value.ks</string>
+                  </dict>
+                </dict>
+                <key>end</key>
+                <string>(?=$|\,|\})</string>
+                <key>patterns</key>
+                <array>
+                  <dict>
+                    <key>include</key>
+                    <string>#expression</string>
+                  </dict>
+                </array>
+              </dict>
+            </array>
+          </dict>
+          <dict>
+            <key>name</key>
+            <string>meta.definition.method.ks</string>
+            <key>begin</key>
+            <string>([_$[:alpha:]][_$[:alnum:]]*)\s*(?=\()</string>
+            <key>beginCaptures</key>
+            <dict>
+              <key>1</key>
+              <dict>
+                <key>name</key>
+                <string>entity.name.function.ks</string>
+              </dict>
+            </dict>
+            <key>end</key>
+            <string>(?&lt;=\}|$)</string>
+            <key>patterns</key>
+            <array>
+              <dict>
+                <key>include</key>
+                <string>#function-expression</string>
+              </dict>
+            </array>
+          </dict>
+          <dict>
+            <key>name</key>
+            <string>variable.other.ks</string>
+            <key>match</key>
+            <string>([_$[:alpha:]][_$[:alnum:]]*)</string>
           </dict>
           <dict>
             <key>include</key>
@@ -2107,7 +2186,7 @@
             <key>name</key>
             <string>keyword.operator.ks</string>
             <key>match</key>
-            <string>\+|-|\*|/|%|\?</string>
+            <string>\+|-|\*|/|%|\?|\:</string>
           </dict>
           <dict>
             <key>name</key>
@@ -2464,6 +2543,69 @@
         <string>$</string>
         <key>patterns</key>
         <array>
+          <dict>
+            <key>begin</key>
+            <string>\bif\b</string>
+            <key>beginCaptures</key>
+            <dict>
+              <key>0</key>
+              <dict>
+                <key>name</key>
+                <string>keyword.control.conditional.if.ks</string>
+              </dict>
+            </dict>
+            <key>end</key>
+            <string>$</string>
+            <key>patterns</key>
+            <array>
+              <dict>
+                <key>begin</key>
+                <string>\belse\b</string>
+                <key>beginCaptures</key>
+                <dict>
+                  <key>0</key>
+                  <dict>
+                    <key>name</key>
+                    <string>keyword.control.conditional.else.ks</string>
+                  </dict>
+                </dict>
+                <key>end</key>
+                <string>$</string>
+                <key>patterns</key>
+                <array>
+                  <dict>
+                    <key>include</key>
+                    <string>#expression</string>
+                  </dict>
+                </array>
+              </dict>
+              <dict>
+                <key>include</key>
+                <string>#expression</string>
+              </dict>
+            </array>
+          </dict>
+          <dict>
+            <key>begin</key>
+            <string>\bunless\b</string>
+            <key>beginCaptures</key>
+            <dict>
+              <key>0</key>
+              <dict>
+                <key>name</key>
+                <string>keyword.control.conditional.unless.ks</string>
+              </dict>
+            </dict>
+            <key>end</key>
+            <string>$</string>
+            <key>patterns</key>
+            <array>
+              <dict>
+                <key>include</key>
+                <string>#expression</string>
+              </dict>
+            </array>
+          </dict>
           <dict>
             <key>include</key>
             <string>#expression</string>
@@ -3333,7 +3475,7 @@
       <key>type-statement</key>
       <dict>
         <key>begin</key>
-        <string>^\s*(type)\s+([_$[:alpha:]][_$[:alnum:]]*)\s*(=)</string>
+        <string>^\s*(type)\s+([_$[:alpha:]][_$[:alnum:]]*)\s*(=)(?m)</string>
         <key>beginCaptures</key>
         <dict>
           <key>1</key>

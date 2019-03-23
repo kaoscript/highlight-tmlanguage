@@ -1,0 +1,18 @@
+original file
+-----------------------------------
+"hello"
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>"hello"
+ "
+ ^
+ source.ks string.quoted.double.ks punctuation.definition.string.begin.ks
+  hello
+  ^^^^^
+  source.ks string.quoted.double.ks
+       "
+       ^
+       source.ks string.quoted.double.ks punctuation.definition.string.end.ks

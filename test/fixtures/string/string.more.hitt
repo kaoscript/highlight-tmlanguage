@@ -1,0 +1,303 @@
+original file
+-----------------------------------
+const $escapes = {
+    '\x00': '\\0'
+    '\b': '\\b'
+    '\t': '\\t'
+    '\n': '\\n'
+    '\f': '\\f'
+    '\r': '\\r'
+    '"' : '\\"'
+    '\\': '\\\\'
+}
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>const $escapes = {
+ const
+ ^^^^^
+ source.ks storage.type.constant.ks
+       
+      ^
+      source.ks
+       $escapes
+       ^^^^^^^^
+       source.ks meta.definition.variable.ks variable.other.constant.ks
+                
+               ^
+               source.ks
+                =
+                ^
+                source.ks keyword.operator.assignment.ks
+                  
+                 ^
+                 source.ks
+                  {
+                  ^
+                  source.ks punctuation.definition.object.begin.bracket.curly.ks
+>
+>    '\x00': '\\0'
+     
+ ^^^^
+ source.ks
+     '
+     ^
+     source.ks meta.object-literal.key.ks string.quoted.single.ks punctuation.definition.string.begin.ks
+      \x00
+      ^^^^
+      source.ks meta.object-literal.key.ks string.quoted.single.ks constant.character.escape.ks
+          '
+          ^
+          source.ks meta.object-literal.key.ks string.quoted.single.ks punctuation.definition.string.end.ks
+           :
+           ^
+           source.ks punctuation.separator.key-value.ks
+             
+            ^
+            source.ks
+             '
+             ^
+             source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
+              \\
+              ^^
+              source.ks string.quoted.single.ks constant.character.escape.ks
+                0
+                ^
+                source.ks string.quoted.single.ks
+                 '
+                 ^
+                 source.ks string.quoted.single.ks punctuation.definition.string.end.ks
+>
+>    '\b': '\\b'
+     
+ ^^^^
+ source.ks
+     '
+     ^
+     source.ks meta.object-literal.key.ks string.quoted.single.ks punctuation.definition.string.begin.ks
+      \b
+      ^^
+      source.ks meta.object-literal.key.ks string.quoted.single.ks constant.character.escape.ks
+        '
+        ^
+        source.ks meta.object-literal.key.ks string.quoted.single.ks punctuation.definition.string.end.ks
+         :
+         ^
+         source.ks punctuation.separator.key-value.ks
+           
+          ^
+          source.ks
+           '
+           ^
+           source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
+            \\
+            ^^
+            source.ks string.quoted.single.ks constant.character.escape.ks
+              b
+              ^
+              source.ks string.quoted.single.ks
+               '
+               ^
+               source.ks string.quoted.single.ks punctuation.definition.string.end.ks
+>
+>    '\t': '\\t'
+     
+ ^^^^
+ source.ks
+     '
+     ^
+     source.ks meta.object-literal.key.ks string.quoted.single.ks punctuation.definition.string.begin.ks
+      \t
+      ^^
+      source.ks meta.object-literal.key.ks string.quoted.single.ks constant.character.escape.ks
+        '
+        ^
+        source.ks meta.object-literal.key.ks string.quoted.single.ks punctuation.definition.string.end.ks
+         :
+         ^
+         source.ks punctuation.separator.key-value.ks
+           
+          ^
+          source.ks
+           '
+           ^
+           source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
+            \\
+            ^^
+            source.ks string.quoted.single.ks constant.character.escape.ks
+              t
+              ^
+              source.ks string.quoted.single.ks
+               '
+               ^
+               source.ks string.quoted.single.ks punctuation.definition.string.end.ks
+>
+>    '\n': '\\n'
+     
+ ^^^^
+ source.ks
+     '
+     ^
+     source.ks meta.object-literal.key.ks string.quoted.single.ks punctuation.definition.string.begin.ks
+      \n
+      ^^
+      source.ks meta.object-literal.key.ks string.quoted.single.ks constant.character.escape.ks
+        '
+        ^
+        source.ks meta.object-literal.key.ks string.quoted.single.ks punctuation.definition.string.end.ks
+         :
+         ^
+         source.ks punctuation.separator.key-value.ks
+           
+          ^
+          source.ks
+           '
+           ^
+           source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
+            \\
+            ^^
+            source.ks string.quoted.single.ks constant.character.escape.ks
+              n
+              ^
+              source.ks string.quoted.single.ks
+               '
+               ^
+               source.ks string.quoted.single.ks punctuation.definition.string.end.ks
+>
+>    '\f': '\\f'
+     
+ ^^^^
+ source.ks
+     '
+     ^
+     source.ks meta.object-literal.key.ks string.quoted.single.ks punctuation.definition.string.begin.ks
+      \f
+      ^^
+      source.ks meta.object-literal.key.ks string.quoted.single.ks constant.character.escape.ks
+        '
+        ^
+        source.ks meta.object-literal.key.ks string.quoted.single.ks punctuation.definition.string.end.ks
+         :
+         ^
+         source.ks punctuation.separator.key-value.ks
+           
+          ^
+          source.ks
+           '
+           ^
+           source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
+            \\
+            ^^
+            source.ks string.quoted.single.ks constant.character.escape.ks
+              f
+              ^
+              source.ks string.quoted.single.ks
+               '
+               ^
+               source.ks string.quoted.single.ks punctuation.definition.string.end.ks
+>
+>    '\r': '\\r'
+     
+ ^^^^
+ source.ks
+     '
+     ^
+     source.ks meta.object-literal.key.ks string.quoted.single.ks punctuation.definition.string.begin.ks
+      \r
+      ^^
+      source.ks meta.object-literal.key.ks string.quoted.single.ks constant.character.escape.ks
+        '
+        ^
+        source.ks meta.object-literal.key.ks string.quoted.single.ks punctuation.definition.string.end.ks
+         :
+         ^
+         source.ks punctuation.separator.key-value.ks
+           
+          ^
+          source.ks
+           '
+           ^
+           source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
+            \\
+            ^^
+            source.ks string.quoted.single.ks constant.character.escape.ks
+              r
+              ^
+              source.ks string.quoted.single.ks
+               '
+               ^
+               source.ks string.quoted.single.ks punctuation.definition.string.end.ks
+>
+>    '"' : '\\"'
+     
+ ^^^^
+ source.ks
+     '
+     ^
+     source.ks meta.object-literal.key.ks string.quoted.single.ks punctuation.definition.string.begin.ks
+      "
+      ^
+      source.ks meta.object-literal.key.ks string.quoted.single.ks
+       '
+       ^
+       source.ks meta.object-literal.key.ks string.quoted.single.ks punctuation.definition.string.end.ks
+         
+        ^
+        source.ks meta.object-literal.key.ks
+         :
+         ^
+         source.ks punctuation.separator.key-value.ks
+           
+          ^
+          source.ks
+           '
+           ^
+           source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
+            \\
+            ^^
+            source.ks string.quoted.single.ks constant.character.escape.ks
+              "
+              ^
+              source.ks string.quoted.single.ks
+               '
+               ^
+               source.ks string.quoted.single.ks punctuation.definition.string.end.ks
+>
+>    '\\': '\\\\'
+     
+ ^^^^
+ source.ks
+     '
+     ^
+     source.ks meta.object-literal.key.ks string.quoted.single.ks punctuation.definition.string.begin.ks
+      \\
+      ^^
+      source.ks meta.object-literal.key.ks string.quoted.single.ks constant.character.escape.ks
+        '
+        ^
+        source.ks meta.object-literal.key.ks string.quoted.single.ks punctuation.definition.string.end.ks
+         :
+         ^
+         source.ks punctuation.separator.key-value.ks
+           
+          ^
+          source.ks
+           '
+           ^
+           source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
+            \\
+            ^^
+            source.ks string.quoted.single.ks constant.character.escape.ks
+              \\
+              ^^
+              source.ks string.quoted.single.ks constant.character.escape.ks
+                '
+                ^
+                source.ks string.quoted.single.ks punctuation.definition.string.end.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.object.end.bracket.curly.ks

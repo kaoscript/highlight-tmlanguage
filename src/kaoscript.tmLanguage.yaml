@@ -5,8 +5,8 @@ uuid: 371123EB-AE4B-471E-BB5C-1AB23093F1C9
 
 variables:
   identifier: '[_$[:alpha:]][_$[:alnum:]]*'
-  function-block: '(?:(?:\bfunc)\s*{{function-sig}}|{{function-sig}}\s*=>\s*|{{identifier}}\s*=>\s*)\s*\{'
-  function-line: '(?:(?:\bfunc\s*)?{{function-sig}}|{{identifier}})\s*=>\s*(?!=\{)'
+  function-block: '(?:(?:\basync\s+)?\bfunc\s*{{function-sig}}|(?:\basync\s+)?{{function-sig}}\s*=>\s*|{{identifier}}\s*=>\s*)\s*\{'
+  function-line: '(?:(?:\basync\s*)?(?:\bfunc\s*)?{{function-sig}}|{{identifier}})\s*=>\s*(?!=\{)'
   function-sig: '\((?:\s*{{parameter}}\s*|\s*,\s*)*\)(?:{{type}})?'
   parameter: '(?:\.\.\.(?:\{\d*,?\d*\})?)?{{identifier}}(?:{{type}}|\?)?(?:\s*=\s*(?:\(.*\)|[^\)])+)?'
   type: ':\s*{{type-identifier}}(?:\s*\|\s*{{type-identifier}})*'
@@ -234,15 +234,15 @@ repository:
   # }}}
   expression-statement: # {{{
     patterns:
-    - begin: '(\bif\b)'
+    - begin: '\bif\b'
       beginCaptures:
-        '1': { name: 'keyword.control.conditional.if.ks' }
+        '0': { name: 'keyword.control.conditional.if.ks' }
       end: '$'
       patterns:
       - include: '#expression'
-    - begin: '(\bunless\b)'
+    - begin: '\bunless\b'
       beginCaptures:
-        '1': { name: 'keyword.control.conditional.unless.ks' }
+        '0': { name: 'keyword.control.conditional.unless.ks' }
       end: '$'
       patterns:
       - include: '#expression'
@@ -314,6 +314,8 @@ repository:
       - begin: '(?={{function-block}})'
         end: '(?<=\}|$)'
         patterns:
+        - name: 'storage.modifier.async.ks'
+          match: '\basync\b'
         - name: 'storage.type.function.ks'
           match: '\bfunc\b'
         - include: '#function-parameters'
@@ -626,14 +628,36 @@ repository:
     endCaptures:
       '0': { name: 'punctuation.definition.object.end.bracket.curly.ks' }
     patterns:
-    - name: 'meta.object.key.ks'
-      match: '({{identifier}})'
-    - begin: '\:'
+    - begin: '({{identifier}})\s*(\:)'
       beginCaptures:
-        '0': { name: 'punctuation.separator.key-value.ks' }
+        '1': { name: 'meta.object.key.ks' }
+        '2': { name: 'punctuation.separator.key-value.ks' }
       end: '(?=$|\,|\})'
       patterns:
       - include: '#expression'
+    - begin: (?=['"`\[])
+      end: '(?=$|\,|\})'
+      patterns:
+        - name: 'meta.object-literal.key.ks'
+          begin: (?=['"`\[])
+          end: (?=:)
+          patterns:
+          - include: '#expression'
+        - begin: '\:'
+          beginCaptures:
+            '0': { name: 'punctuation.separator.key-value.ks' }
+          end: '(?=$|\,|\})'
+          patterns:
+          - include: '#expression'
+    - name: 'meta.definition.method.ks'
+      begin: '({{identifier}})\s*(?=\()'
+      beginCaptures:
+        '1': { name: 'entity.name.function.ks' }
+      end: '(?<=\}|$)'
+      patterns:
+      - include: '#function-expression'
+    - name: 'variable.other.ks'
+      match: '({{identifier}})'
     - include: '#comma'
   # }}}
   object-accessor: # {{{
@@ -667,7 +691,7 @@ repository:
     - name: 'keyword.operator.spread.ks'
       match: '\.\.\.'
     - name: 'keyword.operator.ks'
-      match: '\+|-|\*|/|%|\?'
+      match: '\+|-|\*|/|%|\?|\:'
     - name: 'keyword.control.flow'
       match: '\bawait\b'
     - name: 'keyword.control.type-checking'
@@ -773,6 +797,24 @@ repository:
       '1': { name: 'keyword.control.flow.return.ks' }
     end: '$'
     patterns:
+    - begin: '\bif\b'
+      beginCaptures:
+        '0': { name: 'keyword.control.conditional.if.ks' }
+      end: '$'
+      patterns:
+      - begin: '\belse\b'
+        beginCaptures:
+          '0': { name: 'keyword.control.conditional.else.ks' }
+        end: '$'
+        patterns:
+        - include: '#expression'
+      - include: '#expression'
+    - begin: '\bunless\b'
+      beginCaptures:
+        '0': { name: 'keyword.control.conditional.unless.ks' }
+      end: '$'
+      patterns:
+      - include: '#expression'
     - include: '#expression'
   # }}}
   statements: # {{{
@@ -1038,7 +1080,7 @@ repository:
     - include: '#comma'
   # }}}
   type-statement: # {{{
-    begin: '^\s*(type)\s+({{identifier}})\s*(=)'
+    begin: '^\s*(type)\s+({{identifier}})\s*(=)(?m)'
     beginCaptures:
       '1': { name: 'storage.type.type.ks' }
       '2': { name: 'entity.name.type.alias.ks' }

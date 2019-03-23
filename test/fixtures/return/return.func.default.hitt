@@ -1,0 +1,42 @@
+original file
+-----------------------------------
+return func(...items) {
+}
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>return func(...items) {
+ return
+ ^^^^^^
+ source.ks keyword.control.flow.return.ks
+        
+       ^
+       source.ks
+        func
+        ^^^^
+        source.ks storage.type.function.ks
+            (
+            ^
+            source.ks punctuation.definition.parameters.begin.bracket.round.ks
+             ...
+             ^^^
+             source.ks keyword.operator.rest.ks
+                items
+                ^^^^^
+                source.ks variable.parameter.ks
+                     )
+                     ^
+                     source.ks punctuation.definition.parameters.end.bracket.round.ks
+                       
+                      ^
+                      source.ks
+                       {
+                       ^
+                       source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.block.end.bracket.curly.ks
