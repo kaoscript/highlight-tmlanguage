@@ -36,7 +36,7 @@ grammar: kaoscript.tmLanguage
  source.ks
      private
      ^^^^^^^
-     source.ks storage.modifier.ks
+     source.ks storage.modifier.access.ks
              
             ^
             source.ks

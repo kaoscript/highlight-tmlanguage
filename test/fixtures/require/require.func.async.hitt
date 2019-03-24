@@ -1,0 +1,36 @@
+original file
+-----------------------------------
+require async func foo()
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>require async func foo()
+ require
+ ^^^^^^^
+ source.ks keyword.control.require.ks
+         
+        ^
+        source.ks
+         async
+         ^^^^^
+         source.ks storage.modifier.async.ks
+               
+              ^
+              source.ks
+               func
+               ^^^^
+               source.ks storage.type.function.ks
+                    
+                   ^
+                   source.ks
+                    foo
+                    ^^^
+                    source.ks entity.name.function.ks
+                       (
+                       ^
+                       source.ks punctuation.definition.parameters.begin.bracket.round.ks
+                        )
+                        ^
+                        source.ks punctuation.definition.parameters.end.bracket.round.ks

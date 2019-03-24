@@ -1,0 +1,324 @@
+original file
+-----------------------------------
+require {
+    enum Space<String> {
+        RGB
+    }
+    
+    class Color {
+        space(): Space
+        space(space: Space): Color
+    }
+}
+impl Color {
+    private _luma: Number
+    
+    luma(): Number => this._luma
+    
+    luma(@luma) => this
+}
+export Color, Space
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>require {
+ require
+ ^^^^^^^
+ source.ks keyword.control.require.ks
+         
+        ^
+        source.ks
+         {
+         ^
+         source.ks punctuation.definition.require.begin.bracket.curly.ks
+>
+>    enum Space<String> {
+     
+ ^^^^
+ source.ks
+     enum
+     ^^^^
+     source.ks storage.type.enum.ks
+          
+         ^
+         source.ks
+          Space
+          ^^^^^
+          source.ks entity.name.type.enum.ks
+               <
+               ^
+               source.ks punctuation.definition.typeparameters.begin.ks
+                String
+                ^^^^^^
+                source.ks support.type.primitive.ks
+                      >
+                      ^
+                      source.ks punctuation.definition.typeparameters.end.ks
+                        
+                       ^
+                       source.ks
+                        {
+                        ^
+                        source.ks punctuation.definition.enum.begin.bracket.curly.ks
+>
+>        RGB
+         
+ ^^^^^^^^
+ source.ks
+         RGB
+         ^^^
+         source.ks variable.other.enummember.ks
+>
+>    }
+     
+ ^^^^
+ source.ks
+     }
+     ^
+     source.ks punctuation.definition.enum.end.bracket.curly.ks
+>
+>    
+     
+ ^^^^^
+ source.ks
+>
+>    class Color {
+     
+ ^^^^
+ source.ks
+     class
+     ^^^^^
+     source.ks storage.type.class.ks
+           
+          ^
+          source.ks
+           Color
+           ^^^^^
+           source.ks entity.name.type.class.ks
+                 
+                ^
+                source.ks
+                 {
+                 ^
+                 source.ks punctuation.definition.class.begin.bracket.curly.ks
+>
+>        space(): Space
+         
+ ^^^^^^^^
+ source.ks
+         space
+         ^^^^^
+         source.ks entity.name.function.ks
+              (
+              ^
+              source.ks punctuation.definition.parameters.begin.bracket.round.ks
+               )
+               ^
+               source.ks punctuation.definition.parameters.end.bracket.round.ks
+                :
+                ^
+                source.ks meta.function.return-type.ks keyword.operator.type.annotation.ks
+                  
+                 ^
+                 source.ks meta.function.return-type.ks
+                  Space
+                  ^^^^^
+                  source.ks meta.function.return-type.ks entity.name.type.ks
+>
+>        space(space: Space): Color
+         
+ ^^^^^^^^
+ source.ks
+         space
+         ^^^^^
+         source.ks entity.name.function.ks
+              (
+              ^
+              source.ks punctuation.definition.parameters.begin.bracket.round.ks
+               space
+               ^^^^^
+               source.ks variable.parameter.ks
+                    :
+                    ^
+                    source.ks meta.type.annotation.ks keyword.operator.type.annotation.ks
+                      
+                     ^
+                     source.ks meta.type.annotation.ks
+                      Space
+                      ^^^^^
+                      source.ks meta.type.annotation.ks entity.name.type.ks
+                           )
+                           ^
+                           source.ks punctuation.definition.parameters.end.bracket.round.ks
+                            :
+                            ^
+                            source.ks meta.function.return-type.ks keyword.operator.type.annotation.ks
+                              
+                             ^
+                             source.ks meta.function.return-type.ks
+                              Color
+                              ^^^^^
+                              source.ks meta.function.return-type.ks entity.name.type.ks
+>
+>    }
+     
+ ^^^^
+ source.ks
+     }
+     ^
+     source.ks punctuation.definition.class.end.bracket.curly.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.require.end.bracket.curly.ks
+>
+>impl Color {
+ impl
+ ^^^^
+ source.ks keyword.control.implement.ks
+      
+     ^
+     source.ks
+      Color
+      ^^^^^
+      source.ks entity.name.type.ks
+            
+           ^
+           source.ks
+            {
+            ^
+            source.ks punctuation.definition.implement.begin.bracket.curly.ks
+>
+>    private _luma: Number
+     
+ ^^^^
+ source.ks
+     private
+     ^^^^^^^
+     source.ks storage.modifier.access.ks
+             
+            ^
+            source.ks
+             _luma
+             ^^^^^
+             source.ks variable.object.property.ks
+                  :
+                  ^
+                  source.ks meta.type.annotation.ks keyword.operator.type.annotation.ks
+                    
+                   ^
+                   source.ks meta.type.annotation.ks
+                    Number
+                    ^^^^^^
+                    source.ks meta.type.annotation.ks support.type.primitive.ks
+>
+>    
+     
+ ^^^^^
+ source.ks
+>
+>    luma(): Number => this._luma
+     
+ ^^^^
+ source.ks
+     luma
+     ^^^^
+     source.ks entity.name.function.ks
+         (
+         ^
+         source.ks punctuation.definition.parameters.begin.bracket.round.ks
+          )
+          ^
+          source.ks punctuation.definition.parameters.end.bracket.round.ks
+           :
+           ^
+           source.ks meta.function.return-type.ks keyword.operator.type.annotation.ks
+             
+            ^
+            source.ks meta.function.return-type.ks
+             Number
+             ^^^^^^
+             source.ks meta.function.return-type.ks support.type.primitive.ks
+                    
+                   ^
+                   source.ks
+                    =>
+                    ^^
+                    source.ks storage.type.function.arrow.ks
+                       
+                      ^
+                      source.ks
+                       this
+                       ^^^^
+                       source.ks variable.other.object.ks
+                           .
+                           ^
+                           source.ks punctuation.accessor.object.ks
+                            _luma
+                            ^^^^^
+                            source.ks variable.other.property.object.ks
+>
+>    
+     
+ ^^^^^
+ source.ks
+>
+>    luma(@luma) => this
+     
+ ^^^^
+ source.ks
+     luma
+     ^^^^
+     source.ks entity.name.function.ks
+         (
+         ^
+         source.ks punctuation.definition.parameters.begin.bracket.round.ks
+          @
+          ^
+          source.ks storage.modifier.at.ks
+           luma
+           ^^^^
+           source.ks variable.parameter.ks
+               )
+               ^
+               source.ks punctuation.definition.parameters.end.bracket.round.ks
+                 
+                ^
+                source.ks
+                 =>
+                 ^^
+                 source.ks storage.type.function.arrow.ks
+                    
+                   ^
+                   source.ks
+                    this
+                    ^^^^
+                    source.ks variable.language.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.implement.end.bracket.curly.ks
+>
+>export Color, Space
+ export
+ ^^^^^^
+ source.ks keyword.control.export.ks
+        
+       ^
+       source.ks
+        Color
+        ^^^^^
+        source.ks variable.other.ks
+             ,
+             ^
+             source.ks punctuation.separator.comma.ks
+               
+              ^
+              source.ks
+               Space
+               ^^^^^
+               source.ks variable.other.ks

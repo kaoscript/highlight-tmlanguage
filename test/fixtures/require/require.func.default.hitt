@@ -1,0 +1,90 @@
+original file
+-----------------------------------
+require func reverse
+func reverse(value: Number): Number => -value
+export reverse
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>require func reverse
+ require
+ ^^^^^^^
+ source.ks keyword.control.require.ks
+         
+        ^
+        source.ks
+         func
+         ^^^^
+         source.ks storage.type.function.ks
+              
+             ^
+             source.ks
+              reverse
+              ^^^^^^^
+              source.ks entity.name.function.ks
+>
+>func reverse(value: Number): Number => -value
+ func
+ ^^^^
+ source.ks storage.type.function.ks
+      
+     ^
+     source.ks
+      reverse
+      ^^^^^^^
+      source.ks entity.name.function.ks
+             (
+             ^
+             source.ks punctuation.definition.parameters.begin.bracket.round.ks
+              value
+              ^^^^^
+              source.ks variable.parameter.ks
+                   :
+                   ^
+                   source.ks meta.type.annotation.ks keyword.operator.type.annotation.ks
+                     
+                    ^
+                    source.ks meta.type.annotation.ks
+                     Number
+                     ^^^^^^
+                     source.ks meta.type.annotation.ks support.type.primitive.ks
+                           )
+                           ^
+                           source.ks punctuation.definition.parameters.end.bracket.round.ks
+                            :
+                            ^
+                            source.ks meta.function.return-type.ks keyword.operator.type.annotation.ks
+                              
+                             ^
+                             source.ks meta.function.return-type.ks
+                              Number
+                              ^^^^^^
+                              source.ks meta.function.return-type.ks support.type.primitive.ks
+                                     
+                                    ^
+                                    source.ks
+                                     =>
+                                     ^^
+                                     source.ks storage.type.function.arrow.ks
+                                        
+                                       ^
+                                       source.ks
+                                        -
+                                        ^
+                                        source.ks keyword.operator.arithmetic.ks
+                                         value
+                                         ^^^^^
+                                         source.ks variable.other.ks
+>
+>export reverse
+ export
+ ^^^^^^
+ source.ks keyword.control.export.ks
+        
+       ^
+       source.ks
+        reverse
+        ^^^^^^^
+        source.ks variable.other.ks
