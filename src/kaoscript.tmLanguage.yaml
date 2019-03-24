@@ -72,6 +72,20 @@ repository:
   # }}}
   class-member: # {{{
     patterns:
+    - begin: '(constructor)(?=\()'
+      beginCaptures:
+        '1': { name: 'storage.type.constructor.ks' }
+      end: '(?<=\}|$)'
+      patterns:
+      - include: '#function-parameters'
+      - include: '#function-throwables'
+      - include: '#block'
+      - begin: '=>'
+        beginCaptures:
+          '0': { name: 'storage.type.function.arrow.ks' }
+        end: '$'
+        patterns:
+        - include: '#expression'
     - begin: '({{identifier}})(?=\()'
       beginCaptures:
         '1': { name: 'entity.name.function.ks' }
@@ -121,19 +135,30 @@ repository:
       endCaptures:
         '0': { name: 'punctuation.definition.class.end.bracket.curly.ks' }
       patterns:
-      - begin: '(private|protected|public)\s*(\{)'
+      # - begin: '(private|protected|public)?\s*(static)?\s*(\{)'
+      #   beginCaptures:
+      #     '1': { name: 'storage.modifier.access.ks' }
+      #     '2': { name: 'storage.modifier.access.ks' }
+      #     '3': { name: 'punctuation.definition.members.begin.bracket.curly.ks' }
+      #   end: '\}'
+      #   endCaptures:
+      #     '0': { name: 'punctuation.definition.members.end.bracket.curly.ks' }
+      #   patterns:
+      #   - include: '#class-member'
+      # - begin: '(private|protected|public)\s*(?=[_$[:alpha:]])'
+      #   beginCaptures:
+      #     '1': { name: 'storage.modifier.access.ks' }
+      #   end: '$'
+      #   patterns:
+      #   - include: '#class-member'
+      - name: 'storage.modifier.access.ks'
+        match: 'private|protected|public|static'
+      - begin: '\{'
         beginCaptures:
-          '1': { name: 'storage.modifier.access.ks' }
-          '2': { name: 'punctuation.definition.members.begin.bracket.curly.ks' }
+          '0': { name: 'punctuation.definition.members.begin.bracket.curly.ks' }
         end: '\}'
         endCaptures:
           '0': { name: 'punctuation.definition.members.end.bracket.curly.ks' }
-        patterns:
-        - include: '#class-member'
-      - begin: '(private|protected|public)\s*(?=[_$[:alpha:]])'
-        beginCaptures:
-          '1': { name: 'storage.modifier.access.ks' }
-        end: '$'
         patterns:
         - include: '#class-member'
       - include: '#class-member'
@@ -778,6 +803,14 @@ repository:
       '2': { name: 'entity.name.type.ks' }
     end: '(?<=\})'
     patterns:
+    - begin: '<'
+      beginCaptures:
+        '0': { name: 'punctuation.definition.typeparameters.begin.ks' }
+      end: '>'
+      endCaptures:
+        '0': { name: 'punctuation.definition.typeparameters.end.ks' }
+      patterns:
+      - include: '#type'
     - begin: '\{'
       beginCaptures:
         '0': { name: 'punctuation.definition.implement.begin.bracket.curly.ks' }
@@ -785,19 +818,31 @@ repository:
       endCaptures:
         '0': { name: 'punctuation.definition.implement.end.bracket.curly.ks' }
       patterns:
-      - begin: '(private|protected|public)\s*(\{)'
+      # - begin: '(private|protected|public)\s*(\{)'
+      #   beginCaptures:
+      #     '1': { name: 'storage.modifier.access.ks' }
+      #     '2': { name: 'punctuation.definition.members.begin.bracket.curly.ks' }
+      #   end: '\}'
+      #   endCaptures:
+      #     '0': { name: 'punctuation.definition.members.end.bracket.curly.ks' }
+      #   patterns:
+      #   - include: '#class-member'
+      # - begin: '(private|protected|public)\s*(?=[_$[:alpha:]])'
+      #   beginCaptures:
+      #     '1': { name: 'storage.modifier.access.ks' }
+      #   end: '$'
+      #   patterns:
+      #   - include: '#class-member'
+      - name: 'storage.modifier.access.ks'
+        match: 'private|protected|public|static'
+      - name: 'storage.modifier.ks'
+        match: 'override'
+      - begin: '\{'
         beginCaptures:
-          '1': { name: 'storage.modifier.access.ks' }
-          '2': { name: 'punctuation.definition.members.begin.bracket.curly.ks' }
+          '0': { name: 'punctuation.definition.members.begin.bracket.curly.ks' }
         end: '\}'
         endCaptures:
           '0': { name: 'punctuation.definition.members.end.bracket.curly.ks' }
-        patterns:
-        - include: '#class-member'
-      - begin: '(private|protected|public)\s*(?=[_$[:alpha:]])'
-        beginCaptures:
-          '1': { name: 'storage.modifier.access.ks' }
-        end: '$'
         patterns:
         - include: '#class-member'
       - include: '#class-member'
@@ -1381,8 +1426,8 @@ repository:
   type: # {{{
     patterns:
       - name: 'support.type.primitive.ks'
-        match: \b(Any|any|Array|array|Boolean|bool|class|enum|Function|func(?!\()|Number|number|Object|object|RegExp|String|string|Void|void)\b
-      - begin: '(?=(\basync\s+)?(\bfunc)?\()'
+        match: \b(?:Any|any|Array|array|Boolean|bool|class|enum|Function|func(?!\()|Number|number|Object|object|RegExp|String|string|Void|void)\b
+      - begin: '(?=(\basync\s+)?(?:\bfunc)?\()'
         end: '(?=$|\s*\|\|)'
         patterns:
         - name: 'storage.modifier.async.ks'
@@ -1398,9 +1443,9 @@ repository:
           patterns:
           - include: '#type'
         - name: 'meta.throwables.ks'
-          begin: '(\~)'
+          begin: '~'
           beginCaptures:
-            '1': { name: 'storage.modifier.throwables.ks' }
+            '0': { name: 'storage.modifier.throwables.ks' }
           end: '(?=$|\s*\|\|)'
           patterns:
           - include: '#type'
@@ -1409,26 +1454,26 @@ repository:
         match: '{{identifier}}'
       - name: 'storage.modifier.nullable.ks'
         match: '\?'
-      - begin: '(\|\|?)'
+      - begin: '\|\|?'
         beginCaptures:
-          '1': { name: 'keyword.operator.type.union.ks' }
+          '0': { name: 'keyword.operator.type.union.ks' }
         end: '(?=$|[,:=\{\)])'
         patterns:
         - include: '#type'
-      - begin: '(\<)'
+      - begin: '<'
         beginCaptures:
-          '1': { name: 'punctuation.definition.typeparameters.begin.ks' }
-        end: '(\>)'
+          '0': { name: 'punctuation.definition.typeparameters.begin.ks' }
+        end: '>'
         endCaptures:
-          '1': { name: 'punctuation.definition.typeparameters.end.ks' }
+          '0': { name: 'punctuation.definition.typeparameters.end.ks' }
         patterns:
         - include: '#type'
-      - begin: '(\{)'
+      - begin: '\{'
         beginCaptures:
-          '1': { name: 'punctuation.definition.object.begin.bracket.curly.ks' }
-        end: '(\})'
+          '0': { name: 'punctuation.definition.object.begin.bracket.curly.ks' }
+        end: '\}'
         endCaptures:
-          '1': { name: 'punctuation.definition.object.end.bracket.curly.ks' }
+          '0': { name: 'punctuation.definition.object.end.bracket.curly.ks' }
         patterns:
         - include: '#type-object'
   # }}}

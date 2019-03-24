@@ -31,7 +31,7 @@ describe('highlight', func() {
 			})
 
 			const data = generate(source)
-			console.log(data)
+			// console.log(data)
 
 			const tokens: String = fs.readFileSync(path.join(root, name + '.hitt'), {
 				encoding: 'utf8'

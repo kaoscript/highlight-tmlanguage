@@ -1,0 +1,606 @@
+original file
+-----------------------------------
+extern console: {
+    log(...args)
+}
+class Shape {
+    private {
+        _color: string = ''
+    }
+    static makeBlue(): Shape {
+        return new Shape('blue')
+    }
+    constructor(@color)
+    draw(): string {
+        return `I'm drawing a \(@color) rectangle.`
+    }
+}
+impl Shape {
+    private _name: string = 'circle'
+    name() => @name
+    name(@name) => this
+    override draw(): string {
+        return `I'm drawing a \(@color) \(@name).`
+    }
+}
+let shape = Shape.makeRed()
+console.log(shape.draw())
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>extern console: {
+ extern
+ ^^^^^^
+ source.ks keyword.control.dependency.extern.ks
+        
+       ^
+       source.ks
+        console
+        ^^^^^^^
+        source.ks variable.other.constant.ks
+               :
+               ^
+               source.ks meta.type.annotation.ks keyword.operator.type.annotation.ks
+                 
+                ^
+                source.ks meta.type.annotation.ks
+                 {
+                 ^
+                 source.ks meta.type.annotation.ks punctuation.definition.object.begin.bracket.curly.ks
+>
+>    log(...args)
+     
+ ^^^^
+ source.ks meta.type.annotation.ks
+     log
+     ^^^
+     source.ks meta.type.annotation.ks entity.name.function.ks
+        (
+        ^
+        source.ks meta.type.annotation.ks punctuation.definition.parameters.begin.bracket.round.ks
+         ...
+         ^^^
+         source.ks meta.type.annotation.ks keyword.operator.rest.ks
+            args
+            ^^^^
+            source.ks meta.type.annotation.ks variable.parameter.ks
+                )
+                ^
+                source.ks meta.type.annotation.ks punctuation.definition.parameters.end.bracket.round.ks
+>
+>}
+ }
+ ^
+ source.ks meta.type.annotation.ks punctuation.definition.object.end.bracket.curly.ks
+>
+>class Shape {
+ class
+ ^^^^^
+ source.ks storage.type.class.ks
+       
+      ^
+      source.ks
+       Shape
+       ^^^^^
+       source.ks entity.name.type.class.ks
+             
+            ^
+            source.ks
+             {
+             ^
+             source.ks punctuation.definition.class.begin.bracket.curly.ks
+>
+>    private {
+     
+ ^^^^
+ source.ks
+     private
+     ^^^^^^^
+     source.ks storage.modifier.access.ks
+             
+            ^
+            source.ks
+             {
+             ^
+             source.ks punctuation.definition.members.begin.bracket.curly.ks
+>
+>        _color: string = ''
+         
+ ^^^^^^^^
+ source.ks
+         _color
+         ^^^^^^
+         source.ks variable.object.property.ks
+               :
+               ^
+               source.ks meta.type.annotation.ks keyword.operator.type.annotation.ks
+                 
+                ^
+                source.ks meta.type.annotation.ks
+                 string
+                 ^^^^^^
+                 source.ks meta.type.annotation.ks support.type.primitive.ks
+                        
+                       ^
+                       source.ks meta.type.annotation.ks
+                        =
+                        ^
+                        source.ks keyword.operator.assignment.ks
+                          
+                         ^
+                         source.ks
+                          '
+                          ^
+                          source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
+                           '
+                           ^
+                           source.ks string.quoted.single.ks punctuation.definition.string.end.ks
+>
+>    }
+     
+ ^^^^
+ source.ks
+     }
+     ^
+     source.ks punctuation.definition.members.end.bracket.curly.ks
+>
+>    static makeBlue(): Shape {
+     
+ ^^^^
+ source.ks
+     static
+     ^^^^^^
+     source.ks storage.modifier.access.ks
+            
+           ^
+           source.ks
+            makeBlue
+            ^^^^^^^^
+            source.ks entity.name.function.ks
+                    (
+                    ^
+                    source.ks punctuation.definition.parameters.begin.bracket.round.ks
+                     )
+                     ^
+                     source.ks punctuation.definition.parameters.end.bracket.round.ks
+                      :
+                      ^
+                      source.ks meta.function.return-type.ks keyword.operator.type.annotation.ks
+                        
+                       ^
+                       source.ks meta.function.return-type.ks
+                        Shape
+                        ^^^^^
+                        source.ks meta.function.return-type.ks entity.name.type.ks
+                              
+                             ^
+                             source.ks
+                              {
+                              ^
+                              source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>        return new Shape('blue')
+         
+ ^^^^^^^^
+ source.ks
+         return
+         ^^^^^^
+         source.ks keyword.control.flow.return.ks
+                
+               ^
+               source.ks
+                new
+                ^^^
+                source.ks keyword.operator.new.ks
+                    
+                   ^
+                   source.ks
+                    Shape
+                    ^^^^^
+                    source.ks entity.name.type.ks
+                         (
+                         ^
+                         source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                          '
+                          ^
+                          source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
+                           blue
+                           ^^^^
+                           source.ks string.quoted.single.ks
+                               '
+                               ^
+                               source.ks string.quoted.single.ks punctuation.definition.string.end.ks
+                                )
+                                ^
+                                source.ks punctuation.definition.arguments.end.bracket.round.ks
+>
+>    }
+     
+ ^^^^
+ source.ks
+     }
+     ^
+     source.ks punctuation.definition.block.end.bracket.curly.ks
+>
+>    constructor(@color)
+     
+ ^^^^
+ source.ks
+     constructor
+     ^^^^^^^^^^^
+     source.ks storage.type.constructor.ks
+                (
+                ^
+                source.ks punctuation.definition.parameters.begin.bracket.round.ks
+                 @
+                 ^
+                 source.ks storage.modifier.at.ks
+                  color
+                  ^^^^^
+                  source.ks variable.parameter.ks
+                       )
+                       ^
+                       source.ks punctuation.definition.parameters.end.bracket.round.ks
+>
+>    draw(): string {
+     
+ ^^^^
+ source.ks
+     draw
+     ^^^^
+     source.ks entity.name.function.ks
+         (
+         ^
+         source.ks punctuation.definition.parameters.begin.bracket.round.ks
+          )
+          ^
+          source.ks punctuation.definition.parameters.end.bracket.round.ks
+           :
+           ^
+           source.ks meta.function.return-type.ks keyword.operator.type.annotation.ks
+             
+            ^
+            source.ks meta.function.return-type.ks
+             string
+             ^^^^^^
+             source.ks meta.function.return-type.ks support.type.primitive.ks
+                    
+                   ^
+                   source.ks
+                    {
+                    ^
+                    source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>        return `I'm drawing a \(@color) rectangle.`
+         
+ ^^^^^^^^
+ source.ks
+         return
+         ^^^^^^
+         source.ks keyword.control.flow.return.ks
+                
+               ^
+               source.ks
+                `
+                ^
+                source.ks punctuation.definition.string.template.begin.ks
+                 I'm drawing a 
+                 ^^^^^^^^^^^^^^
+                 source.ks string.template.ks
+                               \(
+                               ^^
+                               source.ks punctuation.definition.template-expression.begin.ks
+                                 @
+                                 ^
+                                 source.ks storage.modifier.instance.ks
+                                  color
+                                  ^^^^^
+                                  source.ks variable.other.instance.ks
+                                       )
+                                       ^
+                                       source.ks punctuation.definition.template-expression.end.ks
+                                         rectangle.
+                                        ^^^^^^^^^^^
+                                        source.ks string.template.ks
+                                                   `
+                                                   ^
+                                                   source.ks punctuation.definition.string.template.end.ks
+>
+>    }
+     
+ ^^^^
+ source.ks
+     }
+     ^
+     source.ks punctuation.definition.block.end.bracket.curly.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.class.end.bracket.curly.ks
+>
+>impl Shape {
+ impl
+ ^^^^
+ source.ks keyword.control.implement.ks
+      
+     ^
+     source.ks
+      Shape
+      ^^^^^
+      source.ks entity.name.type.ks
+            
+           ^
+           source.ks
+            {
+            ^
+            source.ks punctuation.definition.implement.begin.bracket.curly.ks
+>
+>    private _name: string = 'circle'
+     
+ ^^^^
+ source.ks
+     private
+     ^^^^^^^
+     source.ks storage.modifier.access.ks
+             
+            ^
+            source.ks
+             _name
+             ^^^^^
+             source.ks variable.object.property.ks
+                  :
+                  ^
+                  source.ks meta.type.annotation.ks keyword.operator.type.annotation.ks
+                    
+                   ^
+                   source.ks meta.type.annotation.ks
+                    string
+                    ^^^^^^
+                    source.ks meta.type.annotation.ks support.type.primitive.ks
+                           
+                          ^
+                          source.ks meta.type.annotation.ks
+                           =
+                           ^
+                           source.ks keyword.operator.assignment.ks
+                             
+                            ^
+                            source.ks
+                             '
+                             ^
+                             source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
+                              circle
+                              ^^^^^^
+                              source.ks string.quoted.single.ks
+                                    '
+                                    ^
+                                    source.ks string.quoted.single.ks punctuation.definition.string.end.ks
+>
+>    name() => @name
+     
+ ^^^^
+ source.ks
+     name
+     ^^^^
+     source.ks entity.name.function.ks
+         (
+         ^
+         source.ks punctuation.definition.parameters.begin.bracket.round.ks
+          )
+          ^
+          source.ks punctuation.definition.parameters.end.bracket.round.ks
+            
+           ^
+           source.ks
+            =>
+            ^^
+            source.ks storage.type.function.arrow.ks
+               
+              ^
+              source.ks
+               @
+               ^
+               source.ks storage.modifier.instance.ks
+                name
+                ^^^^
+                source.ks variable.other.instance.ks
+>
+>    name(@name) => this
+     
+ ^^^^
+ source.ks
+     name
+     ^^^^
+     source.ks entity.name.function.ks
+         (
+         ^
+         source.ks punctuation.definition.parameters.begin.bracket.round.ks
+          @
+          ^
+          source.ks storage.modifier.at.ks
+           name
+           ^^^^
+           source.ks variable.parameter.ks
+               )
+               ^
+               source.ks punctuation.definition.parameters.end.bracket.round.ks
+                 
+                ^
+                source.ks
+                 =>
+                 ^^
+                 source.ks storage.type.function.arrow.ks
+                    
+                   ^
+                   source.ks
+                    this
+                    ^^^^
+                    source.ks variable.language.ks
+>
+>    override draw(): string {
+     
+ ^^^^
+ source.ks
+     override
+     ^^^^^^^^
+     source.ks storage.modifier.ks
+              
+             ^
+             source.ks
+              draw
+              ^^^^
+              source.ks entity.name.function.ks
+                  (
+                  ^
+                  source.ks punctuation.definition.parameters.begin.bracket.round.ks
+                   )
+                   ^
+                   source.ks punctuation.definition.parameters.end.bracket.round.ks
+                    :
+                    ^
+                    source.ks meta.function.return-type.ks keyword.operator.type.annotation.ks
+                      
+                     ^
+                     source.ks meta.function.return-type.ks
+                      string
+                      ^^^^^^
+                      source.ks meta.function.return-type.ks support.type.primitive.ks
+                             
+                            ^
+                            source.ks
+                             {
+                             ^
+                             source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>        return `I'm drawing a \(@color) \(@name).`
+         
+ ^^^^^^^^
+ source.ks
+         return
+         ^^^^^^
+         source.ks keyword.control.flow.return.ks
+                
+               ^
+               source.ks
+                `
+                ^
+                source.ks punctuation.definition.string.template.begin.ks
+                 I'm drawing a 
+                 ^^^^^^^^^^^^^^
+                 source.ks string.template.ks
+                               \(
+                               ^^
+                               source.ks punctuation.definition.template-expression.begin.ks
+                                 @
+                                 ^
+                                 source.ks storage.modifier.instance.ks
+                                  color
+                                  ^^^^^
+                                  source.ks variable.other.instance.ks
+                                       )
+                                       ^
+                                       source.ks punctuation.definition.template-expression.end.ks
+                                         
+                                        ^
+                                        source.ks string.template.ks
+                                         \(
+                                         ^^
+                                         source.ks punctuation.definition.template-expression.begin.ks
+                                           @
+                                           ^
+                                           source.ks storage.modifier.instance.ks
+                                            name
+                                            ^^^^
+                                            source.ks variable.other.instance.ks
+                                                )
+                                                ^
+                                                source.ks punctuation.definition.template-expression.end.ks
+                                                 .
+                                                 ^
+                                                 source.ks string.template.ks
+                                                  `
+                                                  ^
+                                                  source.ks punctuation.definition.string.template.end.ks
+>
+>    }
+     
+ ^^^^
+ source.ks
+     }
+     ^
+     source.ks punctuation.definition.block.end.bracket.curly.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.implement.end.bracket.curly.ks
+>
+>let shape = Shape.makeRed()
+ let
+ ^^^
+ source.ks storage.type.readwrite.ks
+     
+    ^
+    source.ks
+     shape
+     ^^^^^
+     source.ks meta.definition.variable.ks variable.other.readwrite.ks
+           
+          ^
+          source.ks
+           =
+           ^
+           source.ks keyword.operator.assignment.ks
+             
+            ^
+            source.ks
+             Shape
+             ^^^^^
+             source.ks variable.other.object.ks
+                  .
+                  ^
+                  source.ks punctuation.accessor.object.ks
+                   makeRed
+                   ^^^^^^^
+                   source.ks entity.name.function.ks
+                          (
+                          ^
+                          source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                           )
+                           ^
+                           source.ks punctuation.definition.arguments.end.bracket.round.ks
+>
+>console.log(shape.draw())
+ console
+ ^^^^^^^
+ source.ks variable.other.object.ks
+        .
+        ^
+        source.ks punctuation.accessor.object.ks
+         log
+         ^^^
+         source.ks entity.name.function.ks
+            (
+            ^
+            source.ks punctuation.definition.arguments.begin.bracket.round.ks
+             shape
+             ^^^^^
+             source.ks variable.other.object.ks
+                  .
+                  ^
+                  source.ks punctuation.accessor.object.ks
+                   draw
+                   ^^^^
+                   source.ks entity.name.function.ks
+                       (
+                       ^
+                       source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                        )
+                        ^
+                        source.ks punctuation.definition.arguments.end.bracket.round.ks
+                         )
+                         ^
+                         source.ks punctuation.definition.arguments.end.bracket.round.ks

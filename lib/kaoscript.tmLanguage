@@ -195,6 +195,56 @@
         <array>
           <dict>
             <key>begin</key>
+            <string>(constructor)(?=\()</string>
+            <key>beginCaptures</key>
+            <dict>
+              <key>1</key>
+              <dict>
+                <key>name</key>
+                <string>storage.type.constructor.ks</string>
+              </dict>
+            </dict>
+            <key>end</key>
+            <string>(?&lt;=\}|$)</string>
+            <key>patterns</key>
+            <array>
+              <dict>
+                <key>include</key>
+                <string>#function-parameters</string>
+              </dict>
+              <dict>
+                <key>include</key>
+                <string>#function-throwables</string>
+              </dict>
+              <dict>
+                <key>include</key>
+                <string>#block</string>
+              </dict>
+              <dict>
+                <key>begin</key>
+                <string>=&gt;</string>
+                <key>beginCaptures</key>
+                <dict>
+                  <key>0</key>
+                  <dict>
+                    <key>name</key>
+                    <string>storage.type.function.arrow.ks</string>
+                  </dict>
+                </dict>
+                <key>end</key>
+                <string>$</string>
+                <key>patterns</key>
+                <array>
+                  <dict>
+                    <key>include</key>
+                    <string>#expression</string>
+                  </dict>
+                </array>
+              </dict>
+            </array>
+          </dict>
+          <dict>
+            <key>begin</key>
             <string>([_$[:alpha:]][_$[:alnum:]]*)(?=\()</string>
             <key>beginCaptures</key>
             <dict>
@@ -360,16 +410,17 @@
             <key>patterns</key>
             <array>
               <dict>
+                <key>name</key>
+                <string>storage.modifier.access.ks</string>
+                <key>match</key>
+                <string>private|protected|public|static</string>
+              </dict>
+              <dict>
                 <key>begin</key>
-                <string>(private|protected|public)\s*(\{)</string>
+                <string>\{</string>
                 <key>beginCaptures</key>
                 <dict>
-                  <key>1</key>
-                  <dict>
-                    <key>name</key>
-                    <string>storage.modifier.access.ks</string>
-                  </dict>
-                  <key>2</key>
+                  <key>0</key>
                   <dict>
                     <key>name</key>
                     <string>punctuation.definition.members.begin.bracket.curly.ks</string>
@@ -385,27 +436,6 @@
                     <string>punctuation.definition.members.end.bracket.curly.ks</string>
                   </dict>
                 </dict>
-                <key>patterns</key>
-                <array>
-                  <dict>
-                    <key>include</key>
-                    <string>#class-member</string>
-                  </dict>
-                </array>
-              </dict>
-              <dict>
-                <key>begin</key>
-                <string>(private|protected|public)\s*(?=[_$[:alpha:]])</string>
-                <key>beginCaptures</key>
-                <dict>
-                  <key>1</key>
-                  <dict>
-                    <key>name</key>
-                    <string>storage.modifier.access.ks</string>
-                  </dict>
-                </dict>
-                <key>end</key>
-                <string>$</string>
                 <key>patterns</key>
                 <array>
                   <dict>
@@ -2515,6 +2545,35 @@
         <array>
           <dict>
             <key>begin</key>
+            <string>&lt;</string>
+            <key>beginCaptures</key>
+            <dict>
+              <key>0</key>
+              <dict>
+                <key>name</key>
+                <string>punctuation.definition.typeparameters.begin.ks</string>
+              </dict>
+            </dict>
+            <key>end</key>
+            <string>&gt;</string>
+            <key>endCaptures</key>
+            <dict>
+              <key>0</key>
+              <dict>
+                <key>name</key>
+                <string>punctuation.definition.typeparameters.end.ks</string>
+              </dict>
+            </dict>
+            <key>patterns</key>
+            <array>
+              <dict>
+                <key>include</key>
+                <string>#type</string>
+              </dict>
+            </array>
+          </dict>
+          <dict>
+            <key>begin</key>
             <string>\{</string>
             <key>beginCaptures</key>
             <dict>
@@ -2537,16 +2596,23 @@
             <key>patterns</key>
             <array>
               <dict>
+                <key>name</key>
+                <string>storage.modifier.access.ks</string>
+                <key>match</key>
+                <string>private|protected|public|static</string>
+              </dict>
+              <dict>
+                <key>name</key>
+                <string>storage.modifier.ks</string>
+                <key>match</key>
+                <string>override</string>
+              </dict>
+              <dict>
                 <key>begin</key>
-                <string>(private|protected|public)\s*(\{)</string>
+                <string>\{</string>
                 <key>beginCaptures</key>
                 <dict>
-                  <key>1</key>
-                  <dict>
-                    <key>name</key>
-                    <string>storage.modifier.access.ks</string>
-                  </dict>
-                  <key>2</key>
+                  <key>0</key>
                   <dict>
                     <key>name</key>
                     <string>punctuation.definition.members.begin.bracket.curly.ks</string>
@@ -2562,27 +2628,6 @@
                     <string>punctuation.definition.members.end.bracket.curly.ks</string>
                   </dict>
                 </dict>
-                <key>patterns</key>
-                <array>
-                  <dict>
-                    <key>include</key>
-                    <string>#class-member</string>
-                  </dict>
-                </array>
-              </dict>
-              <dict>
-                <key>begin</key>
-                <string>(private|protected|public)\s*(?=[_$[:alpha:]])</string>
-                <key>beginCaptures</key>
-                <dict>
-                  <key>1</key>
-                  <dict>
-                    <key>name</key>
-                    <string>storage.modifier.access.ks</string>
-                  </dict>
-                </dict>
-                <key>end</key>
-                <string>$</string>
                 <key>patterns</key>
                 <array>
                   <dict>
@@ -4503,11 +4548,11 @@
             <key>name</key>
             <string>support.type.primitive.ks</string>
             <key>match</key>
-            <string>\b(Any|any|Array|array|Boolean|bool|class|enum|Function|func(?!\()|Number|number|Object|object|RegExp|String|string|Void|void)\b</string>
+            <string>\b(?:Any|any|Array|array|Boolean|bool|class|enum|Function|func(?!\()|Number|number|Object|object|RegExp|String|string|Void|void)\b</string>
           </dict>
           <dict>
             <key>begin</key>
-            <string>(?=(\basync\s+)?(\bfunc)?\()</string>
+            <string>(?=(\basync\s+)?(?:\bfunc)?\()</string>
             <key>end</key>
             <string>(?=$|\s*\|\|)</string>
             <key>patterns</key>
@@ -4555,10 +4600,10 @@
                 <key>name</key>
                 <string>meta.throwables.ks</string>
                 <key>begin</key>
-                <string>(\~)</string>
+                <string>~</string>
                 <key>beginCaptures</key>
                 <dict>
-                  <key>1</key>
+                  <key>0</key>
                   <dict>
                     <key>name</key>
                     <string>storage.modifier.throwables.ks</string>
@@ -4594,10 +4639,10 @@
           </dict>
           <dict>
             <key>begin</key>
-            <string>(\|\|?)</string>
+            <string>\|\|?</string>
             <key>beginCaptures</key>
             <dict>
-              <key>1</key>
+              <key>0</key>
               <dict>
                 <key>name</key>
                 <string>keyword.operator.type.union.ks</string>
@@ -4615,20 +4660,20 @@
           </dict>
           <dict>
             <key>begin</key>
-            <string>(\&lt;)</string>
+            <string>&lt;</string>
             <key>beginCaptures</key>
             <dict>
-              <key>1</key>
+              <key>0</key>
               <dict>
                 <key>name</key>
                 <string>punctuation.definition.typeparameters.begin.ks</string>
               </dict>
             </dict>
             <key>end</key>
-            <string>(\&gt;)</string>
+            <string>&gt;</string>
             <key>endCaptures</key>
             <dict>
-              <key>1</key>
+              <key>0</key>
               <dict>
                 <key>name</key>
                 <string>punctuation.definition.typeparameters.end.ks</string>
@@ -4644,20 +4689,20 @@
           </dict>
           <dict>
             <key>begin</key>
-            <string>(\{)</string>
+            <string>\{</string>
             <key>beginCaptures</key>
             <dict>
-              <key>1</key>
+              <key>0</key>
               <dict>
                 <key>name</key>
                 <string>punctuation.definition.object.begin.bracket.curly.ks</string>
               </dict>
             </dict>
             <key>end</key>
-            <string>(\})</string>
+            <string>\}</string>
             <key>endCaptures</key>
             <dict>
-              <key>1</key>
+              <key>0</key>
               <dict>
                 <key>name</key>
                 <string>punctuation.definition.object.end.bracket.curly.ks</string>
