@@ -1,0 +1,171 @@
+original file
+-----------------------------------
+let decimal: number = 6
+let hex: number = 0xf00d
+let binary: number = 0b1010
+let octal: number = 0o744
+let pi: number = 3.14
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>let decimal: number = 6
+ let
+ ^^^
+ source.ks storage.type.readwrite.ks
+     
+    ^
+    source.ks
+     decimal
+     ^^^^^^^
+     source.ks meta.definition.variable.ks variable.other.readwrite.ks
+            :
+            ^
+            source.ks meta.type.annotation.ks keyword.operator.type.annotation.ks
+              
+             ^
+             source.ks meta.type.annotation.ks
+              number
+              ^^^^^^
+              source.ks meta.type.annotation.ks support.type.primitive.ks
+                     
+                    ^
+                    source.ks
+                     =
+                     ^
+                     source.ks keyword.operator.assignment.ks
+                       
+                      ^
+                      source.ks
+                       6
+                       ^
+                       source.ks constant.numeric.decimal.ks
+>
+>let hex: number = 0xf00d
+ let
+ ^^^
+ source.ks storage.type.readwrite.ks
+     
+    ^
+    source.ks
+     hex
+     ^^^
+     source.ks meta.definition.variable.ks variable.other.readwrite.ks
+        :
+        ^
+        source.ks meta.type.annotation.ks keyword.operator.type.annotation.ks
+          
+         ^
+         source.ks meta.type.annotation.ks
+          number
+          ^^^^^^
+          source.ks meta.type.annotation.ks support.type.primitive.ks
+                 
+                ^
+                source.ks
+                 =
+                 ^
+                 source.ks keyword.operator.assignment.ks
+                   
+                  ^
+                  source.ks
+                   0xf00d
+                   ^^^^^^
+                   source.ks constant.numeric.hex.ks
+>
+>let binary: number = 0b1010
+ let
+ ^^^
+ source.ks storage.type.readwrite.ks
+     
+    ^
+    source.ks
+     binary
+     ^^^^^^
+     source.ks meta.definition.variable.ks variable.other.readwrite.ks
+           :
+           ^
+           source.ks meta.type.annotation.ks keyword.operator.type.annotation.ks
+             
+            ^
+            source.ks meta.type.annotation.ks
+             number
+             ^^^^^^
+             source.ks meta.type.annotation.ks support.type.primitive.ks
+                    
+                   ^
+                   source.ks
+                    =
+                    ^
+                    source.ks keyword.operator.assignment.ks
+                      
+                     ^
+                     source.ks
+                      0b1010
+                      ^^^^^^
+                      source.ks constant.numeric.binary.ks
+>
+>let octal: number = 0o744
+ let
+ ^^^
+ source.ks storage.type.readwrite.ks
+     
+    ^
+    source.ks
+     octal
+     ^^^^^
+     source.ks meta.definition.variable.ks variable.other.readwrite.ks
+          :
+          ^
+          source.ks meta.type.annotation.ks keyword.operator.type.annotation.ks
+            
+           ^
+           source.ks meta.type.annotation.ks
+            number
+            ^^^^^^
+            source.ks meta.type.annotation.ks support.type.primitive.ks
+                   
+                  ^
+                  source.ks
+                   =
+                   ^
+                   source.ks keyword.operator.assignment.ks
+                     
+                    ^
+                    source.ks
+                     0o744
+                     ^^^^^
+                     source.ks constant.numeric.octal.ks
+>
+>let pi: number = 3.14
+ let
+ ^^^
+ source.ks storage.type.readwrite.ks
+     
+    ^
+    source.ks
+     pi
+     ^^
+     source.ks meta.definition.variable.ks variable.other.readwrite.ks
+       :
+       ^
+       source.ks meta.type.annotation.ks keyword.operator.type.annotation.ks
+         
+        ^
+        source.ks meta.type.annotation.ks
+         number
+         ^^^^^^
+         source.ks meta.type.annotation.ks support.type.primitive.ks
+                
+               ^
+               source.ks
+                =
+                ^
+                source.ks keyword.operator.assignment.ks
+                  
+                 ^
+                 source.ks
+                  3.14
+                  ^^^^
+                  source.ks constant.numeric.decimal.ks

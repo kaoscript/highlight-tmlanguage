@@ -1,0 +1,96 @@
+original file
+-----------------------------------
+let foo = {
+    bar: 'hello'
+    //bar: 'world'
+    qux: '!'
+}
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>let foo = {
+ let
+ ^^^
+ source.ks storage.type.readwrite.ks
+     
+    ^
+    source.ks
+     foo
+     ^^^
+     source.ks meta.definition.variable.ks variable.other.readwrite.ks
+         
+        ^
+        source.ks
+         =
+         ^
+         source.ks keyword.operator.assignment.ks
+           
+          ^
+          source.ks
+           {
+           ^
+           source.ks punctuation.definition.object.begin.bracket.curly.ks
+>
+>    bar: 'hello'
+     
+ ^^^^
+ source.ks
+     bar
+     ^^^
+     source.ks meta.object.key.ks
+        :
+        ^
+        source.ks punctuation.separator.key-value.ks
+          
+         ^
+         source.ks
+          '
+          ^
+          source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
+           hello
+           ^^^^^
+           source.ks string.quoted.single.ks
+                '
+                ^
+                source.ks string.quoted.single.ks punctuation.definition.string.end.ks
+>
+>    //bar: 'world'
+     
+ ^^^^
+ source.ks punctuation.whitespace.comment.leading.ks
+     //
+     ^^
+     source.ks comment.line.double-slash.ks punctuation.definition.comment.ks
+       bar: 'world'
+       ^^^^^^^^^^^^
+       source.ks comment.line.double-slash.ks
+>
+>    qux: '!'
+     
+ ^^^^
+ source.ks
+     qux
+     ^^^
+     source.ks meta.object.key.ks
+        :
+        ^
+        source.ks punctuation.separator.key-value.ks
+          
+         ^
+         source.ks
+          '
+          ^
+          source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
+           !
+           ^
+           source.ks string.quoted.single.ks
+            '
+            ^
+            source.ks string.quoted.single.ks punctuation.definition.string.end.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.object.end.bracket.curly.ks

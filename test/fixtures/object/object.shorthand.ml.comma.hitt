@@ -1,0 +1,69 @@
+original file
+-----------------------------------
+let foo = {
+    x,
+    y,
+    z
+}
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>let foo = {
+ let
+ ^^^
+ source.ks storage.type.readwrite.ks
+     
+    ^
+    source.ks
+     foo
+     ^^^
+     source.ks meta.definition.variable.ks variable.other.readwrite.ks
+         
+        ^
+        source.ks
+         =
+         ^
+         source.ks keyword.operator.assignment.ks
+           
+          ^
+          source.ks
+           {
+           ^
+           source.ks punctuation.definition.object.begin.bracket.curly.ks
+>
+>    x,
+     
+ ^^^^
+ source.ks
+     x
+     ^
+     source.ks variable.other.ks
+      ,
+      ^
+      source.ks punctuation.separator.comma.ks
+>
+>    y,
+     
+ ^^^^
+ source.ks
+     y
+     ^
+     source.ks variable.other.ks
+      ,
+      ^
+      source.ks punctuation.separator.comma.ks
+>
+>    z
+     
+ ^^^^
+ source.ks
+     z
+     ^
+     source.ks variable.other.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.object.end.bracket.curly.ks

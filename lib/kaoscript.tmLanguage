@@ -2179,36 +2179,37 @@
             <key>name</key>
             <string>constant.numeric.binary.ks</string>
             <key>match</key>
-            <string>\b0(b|B)[01]+\b</string>
+            <string>\b0b[_01]+[a-zA-Z]*\b</string>
           </dict>
           <dict>
             <key>name</key>
             <string>constant.numeric.octal.ks</string>
             <key>match</key>
-            <string>\b0(o|O)[0-7]+\b</string>
+            <string>\b0o[0-7]+(?:\.[_0-7]+[pP][-+]?[_0-9]+)?[a-zA-Z]*\b</string>
           </dict>
           <dict>
             <key>name</key>
             <string>constant.numeric.hex.ks</string>
             <key>match</key>
-            <string>\b0(x|X)[0-9a-fA-F]+\b</string>
+            <string>\b0x[_0-9a-fA-F]+(?:\.[_0-9a-fA-F]+[pP][-+]?[_0-9]+)?[a-zA-Z]*\b</string>
           </dict>
           <dict>
+            <key>name</key>
+            <string>constant.numeric.decimal.ks</string>
             <key>match</key>
-            <string>\b[0-9]+(?:(\.)[0-9]+)?\b</string>
-            <key>captures</key>
-            <dict>
-              <key>0</key>
-              <dict>
-                <key>name</key>
-                <string>constant.numeric.decimal.ks</string>
-              </dict>
-              <key>1</key>
-              <dict>
-                <key>name</key>
-                <string>meta.delimiter.decimal.period.ks</string>
-              </dict>
-            </dict>
+            <string>\b[0-9][_0-9]*(?:\.[_0-9]+)?(?:[eE][-+]?[_0-9]+|[a-zA-Z]*)\b</string>
+          </dict>
+          <dict>
+            <key>name</key>
+            <string>constant.numeric.decimal.ks</string>
+            <key>match</key>
+            <string>\b\.[_0-9]+(?:[eE][-+]?[_0-9]+|[a-zA-Z]*)\b</string>
+          </dict>
+          <dict>
+            <key>name</key>
+            <string>constant.numeric.radix.ks</string>
+            <key>match</key>
+            <string>\b(?:[0-9]|[1-2][0-9]|3[0-6])r[_0-9a-zA-Z]+(\.[_0-9a-zA-Z]+)?\b</string>
           </dict>
         </array>
       </dict>
@@ -2236,6 +2237,10 @@
         </dict>
         <key>patterns</key>
         <array>
+          <dict>
+            <key>include</key>
+            <string>#comment</string>
+          </dict>
           <dict>
             <key>begin</key>
             <string>([_$[:alpha:]][_$[:alnum:]]*)\s*(\:)</string>
@@ -2326,7 +2331,40 @@
             <array>
               <dict>
                 <key>include</key>
-                <string>#function-expression</string>
+                <string>#function-parameters</string>
+              </dict>
+              <dict>
+                <key>include</key>
+                <string>#function-return-type</string>
+              </dict>
+              <dict>
+                <key>include</key>
+                <string>#function-throwables</string>
+              </dict>
+              <dict>
+                <key>include</key>
+                <string>#block</string>
+              </dict>
+              <dict>
+                <key>begin</key>
+                <string>=&gt;</string>
+                <key>beginCaptures</key>
+                <dict>
+                  <key>0</key>
+                  <dict>
+                    <key>name</key>
+                    <string>storage.type.function.arrow.ks</string>
+                  </dict>
+                </dict>
+                <key>end</key>
+                <string>(?=$|[,\)\]])</string>
+                <key>patterns</key>
+                <array>
+                  <dict>
+                    <key>include</key>
+                    <string>#expression</string>
+                  </dict>
+                </array>
               </dict>
             </array>
           </dict>

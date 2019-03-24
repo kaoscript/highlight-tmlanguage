@@ -27,15 +27,9 @@ grammar: kaoscript.tmLanguage
          
         ^
         source.ks
-         3
-         ^
+         3.14
+         ^^^^
          source.ks constant.numeric.decimal.ks
-          .
-          ^
-          source.ks constant.numeric.decimal.ks meta.delimiter.decimal.period.ks
-           14
-           ^^
-           source.ks constant.numeric.decimal.ks
 >
 >for let x from 0 to 10 by 2 {
  for
