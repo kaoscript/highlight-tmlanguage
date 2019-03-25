@@ -1,0 +1,516 @@
+original file
+-----------------------------------
+let foobar = {
+    foo(name: string) {
+        n = 0
+    }
+    async bar(name: string) {
+        n = 0
+    }
+    reverse(value: String): String => value.split('').reverse().join('')
+    reverse(value: Array): Array => value.slice().reverse()
+    async reverseAsync(value: String): String => value.split('').reverse().join('')
+    async reverseAsync(value: Array): Array => value.slice().reverse()
+}
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>let foobar = {
+ let
+ ^^^
+ source.ks storage.type.readwrite.ks
+     
+    ^
+    source.ks
+     foobar
+     ^^^^^^
+     source.ks meta.definition.variable.ks variable.other.readwrite.ks
+            
+           ^
+           source.ks
+            =
+            ^
+            source.ks keyword.operator.assignment.ks
+              
+             ^
+             source.ks
+              {
+              ^
+              source.ks punctuation.definition.object.begin.bracket.curly.ks
+>
+>    foo(name: string) {
+     
+ ^^^^
+ source.ks
+     foo
+     ^^^
+     source.ks meta.definition.method.ks entity.name.function.ks
+        (
+        ^
+        source.ks meta.definition.method.ks punctuation.definition.parameters.begin.bracket.round.ks
+         name
+         ^^^^
+         source.ks meta.definition.method.ks variable.parameter.ks
+             :
+             ^
+             source.ks meta.definition.method.ks meta.type.annotation.ks keyword.operator.type.annotation.ks
+               
+              ^
+              source.ks meta.definition.method.ks meta.type.annotation.ks
+               string
+               ^^^^^^
+               source.ks meta.definition.method.ks meta.type.annotation.ks support.type.primitive.ks
+                     )
+                     ^
+                     source.ks meta.definition.method.ks punctuation.definition.parameters.end.bracket.round.ks
+                       
+                      ^
+                      source.ks meta.definition.method.ks
+                       {
+                       ^
+                       source.ks meta.definition.method.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>        n = 0
+         
+ ^^^^^^^^
+ source.ks meta.definition.method.ks
+         n
+         ^
+         source.ks meta.definition.method.ks variable.other.ks
+           
+          ^
+          source.ks meta.definition.method.ks
+           =
+           ^
+           source.ks meta.definition.method.ks keyword.operator.assignment.ks
+             
+            ^
+            source.ks meta.definition.method.ks
+             0
+             ^
+             source.ks meta.definition.method.ks constant.numeric.decimal.ks
+>
+>    }
+     
+ ^^^^
+ source.ks meta.definition.method.ks
+     }
+     ^
+     source.ks meta.definition.method.ks punctuation.definition.block.end.bracket.curly.ks
+>
+>    async bar(name: string) {
+     
+ ^^^^
+ source.ks
+     async
+     ^^^^^
+     source.ks meta.definition.method.ks storage.modifier.async.ks
+           
+          ^
+          source.ks meta.definition.method.ks
+           bar
+           ^^^
+           source.ks meta.definition.method.ks entity.name.function.ks
+              (
+              ^
+              source.ks meta.definition.method.ks punctuation.definition.parameters.begin.bracket.round.ks
+               name
+               ^^^^
+               source.ks meta.definition.method.ks variable.parameter.ks
+                   :
+                   ^
+                   source.ks meta.definition.method.ks meta.type.annotation.ks keyword.operator.type.annotation.ks
+                     
+                    ^
+                    source.ks meta.definition.method.ks meta.type.annotation.ks
+                     string
+                     ^^^^^^
+                     source.ks meta.definition.method.ks meta.type.annotation.ks support.type.primitive.ks
+                           )
+                           ^
+                           source.ks meta.definition.method.ks punctuation.definition.parameters.end.bracket.round.ks
+                             
+                            ^
+                            source.ks meta.definition.method.ks
+                             {
+                             ^
+                             source.ks meta.definition.method.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>        n = 0
+         
+ ^^^^^^^^
+ source.ks meta.definition.method.ks
+         n
+         ^
+         source.ks meta.definition.method.ks variable.other.ks
+           
+          ^
+          source.ks meta.definition.method.ks
+           =
+           ^
+           source.ks meta.definition.method.ks keyword.operator.assignment.ks
+             
+            ^
+            source.ks meta.definition.method.ks
+             0
+             ^
+             source.ks meta.definition.method.ks constant.numeric.decimal.ks
+>
+>    }
+     
+ ^^^^
+ source.ks meta.definition.method.ks
+     }
+     ^
+     source.ks meta.definition.method.ks punctuation.definition.block.end.bracket.curly.ks
+>
+>    reverse(value: String): String => value.split('').reverse().join('')
+     
+ ^^^^
+ source.ks
+     reverse
+     ^^^^^^^
+     source.ks meta.definition.method.ks entity.name.function.ks
+            (
+            ^
+            source.ks meta.definition.method.ks punctuation.definition.parameters.begin.bracket.round.ks
+             value
+             ^^^^^
+             source.ks meta.definition.method.ks variable.parameter.ks
+                  :
+                  ^
+                  source.ks meta.definition.method.ks meta.type.annotation.ks keyword.operator.type.annotation.ks
+                    
+                   ^
+                   source.ks meta.definition.method.ks meta.type.annotation.ks
+                    String
+                    ^^^^^^
+                    source.ks meta.definition.method.ks meta.type.annotation.ks support.type.primitive.ks
+                          )
+                          ^
+                          source.ks meta.definition.method.ks punctuation.definition.parameters.end.bracket.round.ks
+                           :
+                           ^
+                           source.ks meta.definition.method.ks meta.function.return-type.ks keyword.operator.type.annotation.ks
+                             
+                            ^
+                            source.ks meta.definition.method.ks meta.function.return-type.ks
+                             String
+                             ^^^^^^
+                             source.ks meta.definition.method.ks meta.function.return-type.ks support.type.primitive.ks
+                                    
+                                   ^
+                                   source.ks meta.definition.method.ks
+                                    =>
+                                    ^^
+                                    source.ks meta.definition.method.ks storage.type.function.arrow.ks
+                                       
+                                      ^
+                                      source.ks meta.definition.method.ks
+                                       value
+                                       ^^^^^
+                                       source.ks meta.definition.method.ks variable.other.object.ks
+                                            .
+                                            ^
+                                            source.ks meta.definition.method.ks punctuation.accessor.object.ks
+                                             split
+                                             ^^^^^
+                                             source.ks meta.definition.method.ks entity.name.function.ks
+                                                  (
+                                                  ^
+                                                  source.ks meta.definition.method.ks punctuation.definition.arguments.begin.bracket.round.ks
+                                                   '
+                                                   ^
+                                                   source.ks meta.definition.method.ks string.quoted.single.ks punctuation.definition.string.begin.ks
+                                                    '
+                                                    ^
+                                                    source.ks meta.definition.method.ks string.quoted.single.ks punctuation.definition.string.end.ks
+                                                     )
+                                                     ^
+                                                     source.ks meta.definition.method.ks punctuation.definition.arguments.end.bracket.round.ks
+                                                      .
+                                                      ^
+                                                      source.ks meta.definition.method.ks punctuation.accessor.object.ks
+                                                       reverse
+                                                       ^^^^^^^
+                                                       source.ks meta.definition.method.ks entity.name.function.ks
+                                                              (
+                                                              ^
+                                                              source.ks meta.definition.method.ks punctuation.definition.arguments.begin.bracket.round.ks
+                                                               )
+                                                               ^
+                                                               source.ks meta.definition.method.ks punctuation.definition.arguments.end.bracket.round.ks
+                                                                .
+                                                                ^
+                                                                source.ks meta.definition.method.ks punctuation.accessor.object.ks
+                                                                 join
+                                                                 ^^^^
+                                                                 source.ks meta.definition.method.ks entity.name.function.ks
+                                                                     (
+                                                                     ^
+                                                                     source.ks meta.definition.method.ks punctuation.definition.arguments.begin.bracket.round.ks
+                                                                      '
+                                                                      ^
+                                                                      source.ks meta.definition.method.ks string.quoted.single.ks punctuation.definition.string.begin.ks
+                                                                       '
+                                                                       ^
+                                                                       source.ks meta.definition.method.ks string.quoted.single.ks punctuation.definition.string.end.ks
+                                                                        )
+                                                                        ^
+                                                                        source.ks meta.definition.method.ks punctuation.definition.arguments.end.bracket.round.ks
+>
+>    reverse(value: Array): Array => value.slice().reverse()
+     
+ ^^^^
+ source.ks
+     reverse
+     ^^^^^^^
+     source.ks meta.definition.method.ks entity.name.function.ks
+            (
+            ^
+            source.ks meta.definition.method.ks punctuation.definition.parameters.begin.bracket.round.ks
+             value
+             ^^^^^
+             source.ks meta.definition.method.ks variable.parameter.ks
+                  :
+                  ^
+                  source.ks meta.definition.method.ks meta.type.annotation.ks keyword.operator.type.annotation.ks
+                    
+                   ^
+                   source.ks meta.definition.method.ks meta.type.annotation.ks
+                    Array
+                    ^^^^^
+                    source.ks meta.definition.method.ks meta.type.annotation.ks support.type.primitive.ks
+                         )
+                         ^
+                         source.ks meta.definition.method.ks punctuation.definition.parameters.end.bracket.round.ks
+                          :
+                          ^
+                          source.ks meta.definition.method.ks meta.function.return-type.ks keyword.operator.type.annotation.ks
+                            
+                           ^
+                           source.ks meta.definition.method.ks meta.function.return-type.ks
+                            Array
+                            ^^^^^
+                            source.ks meta.definition.method.ks meta.function.return-type.ks support.type.primitive.ks
+                                  
+                                 ^
+                                 source.ks meta.definition.method.ks
+                                  =>
+                                  ^^
+                                  source.ks meta.definition.method.ks storage.type.function.arrow.ks
+                                     
+                                    ^
+                                    source.ks meta.definition.method.ks
+                                     value
+                                     ^^^^^
+                                     source.ks meta.definition.method.ks variable.other.object.ks
+                                          .
+                                          ^
+                                          source.ks meta.definition.method.ks punctuation.accessor.object.ks
+                                           slice
+                                           ^^^^^
+                                           source.ks meta.definition.method.ks entity.name.function.ks
+                                                (
+                                                ^
+                                                source.ks meta.definition.method.ks punctuation.definition.arguments.begin.bracket.round.ks
+                                                 )
+                                                 ^
+                                                 source.ks meta.definition.method.ks punctuation.definition.arguments.end.bracket.round.ks
+                                                  .
+                                                  ^
+                                                  source.ks meta.definition.method.ks punctuation.accessor.object.ks
+                                                   reverse
+                                                   ^^^^^^^
+                                                   source.ks meta.definition.method.ks entity.name.function.ks
+                                                          (
+                                                          ^
+                                                          source.ks meta.definition.method.ks punctuation.definition.arguments.begin.bracket.round.ks
+                                                           )
+                                                           ^
+                                                           source.ks meta.definition.method.ks punctuation.definition.arguments.end.bracket.round.ks
+>
+>    async reverseAsync(value: String): String => value.split('').reverse().join('')
+     
+ ^^^^
+ source.ks
+     async
+     ^^^^^
+     source.ks meta.definition.method.ks storage.modifier.async.ks
+           
+          ^
+          source.ks meta.definition.method.ks
+           reverseAsync
+           ^^^^^^^^^^^^
+           source.ks meta.definition.method.ks entity.name.function.ks
+                       (
+                       ^
+                       source.ks meta.definition.method.ks punctuation.definition.parameters.begin.bracket.round.ks
+                        value
+                        ^^^^^
+                        source.ks meta.definition.method.ks variable.parameter.ks
+                             :
+                             ^
+                             source.ks meta.definition.method.ks meta.type.annotation.ks keyword.operator.type.annotation.ks
+                               
+                              ^
+                              source.ks meta.definition.method.ks meta.type.annotation.ks
+                               String
+                               ^^^^^^
+                               source.ks meta.definition.method.ks meta.type.annotation.ks support.type.primitive.ks
+                                     )
+                                     ^
+                                     source.ks meta.definition.method.ks punctuation.definition.parameters.end.bracket.round.ks
+                                      :
+                                      ^
+                                      source.ks meta.definition.method.ks meta.function.return-type.ks keyword.operator.type.annotation.ks
+                                        
+                                       ^
+                                       source.ks meta.definition.method.ks meta.function.return-type.ks
+                                        String
+                                        ^^^^^^
+                                        source.ks meta.definition.method.ks meta.function.return-type.ks support.type.primitive.ks
+                                               
+                                              ^
+                                              source.ks meta.definition.method.ks
+                                               =>
+                                               ^^
+                                               source.ks meta.definition.method.ks storage.type.function.arrow.ks
+                                                  
+                                                 ^
+                                                 source.ks meta.definition.method.ks
+                                                  value
+                                                  ^^^^^
+                                                  source.ks meta.definition.method.ks variable.other.object.ks
+                                                       .
+                                                       ^
+                                                       source.ks meta.definition.method.ks punctuation.accessor.object.ks
+                                                        split
+                                                        ^^^^^
+                                                        source.ks meta.definition.method.ks entity.name.function.ks
+                                                             (
+                                                             ^
+                                                             source.ks meta.definition.method.ks punctuation.definition.arguments.begin.bracket.round.ks
+                                                              '
+                                                              ^
+                                                              source.ks meta.definition.method.ks string.quoted.single.ks punctuation.definition.string.begin.ks
+                                                               '
+                                                               ^
+                                                               source.ks meta.definition.method.ks string.quoted.single.ks punctuation.definition.string.end.ks
+                                                                )
+                                                                ^
+                                                                source.ks meta.definition.method.ks punctuation.definition.arguments.end.bracket.round.ks
+                                                                 .
+                                                                 ^
+                                                                 source.ks meta.definition.method.ks punctuation.accessor.object.ks
+                                                                  reverse
+                                                                  ^^^^^^^
+                                                                  source.ks meta.definition.method.ks entity.name.function.ks
+                                                                         (
+                                                                         ^
+                                                                         source.ks meta.definition.method.ks punctuation.definition.arguments.begin.bracket.round.ks
+                                                                          )
+                                                                          ^
+                                                                          source.ks meta.definition.method.ks punctuation.definition.arguments.end.bracket.round.ks
+                                                                           .
+                                                                           ^
+                                                                           source.ks meta.definition.method.ks punctuation.accessor.object.ks
+                                                                            join
+                                                                            ^^^^
+                                                                            source.ks meta.definition.method.ks entity.name.function.ks
+                                                                                (
+                                                                                ^
+                                                                                source.ks meta.definition.method.ks punctuation.definition.arguments.begin.bracket.round.ks
+                                                                                 '
+                                                                                 ^
+                                                                                 source.ks meta.definition.method.ks string.quoted.single.ks punctuation.definition.string.begin.ks
+                                                                                  '
+                                                                                  ^
+                                                                                  source.ks meta.definition.method.ks string.quoted.single.ks punctuation.definition.string.end.ks
+                                                                                   )
+                                                                                   ^
+                                                                                   source.ks meta.definition.method.ks punctuation.definition.arguments.end.bracket.round.ks
+>
+>    async reverseAsync(value: Array): Array => value.slice().reverse()
+     
+ ^^^^
+ source.ks
+     async
+     ^^^^^
+     source.ks meta.definition.method.ks storage.modifier.async.ks
+           
+          ^
+          source.ks meta.definition.method.ks
+           reverseAsync
+           ^^^^^^^^^^^^
+           source.ks meta.definition.method.ks entity.name.function.ks
+                       (
+                       ^
+                       source.ks meta.definition.method.ks punctuation.definition.parameters.begin.bracket.round.ks
+                        value
+                        ^^^^^
+                        source.ks meta.definition.method.ks variable.parameter.ks
+                             :
+                             ^
+                             source.ks meta.definition.method.ks meta.type.annotation.ks keyword.operator.type.annotation.ks
+                               
+                              ^
+                              source.ks meta.definition.method.ks meta.type.annotation.ks
+                               Array
+                               ^^^^^
+                               source.ks meta.definition.method.ks meta.type.annotation.ks support.type.primitive.ks
+                                    )
+                                    ^
+                                    source.ks meta.definition.method.ks punctuation.definition.parameters.end.bracket.round.ks
+                                     :
+                                     ^
+                                     source.ks meta.definition.method.ks meta.function.return-type.ks keyword.operator.type.annotation.ks
+                                       
+                                      ^
+                                      source.ks meta.definition.method.ks meta.function.return-type.ks
+                                       Array
+                                       ^^^^^
+                                       source.ks meta.definition.method.ks meta.function.return-type.ks support.type.primitive.ks
+                                             
+                                            ^
+                                            source.ks meta.definition.method.ks
+                                             =>
+                                             ^^
+                                             source.ks meta.definition.method.ks storage.type.function.arrow.ks
+                                                
+                                               ^
+                                               source.ks meta.definition.method.ks
+                                                value
+                                                ^^^^^
+                                                source.ks meta.definition.method.ks variable.other.object.ks
+                                                     .
+                                                     ^
+                                                     source.ks meta.definition.method.ks punctuation.accessor.object.ks
+                                                      slice
+                                                      ^^^^^
+                                                      source.ks meta.definition.method.ks entity.name.function.ks
+                                                           (
+                                                           ^
+                                                           source.ks meta.definition.method.ks punctuation.definition.arguments.begin.bracket.round.ks
+                                                            )
+                                                            ^
+                                                            source.ks meta.definition.method.ks punctuation.definition.arguments.end.bracket.round.ks
+                                                             .
+                                                             ^
+                                                             source.ks meta.definition.method.ks punctuation.accessor.object.ks
+                                                              reverse
+                                                              ^^^^^^^
+                                                              source.ks meta.definition.method.ks entity.name.function.ks
+                                                                     (
+                                                                     ^
+                                                                     source.ks meta.definition.method.ks punctuation.definition.arguments.begin.bracket.round.ks
+                                                                      )
+                                                                      ^
+                                                                      source.ks meta.definition.method.ks punctuation.definition.arguments.end.bracket.round.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.object.end.bracket.curly.ks

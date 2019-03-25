@@ -1,0 +1,234 @@
+original file
+-----------------------------------
+extern console
+func min() => {
+    gender: 'female'
+    age: 24
+}
+namespace foo {
+    const {gender, age} = min()
+}
+console.log(foo.age)
+console.log(`\(foo.gender)`)
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>extern console
+ extern
+ ^^^^^^
+ source.ks keyword.control.dependency.extern.ks
+        
+       ^
+       source.ks
+        console
+        ^^^^^^^
+        source.ks variable.other.constant.ks
+>
+>func min() => {
+ func
+ ^^^^
+ source.ks storage.type.function.ks
+      
+     ^
+     source.ks
+      min
+      ^^^
+      source.ks entity.name.function.ks
+         (
+         ^
+         source.ks punctuation.definition.parameters.begin.bracket.round.ks
+          )
+          ^
+          source.ks punctuation.definition.parameters.end.bracket.round.ks
+            
+           ^
+           source.ks
+            =>
+            ^^
+            source.ks storage.type.function.arrow.ks
+               
+              ^
+              source.ks
+               {
+               ^
+               source.ks punctuation.definition.object.begin.bracket.curly.ks
+>
+>    gender: 'female'
+     
+ ^^^^
+ source.ks
+     gender
+     ^^^^^^
+     source.ks meta.object.key.ks
+           :
+           ^
+           source.ks punctuation.separator.key-value.ks
+             
+            ^
+            source.ks
+             '
+             ^
+             source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
+              female
+              ^^^^^^
+              source.ks string.quoted.single.ks
+                    '
+                    ^
+                    source.ks string.quoted.single.ks punctuation.definition.string.end.ks
+>
+>    age: 24
+     
+ ^^^^
+ source.ks
+     age
+     ^^^
+     source.ks meta.object.key.ks
+        :
+        ^
+        source.ks punctuation.separator.key-value.ks
+          
+         ^
+         source.ks
+          24
+          ^^
+          source.ks constant.numeric.decimal.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.object.end.bracket.curly.ks
+>
+>namespace foo {
+ namespace
+ ^^^^^^^^^
+ source.ks storage.type.namespace.ks
+           
+          ^
+          source.ks
+           foo
+           ^^^
+           source.ks entity.name.type.namespace.ks
+               
+              ^
+              source.ks
+               {
+               ^
+               source.ks punctuation.definition.namespace.begin.bracket.curly.ks
+>
+>    const {gender, age} = min()
+     
+ ^^^^
+ source.ks
+     const
+     ^^^^^
+     source.ks storage.type.constant.ks
+           
+          ^
+          source.ks
+           {
+           ^
+           source.ks punctuation.definition.binding-pattern.object.begin.bracket.square.ks
+            gender
+            ^^^^^^
+            source.ks meta.definition.variable.ks variable.other.constant.ks
+                  ,
+                  ^
+                  source.ks punctuation.separator.comma.ks
+                    
+                   ^
+                   source.ks
+                    age
+                    ^^^
+                    source.ks meta.definition.variable.ks variable.other.constant.ks
+                       }
+                       ^
+                       source.ks punctuation.definition.binding-pattern.object.end.bracket.square.ks
+                         
+                        ^
+                        source.ks
+                         =
+                         ^
+                         source.ks keyword.operator.assignment.ks
+                           
+                          ^
+                          source.ks
+                           min
+                           ^^^
+                           source.ks entity.name.function.ks
+                              (
+                              ^
+                              source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                               )
+                               ^
+                               source.ks punctuation.definition.arguments.end.bracket.round.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.namespace.end.bracket.curly.ks
+>
+>console.log(foo.age)
+ console
+ ^^^^^^^
+ source.ks variable.other.object.ks
+        .
+        ^
+        source.ks punctuation.accessor.object.ks
+         log
+         ^^^
+         source.ks entity.name.function.ks
+            (
+            ^
+            source.ks punctuation.definition.arguments.begin.bracket.round.ks
+             foo
+             ^^^
+             source.ks variable.other.object.ks
+                .
+                ^
+                source.ks punctuation.accessor.object.ks
+                 age
+                 ^^^
+                 source.ks variable.other.property.object.ks
+                    )
+                    ^
+                    source.ks punctuation.definition.arguments.end.bracket.round.ks
+>
+>console.log(`\(foo.gender)`)
+ console
+ ^^^^^^^
+ source.ks variable.other.object.ks
+        .
+        ^
+        source.ks punctuation.accessor.object.ks
+         log
+         ^^^
+         source.ks entity.name.function.ks
+            (
+            ^
+            source.ks punctuation.definition.arguments.begin.bracket.round.ks
+             `
+             ^
+             source.ks punctuation.definition.string.template.begin.ks
+              \(
+              ^^
+              source.ks punctuation.definition.template-expression.begin.ks
+                foo
+                ^^^
+                source.ks variable.other.object.ks
+                   .
+                   ^
+                   source.ks punctuation.accessor.object.ks
+                    gender
+                    ^^^^^^
+                    source.ks variable.other.property.object.ks
+                          )
+                          ^
+                          source.ks punctuation.definition.template-expression.end.ks
+                           `
+                           ^
+                           source.ks punctuation.definition.string.template.end.ks
+                            )
+                            ^
+                            source.ks punctuation.definition.arguments.end.bracket.round.ks

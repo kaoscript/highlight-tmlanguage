@@ -1,0 +1,63 @@
+original file
+-----------------------------------
+namespace coord {
+    let x, y, z
+}
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>namespace coord {
+ namespace
+ ^^^^^^^^^
+ source.ks storage.type.namespace.ks
+           
+          ^
+          source.ks
+           coord
+           ^^^^^
+           source.ks entity.name.type.namespace.ks
+                 
+                ^
+                source.ks
+                 {
+                 ^
+                 source.ks punctuation.definition.namespace.begin.bracket.curly.ks
+>
+>    let x, y, z
+     
+ ^^^^
+ source.ks
+     let
+     ^^^
+     source.ks storage.type.readwrite.ks
+         
+        ^
+        source.ks
+         x
+         ^
+         source.ks meta.definition.variable.ks variable.other.readwrite.ks
+          ,
+          ^
+          source.ks punctuation.separator.comma.ks
+            
+           ^
+           source.ks
+            y
+            ^
+            source.ks meta.definition.variable.ks variable.other.readwrite.ks
+             ,
+             ^
+             source.ks punctuation.separator.comma.ks
+               
+              ^
+              source.ks
+               z
+               ^
+               source.ks meta.definition.variable.ks variable.other.readwrite.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.namespace.end.bracket.curly.ks

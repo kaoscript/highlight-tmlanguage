@@ -1,0 +1,183 @@
+original file
+-----------------------------------
+namespace qux {
+    class Foobar {
+        private {
+            _name: String
+        }
+        constructor(@name = 'john')
+    }
+}
+const x = new qux.Foobar()
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>namespace qux {
+ namespace
+ ^^^^^^^^^
+ source.ks storage.type.namespace.ks
+           
+          ^
+          source.ks
+           qux
+           ^^^
+           source.ks entity.name.type.namespace.ks
+               
+              ^
+              source.ks
+               {
+               ^
+               source.ks punctuation.definition.namespace.begin.bracket.curly.ks
+>
+>    class Foobar {
+     
+ ^^^^
+ source.ks
+     class
+     ^^^^^
+     source.ks storage.type.class.ks
+           
+          ^
+          source.ks
+           Foobar
+           ^^^^^^
+           source.ks entity.name.type.class.ks
+                  
+                 ^
+                 source.ks
+                  {
+                  ^
+                  source.ks punctuation.definition.class.begin.bracket.curly.ks
+>
+>        private {
+         
+ ^^^^^^^^
+ source.ks
+         private
+         ^^^^^^^
+         source.ks storage.modifier.access.ks
+                 
+                ^
+                source.ks
+                 {
+                 ^
+                 source.ks punctuation.definition.members.begin.bracket.curly.ks
+>
+>            _name: String
+             
+ ^^^^^^^^^^^^
+ source.ks
+             _name
+             ^^^^^
+             source.ks variable.object.property.ks
+                  :
+                  ^
+                  source.ks meta.type.annotation.ks keyword.operator.type.annotation.ks
+                    
+                   ^
+                   source.ks meta.type.annotation.ks
+                    String
+                    ^^^^^^
+                    source.ks meta.type.annotation.ks support.type.primitive.ks
+>
+>        }
+         
+ ^^^^^^^^
+ source.ks
+         }
+         ^
+         source.ks punctuation.definition.members.end.bracket.curly.ks
+>
+>        constructor(@name = 'john')
+         
+ ^^^^^^^^
+ source.ks
+         constructor
+         ^^^^^^^^^^^
+         source.ks storage.type.constructor.ks
+                    (
+                    ^
+                    source.ks punctuation.definition.parameters.begin.bracket.round.ks
+                     @
+                     ^
+                     source.ks storage.modifier.at.ks
+                      name
+                      ^^^^
+                      source.ks variable.parameter.ks
+                           
+                          ^
+                          source.ks
+                           =
+                           ^
+                           source.ks keyword.operator.assignment.ks
+                             
+                            ^
+                            source.ks
+                             '
+                             ^
+                             source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
+                              john
+                              ^^^^
+                              source.ks string.quoted.single.ks
+                                  '
+                                  ^
+                                  source.ks string.quoted.single.ks punctuation.definition.string.end.ks
+                                   )
+                                   ^
+                                   source.ks punctuation.definition.parameters.end.bracket.round.ks
+>
+>    }
+     
+ ^^^^
+ source.ks
+     }
+     ^
+     source.ks punctuation.definition.class.end.bracket.curly.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.namespace.end.bracket.curly.ks
+>
+>const x = new qux.Foobar()
+ const
+ ^^^^^
+ source.ks storage.type.constant.ks
+       
+      ^
+      source.ks
+       x
+       ^
+       source.ks meta.definition.variable.ks variable.other.constant.ks
+         
+        ^
+        source.ks
+         =
+         ^
+         source.ks keyword.operator.assignment.ks
+           
+          ^
+          source.ks
+           new
+           ^^^
+           source.ks keyword.operator.new.ks
+               
+              ^
+              source.ks
+               qux
+               ^^^
+               source.ks variable.other.object.ks
+                  .
+                  ^
+                  source.ks punctuation.accessor.object.ks
+                   Foobar
+                   ^^^^^^
+                   source.ks entity.name.function.ks
+                         (
+                         ^
+                         source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                          )
+                          ^
+                          source.ks punctuation.definition.arguments.end.bracket.round.ks

@@ -363,7 +363,7 @@
       <key>class-statement</key>
       <dict>
         <key>begin</key>
-        <string>^\s*(?:(abstract)\s+)?(class)\s+([_$[:alpha:]][_$[:alnum:]]*)</string>
+        <string>^\s*(?:(abstract)\s+)?(class)\s+(?=[_$[:alpha:]])</string>
         <key>beginCaptures</key>
         <dict>
           <key>1</key>
@@ -376,16 +376,17 @@
             <key>name</key>
             <string>storage.type.class.ks</string>
           </dict>
-          <key>3</key>
-          <dict>
-            <key>name</key>
-            <string>entity.name.type.class.ks</string>
-          </dict>
         </dict>
         <key>end</key>
         <string>(?&lt;=\})</string>
         <key>patterns</key>
         <array>
+          <dict>
+            <key>name</key>
+            <string>entity.name.type.class.ks</string>
+            <key>match</key>
+            <string>[_$[:alpha:]][_$[:alnum:]]*</string>
+          </dict>
           <dict>
             <key>begin</key>
             <string>\{</string>
@@ -1012,6 +1013,10 @@
         <key>patterns</key>
         <array>
           <dict>
+            <key>include</key>
+            <string>#namespace-statement</string>
+          </dict>
+          <dict>
             <key>name</key>
             <string>variable.other.ks</string>
             <key>match</key>
@@ -1507,6 +1512,108 @@
               <dict>
                 <key>include</key>
                 <string>#function-throwables</string>
+              </dict>
+            </array>
+          </dict>
+          <dict>
+            <key>begin</key>
+            <string>\b(?:(sealed)\s+)?(namespace)\b</string>
+            <key>beginCaptures</key>
+            <dict>
+              <key>1</key>
+              <dict>
+                <key>name</key>
+                <string>storage.modifier.sealed.ks</string>
+              </dict>
+              <key>2</key>
+              <dict>
+                <key>name</key>
+                <string>storage.type.namespace.ks</string>
+              </dict>
+            </dict>
+            <key>end</key>
+            <string>(?&lt;=$|\})</string>
+            <key>patterns</key>
+            <array>
+              <dict>
+                <key>name</key>
+                <string>entity.name.type.namespace.ks</string>
+                <key>match</key>
+                <string>[_$[:alpha:]][_$[:alnum:]]*</string>
+              </dict>
+              <dict>
+                <key>begin</key>
+                <string>\{</string>
+                <key>beginCaptures</key>
+                <dict>
+                  <key>0</key>
+                  <dict>
+                    <key>name</key>
+                    <string>punctuation.definition.namespace.begin.bracket.curly.ks</string>
+                  </dict>
+                </dict>
+                <key>end</key>
+                <string>\}</string>
+                <key>endCaptures</key>
+                <dict>
+                  <key>0</key>
+                  <dict>
+                    <key>name</key>
+                    <string>punctuation.definition.namespace.end.bracket.curly.ks</string>
+                  </dict>
+                </dict>
+                <key>patterns</key>
+                <array>
+                  <dict>
+                    <key>begin</key>
+                    <string>(const)\s+([_$[:alpha:]][_$[:alnum:]]*)</string>
+                    <key>beginCaptures</key>
+                    <dict>
+                      <key>1</key>
+                      <dict>
+                        <key>name</key>
+                        <string>storage.type.constant.ks</string>
+                      </dict>
+                      <key>2</key>
+                      <dict>
+                        <key>name</key>
+                        <string>variable.other.constant.ks</string>
+                      </dict>
+                    </dict>
+                    <key>end</key>
+                    <string>(?=\,|$)</string>
+                    <key>patterns</key>
+                    <array>
+                      <dict>
+                        <key>name</key>
+                        <string>meta.type.annotation.ks</string>
+                        <key>begin</key>
+                        <string>(\:)</string>
+                        <key>beginCaptures</key>
+                        <dict>
+                          <key>1</key>
+                          <dict>
+                            <key>name</key>
+                            <string>keyword.operator.type.annotation.ks</string>
+                          </dict>
+                        </dict>
+                        <key>end</key>
+                        <string>(?=\s*,|$)</string>
+                        <key>patterns</key>
+                        <array>
+                          <dict>
+                            <key>include</key>
+                            <string>#type</string>
+                          </dict>
+                        </array>
+                      </dict>
+                    </array>
+                  </dict>
+                  <dict>
+                    <key>include</key>
+                    <string>#extern-declarator</string>
+                  </dict>
+                </array>
               </dict>
             </array>
           </dict>
@@ -2011,22 +2118,30 @@
       <key>function-statement</key>
       <dict>
         <key>begin</key>
-        <string>^\s*(?=\bfunc\s+)</string>
+        <string>^\s*(?:(async)\s+)?(func)\s+(?=[_$[:alpha:]])</string>
+        <key>beginCaptures</key>
+        <dict>
+          <key>1</key>
+          <dict>
+            <key>name</key>
+            <string>storage.modifier.async.ks</string>
+          </dict>
+          <key>2</key>
+          <dict>
+            <key>name</key>
+            <string>storage.type.function.ks</string>
+          </dict>
+        </dict>
         <key>end</key>
         <string>(?&lt;=\}|$)</string>
         <key>patterns</key>
         <array>
           <dict>
             <key>begin</key>
-            <string>\b(func)\b\s+([_$[:alpha:]][_$[:alnum:]]*)</string>
+            <string>[_$[:alpha:]][_$[:alnum:]]*</string>
             <key>beginCaptures</key>
             <dict>
-              <key>1</key>
-              <dict>
-                <key>name</key>
-                <string>storage.type.function.ks</string>
-              </dict>
-              <key>2</key>
+              <key>0</key>
               <dict>
                 <key>name</key>
                 <string>entity.name.function.ks</string>
@@ -2874,6 +2989,67 @@
           </dict>
         </array>
       </dict>
+      <key>namespace-statement</key>
+      <dict>
+        <key>begin</key>
+        <string>(\bnamespace)\s+(?=[_$[:alpha:]])</string>
+        <key>beginCaptures</key>
+        <dict>
+          <key>1</key>
+          <dict>
+            <key>name</key>
+            <string>storage.type.namespace.ks</string>
+          </dict>
+        </dict>
+        <key>end</key>
+        <string>(?&lt;=\})</string>
+        <key>patterns</key>
+        <array>
+          <dict>
+            <key>name</key>
+            <string>entity.name.type.namespace.ks</string>
+            <key>match</key>
+            <string>[_$[:alpha:]][_$[:alnum:]]*</string>
+          </dict>
+          <dict>
+            <key>begin</key>
+            <string>\{</string>
+            <key>beginCaptures</key>
+            <dict>
+              <key>0</key>
+              <dict>
+                <key>name</key>
+                <string>punctuation.definition.namespace.begin.bracket.curly.ks</string>
+              </dict>
+            </dict>
+            <key>end</key>
+            <string>\}</string>
+            <key>endCaptures</key>
+            <dict>
+              <key>0</key>
+              <dict>
+                <key>name</key>
+                <string>punctuation.definition.namespace.end.bracket.curly.ks</string>
+              </dict>
+            </dict>
+            <key>patterns</key>
+            <array>
+              <dict>
+                <key>include</key>
+                <string>#export-statement</string>
+              </dict>
+              <dict>
+                <key>include</key>
+                <string>#extern-statement</string>
+              </dict>
+              <dict>
+                <key>include</key>
+                <string>#statements</string>
+              </dict>
+            </array>
+          </dict>
+        </array>
+      </dict>
       <key>number</key>
       <dict>
         <key>patterns</key>
@@ -3019,10 +3195,15 @@
             <key>name</key>
             <string>meta.definition.method.ks</string>
             <key>begin</key>
-            <string>([_$[:alpha:]][_$[:alnum:]]*)\s*(?=\()</string>
+            <string>(?:(\basync)\s+)?([_$[:alpha:]][_$[:alnum:]]*)\s*(?=\()</string>
             <key>beginCaptures</key>
             <dict>
               <key>1</key>
+              <dict>
+                <key>name</key>
+                <string>storage.modifier.async.ks</string>
+              </dict>
+              <key>2</key>
               <dict>
                 <key>name</key>
                 <string>entity.name.function.ks</string>
@@ -3889,6 +4070,19 @@
             <string>#attribute</string>
           </dict>
           <dict>
+            <key>begin</key>
+            <string>^\s*(?=namespace)</string>
+            <key>end</key>
+            <string>(?&lt;=\})</string>
+            <key>patterns</key>
+            <array>
+              <dict>
+                <key>include</key>
+                <string>#namespace-statement</string>
+              </dict>
+            </array>
+          </dict>
+          <dict>
             <key>include</key>
             <string>#class-statement</string>
           </dict>
@@ -4548,7 +4742,7 @@
             <key>name</key>
             <string>support.type.primitive.ks</string>
             <key>match</key>
-            <string>\b(?:Any|any|Array|array|Boolean|bool|class|enum|Function|func(?!\()|Number|number|Object|object|RegExp|String|string|Void|void)\b</string>
+            <string>\b(?:Any|any|Array|array|Boolean|bool|class|enum|Error|Function|func(?!\()|Number|number|Object|object|RegExp|String|string|Void|void)\b</string>
           </dict>
           <dict>
             <key>begin</key>

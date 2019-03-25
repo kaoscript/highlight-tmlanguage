@@ -5,6 +5,7 @@ uuid: 371123EB-AE4B-471E-BB5C-1AB23093F1C9
 
 variables:
   identifier: '[_$[:alpha:]][_$[:alnum:]]*'
+  match-identifier: '\s+(?=[_$[:alpha:]])'
   function-block: '(?:(?:\basync\s+)?\bfunc\s*{{function-sig}}|(?:\basync\s+)?{{function-sig}}\s*=>\s*|{{identifier}}\s*=>\s*)\s*\{'
   function-line: '(?:(?:\basync\s*)?(?:\bfunc\s*)?{{function-sig}}|{{identifier}})\s*=>\s*(?!\{)'
   function-sig: '\((?:\s*{{parameter}}\s*|\s*,\s*)*\)(?:{{type}})?'
@@ -121,13 +122,14 @@ repository:
         - include: '#expression'
   # }}}
   class-statement: # {{{
-    begin: '^\s*(?:(abstract)\s+)?(class)\s+({{identifier}})'
+    begin: '^\s*(?:(abstract)\s+)?(class){{match-identifier}}'
     beginCaptures:
       '1': { name: 'storage.modifier.abstract.ks' }
       '2': { name: 'storage.type.class.ks' }
-      '3': { name: 'entity.name.type.class.ks' }
     end: '(?<=\})'
     patterns:
+    - name: 'entity.name.type.class.ks'
+      match: '{{identifier}}'
     - begin: '\{'
       beginCaptures:
         '0': { name: 'punctuation.definition.class.begin.bracket.curly.ks' }
@@ -135,22 +137,6 @@ repository:
       endCaptures:
         '0': { name: 'punctuation.definition.class.end.bracket.curly.ks' }
       patterns:
-      # - begin: '(private|protected|public)?\s*(static)?\s*(\{)'
-      #   beginCaptures:
-      #     '1': { name: 'storage.modifier.access.ks' }
-      #     '2': { name: 'storage.modifier.access.ks' }
-      #     '3': { name: 'punctuation.definition.members.begin.bracket.curly.ks' }
-      #   end: '\}'
-      #   endCaptures:
-      #     '0': { name: 'punctuation.definition.members.end.bracket.curly.ks' }
-      #   patterns:
-      #   - include: '#class-member'
-      # - begin: '(private|protected|public)\s*(?=[_$[:alpha:]])'
-      #   beginCaptures:
-      #     '1': { name: 'storage.modifier.access.ks' }
-      #   end: '$'
-      #   patterns:
-      #   - include: '#class-member'
       - name: 'storage.modifier.access.ks'
         match: 'private|protected|public|static'
       - begin: '\{'
@@ -343,6 +329,7 @@ repository:
       '1': { name: 'keyword.control.export.ks' }
     end: '(?<=\}|$)'
     patterns:
+    - include: '#namespace-statement'
     - name: 'variable.other.ks'
       match: '({{identifier}})'
     - include: '#comma'
@@ -489,6 +476,35 @@ repository:
       - include: '#function-parameters'
       - include: '#function-return-type'
       - include: '#function-throwables'
+    - begin: '\b(?:(sealed)\s+)?(namespace)\b'
+      beginCaptures:
+        '1': { name: 'storage.modifier.sealed.ks' }
+        '2': { name: 'storage.type.namespace.ks' }
+      end: '(?<=$|\})'
+      patterns:
+      - name: 'entity.name.type.namespace.ks'
+        match: '{{identifier}}'
+      - begin: '\{'
+        beginCaptures:
+          '0': { name: 'punctuation.definition.namespace.begin.bracket.curly.ks' }
+        end: '\}'
+        endCaptures:
+          '0': { name: 'punctuation.definition.namespace.end.bracket.curly.ks' }
+        patterns:
+        - begin: '(const)\s+({{identifier}})'
+          beginCaptures:
+            '1': { name: 'storage.type.constant.ks' }
+            '2': { name: 'variable.other.constant.ks' }
+          end: '(?=\,|$)'
+          patterns:
+          - name: 'meta.type.annotation.ks'
+            begin: '(\:)'
+            beginCaptures:
+              '1': { name: 'keyword.operator.type.annotation.ks' }
+            end: '(?=\s*,|$)'
+            patterns:
+            - include: '#type'
+        - include: '#extern-declarator'
     - begin: '{{identifier}}'
       beginCaptures:
         '0': { name: 'variable.other.constant.ks' }
@@ -641,13 +657,15 @@ repository:
     - include: '#type'
   # }}}
   function-statement: # {{{
-    begin: '^\s*(?=\bfunc\s+)'
+    begin: '^\s*(?:(async)\s+)?(func){{match-identifier}}'
+    beginCaptures:
+      '1': { name: 'storage.modifier.async.ks' }
+      '2': { name: 'storage.type.function.ks' }
     end: '(?<=\}|$)'
     patterns:
-    - begin: '\b(func)\b\s+({{identifier}})'
+    - begin: '{{identifier}}'
       beginCaptures:
-        '1': { name: 'storage.type.function.ks' }
-        '2': { name: 'entity.name.function.ks' }
+        '0': { name: 'entity.name.function.ks' }
       end: '(?=\{|=>)'
       patterns:
       - include: '#function-parameters'
@@ -818,21 +836,6 @@ repository:
       endCaptures:
         '0': { name: 'punctuation.definition.implement.end.bracket.curly.ks' }
       patterns:
-      # - begin: '(private|protected|public)\s*(\{)'
-      #   beginCaptures:
-      #     '1': { name: 'storage.modifier.access.ks' }
-      #     '2': { name: 'punctuation.definition.members.begin.bracket.curly.ks' }
-      #   end: '\}'
-      #   endCaptures:
-      #     '0': { name: 'punctuation.definition.members.end.bracket.curly.ks' }
-      #   patterns:
-      #   - include: '#class-member'
-      # - begin: '(private|protected|public)\s*(?=[_$[:alpha:]])'
-      #   beginCaptures:
-      #     '1': { name: 'storage.modifier.access.ks' }
-      #   end: '$'
-      #   patterns:
-      #   - include: '#class-member'
       - name: 'storage.modifier.access.ks'
         match: 'private|protected|public|static'
       - name: 'storage.modifier.ks'
@@ -917,6 +920,25 @@ repository:
         - include: '#type'
       - include: '#comma'
   # }}}
+  namespace-statement: # {{{
+    begin: '(\bnamespace){{match-identifier}}'
+    beginCaptures:
+      '1': { name: 'storage.type.namespace.ks' }
+    end: '(?<=\})'
+    patterns:
+    - name: 'entity.name.type.namespace.ks'
+      match: '{{identifier}}'
+    - begin: '\{'
+      beginCaptures:
+        '0': { name: 'punctuation.definition.namespace.begin.bracket.curly.ks' }
+      end: '\}'
+      endCaptures:
+        '0': { name: 'punctuation.definition.namespace.end.bracket.curly.ks' }
+      patterns:
+        - include: '#export-statement'
+        - include: '#extern-statement'
+        - include: '#statements'
+  # }}}
   number: # {{{
     patterns:
     - name: 'constant.numeric.binary.ks'
@@ -963,9 +985,10 @@ repository:
           patterns:
           - include: '#expression'
     - name: 'meta.definition.method.ks'
-      begin: '({{identifier}})\s*(?=\()'
+      begin: '(?:(\basync)\s+)?({{identifier}})\s*(?=\()'
       beginCaptures:
-        '1': { name: 'entity.name.function.ks' }
+        '1': { name: 'storage.modifier.async.ks' }
+        '2': { name: 'entity.name.function.ks' }
       end: '(?<=\}|$)'
       patterns:
       - include: '#function-parameters'
@@ -1225,6 +1248,10 @@ repository:
   statements: # {{{
     patterns:
     - include: '#attribute'
+    - begin: '^\s*(?=namespace)'
+      end: '(?<=\})'
+      patterns:
+      - include: '#namespace-statement'
     - include: '#class-statement'
     - include: '#const-statement'
     - include: '#delete-statement'
@@ -1426,7 +1453,7 @@ repository:
   type: # {{{
     patterns:
       - name: 'support.type.primitive.ks'
-        match: \b(?:Any|any|Array|array|Boolean|bool|class|enum|Function|func(?!\()|Number|number|Object|object|RegExp|String|string|Void|void)\b
+        match: \b(?:Any|any|Array|array|Boolean|bool|class|enum|Error|Function|func(?!\()|Number|number|Object|object|RegExp|String|string|Void|void)\b
       - begin: '(?=(\basync\s+)?(?:\bfunc)?\()'
         end: '(?=$|\s*\|\|)'
         patterns:

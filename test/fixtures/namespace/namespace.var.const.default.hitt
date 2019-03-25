@@ -1,0 +1,168 @@
+original file
+-----------------------------------
+extern console
+namespace Float {
+    const PI = 3.14
+    const name = 'john'
+}
+console.log(Float.PI)
+console.log(`\(Float.name)`)
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>extern console
+ extern
+ ^^^^^^
+ source.ks keyword.control.dependency.extern.ks
+        
+       ^
+       source.ks
+        console
+        ^^^^^^^
+        source.ks variable.other.constant.ks
+>
+>namespace Float {
+ namespace
+ ^^^^^^^^^
+ source.ks storage.type.namespace.ks
+           
+          ^
+          source.ks
+           Float
+           ^^^^^
+           source.ks entity.name.type.namespace.ks
+                 
+                ^
+                source.ks
+                 {
+                 ^
+                 source.ks punctuation.definition.namespace.begin.bracket.curly.ks
+>
+>    const PI = 3.14
+     
+ ^^^^
+ source.ks
+     const
+     ^^^^^
+     source.ks storage.type.constant.ks
+           
+          ^
+          source.ks
+           PI
+           ^^
+           source.ks meta.definition.variable.ks variable.other.constant.ks
+              
+             ^
+             source.ks
+              =
+              ^
+              source.ks keyword.operator.assignment.ks
+                
+               ^
+               source.ks
+                3.14
+                ^^^^
+                source.ks constant.numeric.decimal.ks
+>
+>    const name = 'john'
+     
+ ^^^^
+ source.ks
+     const
+     ^^^^^
+     source.ks storage.type.constant.ks
+           
+          ^
+          source.ks
+           name
+           ^^^^
+           source.ks meta.definition.variable.ks variable.other.constant.ks
+                
+               ^
+               source.ks
+                =
+                ^
+                source.ks keyword.operator.assignment.ks
+                  
+                 ^
+                 source.ks
+                  '
+                  ^
+                  source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
+                   john
+                   ^^^^
+                   source.ks string.quoted.single.ks
+                       '
+                       ^
+                       source.ks string.quoted.single.ks punctuation.definition.string.end.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.namespace.end.bracket.curly.ks
+>
+>console.log(Float.PI)
+ console
+ ^^^^^^^
+ source.ks variable.other.object.ks
+        .
+        ^
+        source.ks punctuation.accessor.object.ks
+         log
+         ^^^
+         source.ks entity.name.function.ks
+            (
+            ^
+            source.ks punctuation.definition.arguments.begin.bracket.round.ks
+             Float
+             ^^^^^
+             source.ks variable.other.object.ks
+                  .
+                  ^
+                  source.ks punctuation.accessor.object.ks
+                   PI
+                   ^^
+                   source.ks variable.other.property.object.ks
+                     )
+                     ^
+                     source.ks punctuation.definition.arguments.end.bracket.round.ks
+>
+>console.log(`\(Float.name)`)
+ console
+ ^^^^^^^
+ source.ks variable.other.object.ks
+        .
+        ^
+        source.ks punctuation.accessor.object.ks
+         log
+         ^^^
+         source.ks entity.name.function.ks
+            (
+            ^
+            source.ks punctuation.definition.arguments.begin.bracket.round.ks
+             `
+             ^
+             source.ks punctuation.definition.string.template.begin.ks
+              \(
+              ^^
+              source.ks punctuation.definition.template-expression.begin.ks
+                Float
+                ^^^^^
+                source.ks variable.other.object.ks
+                     .
+                     ^
+                     source.ks punctuation.accessor.object.ks
+                      name
+                      ^^^^
+                      source.ks variable.other.property.object.ks
+                          )
+                          ^
+                          source.ks punctuation.definition.template-expression.end.ks
+                           `
+                           ^
+                           source.ks punctuation.definition.string.template.end.ks
+                            )
+                            ^
+                            source.ks punctuation.definition.arguments.end.bracket.round.ks

@@ -37,7 +37,7 @@ grammar: kaoscript.tmLanguage
                 source.ks meta.throwables.ks
                  Error
                  ^^^^^
-                 source.ks meta.throwables.ks entity.name.type.ks
+                 source.ks meta.throwables.ks support.type.primitive.ks
                        
                       ^
                       source.ks

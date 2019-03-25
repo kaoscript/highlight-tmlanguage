@@ -1,0 +1,30 @@
+original file
+-----------------------------------
+extern sealed namespace Math
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>extern sealed namespace Math
+ extern
+ ^^^^^^
+ source.ks keyword.control.dependency.extern.ks
+        
+       ^
+       source.ks
+        sealed
+        ^^^^^^
+        source.ks storage.modifier.sealed.ks
+               
+              ^
+              source.ks
+               namespace
+               ^^^^^^^^^
+               source.ks storage.type.namespace.ks
+                         
+                        ^
+                        source.ks
+                         Math
+                         ^^^^
+                         source.ks entity.name.type.namespace.ks

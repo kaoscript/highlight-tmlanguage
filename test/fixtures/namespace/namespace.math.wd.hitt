@@ -1,0 +1,108 @@
+original file
+-----------------------------------
+extern sealed namespace Math {
+    const PI: Number
+    func abs(x: Number): Number
+}
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>extern sealed namespace Math {
+ extern
+ ^^^^^^
+ source.ks keyword.control.dependency.extern.ks
+        
+       ^
+       source.ks
+        sealed
+        ^^^^^^
+        source.ks storage.modifier.sealed.ks
+               
+              ^
+              source.ks
+               namespace
+               ^^^^^^^^^
+               source.ks storage.type.namespace.ks
+                         
+                        ^
+                        source.ks
+                         Math
+                         ^^^^
+                         source.ks entity.name.type.namespace.ks
+                              
+                             ^
+                             source.ks
+                              {
+                              ^
+                              source.ks punctuation.definition.namespace.begin.bracket.curly.ks
+>
+>    const PI: Number
+     
+ ^^^^
+ source.ks
+     const
+     ^^^^^
+     source.ks storage.type.constant.ks
+           
+          ^
+          source.ks
+           PI
+           ^^
+           source.ks variable.other.constant.ks
+             :
+             ^
+             source.ks meta.type.annotation.ks keyword.operator.type.annotation.ks
+               
+              ^
+              source.ks meta.type.annotation.ks
+               Number
+               ^^^^^^
+               source.ks meta.type.annotation.ks support.type.primitive.ks
+>
+>    func abs(x: Number): Number
+     
+ ^^^^
+ source.ks
+     func
+     ^^^^
+     source.ks storage.type.function.ks
+          
+         ^
+         source.ks
+          abs
+          ^^^
+          source.ks entity.name.function.ks
+             (
+             ^
+             source.ks punctuation.definition.parameters.begin.bracket.round.ks
+              x
+              ^
+              source.ks variable.parameter.ks
+               :
+               ^
+               source.ks meta.type.annotation.ks keyword.operator.type.annotation.ks
+                 
+                ^
+                source.ks meta.type.annotation.ks
+                 Number
+                 ^^^^^^
+                 source.ks meta.type.annotation.ks support.type.primitive.ks
+                       )
+                       ^
+                       source.ks punctuation.definition.parameters.end.bracket.round.ks
+                        :
+                        ^
+                        source.ks meta.function.return-type.ks keyword.operator.type.annotation.ks
+                          
+                         ^
+                         source.ks meta.function.return-type.ks
+                          Number
+                          ^^^^^^
+                          source.ks meta.function.return-type.ks support.type.primitive.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.namespace.end.bracket.curly.ks

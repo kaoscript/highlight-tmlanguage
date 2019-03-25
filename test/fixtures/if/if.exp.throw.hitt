@@ -1,0 +1,90 @@
+original file
+-----------------------------------
+func foo(x) ~ Error {
+    throw new Error() if x
+}
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>func foo(x) ~ Error {
+ func
+ ^^^^
+ source.ks storage.type.function.ks
+      
+     ^
+     source.ks
+      foo
+      ^^^
+      source.ks entity.name.function.ks
+         (
+         ^
+         source.ks punctuation.definition.parameters.begin.bracket.round.ks
+          x
+          ^
+          source.ks variable.parameter.ks
+           )
+           ^
+           source.ks punctuation.definition.parameters.end.bracket.round.ks
+             
+            ^
+            source.ks
+             ~
+             ^
+             source.ks meta.throwables.ks storage.modifier.throwables.ks
+               
+              ^
+              source.ks meta.throwables.ks
+               Error
+               ^^^^^
+               source.ks meta.throwables.ks support.type.primitive.ks
+                     
+                    ^
+                    source.ks
+                     {
+                     ^
+                     source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>    throw new Error() if x
+     
+ ^^^^
+ source.ks
+     throw
+     ^^^^^
+     source.ks keyword.control.trycatch.throw.ks
+           
+          ^
+          source.ks
+           new
+           ^^^
+           source.ks keyword.operator.new.ks
+               
+              ^
+              source.ks
+               Error
+               ^^^^^
+               source.ks entity.name.type.ks
+                    (
+                    ^
+                    source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                     )
+                     ^
+                     source.ks punctuation.definition.arguments.end.bracket.round.ks
+                       
+                      ^
+                      source.ks
+                       if
+                       ^^
+                       source.ks keyword.control.conditional.if.ks
+                          
+                         ^
+                         source.ks
+                          x
+                          ^
+                          source.ks variable.other.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.block.end.bracket.curly.ks

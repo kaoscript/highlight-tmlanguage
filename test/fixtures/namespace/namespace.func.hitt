@@ -1,0 +1,156 @@
+original file
+-----------------------------------
+extern console
+namespace Float {
+    func toString(value: Number): String => value.toString()
+}
+console.log(`\(Float.toString(3.14))`)
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>extern console
+ extern
+ ^^^^^^
+ source.ks keyword.control.dependency.extern.ks
+        
+       ^
+       source.ks
+        console
+        ^^^^^^^
+        source.ks variable.other.constant.ks
+>
+>namespace Float {
+ namespace
+ ^^^^^^^^^
+ source.ks storage.type.namespace.ks
+           
+          ^
+          source.ks
+           Float
+           ^^^^^
+           source.ks entity.name.type.namespace.ks
+                 
+                ^
+                source.ks
+                 {
+                 ^
+                 source.ks punctuation.definition.namespace.begin.bracket.curly.ks
+>
+>    func toString(value: Number): String => value.toString()
+     
+ ^^^^
+ source.ks
+     func
+     ^^^^
+     source.ks storage.type.function.ks
+          
+         ^
+         source.ks
+          toString
+          ^^^^^^^^
+          source.ks entity.name.function.ks
+                  (
+                  ^
+                  source.ks punctuation.definition.parameters.begin.bracket.round.ks
+                   value
+                   ^^^^^
+                   source.ks variable.parameter.ks
+                        :
+                        ^
+                        source.ks meta.type.annotation.ks keyword.operator.type.annotation.ks
+                          
+                         ^
+                         source.ks meta.type.annotation.ks
+                          Number
+                          ^^^^^^
+                          source.ks meta.type.annotation.ks support.type.primitive.ks
+                                )
+                                ^
+                                source.ks punctuation.definition.parameters.end.bracket.round.ks
+                                 :
+                                 ^
+                                 source.ks meta.function.return-type.ks keyword.operator.type.annotation.ks
+                                   
+                                  ^
+                                  source.ks meta.function.return-type.ks
+                                   String
+                                   ^^^^^^
+                                   source.ks meta.function.return-type.ks support.type.primitive.ks
+                                          
+                                         ^
+                                         source.ks
+                                          =>
+                                          ^^
+                                          source.ks storage.type.function.arrow.ks
+                                             
+                                            ^
+                                            source.ks
+                                             value
+                                             ^^^^^
+                                             source.ks variable.other.object.ks
+                                                  .
+                                                  ^
+                                                  source.ks punctuation.accessor.object.ks
+                                                   toString
+                                                   ^^^^^^^^
+                                                   source.ks entity.name.function.ks
+                                                           (
+                                                           ^
+                                                           source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                                                            )
+                                                            ^
+                                                            source.ks punctuation.definition.arguments.end.bracket.round.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.namespace.end.bracket.curly.ks
+>
+>console.log(`\(Float.toString(3.14))`)
+ console
+ ^^^^^^^
+ source.ks variable.other.object.ks
+        .
+        ^
+        source.ks punctuation.accessor.object.ks
+         log
+         ^^^
+         source.ks entity.name.function.ks
+            (
+            ^
+            source.ks punctuation.definition.arguments.begin.bracket.round.ks
+             `
+             ^
+             source.ks punctuation.definition.string.template.begin.ks
+              \(
+              ^^
+              source.ks punctuation.definition.template-expression.begin.ks
+                Float
+                ^^^^^
+                source.ks variable.other.object.ks
+                     .
+                     ^
+                     source.ks punctuation.accessor.object.ks
+                      toString
+                      ^^^^^^^^
+                      source.ks entity.name.function.ks
+                              (
+                              ^
+                              source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                               3.14
+                               ^^^^
+                               source.ks constant.numeric.decimal.ks
+                                   )
+                                   ^
+                                   source.ks punctuation.definition.arguments.end.bracket.round.ks
+                                    )
+                                    ^
+                                    source.ks punctuation.definition.template-expression.end.ks
+                                     `
+                                     ^
+                                     source.ks punctuation.definition.string.template.end.ks
+                                      )
+                                      ^
+                                      source.ks punctuation.definition.arguments.end.bracket.round.ks
