@@ -14,6 +14,7 @@ variables:
   type-identifier: '{{identifier}}(?:<{{identifier}}>)?'
 
 patterns:
+- include: '#disclose-statement'
 - include: '#export-statement'
 - include: '#extern-statement'
 - include: '#extern-require-statement'
@@ -284,6 +285,23 @@ repository:
     patterns:
     - include: '#expression'
   # }}}
+  disclose-statement: # {{{
+    begin: '^\s*(disclose)\s+'
+    beginCaptures:
+      '1': { name: 'keyword.control.dependency.disclose.ks' }
+    end: '(?<=\})'
+    patterns:
+    - begin: '\{'
+      beginCaptures:
+        '0': { name: 'punctuation.definition.disclose.begin.bracket.curly.ks' }
+      end: '\}'
+      endCaptures:
+        '0': { name: 'punctuation.definition.disclose.end.bracket.curly.ks' }
+      patterns:
+      - include: '#extern-declarator'
+    - name: 'entity.name.type.ks'
+      match: '\b{{identifier}}\b'
+  # }}}
   else-statement: # {{{
     begin: '^\s*(else\b)(?=\s*\{|$)'
     beginCaptures:
@@ -528,9 +546,10 @@ repository:
       - include: '#function-parameters'
       - include: '#function-return-type'
       - include: '#function-throwables'
-    - begin: '{{identifier}}'
+    - begin: '\b(?:(sealed)\s+)?({{identifier}})\b'
       beginCaptures:
-        '0': { name: 'variable.other.constant.ks' }
+        '1': { name: 'storage.modifier.sealed.ks' }
+        '2': { name: 'variable.other.constant.ks' }
       end: '(?=[,=]|$)'
       patterns:
       - name: 'meta.type.annotation.ks'
@@ -712,8 +731,8 @@ repository:
     - include: '#type'
     - include: '#comma'
   # }}}
-  for-statement: # {{{
-    begin: '^\s*(for)\s+'
+  for-expression: # {{{
+    begin: '(\bfor)\s+(?=[:_$[:alpha:]])'
     beginCaptures:
       '1': { name: 'keyword.control.loop.for.ks' }
     end: '(?<=\})'
@@ -756,6 +775,13 @@ repository:
       - name: 'punctuation.separator.alternative-value.ks'
         match: ':'
       - include: '#expression'
+  # }}}
+  for-statement: # {{{
+    begin: '^\s*(?=for\s+[:_$[:alpha:]])'
+    end: '(?<=\})'
+    patterns:
+    - include: '#for-expression'
+    - include: '#block'
   # }}}
   if-statement: # {{{
     begin: '(?=^\s*if\s+)'
@@ -1196,6 +1222,7 @@ repository:
     - match: '(?<=[_$[:alnum:]\)\]])\s*(else\b)'
       captures:
         '1': { name: 'keyword.control.conditional.else.ks' }
+    - include: '#for-expression'
   # }}}
   regex: # {{{
     name: 'string.regexp.ks'
@@ -1625,12 +1652,16 @@ repository:
   # }}}
   type-object: # // {{{
     patterns:
-    - begin: '({{identifier}})(?=\()'
+    - begin: '(?:(\basync)\s+)?(?:(\bfunc)\s+)?({{identifier}})(?=\()'
       beginCaptures:
-        '1': { name: 'entity.name.function.ks' }
-      end: '(?<=\))'
+        '1': { name: 'storage.modifier.async.ks' }
+        '2': { name: 'storage.type.function.ks' }
+        '3': { name: 'entity.name.function.ks' }
+      end: '(?=$|,|\})'
       patterns:
       - include: '#function-parameters'
+      - include: '#function-return-type'
+      - include: '#function-throwables'
     - begin: '({{identifier}})(:)'
       beginCaptures:
         '1': { name: 'variable.object.property.ks' }

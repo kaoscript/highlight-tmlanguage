@@ -1,0 +1,27 @@
+original file
+-----------------------------------
+extern x: int
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>extern x: int
+ extern
+ ^^^^^^
+ source.ks keyword.control.dependency.extern.ks
+        
+       ^
+       source.ks
+        x
+        ^
+        source.ks variable.other.constant.ks
+         :
+         ^
+         source.ks meta.type.annotation.ks keyword.operator.type.annotation.ks
+           
+          ^
+          source.ks meta.type.annotation.ks
+           int
+           ^^^
+           source.ks meta.type.annotation.ks entity.name.type.ks

@@ -1,0 +1,60 @@
+original file
+-----------------------------------
+extern class Foo {
+    bar(): string
+}
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>extern class Foo {
+ extern
+ ^^^^^^
+ source.ks keyword.control.dependency.extern.ks
+        
+       ^
+       source.ks
+        class
+        ^^^^^
+        source.ks storage.type.class.ks
+              
+             ^
+             source.ks
+              Foo
+              ^^^
+              source.ks entity.name.type.class.ks
+                  
+                 ^
+                 source.ks
+                  {
+                  ^
+                  source.ks punctuation.definition.class.begin.bracket.curly.ks
+>
+>    bar(): string
+     
+ ^^^^
+ source.ks
+     bar
+     ^^^
+     source.ks entity.name.function.ks
+        (
+        ^
+        source.ks punctuation.definition.parameters.begin.bracket.round.ks
+         )
+         ^
+         source.ks punctuation.definition.parameters.end.bracket.round.ks
+          :
+          ^
+          source.ks meta.function.return-type.ks keyword.operator.type.annotation.ks
+            
+           ^
+           source.ks meta.function.return-type.ks
+            string
+            ^^^^^^
+            source.ks meta.function.return-type.ks support.type.primitive.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.class.end.bracket.curly.ks

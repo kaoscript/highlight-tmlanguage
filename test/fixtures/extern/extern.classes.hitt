@@ -1,0 +1,87 @@
+original file
+-----------------------------------
+extern {
+    sealed class Array
+    sealed class Function
+    sealed class Object
+}
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>extern {
+ extern
+ ^^^^^^
+ source.ks keyword.control.dependency.extern.ks
+        
+       ^
+       source.ks
+        {
+        ^
+        source.ks punctuation.definition.extern.begin.bracket.curly.ks
+>
+>    sealed class Array
+     
+ ^^^^
+ source.ks
+     sealed
+     ^^^^^^
+     source.ks storage.modifier.sealed.ks
+            
+           ^
+           source.ks
+            class
+            ^^^^^
+            source.ks storage.type.class.ks
+                  
+                 ^
+                 source.ks
+                  Array
+                  ^^^^^
+                  source.ks entity.name.type.class.ks
+>
+>    sealed class Function
+     
+ ^^^^
+ source.ks
+     sealed
+     ^^^^^^
+     source.ks storage.modifier.sealed.ks
+            
+           ^
+           source.ks
+            class
+            ^^^^^
+            source.ks storage.type.class.ks
+                  
+                 ^
+                 source.ks
+                  Function
+                  ^^^^^^^^
+                  source.ks entity.name.type.class.ks
+>
+>    sealed class Object
+     
+ ^^^^
+ source.ks
+     sealed
+     ^^^^^^
+     source.ks storage.modifier.sealed.ks
+            
+           ^
+           source.ks
+            class
+            ^^^^^
+            source.ks storage.type.class.ks
+                  
+                 ^
+                 source.ks
+                  Object
+                  ^^^^^^
+                  source.ks entity.name.type.class.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.extern.end.bracket.curly.ks

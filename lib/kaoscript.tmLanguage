@@ -16,6 +16,10 @@
     <array>
       <dict>
         <key>include</key>
+        <string>#disclose-statement</string>
+      </dict>
+      <dict>
+        <key>include</key>
         <string>#export-statement</string>
       </dict>
       <dict>
@@ -867,6 +871,59 @@
           </dict>
         </array>
       </dict>
+      <key>disclose-statement</key>
+      <dict>
+        <key>begin</key>
+        <string>^\s*(disclose)\s+</string>
+        <key>beginCaptures</key>
+        <dict>
+          <key>1</key>
+          <dict>
+            <key>name</key>
+            <string>keyword.control.dependency.disclose.ks</string>
+          </dict>
+        </dict>
+        <key>end</key>
+        <string>(?&lt;=\})</string>
+        <key>patterns</key>
+        <array>
+          <dict>
+            <key>begin</key>
+            <string>\{</string>
+            <key>beginCaptures</key>
+            <dict>
+              <key>0</key>
+              <dict>
+                <key>name</key>
+                <string>punctuation.definition.disclose.begin.bracket.curly.ks</string>
+              </dict>
+            </dict>
+            <key>end</key>
+            <string>\}</string>
+            <key>endCaptures</key>
+            <dict>
+              <key>0</key>
+              <dict>
+                <key>name</key>
+                <string>punctuation.definition.disclose.end.bracket.curly.ks</string>
+              </dict>
+            </dict>
+            <key>patterns</key>
+            <array>
+              <dict>
+                <key>include</key>
+                <string>#extern-declarator</string>
+              </dict>
+            </array>
+          </dict>
+          <dict>
+            <key>name</key>
+            <string>entity.name.type.ks</string>
+            <key>match</key>
+            <string>\b[_$[:alpha:]][_$[:alnum:]]*\b</string>
+          </dict>
+        </array>
+      </dict>
       <key>else-statement</key>
       <dict>
         <key>begin</key>
@@ -1691,10 +1748,15 @@
           </dict>
           <dict>
             <key>begin</key>
-            <string>[_$[:alpha:]][_$[:alnum:]]*</string>
+            <string>\b(?:(sealed)\s+)?([_$[:alpha:]][_$[:alnum:]]*)\b</string>
             <key>beginCaptures</key>
             <dict>
-              <key>0</key>
+              <key>1</key>
+              <dict>
+                <key>name</key>
+                <string>storage.modifier.sealed.ks</string>
+              </dict>
+              <key>2</key>
               <dict>
                 <key>name</key>
                 <string>variable.other.constant.ks</string>
@@ -2292,10 +2354,10 @@
           </dict>
         </array>
       </dict>
-      <key>for-statement</key>
+      <key>for-expression</key>
       <dict>
         <key>begin</key>
-        <string>^\s*(for)\s+</string>
+        <string>(\bfor)\s+(?=[:_$[:alpha:]])</string>
         <key>beginCaptures</key>
         <dict>
           <key>1</key>
@@ -2429,6 +2491,24 @@
           <dict>
             <key>include</key>
             <string>#expression</string>
+          </dict>
+        </array>
+      </dict>
+      <key>for-statement</key>
+      <dict>
+        <key>begin</key>
+        <string>^\s*(?=for\s+[:_$[:alpha:]])</string>
+        <key>end</key>
+        <string>(?&lt;=\})</string>
+        <key>patterns</key>
+        <array>
+          <dict>
+            <key>include</key>
+            <string>#for-expression</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#block</string>
           </dict>
         </array>
       </dict>
@@ -3896,6 +3976,10 @@
               </dict>
             </dict>
           </dict>
+          <dict>
+            <key>include</key>
+            <string>#for-expression</string>
+          </dict>
         </array>
       </dict>
       <key>regex</key>
@@ -5314,22 +5398,40 @@
         <array>
           <dict>
             <key>begin</key>
-            <string>([_$[:alpha:]][_$[:alnum:]]*)(?=\()</string>
+            <string>(?:(\basync)\s+)?(?:(\bfunc)\s+)?([_$[:alpha:]][_$[:alnum:]]*)(?=\()</string>
             <key>beginCaptures</key>
             <dict>
               <key>1</key>
+              <dict>
+                <key>name</key>
+                <string>storage.modifier.async.ks</string>
+              </dict>
+              <key>2</key>
+              <dict>
+                <key>name</key>
+                <string>storage.type.function.ks</string>
+              </dict>
+              <key>3</key>
               <dict>
                 <key>name</key>
                 <string>entity.name.function.ks</string>
               </dict>
             </dict>
             <key>end</key>
-            <string>(?&lt;=\))</string>
+            <string>(?=$|,|\})</string>
             <key>patterns</key>
             <array>
               <dict>
                 <key>include</key>
                 <string>#function-parameters</string>
+              </dict>
+              <dict>
+                <key>include</key>
+                <string>#function-return-type</string>
+              </dict>
+              <dict>
+                <key>include</key>
+                <string>#function-throwables</string>
               </dict>
             </array>
           </dict>
