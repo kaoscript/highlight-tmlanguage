@@ -1,0 +1,126 @@
+original file
+-----------------------------------
+import 'chevrotain' => chevrotain {
+    func createToken
+    sealed class Lexer
+    sealed class Parser
+    sealed class Token
+}
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>import 'chevrotain' => chevrotain {
+ import
+ ^^^^^^
+ source.ks keyword.control.import.ks
+        
+       ^
+       source.ks
+        '
+        ^
+        source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
+         chevrotain
+         ^^^^^^^^^^
+         source.ks string.quoted.single.ks
+                   '
+                   ^
+                   source.ks string.quoted.single.ks punctuation.definition.string.end.ks
+                     
+                    ^
+                    source.ks
+                     =>
+                     ^^
+                     source.ks keyword.control.dependency.arrow.ks
+                        
+                       ^
+                       source.ks
+                        chevrotain
+                        ^^^^^^^^^^
+                        source.ks variable.other.constant.ks
+                                   
+                                  ^
+                                  source.ks
+                                   {
+                                   ^
+                                   source.ks punctuation.definition.import-specification.begin.bracket.curly.ks
+>
+>    func createToken
+     
+ ^^^^
+ source.ks
+     func
+     ^^^^
+     source.ks storage.type.function.ks
+          
+         ^
+         source.ks
+          createToken
+          ^^^^^^^^^^^
+          source.ks entity.name.function.ks
+>
+>    sealed class Lexer
+     
+ ^^^^
+ source.ks
+     sealed
+     ^^^^^^
+     source.ks storage.modifier.sealed.ks
+            
+           ^
+           source.ks
+            class
+            ^^^^^
+            source.ks storage.type.class.ks
+                  
+                 ^
+                 source.ks
+                  Lexer
+                  ^^^^^
+                  source.ks entity.name.type.class.ks
+>
+>    sealed class Parser
+     
+ ^^^^
+ source.ks
+     sealed
+     ^^^^^^
+     source.ks storage.modifier.sealed.ks
+            
+           ^
+           source.ks
+            class
+            ^^^^^
+            source.ks storage.type.class.ks
+                  
+                 ^
+                 source.ks
+                  Parser
+                  ^^^^^^
+                  source.ks entity.name.type.class.ks
+>
+>    sealed class Token
+     
+ ^^^^
+ source.ks
+     sealed
+     ^^^^^^
+     source.ks storage.modifier.sealed.ks
+            
+           ^
+           source.ks
+            class
+            ^^^^^
+            source.ks storage.type.class.ks
+                  
+                 ^
+                 source.ks
+                  Token
+                  ^^^^^
+                  source.ks entity.name.type.class.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.import-specification.end.bracket.curly.ks

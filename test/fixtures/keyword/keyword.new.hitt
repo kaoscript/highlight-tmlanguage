@@ -1,0 +1,57 @@
+original file
+-----------------------------------
+let foo = bar.new
+console.log(foo)
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>let foo = bar.new
+ let
+ ^^^
+ source.ks storage.type.readwrite.ks
+     
+    ^
+    source.ks
+     foo
+     ^^^
+     source.ks meta.definition.variable.ks variable.other.readwrite.ks
+         
+        ^
+        source.ks
+         =
+         ^
+         source.ks keyword.operator.assignment.ks
+           
+          ^
+          source.ks
+           bar
+           ^^^
+           source.ks variable.other.object.ks
+              .
+              ^
+              source.ks punctuation.accessor.object.ks
+               new
+               ^^^
+               source.ks variable.other.property.object.ks
+>
+>console.log(foo)
+ console
+ ^^^^^^^
+ source.ks variable.other.object.ks
+        .
+        ^
+        source.ks punctuation.accessor.object.ks
+         log
+         ^^^
+         source.ks entity.name.function.ks
+            (
+            ^
+            source.ks punctuation.definition.arguments.begin.bracket.round.ks
+             foo
+             ^^^
+             source.ks variable.other.ks
+                )
+                ^
+                source.ks punctuation.definition.arguments.end.bracket.round.ks

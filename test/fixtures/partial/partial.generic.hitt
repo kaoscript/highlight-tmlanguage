@@ -15,7 +15,7 @@ grammar: kaoscript.tmLanguage
 >import '@oz/lang'
  import
  ^^^^^^
- source.ks variable.other.ks
+ source.ks keyword.control.import.ks
         
        ^
        source.ks

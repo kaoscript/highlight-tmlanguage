@@ -1,0 +1,90 @@
+original file
+-----------------------------------
+let foo1 = 1
+let foo2 = 2
+import 'module1'(foo1, foo2)
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>let foo1 = 1
+ let
+ ^^^
+ source.ks storage.type.readwrite.ks
+     
+    ^
+    source.ks
+     foo1
+     ^^^^
+     source.ks meta.definition.variable.ks variable.other.readwrite.ks
+          
+         ^
+         source.ks
+          =
+          ^
+          source.ks keyword.operator.assignment.ks
+            
+           ^
+           source.ks
+            1
+            ^
+            source.ks constant.numeric.decimal.ks
+>
+>let foo2 = 2
+ let
+ ^^^
+ source.ks storage.type.readwrite.ks
+     
+    ^
+    source.ks
+     foo2
+     ^^^^
+     source.ks meta.definition.variable.ks variable.other.readwrite.ks
+          
+         ^
+         source.ks
+          =
+          ^
+          source.ks keyword.operator.assignment.ks
+            
+           ^
+           source.ks
+            2
+            ^
+            source.ks constant.numeric.decimal.ks
+>
+>import 'module1'(foo1, foo2)
+ import
+ ^^^^^^
+ source.ks keyword.control.import.ks
+        
+       ^
+       source.ks
+        '
+        ^
+        source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
+         module1
+         ^^^^^^^
+         source.ks string.quoted.single.ks
+                '
+                ^
+                source.ks string.quoted.single.ks punctuation.definition.string.end.ks
+                 (
+                 ^
+                 source.ks punctuation.definition.parameters.begin.bracket.round.ks
+                  foo1
+                  ^^^^
+                  source.ks variable.other.ks
+                      ,
+                      ^
+                      source.ks punctuation.separator.comma.ks
+                        
+                       ^
+                       source.ks
+                        foo2
+                        ^^^^
+                        source.ks variable.other.ks
+                            )
+                            ^
+                            source.ks punctuation.definition.parameters.end.bracket.round.ks

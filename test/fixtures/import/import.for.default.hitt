@@ -1,0 +1,36 @@
+original file
+-----------------------------------
+import 'module1' for foobar
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>import 'module1' for foobar
+ import
+ ^^^^^^
+ source.ks keyword.control.import.ks
+        
+       ^
+       source.ks
+        '
+        ^
+        source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
+         module1
+         ^^^^^^^
+         source.ks string.quoted.single.ks
+                '
+                ^
+                source.ks string.quoted.single.ks punctuation.definition.string.end.ks
+                  
+                 ^
+                 source.ks
+                  for
+                  ^^^
+                  source.ks keyword.control.dependency.for.ks
+                      
+                     ^
+                     source.ks
+                      foobar
+                      ^^^^^^
+                      source.ks variable.other.constant.ks

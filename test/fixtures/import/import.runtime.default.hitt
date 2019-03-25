@@ -1,0 +1,93 @@
+original file
+-----------------------------------
+import '@kaoscript/runtime' for Helper, Type
+import '@kaoscript/runtime' {
+    Helper
+    Type
+}
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>import '@kaoscript/runtime' for Helper, Type
+ import
+ ^^^^^^
+ source.ks keyword.control.import.ks
+        
+       ^
+       source.ks
+        '
+        ^
+        source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
+         @kaoscript/runtime
+         ^^^^^^^^^^^^^^^^^^
+         source.ks string.quoted.single.ks
+                           '
+                           ^
+                           source.ks string.quoted.single.ks punctuation.definition.string.end.ks
+                             
+                            ^
+                            source.ks
+                             for
+                             ^^^
+                             source.ks keyword.control.dependency.for.ks
+                                 
+                                ^
+                                source.ks
+                                 Helper
+                                 ^^^^^^
+                                 source.ks variable.other.constant.ks
+                                       ,
+                                       ^
+                                       source.ks punctuation.separator.comma.ks
+                                         
+                                        ^
+                                        source.ks
+                                         Type
+                                         ^^^^
+                                         source.ks variable.other.constant.ks
+>
+>import '@kaoscript/runtime' {
+ import
+ ^^^^^^
+ source.ks keyword.control.import.ks
+        
+       ^
+       source.ks
+        '
+        ^
+        source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
+         @kaoscript/runtime
+         ^^^^^^^^^^^^^^^^^^
+         source.ks string.quoted.single.ks
+                           '
+                           ^
+                           source.ks string.quoted.single.ks punctuation.definition.string.end.ks
+                             
+                            ^
+                            source.ks
+                             {
+                             ^
+                             source.ks punctuation.definition.import-specification.begin.bracket.curly.ks
+>
+>    Helper
+     
+ ^^^^
+ source.ks
+     Helper
+     ^^^^^^
+     source.ks variable.other.constant.ks
+>
+>    Type
+     
+ ^^^^
+ source.ks
+     Type
+     ^^^^
+     source.ks variable.other.constant.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.import-specification.end.bracket.curly.ks

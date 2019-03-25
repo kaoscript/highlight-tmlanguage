@@ -1,0 +1,24 @@
+original file
+-----------------------------------
+include again './module1'
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>include again './module1'
+ include again
+ ^^^^^^^^^^^^^
+ source.ks keyword.control.include.ks
+               
+              ^
+              source.ks
+               '
+               ^
+               source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
+                ./module1
+                ^^^^^^^^^
+                source.ks string.quoted.single.ks
+                         '
+                         ^
+                         source.ks string.quoted.single.ks punctuation.definition.string.end.ks

@@ -1,0 +1,63 @@
+original file
+-----------------------------------
+let const = 42
+console.log(const + 24)
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>let const = 42
+ let
+ ^^^
+ source.ks storage.type.readwrite.ks
+     
+    ^
+    source.ks
+     const
+     ^^^^^
+     source.ks meta.definition.variable.ks variable.other.readwrite.ks
+           
+          ^
+          source.ks
+           =
+           ^
+           source.ks keyword.operator.assignment.ks
+             
+            ^
+            source.ks
+             42
+             ^^
+             source.ks constant.numeric.decimal.ks
+>
+>console.log(const + 24)
+ console
+ ^^^^^^^
+ source.ks variable.other.object.ks
+        .
+        ^
+        source.ks punctuation.accessor.object.ks
+         log
+         ^^^
+         source.ks entity.name.function.ks
+            (
+            ^
+            source.ks punctuation.definition.arguments.begin.bracket.round.ks
+             const
+             ^^^^^
+             source.ks variable.other.ks
+                   
+                  ^
+                  source.ks
+                   +
+                   ^
+                   source.ks keyword.operator.arithmetic.ks
+                     
+                    ^
+                    source.ks
+                     24
+                     ^^
+                     source.ks constant.numeric.decimal.ks
+                       )
+                       ^
+                       source.ks punctuation.definition.arguments.end.bracket.round.ks

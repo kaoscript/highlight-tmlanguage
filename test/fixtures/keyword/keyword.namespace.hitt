@@ -1,0 +1,48 @@
+original file
+-----------------------------------
+const namespace = 0
+namespace.toString()
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>const namespace = 0
+ const
+ ^^^^^
+ source.ks storage.type.constant.ks
+       
+      ^
+      source.ks
+       namespace
+       ^^^^^^^^^
+       source.ks meta.definition.variable.ks variable.other.constant.ks
+                 
+                ^
+                source.ks
+                 =
+                 ^
+                 source.ks keyword.operator.assignment.ks
+                   
+                  ^
+                  source.ks
+                   0
+                   ^
+                   source.ks constant.numeric.decimal.ks
+>
+>namespace.toString()
+ namespace
+ ^^^^^^^^^
+ source.ks variable.other.object.ks
+          .
+          ^
+          source.ks punctuation.accessor.object.ks
+           toString
+           ^^^^^^^^
+           source.ks entity.name.function.ks
+                   (
+                   ^
+                   source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                    )
+                    ^
+                    source.ks punctuation.definition.arguments.end.bracket.round.ks

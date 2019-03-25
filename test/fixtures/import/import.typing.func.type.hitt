@@ -1,0 +1,537 @@
+original file
+-----------------------------------
+type T =
+    func(value: Number): Number |
+    func(value: String): String
+type U =
+    async func(value: Number): Number |
+    async func(value: String): String
+import 'foobar' {
+    foo(...) => f1
+    async bar()    => b1
+    baz(...): T => b2
+    qux(): U => q1
+}
+import 'barfoo' {
+    func foo(...) => f1
+    async func bar()    => b1
+    func baz: T => b2
+    func qux(): U => q1
+}
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>type T =
+ type
+ ^^^^
+ source.ks storage.type.type.ks
+      
+     ^
+     source.ks
+      T
+      ^
+      source.ks entity.name.type.alias.ks
+        
+       ^
+       source.ks
+        =
+        ^
+        source.ks keyword.operator.assignment.ks
+>
+>    func(value: Number): Number |
+     
+ ^^^^
+ source.ks
+     func
+     ^^^^
+     source.ks entity.name.function.ks
+         (
+         ^
+         source.ks punctuation.definition.arguments.begin.bracket.round.ks
+          value
+          ^^^^^
+          source.ks variable.other.ks
+               : 
+               ^^
+               source.ks
+                 Number
+                 ^^^^^^
+                 source.ks variable.other.ks
+                       )
+                       ^
+                       source.ks punctuation.definition.arguments.end.bracket.round.ks
+                        : 
+                        ^^
+                        source.ks
+                          Number
+                          ^^^^^^
+                          source.ks variable.other.ks
+                                 
+                                ^
+                                source.ks
+                                 |
+                                 ^
+                                 source.ks keyword.operator.bitwise.ks
+>
+>    func(value: String): String
+     
+ ^^^^
+ source.ks
+     func
+     ^^^^
+     source.ks entity.name.function.ks
+         (
+         ^
+         source.ks punctuation.definition.arguments.begin.bracket.round.ks
+          value
+          ^^^^^
+          source.ks variable.other.ks
+               : 
+               ^^
+               source.ks
+                 String
+                 ^^^^^^
+                 source.ks variable.other.ks
+                       )
+                       ^
+                       source.ks punctuation.definition.arguments.end.bracket.round.ks
+                        : 
+                        ^^
+                        source.ks
+                          String
+                          ^^^^^^
+                          source.ks variable.other.ks
+>
+>type U =
+ type
+ ^^^^
+ source.ks storage.type.type.ks
+      
+     ^
+     source.ks
+      U
+      ^
+      source.ks entity.name.type.alias.ks
+        
+       ^
+       source.ks
+        =
+        ^
+        source.ks keyword.operator.assignment.ks
+>
+>    async func(value: Number): Number |
+     
+ ^^^^
+ source.ks
+     async
+     ^^^^^
+     source.ks variable.other.ks
+           
+          ^
+          source.ks
+           func
+           ^^^^
+           source.ks entity.name.function.ks
+               (
+               ^
+               source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                value
+                ^^^^^
+                source.ks variable.other.ks
+                     : 
+                     ^^
+                     source.ks
+                       Number
+                       ^^^^^^
+                       source.ks variable.other.ks
+                             )
+                             ^
+                             source.ks punctuation.definition.arguments.end.bracket.round.ks
+                              : 
+                              ^^
+                              source.ks
+                                Number
+                                ^^^^^^
+                                source.ks variable.other.ks
+                                       
+                                      ^
+                                      source.ks
+                                       |
+                                       ^
+                                       source.ks keyword.operator.bitwise.ks
+>
+>    async func(value: String): String
+     
+ ^^^^
+ source.ks
+     async
+     ^^^^^
+     source.ks variable.other.ks
+           
+          ^
+          source.ks
+           func
+           ^^^^
+           source.ks entity.name.function.ks
+               (
+               ^
+               source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                value
+                ^^^^^
+                source.ks variable.other.ks
+                     : 
+                     ^^
+                     source.ks
+                       String
+                       ^^^^^^
+                       source.ks variable.other.ks
+                             )
+                             ^
+                             source.ks punctuation.definition.arguments.end.bracket.round.ks
+                              : 
+                              ^^
+                              source.ks
+                                String
+                                ^^^^^^
+                                source.ks variable.other.ks
+>
+>import 'foobar' {
+ import
+ ^^^^^^
+ source.ks keyword.control.import.ks
+        
+       ^
+       source.ks
+        '
+        ^
+        source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
+         foobar
+         ^^^^^^
+         source.ks string.quoted.single.ks
+               '
+               ^
+               source.ks string.quoted.single.ks punctuation.definition.string.end.ks
+                 
+                ^
+                source.ks
+                 {
+                 ^
+                 source.ks punctuation.definition.import-specification.begin.bracket.curly.ks
+>
+>    foo(...) => f1
+     
+ ^^^^
+ source.ks
+     foo
+     ^^^
+     source.ks entity.name.function.ks
+        (
+        ^
+        source.ks punctuation.definition.parameters.begin.bracket.round.ks
+         ...
+         ^^^
+         source.ks keyword.operator.rest.ks
+            )
+            ^
+            source.ks punctuation.definition.parameters.end.bracket.round.ks
+              
+             ^
+             source.ks
+              =>
+              ^^
+              source.ks keyword.control.dependency.arrow.ks
+                 
+                ^
+                source.ks
+                 f1
+                 ^^
+                 source.ks variable.other.constant.ks
+>
+>    async bar()    => b1
+     
+ ^^^^
+ source.ks
+     async
+     ^^^^^
+     source.ks storage.modifier.async.ks
+           
+          ^
+          source.ks
+           bar
+           ^^^
+           source.ks entity.name.function.ks
+              (
+              ^
+              source.ks punctuation.definition.parameters.begin.bracket.round.ks
+               )
+               ^
+               source.ks punctuation.definition.parameters.end.bracket.round.ks
+                    
+                ^^^^
+                source.ks
+                    =>
+                    ^^
+                    source.ks keyword.control.dependency.arrow.ks
+                       
+                      ^
+                      source.ks
+                       b1
+                       ^^
+                       source.ks variable.other.constant.ks
+>
+>    baz(...): T => b2
+     
+ ^^^^
+ source.ks
+     baz
+     ^^^
+     source.ks entity.name.function.ks
+        (
+        ^
+        source.ks punctuation.definition.parameters.begin.bracket.round.ks
+         ...
+         ^^^
+         source.ks keyword.operator.rest.ks
+            )
+            ^
+            source.ks punctuation.definition.parameters.end.bracket.round.ks
+             :
+             ^
+             source.ks meta.function.return-type.ks keyword.operator.type.annotation.ks
+               
+              ^
+              source.ks meta.function.return-type.ks
+               T
+               ^
+               source.ks meta.function.return-type.ks entity.name.type.ks
+                 
+                ^
+                source.ks
+                 =>
+                 ^^
+                 source.ks keyword.control.dependency.arrow.ks
+                    
+                   ^
+                   source.ks
+                    b2
+                    ^^
+                    source.ks variable.other.constant.ks
+>
+>    qux(): U => q1
+     
+ ^^^^
+ source.ks
+     qux
+     ^^^
+     source.ks entity.name.function.ks
+        (
+        ^
+        source.ks punctuation.definition.parameters.begin.bracket.round.ks
+         )
+         ^
+         source.ks punctuation.definition.parameters.end.bracket.round.ks
+          :
+          ^
+          source.ks meta.function.return-type.ks keyword.operator.type.annotation.ks
+            
+           ^
+           source.ks meta.function.return-type.ks
+            U
+            ^
+            source.ks meta.function.return-type.ks entity.name.type.ks
+              
+             ^
+             source.ks
+              =>
+              ^^
+              source.ks keyword.control.dependency.arrow.ks
+                 
+                ^
+                source.ks
+                 q1
+                 ^^
+                 source.ks variable.other.constant.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.import-specification.end.bracket.curly.ks
+>
+>import 'barfoo' {
+ import
+ ^^^^^^
+ source.ks keyword.control.import.ks
+        
+       ^
+       source.ks
+        '
+        ^
+        source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
+         barfoo
+         ^^^^^^
+         source.ks string.quoted.single.ks
+               '
+               ^
+               source.ks string.quoted.single.ks punctuation.definition.string.end.ks
+                 
+                ^
+                source.ks
+                 {
+                 ^
+                 source.ks punctuation.definition.import-specification.begin.bracket.curly.ks
+>
+>    func foo(...) => f1
+     
+ ^^^^
+ source.ks
+     func
+     ^^^^
+     source.ks storage.type.function.ks
+          
+         ^
+         source.ks
+          foo
+          ^^^
+          source.ks entity.name.function.ks
+             (
+             ^
+             source.ks punctuation.definition.parameters.begin.bracket.round.ks
+              ...
+              ^^^
+              source.ks keyword.operator.rest.ks
+                 )
+                 ^
+                 source.ks punctuation.definition.parameters.end.bracket.round.ks
+                   
+                  ^
+                  source.ks
+                   =>
+                   ^^
+                   source.ks keyword.control.dependency.arrow.ks
+                      
+                     ^
+                     source.ks
+                      f1
+                      ^^
+                      source.ks variable.other.constant.ks
+>
+>    async func bar()    => b1
+     
+ ^^^^
+ source.ks
+     async
+     ^^^^^
+     source.ks storage.modifier.async.ks
+           
+          ^
+          source.ks
+           func
+           ^^^^
+           source.ks storage.type.function.ks
+                
+               ^
+               source.ks
+                bar
+                ^^^
+                source.ks entity.name.function.ks
+                   (
+                   ^
+                   source.ks punctuation.definition.parameters.begin.bracket.round.ks
+                    )
+                    ^
+                    source.ks punctuation.definition.parameters.end.bracket.round.ks
+                         
+                     ^^^^
+                     source.ks
+                         =>
+                         ^^
+                         source.ks keyword.control.dependency.arrow.ks
+                            
+                           ^
+                           source.ks
+                            b1
+                            ^^
+                            source.ks variable.other.constant.ks
+>
+>    func baz: T => b2
+     
+ ^^^^
+ source.ks
+     func
+     ^^^^
+     source.ks storage.type.function.ks
+          
+         ^
+         source.ks
+          baz
+          ^^^
+          source.ks entity.name.function.ks
+             :
+             ^
+             source.ks meta.function.return-type.ks keyword.operator.type.annotation.ks
+               
+              ^
+              source.ks meta.function.return-type.ks
+               T
+               ^
+               source.ks meta.function.return-type.ks entity.name.type.ks
+                 
+                ^
+                source.ks
+                 =>
+                 ^^
+                 source.ks keyword.control.dependency.arrow.ks
+                    
+                   ^
+                   source.ks
+                    b2
+                    ^^
+                    source.ks variable.other.constant.ks
+>
+>    func qux(): U => q1
+     
+ ^^^^
+ source.ks
+     func
+     ^^^^
+     source.ks storage.type.function.ks
+          
+         ^
+         source.ks
+          qux
+          ^^^
+          source.ks entity.name.function.ks
+             (
+             ^
+             source.ks punctuation.definition.parameters.begin.bracket.round.ks
+              )
+              ^
+              source.ks punctuation.definition.parameters.end.bracket.round.ks
+               :
+               ^
+               source.ks meta.function.return-type.ks keyword.operator.type.annotation.ks
+                 
+                ^
+                source.ks meta.function.return-type.ks
+                 U
+                 ^
+                 source.ks meta.function.return-type.ks entity.name.type.ks
+                   
+                  ^
+                  source.ks
+                   =>
+                   ^^
+                   source.ks keyword.control.dependency.arrow.ks
+                      
+                     ^
+                     source.ks
+                      q1
+                      ^^
+                      source.ks variable.other.constant.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.import-specification.end.bracket.curly.ks

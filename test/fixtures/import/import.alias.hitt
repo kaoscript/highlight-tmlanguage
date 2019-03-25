@@ -1,0 +1,96 @@
+original file
+-----------------------------------
+import 'module1' {
+    foo
+}
+import 'module2' {
+    foo => bar
+}
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>import 'module1' {
+ import
+ ^^^^^^
+ source.ks keyword.control.import.ks
+        
+       ^
+       source.ks
+        '
+        ^
+        source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
+         module1
+         ^^^^^^^
+         source.ks string.quoted.single.ks
+                '
+                ^
+                source.ks string.quoted.single.ks punctuation.definition.string.end.ks
+                  
+                 ^
+                 source.ks
+                  {
+                  ^
+                  source.ks punctuation.definition.import-specification.begin.bracket.curly.ks
+>
+>    foo
+     
+ ^^^^
+ source.ks
+     foo
+     ^^^
+     source.ks variable.other.constant.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.import-specification.end.bracket.curly.ks
+>
+>import 'module2' {
+ import
+ ^^^^^^
+ source.ks keyword.control.import.ks
+        
+       ^
+       source.ks
+        '
+        ^
+        source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
+         module2
+         ^^^^^^^
+         source.ks string.quoted.single.ks
+                '
+                ^
+                source.ks string.quoted.single.ks punctuation.definition.string.end.ks
+                  
+                 ^
+                 source.ks
+                  {
+                  ^
+                  source.ks punctuation.definition.import-specification.begin.bracket.curly.ks
+>
+>    foo => bar
+     
+ ^^^^
+ source.ks
+     foo
+     ^^^
+     source.ks variable.other.constant.ks
+         
+        ^
+        source.ks
+         =>
+         ^^
+         source.ks keyword.control.dependency.arrow.ks
+            
+           ^
+           source.ks
+            bar
+            ^^^
+            source.ks variable.other.constant.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.import-specification.end.bracket.curly.ks

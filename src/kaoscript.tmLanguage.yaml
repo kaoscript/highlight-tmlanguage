@@ -17,6 +17,8 @@ patterns:
 - include: '#export-statement'
 - include: '#extern-statement'
 - include: '#extern-require-statement'
+- include: '#import-statement'
+- include: '#include-statement'
 - include: '#require-statement'
 - include: '#require-extern-statement'
 - include: '#require-import-statement'
@@ -70,6 +72,12 @@ repository:
       '0': { name: 'punctuation.definition.block.end.bracket.curly.ks' }
     patterns:
     - include: '#statements'
+  # }}}
+  break-statement: # {{{
+    begin: '^\s*(break)'
+    beginCaptures:
+      '1': { name: 'keyword.control.loop.break.ks' }
+    end: '$'
   # }}}
   class-member: # {{{
     patterns:
@@ -246,16 +254,22 @@ repository:
     - name: constant.language.ks
       match: (?<![$\.])\b(Infinity|NaN)(?!\s*:)\b
   # }}}
+  continue-statement: # {{{
+    begin: '^\s*(continue)'
+    beginCaptures:
+      '1': { name: 'keyword.control.loop.continue.ks' }
+    end: '$'
+  # }}}
   create-expression: # {{{
     patterns:
-    - begin: '(\bnew)\s+({{identifier}})(?=\(|$)'
+    - begin: '(?<![\.\]\)])(\bnew)\s+({{identifier}})(?=\(|$)'
       beginCaptures:
         '1': { name: 'keyword.operator.new.ks' }
         '2': { name: 'entity.name.type.ks' }
       end: '(?<=$|[\)\]\},])'
       patterns:
       - include: '#expression'
-    - begin: '\bnew\b'
+    - begin: '(?<![\.\]\)])\bnew\b'
       beginCaptures:
         '0': { name: 'keyword.operator.new.ks' }
       end: '(?<=$|[\)\]\},])'
@@ -285,7 +299,7 @@ repository:
     - match: '^\s*(else)'
       captures:
         '1': { name: 'keyword.control.conditional.else.ks' }
-    - begin: '\b(?=if)\b'
+    - begin: '(?=\bif\b)'
       end: '(?<=\})'
       patterns:
       - include: '#if-statement-body'
@@ -414,7 +428,7 @@ repository:
       beginCaptures:
         '1': { name: 'storage.modifier.sealed.ks' }
         '2': { name: 'storage.type.class.ks' }
-      end: '(?<=$|\})'
+      end: '(?=[,=\}]|$)'
       patterns:
       - name: 'entity.name.type.class.ks'
         match: '{{identifier}}'
@@ -444,7 +458,7 @@ repository:
     - begin: '\benum\b'
       beginCaptures:
         '0': { name: 'storage.type.enum.ks' }
-      end: '(?<=$|\})'
+      end: '(?=[,=\}]|$)'
       patterns:
       - name: 'entity.name.type.enum.ks'
         match: '{{identifier}}'
@@ -469,7 +483,7 @@ repository:
       beginCaptures:
         '1': { name: 'storage.modifier.async.ks' }
         '2': { name: 'storage.type.function.ks' }
-      end: '$'
+      end: '(?=[,=]|$)'
       patterns:
       - name: 'entity.name.function.ks'
         match: '{{identifier}}'
@@ -480,7 +494,7 @@ repository:
       beginCaptures:
         '1': { name: 'storage.modifier.sealed.ks' }
         '2': { name: 'storage.type.namespace.ks' }
-      end: '(?<=$|\})'
+      end: '(?=[,=\}]|$)'
       patterns:
       - name: 'entity.name.type.namespace.ks'
         match: '{{identifier}}'
@@ -505,10 +519,19 @@ repository:
             patterns:
             - include: '#type'
         - include: '#extern-declarator'
+    - begin: '(?:(\basync)\s+)?({{identifier}})\s*(?=\()'
+      beginCaptures:
+        '1': { name: 'storage.modifier.async.ks' }
+        '2': { name: 'entity.name.function.ks' }
+      end: '(?=[,=]|$)'
+      patterns:
+      - include: '#function-parameters'
+      - include: '#function-return-type'
+      - include: '#function-throwables'
     - begin: '{{identifier}}'
       beginCaptures:
         '0': { name: 'variable.other.constant.ks' }
-      end: '(?=\,|$)'
+      end: '(?=[,=]|$)'
       patterns:
       - name: 'meta.type.annotation.ks'
         begin: '(\:)'
@@ -851,19 +874,110 @@ repository:
       - include: '#class-member'
       - include: '#comment'
   # }}}
-  import-declarator: # {{{
+  import-alias: # {{{
+    begin: '=>'
+    beginCaptures:
+      '0': { name: 'keyword.control.dependency.arrow.ks' }
+    end: '(?=[,\}]|$)'
     patterns:
-    - begin: (?=['"])
-      end: (?<=['"])
+    - name: 'variable.other.constant.ks'
+      match: '{{identifier}}'
+  # }}}
+  import-declarator: # {{{
+    begin: (?=['"])
+    end: (?<=$|\})
+    patterns:
+    - include: '#string'
+    - begin: '\('
+      beginCaptures:
+        '0': { name: 'punctuation.definition.parameters.begin.bracket.round.ks' }
+      end: '\)'
+      endCaptures:
+        '0': { name: 'punctuation.definition.parameters.end.bracket.round.ks' }
       patterns:
-      - include: '#string'
+      - match: '(\bseep)\s+({{identifier}})'
+        captures:
+          '1': { name: 'storage.modifier.seep.ks' }
+          '2': { name: 'variable.other.ks' }
+      - match: '({{identifier}})\s*(:)\s*({{identifier}})'
+        captures:
+          '1': { name: 'variable.other.ks' }
+          '2': { name: 'punctuation.separator.alias.ks' }
+          '3': { name: 'variable.other.ks' }
+      - name: 'variable.other.ks'
+        match: '{{identifier}}'
+      - include: '#comma'
+    - include: '#import-specifier'
     - begin: '\bfor\b'
       beginCaptures:
         '0': { name: 'keyword.control.dependency.for.ks' }
       end: '$'
       patterns:
       - include: '#extern-declarator'
+      - include: '#import-alias'
       - include: '#comma'
+    - begin: '=>'
+      beginCaptures:
+        '0': { name: 'keyword.control.dependency.arrow.ks' }
+      end: '(?<=\}|$)'
+      patterns:
+      - name: 'variable.other.constant.ks'
+        match: '{{identifier}}'
+      - include: '#import-specifier'
+  # }}}
+  import-specifier: # {{{
+    begin: '\{'
+    beginCaptures:
+      '0': { name: 'punctuation.definition.import-specification.begin.bracket.curly.ks' }
+    end: '\}'
+    endCaptures:
+      '0': { name: 'punctuation.definition.import-specification.end.bracket.curly.ks' }
+    patterns:
+    - match: '(\*)\s*(=>)\s*({{identifier}})'
+      captures:
+        '1': { name: 'constant.language.import-all.ks' }
+        '2': { name: 'keyword.control.dependency.arrow.ks' }
+        '3': { name: 'variable.other.constant.ks' }
+    - include: '#extern-declarator'
+    - include: '#import-alias'
+  # }}}
+  import-statement: # {{{
+    begin: '^\s*(import)\s+'
+    beginCaptures:
+      '1': { name: 'keyword.control.import.ks' }
+    end: '(?<=\}|$)'
+    patterns:
+    - begin: '\{'
+      beginCaptures:
+        '0': { name: 'punctuation.definition.import.begin.bracket.curly.ks' }
+      end: '\}'
+      endCaptures:
+        '0': { name: 'punctuation.definition.import.end.bracket.curly.ks' }
+      patterns:
+      - include: '#import-declarator'
+    - include: '#import-declarator'
+  # }}}
+  include-statement: # {{{
+    begin: '^\s*(include(?:\s(again))?)\s+'
+    beginCaptures:
+      '1': { name: 'keyword.control.include.ks' }
+    end: '(?<=\}|$)'
+    patterns:
+    - begin: '\{'
+      beginCaptures:
+        '0': { name: 'punctuation.definition.include.begin.bracket.curly.ks' }
+      end: '\}'
+      endCaptures:
+        '0': { name: 'punctuation.definition.include.end.bracket.curly.ks' }
+      patterns:
+      - begin: (?=['"])
+        end: (?<=['"])
+        patterns:
+        - include: '#string'
+    - begin: (?=['"])
+      end: (?<=['"])
+      patterns:
+      - include: '#string'
   # }}}
   let-statement: # {{{
     begin: '^\s*(let)\s+'
@@ -937,6 +1051,8 @@ repository:
       patterns:
         - include: '#export-statement'
         - include: '#extern-statement'
+        - include: '#import-statement'
+        - include: '#include-statement'
         - include: '#statements'
   # }}}
   number: # {{{
@@ -1247,12 +1363,15 @@ repository:
   # }}}
   statements: # {{{
     patterns:
-    - include: '#attribute'
-    - begin: '^\s*(?=namespace)'
+    - begin: '^\s*(?=namespace)\b'
       end: '(?<=\})'
       patterns:
       - include: '#namespace-statement'
+      - include: '#expression-statement'
+    - include: '#attribute'
+    - include: '#break-statement'
     - include: '#class-statement'
+    - include: '#continue-statement'
     - include: '#const-statement'
     - include: '#delete-statement'
     - include: '#else-statement'

@@ -1,0 +1,54 @@
+original file
+-----------------------------------
+include {
+    './module1'
+    './module2'
+}
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>include {
+ include
+ ^^^^^^^
+ source.ks keyword.control.include.ks
+         
+        ^
+        source.ks
+         {
+         ^
+         source.ks punctuation.definition.include.begin.bracket.curly.ks
+>
+>    './module1'
+     
+ ^^^^
+ source.ks
+     '
+     ^
+     source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
+      ./module1
+      ^^^^^^^^^
+      source.ks string.quoted.single.ks
+               '
+               ^
+               source.ks string.quoted.single.ks punctuation.definition.string.end.ks
+>
+>    './module2'
+     
+ ^^^^
+ source.ks
+     '
+     ^
+     source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
+      ./module2
+      ^^^^^^^^^
+      source.ks string.quoted.single.ks
+               '
+               ^
+               source.ks string.quoted.single.ks punctuation.definition.string.end.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.include.end.bracket.curly.ks

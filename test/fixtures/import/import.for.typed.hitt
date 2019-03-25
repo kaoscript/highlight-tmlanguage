@@ -1,0 +1,66 @@
+original file
+-----------------------------------
+import 'module1' for foobar: {
+    corge()
+}
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>import 'module1' for foobar: {
+ import
+ ^^^^^^
+ source.ks keyword.control.import.ks
+        
+       ^
+       source.ks
+        '
+        ^
+        source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
+         module1
+         ^^^^^^^
+         source.ks string.quoted.single.ks
+                '
+                ^
+                source.ks string.quoted.single.ks punctuation.definition.string.end.ks
+                  
+                 ^
+                 source.ks
+                  for
+                  ^^^
+                  source.ks keyword.control.dependency.for.ks
+                      
+                     ^
+                     source.ks
+                      foobar
+                      ^^^^^^
+                      source.ks variable.other.constant.ks
+                            :
+                            ^
+                            source.ks meta.type.annotation.ks keyword.operator.type.annotation.ks
+                              
+                             ^
+                             source.ks meta.type.annotation.ks
+                              {
+                              ^
+                              source.ks meta.type.annotation.ks punctuation.definition.object.begin.bracket.curly.ks
+>
+>    corge()
+     
+ ^^^^
+ source.ks meta.type.annotation.ks
+     corge
+     ^^^^^
+     source.ks meta.type.annotation.ks entity.name.function.ks
+          (
+          ^
+          source.ks meta.type.annotation.ks punctuation.definition.parameters.begin.bracket.round.ks
+           )
+           ^
+           source.ks meta.type.annotation.ks punctuation.definition.parameters.end.bracket.round.ks
+>
+>}
+ }
+ ^
+ source.ks meta.type.annotation.ks punctuation.definition.object.end.bracket.curly.ks
