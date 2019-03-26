@@ -1,0 +1,87 @@
+original file
+-----------------------------------
+enum Kind {
+    A
+    B
+    C
+}
+let k = Kind:A
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>enum Kind {
+ enum
+ ^^^^
+ source.ks storage.type.enum.ks
+      
+     ^
+     source.ks
+      Kind
+      ^^^^
+      source.ks entity.name.type.enum.ks
+           
+          ^
+          source.ks
+           {
+           ^
+           source.ks punctuation.definition.enum.begin.bracket.curly.ks
+>
+>    A
+     
+ ^^^^
+ source.ks
+     A
+     ^
+     source.ks variable.other.enummember.ks
+>
+>    B
+     
+ ^^^^
+ source.ks
+     B
+     ^
+     source.ks variable.other.enummember.ks
+>
+>    C
+     
+ ^^^^
+ source.ks
+     C
+     ^
+     source.ks variable.other.enummember.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.enum.end.bracket.curly.ks
+>
+>let k = Kind:A
+ let
+ ^^^
+ source.ks storage.type.readwrite.ks
+     
+    ^
+    source.ks
+     k
+     ^
+     source.ks meta.definition.variable.ks variable.other.readwrite.ks
+       
+      ^
+      source.ks
+       =
+       ^
+       source.ks keyword.operator.assignment.ks
+         
+        ^
+        source.ks
+         Kind
+         ^^^^
+         source.ks variable.other.ks
+             :
+             ^
+             source.ks keyword.operator.type-casting.ks
+              A
+              ^
+              source.ks entity.name.type.ks

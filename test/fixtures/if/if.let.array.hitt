@@ -26,7 +26,7 @@ grammar: kaoscript.tmLanguage
         source.ks punctuation.definition.binding-pattern.array.begin.bracket.square.ks
          x
          ^
-         source.ks meta.definition.variable.ks variable.other.readwrite.ks
+         source.ks variable.other.ks
           ,
           ^
           source.ks punctuation.separator.comma.ks
@@ -35,7 +35,7 @@ grammar: kaoscript.tmLanguage
            source.ks
             y
             ^
-            source.ks meta.definition.variable.ks variable.other.readwrite.ks
+            source.ks variable.other.ks
              ,
              ^
              source.ks punctuation.separator.comma.ks
@@ -44,7 +44,7 @@ grammar: kaoscript.tmLanguage
               source.ks
                z
                ^
-               source.ks meta.definition.variable.ks variable.other.readwrite.ks
+               source.ks variable.other.ks
                 ]
                 ^
                 source.ks punctuation.definition.binding-pattern.array.end.bracket.square.ks

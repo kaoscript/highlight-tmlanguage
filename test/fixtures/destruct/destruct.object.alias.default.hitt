@@ -1,0 +1,192 @@
+original file
+-----------------------------------
+let foo = { bar: 'hello', baz: 3 }
+let {bar: a, baz: b} = foo
+console.log(a)
+// <- 'hello'
+console.log(b)
+// <- 3
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>let foo = { bar: 'hello', baz: 3 }
+ let
+ ^^^
+ source.ks storage.type.readwrite.ks
+     
+    ^
+    source.ks
+     foo
+     ^^^
+     source.ks meta.definition.variable.ks variable.other.readwrite.ks
+         
+        ^
+        source.ks
+         =
+         ^
+         source.ks keyword.operator.assignment.ks
+           
+          ^
+          source.ks
+           {
+           ^
+           source.ks punctuation.definition.object.begin.bracket.curly.ks
+             
+            ^
+            source.ks
+             bar
+             ^^^
+             source.ks meta.object.key.ks
+                :
+                ^
+                source.ks punctuation.separator.key-value.ks
+                  
+                 ^
+                 source.ks
+                  '
+                  ^
+                  source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
+                   hello
+                   ^^^^^
+                   source.ks string.quoted.single.ks
+                        '
+                        ^
+                        source.ks string.quoted.single.ks punctuation.definition.string.end.ks
+                         ,
+                         ^
+                         source.ks punctuation.separator.comma.ks
+                           
+                          ^
+                          source.ks
+                           baz
+                           ^^^
+                           source.ks meta.object.key.ks
+                              :
+                              ^
+                              source.ks punctuation.separator.key-value.ks
+                                
+                               ^
+                               source.ks
+                                3
+                                ^
+                                source.ks constant.numeric.decimal.ks
+                                  
+                                 ^
+                                 source.ks
+                                  }
+                                  ^
+                                  source.ks punctuation.definition.object.end.bracket.curly.ks
+>
+>let {bar: a, baz: b} = foo
+ let
+ ^^^
+ source.ks storage.type.readwrite.ks
+     
+    ^
+    source.ks
+     {
+     ^
+     source.ks punctuation.definition.binding-pattern.object.begin.bracket.curly.ks
+      bar
+      ^^^
+      source.ks variable.other.ks
+         :
+         ^
+         source.ks punctuation.separator.key-value.ks
+           
+          ^
+          source.ks
+           a
+           ^
+           source.ks variable.other.ks
+            ,
+            ^
+            source.ks punctuation.separator.comma.ks
+              
+             ^
+             source.ks
+              baz
+              ^^^
+              source.ks variable.other.ks
+                 :
+                 ^
+                 source.ks punctuation.separator.key-value.ks
+                   
+                  ^
+                  source.ks
+                   b
+                   ^
+                   source.ks variable.other.ks
+                    }
+                    ^
+                    source.ks punctuation.definition.binding-pattern.object.end.bracket.curly.ks
+                      
+                     ^
+                     source.ks
+                      =
+                      ^
+                      source.ks keyword.operator.assignment.ks
+                        
+                       ^
+                       source.ks
+                        foo
+                        ^^^
+                        source.ks variable.other.ks
+>
+>console.log(a)
+ console
+ ^^^^^^^
+ source.ks variable.other.object.ks
+        .
+        ^
+        source.ks punctuation.accessor.object.ks
+         log
+         ^^^
+         source.ks entity.name.function.ks
+            (
+            ^
+            source.ks punctuation.definition.arguments.begin.bracket.round.ks
+             a
+             ^
+             source.ks variable.other.ks
+              )
+              ^
+              source.ks punctuation.definition.arguments.end.bracket.round.ks
+>
+>// <- 'hello'
+ //
+ ^^
+ source.ks comment.line.double-slash.ks punctuation.definition.comment.ks
+    <- 'hello'
+   ^^^^^^^^^^^
+   source.ks comment.line.double-slash.ks
+>
+>console.log(b)
+ console
+ ^^^^^^^
+ source.ks variable.other.object.ks
+        .
+        ^
+        source.ks punctuation.accessor.object.ks
+         log
+         ^^^
+         source.ks entity.name.function.ks
+            (
+            ^
+            source.ks punctuation.definition.arguments.begin.bracket.round.ks
+             b
+             ^
+             source.ks variable.other.ks
+              )
+              ^
+              source.ks punctuation.definition.arguments.end.bracket.round.ks
+>
+>// <- 3
+ //
+ ^^
+ source.ks comment.line.double-slash.ks punctuation.definition.comment.ks
+    <- 3
+   ^^^^^
+   source.ks comment.line.double-slash.ks

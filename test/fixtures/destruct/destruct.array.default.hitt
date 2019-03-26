@@ -1,0 +1,105 @@
+original file
+-----------------------------------
+let arr = [1, '', true]
+let [a, b, c] = arr
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>let arr = [1, '', true]
+ let
+ ^^^
+ source.ks storage.type.readwrite.ks
+     
+    ^
+    source.ks
+     arr
+     ^^^
+     source.ks meta.definition.variable.ks variable.other.readwrite.ks
+         
+        ^
+        source.ks
+         =
+         ^
+         source.ks keyword.operator.assignment.ks
+           
+          ^
+          source.ks
+           [
+           ^
+           source.ks punctuation.definition.array.begin.bracket.square.ks
+            1
+            ^
+            source.ks constant.numeric.decimal.ks
+             ,
+             ^
+             source.ks punctuation.separator.comma.ks
+               
+              ^
+              source.ks
+               '
+               ^
+               source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
+                '
+                ^
+                source.ks string.quoted.single.ks punctuation.definition.string.end.ks
+                 ,
+                 ^
+                 source.ks punctuation.separator.comma.ks
+                   
+                  ^
+                  source.ks
+                   true
+                   ^^^^
+                   source.ks constant.language.boolean.true.ks
+                       ]
+                       ^
+                       source.ks punctuation.definition.array.end.bracket.square.ks
+>
+>let [a, b, c] = arr
+ let
+ ^^^
+ source.ks storage.type.readwrite.ks
+     
+    ^
+    source.ks
+     [
+     ^
+     source.ks punctuation.definition.binding-pattern.array.begin.bracket.square.ks
+      a
+      ^
+      source.ks variable.other.ks
+       ,
+       ^
+       source.ks punctuation.separator.comma.ks
+         
+        ^
+        source.ks
+         b
+         ^
+         source.ks variable.other.ks
+          ,
+          ^
+          source.ks punctuation.separator.comma.ks
+            
+           ^
+           source.ks
+            c
+            ^
+            source.ks variable.other.ks
+             ]
+             ^
+             source.ks punctuation.definition.binding-pattern.array.end.bracket.square.ks
+               
+              ^
+              source.ks
+               =
+               ^
+               source.ks keyword.operator.assignment.ks
+                 
+                ^
+                source.ks
+                 arr
+                 ^^^
+                 source.ks variable.other.ks

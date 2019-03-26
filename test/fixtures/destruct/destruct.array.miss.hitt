@@ -1,0 +1,138 @@
+original file
+-----------------------------------
+let [,,a,b] = [1,2,3,4,5]
+console.log(a)
+// <- 3
+console.log(b)
+// <- 4
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>let [,,a,b] = [1,2,3,4,5]
+ let
+ ^^^
+ source.ks storage.type.readwrite.ks
+     
+    ^
+    source.ks
+     [
+     ^
+     source.ks punctuation.definition.binding-pattern.array.begin.bracket.square.ks
+      ,
+      ^
+      source.ks punctuation.separator.comma.ks
+       ,
+       ^
+       source.ks punctuation.separator.comma.ks
+        a
+        ^
+        source.ks variable.other.ks
+         ,
+         ^
+         source.ks punctuation.separator.comma.ks
+          b
+          ^
+          source.ks variable.other.ks
+           ]
+           ^
+           source.ks punctuation.definition.binding-pattern.array.end.bracket.square.ks
+             
+            ^
+            source.ks
+             =
+             ^
+             source.ks keyword.operator.assignment.ks
+               
+              ^
+              source.ks
+               [
+               ^
+               source.ks punctuation.definition.array.begin.bracket.square.ks
+                1
+                ^
+                source.ks constant.numeric.decimal.ks
+                 ,
+                 ^
+                 source.ks punctuation.separator.comma.ks
+                  2
+                  ^
+                  source.ks constant.numeric.decimal.ks
+                   ,
+                   ^
+                   source.ks punctuation.separator.comma.ks
+                    3
+                    ^
+                    source.ks constant.numeric.decimal.ks
+                     ,
+                     ^
+                     source.ks punctuation.separator.comma.ks
+                      4
+                      ^
+                      source.ks constant.numeric.decimal.ks
+                       ,
+                       ^
+                       source.ks punctuation.separator.comma.ks
+                        5
+                        ^
+                        source.ks constant.numeric.decimal.ks
+                         ]
+                         ^
+                         source.ks punctuation.definition.array.end.bracket.square.ks
+>
+>console.log(a)
+ console
+ ^^^^^^^
+ source.ks variable.other.object.ks
+        .
+        ^
+        source.ks punctuation.accessor.object.ks
+         log
+         ^^^
+         source.ks entity.name.function.ks
+            (
+            ^
+            source.ks punctuation.definition.arguments.begin.bracket.round.ks
+             a
+             ^
+             source.ks variable.other.ks
+              )
+              ^
+              source.ks punctuation.definition.arguments.end.bracket.round.ks
+>
+>// <- 3
+ //
+ ^^
+ source.ks comment.line.double-slash.ks punctuation.definition.comment.ks
+    <- 3
+   ^^^^^
+   source.ks comment.line.double-slash.ks
+>
+>console.log(b)
+ console
+ ^^^^^^^
+ source.ks variable.other.object.ks
+        .
+        ^
+        source.ks punctuation.accessor.object.ks
+         log
+         ^^^
+         source.ks entity.name.function.ks
+            (
+            ^
+            source.ks punctuation.definition.arguments.begin.bracket.round.ks
+             b
+             ^
+             source.ks variable.other.ks
+              )
+              ^
+              source.ks punctuation.definition.arguments.end.bracket.round.ks
+>
+>// <- 4
+ //
+ ^^
+ source.ks comment.line.double-slash.ks punctuation.definition.comment.ks
+    <- 4
+   ^^^^^
+   source.ks comment.line.double-slash.ks

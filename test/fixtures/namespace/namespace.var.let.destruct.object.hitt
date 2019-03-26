@@ -129,10 +129,10 @@ grammar: kaoscript.tmLanguage
         source.ks
          {
          ^
-         source.ks punctuation.definition.binding-pattern.object.begin.bracket.square.ks
+         source.ks punctuation.definition.binding-pattern.object.begin.bracket.curly.ks
           gender
           ^^^^^^
-          source.ks meta.definition.variable.ks variable.other.readwrite.ks
+          source.ks variable.other.ks
                 ,
                 ^
                 source.ks punctuation.separator.comma.ks
@@ -141,10 +141,10 @@ grammar: kaoscript.tmLanguage
                  source.ks
                   age
                   ^^^
-                  source.ks meta.definition.variable.ks variable.other.readwrite.ks
+                  source.ks variable.other.ks
                      }
                      ^
-                     source.ks punctuation.definition.binding-pattern.object.end.bracket.square.ks
+                     source.ks punctuation.definition.binding-pattern.object.end.bracket.curly.ks
                        
                       ^
                       source.ks

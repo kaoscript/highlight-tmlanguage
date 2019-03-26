@@ -1,0 +1,135 @@
+original file
+-----------------------------------
+enum CardSuit<string> {
+    Clubs
+    Diamonds
+    Hearts
+    Spades
+}
+let card = CardSuit::Clubs
+console.log(card)
+// <- clubs
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>enum CardSuit<string> {
+ enum
+ ^^^^
+ source.ks storage.type.enum.ks
+      
+     ^
+     source.ks
+      CardSuit
+      ^^^^^^^^
+      source.ks entity.name.type.enum.ks
+              <
+              ^
+              source.ks punctuation.definition.typeparameters.begin.ks
+               string
+               ^^^^^^
+               source.ks support.type.primitive.ks
+                     >
+                     ^
+                     source.ks punctuation.definition.typeparameters.end.ks
+                       
+                      ^
+                      source.ks
+                       {
+                       ^
+                       source.ks punctuation.definition.enum.begin.bracket.curly.ks
+>
+>    Clubs
+     
+ ^^^^
+ source.ks
+     Clubs
+     ^^^^^
+     source.ks variable.other.enummember.ks
+>
+>    Diamonds
+     
+ ^^^^
+ source.ks
+     Diamonds
+     ^^^^^^^^
+     source.ks variable.other.enummember.ks
+>
+>    Hearts
+     
+ ^^^^
+ source.ks
+     Hearts
+     ^^^^^^
+     source.ks variable.other.enummember.ks
+>
+>    Spades
+     
+ ^^^^
+ source.ks
+     Spades
+     ^^^^^^
+     source.ks variable.other.enummember.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.enum.end.bracket.curly.ks
+>
+>let card = CardSuit::Clubs
+ let
+ ^^^
+ source.ks storage.type.readwrite.ks
+     
+    ^
+    source.ks
+     card
+     ^^^^
+     source.ks meta.definition.variable.ks variable.other.readwrite.ks
+          
+         ^
+         source.ks
+          =
+          ^
+          source.ks keyword.operator.assignment.ks
+            
+           ^
+           source.ks
+            CardSuit
+            ^^^^^^^^
+            source.ks variable.other.enum.ks
+                    ::
+                    ^^
+                    source.ks punctuation.accessor.enum.ks
+                      Clubs
+                      ^^^^^
+                      source.ks variable.other.property.enum.ks
+>
+>console.log(card)
+ console
+ ^^^^^^^
+ source.ks variable.other.object.ks
+        .
+        ^
+        source.ks punctuation.accessor.object.ks
+         log
+         ^^^
+         source.ks entity.name.function.ks
+            (
+            ^
+            source.ks punctuation.definition.arguments.begin.bracket.round.ks
+             card
+             ^^^^
+             source.ks variable.other.ks
+                 )
+                 ^
+                 source.ks punctuation.definition.arguments.end.bracket.round.ks
+>
+>// <- clubs
+ //
+ ^^
+ source.ks comment.line.double-slash.ks punctuation.definition.comment.ks
+    <- clubs
+   ^^^^^^^^^
+   source.ks comment.line.double-slash.ks

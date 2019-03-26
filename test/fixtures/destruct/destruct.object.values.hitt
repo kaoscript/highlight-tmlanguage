@@ -1,0 +1,267 @@
+original file
+-----------------------------------
+let {foo=3} = { foo: 2 }
+console.log(foo)
+// <- 2
+let {foo=3} = { foo: undefined }
+console.log(foo)
+// <- 3
+let {foo=3} = { bar: 2 }
+console.log(foo)
+// <- 3
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>let {foo=3} = { foo: 2 }
+ let
+ ^^^
+ source.ks storage.type.readwrite.ks
+     
+    ^
+    source.ks
+     {
+     ^
+     source.ks punctuation.definition.binding-pattern.object.begin.bracket.curly.ks
+      foo
+      ^^^
+      source.ks variable.other.ks
+         =
+         ^
+         source.ks keyword.operator.assignment.ks
+          3
+          ^
+          source.ks constant.numeric.decimal.ks
+           }
+           ^
+           source.ks punctuation.definition.binding-pattern.object.end.bracket.curly.ks
+             
+            ^
+            source.ks
+             =
+             ^
+             source.ks keyword.operator.assignment.ks
+               
+              ^
+              source.ks
+               {
+               ^
+               source.ks punctuation.definition.object.begin.bracket.curly.ks
+                 
+                ^
+                source.ks
+                 foo
+                 ^^^
+                 source.ks meta.object.key.ks
+                    :
+                    ^
+                    source.ks punctuation.separator.key-value.ks
+                      
+                     ^
+                     source.ks
+                      2
+                      ^
+                      source.ks constant.numeric.decimal.ks
+                        
+                       ^
+                       source.ks
+                        }
+                        ^
+                        source.ks punctuation.definition.object.end.bracket.curly.ks
+>
+>console.log(foo)
+ console
+ ^^^^^^^
+ source.ks variable.other.object.ks
+        .
+        ^
+        source.ks punctuation.accessor.object.ks
+         log
+         ^^^
+         source.ks entity.name.function.ks
+            (
+            ^
+            source.ks punctuation.definition.arguments.begin.bracket.round.ks
+             foo
+             ^^^
+             source.ks variable.other.ks
+                )
+                ^
+                source.ks punctuation.definition.arguments.end.bracket.round.ks
+>
+>// <- 2
+ //
+ ^^
+ source.ks comment.line.double-slash.ks punctuation.definition.comment.ks
+    <- 2
+   ^^^^^
+   source.ks comment.line.double-slash.ks
+>
+>let {foo=3} = { foo: undefined }
+ let
+ ^^^
+ source.ks storage.type.readwrite.ks
+     
+    ^
+    source.ks
+     {
+     ^
+     source.ks punctuation.definition.binding-pattern.object.begin.bracket.curly.ks
+      foo
+      ^^^
+      source.ks variable.other.ks
+         =
+         ^
+         source.ks keyword.operator.assignment.ks
+          3
+          ^
+          source.ks constant.numeric.decimal.ks
+           }
+           ^
+           source.ks punctuation.definition.binding-pattern.object.end.bracket.curly.ks
+             
+            ^
+            source.ks
+             =
+             ^
+             source.ks keyword.operator.assignment.ks
+               
+              ^
+              source.ks
+               {
+               ^
+               source.ks punctuation.definition.object.begin.bracket.curly.ks
+                 
+                ^
+                source.ks
+                 foo
+                 ^^^
+                 source.ks meta.object.key.ks
+                    :
+                    ^
+                    source.ks punctuation.separator.key-value.ks
+                      
+                     ^
+                     source.ks
+                      undefined
+                      ^^^^^^^^^
+                      source.ks variable.other.ks
+                                
+                               ^
+                               source.ks
+                                }
+                                ^
+                                source.ks punctuation.definition.object.end.bracket.curly.ks
+>
+>console.log(foo)
+ console
+ ^^^^^^^
+ source.ks variable.other.object.ks
+        .
+        ^
+        source.ks punctuation.accessor.object.ks
+         log
+         ^^^
+         source.ks entity.name.function.ks
+            (
+            ^
+            source.ks punctuation.definition.arguments.begin.bracket.round.ks
+             foo
+             ^^^
+             source.ks variable.other.ks
+                )
+                ^
+                source.ks punctuation.definition.arguments.end.bracket.round.ks
+>
+>// <- 3
+ //
+ ^^
+ source.ks comment.line.double-slash.ks punctuation.definition.comment.ks
+    <- 3
+   ^^^^^
+   source.ks comment.line.double-slash.ks
+>
+>let {foo=3} = { bar: 2 }
+ let
+ ^^^
+ source.ks storage.type.readwrite.ks
+     
+    ^
+    source.ks
+     {
+     ^
+     source.ks punctuation.definition.binding-pattern.object.begin.bracket.curly.ks
+      foo
+      ^^^
+      source.ks variable.other.ks
+         =
+         ^
+         source.ks keyword.operator.assignment.ks
+          3
+          ^
+          source.ks constant.numeric.decimal.ks
+           }
+           ^
+           source.ks punctuation.definition.binding-pattern.object.end.bracket.curly.ks
+             
+            ^
+            source.ks
+             =
+             ^
+             source.ks keyword.operator.assignment.ks
+               
+              ^
+              source.ks
+               {
+               ^
+               source.ks punctuation.definition.object.begin.bracket.curly.ks
+                 
+                ^
+                source.ks
+                 bar
+                 ^^^
+                 source.ks meta.object.key.ks
+                    :
+                    ^
+                    source.ks punctuation.separator.key-value.ks
+                      
+                     ^
+                     source.ks
+                      2
+                      ^
+                      source.ks constant.numeric.decimal.ks
+                        
+                       ^
+                       source.ks
+                        }
+                        ^
+                        source.ks punctuation.definition.object.end.bracket.curly.ks
+>
+>console.log(foo)
+ console
+ ^^^^^^^
+ source.ks variable.other.object.ks
+        .
+        ^
+        source.ks punctuation.accessor.object.ks
+         log
+         ^^^
+         source.ks entity.name.function.ks
+            (
+            ^
+            source.ks punctuation.definition.arguments.begin.bracket.round.ks
+             foo
+             ^^^
+             source.ks variable.other.ks
+                )
+                ^
+                source.ks punctuation.definition.arguments.end.bracket.round.ks
+>
+>// <- 3
+ //
+ ^^
+ source.ks comment.line.double-slash.ks punctuation.definition.comment.ks
+    <- 3
+   ^^^^^
+   source.ks comment.line.double-slash.ks

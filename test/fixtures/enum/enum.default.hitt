@@ -1,0 +1,120 @@
+original file
+-----------------------------------
+enum Color {
+    Red
+    Green
+    Blue
+}
+enum Color {
+    DarkRed = 3
+    DarkGreen
+    DarkBlue
+}
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>enum Color {
+ enum
+ ^^^^
+ source.ks storage.type.enum.ks
+      
+     ^
+     source.ks
+      Color
+      ^^^^^
+      source.ks entity.name.type.enum.ks
+            
+           ^
+           source.ks
+            {
+            ^
+            source.ks punctuation.definition.enum.begin.bracket.curly.ks
+>
+>    Red
+     
+ ^^^^
+ source.ks
+     Red
+     ^^^
+     source.ks variable.other.enummember.ks
+>
+>    Green
+     
+ ^^^^
+ source.ks
+     Green
+     ^^^^^
+     source.ks variable.other.enummember.ks
+>
+>    Blue
+     
+ ^^^^
+ source.ks
+     Blue
+     ^^^^
+     source.ks variable.other.enummember.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.enum.end.bracket.curly.ks
+>
+>enum Color {
+ enum
+ ^^^^
+ source.ks storage.type.enum.ks
+      
+     ^
+     source.ks
+      Color
+      ^^^^^
+      source.ks entity.name.type.enum.ks
+            
+           ^
+           source.ks
+            {
+            ^
+            source.ks punctuation.definition.enum.begin.bracket.curly.ks
+>
+>    DarkRed = 3
+     
+ ^^^^
+ source.ks
+     DarkRed
+     ^^^^^^^
+     source.ks variable.other.enummember.ks
+             
+            ^
+            source.ks
+             =
+             ^
+             source.ks keyword.operator.assignment.ks
+               
+              ^
+              source.ks
+               3
+               ^
+               source.ks constant.numeric.decimal.ks
+>
+>    DarkGreen
+     
+ ^^^^
+ source.ks
+     DarkGreen
+     ^^^^^^^^^
+     source.ks variable.other.enummember.ks
+>
+>    DarkBlue
+     
+ ^^^^
+ source.ks
+     DarkBlue
+     ^^^^^^^^
+     source.ks variable.other.enummember.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.enum.end.bracket.curly.ks

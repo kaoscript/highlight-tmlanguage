@@ -64,6 +64,63 @@ repository:
     patterns:
     - include: '#string'
   # }}}
+  binding-array: # {{{
+    begin: '\['
+    beginCaptures:
+      '0': { name: 'punctuation.definition.binding-pattern.array.begin.bracket.square.ks' }
+    end: '\]'
+    endCaptures:
+      '0': { name: 'punctuation.definition.binding-pattern.array.end.bracket.square.ks' }
+    patterns:
+    - name: 'variable.other.ks'
+      match: '{{identifier}}'
+    - begin: '='
+      beginCaptures:
+        '0': { name: 'keyword.operator.assignment.ks' }
+      end: '(?=[\},])'
+      patterns:
+      - include: '#expression'
+    - name: 'keyword.operator.rest.ks'
+      match: '\.\.\.'
+    - include: '#comma'
+  # }}}
+  binding-object: # {{{
+    begin: '\{'
+    beginCaptures:
+      '0': { name: 'punctuation.definition.binding-pattern.object.begin.bracket.curly.ks' }
+    end: '\}'
+    endCaptures:
+      '0': { name: 'punctuation.definition.binding-pattern.object.end.bracket.curly.ks' }
+    patterns:
+    - name: 'variable.other.ks'
+      match: '{{identifier}}'
+    - begin: '='
+      beginCaptures:
+        '0': { name: 'keyword.operator.assignment.ks' }
+      end: '(?=[\},])'
+      patterns:
+      - include: '#expression'
+    - name: 'meta.object-literal.key.ks'
+      begin: (?=['"`\[])
+      end: (?=:)
+      patterns:
+      - include: '#expression'
+    - begin: ':'
+      beginCaptures:
+        '0': { name: 'punctuation.separator.key-value.ks' }
+      end: '(?=[\},$])'
+      patterns:
+      - name: 'variable.other.ks'
+        match: '{{identifier}}'
+      - begin: '='
+        beginCaptures:
+          '0': { name: 'keyword.operator.assignment.ks' }
+        end: '(?=[\},])'
+        patterns:
+        - include: '#expression'
+      - include: '#binding-object'
+    - include: '#comma'
+  # }}}
   block: # {{{
     begin: '\{'
     beginCaptures:
@@ -220,32 +277,34 @@ repository:
   # }}}
   const-statement-variable: # {{{
     patterns:
-      - name: 'meta.definition.variable.ks variable.other.constant.ks'
-        match: '{{identifier}}'
-      - begin: '\['
-        beginCaptures:
-          '0': { name: 'punctuation.definition.binding-pattern.array.begin.bracket.square.ks' }
-        end: '\]'
-        endCaptures:
-          '0': { name: 'punctuation.definition.binding-pattern.array.end.bracket.square.ks' }
-        patterns:
-          - include: '#const-statement-variable'
-      - begin: '\{'
-        beginCaptures:
-          '0': { name: 'punctuation.definition.binding-pattern.object.begin.bracket.square.ks' }
-        end: '\}'
-        endCaptures:
-          '0': { name: 'punctuation.definition.binding-pattern.object.end.bracket.square.ks' }
-        patterns:
-          - include: '#const-statement-variable'
-      - name: 'meta.type.annotation.ks'
-        begin: '(\:)'
-        beginCaptures:
-          '1': { name: 'keyword.operator.type.annotation.ks' }
-        end: '$|(?=\s*\=)'
-        patterns:
-        - include: '#type'
-      - include: '#comma'
+    - include: '#binding-array'
+    - include: '#binding-object'
+    - name: 'meta.definition.variable.ks variable.other.constant.ks'
+      match: '{{identifier}}'
+      # - begin: '\['
+      #   beginCaptures:
+      #     '0': { name: 'punctuation.definition.binding-pattern.array.begin.bracket.square.ks' }
+      #   end: '\]'
+      #   endCaptures:
+      #     '0': { name: 'punctuation.definition.binding-pattern.array.end.bracket.square.ks' }
+      #   patterns:
+      #     - include: '#const-statement-variable'
+      # - begin: '\{'
+      #   beginCaptures:
+      #     '0': { name: 'punctuation.definition.binding-pattern.object.begin.bracket.square.ks' }
+      #   end: '\}'
+      #   endCaptures:
+      #     '0': { name: 'punctuation.definition.binding-pattern.object.end.bracket.square.ks' }
+      #   patterns:
+      #     - include: '#const-statement-variable'
+    - name: 'meta.type.annotation.ks'
+      begin: '(\:)'
+      beginCaptures:
+        '1': { name: 'keyword.operator.type.annotation.ks' }
+      end: '$|(?=\s*\=)'
+      patterns:
+      - include: '#type'
+    - include: '#comma'
   # }}}
   constant: # {{{
     patterns:
@@ -303,6 +362,14 @@ repository:
     - name: 'entity.name.type.ks'
       match: '\b{{identifier}}\b'
   # }}}
+  do-statement: # {{{
+    begin: '^\s*(do)\b'
+    beginCaptures:
+        '1': { name: 'keyword.control.loop.do.ks' }
+    end: '(?<=\})'
+    patterns:
+    - include: '#block'
+  # }}}
   else-statement: # {{{
     begin: '^\s*(else\b)(?=\s*\{|$)'
     beginCaptures:
@@ -355,6 +422,12 @@ repository:
       patterns:
       - name: 'variable.other.enummember.ks'
         match: '{{identifier}}'
+      - begin: '='
+        beginCaptures:
+          '0': { name: 'keyword.operator.assignment.ks' }
+        end: '$'
+        patterns:
+        - include: '#expression'
   # }}}
   export-declarator: # {{{
     patterns:
@@ -745,9 +818,9 @@ repository:
         end: '(?=\s*[\=\),])'
         patterns:
         - include: '#type'
-      - begin: '(\=)'
+      - begin: '\='
         beginCaptures:
-          '1': { name: 'keyword.operator.assignment.ks' }
+          '0': { name: 'keyword.operator.assignment.ks' }
         end: (?=,|\))
         patterns:
         - include: '#expression'
@@ -891,13 +964,13 @@ repository:
       beginCaptures:
         '1': { name: 'keyword.control.conditional.if.ks' }
         '2': { name: 'storage.type.readwrite.ks' }
-        '3': { name: 'punctuation.definition.binding-pattern.object.begin.bracket.square.ks' }
+        '3': { name: 'punctuation.definition.binding-pattern.object.begin.bracket.curly.ks' }
       end: '(?=\{)'
       patterns:
       - begin: '(?<=\{)'
         end: '\}'
         endCaptures:
-          '0': { name: 'punctuation.definition.binding-pattern.object.end.bracket.square.ks' }
+          '0': { name: 'punctuation.definition.binding-pattern.object.end.bracket.curly.ks' }
         patterns:
           - include: '#let-statement-variable'
       - begin: '(\:?\=)'
@@ -1097,32 +1170,18 @@ repository:
   # }}}
   let-statement-variable: # {{{
     patterns:
-      - name: 'meta.definition.variable.ks variable.other.readwrite.ks'
-        match: '{{identifier}}'
-      - begin: '\['
-        beginCaptures:
-          '0': { name: 'punctuation.definition.binding-pattern.array.begin.bracket.square.ks' }
-        end: '\]'
-        endCaptures:
-          '0': { name: 'punctuation.definition.binding-pattern.array.end.bracket.square.ks' }
-        patterns:
-          - include: '#let-statement-variable'
-      - begin: '\{'
-        beginCaptures:
-          '0': { name: 'punctuation.definition.binding-pattern.object.begin.bracket.square.ks' }
-        end: '\}'
-        endCaptures:
-          '0': { name: 'punctuation.definition.binding-pattern.object.end.bracket.square.ks' }
-        patterns:
-          - include: '#let-statement-variable'
-      - name: 'meta.type.annotation.ks'
-        begin: '(:)(?!=)'
-        beginCaptures:
-          '1': { name: 'keyword.operator.type.annotation.ks' }
-        end: '$|(?=\s*\:?\=)'
-        patterns:
-        - include: '#type'
-      - include: '#comma'
+    - name: 'meta.definition.variable.ks variable.other.readwrite.ks'
+      match: '{{identifier}}'
+    - include: '#binding-array'
+    - include: '#binding-object'
+    - name: 'meta.type.annotation.ks'
+      begin: '(:)(?!=)'
+      beginCaptures:
+        '1': { name: 'keyword.operator.type.annotation.ks' }
+      end: '$|(?=\s*\:?\=)'
+      patterns:
+      - include: '#type'
+    - include: '#comma'
   # }}}
   namespace-statement: # {{{
     begin: '(\bnamespace){{match-identifier}}'
@@ -1469,6 +1528,7 @@ repository:
     - include: '#break-statement'
     - include: '#continue-statement'
     - include: '#delete-statement'
+    - include: '#do-statement'
     - include: '#else-statement'
     - include: '#else-if-statement'
     - include: '#for-statement'
