@@ -1,0 +1,120 @@
+original file
+-----------------------------------
+export func hello() => 'Hello :)'
+let bar = 'I\'m bar!'
+export bar
+export bar => qux
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>export func hello() => 'Hello :)'
+ export
+ ^^^^^^
+ source.ks keyword.control.export.ks
+        
+       ^
+       source.ks
+        func
+        ^^^^
+        source.ks storage.type.function.ks
+             
+            ^
+            source.ks
+             hello
+             ^^^^^
+             source.ks entity.name.function.ks
+                  (
+                  ^
+                  source.ks punctuation.definition.parameters.begin.bracket.round.ks
+                   )
+                   ^
+                   source.ks punctuation.definition.parameters.end.bracket.round.ks
+                     
+                    ^
+                    source.ks
+                     =>
+                     ^^
+                     source.ks storage.type.function.arrow.ks
+                        
+                       ^
+                       source.ks
+                        '
+                        ^
+                        source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
+                         Hello :)
+                         ^^^^^^^^
+                         source.ks string.quoted.single.ks
+                                 '
+                                 ^
+                                 source.ks string.quoted.single.ks punctuation.definition.string.end.ks
+>
+>let bar = 'I\'m bar!'
+ let
+ ^^^
+ source.ks storage.type.readwrite.ks
+     
+    ^
+    source.ks
+     bar
+     ^^^
+     source.ks meta.definition.variable.ks variable.other.readwrite.ks
+         
+        ^
+        source.ks
+         =
+         ^
+         source.ks keyword.operator.assignment.ks
+           
+          ^
+          source.ks
+           '
+           ^
+           source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
+            I
+            ^
+            source.ks string.quoted.single.ks
+             \'
+             ^^
+             source.ks string.quoted.single.ks constant.character.escape.ks
+               m bar!
+               ^^^^^^
+               source.ks string.quoted.single.ks
+                     '
+                     ^
+                     source.ks string.quoted.single.ks punctuation.definition.string.end.ks
+>
+>export bar
+ export
+ ^^^^^^
+ source.ks keyword.control.export.ks
+        
+       ^
+       source.ks
+        bar
+        ^^^
+        source.ks variable.other.ks
+>
+>export bar => qux
+ export
+ ^^^^^^
+ source.ks keyword.control.export.ks
+        
+       ^
+       source.ks
+        bar
+        ^^^
+        source.ks variable.other.ks
+            
+           ^
+           source.ks
+            =>
+            ^^
+            source.ks keyword.control.export.arrow.ks
+               
+              ^
+              source.ks
+               qux
+               ^^^
+               source.ks variable.other.ks

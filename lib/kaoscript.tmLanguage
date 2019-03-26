@@ -390,15 +390,20 @@
       <key>class-statement</key>
       <dict>
         <key>begin</key>
-        <string>^\s*(?:(abstract)\s+)?(class)\s+(?=[_$[:alpha:]])</string>
+        <string>\b(?:(sealed)\s+)?(?:(abstract)\s+)?(class)\s+(?=[_$[:alpha:]])</string>
         <key>beginCaptures</key>
         <dict>
           <key>1</key>
           <dict>
             <key>name</key>
-            <string>storage.modifier.abstract.ks</string>
+            <string>storage.modifier.sealed.ks</string>
           </dict>
           <key>2</key>
+          <dict>
+            <key>name</key>
+            <string>storage.modifier.abstract.ks</string>
+          </dict>
+          <key>3</key>
           <dict>
             <key>name</key>
             <string>storage.type.class.ks</string>
@@ -620,7 +625,7 @@
       <key>const-statement</key>
       <dict>
         <key>begin</key>
-        <string>^\s*(const)\s+</string>
+        <string>\b(const)\s+</string>
         <key>beginCaptures</key>
         <dict>
           <key>1</key>
@@ -1011,7 +1016,7 @@
       <key>enum-statement</key>
       <dict>
         <key>begin</key>
-        <string>^\s*(enum)\s+([_$[:alpha:]][_$[:alnum:]]*)</string>
+        <string>\b(enum)\s+([_$[:alpha:]][_$[:alnum:]]*)</string>
         <key>beginCaptures</key>
         <dict>
           <key>1</key>
@@ -1091,10 +1096,223 @@
           </dict>
         </array>
       </dict>
+      <key>export-declarator</key>
+      <dict>
+        <key>patterns</key>
+        <array>
+          <dict>
+            <key>include</key>
+            <string>#class-statement</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#const-statement</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#enum-statement</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#function-statement</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#let-statement</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#namespace-statement</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#type-statement</string>
+          </dict>
+          <dict>
+            <key>begin</key>
+            <string>(?=[_$[:alpha:]])</string>
+            <key>end</key>
+            <string>(?=,|$)</string>
+            <key>patterns</key>
+            <array>
+              <dict>
+                <key>match</key>
+                <string>([_$[:alpha:]][_$[:alnum:]]*)\s*(\.)</string>
+                <key>captures</key>
+                <dict>
+                  <key>1</key>
+                  <dict>
+                    <key>name</key>
+                    <string>variable.other.object.ks</string>
+                  </dict>
+                  <key>2</key>
+                  <dict>
+                    <key>name</key>
+                    <string>punctuation.accessor.object.ks</string>
+                  </dict>
+                </dict>
+              </dict>
+              <dict>
+                <key>match</key>
+                <string>(?&lt;=[_$[:alnum:]\)\]]\.)([_$[:alpha:]][_$[:alnum:]]*)</string>
+                <key>captures</key>
+                <dict>
+                  <key>1</key>
+                  <dict>
+                    <key>name</key>
+                    <string>variable.other.property.object.ks</string>
+                  </dict>
+                </dict>
+              </dict>
+              <dict>
+                <key>match</key>
+                <string>(?&lt;=\.)(\*)</string>
+                <key>captures</key>
+                <dict>
+                  <key>1</key>
+                  <dict>
+                    <key>name</key>
+                    <string>constant.language.export-all.ks</string>
+                  </dict>
+                </dict>
+              </dict>
+              <dict>
+                <key>begin</key>
+                <string>\bfor\b</string>
+                <key>beginCaptures</key>
+                <dict>
+                  <key>0</key>
+                  <dict>
+                    <key>name</key>
+                    <string>keyword.control.export.for.ks</string>
+                  </dict>
+                </dict>
+                <key>end</key>
+                <string>$</string>
+                <key>patterns</key>
+                <array>
+                  <dict>
+                    <key>begin</key>
+                    <string>\{</string>
+                    <key>beginCaptures</key>
+                    <dict>
+                      <key>0</key>
+                      <dict>
+                        <key>name</key>
+                        <string>punctuation.definition.export-for.begin.bracket.curly.ks</string>
+                      </dict>
+                    </dict>
+                    <key>end</key>
+                    <string>\}</string>
+                    <key>endCaptures</key>
+                    <dict>
+                      <key>0</key>
+                      <dict>
+                        <key>name</key>
+                        <string>punctuation.definition.export-for.end.bracket.curly.ks</string>
+                      </dict>
+                    </dict>
+                    <key>patterns</key>
+                    <array>
+                      <dict>
+                        <key>match</key>
+                        <string>(=&gt;)\s*([_$[:alpha:]][_$[:alnum:]]*)</string>
+                        <key>captures</key>
+                        <dict>
+                          <key>1</key>
+                          <dict>
+                            <key>name</key>
+                            <string>keyword.control.export.arrow.ks</string>
+                          </dict>
+                          <key>2</key>
+                          <dict>
+                            <key>name</key>
+                            <string>variable.other.ks</string>
+                          </dict>
+                        </dict>
+                      </dict>
+                      <dict>
+                        <key>name</key>
+                        <string>variable.other.ks</string>
+                        <key>match</key>
+                        <string>[_$[:alpha:]][_$[:alnum:]]*</string>
+                      </dict>
+                      <dict>
+                        <key>include</key>
+                        <string>#comma</string>
+                      </dict>
+                    </array>
+                  </dict>
+                  <dict>
+                    <key>match</key>
+                    <string>(=&gt;)\s*([_$[:alpha:]][_$[:alnum:]]*)</string>
+                    <key>captures</key>
+                    <dict>
+                      <key>1</key>
+                      <dict>
+                        <key>name</key>
+                        <string>keyword.control.export.arrow.ks</string>
+                      </dict>
+                      <key>2</key>
+                      <dict>
+                        <key>name</key>
+                        <string>variable.other.ks</string>
+                      </dict>
+                    </dict>
+                  </dict>
+                  <dict>
+                    <key>name</key>
+                    <string>variable.other.ks</string>
+                    <key>match</key>
+                    <string>[_$[:alpha:]][_$[:alnum:]]*</string>
+                  </dict>
+                  <dict>
+                    <key>name</key>
+                    <string>constant.language.export-all.ks</string>
+                    <key>match</key>
+                    <string>\*</string>
+                  </dict>
+                  <dict>
+                    <key>include</key>
+                    <string>#comma</string>
+                  </dict>
+                </array>
+              </dict>
+              <dict>
+                <key>match</key>
+                <string>(=&gt;)\s*([_$[:alpha:]][_$[:alnum:]]*)</string>
+                <key>captures</key>
+                <dict>
+                  <key>1</key>
+                  <dict>
+                    <key>name</key>
+                    <string>keyword.control.export.arrow.ks</string>
+                  </dict>
+                  <key>2</key>
+                  <dict>
+                    <key>name</key>
+                    <string>variable.other.ks</string>
+                  </dict>
+                </dict>
+              </dict>
+              <dict>
+                <key>name</key>
+                <string>variable.other.ks</string>
+                <key>match</key>
+                <string>[_$[:alpha:]][_$[:alnum:]]*</string>
+              </dict>
+            </array>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#comma</string>
+          </dict>
+        </array>
+      </dict>
       <key>export-statement</key>
       <dict>
         <key>begin</key>
-        <string>^(export)\s+</string>
+        <string>^\s*(export)\s+</string>
         <key>beginCaptures</key>
         <dict>
           <key>1</key>
@@ -1108,18 +1326,37 @@
         <key>patterns</key>
         <array>
           <dict>
-            <key>include</key>
-            <string>#namespace-statement</string>
+            <key>begin</key>
+            <string>\{</string>
+            <key>beginCaptures</key>
+            <dict>
+              <key>0</key>
+              <dict>
+                <key>name</key>
+                <string>punctuation.definition.export.begin.bracket.curly.ks</string>
+              </dict>
+            </dict>
+            <key>end</key>
+            <string>\}</string>
+            <key>endCaptures</key>
+            <dict>
+              <key>0</key>
+              <dict>
+                <key>name</key>
+                <string>punctuation.definition.export.end.bracket.curly.ks</string>
+              </dict>
+            </dict>
+            <key>patterns</key>
+            <array>
+              <dict>
+                <key>include</key>
+                <string>#export-declarator</string>
+              </dict>
+            </array>
           </dict>
           <dict>
-            <key>name</key>
-            <string>variable.other.ks</string>
-            <key>match</key>
-            <string>([_$[:alpha:]][_$[:alnum:]]*)</string>
-          </dict>
-          <dict>
             <key>include</key>
-            <string>#comma</string>
+            <string>#export-declarator</string>
           </dict>
         </array>
       </dict>
@@ -2252,7 +2489,7 @@
       <key>function-statement</key>
       <dict>
         <key>begin</key>
-        <string>^\s*(?:(async)\s+)?(func)\s+(?=[_$[:alpha:]])</string>
+        <string>\b(?:(async)\s+)?(func)\s+(?=[_$[:alpha:]])</string>
         <key>beginCaptures</key>
         <dict>
           <key>1</key>
@@ -2764,10 +3001,10 @@
           </dict>
           <dict>
             <key>begin</key>
-            <string>\b(if)\b</string>
+            <string>\bif\b</string>
             <key>beginCaptures</key>
             <dict>
-              <key>1</key>
+              <key>0</key>
               <dict>
                 <key>name</key>
                 <string>keyword.control.conditional.if.ks</string>
@@ -3266,7 +3503,7 @@
       <key>let-statement</key>
       <dict>
         <key>begin</key>
-        <string>^\s*(let)\s+</string>
+        <string>\b(let)\s+</string>
         <key>beginCaptures</key>
         <dict>
           <key>1</key>
@@ -4535,14 +4772,38 @@
         <array>
           <dict>
             <key>begin</key>
-            <string>^\s*(?=namespace)\b</string>
+            <string>^\s*(?=asbtract|async|class|const|enum|func|let|namespace|sealed|type)\b</string>
             <key>end</key>
-            <string>(?&lt;=\})</string>
+            <string>(?&lt;=\}|$)</string>
             <key>patterns</key>
             <array>
               <dict>
                 <key>include</key>
+                <string>#class-statement</string>
+              </dict>
+              <dict>
+                <key>include</key>
+                <string>#const-statement</string>
+              </dict>
+              <dict>
+                <key>include</key>
+                <string>#enum-statement</string>
+              </dict>
+              <dict>
+                <key>include</key>
+                <string>#function-statement</string>
+              </dict>
+              <dict>
+                <key>include</key>
+                <string>#let-statement</string>
+              </dict>
+              <dict>
+                <key>include</key>
                 <string>#namespace-statement</string>
+              </dict>
+              <dict>
+                <key>include</key>
+                <string>#type-statement</string>
               </dict>
               <dict>
                 <key>include</key>
@@ -4560,15 +4821,7 @@
           </dict>
           <dict>
             <key>include</key>
-            <string>#class-statement</string>
-          </dict>
-          <dict>
-            <key>include</key>
             <string>#continue-statement</string>
-          </dict>
-          <dict>
-            <key>include</key>
-            <string>#const-statement</string>
           </dict>
           <dict>
             <key>include</key>
@@ -4584,14 +4837,6 @@
           </dict>
           <dict>
             <key>include</key>
-            <string>#enum-statement</string>
-          </dict>
-          <dict>
-            <key>include</key>
-            <string>#function-statement</string>
-          </dict>
-          <dict>
-            <key>include</key>
             <string>#for-statement</string>
           </dict>
           <dict>
@@ -4601,10 +4846,6 @@
           <dict>
             <key>include</key>
             <string>#implement-statement</string>
-          </dict>
-          <dict>
-            <key>include</key>
-            <string>#let-statement</string>
           </dict>
           <dict>
             <key>include</key>
@@ -4620,11 +4861,7 @@
           </dict>
           <dict>
             <key>include</key>
-            <string>#trycatch-statement</string>
-          </dict>
-          <dict>
-            <key>include</key>
-            <string>#type-statement</string>
+            <string>#try-catch-statement</string>
           </dict>
           <dict>
             <key>include</key>
@@ -4900,7 +5137,7 @@
           <key>1</key>
           <dict>
             <key>name</key>
-            <string>keyword.control.switch.switch.ks</string>
+            <string>keyword.control.switch.ks</string>
           </dict>
         </dict>
         <key>end</key>
@@ -4951,7 +5188,7 @@
           <key>1</key>
           <dict>
             <key>name</key>
-            <string>keyword.control.switch.switch.ks</string>
+            <string>keyword.control.switch.ks</string>
           </dict>
         </dict>
         <key>end</key>
@@ -5068,7 +5305,7 @@
           <key>1</key>
           <dict>
             <key>name</key>
-            <string>keyword.control.trycatch.throw.ks</string>
+            <string>keyword.control.try-catch.throw.ks</string>
           </dict>
         </dict>
         <key>end</key>
@@ -5090,7 +5327,7 @@
           <key>1</key>
           <dict>
             <key>name</key>
-            <string>keyword.control.trycatch.throw.ks</string>
+            <string>keyword.control.try-catch.throw.ks</string>
           </dict>
         </dict>
         <key>end</key>
@@ -5103,7 +5340,7 @@
           </dict>
         </array>
       </dict>
-      <key>trycatch-statement</key>
+      <key>try-catch-statement</key>
       <dict>
         <key>patterns</key>
         <array>
@@ -5115,7 +5352,7 @@
               <key>1</key>
               <dict>
                 <key>name</key>
-                <string>keyword.control.trycatch.try.ks</string>
+                <string>keyword.control.try-catch.try.ks</string>
               </dict>
             </dict>
             <key>end</key>
@@ -5136,7 +5373,7 @@
               <key>1</key>
               <dict>
                 <key>name</key>
-                <string>keyword.control.trycatch.catch.ks</string>
+                <string>keyword.control.try-catch.catch.ks</string>
               </dict>
             </dict>
             <key>end</key>
@@ -5163,7 +5400,7 @@
               <key>1</key>
               <dict>
                 <key>name</key>
-                <string>keyword.control.trycatch.finally.ks</string>
+                <string>keyword.control.try-catch.finally.ks</string>
               </dict>
             </dict>
             <key>end</key>
@@ -5184,7 +5421,7 @@
               <key>1</key>
               <dict>
                 <key>name</key>
-                <string>keyword.control.trycatch.on.ks</string>
+                <string>keyword.control.try-catch.on.ks</string>
               </dict>
               <key>2</key>
               <dict>
@@ -5194,7 +5431,7 @@
               <key>3</key>
               <dict>
                 <key>name</key>
-                <string>keyword.control.trycatch.catch.ks</string>
+                <string>keyword.control.try-catch.catch.ks</string>
               </dict>
               <key>4</key>
               <dict>
@@ -5470,7 +5707,7 @@
       <key>type-statement</key>
       <dict>
         <key>begin</key>
-        <string>^\s*(type)\s+([_$[:alpha:]][_$[:alnum:]]*)\s*(=)</string>
+        <string>(\btype)\s+([_$[:alpha:]][_$[:alnum:]]*)\s*(=)</string>
         <key>beginCaptures</key>
         <dict>
           <key>1</key>

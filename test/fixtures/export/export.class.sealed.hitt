@@ -1,0 +1,42 @@
+original file
+-----------------------------------
+export sealed class Foobar {
+}
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>export sealed class Foobar {
+ export
+ ^^^^^^
+ source.ks keyword.control.export.ks
+        
+       ^
+       source.ks
+        sealed
+        ^^^^^^
+        source.ks storage.modifier.sealed.ks
+               
+              ^
+              source.ks
+               class
+               ^^^^^
+               source.ks storage.type.class.ks
+                     
+                    ^
+                    source.ks
+                     Foobar
+                     ^^^^^^
+                     source.ks entity.name.type.class.ks
+                            
+                           ^
+                           source.ks
+                            {
+                            ^
+                            source.ks punctuation.definition.class.begin.bracket.curly.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.class.end.bracket.curly.ks

@@ -1,0 +1,48 @@
+original file
+-----------------------------------
+export type T = number | string
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>export type T = number | string
+ export
+ ^^^^^^
+ source.ks keyword.control.export.ks
+        
+       ^
+       source.ks
+        type
+        ^^^^
+        source.ks storage.type.type.ks
+             
+            ^
+            source.ks
+             T
+             ^
+             source.ks entity.name.type.alias.ks
+               
+              ^
+              source.ks
+               =
+               ^
+               source.ks keyword.operator.assignment.ks
+                 
+                ^
+                source.ks
+                 number
+                 ^^^^^^
+                 source.ks support.type.primitive.ks
+                        
+                       ^
+                       source.ks
+                        |
+                        ^
+                        source.ks keyword.operator.type.union.ks
+                          
+                         ^
+                         source.ks
+                          string
+                          ^^^^^^
+                          source.ks support.type.primitive.ks

@@ -14,7 +14,7 @@ grammar: kaoscript.tmLanguage
 >try {
  try
  ^^^
- source.ks keyword.control.trycatch.try.ks
+ source.ks keyword.control.try-catch.try.ks
      
     ^
     source.ks
@@ -59,7 +59,7 @@ grammar: kaoscript.tmLanguage
 >catch {
  catch
  ^^^^^
- source.ks keyword.control.trycatch.catch.ks
+ source.ks keyword.control.try-catch.catch.ks
        
       ^
       source.ks

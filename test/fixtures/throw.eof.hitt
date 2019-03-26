@@ -9,7 +9,7 @@ grammar: kaoscript.tmLanguage
 >throw new Error('Not Implemented')
  throw
  ^^^^^
- source.ks keyword.control.trycatch.throw.ks
+ source.ks keyword.control.try-catch.throw.ks
        
       ^
       source.ks

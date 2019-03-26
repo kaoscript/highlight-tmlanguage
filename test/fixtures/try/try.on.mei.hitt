@@ -20,7 +20,7 @@ grammar: kaoscript.tmLanguage
 >try {
  try
  ^^^
- source.ks keyword.control.trycatch.try.ks
+ source.ks keyword.control.try-catch.try.ks
      
     ^
     source.ks
@@ -65,7 +65,7 @@ grammar: kaoscript.tmLanguage
 >on RangeError catch error {
  on
  ^^
- source.ks keyword.control.trycatch.on.ks
+ source.ks keyword.control.try-catch.on.ks
     
    ^
    source.ks
@@ -77,7 +77,7 @@ grammar: kaoscript.tmLanguage
               source.ks
                catch
                ^^^^^
-               source.ks keyword.control.trycatch.catch.ks
+               source.ks keyword.control.try-catch.catch.ks
                      
                     ^
                     source.ks
@@ -137,7 +137,7 @@ grammar: kaoscript.tmLanguage
 >on SyntaxError catch error {
  on
  ^^
- source.ks keyword.control.trycatch.on.ks
+ source.ks keyword.control.try-catch.on.ks
     
    ^
    source.ks
@@ -149,7 +149,7 @@ grammar: kaoscript.tmLanguage
                source.ks
                 catch
                 ^^^^^
-                source.ks keyword.control.trycatch.catch.ks
+                source.ks keyword.control.try-catch.catch.ks
                       
                      ^
                      source.ks
@@ -209,7 +209,7 @@ grammar: kaoscript.tmLanguage
 >catch error {
  catch
  ^^^^^
- source.ks keyword.control.trycatch.catch.ks
+ source.ks keyword.control.try-catch.catch.ks
        
       ^
       source.ks

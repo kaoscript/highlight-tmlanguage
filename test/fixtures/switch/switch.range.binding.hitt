@@ -81,7 +81,7 @@ grammar: kaoscript.tmLanguage
  source.ks
      switch
      ^^^^^^
-     source.ks keyword.control.switch.switch.ks
+     source.ks keyword.control.switch.ks
             
            ^
            source.ks

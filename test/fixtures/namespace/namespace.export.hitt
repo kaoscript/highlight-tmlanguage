@@ -49,13 +49,13 @@ grammar: kaoscript.tmLanguage
  source.ks
      export
      ^^^^^^
-     source.ks variable.other.ks
+     source.ks keyword.control.export.ks
             
            ^
            source.ks
             func
             ^^^^
-            source.ks variable.other.ks
+            source.ks storage.type.function.ks
                  
                 ^
                 source.ks

@@ -131,10 +131,11 @@ repository:
         - include: '#expression'
   # }}}
   class-statement: # {{{
-    begin: '^\s*(?:(abstract)\s+)?(class){{match-identifier}}'
+    begin: '\b(?:(sealed)\s+)?(?:(abstract)\s+)?(class){{match-identifier}}'
     beginCaptures:
-      '1': { name: 'storage.modifier.abstract.ks' }
-      '2': { name: 'storage.type.class.ks' }
+      '1': { name: 'storage.modifier.sealed.ks' }
+      '2': { name: 'storage.modifier.abstract.ks' }
+      '3': { name: 'storage.type.class.ks' }
     end: '(?<=\})'
     patterns:
     - name: 'entity.name.type.class.ks'
@@ -204,7 +205,7 @@ repository:
     - include: '#comment-block'
   # }}}
   const-statement: # {{{
-    begin: '^\s*(const)\s+'
+    begin: '\b(const)\s+'
     beginCaptures:
       '1': { name: 'storage.type.constant.ks' }
     end: '$'
@@ -331,7 +332,7 @@ repository:
       '3': { name: 'variable.other.property.enum.ks' }
   # }}}
   enum-statement: # {{{
-    begin: '^\s*(enum)\s+({{identifier}})'
+    begin: '\b(enum)\s+({{identifier}})'
     beginCaptures:
       '1': { name: 'storage.type.enum.ks' }
       '2': { name: 'entity.name.type.enum.ks' }
@@ -355,16 +356,79 @@ repository:
       - name: 'variable.other.enummember.ks'
         match: '{{identifier}}'
   # }}}
+  export-declarator: # {{{
+    patterns:
+    - include: '#class-statement'
+    - include: '#const-statement'
+    - include: '#enum-statement'
+    - include: '#function-statement'
+    - include: '#let-statement'
+    - include: '#namespace-statement'
+    - include: '#type-statement'
+    - begin: '(?=[_$[:alpha:]])'
+      end: '(?=,|$)'
+      patterns:
+      - match: '({{identifier}})\s*(\.)'
+        captures:
+          '1': { name: 'variable.other.object.ks' }
+          '2': { name: 'punctuation.accessor.object.ks' }
+      - match: '(?<=[_$[:alnum:]\)\]]\.)({{identifier}})'
+        captures:
+          '1': { name: 'variable.other.property.object.ks' }
+      - match: '(?<=\.)(\*)'
+        captures:
+          '1': { name: 'constant.language.export-all.ks' }
+      - begin: '\bfor\b'
+        beginCaptures:
+          '0': { name: 'keyword.control.export.for.ks' }
+        end: '$'
+        patterns:
+        - begin: '\{'
+          beginCaptures:
+            '0': { name: 'punctuation.definition.export-for.begin.bracket.curly.ks' }
+          end: '\}'
+          endCaptures:
+            '0': { name: 'punctuation.definition.export-for.end.bracket.curly.ks' }
+          patterns:
+          - match: '(=>)\s*({{identifier}})'
+            captures:
+              '1': { name: 'keyword.control.export.arrow.ks' }
+              '2': { name: 'variable.other.ks' }
+          - name: 'variable.other.ks'
+            match: '{{identifier}}'
+          - include: '#comma'
+        - match: '(=>)\s*({{identifier}})'
+          captures:
+            '1': { name: 'keyword.control.export.arrow.ks' }
+            '2': { name: 'variable.other.ks' }
+        - name: 'variable.other.ks'
+          match: '{{identifier}}'
+        - name: 'constant.language.export-all.ks'
+          match: '\*'
+        - include: '#comma'
+      - match: '(=>)\s*({{identifier}})'
+        captures:
+          '1': { name: 'keyword.control.export.arrow.ks' }
+          '2': { name: 'variable.other.ks' }
+      - name: 'variable.other.ks'
+        match: '{{identifier}}'
+    - include: '#comma'
+  # }}}
   export-statement: # {{{
-    begin: '^(export)\s+'
+    begin: '^\s*(export)\s+'
     beginCaptures:
       '1': { name: 'keyword.control.export.ks' }
     end: '(?<=\}|$)'
     patterns:
-    - include: '#namespace-statement'
-    - name: 'variable.other.ks'
-      match: '({{identifier}})'
-    - include: '#comma'
+    - begin: '\{'
+      beginCaptures:
+        '0': { name: 'punctuation.definition.export.begin.bracket.curly.ks' }
+      end: '\}'
+      endCaptures:
+        '0': { name: 'punctuation.definition.export.end.bracket.curly.ks' }
+      patterns:
+      - include: '#export-declarator'
+    - include: '#export-declarator'
   # }}}
   expression: # {{{
     patterns:
@@ -699,7 +763,7 @@ repository:
     - include: '#type'
   # }}}
   function-statement: # {{{
-    begin: '^\s*(?:(async)\s+)?(func){{match-identifier}}'
+    begin: '\b(?:(async)\s+)?(func){{match-identifier}}'
     beginCaptures:
       '1': { name: 'storage.modifier.async.ks' }
       '2': { name: 'storage.type.function.ks' }
@@ -855,9 +919,9 @@ repository:
         end: '(?=\{)'
         patterns:
         - include: '#expression'
-    - begin: '\b(if)\b'
+    - begin: '\bif\b'
       beginCaptures:
-        '1': { name: 'keyword.control.conditional.if.ks' }
+        '0': { name: 'keyword.control.conditional.if.ks' }
       end: '(?=\{)'
       patterns:
       - include: '#expression'
@@ -1006,7 +1070,7 @@ repository:
       - include: '#string'
   # }}}
   let-statement: # {{{
-    begin: '^\s*(let)\s+'
+    begin: '\b(let)\s+'
     beginCaptures:
       '1': { name: 'storage.type.readwrite.ks' }
     end: '$'
@@ -1390,30 +1454,30 @@ repository:
   # }}}
   statements: # {{{
     patterns:
-    - begin: '^\s*(?=namespace)\b'
-      end: '(?<=\})'
+    - begin: '^\s*(?=asbtract|async|class|const|enum|func|let|namespace|sealed|type)\b'
+      end: '(?<=\}|$)'
       patterns:
+      - include: '#class-statement'
+      - include: '#const-statement'
+      - include: '#enum-statement'
+      - include: '#function-statement'
+      - include: '#let-statement'
       - include: '#namespace-statement'
+      - include: '#type-statement'
       - include: '#expression-statement'
     - include: '#attribute'
     - include: '#break-statement'
-    - include: '#class-statement'
     - include: '#continue-statement'
-    - include: '#const-statement'
     - include: '#delete-statement'
     - include: '#else-statement'
     - include: '#else-if-statement'
-    - include: '#enum-statement'
-    - include: '#function-statement'
     - include: '#for-statement'
     - include: '#if-statement'
     - include: '#implement-statement'
-    - include: '#let-statement'
     - include: '#return-statement'
     - include: '#switch-statement'
     - include: '#throw-statement'
-    - include: '#trycatch-statement'
-    - include: '#type-statement'
+    - include: '#try-catch-statement'
     - include: '#unless-statement'
     - include: '#until-statement'
     - include: '#while-statement'
@@ -1497,7 +1561,7 @@ repository:
   switch-expression: # {{{
     begin: '(\bswitch\b)'
     beginCaptures:
-      '1': { name: 'keyword.control.switch.switch.ks' }
+      '1': { name: 'keyword.control.switch.ks' }
     end: '(?<=\})'
     patterns:
     - begin: '\{'
@@ -1513,7 +1577,7 @@ repository:
   switch-statement: # {{{
     begin: '^\s*(switch)\s+'
     beginCaptures:
-      '1': { name: 'keyword.control.switch.switch.ks' }
+      '1': { name: 'keyword.control.switch.ks' }
     end: '(?<=\})'
     patterns:
     - begin: '\{'
@@ -1551,7 +1615,7 @@ repository:
   throw-expression: # {{{
     begin: '(\bthrow)\s+'
     beginCaptures:
-      '1': { name: 'keyword.control.trycatch.throw.ks' }
+      '1': { name: 'keyword.control.try-catch.throw.ks' }
     end: '$'
     patterns:
       - include: '#expression'
@@ -1559,22 +1623,22 @@ repository:
   throw-statement: # {{{
     begin: '^\s*(throw)\s+'
     beginCaptures:
-      '1': { name: 'keyword.control.trycatch.throw.ks' }
+      '1': { name: 'keyword.control.try-catch.throw.ks' }
     end: '$'
     patterns:
       - include: '#expression'
   # }}}
-  trycatch-statement: # {{{
+  try-catch-statement: # {{{
     patterns:
       - begin: '^\s*(try\b)\s*(?=\{)'
         beginCaptures:
-          '1': { name: 'keyword.control.trycatch.try.ks' }
+          '1': { name: 'keyword.control.try-catch.try.ks' }
         end: '(?<=\})'
         patterns:
         - include: '#block'
       - begin: '^\s*(catch\b)'
         beginCaptures:
-          '1': { name: 'keyword.control.trycatch.catch.ks' }
+          '1': { name: 'keyword.control.try-catch.catch.ks' }
         end: '(?<=\})'
         patterns:
         - include: '#block'
@@ -1582,15 +1646,15 @@ repository:
           match: '{{identifier}}'
       - begin: '^\s*(finally\b)\s*(?=\{)'
         beginCaptures:
-          '1': { name: 'keyword.control.trycatch.finally.ks' }
+          '1': { name: 'keyword.control.try-catch.finally.ks' }
         end: '(?<=\})'
         patterns:
         - include: '#block'
       - begin: '^\s*(on\b)\s+(\b{{identifier}}\b)\s*(?:(\bcatch)\s+({{identifier}}))?'
         beginCaptures:
-          '1': { name: 'keyword.control.trycatch.on.ks' }
+          '1': { name: 'keyword.control.try-catch.on.ks' }
           '2': { name: 'entity.name.type.ks' }
-          '3': { name: 'keyword.control.trycatch.catch.ks' }
+          '3': { name: 'keyword.control.try-catch.catch.ks' }
           '4': { name: 'variable.parameter.ks' }
         end: '(?<=\})'
         patterns:
@@ -1672,7 +1736,7 @@ repository:
     - include: '#comma'
   # }}}
   type-statement: # {{{
-    begin: '^\s*(type)\s+({{identifier}})\s*(=)'
+    begin: '(\btype)\s+({{identifier}})\s*(=)'
     beginCaptures:
       '1': { name: 'storage.type.type.ks' }
       '2': { name: 'entity.name.type.alias.ks' }

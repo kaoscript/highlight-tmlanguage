@@ -37,7 +37,7 @@ grammar: kaoscript.tmLanguage
 >switch number {
  switch
  ^^^^^^
- source.ks keyword.control.switch.switch.ks
+ source.ks keyword.control.switch.ks
         
        ^
        source.ks
