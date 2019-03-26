@@ -186,6 +186,7 @@ repository:
         end: '$'
         patterns:
         - include: '#expression'
+    - include: '#comment'
   # }}}
   class-statement: # {{{
     begin: '\b(?:(sealed)\s+)?(?:(abstract)\s+)?(class){{match-identifier}}'
@@ -1117,6 +1118,7 @@ repository:
       endCaptures:
         '0': { name: 'punctuation.definition.import.end.bracket.curly.ks' }
       patterns:
+      - include: '#comment'
       - include: '#import-declarator'
     - include: '#import-declarator'
   # }}}
@@ -1137,6 +1139,7 @@ repository:
         end: (?<=['"])
         patterns:
         - include: '#string'
+      - include: '#comment'
     - begin: (?=['"])
       end: (?<=['"])
       patterns:

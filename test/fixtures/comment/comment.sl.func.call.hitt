@@ -1,0 +1,27 @@
+original file
+-----------------------------------
+foo() // hello
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>foo() // hello
+ foo
+ ^^^
+ source.ks entity.name.function.ks
+    (
+    ^
+    source.ks punctuation.definition.arguments.begin.bracket.round.ks
+     )
+     ^
+     source.ks punctuation.definition.arguments.end.bracket.round.ks
+       
+      ^
+      source.ks
+       //
+       ^^
+       source.ks comment.line.double-slash.ks punctuation.definition.comment.ks
+          hello
+         ^^^^^^
+         source.ks comment.line.double-slash.ks

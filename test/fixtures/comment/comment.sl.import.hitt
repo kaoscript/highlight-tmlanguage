@@ -1,0 +1,66 @@
+original file
+-----------------------------------
+import {
+    './module1'
+    //'./module2'
+    './module3'
+}
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>import {
+ import
+ ^^^^^^
+ source.ks keyword.control.import.ks
+        
+       ^
+       source.ks
+        {
+        ^
+        source.ks punctuation.definition.import.begin.bracket.curly.ks
+>
+>    './module1'
+     
+ ^^^^
+ source.ks
+     '
+     ^
+     source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
+      ./module1
+      ^^^^^^^^^
+      source.ks string.quoted.single.ks
+               '
+               ^
+               source.ks string.quoted.single.ks punctuation.definition.string.end.ks
+>
+>    //'./module2'
+     
+ ^^^^
+ source.ks punctuation.whitespace.comment.leading.ks
+     //
+     ^^
+     source.ks comment.line.double-slash.ks punctuation.definition.comment.ks
+       './module2'
+       ^^^^^^^^^^^
+       source.ks comment.line.double-slash.ks
+>
+>    './module3'
+     
+ ^^^^
+ source.ks
+     '
+     ^
+     source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
+      ./module3
+      ^^^^^^^^^
+      source.ks string.quoted.single.ks
+               '
+               ^
+               source.ks string.quoted.single.ks punctuation.definition.string.end.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.import.end.bracket.curly.ks

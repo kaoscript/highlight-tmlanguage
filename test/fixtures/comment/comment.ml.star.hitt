@@ -1,0 +1,48 @@
+original file
+-----------------------------------
+/*
+    a multiline comment
+    
+    ***
+    
+    TODO: test
+*/
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>/*
+ /*
+ ^^
+ source.ks comment.block.ks punctuation.definition.comment.ks
+>
+>    a multiline comment
+     a multiline comment
+ ^^^^^^^^^^^^^^^^^^^^^^^^
+ source.ks comment.block.ks
+>
+>    
+     
+ ^^^^^
+ source.ks comment.block.ks
+>
+>    ***
+     ***
+ ^^^^^^^^
+ source.ks comment.block.ks
+>
+>    
+     
+ ^^^^^
+ source.ks comment.block.ks
+>
+>    TODO: test
+     TODO: test
+ ^^^^^^^^^^^^^^^
+ source.ks comment.block.ks
+>
+>*/
+ */
+ ^^
+ source.ks comment.block.ks punctuation.definition.comment.ks

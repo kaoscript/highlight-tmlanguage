@@ -1,0 +1,153 @@
+original file
+-----------------------------------
+func foo() { // {{{
+    /* foo */
+    let foo = 42
+    /* bar */
+    let bar = 24
+    /* qux */
+} // }}}
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>func foo() { // {{{
+ func
+ ^^^^
+ source.ks storage.type.function.ks
+      
+     ^
+     source.ks
+      foo
+      ^^^
+      source.ks entity.name.function.ks
+         (
+         ^
+         source.ks punctuation.definition.parameters.begin.bracket.round.ks
+          )
+          ^
+          source.ks punctuation.definition.parameters.end.bracket.round.ks
+            
+           ^
+           source.ks
+            {
+            ^
+            source.ks punctuation.definition.block.begin.bracket.curly.ks
+              
+             ^
+             source.ks
+              //
+              ^^
+              source.ks comment.line.double-slash.ks punctuation.definition.comment.ks
+                 {{{
+                ^^^^
+                source.ks comment.line.double-slash.ks
+>
+>    /* foo */
+     
+ ^^^^
+ source.ks
+     /*
+     ^^
+     source.ks comment.block.ks punctuation.definition.comment.ks
+        foo 
+       ^^^^^
+       source.ks comment.block.ks
+            */
+            ^^
+            source.ks comment.block.ks punctuation.definition.comment.ks
+>
+>    let foo = 42
+     
+ ^^^^
+ source.ks
+     let
+     ^^^
+     source.ks storage.type.readwrite.ks
+         
+        ^
+        source.ks
+         foo
+         ^^^
+         source.ks meta.definition.variable.ks variable.other.readwrite.ks
+             
+            ^
+            source.ks
+             =
+             ^
+             source.ks keyword.operator.assignment.ks
+               
+              ^
+              source.ks
+               42
+               ^^
+               source.ks constant.numeric.decimal.ks
+>
+>    /* bar */
+     
+ ^^^^
+ source.ks
+     /*
+     ^^
+     source.ks comment.block.ks punctuation.definition.comment.ks
+        bar 
+       ^^^^^
+       source.ks comment.block.ks
+            */
+            ^^
+            source.ks comment.block.ks punctuation.definition.comment.ks
+>
+>    let bar = 24
+     
+ ^^^^
+ source.ks
+     let
+     ^^^
+     source.ks storage.type.readwrite.ks
+         
+        ^
+        source.ks
+         bar
+         ^^^
+         source.ks meta.definition.variable.ks variable.other.readwrite.ks
+             
+            ^
+            source.ks
+             =
+             ^
+             source.ks keyword.operator.assignment.ks
+               
+              ^
+              source.ks
+               24
+               ^^
+               source.ks constant.numeric.decimal.ks
+>
+>    /* qux */
+     
+ ^^^^
+ source.ks
+     /*
+     ^^
+     source.ks comment.block.ks punctuation.definition.comment.ks
+        qux 
+       ^^^^^
+       source.ks comment.block.ks
+            */
+            ^^
+            source.ks comment.block.ks punctuation.definition.comment.ks
+>
+>} // }}}
+ }
+ ^
+ source.ks punctuation.definition.block.end.bracket.curly.ks
+   
+  ^
+  source.ks
+   //
+   ^^
+   source.ks comment.line.double-slash.ks punctuation.definition.comment.ks
+      }}}
+     ^^^^
+     source.ks comment.line.double-slash.ks

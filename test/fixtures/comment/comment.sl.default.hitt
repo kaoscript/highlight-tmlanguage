@@ -1,0 +1,75 @@
+original file
+-----------------------------------
+// Line comments are anything after ‘//’ and extend to the end of the line.
+let x = 5 // this is also a line comment.
+// If you have a long explanation for something, you can put line comments next
+// to each other. Put a space between the // and your comment so that it’s
+// more readable.
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>// Line comments are anything after ‘//’ and extend to the end of the line.
+ //
+ ^^
+ source.ks comment.line.double-slash.ks punctuation.definition.comment.ks
+    Line comments are anything after ‘//’ and extend to the end of the line.
+   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   source.ks comment.line.double-slash.ks
+>
+>let x = 5 // this is also a line comment.
+ let
+ ^^^
+ source.ks storage.type.readwrite.ks
+     
+    ^
+    source.ks
+     x
+     ^
+     source.ks meta.definition.variable.ks variable.other.readwrite.ks
+       
+      ^
+      source.ks
+       =
+       ^
+       source.ks keyword.operator.assignment.ks
+         
+        ^
+        source.ks
+         5
+         ^
+         source.ks constant.numeric.decimal.ks
+           
+          ^
+          source.ks
+           //
+           ^^
+           source.ks comment.line.double-slash.ks punctuation.definition.comment.ks
+              this is also a line comment.
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+             source.ks comment.line.double-slash.ks
+>
+>// If you have a long explanation for something, you can put line comments next
+ //
+ ^^
+ source.ks comment.line.double-slash.ks punctuation.definition.comment.ks
+    If you have a long explanation for something, you can put line comments next
+   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   source.ks comment.line.double-slash.ks
+>
+>// to each other. Put a space between the // and your comment so that it’s
+ //
+ ^^
+ source.ks comment.line.double-slash.ks punctuation.definition.comment.ks
+    to each other. Put a space between the // and your comment so that it’s
+   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   source.ks comment.line.double-slash.ks
+>
+>// more readable.
+ //
+ ^^
+ source.ks comment.line.double-slash.ks punctuation.definition.comment.ks
+    more readable.
+   ^^^^^^^^^^^^^^^
+   source.ks comment.line.double-slash.ks

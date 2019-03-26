@@ -568,6 +568,10 @@
               </dict>
             </array>
           </dict>
+          <dict>
+            <key>include</key>
+            <string>#comment</string>
+          </dict>
         </array>
       </dict>
       <key>class-statement</key>
@@ -3597,6 +3601,10 @@
             <array>
               <dict>
                 <key>include</key>
+                <string>#comment</string>
+              </dict>
+              <dict>
+                <key>include</key>
                 <string>#import-declarator</string>
               </dict>
             </array>
@@ -3658,6 +3666,10 @@
                     <string>#string</string>
                   </dict>
                 </array>
+              </dict>
+              <dict>
+                <key>include</key>
+                <string>#comment</string>
               </dict>
             </array>
           </dict>

@@ -1,0 +1,54 @@
+original file
+-----------------------------------
+func foo() { // {{{
+} // }}}
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>func foo() { // {{{
+ func
+ ^^^^
+ source.ks storage.type.function.ks
+      
+     ^
+     source.ks
+      foo
+      ^^^
+      source.ks entity.name.function.ks
+         (
+         ^
+         source.ks punctuation.definition.parameters.begin.bracket.round.ks
+          )
+          ^
+          source.ks punctuation.definition.parameters.end.bracket.round.ks
+            
+           ^
+           source.ks
+            {
+            ^
+            source.ks punctuation.definition.block.begin.bracket.curly.ks
+              
+             ^
+             source.ks
+              //
+              ^^
+              source.ks comment.line.double-slash.ks punctuation.definition.comment.ks
+                 {{{
+                ^^^^
+                source.ks comment.line.double-slash.ks
+>
+>} // }}}
+ }
+ ^
+ source.ks punctuation.definition.block.end.bracket.curly.ks
+   
+  ^
+  source.ks
+   //
+   ^^
+   source.ks comment.line.double-slash.ks punctuation.definition.comment.ks
+      }}}
+     ^^^^
+     source.ks comment.line.double-slash.ks

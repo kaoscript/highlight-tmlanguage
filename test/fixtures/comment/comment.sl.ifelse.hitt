@@ -1,0 +1,186 @@
+original file
+-----------------------------------
+// 1.
+if foo {
+    qux = 1 // hello
+}
+// 2.
+else if bar {
+    qux = 2
+}
+// 3.
+else {
+    qux = 3
+}
+// 4.
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>// 1.
+ //
+ ^^
+ source.ks comment.line.double-slash.ks punctuation.definition.comment.ks
+    1.
+   ^^^
+   source.ks comment.line.double-slash.ks
+>
+>if foo {
+ if
+ ^^
+ source.ks keyword.control.conditional.if.ks
+    
+   ^
+   source.ks
+    foo
+    ^^^
+    source.ks variable.other.ks
+        
+       ^
+       source.ks
+        {
+        ^
+        source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>    qux = 1 // hello
+     
+ ^^^^
+ source.ks
+     qux
+     ^^^
+     source.ks variable.other.ks
+         
+        ^
+        source.ks
+         =
+         ^
+         source.ks keyword.operator.assignment.ks
+           
+          ^
+          source.ks
+           1
+           ^
+           source.ks constant.numeric.decimal.ks
+             
+            ^
+            source.ks
+             //
+             ^^
+             source.ks comment.line.double-slash.ks punctuation.definition.comment.ks
+                hello
+               ^^^^^^
+               source.ks comment.line.double-slash.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.block.end.bracket.curly.ks
+>
+>// 2.
+ //
+ ^^
+ source.ks comment.line.double-slash.ks punctuation.definition.comment.ks
+    2.
+   ^^^
+   source.ks comment.line.double-slash.ks
+>
+>else if bar {
+ else
+ ^^^^
+ source.ks keyword.control.conditional.else.ks
+      
+     ^
+     source.ks
+      if
+      ^^
+      source.ks keyword.control.conditional.if.ks
+         
+        ^
+        source.ks
+         bar
+         ^^^
+         source.ks variable.other.ks
+             
+            ^
+            source.ks
+             {
+             ^
+             source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>    qux = 2
+     
+ ^^^^
+ source.ks
+     qux
+     ^^^
+     source.ks variable.other.ks
+         
+        ^
+        source.ks
+         =
+         ^
+         source.ks keyword.operator.assignment.ks
+           
+          ^
+          source.ks
+           2
+           ^
+           source.ks constant.numeric.decimal.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.block.end.bracket.curly.ks
+>
+>// 3.
+ //
+ ^^
+ source.ks comment.line.double-slash.ks punctuation.definition.comment.ks
+    3.
+   ^^^
+   source.ks comment.line.double-slash.ks
+>
+>else {
+ else
+ ^^^^
+ source.ks keyword.control.conditional.else.ks
+      
+     ^
+     source.ks
+      {
+      ^
+      source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>    qux = 3
+     
+ ^^^^
+ source.ks
+     qux
+     ^^^
+     source.ks variable.other.ks
+         
+        ^
+        source.ks
+         =
+         ^
+         source.ks keyword.operator.assignment.ks
+           
+          ^
+          source.ks
+           3
+           ^
+           source.ks constant.numeric.decimal.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.block.end.bracket.curly.ks
+>
+>// 4.
+ //
+ ^^
+ source.ks comment.line.double-slash.ks punctuation.definition.comment.ks
+    4.
+   ^^^
+   source.ks comment.line.double-slash.ks

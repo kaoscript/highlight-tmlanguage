@@ -1,0 +1,60 @@
+original file
+-----------------------------------
+foo
+    //.bar()
+    .baz()
+    .qux()
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>foo
+ foo
+ ^^^
+ source.ks variable.other.ks
+>
+>    //.bar()
+     
+ ^^^^
+ source.ks punctuation.whitespace.comment.leading.ks
+     //
+     ^^
+     source.ks comment.line.double-slash.ks punctuation.definition.comment.ks
+       .bar()
+       ^^^^^^
+       source.ks comment.line.double-slash.ks
+>
+>    .baz()
+     
+ ^^^^
+ source.ks
+     .
+     ^
+     source.ks punctuation.accessor.object.ks
+      baz
+      ^^^
+      source.ks entity.name.function.ks
+         (
+         ^
+         source.ks punctuation.definition.arguments.begin.bracket.round.ks
+          )
+          ^
+          source.ks punctuation.definition.arguments.end.bracket.round.ks
+>
+>    .qux()
+     
+ ^^^^
+ source.ks
+     .
+     ^
+     source.ks punctuation.accessor.object.ks
+      qux
+      ^^^
+      source.ks entity.name.function.ks
+         (
+         ^
+         source.ks punctuation.definition.arguments.begin.bracket.round.ks
+          )
+          ^
+          source.ks punctuation.definition.arguments.end.bracket.round.ks

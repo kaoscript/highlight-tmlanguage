@@ -1,0 +1,36 @@
+original file
+-----------------------------------
+/* a multiline comment
+    /* can be nested */
+*/
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>/* a multiline comment
+ /*
+ ^^
+ source.ks comment.block.ks punctuation.definition.comment.ks
+    a multiline comment
+   ^^^^^^^^^^^^^^^^^^^^^
+   source.ks comment.block.ks
+>
+>    /* can be nested */
+     
+ ^^^^
+ source.ks comment.block.ks
+     /*
+     ^^
+     source.ks comment.block.ks comment.block.ks punctuation.definition.comment.ks
+        can be nested 
+       ^^^^^^^^^^^^^^^
+       source.ks comment.block.ks comment.block.ks
+                      */
+                      ^^
+                      source.ks comment.block.ks comment.block.ks punctuation.definition.comment.ks
+>
+>*/
+ */
+ ^^
+ source.ks comment.block.ks punctuation.definition.comment.ks
