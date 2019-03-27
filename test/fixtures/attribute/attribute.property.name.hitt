@@ -1,0 +1,60 @@
+original file
+-----------------------------------
+#[cfg(os-linux)]
+func linux_only() {
+}
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>#[cfg(os-linux)]
+ #
+ ^
+ source.ks meta.attribute.ks punctuation.attribute.ks
+  [
+  ^
+  source.ks meta.attribute.ks punctuation.definition.attribute.begin.bracket.square.ks
+   cfg
+   ^^^
+   source.ks meta.attribute.ks entity.name.function.ks
+      (
+      ^
+      source.ks meta.attribute.ks punctuation.definition.arguments.begin.bracket.round.ks
+       os-linux
+       ^^^^^^^^
+       source.ks meta.attribute.ks entity.name
+               )
+               ^
+               source.ks meta.attribute.ks punctuation.definition.arguments.end.bracket.round.ks
+                ]
+                ^
+                source.ks meta.attribute.ks punctuation.definition.attribute.end.bracket.square.ks
+>
+>func linux_only() {
+ func
+ ^^^^
+ source.ks storage.type.function.ks
+      
+     ^
+     source.ks
+      linux_only
+      ^^^^^^^^^^
+      source.ks entity.name.function.ks
+                (
+                ^
+                source.ks punctuation.definition.parameters.begin.bracket.round.ks
+                 )
+                 ^
+                 source.ks punctuation.definition.parameters.end.bracket.round.ks
+                   
+                  ^
+                  source.ks
+                   {
+                   ^
+                   source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.block.end.bracket.curly.ks

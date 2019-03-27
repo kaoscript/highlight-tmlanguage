@@ -1,0 +1,48 @@
+original file
+-----------------------------------
+#![bin]
+console.log('main program')
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>#![bin]
+ #!
+ ^^
+ source.ks meta.attribute.ks punctuation.attribute.block.ks
+   [
+   ^
+   source.ks meta.attribute.ks punctuation.definition.attribute.begin.bracket.square.ks
+    bin
+    ^^^
+    source.ks meta.attribute.ks entity.name
+       ]
+       ^
+       source.ks meta.attribute.ks punctuation.definition.attribute.end.bracket.square.ks
+>
+>console.log('main program')
+ console
+ ^^^^^^^
+ source.ks variable.other.object.ks
+        .
+        ^
+        source.ks punctuation.accessor.object.ks
+         log
+         ^^^
+         source.ks entity.name.function.ks
+            (
+            ^
+            source.ks punctuation.definition.arguments.begin.bracket.round.ks
+             '
+             ^
+             source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
+              main program
+              ^^^^^^^^^^^^
+              source.ks string.quoted.single.ks
+                          '
+                          ^
+                          source.ks string.quoted.single.ks punctuation.definition.string.end.ks
+                           )
+                           ^
+                           source.ks punctuation.definition.arguments.end.bracket.round.ks

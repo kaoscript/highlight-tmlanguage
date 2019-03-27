@@ -160,14 +160,94 @@
         <key>name</key>
         <string>meta.attribute.ks</string>
         <key>begin</key>
-        <string>#!?\[</string>
+        <string>(?:(#)|(#!))(\[)</string>
+        <key>beginCaptures</key>
+        <dict>
+          <key>1</key>
+          <dict>
+            <key>name</key>
+            <string>punctuation.attribute.ks</string>
+          </dict>
+          <key>2</key>
+          <dict>
+            <key>name</key>
+            <string>punctuation.attribute.block.ks</string>
+          </dict>
+          <key>3</key>
+          <dict>
+            <key>name</key>
+            <string>punctuation.definition.attribute.begin.bracket.square.ks</string>
+          </dict>
+        </dict>
         <key>end</key>
         <string>\]</string>
+        <key>endCaptures</key>
+        <dict>
+          <key>0</key>
+          <dict>
+            <key>name</key>
+            <string>punctuation.definition.attribute.end.bracket.square.ks</string>
+          </dict>
+        </dict>
         <key>patterns</key>
         <array>
           <dict>
             <key>include</key>
+            <string>#attribute-expression</string>
+          </dict>
+        </array>
+      </dict>
+      <key>attribute-expression</key>
+      <dict>
+        <key>patterns</key>
+        <array>
+          <dict>
+            <key>begin</key>
+            <string>([_$[:alpha:]][_$[:alnum:]]*)\s*(\()</string>
+            <key>beginCaptures</key>
+            <dict>
+              <key>1</key>
+              <dict>
+                <key>name</key>
+                <string>entity.name.function.ks</string>
+              </dict>
+              <key>2</key>
+              <dict>
+                <key>name</key>
+                <string>punctuation.definition.arguments.begin.bracket.round.ks</string>
+              </dict>
+            </dict>
+            <key>end</key>
+            <string>\)</string>
+            <key>endCaptures</key>
+            <dict>
+              <key>0</key>
+              <dict>
+                <key>name</key>
+                <string>punctuation.definition.arguments.end.bracket.round.ks</string>
+              </dict>
+            </dict>
+            <key>patterns</key>
+            <array>
+              <dict>
+                <key>include</key>
+                <string>#attribute-expression</string>
+              </dict>
+            </array>
+          </dict>
+          <dict>
+            <key>name</key>
+            <string>entity.name</string>
+            <key>match</key>
+            <string>[_$[:alpha:]][-\._$[:alnum:]]*</string>
+          </dict>
+          <dict>
+            <key>include</key>
             <string>#string</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#comma</string>
           </dict>
         </array>
       </dict>
@@ -455,10 +535,15 @@
           </dict>
           <dict>
             <key>begin</key>
-            <string>([_$[:alpha:]][_$[:alnum:]]*)(?=\()</string>
+            <string>(?:(\basync)\s*)?([_$[:alpha:]][_$[:alnum:]]*)(?=\()</string>
             <key>beginCaptures</key>
             <dict>
               <key>1</key>
+              <dict>
+                <key>name</key>
+                <string>storage.modifier.async.ks</string>
+              </dict>
+              <key>2</key>
               <dict>
                 <key>name</key>
                 <string>entity.name.function.ks</string>
@@ -893,6 +978,12 @@
                 <string>storage.modifier.abstract.ks</string>
                 <key>match</key>
                 <string>(?:abstract)(?!\s*\()</string>
+              </dict>
+              <dict>
+                <key>name</key>
+                <string>storage.modifier.async.ks</string>
+                <key>match</key>
+                <string>(?:async)(?!\s*\()</string>
               </dict>
               <dict>
                 <key>begin</key>
@@ -2727,6 +2818,12 @@
             <array>
               <dict>
                 <key>name</key>
+                <string>storage.modifier.async.ks</string>
+                <key>match</key>
+                <string>\basync\b</string>
+              </dict>
+              <dict>
+                <key>name</key>
                 <string>storage.type.function.ks</string>
                 <key>match</key>
                 <string>\bfunc\b</string>
@@ -4260,6 +4357,10 @@
             <string>#comment</string>
           </dict>
           <dict>
+            <key>include</key>
+            <string>#attribute</string>
+          </dict>
+          <dict>
             <key>begin</key>
             <string>([_$[:alpha:]][_$[:alnum:]]*)\s*(\:)</string>
             <key>beginCaptures</key>
@@ -4532,7 +4633,7 @@
           </dict>
           <dict>
             <key>name</key>
-            <string>keyword.control.flow</string>
+            <string>keyword.control.flow.await.ks</string>
             <key>match</key>
             <string>\bawait\b</string>
           </dict>

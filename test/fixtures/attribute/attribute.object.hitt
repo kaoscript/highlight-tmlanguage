@@ -1,0 +1,84 @@
+original file
+-----------------------------------
+const foo = {
+    #[foo]
+    bar() {
+    }
+}
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>const foo = {
+ const
+ ^^^^^
+ source.ks storage.type.constant.ks
+       
+      ^
+      source.ks
+       foo
+       ^^^
+       source.ks meta.definition.variable.ks variable.other.constant.ks
+           
+          ^
+          source.ks
+           =
+           ^
+           source.ks keyword.operator.assignment.ks
+             
+            ^
+            source.ks
+             {
+             ^
+             source.ks punctuation.definition.object.begin.bracket.curly.ks
+>
+>    #[foo]
+     
+ ^^^^
+ source.ks
+     #
+     ^
+     source.ks meta.attribute.ks punctuation.attribute.ks
+      [
+      ^
+      source.ks meta.attribute.ks punctuation.definition.attribute.begin.bracket.square.ks
+       foo
+       ^^^
+       source.ks meta.attribute.ks entity.name
+          ]
+          ^
+          source.ks meta.attribute.ks punctuation.definition.attribute.end.bracket.square.ks
+>
+>    bar() {
+     
+ ^^^^
+ source.ks
+     bar
+     ^^^
+     source.ks meta.definition.method.ks entity.name.function.ks
+        (
+        ^
+        source.ks meta.definition.method.ks punctuation.definition.parameters.begin.bracket.round.ks
+         )
+         ^
+         source.ks meta.definition.method.ks punctuation.definition.parameters.end.bracket.round.ks
+           
+          ^
+          source.ks meta.definition.method.ks
+           {
+           ^
+           source.ks meta.definition.method.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>    }
+     
+ ^^^^
+ source.ks meta.definition.method.ks
+     }
+     ^
+     source.ks meta.definition.method.ks punctuation.definition.block.end.bracket.curly.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.object.end.bracket.curly.ks

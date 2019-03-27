@@ -1,0 +1,249 @@
+original file
+-----------------------------------
+async func foo(bar: string, qux: int): string {
+    return bar + '+' + qux
+}
+func bar(callback) {
+    let text = await foo('foobar', 42)
+    
+    callback(null, text)
+}
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>async func foo(bar: string, qux: int): string {
+ async
+ ^^^^^
+ source.ks storage.modifier.async.ks
+       
+      ^
+      source.ks
+       func
+       ^^^^
+       source.ks storage.type.function.ks
+            
+           ^
+           source.ks
+            foo
+            ^^^
+            source.ks entity.name.function.ks
+               (
+               ^
+               source.ks punctuation.definition.parameters.begin.bracket.round.ks
+                bar
+                ^^^
+                source.ks variable.parameter.ks
+                   :
+                   ^
+                   source.ks meta.type.annotation.ks keyword.operator.type.annotation.ks
+                     
+                    ^
+                    source.ks meta.type.annotation.ks
+                     string
+                     ^^^^^^
+                     source.ks meta.type.annotation.ks support.type.primitive.ks
+                           ,
+                           ^
+                           source.ks punctuation.separator.comma.ks
+                             
+                            ^
+                            source.ks
+                             qux
+                             ^^^
+                             source.ks variable.parameter.ks
+                                :
+                                ^
+                                source.ks meta.type.annotation.ks keyword.operator.type.annotation.ks
+                                  
+                                 ^
+                                 source.ks meta.type.annotation.ks
+                                  int
+                                  ^^^
+                                  source.ks meta.type.annotation.ks entity.name.type.ks
+                                     )
+                                     ^
+                                     source.ks punctuation.definition.parameters.end.bracket.round.ks
+                                      :
+                                      ^
+                                      source.ks meta.function.return-type.ks keyword.operator.type.annotation.ks
+                                        
+                                       ^
+                                       source.ks meta.function.return-type.ks
+                                        string
+                                        ^^^^^^
+                                        source.ks meta.function.return-type.ks support.type.primitive.ks
+                                               
+                                              ^
+                                              source.ks
+                                               {
+                                               ^
+                                               source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>    return bar + '+' + qux
+     
+ ^^^^
+ source.ks
+     return
+     ^^^^^^
+     source.ks keyword.control.flow.return.ks
+            
+           ^
+           source.ks
+            bar
+            ^^^
+            source.ks variable.other.ks
+                
+               ^
+               source.ks
+                +
+                ^
+                source.ks keyword.operator.arithmetic.ks
+                  
+                 ^
+                 source.ks
+                  '
+                  ^
+                  source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
+                   +
+                   ^
+                   source.ks string.quoted.single.ks
+                    '
+                    ^
+                    source.ks string.quoted.single.ks punctuation.definition.string.end.ks
+                      
+                     ^
+                     source.ks
+                      +
+                      ^
+                      source.ks keyword.operator.arithmetic.ks
+                        
+                       ^
+                       source.ks
+                        qux
+                        ^^^
+                        source.ks variable.other.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.block.end.bracket.curly.ks
+>
+>func bar(callback) {
+ func
+ ^^^^
+ source.ks storage.type.function.ks
+      
+     ^
+     source.ks
+      bar
+      ^^^
+      source.ks entity.name.function.ks
+         (
+         ^
+         source.ks punctuation.definition.parameters.begin.bracket.round.ks
+          callback
+          ^^^^^^^^
+          source.ks variable.parameter.ks
+                  )
+                  ^
+                  source.ks punctuation.definition.parameters.end.bracket.round.ks
+                    
+                   ^
+                   source.ks
+                    {
+                    ^
+                    source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>    let text = await foo('foobar', 42)
+     
+ ^^^^
+ source.ks
+     let
+     ^^^
+     source.ks storage.type.readwrite.ks
+         
+        ^
+        source.ks
+         text
+         ^^^^
+         source.ks meta.definition.variable.ks variable.other.readwrite.ks
+              
+             ^
+             source.ks
+              =
+              ^
+              source.ks keyword.operator.assignment.ks
+                
+               ^
+               source.ks
+                await
+                ^^^^^
+                source.ks keyword.control.flow.await.ks
+                      
+                     ^
+                     source.ks
+                      foo
+                      ^^^
+                      source.ks entity.name.function.ks
+                         (
+                         ^
+                         source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                          '
+                          ^
+                          source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
+                           foobar
+                           ^^^^^^
+                           source.ks string.quoted.single.ks
+                                 '
+                                 ^
+                                 source.ks string.quoted.single.ks punctuation.definition.string.end.ks
+                                  ,
+                                  ^
+                                  source.ks punctuation.separator.comma.ks
+                                    
+                                   ^
+                                   source.ks
+                                    42
+                                    ^^
+                                    source.ks constant.numeric.decimal.ks
+                                      )
+                                      ^
+                                      source.ks punctuation.definition.arguments.end.bracket.round.ks
+>
+>    
+     
+ ^^^^^
+ source.ks
+>
+>    callback(null, text)
+     
+ ^^^^
+ source.ks
+     callback
+     ^^^^^^^^
+     source.ks entity.name.function.ks
+             (
+             ^
+             source.ks punctuation.definition.arguments.begin.bracket.round.ks
+              null
+              ^^^^
+              source.ks constant.language.null.ks
+                  ,
+                  ^
+                  source.ks punctuation.separator.comma.ks
+                    
+                   ^
+                   source.ks
+                    text
+                    ^^^^
+                    source.ks variable.other.ks
+                        )
+                        ^
+                        source.ks punctuation.definition.arguments.end.bracket.round.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.block.end.bracket.curly.ks

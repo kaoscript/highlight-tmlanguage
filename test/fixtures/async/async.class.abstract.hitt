@@ -1,0 +1,90 @@
+original file
+-----------------------------------
+class Foo {
+    abstract {
+        async()
+        async foo()
+    }
+}
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>class Foo {
+ class
+ ^^^^^
+ source.ks storage.type.class.ks
+       
+      ^
+      source.ks
+       Foo
+       ^^^
+       source.ks entity.name.type.class.ks
+           
+          ^
+          source.ks
+           {
+           ^
+           source.ks punctuation.definition.class.begin.bracket.curly.ks
+>
+>    abstract {
+     
+ ^^^^
+ source.ks
+     abstract
+     ^^^^^^^^
+     source.ks storage.modifier.abstract.ks
+              
+             ^
+             source.ks
+              {
+              ^
+              source.ks punctuation.definition.members.begin.bracket.curly.ks
+>
+>        async()
+         
+ ^^^^^^^^
+ source.ks
+         async
+         ^^^^^
+         source.ks entity.name.function.ks
+              (
+              ^
+              source.ks punctuation.definition.parameters.begin.bracket.round.ks
+               )
+               ^
+               source.ks punctuation.definition.parameters.end.bracket.round.ks
+>
+>        async foo()
+         
+ ^^^^^^^^
+ source.ks
+         async
+         ^^^^^
+         source.ks storage.modifier.async.ks
+               
+              ^
+              source.ks
+               foo
+               ^^^
+               source.ks entity.name.function.ks
+                  (
+                  ^
+                  source.ks punctuation.definition.parameters.begin.bracket.round.ks
+                   )
+                   ^
+                   source.ks punctuation.definition.parameters.end.bracket.round.ks
+>
+>    }
+     
+ ^^^^
+ source.ks
+     }
+     ^
+     source.ks punctuation.definition.members.end.bracket.curly.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.class.end.bracket.curly.ks

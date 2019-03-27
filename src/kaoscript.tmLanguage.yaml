@@ -59,10 +59,31 @@ repository:
   # }}}
   attribute: # {{{
     name: meta.attribute.ks
-    begin: '#!?\['
+    begin: '(?:(#)|(#!))(\[)'
+    beginCaptures:
+      '1': { name: 'punctuation.attribute.ks' }
+      '2': { name: 'punctuation.attribute.block.ks' }
+      '3': { name: 'punctuation.definition.attribute.begin.bracket.square.ks' }
     end: \]
+    endCaptures:
+      '0': { name: 'punctuation.definition.attribute.end.bracket.square.ks' }
     patterns:
+    - include: '#attribute-expression'
+  attribute-expression:
+    patterns:
+    - begin: '({{identifier}})\s*(\()'
+      beginCaptures:
+        '1': { name: 'entity.name.function.ks' }
+        '2': { name: 'punctuation.definition.arguments.begin.bracket.round.ks' }
+      end: '\)'
+      endCaptures:
+        '0': { name: 'punctuation.definition.arguments.end.bracket.round.ks' }
+      patterns:
+      - include: '#attribute-expression'
+    - name: 'entity.name'
+      match: '[_$[:alpha:]][-\._$[:alnum:]]*'
     - include: '#string'
+    - include: '#comma'
   # }}}
   binding-array: # {{{
     begin: '\['
@@ -153,9 +174,10 @@ repository:
         end: '$'
         patterns:
         - include: '#expression'
-    - begin: '({{identifier}})(?=\()'
+    - begin: '(?:(\basync)\s*)?({{identifier}})(?=\()'
       beginCaptures:
-        '1': { name: 'entity.name.function.ks' }
+        '1': { name: 'storage.modifier.async.ks' }
+        '2': { name: 'entity.name.function.ks' }
       end: '(?<=\}|$)'
       patterns:
       - include: '#function-parameters'
@@ -281,6 +303,8 @@ repository:
         match: '(?:private|protected|public|static)(?!\s*\()'
       - name: 'storage.modifier.abstract.ks'
         match: '(?:abstract)(?!\s*\()'
+      - name: 'storage.modifier.async.ks'
+        match: '(?:async)(?!\s*\()'
       - begin: '\{'
         beginCaptures:
           '0': { name: 'punctuation.definition.members.begin.bracket.curly.ks' }
@@ -852,6 +876,8 @@ repository:
       - begin: '(?={{function-line}})'
         end: '(?=$|[,\)\]])'
         patterns:
+        - name: 'storage.modifier.async.ks'
+          match: '\basync\b'
         - name: 'storage.type.function.ks'
           match: '\bfunc\b'
         - include: '#function-parameters'
@@ -1317,6 +1343,7 @@ repository:
       '0': { name: 'punctuation.definition.object.end.bracket.curly.ks' }
     patterns:
     - include: '#comment'
+    - include: '#attribute'
     - begin: '({{identifier}})\s*(\:)'
       beginCaptures:
         '1': { name: 'meta.object.key.ks' }
@@ -1400,7 +1427,7 @@ repository:
       match: '\+|-|\*|/|%'
     - name: 'keyword.operator.null-coalescing.ks'
       match: '\?\?'
-    - name: 'keyword.control.flow'
+    - name: 'keyword.control.flow.await.ks'
       match: '\bawait\b'
     - begin: '(?<=\s)\?(?=\s|$)'
       beginCaptures:

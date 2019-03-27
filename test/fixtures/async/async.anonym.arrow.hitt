@@ -1,0 +1,66 @@
+original file
+-----------------------------------
+foo(async (x, y) => x * y)
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>foo(async (x, y) => x * y)
+ foo
+ ^^^
+ source.ks entity.name.function.ks
+    (
+    ^
+    source.ks punctuation.definition.arguments.begin.bracket.round.ks
+     async
+     ^^^^^
+     source.ks storage.modifier.async.ks
+           
+          ^
+          source.ks
+           (
+           ^
+           source.ks punctuation.definition.parameters.begin.bracket.round.ks
+            x
+            ^
+            source.ks variable.parameter.ks
+             ,
+             ^
+             source.ks punctuation.separator.comma.ks
+               
+              ^
+              source.ks
+               y
+               ^
+               source.ks variable.parameter.ks
+                )
+                ^
+                source.ks punctuation.definition.parameters.end.bracket.round.ks
+                  
+                 ^
+                 source.ks
+                  =>
+                  ^^
+                  source.ks storage.type.function.arrow.ks
+                     
+                    ^
+                    source.ks
+                     x
+                     ^
+                     source.ks variable.other.ks
+                       
+                      ^
+                      source.ks
+                       *
+                       ^
+                       source.ks keyword.operator.arithmetic.ks
+                         
+                        ^
+                        source.ks
+                         y
+                         ^
+                         source.ks variable.other.ks
+                          )
+                          ^
+                          source.ks punctuation.definition.arguments.end.bracket.round.ks

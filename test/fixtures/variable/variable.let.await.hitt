@@ -36,7 +36,7 @@ grammar: kaoscript.tmLanguage
            source.ks
             await
             ^^^^^
-            source.ks keyword.control.flow
+            source.ks keyword.control.flow.await.ks
                   
                  ^
                  source.ks

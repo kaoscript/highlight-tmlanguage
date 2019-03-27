@@ -1,0 +1,381 @@
+original file
+-----------------------------------
+#[test]
+func foo() {
+}
+#[cfg(target_os = "darwin")]
+func darwin_only() {
+}
+#[cfg(target_os="linux")]
+func linux_only() {
+}
+#[cfg(any(foo, bar))]
+func needs_foo_or_bar() {
+}
+#[cfg(all(unix))]
+func on_unix() {
+}
+#[cfg(not(foo))]
+func needs_not_foo() {
+}
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>#[test]
+ #
+ ^
+ source.ks meta.attribute.ks punctuation.attribute.ks
+  [
+  ^
+  source.ks meta.attribute.ks punctuation.definition.attribute.begin.bracket.square.ks
+   test
+   ^^^^
+   source.ks meta.attribute.ks entity.name
+       ]
+       ^
+       source.ks meta.attribute.ks punctuation.definition.attribute.end.bracket.square.ks
+>
+>func foo() {
+ func
+ ^^^^
+ source.ks storage.type.function.ks
+      
+     ^
+     source.ks
+      foo
+      ^^^
+      source.ks entity.name.function.ks
+         (
+         ^
+         source.ks punctuation.definition.parameters.begin.bracket.round.ks
+          )
+          ^
+          source.ks punctuation.definition.parameters.end.bracket.round.ks
+            
+           ^
+           source.ks
+            {
+            ^
+            source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.block.end.bracket.curly.ks
+>
+>#[cfg(target_os = "darwin")]
+ #
+ ^
+ source.ks meta.attribute.ks punctuation.attribute.ks
+  [
+  ^
+  source.ks meta.attribute.ks punctuation.definition.attribute.begin.bracket.square.ks
+   cfg
+   ^^^
+   source.ks meta.attribute.ks entity.name.function.ks
+      (
+      ^
+      source.ks meta.attribute.ks punctuation.definition.arguments.begin.bracket.round.ks
+       target_os
+       ^^^^^^^^^
+       source.ks meta.attribute.ks entity.name
+                 = 
+                ^^^
+                source.ks meta.attribute.ks
+                   "
+                   ^
+                   source.ks meta.attribute.ks string.quoted.double.ks punctuation.definition.string.begin.ks
+                    darwin
+                    ^^^^^^
+                    source.ks meta.attribute.ks string.quoted.double.ks
+                          "
+                          ^
+                          source.ks meta.attribute.ks string.quoted.double.ks punctuation.definition.string.end.ks
+                           )
+                           ^
+                           source.ks meta.attribute.ks punctuation.definition.arguments.end.bracket.round.ks
+                            ]
+                            ^
+                            source.ks meta.attribute.ks punctuation.definition.attribute.end.bracket.square.ks
+>
+>func darwin_only() {
+ func
+ ^^^^
+ source.ks storage.type.function.ks
+      
+     ^
+     source.ks
+      darwin_only
+      ^^^^^^^^^^^
+      source.ks entity.name.function.ks
+                 (
+                 ^
+                 source.ks punctuation.definition.parameters.begin.bracket.round.ks
+                  )
+                  ^
+                  source.ks punctuation.definition.parameters.end.bracket.round.ks
+                    
+                   ^
+                   source.ks
+                    {
+                    ^
+                    source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.block.end.bracket.curly.ks
+>
+>#[cfg(target_os="linux")]
+ #
+ ^
+ source.ks meta.attribute.ks punctuation.attribute.ks
+  [
+  ^
+  source.ks meta.attribute.ks punctuation.definition.attribute.begin.bracket.square.ks
+   cfg
+   ^^^
+   source.ks meta.attribute.ks entity.name.function.ks
+      (
+      ^
+      source.ks meta.attribute.ks punctuation.definition.arguments.begin.bracket.round.ks
+       target_os
+       ^^^^^^^^^
+       source.ks meta.attribute.ks entity.name
+                =
+                ^
+                source.ks meta.attribute.ks
+                 "
+                 ^
+                 source.ks meta.attribute.ks string.quoted.double.ks punctuation.definition.string.begin.ks
+                  linux
+                  ^^^^^
+                  source.ks meta.attribute.ks string.quoted.double.ks
+                       "
+                       ^
+                       source.ks meta.attribute.ks string.quoted.double.ks punctuation.definition.string.end.ks
+                        )
+                        ^
+                        source.ks meta.attribute.ks punctuation.definition.arguments.end.bracket.round.ks
+                         ]
+                         ^
+                         source.ks meta.attribute.ks punctuation.definition.attribute.end.bracket.square.ks
+>
+>func linux_only() {
+ func
+ ^^^^
+ source.ks storage.type.function.ks
+      
+     ^
+     source.ks
+      linux_only
+      ^^^^^^^^^^
+      source.ks entity.name.function.ks
+                (
+                ^
+                source.ks punctuation.definition.parameters.begin.bracket.round.ks
+                 )
+                 ^
+                 source.ks punctuation.definition.parameters.end.bracket.round.ks
+                   
+                  ^
+                  source.ks
+                   {
+                   ^
+                   source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.block.end.bracket.curly.ks
+>
+>#[cfg(any(foo, bar))]
+ #
+ ^
+ source.ks meta.attribute.ks punctuation.attribute.ks
+  [
+  ^
+  source.ks meta.attribute.ks punctuation.definition.attribute.begin.bracket.square.ks
+   cfg
+   ^^^
+   source.ks meta.attribute.ks entity.name.function.ks
+      (
+      ^
+      source.ks meta.attribute.ks punctuation.definition.arguments.begin.bracket.round.ks
+       any
+       ^^^
+       source.ks meta.attribute.ks entity.name.function.ks
+          (
+          ^
+          source.ks meta.attribute.ks punctuation.definition.arguments.begin.bracket.round.ks
+           foo
+           ^^^
+           source.ks meta.attribute.ks entity.name
+              ,
+              ^
+              source.ks meta.attribute.ks punctuation.separator.comma.ks
+                
+               ^
+               source.ks meta.attribute.ks
+                bar
+                ^^^
+                source.ks meta.attribute.ks entity.name
+                   )
+                   ^
+                   source.ks meta.attribute.ks punctuation.definition.arguments.end.bracket.round.ks
+                    )
+                    ^
+                    source.ks meta.attribute.ks punctuation.definition.arguments.end.bracket.round.ks
+                     ]
+                     ^
+                     source.ks meta.attribute.ks punctuation.definition.attribute.end.bracket.square.ks
+>
+>func needs_foo_or_bar() {
+ func
+ ^^^^
+ source.ks storage.type.function.ks
+      
+     ^
+     source.ks
+      needs_foo_or_bar
+      ^^^^^^^^^^^^^^^^
+      source.ks entity.name.function.ks
+                      (
+                      ^
+                      source.ks punctuation.definition.parameters.begin.bracket.round.ks
+                       )
+                       ^
+                       source.ks punctuation.definition.parameters.end.bracket.round.ks
+                         
+                        ^
+                        source.ks
+                         {
+                         ^
+                         source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.block.end.bracket.curly.ks
+>
+>#[cfg(all(unix))]
+ #
+ ^
+ source.ks meta.attribute.ks punctuation.attribute.ks
+  [
+  ^
+  source.ks meta.attribute.ks punctuation.definition.attribute.begin.bracket.square.ks
+   cfg
+   ^^^
+   source.ks meta.attribute.ks entity.name.function.ks
+      (
+      ^
+      source.ks meta.attribute.ks punctuation.definition.arguments.begin.bracket.round.ks
+       all
+       ^^^
+       source.ks meta.attribute.ks entity.name.function.ks
+          (
+          ^
+          source.ks meta.attribute.ks punctuation.definition.arguments.begin.bracket.round.ks
+           unix
+           ^^^^
+           source.ks meta.attribute.ks entity.name
+               )
+               ^
+               source.ks meta.attribute.ks punctuation.definition.arguments.end.bracket.round.ks
+                )
+                ^
+                source.ks meta.attribute.ks punctuation.definition.arguments.end.bracket.round.ks
+                 ]
+                 ^
+                 source.ks meta.attribute.ks punctuation.definition.attribute.end.bracket.square.ks
+>
+>func on_unix() {
+ func
+ ^^^^
+ source.ks storage.type.function.ks
+      
+     ^
+     source.ks
+      on_unix
+      ^^^^^^^
+      source.ks entity.name.function.ks
+             (
+             ^
+             source.ks punctuation.definition.parameters.begin.bracket.round.ks
+              )
+              ^
+              source.ks punctuation.definition.parameters.end.bracket.round.ks
+                
+               ^
+               source.ks
+                {
+                ^
+                source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.block.end.bracket.curly.ks
+>
+>#[cfg(not(foo))]
+ #
+ ^
+ source.ks meta.attribute.ks punctuation.attribute.ks
+  [
+  ^
+  source.ks meta.attribute.ks punctuation.definition.attribute.begin.bracket.square.ks
+   cfg
+   ^^^
+   source.ks meta.attribute.ks entity.name.function.ks
+      (
+      ^
+      source.ks meta.attribute.ks punctuation.definition.arguments.begin.bracket.round.ks
+       not
+       ^^^
+       source.ks meta.attribute.ks entity.name.function.ks
+          (
+          ^
+          source.ks meta.attribute.ks punctuation.definition.arguments.begin.bracket.round.ks
+           foo
+           ^^^
+           source.ks meta.attribute.ks entity.name
+              )
+              ^
+              source.ks meta.attribute.ks punctuation.definition.arguments.end.bracket.round.ks
+               )
+               ^
+               source.ks meta.attribute.ks punctuation.definition.arguments.end.bracket.round.ks
+                ]
+                ^
+                source.ks meta.attribute.ks punctuation.definition.attribute.end.bracket.square.ks
+>
+>func needs_not_foo() {
+ func
+ ^^^^
+ source.ks storage.type.function.ks
+      
+     ^
+     source.ks
+      needs_not_foo
+      ^^^^^^^^^^^^^
+      source.ks entity.name.function.ks
+                   (
+                   ^
+                   source.ks punctuation.definition.parameters.begin.bracket.round.ks
+                    )
+                    ^
+                    source.ks punctuation.definition.parameters.end.bracket.round.ks
+                      
+                     ^
+                     source.ks
+                      {
+                      ^
+                      source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.block.end.bracket.curly.ks

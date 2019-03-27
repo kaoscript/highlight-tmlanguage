@@ -1,0 +1,126 @@
+original file
+-----------------------------------
+async func foo(x, y) => x - y
+async func bar() => await foo(42, 24)
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>async func foo(x, y) => x - y
+ async
+ ^^^^^
+ source.ks storage.modifier.async.ks
+       
+      ^
+      source.ks
+       func
+       ^^^^
+       source.ks storage.type.function.ks
+            
+           ^
+           source.ks
+            foo
+            ^^^
+            source.ks entity.name.function.ks
+               (
+               ^
+               source.ks punctuation.definition.parameters.begin.bracket.round.ks
+                x
+                ^
+                source.ks variable.parameter.ks
+                 ,
+                 ^
+                 source.ks punctuation.separator.comma.ks
+                   
+                  ^
+                  source.ks
+                   y
+                   ^
+                   source.ks variable.parameter.ks
+                    )
+                    ^
+                    source.ks punctuation.definition.parameters.end.bracket.round.ks
+                      
+                     ^
+                     source.ks
+                      =>
+                      ^^
+                      source.ks storage.type.function.arrow.ks
+                         
+                        ^
+                        source.ks
+                         x
+                         ^
+                         source.ks variable.other.ks
+                           
+                          ^
+                          source.ks
+                           -
+                           ^
+                           source.ks keyword.operator.arithmetic.ks
+                             
+                            ^
+                            source.ks
+                             y
+                             ^
+                             source.ks variable.other.ks
+>
+>async func bar() => await foo(42, 24)
+ async
+ ^^^^^
+ source.ks storage.modifier.async.ks
+       
+      ^
+      source.ks
+       func
+       ^^^^
+       source.ks storage.type.function.ks
+            
+           ^
+           source.ks
+            bar
+            ^^^
+            source.ks entity.name.function.ks
+               (
+               ^
+               source.ks punctuation.definition.parameters.begin.bracket.round.ks
+                )
+                ^
+                source.ks punctuation.definition.parameters.end.bracket.round.ks
+                  
+                 ^
+                 source.ks
+                  =>
+                  ^^
+                  source.ks storage.type.function.arrow.ks
+                     
+                    ^
+                    source.ks
+                     await
+                     ^^^^^
+                     source.ks keyword.control.flow.await.ks
+                           
+                          ^
+                          source.ks
+                           foo
+                           ^^^
+                           source.ks entity.name.function.ks
+                              (
+                              ^
+                              source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                               42
+                               ^^
+                               source.ks constant.numeric.decimal.ks
+                                 ,
+                                 ^
+                                 source.ks punctuation.separator.comma.ks
+                                   
+                                  ^
+                                  source.ks
+                                   24
+                                   ^^
+                                   source.ks constant.numeric.decimal.ks
+                                     )
+                                     ^
+                                     source.ks punctuation.definition.arguments.end.bracket.round.ks
