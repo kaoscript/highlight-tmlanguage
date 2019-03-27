@@ -10,6 +10,8 @@ extern __dirname, console
 const srcRoot = path.join(__dirname, '..', 'parser', 'test', 'fixtures')
 const destRoot = path.join(__dirname, 'test', 'fixtures')
 
+const fixtures = ['function.parameter.timeout', 'macro.quirk']
+
 // 1. update existing files
 for file in klaw(srcRoot, {
 	nodir: true,
@@ -78,11 +80,13 @@ func check(destPath) { // {{{
 	}
 	catch {
 		// delete
+		const name = filename.slice(0, -3)
 
-		console.log(`- deleting: \(path.join(dirname, filename.slice(0, -3))).ks`)
+		if !fixtures.some(fixture => fixture == name) {
+			console.log(`- deleting: \(path.join(dirname, name)).ks`)
 
-		fs.unlinkSync(path.join(destRoot, dirname, `\(filename.slice(0, -3)).baseline.txt`))
-		fs.unlinkSync(path.join(destRoot, dirname, `\(filename.slice(0, -3)).markers.txt`))
-		fs.unlinkSync(path.join(destRoot, dirname, filename))
+			fs.unlinkSync(path.join(destRoot, dirname, `\(name).hitt`))
+			fs.unlinkSync(path.join(destRoot, dirname, filename))
+		}
 	}
 } // }}}

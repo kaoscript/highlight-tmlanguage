@@ -26,6 +26,8 @@ describe('highlight', func() {
 		const name = path.basename(file).slice(0, -3)
 
 		it(name, func() {
+			this.timeout(1000)
+
 			const source = fs.readFileSync(file, {
 				encoding: 'utf8'
 			})

@@ -6,9 +6,9 @@ uuid: 371123EB-AE4B-471E-BB5C-1AB23093F1C9
 variables:
   identifier: '[_$[:alpha:]][_$[:alnum:]]*'
   match-identifier: '\s+(?=[_$[:alpha:]])'
-  function-block: '(?:(?:\basync\s+)?\bfunc\s*{{function-sig}}|(?:\basync\s+)?{{function-sig}}\s*=>\s*|{{identifier}}\s*=>\s*)\s*\{'
+  function-block: '(?:(?:\basync\s+)?\bfunc\s*{{function-sig}}|(?:\basync\s+)?{{function-sig}}\s*=>|{{identifier}}\s*=>\s*)\s*\{'
   function-line: '(?:(?:\basync\s*)?(?:\bfunc\s*)?{{function-sig}}|{{identifier}})\s*=>\s*(?!\{)'
-  function-sig: '\((?:\s*{{parameter}}\s*|\s*,\s*)*\)(?:{{type}})?'
+  function-sig: '\((?:\s*{{parameter}}\s*,)*\s*(?:{{parameter}})?\s*\)(?:{{type}})?'
   parameter: '(?:\.\.\.(?:\{\d*,?\d*\})?)?{{identifier}}(?:{{type}}|\?)?(?:\s*=\s*(?:\(.*\)|[^\)])+)?'
   type: ':\s*{{type-identifier}}(?:\s*\|\s*{{type-identifier}})*'
   type-identifier: '{{identifier}}(?:<{{identifier}}>)?'
@@ -917,7 +917,7 @@ repository:
       beginCaptures:
         '1': { name: 'storage.modifier.at.ks' }
         '2': { name: 'variable.parameter.ks' }
-      end: (?=\,|\))
+      end: (?=[,\)\/])
       patterns:
       - name: 'storage.modifier.nullable.ks'
         match: '\?'
@@ -925,22 +925,23 @@ repository:
         begin: '(\:)(?!\=)'
         beginCaptures:
           '1': { name: 'keyword.operator.type.annotation.ks' }
-        end: '(?=\s*[\=\),])'
+        end: '(?=\s*[\=,\)\/])'
         patterns:
         - include: '#type'
       - begin: '\='
         beginCaptures:
           '0': { name: 'keyword.operator.assignment.ks' }
-        end: (?=,|\))
+        end: (?=[,\)\/])
         patterns:
         - include: '#expression'
     - name: 'meta.type.annotation.ks'
       begin: '(\:)(?!\=)'
       beginCaptures:
         '1': { name: 'keyword.operator.type.annotation.ks' }
-      end: '(?=\s*[\),])'
+      end: '(?=\s*[,\)\/])'
       patterns:
       - include: '#type'
+    - include: '#comment'
     - include: '#comma'
   # }}}
   function-return-type: # {{{

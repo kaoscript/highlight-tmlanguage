@@ -1,0 +1,48 @@
+original file
+-----------------------------------
+while (parent is FunctionExpression) {
+}
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>while (parent is FunctionExpression) {
+ while
+ ^^^^^
+ source.ks keyword.control.loop.while.ks
+       
+      ^
+      source.ks
+       (
+       ^
+       source.ks meta.brace.round.ks
+        parent
+        ^^^^^^
+        source.ks variable.other.ks
+               
+              ^
+              source.ks
+               is
+               ^^
+               source.ks keyword.operator.type-checking.ks
+                  
+                 ^
+                 source.ks
+                  FunctionExpression
+                  ^^^^^^^^^^^^^^^^^^
+                  source.ks entity.name.type.ks
+                                    )
+                                    ^
+                                    source.ks meta.brace.round.ks
+                                      
+                                     ^
+                                     source.ks
+                                      {
+                                      ^
+                                      source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.block.end.bracket.curly.ks
