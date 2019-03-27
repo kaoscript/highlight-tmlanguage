@@ -1,0 +1,204 @@
+original file
+-----------------------------------
+class Greetings {
+    private {
+        _message: String = ''
+    }
+    
+    constructor(message: String?) {
+        @message = message == null ? 'Hello!' : message
+    }
+}
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>class Greetings {
+ class
+ ^^^^^
+ source.ks storage.type.class.ks
+       
+      ^
+      source.ks
+       Greetings
+       ^^^^^^^^^
+       source.ks entity.name.type.class.ks
+                 
+                ^
+                source.ks
+                 {
+                 ^
+                 source.ks punctuation.definition.class.begin.bracket.curly.ks
+>
+>    private {
+     
+ ^^^^
+ source.ks
+     private
+     ^^^^^^^
+     source.ks storage.modifier.access.ks
+             
+            ^
+            source.ks
+             {
+             ^
+             source.ks punctuation.definition.members.begin.bracket.curly.ks
+>
+>        _message: String = ''
+         
+ ^^^^^^^^
+ source.ks
+         _message
+         ^^^^^^^^
+         source.ks entity.name.variable.field.ks
+                 :
+                 ^
+                 source.ks meta.type.annotation.ks keyword.operator.type.annotation.ks
+                   
+                  ^
+                  source.ks meta.type.annotation.ks
+                   String
+                   ^^^^^^
+                   source.ks meta.type.annotation.ks support.type.primitive.ks
+                          
+                         ^
+                         source.ks meta.type.annotation.ks
+                          =
+                          ^
+                          source.ks keyword.operator.assignment.ks
+                            
+                           ^
+                           source.ks
+                            '
+                            ^
+                            source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
+                             '
+                             ^
+                             source.ks string.quoted.single.ks punctuation.definition.string.end.ks
+>
+>    }
+     
+ ^^^^
+ source.ks
+     }
+     ^
+     source.ks punctuation.definition.members.end.bracket.curly.ks
+>
+>    
+     
+ ^^^^^
+ source.ks
+>
+>    constructor(message: String?) {
+     
+ ^^^^
+ source.ks
+     constructor
+     ^^^^^^^^^^^
+     source.ks storage.type.constructor.ks
+                (
+                ^
+                source.ks punctuation.definition.parameters.begin.bracket.round.ks
+                 message
+                 ^^^^^^^
+                 source.ks variable.parameter.ks
+                        :
+                        ^
+                        source.ks meta.type.annotation.ks keyword.operator.type.annotation.ks
+                          
+                         ^
+                         source.ks meta.type.annotation.ks
+                          String
+                          ^^^^^^
+                          source.ks meta.type.annotation.ks support.type.primitive.ks
+                                ?
+                                ^
+                                source.ks meta.type.annotation.ks storage.modifier.nullable.ks
+                                 )
+                                 ^
+                                 source.ks punctuation.definition.parameters.end.bracket.round.ks
+                                   
+                                  ^
+                                  source.ks
+                                   {
+                                   ^
+                                   source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>        @message = message == null ? 'Hello!' : message
+         
+ ^^^^^^^^
+ source.ks
+         @
+         ^
+         source.ks storage.modifier.instance.ks
+          message
+          ^^^^^^^
+          source.ks variable.other.instance.ks
+                  
+                 ^
+                 source.ks
+                  =
+                  ^
+                  source.ks keyword.operator.assignment.ks
+                    
+                   ^
+                   source.ks
+                    message
+                    ^^^^^^^
+                    source.ks variable.other.ks
+                            
+                           ^
+                           source.ks
+                            ==
+                            ^^
+                            source.ks keyword.operator.comparison.ks
+                               
+                              ^
+                              source.ks
+                               null
+                               ^^^^
+                               source.ks constant.language.null.ks
+                                    
+                                   ^
+                                   source.ks
+                                    ?
+                                    ^
+                                    source.ks keyword.operator.ternary.ks
+                                      
+                                     ^
+                                     source.ks
+                                      '
+                                      ^
+                                      source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
+                                       Hello!
+                                       ^^^^^^
+                                       source.ks string.quoted.single.ks
+                                             '
+                                             ^
+                                             source.ks string.quoted.single.ks punctuation.definition.string.end.ks
+                                               
+                                              ^
+                                              source.ks
+                                               :
+                                               ^
+                                               source.ks keyword.operator.ternary.ks
+                                                 
+                                                ^
+                                                source.ks
+                                                 message
+                                                 ^^^^^^^
+                                                 source.ks variable.other.ks
+>
+>    }
+     
+ ^^^^
+ source.ks
+     }
+     ^
+     source.ks punctuation.definition.block.end.bracket.curly.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.class.end.bracket.curly.ks

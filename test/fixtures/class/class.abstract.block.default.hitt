@@ -1,0 +1,87 @@
+original file
+-----------------------------------
+abstract class AbstractGreetings {
+    abstract {
+        greet(name): String
+    }
+}
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>abstract class AbstractGreetings {
+ abstract
+ ^^^^^^^^
+ source.ks storage.modifier.abstract.ks
+          
+         ^
+         source.ks
+          class
+          ^^^^^
+          source.ks storage.type.class.ks
+                
+               ^
+               source.ks
+                AbstractGreetings
+                ^^^^^^^^^^^^^^^^^
+                source.ks entity.name.type.class.ks
+                                  
+                                 ^
+                                 source.ks
+                                  {
+                                  ^
+                                  source.ks punctuation.definition.class.begin.bracket.curly.ks
+>
+>    abstract {
+     
+ ^^^^
+ source.ks
+     abstract
+     ^^^^^^^^
+     source.ks storage.modifier.abstract.ks
+              
+             ^
+             source.ks
+              {
+              ^
+              source.ks punctuation.definition.members.begin.bracket.curly.ks
+>
+>        greet(name): String
+         
+ ^^^^^^^^
+ source.ks
+         greet
+         ^^^^^
+         source.ks entity.name.function.ks
+              (
+              ^
+              source.ks punctuation.definition.parameters.begin.bracket.round.ks
+               name
+               ^^^^
+               source.ks variable.parameter.ks
+                   )
+                   ^
+                   source.ks punctuation.definition.parameters.end.bracket.round.ks
+                    :
+                    ^
+                    source.ks meta.function.return-type.ks keyword.operator.type.annotation.ks
+                      
+                     ^
+                     source.ks meta.function.return-type.ks
+                      String
+                      ^^^^^^
+                      source.ks meta.function.return-type.ks support.type.primitive.ks
+>
+>    }
+     
+ ^^^^
+ source.ks
+     }
+     ^
+     source.ks punctuation.definition.members.end.bracket.curly.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.class.end.bracket.curly.ks

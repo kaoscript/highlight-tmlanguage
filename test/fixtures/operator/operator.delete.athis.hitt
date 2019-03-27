@@ -50,7 +50,7 @@ grammar: kaoscript.tmLanguage
  source.ks
          _x
          ^^
-         source.ks variable.object.property.ks
+         source.ks entity.name.variable.field.ks
 >
 >    }
      

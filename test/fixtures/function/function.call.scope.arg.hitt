@@ -44,7 +44,7 @@ grammar: kaoscript.tmLanguage
  source.ks
      this
      ^^^^
-     source.ks variable.other.object.ks
+     source.ks variable.language.this.ks
          .
          ^
          source.ks punctuation.accessor.object.ks

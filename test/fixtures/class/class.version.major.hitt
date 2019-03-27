@@ -1,0 +1,168 @@
+original file
+-----------------------------------
+class Rectangle@1 {
+    public color: String
+    constructor(@color = 'black')
+    draw(canvas) {
+        return `I'm drawing a \(@color) rectangle.`
+    }
+}
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>class Rectangle@1 {
+ class
+ ^^^^^
+ source.ks storage.type.class.ks
+       
+      ^
+      source.ks
+       Rectangle
+       ^^^^^^^^^
+       source.ks entity.name.type.class.ks
+                @
+                ^
+                source.ks punctuation.separator.version.ks
+                 1
+                 ^
+                 source.ks storage.modifier.version.ks
+                   
+                  ^
+                  source.ks
+                   {
+                   ^
+                   source.ks punctuation.definition.class.begin.bracket.curly.ks
+>
+>    public color: String
+     
+ ^^^^
+ source.ks
+     public
+     ^^^^^^
+     source.ks storage.modifier.access.ks
+            
+           ^
+           source.ks
+            color
+            ^^^^^
+            source.ks entity.name.variable.field.ks
+                 :
+                 ^
+                 source.ks meta.type.annotation.ks keyword.operator.type.annotation.ks
+                   
+                  ^
+                  source.ks meta.type.annotation.ks
+                   String
+                   ^^^^^^
+                   source.ks meta.type.annotation.ks support.type.primitive.ks
+>
+>    constructor(@color = 'black')
+     
+ ^^^^
+ source.ks
+     constructor
+     ^^^^^^^^^^^
+     source.ks storage.type.constructor.ks
+                (
+                ^
+                source.ks punctuation.definition.parameters.begin.bracket.round.ks
+                 @
+                 ^
+                 source.ks storage.modifier.at.ks
+                  color
+                  ^^^^^
+                  source.ks variable.parameter.ks
+                        
+                       ^
+                       source.ks
+                        =
+                        ^
+                        source.ks keyword.operator.assignment.ks
+                          
+                         ^
+                         source.ks
+                          '
+                          ^
+                          source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
+                           black
+                           ^^^^^
+                           source.ks string.quoted.single.ks
+                                '
+                                ^
+                                source.ks string.quoted.single.ks punctuation.definition.string.end.ks
+                                 )
+                                 ^
+                                 source.ks punctuation.definition.parameters.end.bracket.round.ks
+>
+>    draw(canvas) {
+     
+ ^^^^
+ source.ks
+     draw
+     ^^^^
+     source.ks entity.name.function.ks
+         (
+         ^
+         source.ks punctuation.definition.parameters.begin.bracket.round.ks
+          canvas
+          ^^^^^^
+          source.ks variable.parameter.ks
+                )
+                ^
+                source.ks punctuation.definition.parameters.end.bracket.round.ks
+                  
+                 ^
+                 source.ks
+                  {
+                  ^
+                  source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>        return `I'm drawing a \(@color) rectangle.`
+         
+ ^^^^^^^^
+ source.ks
+         return
+         ^^^^^^
+         source.ks keyword.control.flow.return.ks
+                
+               ^
+               source.ks
+                `
+                ^
+                source.ks punctuation.definition.string.template.begin.ks
+                 I'm drawing a 
+                 ^^^^^^^^^^^^^^
+                 source.ks string.template.ks
+                               \(
+                               ^^
+                               source.ks punctuation.definition.template-expression.begin.ks
+                                 @
+                                 ^
+                                 source.ks storage.modifier.instance.ks
+                                  color
+                                  ^^^^^
+                                  source.ks variable.other.instance.ks
+                                       )
+                                       ^
+                                       source.ks punctuation.definition.template-expression.end.ks
+                                         rectangle.
+                                        ^^^^^^^^^^^
+                                        source.ks string.template.ks
+                                                   `
+                                                   ^
+                                                   source.ks punctuation.definition.string.template.end.ks
+>
+>    }
+     
+ ^^^^
+ source.ks
+     }
+     ^
+     source.ks punctuation.definition.block.end.bracket.curly.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.class.end.bracket.curly.ks

@@ -1,0 +1,48 @@
+original file
+-----------------------------------
+class Foobar {
+    macro: Number
+}
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>class Foobar {
+ class
+ ^^^^^
+ source.ks storage.type.class.ks
+       
+      ^
+      source.ks
+       Foobar
+       ^^^^^^
+       source.ks entity.name.type.class.ks
+              
+             ^
+             source.ks
+              {
+              ^
+              source.ks punctuation.definition.class.begin.bracket.curly.ks
+>
+>    macro: Number
+     
+ ^^^^
+ source.ks
+     macro
+     ^^^^^
+     source.ks entity.name.variable.field.ks
+          :
+          ^
+          source.ks meta.type.annotation.ks keyword.operator.type.annotation.ks
+            
+           ^
+           source.ks meta.type.annotation.ks
+            Number
+            ^^^^^^
+            source.ks meta.type.annotation.ks support.type.primitive.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.class.end.bracket.curly.ks

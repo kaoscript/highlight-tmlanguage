@@ -1,0 +1,147 @@
+original file
+-----------------------------------
+class Writer {
+    private {
+        _line: class
+    }
+    constructor(@line)
+    newLine(...args) => new @line(...args)
+}
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>class Writer {
+ class
+ ^^^^^
+ source.ks storage.type.class.ks
+       
+      ^
+      source.ks
+       Writer
+       ^^^^^^
+       source.ks entity.name.type.class.ks
+              
+             ^
+             source.ks
+              {
+              ^
+              source.ks punctuation.definition.class.begin.bracket.curly.ks
+>
+>    private {
+     
+ ^^^^
+ source.ks
+     private
+     ^^^^^^^
+     source.ks storage.modifier.access.ks
+             
+            ^
+            source.ks
+             {
+             ^
+             source.ks punctuation.definition.members.begin.bracket.curly.ks
+>
+>        _line: class
+         
+ ^^^^^^^^
+ source.ks
+         _line
+         ^^^^^
+         source.ks entity.name.variable.field.ks
+              :
+              ^
+              source.ks meta.type.annotation.ks keyword.operator.type.annotation.ks
+                
+               ^
+               source.ks meta.type.annotation.ks
+                class
+                ^^^^^
+                source.ks meta.type.annotation.ks support.type.primitive.ks
+>
+>    }
+     
+ ^^^^
+ source.ks
+     }
+     ^
+     source.ks punctuation.definition.members.end.bracket.curly.ks
+>
+>    constructor(@line)
+     
+ ^^^^
+ source.ks
+     constructor
+     ^^^^^^^^^^^
+     source.ks storage.type.constructor.ks
+                (
+                ^
+                source.ks punctuation.definition.parameters.begin.bracket.round.ks
+                 @
+                 ^
+                 source.ks storage.modifier.at.ks
+                  line
+                  ^^^^
+                  source.ks variable.parameter.ks
+                      )
+                      ^
+                      source.ks punctuation.definition.parameters.end.bracket.round.ks
+>
+>    newLine(...args) => new @line(...args)
+     
+ ^^^^
+ source.ks
+     newLine
+     ^^^^^^^
+     source.ks entity.name.function.ks
+            (
+            ^
+            source.ks punctuation.definition.parameters.begin.bracket.round.ks
+             ...
+             ^^^
+             source.ks keyword.operator.rest.ks
+                args
+                ^^^^
+                source.ks variable.parameter.ks
+                    )
+                    ^
+                    source.ks punctuation.definition.parameters.end.bracket.round.ks
+                      
+                     ^
+                     source.ks
+                      =>
+                      ^^
+                      source.ks storage.type.function.arrow.ks
+                         
+                        ^
+                        source.ks
+                         new
+                         ^^^
+                         source.ks keyword.operator.new.ks
+                             
+                            ^
+                            source.ks
+                             @
+                             ^
+                             source.ks storage.modifier.instance.ks
+                              line
+                              ^^^^
+                              source.ks entity.name.function.ks
+                                  (
+                                  ^
+                                  source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                                   ...
+                                   ^^^
+                                   source.ks keyword.operator.spread.ks
+                                      args
+                                      ^^^^
+                                      source.ks variable.other.ks
+                                          )
+                                          ^
+                                          source.ks punctuation.definition.arguments.end.bracket.round.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.class.end.bracket.curly.ks

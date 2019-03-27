@@ -1,0 +1,93 @@
+original file
+-----------------------------------
+class Foo {
+    public static bar
+    public static qux() {
+    }
+}
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>class Foo {
+ class
+ ^^^^^
+ source.ks storage.type.class.ks
+       
+      ^
+      source.ks
+       Foo
+       ^^^
+       source.ks entity.name.type.class.ks
+           
+          ^
+          source.ks
+           {
+           ^
+           source.ks punctuation.definition.class.begin.bracket.curly.ks
+>
+>    public static bar
+     
+ ^^^^
+ source.ks
+     public
+     ^^^^^^
+     source.ks storage.modifier.access.ks
+            
+           ^
+           source.ks
+            static
+            ^^^^^^
+            source.ks storage.modifier.access.ks
+                   
+                  ^
+                  source.ks
+                   bar
+                   ^^^
+                   source.ks entity.name.variable.field.ks
+>
+>    public static qux() {
+     
+ ^^^^
+ source.ks
+     public
+     ^^^^^^
+     source.ks storage.modifier.access.ks
+            
+           ^
+           source.ks
+            static
+            ^^^^^^
+            source.ks storage.modifier.access.ks
+                   
+                  ^
+                  source.ks
+                   qux
+                   ^^^
+                   source.ks entity.name.function.ks
+                      (
+                      ^
+                      source.ks punctuation.definition.parameters.begin.bracket.round.ks
+                       )
+                       ^
+                       source.ks punctuation.definition.parameters.end.bracket.round.ks
+                         
+                        ^
+                        source.ks
+                         {
+                         ^
+                         source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>    }
+     
+ ^^^^
+ source.ks
+     }
+     ^
+     source.ks punctuation.definition.block.end.bracket.curly.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.class.end.bracket.curly.ks

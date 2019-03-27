@@ -1,0 +1,312 @@
+original file
+-----------------------------------
+class Foo {
+    foo(,x) {
+    }
+    
+    bar(x?,, z?) {
+    }
+    
+    baz(x?, :any?, z?) {
+    }
+    
+    qux(...{,3}items) {
+    }
+    
+    quux(...{1,3}items, x) {
+    }
+}
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>class Foo {
+ class
+ ^^^^^
+ source.ks storage.type.class.ks
+       
+      ^
+      source.ks
+       Foo
+       ^^^
+       source.ks entity.name.type.class.ks
+           
+          ^
+          source.ks
+           {
+           ^
+           source.ks punctuation.definition.class.begin.bracket.curly.ks
+>
+>    foo(,x) {
+     
+ ^^^^
+ source.ks
+     foo
+     ^^^
+     source.ks entity.name.function.ks
+        (
+        ^
+        source.ks punctuation.definition.parameters.begin.bracket.round.ks
+         ,
+         ^
+         source.ks punctuation.separator.comma.ks
+          x
+          ^
+          source.ks variable.parameter.ks
+           )
+           ^
+           source.ks punctuation.definition.parameters.end.bracket.round.ks
+             
+            ^
+            source.ks
+             {
+             ^
+             source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>    }
+     
+ ^^^^
+ source.ks
+     }
+     ^
+     source.ks punctuation.definition.block.end.bracket.curly.ks
+>
+>    
+     
+ ^^^^^
+ source.ks
+>
+>    bar(x?,, z?) {
+     
+ ^^^^
+ source.ks
+     bar
+     ^^^
+     source.ks entity.name.function.ks
+        (
+        ^
+        source.ks punctuation.definition.parameters.begin.bracket.round.ks
+         x
+         ^
+         source.ks variable.parameter.ks
+          ?
+          ^
+          source.ks storage.modifier.nullable.ks
+           ,
+           ^
+           source.ks punctuation.separator.comma.ks
+            ,
+            ^
+            source.ks punctuation.separator.comma.ks
+              
+             ^
+             source.ks
+              z
+              ^
+              source.ks variable.parameter.ks
+               ?
+               ^
+               source.ks storage.modifier.nullable.ks
+                )
+                ^
+                source.ks punctuation.definition.parameters.end.bracket.round.ks
+                  
+                 ^
+                 source.ks
+                  {
+                  ^
+                  source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>    }
+     
+ ^^^^
+ source.ks
+     }
+     ^
+     source.ks punctuation.definition.block.end.bracket.curly.ks
+>
+>    
+     
+ ^^^^^
+ source.ks
+>
+>    baz(x?, :any?, z?) {
+     
+ ^^^^
+ source.ks
+     baz
+     ^^^
+     source.ks entity.name.function.ks
+        (
+        ^
+        source.ks punctuation.definition.parameters.begin.bracket.round.ks
+         x
+         ^
+         source.ks variable.parameter.ks
+          ?
+          ^
+          source.ks storage.modifier.nullable.ks
+           ,
+           ^
+           source.ks punctuation.separator.comma.ks
+             
+            ^
+            source.ks
+             :
+             ^
+             source.ks meta.type.annotation.ks keyword.operator.type.annotation.ks
+              any
+              ^^^
+              source.ks meta.type.annotation.ks support.type.primitive.ks
+                 ?
+                 ^
+                 source.ks meta.type.annotation.ks storage.modifier.nullable.ks
+                  ,
+                  ^
+                  source.ks punctuation.separator.comma.ks
+                    
+                   ^
+                   source.ks
+                    z
+                    ^
+                    source.ks variable.parameter.ks
+                     ?
+                     ^
+                     source.ks storage.modifier.nullable.ks
+                      )
+                      ^
+                      source.ks punctuation.definition.parameters.end.bracket.round.ks
+                        
+                       ^
+                       source.ks
+                        {
+                        ^
+                        source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>    }
+     
+ ^^^^
+ source.ks
+     }
+     ^
+     source.ks punctuation.definition.block.end.bracket.curly.ks
+>
+>    
+     
+ ^^^^^
+ source.ks
+>
+>    qux(...{,3}items) {
+     
+ ^^^^
+ source.ks
+     qux
+     ^^^
+     source.ks entity.name.function.ks
+        (
+        ^
+        source.ks punctuation.definition.parameters.begin.bracket.round.ks
+         ...
+         ^^^
+         source.ks keyword.operator.rest.ks
+            {
+            ^
+            source.ks punctuation.definition.rest.begin.bracket.curly
+             ,
+             ^
+             source.ks punctuation.separator.comma.ks
+              3
+              ^
+              source.ks constant.numeric.decimal.ks
+               }
+               ^
+               source.ks punctuation.definition.rest.end.bracket.curly
+                items
+                ^^^^^
+                source.ks variable.parameter.ks
+                     )
+                     ^
+                     source.ks punctuation.definition.parameters.end.bracket.round.ks
+                       
+                      ^
+                      source.ks
+                       {
+                       ^
+                       source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>    }
+     
+ ^^^^
+ source.ks
+     }
+     ^
+     source.ks punctuation.definition.block.end.bracket.curly.ks
+>
+>    
+     
+ ^^^^^
+ source.ks
+>
+>    quux(...{1,3}items, x) {
+     
+ ^^^^
+ source.ks
+     quux
+     ^^^^
+     source.ks entity.name.function.ks
+         (
+         ^
+         source.ks punctuation.definition.parameters.begin.bracket.round.ks
+          ...
+          ^^^
+          source.ks keyword.operator.rest.ks
+             {
+             ^
+             source.ks punctuation.definition.rest.begin.bracket.curly
+              1
+              ^
+              source.ks constant.numeric.decimal.ks
+               ,
+               ^
+               source.ks punctuation.separator.comma.ks
+                3
+                ^
+                source.ks constant.numeric.decimal.ks
+                 }
+                 ^
+                 source.ks punctuation.definition.rest.end.bracket.curly
+                  items
+                  ^^^^^
+                  source.ks variable.parameter.ks
+                       ,
+                       ^
+                       source.ks punctuation.separator.comma.ks
+                         
+                        ^
+                        source.ks
+                         x
+                         ^
+                         source.ks variable.parameter.ks
+                          )
+                          ^
+                          source.ks punctuation.definition.parameters.end.bracket.round.ks
+                            
+                           ^
+                           source.ks
+                            {
+                            ^
+                            source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>    }
+     
+ ^^^^
+ source.ks
+     }
+     ^
+     source.ks punctuation.definition.block.end.bracket.curly.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.class.end.bracket.curly.ks

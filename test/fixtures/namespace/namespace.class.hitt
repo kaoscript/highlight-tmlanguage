@@ -71,7 +71,7 @@ grammar: kaoscript.tmLanguage
  source.ks
              _name
              ^^^^^
-             source.ks variable.object.property.ks
+             source.ks entity.name.variable.field.ks
                   :
                   ^
                   source.ks meta.type.annotation.ks keyword.operator.type.annotation.ks

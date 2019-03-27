@@ -124,15 +124,18 @@ grammar: kaoscript.tmLanguage
             ,
             ^
             source.ks punctuation.separator.comma.ks
-              :
-             ^^
+              
+             ^
              source.ks
+              :
+              ^
+              source.ks meta.type.annotation.ks keyword.operator.type.annotation.ks
                any
                ^^^
-               source.ks variable.parameter.ks
+               source.ks meta.type.annotation.ks support.type.primitive.ks
                   ?
                   ^
-                  source.ks storage.modifier.nullable.ks
+                  source.ks meta.type.annotation.ks storage.modifier.nullable.ks
                    ,
                    ^
                    source.ks punctuation.separator.comma.ks

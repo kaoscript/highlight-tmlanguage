@@ -1,0 +1,459 @@
+original file
+-----------------------------------
+class Shape {
+    protected {
+        _color: string = ''
+    }
+    
+    constructor(@color)
+    draw(canvas): string {
+        throw new Error('Not Implemented')
+    }
+}
+class Rectangle extends Shape {
+    constructor(@color)
+    draw(canvas): string {
+        return 'I\'m drawing a ' + this._color + ' rectangle.'
+    }
+}
+let r = new Rectangle('black')
+expect(r.draw()).to.equal('I\'m drawing a black rectangle.')
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>class Shape {
+ class
+ ^^^^^
+ source.ks storage.type.class.ks
+       
+      ^
+      source.ks
+       Shape
+       ^^^^^
+       source.ks entity.name.type.class.ks
+             
+            ^
+            source.ks
+             {
+             ^
+             source.ks punctuation.definition.class.begin.bracket.curly.ks
+>
+>    protected {
+     
+ ^^^^
+ source.ks
+     protected
+     ^^^^^^^^^
+     source.ks storage.modifier.access.ks
+               
+              ^
+              source.ks
+               {
+               ^
+               source.ks punctuation.definition.members.begin.bracket.curly.ks
+>
+>        _color: string = ''
+         
+ ^^^^^^^^
+ source.ks
+         _color
+         ^^^^^^
+         source.ks entity.name.variable.field.ks
+               :
+               ^
+               source.ks meta.type.annotation.ks keyword.operator.type.annotation.ks
+                 
+                ^
+                source.ks meta.type.annotation.ks
+                 string
+                 ^^^^^^
+                 source.ks meta.type.annotation.ks support.type.primitive.ks
+                        
+                       ^
+                       source.ks meta.type.annotation.ks
+                        =
+                        ^
+                        source.ks keyword.operator.assignment.ks
+                          
+                         ^
+                         source.ks
+                          '
+                          ^
+                          source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
+                           '
+                           ^
+                           source.ks string.quoted.single.ks punctuation.definition.string.end.ks
+>
+>    }
+     
+ ^^^^
+ source.ks
+     }
+     ^
+     source.ks punctuation.definition.members.end.bracket.curly.ks
+>
+>    
+     
+ ^^^^^
+ source.ks
+>
+>    constructor(@color)
+     
+ ^^^^
+ source.ks
+     constructor
+     ^^^^^^^^^^^
+     source.ks storage.type.constructor.ks
+                (
+                ^
+                source.ks punctuation.definition.parameters.begin.bracket.round.ks
+                 @
+                 ^
+                 source.ks storage.modifier.at.ks
+                  color
+                  ^^^^^
+                  source.ks variable.parameter.ks
+                       )
+                       ^
+                       source.ks punctuation.definition.parameters.end.bracket.round.ks
+>
+>    draw(canvas): string {
+     
+ ^^^^
+ source.ks
+     draw
+     ^^^^
+     source.ks entity.name.function.ks
+         (
+         ^
+         source.ks punctuation.definition.parameters.begin.bracket.round.ks
+          canvas
+          ^^^^^^
+          source.ks variable.parameter.ks
+                )
+                ^
+                source.ks punctuation.definition.parameters.end.bracket.round.ks
+                 :
+                 ^
+                 source.ks meta.function.return-type.ks keyword.operator.type.annotation.ks
+                   
+                  ^
+                  source.ks meta.function.return-type.ks
+                   string
+                   ^^^^^^
+                   source.ks meta.function.return-type.ks support.type.primitive.ks
+                          
+                         ^
+                         source.ks
+                          {
+                          ^
+                          source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>        throw new Error('Not Implemented')
+         
+ ^^^^^^^^
+ source.ks
+         throw
+         ^^^^^
+         source.ks keyword.control.try-catch.throw.ks
+               
+              ^
+              source.ks
+               new
+               ^^^
+               source.ks keyword.operator.new.ks
+                   
+                  ^
+                  source.ks
+                   Error
+                   ^^^^^
+                   source.ks entity.name.type.ks
+                        (
+                        ^
+                        source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                         '
+                         ^
+                         source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
+                          Not Implemented
+                          ^^^^^^^^^^^^^^^
+                          source.ks string.quoted.single.ks
+                                         '
+                                         ^
+                                         source.ks string.quoted.single.ks punctuation.definition.string.end.ks
+                                          )
+                                          ^
+                                          source.ks punctuation.definition.arguments.end.bracket.round.ks
+>
+>    }
+     
+ ^^^^
+ source.ks
+     }
+     ^
+     source.ks punctuation.definition.block.end.bracket.curly.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.class.end.bracket.curly.ks
+>
+>class Rectangle extends Shape {
+ class
+ ^^^^^
+ source.ks storage.type.class.ks
+       
+      ^
+      source.ks
+       Rectangle
+       ^^^^^^^^^
+       source.ks entity.name.type.class.ks
+                 
+                ^
+                source.ks
+                 extends
+                 ^^^^^^^
+                 source.ks storage.modifier.extends.ks
+                         
+                        ^
+                        source.ks
+                         Shape
+                         ^^^^^
+                         source.ks entity.name.type.class.ks
+                               
+                              ^
+                              source.ks
+                               {
+                               ^
+                               source.ks punctuation.definition.class.begin.bracket.curly.ks
+>
+>    constructor(@color)
+     
+ ^^^^
+ source.ks
+     constructor
+     ^^^^^^^^^^^
+     source.ks storage.type.constructor.ks
+                (
+                ^
+                source.ks punctuation.definition.parameters.begin.bracket.round.ks
+                 @
+                 ^
+                 source.ks storage.modifier.at.ks
+                  color
+                  ^^^^^
+                  source.ks variable.parameter.ks
+                       )
+                       ^
+                       source.ks punctuation.definition.parameters.end.bracket.round.ks
+>
+>    draw(canvas): string {
+     
+ ^^^^
+ source.ks
+     draw
+     ^^^^
+     source.ks entity.name.function.ks
+         (
+         ^
+         source.ks punctuation.definition.parameters.begin.bracket.round.ks
+          canvas
+          ^^^^^^
+          source.ks variable.parameter.ks
+                )
+                ^
+                source.ks punctuation.definition.parameters.end.bracket.round.ks
+                 :
+                 ^
+                 source.ks meta.function.return-type.ks keyword.operator.type.annotation.ks
+                   
+                  ^
+                  source.ks meta.function.return-type.ks
+                   string
+                   ^^^^^^
+                   source.ks meta.function.return-type.ks support.type.primitive.ks
+                          
+                         ^
+                         source.ks
+                          {
+                          ^
+                          source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>        return 'I\'m drawing a ' + this._color + ' rectangle.'
+         
+ ^^^^^^^^
+ source.ks
+         return
+         ^^^^^^
+         source.ks keyword.control.flow.return.ks
+                
+               ^
+               source.ks
+                '
+                ^
+                source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
+                 I
+                 ^
+                 source.ks string.quoted.single.ks
+                  \'
+                  ^^
+                  source.ks string.quoted.single.ks constant.character.escape.ks
+                    m drawing a 
+                    ^^^^^^^^^^^^
+                    source.ks string.quoted.single.ks
+                                '
+                                ^
+                                source.ks string.quoted.single.ks punctuation.definition.string.end.ks
+                                  
+                                 ^
+                                 source.ks
+                                  +
+                                  ^
+                                  source.ks keyword.operator.arithmetic.ks
+                                    
+                                   ^
+                                   source.ks
+                                    this
+                                    ^^^^
+                                    source.ks variable.language.this.ks
+                                        .
+                                        ^
+                                        source.ks punctuation.accessor.object.ks
+                                         _color
+                                         ^^^^^^
+                                         source.ks variable.other.property.object.ks
+                                                
+                                               ^
+                                               source.ks
+                                                +
+                                                ^
+                                                source.ks keyword.operator.arithmetic.ks
+                                                  
+                                                 ^
+                                                 source.ks
+                                                  '
+                                                  ^
+                                                  source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
+                                                    rectangle.
+                                                   ^^^^^^^^^^^
+                                                   source.ks string.quoted.single.ks
+                                                              '
+                                                              ^
+                                                              source.ks string.quoted.single.ks punctuation.definition.string.end.ks
+>
+>    }
+     
+ ^^^^
+ source.ks
+     }
+     ^
+     source.ks punctuation.definition.block.end.bracket.curly.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.class.end.bracket.curly.ks
+>
+>let r = new Rectangle('black')
+ let
+ ^^^
+ source.ks storage.type.readwrite.ks
+     
+    ^
+    source.ks
+     r
+     ^
+     source.ks meta.definition.variable.ks variable.other.readwrite.ks
+       
+      ^
+      source.ks
+       =
+       ^
+       source.ks keyword.operator.assignment.ks
+         
+        ^
+        source.ks
+         new
+         ^^^
+         source.ks keyword.operator.new.ks
+             
+            ^
+            source.ks
+             Rectangle
+             ^^^^^^^^^
+             source.ks entity.name.type.ks
+                      (
+                      ^
+                      source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                       '
+                       ^
+                       source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
+                        black
+                        ^^^^^
+                        source.ks string.quoted.single.ks
+                             '
+                             ^
+                             source.ks string.quoted.single.ks punctuation.definition.string.end.ks
+                              )
+                              ^
+                              source.ks punctuation.definition.arguments.end.bracket.round.ks
+>
+>expect(r.draw()).to.equal('I\'m drawing a black rectangle.')
+ expect
+ ^^^^^^
+ source.ks entity.name.function.ks
+       (
+       ^
+       source.ks punctuation.definition.arguments.begin.bracket.round.ks
+        r
+        ^
+        source.ks variable.other.object.ks
+         .
+         ^
+         source.ks punctuation.accessor.object.ks
+          draw
+          ^^^^
+          source.ks entity.name.function.ks
+              (
+              ^
+              source.ks punctuation.definition.arguments.begin.bracket.round.ks
+               )
+               ^
+               source.ks punctuation.definition.arguments.end.bracket.round.ks
+                )
+                ^
+                source.ks punctuation.definition.arguments.end.bracket.round.ks
+                 .
+                 ^
+                 source.ks punctuation.accessor.object.ks
+                  to
+                  ^^
+                  source.ks variable.other.object.ks
+                    .
+                    ^
+                    source.ks punctuation.accessor.object.ks
+                     equal
+                     ^^^^^
+                     source.ks entity.name.function.ks
+                          (
+                          ^
+                          source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                           '
+                           ^
+                           source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
+                            I
+                            ^
+                            source.ks string.quoted.single.ks
+                             \'
+                             ^^
+                             source.ks string.quoted.single.ks constant.character.escape.ks
+                               m drawing a black rectangle.
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                               source.ks string.quoted.single.ks
+                                                           '
+                                                           ^
+                                                           source.ks string.quoted.single.ks punctuation.definition.string.end.ks
+                                                            )
+                                                            ^
+                                                            source.ks punctuation.definition.arguments.end.bracket.round.ks

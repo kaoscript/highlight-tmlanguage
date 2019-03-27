@@ -197,7 +197,7 @@ grammar: kaoscript.tmLanguage
                               source.ks meta.brace.round.ks
                                this
                                ^^^^
-                               source.ks variable.language.ks
+                               source.ks variable.language.this.ks
                                     
                                    ^
                                    source.ks

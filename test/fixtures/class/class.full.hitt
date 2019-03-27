@@ -1,0 +1,327 @@
+original file
+-----------------------------------
+class Shape {
+    private {
+        _color: string = ''
+    }
+    
+    constructor(@color)
+    
+    color(): string => this._color
+    
+    color(@color): Shape => this
+    
+    color(shape: Shape): Shape {
+        this._color = shape.color()
+        
+        return this
+    }
+}
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>class Shape {
+ class
+ ^^^^^
+ source.ks storage.type.class.ks
+       
+      ^
+      source.ks
+       Shape
+       ^^^^^
+       source.ks entity.name.type.class.ks
+             
+            ^
+            source.ks
+             {
+             ^
+             source.ks punctuation.definition.class.begin.bracket.curly.ks
+>
+>    private {
+     
+ ^^^^
+ source.ks
+     private
+     ^^^^^^^
+     source.ks storage.modifier.access.ks
+             
+            ^
+            source.ks
+             {
+             ^
+             source.ks punctuation.definition.members.begin.bracket.curly.ks
+>
+>        _color: string = ''
+         
+ ^^^^^^^^
+ source.ks
+         _color
+         ^^^^^^
+         source.ks entity.name.variable.field.ks
+               :
+               ^
+               source.ks meta.type.annotation.ks keyword.operator.type.annotation.ks
+                 
+                ^
+                source.ks meta.type.annotation.ks
+                 string
+                 ^^^^^^
+                 source.ks meta.type.annotation.ks support.type.primitive.ks
+                        
+                       ^
+                       source.ks meta.type.annotation.ks
+                        =
+                        ^
+                        source.ks keyword.operator.assignment.ks
+                          
+                         ^
+                         source.ks
+                          '
+                          ^
+                          source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
+                           '
+                           ^
+                           source.ks string.quoted.single.ks punctuation.definition.string.end.ks
+>
+>    }
+     
+ ^^^^
+ source.ks
+     }
+     ^
+     source.ks punctuation.definition.members.end.bracket.curly.ks
+>
+>    
+     
+ ^^^^^
+ source.ks
+>
+>    constructor(@color)
+     
+ ^^^^
+ source.ks
+     constructor
+     ^^^^^^^^^^^
+     source.ks storage.type.constructor.ks
+                (
+                ^
+                source.ks punctuation.definition.parameters.begin.bracket.round.ks
+                 @
+                 ^
+                 source.ks storage.modifier.at.ks
+                  color
+                  ^^^^^
+                  source.ks variable.parameter.ks
+                       )
+                       ^
+                       source.ks punctuation.definition.parameters.end.bracket.round.ks
+>
+>    
+     
+ ^^^^^
+ source.ks
+>
+>    color(): string => this._color
+     
+ ^^^^
+ source.ks
+     color
+     ^^^^^
+     source.ks entity.name.function.ks
+          (
+          ^
+          source.ks punctuation.definition.parameters.begin.bracket.round.ks
+           )
+           ^
+           source.ks punctuation.definition.parameters.end.bracket.round.ks
+            :
+            ^
+            source.ks meta.function.return-type.ks keyword.operator.type.annotation.ks
+              
+             ^
+             source.ks meta.function.return-type.ks
+              string
+              ^^^^^^
+              source.ks meta.function.return-type.ks support.type.primitive.ks
+                     
+                    ^
+                    source.ks
+                     =>
+                     ^^
+                     source.ks storage.type.function.arrow.ks
+                        
+                       ^
+                       source.ks
+                        this
+                        ^^^^
+                        source.ks variable.language.this.ks
+                            .
+                            ^
+                            source.ks punctuation.accessor.object.ks
+                             _color
+                             ^^^^^^
+                             source.ks variable.other.property.object.ks
+>
+>    
+     
+ ^^^^^
+ source.ks
+>
+>    color(@color): Shape => this
+     
+ ^^^^
+ source.ks
+     color
+     ^^^^^
+     source.ks entity.name.function.ks
+          (
+          ^
+          source.ks punctuation.definition.parameters.begin.bracket.round.ks
+           @
+           ^
+           source.ks storage.modifier.at.ks
+            color
+            ^^^^^
+            source.ks variable.parameter.ks
+                 )
+                 ^
+                 source.ks punctuation.definition.parameters.end.bracket.round.ks
+                  :
+                  ^
+                  source.ks meta.function.return-type.ks keyword.operator.type.annotation.ks
+                    
+                   ^
+                   source.ks meta.function.return-type.ks
+                    Shape
+                    ^^^^^
+                    source.ks meta.function.return-type.ks entity.name.type.ks
+                          
+                         ^
+                         source.ks
+                          =>
+                          ^^
+                          source.ks storage.type.function.arrow.ks
+                             
+                            ^
+                            source.ks
+                             this
+                             ^^^^
+                             source.ks variable.language.this.ks
+>
+>    
+     
+ ^^^^^
+ source.ks
+>
+>    color(shape: Shape): Shape {
+     
+ ^^^^
+ source.ks
+     color
+     ^^^^^
+     source.ks entity.name.function.ks
+          (
+          ^
+          source.ks punctuation.definition.parameters.begin.bracket.round.ks
+           shape
+           ^^^^^
+           source.ks variable.parameter.ks
+                :
+                ^
+                source.ks meta.type.annotation.ks keyword.operator.type.annotation.ks
+                  
+                 ^
+                 source.ks meta.type.annotation.ks
+                  Shape
+                  ^^^^^
+                  source.ks meta.type.annotation.ks entity.name.type.ks
+                       )
+                       ^
+                       source.ks punctuation.definition.parameters.end.bracket.round.ks
+                        :
+                        ^
+                        source.ks meta.function.return-type.ks keyword.operator.type.annotation.ks
+                          
+                         ^
+                         source.ks meta.function.return-type.ks
+                          Shape
+                          ^^^^^
+                          source.ks meta.function.return-type.ks entity.name.type.ks
+                                
+                               ^
+                               source.ks
+                                {
+                                ^
+                                source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>        this._color = shape.color()
+         
+ ^^^^^^^^
+ source.ks
+         this
+         ^^^^
+         source.ks variable.language.this.ks
+             .
+             ^
+             source.ks punctuation.accessor.object.ks
+              _color
+              ^^^^^^
+              source.ks variable.other.property.object.ks
+                     
+                    ^
+                    source.ks
+                     =
+                     ^
+                     source.ks keyword.operator.assignment.ks
+                       
+                      ^
+                      source.ks
+                       shape
+                       ^^^^^
+                       source.ks variable.other.object.ks
+                            .
+                            ^
+                            source.ks punctuation.accessor.object.ks
+                             color
+                             ^^^^^
+                             source.ks entity.name.function.ks
+                                  (
+                                  ^
+                                  source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                                   )
+                                   ^
+                                   source.ks punctuation.definition.arguments.end.bracket.round.ks
+>
+>        
+         
+ ^^^^^^^^^
+ source.ks
+>
+>        return this
+         
+ ^^^^^^^^
+ source.ks
+         return
+         ^^^^^^
+         source.ks keyword.control.flow.return.ks
+                
+               ^
+               source.ks
+                this
+                ^^^^
+                source.ks variable.language.this.ks
+>
+>    }
+     
+ ^^^^
+ source.ks
+     }
+     ^
+     source.ks punctuation.definition.block.end.bracket.curly.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.class.end.bracket.curly.ks

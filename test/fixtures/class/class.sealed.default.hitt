@@ -1,0 +1,276 @@
+original file
+-----------------------------------
+sealed class Greetings {
+    private {
+        _message: String = ''
+    }
+    
+    constructor() {
+        this('Hello!')
+    }
+    
+    constructor(@message)
+    
+    greet(name: String) {
+        return `\(@message)\nIt's nice to meet you\(name).`
+    }
+}
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>sealed class Greetings {
+ sealed
+ ^^^^^^
+ source.ks storage.modifier.sealed.ks
+        
+       ^
+       source.ks
+        class
+        ^^^^^
+        source.ks storage.type.class.ks
+              
+             ^
+             source.ks
+              Greetings
+              ^^^^^^^^^
+              source.ks entity.name.type.class.ks
+                        
+                       ^
+                       source.ks
+                        {
+                        ^
+                        source.ks punctuation.definition.class.begin.bracket.curly.ks
+>
+>    private {
+     
+ ^^^^
+ source.ks
+     private
+     ^^^^^^^
+     source.ks storage.modifier.access.ks
+             
+            ^
+            source.ks
+             {
+             ^
+             source.ks punctuation.definition.members.begin.bracket.curly.ks
+>
+>        _message: String = ''
+         
+ ^^^^^^^^
+ source.ks
+         _message
+         ^^^^^^^^
+         source.ks entity.name.variable.field.ks
+                 :
+                 ^
+                 source.ks meta.type.annotation.ks keyword.operator.type.annotation.ks
+                   
+                  ^
+                  source.ks meta.type.annotation.ks
+                   String
+                   ^^^^^^
+                   source.ks meta.type.annotation.ks support.type.primitive.ks
+                          
+                         ^
+                         source.ks meta.type.annotation.ks
+                          =
+                          ^
+                          source.ks keyword.operator.assignment.ks
+                            
+                           ^
+                           source.ks
+                            '
+                            ^
+                            source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
+                             '
+                             ^
+                             source.ks string.quoted.single.ks punctuation.definition.string.end.ks
+>
+>    }
+     
+ ^^^^
+ source.ks
+     }
+     ^
+     source.ks punctuation.definition.members.end.bracket.curly.ks
+>
+>    
+     
+ ^^^^^
+ source.ks
+>
+>    constructor() {
+     
+ ^^^^
+ source.ks
+     constructor
+     ^^^^^^^^^^^
+     source.ks storage.type.constructor.ks
+                (
+                ^
+                source.ks punctuation.definition.parameters.begin.bracket.round.ks
+                 )
+                 ^
+                 source.ks punctuation.definition.parameters.end.bracket.round.ks
+                   
+                  ^
+                  source.ks
+                   {
+                   ^
+                   source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>        this('Hello!')
+         
+ ^^^^^^^^
+ source.ks
+         this
+         ^^^^
+         source.ks entity.name.function.ks variable.language.this.ks
+             (
+             ^
+             source.ks punctuation.definition.arguments.begin.bracket.round.ks
+              '
+              ^
+              source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
+               Hello!
+               ^^^^^^
+               source.ks string.quoted.single.ks
+                     '
+                     ^
+                     source.ks string.quoted.single.ks punctuation.definition.string.end.ks
+                      )
+                      ^
+                      source.ks punctuation.definition.arguments.end.bracket.round.ks
+>
+>    }
+     
+ ^^^^
+ source.ks
+     }
+     ^
+     source.ks punctuation.definition.block.end.bracket.curly.ks
+>
+>    
+     
+ ^^^^^
+ source.ks
+>
+>    constructor(@message)
+     
+ ^^^^
+ source.ks
+     constructor
+     ^^^^^^^^^^^
+     source.ks storage.type.constructor.ks
+                (
+                ^
+                source.ks punctuation.definition.parameters.begin.bracket.round.ks
+                 @
+                 ^
+                 source.ks storage.modifier.at.ks
+                  message
+                  ^^^^^^^
+                  source.ks variable.parameter.ks
+                         )
+                         ^
+                         source.ks punctuation.definition.parameters.end.bracket.round.ks
+>
+>    
+     
+ ^^^^^
+ source.ks
+>
+>    greet(name: String) {
+     
+ ^^^^
+ source.ks
+     greet
+     ^^^^^
+     source.ks entity.name.function.ks
+          (
+          ^
+          source.ks punctuation.definition.parameters.begin.bracket.round.ks
+           name
+           ^^^^
+           source.ks variable.parameter.ks
+               :
+               ^
+               source.ks meta.type.annotation.ks keyword.operator.type.annotation.ks
+                 
+                ^
+                source.ks meta.type.annotation.ks
+                 String
+                 ^^^^^^
+                 source.ks meta.type.annotation.ks support.type.primitive.ks
+                       )
+                       ^
+                       source.ks punctuation.definition.parameters.end.bracket.round.ks
+                         
+                        ^
+                        source.ks
+                         {
+                         ^
+                         source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>        return `\(@message)\nIt's nice to meet you\(name).`
+         
+ ^^^^^^^^
+ source.ks
+         return
+         ^^^^^^
+         source.ks keyword.control.flow.return.ks
+                
+               ^
+               source.ks
+                `
+                ^
+                source.ks punctuation.definition.string.template.begin.ks
+                 \(
+                 ^^
+                 source.ks punctuation.definition.template-expression.begin.ks
+                   @
+                   ^
+                   source.ks storage.modifier.instance.ks
+                    message
+                    ^^^^^^^
+                    source.ks variable.other.instance.ks
+                           )
+                           ^
+                           source.ks punctuation.definition.template-expression.end.ks
+                            \n
+                            ^^
+                            source.ks constant.character.escape.ks
+                              It's nice to meet you
+                              ^^^^^^^^^^^^^^^^^^^^^
+                              source.ks string.template.ks
+                                                   \(
+                                                   ^^
+                                                   source.ks punctuation.definition.template-expression.begin.ks
+                                                     name
+                                                     ^^^^
+                                                     source.ks variable.other.ks
+                                                         )
+                                                         ^
+                                                         source.ks punctuation.definition.template-expression.end.ks
+                                                          .
+                                                          ^
+                                                          source.ks string.template.ks
+                                                           `
+                                                           ^
+                                                           source.ks punctuation.definition.string.template.end.ks
+>
+>    }
+     
+ ^^^^
+ source.ks
+     }
+     ^
+     source.ks punctuation.definition.block.end.bracket.curly.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.class.end.bracket.curly.ks

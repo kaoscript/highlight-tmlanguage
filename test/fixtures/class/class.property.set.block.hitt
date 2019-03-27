@@ -1,0 +1,138 @@
+original file
+-----------------------------------
+class Foobar {
+    public {
+        foo {
+            set {
+                @foo = foo * 10
+            }
+        }
+    }
+}
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>class Foobar {
+ class
+ ^^^^^
+ source.ks storage.type.class.ks
+       
+      ^
+      source.ks
+       Foobar
+       ^^^^^^
+       source.ks entity.name.type.class.ks
+              
+             ^
+             source.ks
+              {
+              ^
+              source.ks punctuation.definition.class.begin.bracket.curly.ks
+>
+>    public {
+     
+ ^^^^
+ source.ks
+     public
+     ^^^^^^
+     source.ks storage.modifier.access.ks
+            
+           ^
+           source.ks
+            {
+            ^
+            source.ks punctuation.definition.members.begin.bracket.curly.ks
+>
+>        foo {
+         
+ ^^^^^^^^
+ source.ks
+         foo
+         ^^^
+         source.ks entity.name.variable.property.ks
+             
+            ^
+            source.ks
+             {
+             ^
+             source.ks punctuation.definition.property.begin.bracket.curly.ks
+>
+>            set {
+             
+ ^^^^^^^^^^^^
+ source.ks
+             set
+             ^^^
+             source.ks keyword.other.property.set.ks
+                 
+                ^
+                source.ks
+                 {
+                 ^
+                 source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>                @foo = foo * 10
+                 
+ ^^^^^^^^^^^^^^^^
+ source.ks
+                 @
+                 ^
+                 source.ks storage.modifier.instance.ks
+                  foo
+                  ^^^
+                  source.ks variable.other.instance.ks
+                      
+                     ^
+                     source.ks
+                      =
+                      ^
+                      source.ks keyword.operator.assignment.ks
+                        
+                       ^
+                       source.ks
+                        foo
+                        ^^^
+                        source.ks variable.other.ks
+                            
+                           ^
+                           source.ks
+                            *
+                            ^
+                            source.ks keyword.operator.arithmetic.ks
+                              
+                             ^
+                             source.ks
+                              10
+                              ^^
+                              source.ks constant.numeric.decimal.ks
+>
+>            }
+             
+ ^^^^^^^^^^^^
+ source.ks
+             }
+             ^
+             source.ks punctuation.definition.block.end.bracket.curly.ks
+>
+>        }
+         
+ ^^^^^^^^
+ source.ks
+         }
+         ^
+         source.ks punctuation.definition.property.end.bracket.curly.ks
+>
+>    }
+     
+ ^^^^
+ source.ks
+     }
+     ^
+     source.ks punctuation.definition.members.end.bracket.curly.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.class.end.bracket.curly.ks

@@ -204,7 +204,7 @@ grammar: kaoscript.tmLanguage
             source.ks
              _luma
              ^^^^^
-             source.ks variable.object.property.ks
+             source.ks entity.name.variable.field.ks
                   :
                   ^
                   source.ks meta.type.annotation.ks keyword.operator.type.annotation.ks
@@ -253,7 +253,7 @@ grammar: kaoscript.tmLanguage
                       source.ks
                        this
                        ^^^^
-                       source.ks variable.other.object.ks
+                       source.ks variable.language.this.ks
                            .
                            ^
                            source.ks punctuation.accessor.object.ks
@@ -296,7 +296,7 @@ grammar: kaoscript.tmLanguage
                    source.ks
                     this
                     ^^^^
-                    source.ks variable.language.ks
+                    source.ks variable.language.this.ks
 >
 >}
  }

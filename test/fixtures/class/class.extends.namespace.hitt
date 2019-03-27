@@ -1,0 +1,108 @@
+original file
+-----------------------------------
+namespace T {
+    export class FooX {
+    }
+}
+class FooY extends T.FooX {
+}
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>namespace T {
+ namespace
+ ^^^^^^^^^
+ source.ks storage.type.namespace.ks
+           
+          ^
+          source.ks
+           T
+           ^
+           source.ks entity.name.type.namespace.ks
+             
+            ^
+            source.ks
+             {
+             ^
+             source.ks punctuation.definition.namespace.begin.bracket.curly.ks
+>
+>    export class FooX {
+     
+ ^^^^
+ source.ks
+     export
+     ^^^^^^
+     source.ks keyword.control.export.ks
+            
+           ^
+           source.ks
+            class
+            ^^^^^
+            source.ks storage.type.class.ks
+                  
+                 ^
+                 source.ks
+                  FooX
+                  ^^^^
+                  source.ks entity.name.type.class.ks
+                       
+                      ^
+                      source.ks
+                       {
+                       ^
+                       source.ks punctuation.definition.class.begin.bracket.curly.ks
+>
+>    }
+     
+ ^^^^
+ source.ks
+     }
+     ^
+     source.ks punctuation.definition.class.end.bracket.curly.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.namespace.end.bracket.curly.ks
+>
+>class FooY extends T.FooX {
+ class
+ ^^^^^
+ source.ks storage.type.class.ks
+       
+      ^
+      source.ks
+       FooY
+       ^^^^
+       source.ks entity.name.type.class.ks
+            
+           ^
+           source.ks
+            extends
+            ^^^^^^^
+            source.ks storage.modifier.extends.ks
+                    
+                   ^
+                   source.ks
+                    T
+                    ^
+                    source.ks variable.other.object.ks
+                     .
+                     ^
+                     source.ks punctuation.accessor.object.ks
+                      FooX
+                      ^^^^
+                      source.ks entity.name.type.class.ks
+                           
+                          ^
+                          source.ks
+                           {
+                           ^
+                           source.ks punctuation.definition.class.begin.bracket.curly.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.class.end.bracket.curly.ks

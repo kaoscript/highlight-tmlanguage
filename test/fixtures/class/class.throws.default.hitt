@@ -1,0 +1,72 @@
+original file
+-----------------------------------
+class Foo {
+    bar() ~ Error {
+    }
+}
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>class Foo {
+ class
+ ^^^^^
+ source.ks storage.type.class.ks
+       
+      ^
+      source.ks
+       Foo
+       ^^^
+       source.ks entity.name.type.class.ks
+           
+          ^
+          source.ks
+           {
+           ^
+           source.ks punctuation.definition.class.begin.bracket.curly.ks
+>
+>    bar() ~ Error {
+     
+ ^^^^
+ source.ks
+     bar
+     ^^^
+     source.ks entity.name.function.ks
+        (
+        ^
+        source.ks punctuation.definition.parameters.begin.bracket.round.ks
+         )
+         ^
+         source.ks punctuation.definition.parameters.end.bracket.round.ks
+           
+          ^
+          source.ks
+           ~
+           ^
+           source.ks meta.throwables.ks storage.modifier.throwables.ks
+             
+            ^
+            source.ks meta.throwables.ks
+             Error
+             ^^^^^
+             source.ks meta.throwables.ks support.type.primitive.ks
+                   
+                  ^
+                  source.ks
+                   {
+                   ^
+                   source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>    }
+     
+ ^^^^
+ source.ks
+     }
+     ^
+     source.ks punctuation.definition.block.end.bracket.curly.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.class.end.bracket.curly.ks
