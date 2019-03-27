@@ -1367,7 +1367,7 @@ repository:
             patterns:
             - include: '#variable'
             - name: 'variable.other.object.ks'
-              match: '.*'
+              match: '{{identifier}}'
           '2': { name: 'punctuation.accessor.optional.ks' }
           '3': { name: 'punctuation.accessor.object.ks' }
       - match: '(?<=[_$[:alnum:]\)\]]\.)({{identifier}})'

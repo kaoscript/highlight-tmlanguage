@@ -4424,7 +4424,7 @@
                     <key>name</key>
                     <string>variable.other.object.ks</string>
                     <key>match</key>
-                    <string>.*</string>
+                    <string>[_$[:alpha:]][_$[:alnum:]]*</string>
                   </dict>
                 </array>
               </dict>

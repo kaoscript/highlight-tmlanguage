@@ -35,7 +35,6 @@ func transformGrammar(grammar) {
 
 		transformGrammarRepository(
 			grammar
-			['begin', 'end', 'match']
 			value => replacePatternVariables(value, variables)
 		)
 	}
@@ -43,14 +42,14 @@ func transformGrammar(grammar) {
 	return grammar
 }
 
-func transformGrammarRepository(grammar, propertyNames, transformProperty) {
+func transformGrammarRepository(grammar, transformProperty) {
 	for const :value of grammar.repository {
-		transformGrammarRule(value, propertyNames, transformProperty)
+		transformGrammarRule(value, transformProperty)
 	}
 }
 
-func transformGrammarRule(rule, propertyNames, transformProperty) {
-	for const name in propertyNames {
+func transformGrammarRule(rule, transformProperty) {
+	for const name in ['begin', 'end', 'match'] {
 		if rule[name] is String {
 			rule[name] = transformProperty(rule[name])
 		}
@@ -58,7 +57,13 @@ func transformGrammarRule(rule, propertyNames, transformProperty) {
 
 	for const :rules of rule when rules is Array {
 		for const rule in rules {
-			transformGrammarRule(rule, propertyNames, transformProperty)
+			transformGrammarRule(rule, transformProperty)
+		}
+	}
+
+	if rule.captures? {
+		for const :rule of rule.captures {
+			transformGrammarRule(rule, transformProperty)
 		}
 	}
 }
