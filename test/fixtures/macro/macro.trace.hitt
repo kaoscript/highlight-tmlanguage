@@ -1,0 +1,234 @@
+original file
+-----------------------------------
+macro trace_build_age_with_reification() {
+    const buildTime = Math.floor(Date.now().getTime() / 1000)
+    
+    macro {
+        const runTime = Math.floor(Date.now().getTime() / 1000)
+        const age = runTime - #buildTime
+        
+        console.log(`Right now it's \(runTime), and this build is \(age) seconds old`)
+    }
+}
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>macro trace_build_age_with_reification() {
+ macro
+ ^^^^^
+ source.ks meta.macro.ks storage.type.macro.ks
+       
+      ^
+      source.ks meta.macro.ks
+       trace_build_age_with_reification
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+       source.ks meta.macro.ks entity.name.type.macro.ks
+                                       (
+                                       ^
+                                       source.ks meta.macro.ks punctuation.definition.parameters.begin.bracket.round.ks
+                                        )
+                                        ^
+                                        source.ks meta.macro.ks punctuation.definition.parameters.end.bracket.round.ks
+                                          
+                                         ^
+                                         source.ks meta.macro.ks
+                                          {
+                                          ^
+                                          source.ks meta.macro.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>    const buildTime = Math.floor(Date.now().getTime() / 1000)
+     
+ ^^^^
+ source.ks meta.macro.ks
+     const
+     ^^^^^
+     source.ks meta.macro.ks storage.type.constant.ks
+           
+          ^
+          source.ks meta.macro.ks
+           buildTime
+           ^^^^^^^^^
+           source.ks meta.macro.ks meta.definition.variable.ks variable.other.constant.ks
+                     
+                    ^
+                    source.ks meta.macro.ks
+                     =
+                     ^
+                     source.ks meta.macro.ks keyword.operator.assignment.ks
+                       
+                      ^
+                      source.ks meta.macro.ks
+                       Math
+                       ^^^^
+                       source.ks meta.macro.ks variable.other.object.ks
+                           .
+                           ^
+                           source.ks meta.macro.ks punctuation.accessor.object.ks
+                            floor
+                            ^^^^^
+                            source.ks meta.macro.ks entity.name.function.ks
+                                 (
+                                 ^
+                                 source.ks meta.macro.ks punctuation.definition.arguments.begin.bracket.round.ks
+                                  Date
+                                  ^^^^
+                                  source.ks meta.macro.ks variable.other.object.ks
+                                      .
+                                      ^
+                                      source.ks meta.macro.ks punctuation.accessor.object.ks
+                                       now
+                                       ^^^
+                                       source.ks meta.macro.ks entity.name.function.ks
+                                          (
+                                          ^
+                                          source.ks meta.macro.ks punctuation.definition.arguments.begin.bracket.round.ks
+                                           )
+                                           ^
+                                           source.ks meta.macro.ks punctuation.definition.arguments.end.bracket.round.ks
+                                            .
+                                            ^
+                                            source.ks meta.macro.ks punctuation.accessor.object.ks
+                                             getTime
+                                             ^^^^^^^
+                                             source.ks meta.macro.ks entity.name.function.ks
+                                                    (
+                                                    ^
+                                                    source.ks meta.macro.ks punctuation.definition.arguments.begin.bracket.round.ks
+                                                     )
+                                                     ^
+                                                     source.ks meta.macro.ks punctuation.definition.arguments.end.bracket.round.ks
+                                                       
+                                                      ^
+                                                      source.ks meta.macro.ks
+                                                       /
+                                                       ^
+                                                       source.ks meta.macro.ks keyword.operator.arithmetic.ks
+                                                         
+                                                        ^
+                                                        source.ks meta.macro.ks
+                                                         1000
+                                                         ^^^^
+                                                         source.ks meta.macro.ks constant.numeric.decimal.ks
+                                                             )
+                                                             ^
+                                                             source.ks meta.macro.ks punctuation.definition.arguments.end.bracket.round.ks
+>
+>    
+     
+ ^^^^^
+ source.ks meta.macro.ks
+>
+>    macro {
+     
+ ^^^^
+ source.ks meta.macro.ks
+     macro
+     ^^^^^
+     source.ks meta.macro.ks keyword.control.macro.ks
+           
+          ^
+          source.ks meta.macro.ks
+           {
+           ^
+           source.ks meta.macro.ks punctuation.definition.macro-expression.begin.bracket.curly.ks
+>
+>        const runTime = Math.floor(Date.now().getTime() / 1000)
+         const runTime = Math.floor
+ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ source.ks meta.macro.ks
+                                   (
+                                   ^
+                                   source.ks meta.macro.ks punctuation.bracket.round.ks
+                                    Date.now
+                                    ^^^^^^^^
+                                    source.ks meta.macro.ks
+                                            (
+                                            ^
+                                            source.ks meta.macro.ks punctuation.bracket.round.ks
+                                             )
+                                             ^
+                                             source.ks meta.macro.ks punctuation.bracket.round.ks
+                                              .getTime
+                                              ^^^^^^^^
+                                              source.ks meta.macro.ks
+                                                      (
+                                                      ^
+                                                      source.ks meta.macro.ks punctuation.bracket.round.ks
+                                                       )
+                                                       ^
+                                                       source.ks meta.macro.ks punctuation.bracket.round.ks
+                                                         / 1000
+                                                        ^^^^^^^
+                                                        source.ks meta.macro.ks
+                                                               )
+                                                               ^
+                                                               source.ks meta.macro.ks punctuation.bracket.round.ks
+>
+>        const age = runTime - #buildTime
+         const age = runTime - 
+ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ source.ks meta.macro.ks
+                               #
+                               ^
+                               source.ks meta.macro.ks punctuation.accessor.macro.ks
+                                buildTime
+                                ^^^^^^^^^
+                                source.ks meta.macro.ks variable.other.macro.ks
+>
+>        
+         
+ ^^^^^^^^^
+ source.ks meta.macro.ks
+>
+>        console.log(`Right now it's \(runTime), and this build is \(age) seconds old`)
+         console.log
+ ^^^^^^^^^^^^^^^^^^^
+ source.ks meta.macro.ks
+                    (
+                    ^
+                    source.ks meta.macro.ks punctuation.bracket.round.ks
+                     `Right now it's \
+                     ^^^^^^^^^^^^^^^^^
+                     source.ks meta.macro.ks
+                                      (
+                                      ^
+                                      source.ks meta.macro.ks punctuation.bracket.round.ks
+                                       runTime
+                                       ^^^^^^^
+                                       source.ks meta.macro.ks
+                                              )
+                                              ^
+                                              source.ks meta.macro.ks punctuation.bracket.round.ks
+                                               , and this build is \
+                                               ^^^^^^^^^^^^^^^^^^^^^
+                                               source.ks meta.macro.ks
+                                                                    (
+                                                                    ^
+                                                                    source.ks meta.macro.ks punctuation.bracket.round.ks
+                                                                     age
+                                                                     ^^^
+                                                                     source.ks meta.macro.ks
+                                                                        )
+                                                                        ^
+                                                                        source.ks meta.macro.ks punctuation.bracket.round.ks
+                                                                          seconds old`
+                                                                         ^^^^^^^^^^^^^
+                                                                         source.ks meta.macro.ks
+                                                                                      )
+                                                                                      ^
+                                                                                      source.ks meta.macro.ks punctuation.bracket.round.ks
+>
+>    }
+     
+ ^^^^
+ source.ks meta.macro.ks
+     }
+     ^
+     source.ks meta.macro.ks punctuation.definition.macro-expression.end.bracket.curly.ks
+>
+>}
+ }
+ ^
+ source.ks meta.macro.ks punctuation.definition.block.end.bracket.curly.ks

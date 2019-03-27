@@ -1,0 +1,282 @@
+original file
+-----------------------------------
+class URI {
+    macro {
+        register(@scheme: String, @meta: String = 'hier_part [ "?" query ] [ "#" fragment ]') {
+            import '@zokugun/test-import'
+            
+            const name = `\(scheme[0].toUpperCase())\(scheme.substr().toLowerCase())URI`
+            
+            macro {
+                class #i(name) extends URI {
+                    private {
+                        _e: Number    = #PI
+                    }
+                }
+            }
+        }
+    }
+}
+URI.register!('file', '[ "//" [ host ] ] path_absolute')
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>class URI {
+ class
+ ^^^^^
+ source.ks storage.type.class.ks
+       
+      ^
+      source.ks
+       URI
+       ^^^
+       source.ks entity.name.type.class.ks
+           
+          ^
+          source.ks
+           {
+           ^
+           source.ks punctuation.definition.class.begin.bracket.curly.ks
+>
+>    macro {
+     
+ ^^^^
+ source.ks
+     macro
+     ^^^^^
+     source.ks keyword.control.macro.ks
+           
+          ^
+          source.ks
+           {
+           ^
+           source.ks punctuation.definition.macro-expression.begin.bracket.curly.ks
+>
+>        register(@scheme: String, @meta: String = 'hier_part [ "?" query ] [ "#" fragment ]') {
+         register
+ ^^^^^^^^^^^^^^^^
+ source.ks
+                 (
+                 ^
+                 source.ks punctuation.bracket.round.ks
+                  @scheme: String, @meta: String = 'hier_part [ "?" query ] [ "#" fragment ]'
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                  source.ks
+                                                                                             )
+                                                                                             ^
+                                                                                             source.ks punctuation.bracket.round.ks
+                                                                                               
+                                                                                              ^
+                                                                                              source.ks
+                                                                                               {
+                                                                                               ^
+                                                                                               source.ks punctuation.bracket.curly.ks
+>
+>            import '@zokugun/test-import'
+             import '@zokugun/test-import'
+ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ source.ks
+>
+>            
+             
+ ^^^^^^^^^^^^^
+ source.ks
+>
+>            const name = `\(scheme[0].toUpperCase())\(scheme.substr().toLowerCase())URI`
+             const name = `\
+ ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ source.ks
+                            (
+                            ^
+                            source.ks punctuation.bracket.round.ks
+                             scheme[0].toUpperCase
+                             ^^^^^^^^^^^^^^^^^^^^^
+                             source.ks
+                                                  (
+                                                  ^
+                                                  source.ks punctuation.bracket.round.ks
+                                                   )
+                                                   ^
+                                                   source.ks punctuation.bracket.round.ks
+                                                    )
+                                                    ^
+                                                    source.ks punctuation.bracket.round.ks
+                                                     \
+                                                     ^
+                                                     source.ks
+                                                      (
+                                                      ^
+                                                      source.ks punctuation.bracket.round.ks
+                                                       scheme.substr
+                                                       ^^^^^^^^^^^^^
+                                                       source.ks
+                                                                    (
+                                                                    ^
+                                                                    source.ks punctuation.bracket.round.ks
+                                                                     )
+                                                                     ^
+                                                                     source.ks punctuation.bracket.round.ks
+                                                                      .toLowerCase
+                                                                      ^^^^^^^^^^^^
+                                                                      source.ks
+                                                                                  (
+                                                                                  ^
+                                                                                  source.ks punctuation.bracket.round.ks
+                                                                                   )
+                                                                                   ^
+                                                                                   source.ks punctuation.bracket.round.ks
+                                                                                    )
+                                                                                    ^
+                                                                                    source.ks punctuation.bracket.round.ks
+                                                                                     URI`
+                                                                                     ^^^^^
+                                                                                     source.ks
+>
+>            
+             
+ ^^^^^^^^^^^^^
+ source.ks
+>
+>            macro {
+             macro 
+ ^^^^^^^^^^^^^^^^^^
+ source.ks
+                   {
+                   ^
+                   source.ks punctuation.bracket.curly.ks
+>
+>                class #i(name) extends URI {
+                 class 
+ ^^^^^^^^^^^^^^^^^^^^^^
+ source.ks
+                       #
+                       ^
+                       source.ks punctuation.accessor.macro.ks
+                        i
+                        ^
+                        source.ks storage.modifier.macro.ks
+                         (
+                         ^
+                         source.ks punctuation.definition.macro-variable.begin.bracket.round.ks
+                          name
+                          ^^^^
+                          source.ks variable.other.macro.ks
+                              )
+                              ^
+                              source.ks punctuation.definition.macro-variable.end.bracket.round.ks
+                                extends URI 
+                               ^^^^^^^^^^^^^
+                               source.ks
+                                            {
+                                            ^
+                                            source.ks punctuation.bracket.curly.ks
+>
+>                    private {
+                     private 
+ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ source.ks
+                             {
+                             ^
+                             source.ks punctuation.bracket.curly.ks
+>
+>                        _e: Number    = #PI
+                         _e: Number    = 
+ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ source.ks
+                                         #
+                                         ^
+                                         source.ks punctuation.accessor.macro.ks
+                                          PI
+                                          ^^
+                                          source.ks variable.other.macro.ks
+>
+>                    }
+                     
+ ^^^^^^^^^^^^^^^^^^^^
+ source.ks
+                     }
+                     ^
+                     source.ks punctuation.bracket.curly.ks
+>
+>                }
+                 
+ ^^^^^^^^^^^^^^^^
+ source.ks
+                 }
+                 ^
+                 source.ks punctuation.bracket.curly.ks
+>
+>            }
+             
+ ^^^^^^^^^^^^
+ source.ks
+             }
+             ^
+             source.ks punctuation.bracket.curly.ks
+>
+>        }
+         
+ ^^^^^^^^
+ source.ks
+         }
+         ^
+         source.ks punctuation.bracket.curly.ks
+>
+>    }
+     
+ ^^^^
+ source.ks
+     }
+     ^
+     source.ks punctuation.definition.macro-expression.end.bracket.curly.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.class.end.bracket.curly.ks
+>
+>URI.register!('file', '[ "//" [ host ] ] path_absolute')
+ URI
+ ^^^
+ source.ks variable.other.object.ks
+    .
+    ^
+    source.ks punctuation.accessor.object.ks
+     register
+     ^^^^^^^^
+     source.ks entity.name.function.ks
+             !
+             ^
+             source.ks keyword.operator.function.macro.ks
+              (
+              ^
+              source.ks punctuation.definition.arguments.begin.bracket.round.ks
+               '
+               ^
+               source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
+                file
+                ^^^^
+                source.ks string.quoted.single.ks
+                    '
+                    ^
+                    source.ks string.quoted.single.ks punctuation.definition.string.end.ks
+                     ,
+                     ^
+                     source.ks punctuation.separator.comma.ks
+                       
+                      ^
+                      source.ks
+                       '
+                       ^
+                       source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
+                        [ "//" [ host ] ] path_absolute
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                        source.ks string.quoted.single.ks
+                                                       '
+                                                       ^
+                                                       source.ks string.quoted.single.ks punctuation.definition.string.end.ks
+                                                        )
+                                                        ^
+                                                        source.ks punctuation.definition.arguments.end.bracket.round.ks

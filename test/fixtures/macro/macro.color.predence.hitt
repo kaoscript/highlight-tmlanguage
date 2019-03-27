@@ -1,0 +1,633 @@
+original file
+-----------------------------------
+extern t1, t2, t3, h, i
+const foo = t1 + (t2 - t1) * (2 / 3 - t3) * 6
+const bar = h + 1 / 3 * - (i - 1)
+export class Color {
+    macro registerSpace(@expression: Object) {
+        macro Color.registerSpace(#(expression))
+    }
+}
+Color.registerSpace!({
+    name: 'FBQ'
+    formatters: {
+        foo(t1, t2, t3) => t1 + (t2 - t1) * (2 / 3 - t3) * 6
+        bar(h, i) => h + 1 / 3 * - (i - 1)
+    }
+})
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>extern t1, t2, t3, h, i
+ extern
+ ^^^^^^
+ source.ks keyword.control.dependency.extern.ks
+        
+       ^
+       source.ks
+        t1
+        ^^
+        source.ks variable.other.constant.ks
+          ,
+          ^
+          source.ks punctuation.separator.comma.ks
+            
+           ^
+           source.ks
+            t2
+            ^^
+            source.ks variable.other.constant.ks
+              ,
+              ^
+              source.ks punctuation.separator.comma.ks
+                
+               ^
+               source.ks
+                t3
+                ^^
+                source.ks variable.other.constant.ks
+                  ,
+                  ^
+                  source.ks punctuation.separator.comma.ks
+                    
+                   ^
+                   source.ks
+                    h
+                    ^
+                    source.ks variable.other.constant.ks
+                     ,
+                     ^
+                     source.ks punctuation.separator.comma.ks
+                       
+                      ^
+                      source.ks
+                       i
+                       ^
+                       source.ks variable.other.constant.ks
+>
+>const foo = t1 + (t2 - t1) * (2 / 3 - t3) * 6
+ const
+ ^^^^^
+ source.ks storage.type.constant.ks
+       
+      ^
+      source.ks
+       foo
+       ^^^
+       source.ks meta.definition.variable.ks variable.other.constant.ks
+           
+          ^
+          source.ks
+           =
+           ^
+           source.ks keyword.operator.assignment.ks
+             
+            ^
+            source.ks
+             t1
+             ^^
+             source.ks variable.other.ks
+                
+               ^
+               source.ks
+                +
+                ^
+                source.ks keyword.operator.arithmetic.ks
+                  
+                 ^
+                 source.ks
+                  (
+                  ^
+                  source.ks meta.brace.round.ks
+                   t2
+                   ^^
+                   source.ks variable.other.ks
+                      
+                     ^
+                     source.ks
+                      -
+                      ^
+                      source.ks keyword.operator.arithmetic.ks
+                        
+                       ^
+                       source.ks
+                        t1
+                        ^^
+                        source.ks variable.other.ks
+                          )
+                          ^
+                          source.ks meta.brace.round.ks
+                            
+                           ^
+                           source.ks
+                            *
+                            ^
+                            source.ks keyword.operator.arithmetic.ks
+                              
+                             ^
+                             source.ks
+                              (
+                              ^
+                              source.ks meta.brace.round.ks
+                               2
+                               ^
+                               source.ks constant.numeric.decimal.ks
+                                 
+                                ^
+                                source.ks
+                                 /
+                                 ^
+                                 source.ks keyword.operator.arithmetic.ks
+                                   
+                                  ^
+                                  source.ks
+                                   3
+                                   ^
+                                   source.ks constant.numeric.decimal.ks
+                                     
+                                    ^
+                                    source.ks
+                                     -
+                                     ^
+                                     source.ks keyword.operator.arithmetic.ks
+                                       
+                                      ^
+                                      source.ks
+                                       t3
+                                       ^^
+                                       source.ks variable.other.ks
+                                         )
+                                         ^
+                                         source.ks meta.brace.round.ks
+                                           
+                                          ^
+                                          source.ks
+                                           *
+                                           ^
+                                           source.ks keyword.operator.arithmetic.ks
+                                             
+                                            ^
+                                            source.ks
+                                             6
+                                             ^
+                                             source.ks constant.numeric.decimal.ks
+>
+>const bar = h + 1 / 3 * - (i - 1)
+ const
+ ^^^^^
+ source.ks storage.type.constant.ks
+       
+      ^
+      source.ks
+       bar
+       ^^^
+       source.ks meta.definition.variable.ks variable.other.constant.ks
+           
+          ^
+          source.ks
+           =
+           ^
+           source.ks keyword.operator.assignment.ks
+             
+            ^
+            source.ks
+             h
+             ^
+             source.ks variable.other.ks
+               
+              ^
+              source.ks
+               +
+               ^
+               source.ks keyword.operator.arithmetic.ks
+                 
+                ^
+                source.ks
+                 1
+                 ^
+                 source.ks constant.numeric.decimal.ks
+                   
+                  ^
+                  source.ks
+                   /
+                   ^
+                   source.ks keyword.operator.arithmetic.ks
+                     
+                    ^
+                    source.ks
+                     3
+                     ^
+                     source.ks constant.numeric.decimal.ks
+                       
+                      ^
+                      source.ks
+                       *
+                       ^
+                       source.ks keyword.operator.arithmetic.ks
+                         
+                        ^
+                        source.ks
+                         -
+                         ^
+                         source.ks keyword.operator.arithmetic.ks
+                           
+                          ^
+                          source.ks
+                           (
+                           ^
+                           source.ks meta.brace.round.ks
+                            i
+                            ^
+                            source.ks variable.other.ks
+                              
+                             ^
+                             source.ks
+                              -
+                              ^
+                              source.ks keyword.operator.arithmetic.ks
+                                
+                               ^
+                               source.ks
+                                1
+                                ^
+                                source.ks constant.numeric.decimal.ks
+                                 )
+                                 ^
+                                 source.ks meta.brace.round.ks
+>
+>export class Color {
+ export
+ ^^^^^^
+ source.ks keyword.control.export.ks
+        
+       ^
+       source.ks
+        class
+        ^^^^^
+        source.ks storage.type.class.ks
+              
+             ^
+             source.ks
+              Color
+              ^^^^^
+              source.ks entity.name.type.class.ks
+                    
+                   ^
+                   source.ks
+                    {
+                    ^
+                    source.ks punctuation.definition.class.begin.bracket.curly.ks
+>
+>    macro registerSpace(@expression: Object) {
+     
+ ^^^^
+ source.ks
+     macro
+     ^^^^^
+     source.ks meta.macro.ks storage.type.macro.ks
+           
+          ^
+          source.ks meta.macro.ks
+           registerSpace
+           ^^^^^^^^^^^^^
+           source.ks meta.macro.ks entity.name.type.macro.ks
+                        (
+                        ^
+                        source.ks meta.macro.ks punctuation.definition.parameters.begin.bracket.round.ks
+                         @
+                         ^
+                         source.ks meta.macro.ks storage.modifier.at.ks
+                          expression
+                          ^^^^^^^^^^
+                          source.ks meta.macro.ks variable.parameter.ks
+                                    :
+                                    ^
+                                    source.ks meta.macro.ks meta.type.annotation.ks keyword.operator.type.annotation.ks
+                                      
+                                     ^
+                                     source.ks meta.macro.ks meta.type.annotation.ks
+                                      Object
+                                      ^^^^^^
+                                      source.ks meta.macro.ks meta.type.annotation.ks support.type.primitive.ks
+                                            )
+                                            ^
+                                            source.ks meta.macro.ks punctuation.definition.parameters.end.bracket.round.ks
+                                              
+                                             ^
+                                             source.ks meta.macro.ks
+                                              {
+                                              ^
+                                              source.ks meta.macro.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>        macro Color.registerSpace(#(expression))
+         
+ ^^^^^^^^
+ source.ks meta.macro.ks
+         macro
+         ^^^^^
+         source.ks meta.macro.ks keyword.control.macro.ks
+               
+              ^
+              source.ks meta.macro.ks
+               Color.registerSpace
+               ^^^^^^^^^^^^^^^^^^^
+               source.ks meta.macro.ks
+                                  (
+                                  ^
+                                  source.ks meta.macro.ks punctuation.bracket.round.ks
+                                   #
+                                   ^
+                                   source.ks meta.macro.ks punctuation.accessor.macro.ks
+                                    (
+                                    ^
+                                    source.ks meta.macro.ks punctuation.definition.macro-variable.begin.bracket.round.ks
+                                     expression
+                                     ^^^^^^^^^^
+                                     source.ks meta.macro.ks variable.other.macro.ks
+                                               )
+                                               ^
+                                               source.ks meta.macro.ks punctuation.definition.macro-variable.end.bracket.round.ks
+                                                )
+                                                ^
+                                                source.ks meta.macro.ks punctuation.bracket.round.ks
+>
+>    }
+     
+ ^^^^
+ source.ks meta.macro.ks
+     }
+     ^
+     source.ks meta.macro.ks punctuation.definition.block.end.bracket.curly.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.class.end.bracket.curly.ks
+>
+>Color.registerSpace!({
+ Color
+ ^^^^^
+ source.ks variable.other.object.ks
+      .
+      ^
+      source.ks punctuation.accessor.object.ks
+       registerSpace
+       ^^^^^^^^^^^^^
+       source.ks entity.name.function.ks
+                    !
+                    ^
+                    source.ks keyword.operator.function.macro.ks
+                     (
+                     ^
+                     source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                      {
+                      ^
+                      source.ks punctuation.definition.object.begin.bracket.curly.ks
+>
+>    name: 'FBQ'
+     
+ ^^^^
+ source.ks
+     name
+     ^^^^
+     source.ks meta.object.key.ks
+         :
+         ^
+         source.ks punctuation.separator.key-value.ks
+           
+          ^
+          source.ks
+           '
+           ^
+           source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
+            FBQ
+            ^^^
+            source.ks string.quoted.single.ks
+               '
+               ^
+               source.ks string.quoted.single.ks punctuation.definition.string.end.ks
+>
+>    formatters: {
+     
+ ^^^^
+ source.ks
+     formatters
+     ^^^^^^^^^^
+     source.ks meta.object.key.ks
+               :
+               ^
+               source.ks punctuation.separator.key-value.ks
+                 
+                ^
+                source.ks
+                 {
+                 ^
+                 source.ks punctuation.definition.object.begin.bracket.curly.ks
+>
+>        foo(t1, t2, t3) => t1 + (t2 - t1) * (2 / 3 - t3) * 6
+         
+ ^^^^^^^^
+ source.ks
+         foo
+         ^^^
+         source.ks meta.definition.method.ks entity.name.function.ks
+            (
+            ^
+            source.ks meta.definition.method.ks punctuation.definition.parameters.begin.bracket.round.ks
+             t1
+             ^^
+             source.ks meta.definition.method.ks variable.parameter.ks
+               ,
+               ^
+               source.ks meta.definition.method.ks punctuation.separator.comma.ks
+                 
+                ^
+                source.ks meta.definition.method.ks
+                 t2
+                 ^^
+                 source.ks meta.definition.method.ks variable.parameter.ks
+                   ,
+                   ^
+                   source.ks meta.definition.method.ks punctuation.separator.comma.ks
+                     
+                    ^
+                    source.ks meta.definition.method.ks
+                     t3
+                     ^^
+                     source.ks meta.definition.method.ks variable.parameter.ks
+                       )
+                       ^
+                       source.ks meta.definition.method.ks punctuation.definition.parameters.end.bracket.round.ks
+                         
+                        ^
+                        source.ks meta.definition.method.ks
+                         =>
+                         ^^
+                         source.ks meta.definition.method.ks storage.type.function.arrow.ks
+                            
+                           ^
+                           source.ks meta.definition.method.ks
+                            t1
+                            ^^
+                            source.ks meta.definition.method.ks variable.other.ks
+                               
+                              ^
+                              source.ks meta.definition.method.ks
+                               +
+                               ^
+                               source.ks meta.definition.method.ks keyword.operator.arithmetic.ks
+                                 
+                                ^
+                                source.ks meta.definition.method.ks
+                                 (
+                                 ^
+                                 source.ks meta.definition.method.ks meta.brace.round.ks
+                                  t2
+                                  ^^
+                                  source.ks meta.definition.method.ks variable.other.ks
+                                     
+                                    ^
+                                    source.ks meta.definition.method.ks
+                                     -
+                                     ^
+                                     source.ks meta.definition.method.ks keyword.operator.arithmetic.ks
+                                       
+                                      ^
+                                      source.ks meta.definition.method.ks
+                                       t1
+                                       ^^
+                                       source.ks meta.definition.method.ks variable.other.ks
+                                         ) * 
+                                         ^^^^
+                                         source.ks meta.definition.method.ks
+                                             (
+                                             ^
+                                             source.ks meta.definition.method.ks punctuation.definition.parameters.begin.bracket.round.ks
+                                              2 / 3 - 
+                                              ^^^^^^^^
+                                              source.ks meta.definition.method.ks
+                                                      t3
+                                                      ^^
+                                                      source.ks meta.definition.method.ks variable.parameter.ks
+                                                        )
+                                                        ^
+                                                        source.ks meta.definition.method.ks punctuation.definition.parameters.end.bracket.round.ks
+                                                          * 6
+                                                         ^^^^
+                                                         source.ks meta.definition.method.ks
+>
+>        bar(h, i) => h + 1 / 3 * - (i - 1)
+         
+ ^^^^^^^^
+ source.ks
+         bar
+         ^^^
+         source.ks meta.definition.method.ks entity.name.function.ks
+            (
+            ^
+            source.ks meta.definition.method.ks punctuation.definition.parameters.begin.bracket.round.ks
+             h
+             ^
+             source.ks meta.definition.method.ks variable.parameter.ks
+              ,
+              ^
+              source.ks meta.definition.method.ks punctuation.separator.comma.ks
+                
+               ^
+               source.ks meta.definition.method.ks
+                i
+                ^
+                source.ks meta.definition.method.ks variable.parameter.ks
+                 )
+                 ^
+                 source.ks meta.definition.method.ks punctuation.definition.parameters.end.bracket.round.ks
+                   
+                  ^
+                  source.ks meta.definition.method.ks
+                   =>
+                   ^^
+                   source.ks meta.definition.method.ks storage.type.function.arrow.ks
+                      
+                     ^
+                     source.ks meta.definition.method.ks
+                      h
+                      ^
+                      source.ks meta.definition.method.ks variable.other.ks
+                        
+                       ^
+                       source.ks meta.definition.method.ks
+                        +
+                        ^
+                        source.ks meta.definition.method.ks keyword.operator.arithmetic.ks
+                          
+                         ^
+                         source.ks meta.definition.method.ks
+                          1
+                          ^
+                          source.ks meta.definition.method.ks constant.numeric.decimal.ks
+                            
+                           ^
+                           source.ks meta.definition.method.ks
+                            /
+                            ^
+                            source.ks meta.definition.method.ks keyword.operator.arithmetic.ks
+                              
+                             ^
+                             source.ks meta.definition.method.ks
+                              3
+                              ^
+                              source.ks meta.definition.method.ks constant.numeric.decimal.ks
+                                
+                               ^
+                               source.ks meta.definition.method.ks
+                                *
+                                ^
+                                source.ks meta.definition.method.ks keyword.operator.arithmetic.ks
+                                  
+                                 ^
+                                 source.ks meta.definition.method.ks
+                                  -
+                                  ^
+                                  source.ks meta.definition.method.ks keyword.operator.arithmetic.ks
+                                    
+                                   ^
+                                   source.ks meta.definition.method.ks
+                                    (
+                                    ^
+                                    source.ks meta.definition.method.ks meta.brace.round.ks
+                                     i
+                                     ^
+                                     source.ks meta.definition.method.ks variable.other.ks
+                                       
+                                      ^
+                                      source.ks meta.definition.method.ks
+                                       -
+                                       ^
+                                       source.ks meta.definition.method.ks keyword.operator.arithmetic.ks
+                                         
+                                        ^
+                                        source.ks meta.definition.method.ks
+                                         1
+                                         ^
+                                         source.ks meta.definition.method.ks constant.numeric.decimal.ks
+                                          )
+                                          ^
+                                          source.ks meta.definition.method.ks
+>
+>    }
+     
+ ^^^^
+ source.ks
+     }
+     ^
+     source.ks punctuation.definition.object.end.bracket.curly.ks
+>
+>})
+ }
+ ^
+ source.ks punctuation.definition.object.end.bracket.curly.ks
+  )
+  ^
+  source.ks punctuation.definition.arguments.end.bracket.round.ks

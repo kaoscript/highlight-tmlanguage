@@ -1,0 +1,51 @@
+original file
+-----------------------------------
+export macro times_five(e) => 5 * #e
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>export macro times_five(e) => 5 * #e
+ export
+ ^^^^^^
+ source.ks keyword.control.export.ks
+        
+       ^
+       source.ks
+        macro
+        ^^^^^
+        source.ks meta.macro.ks storage.type.macro.ks
+              
+             ^
+             source.ks meta.macro.ks
+              times_five
+              ^^^^^^^^^^
+              source.ks meta.macro.ks entity.name.type.macro.ks
+                        (
+                        ^
+                        source.ks meta.macro.ks punctuation.definition.parameters.begin.bracket.round.ks
+                         e
+                         ^
+                         source.ks meta.macro.ks variable.parameter.ks
+                          )
+                          ^
+                          source.ks meta.macro.ks punctuation.definition.parameters.end.bracket.round.ks
+                            
+                           ^
+                           source.ks meta.macro.ks
+                            =>
+                            ^^
+                            source.ks meta.macro.ks storage.type.function.arrow.ks
+                               
+                              ^
+                              source.ks meta.macro.ks
+                               5 * 
+                               ^^^^
+                               source.ks meta.macro.ks
+                                   #
+                                   ^
+                                   source.ks meta.macro.ks punctuation.accessor.macro.ks
+                                    e
+                                    ^
+                                    source.ks meta.macro.ks variable.other.macro.ks

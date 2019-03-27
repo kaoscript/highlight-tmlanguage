@@ -1,0 +1,90 @@
+original file
+-----------------------------------
+macro sayHello() {
+    macro {
+        console.log('Hello!')
+    }
+}
+sayHello!()
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>macro sayHello() {
+ macro
+ ^^^^^
+ source.ks meta.macro.ks storage.type.macro.ks
+       
+      ^
+      source.ks meta.macro.ks
+       sayHello
+       ^^^^^^^^
+       source.ks meta.macro.ks entity.name.type.macro.ks
+               (
+               ^
+               source.ks meta.macro.ks punctuation.definition.parameters.begin.bracket.round.ks
+                )
+                ^
+                source.ks meta.macro.ks punctuation.definition.parameters.end.bracket.round.ks
+                  
+                 ^
+                 source.ks meta.macro.ks
+                  {
+                  ^
+                  source.ks meta.macro.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>    macro {
+     
+ ^^^^
+ source.ks meta.macro.ks
+     macro
+     ^^^^^
+     source.ks meta.macro.ks keyword.control.macro.ks
+           
+          ^
+          source.ks meta.macro.ks
+           {
+           ^
+           source.ks meta.macro.ks punctuation.definition.macro-expression.begin.bracket.curly.ks
+>
+>        console.log('Hello!')
+         console.log
+ ^^^^^^^^^^^^^^^^^^^
+ source.ks meta.macro.ks
+                    (
+                    ^
+                    source.ks meta.macro.ks punctuation.bracket.round.ks
+                     'Hello!'
+                     ^^^^^^^^
+                     source.ks meta.macro.ks
+                             )
+                             ^
+                             source.ks meta.macro.ks punctuation.bracket.round.ks
+>
+>    }
+     
+ ^^^^
+ source.ks meta.macro.ks
+     }
+     ^
+     source.ks meta.macro.ks punctuation.definition.macro-expression.end.bracket.curly.ks
+>
+>}
+ }
+ ^
+ source.ks meta.macro.ks punctuation.definition.block.end.bracket.curly.ks
+>
+>sayHello!()
+ sayHello
+ ^^^^^^^^
+ source.ks entity.name.function.ks
+         !
+         ^
+         source.ks keyword.operator.function.macro.ks
+          (
+          ^
+          source.ks punctuation.definition.arguments.begin.bracket.round.ks
+           )
+           ^
+           source.ks punctuation.definition.arguments.end.bracket.round.ks

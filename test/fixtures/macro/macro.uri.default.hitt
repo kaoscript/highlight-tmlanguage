@@ -1,0 +1,384 @@
+original file
+-----------------------------------
+class URI {
+    macro register(@scheme: String, @meta: String = 'hier_part [ "?" query ] [ "#" fragment ]') {
+        import '@zokugun/test-import'
+        
+        const name = `\(scheme[0].toUpperCase())\(scheme.substr().toLowerCase())URI`
+        
+        macro {
+            class #i(name) extends URI {
+                private {
+                    _e: Number    = #PI
+                }
+            }
+        }
+    }
+}
+URI.register!('file', '[ "//" [ host ] ] path_absolute')
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>class URI {
+ class
+ ^^^^^
+ source.ks storage.type.class.ks
+       
+      ^
+      source.ks
+       URI
+       ^^^
+       source.ks entity.name.type.class.ks
+           
+          ^
+          source.ks
+           {
+           ^
+           source.ks punctuation.definition.class.begin.bracket.curly.ks
+>
+>    macro register(@scheme: String, @meta: String = 'hier_part [ "?" query ] [ "#" fragment ]') {
+     
+ ^^^^
+ source.ks
+     macro
+     ^^^^^
+     source.ks meta.macro.ks storage.type.macro.ks
+           
+          ^
+          source.ks meta.macro.ks
+           register
+           ^^^^^^^^
+           source.ks meta.macro.ks entity.name.type.macro.ks
+                   (
+                   ^
+                   source.ks meta.macro.ks punctuation.definition.parameters.begin.bracket.round.ks
+                    @
+                    ^
+                    source.ks meta.macro.ks storage.modifier.at.ks
+                     scheme
+                     ^^^^^^
+                     source.ks meta.macro.ks variable.parameter.ks
+                           :
+                           ^
+                           source.ks meta.macro.ks meta.type.annotation.ks keyword.operator.type.annotation.ks
+                             
+                            ^
+                            source.ks meta.macro.ks meta.type.annotation.ks
+                             String
+                             ^^^^^^
+                             source.ks meta.macro.ks meta.type.annotation.ks support.type.primitive.ks
+                                   ,
+                                   ^
+                                   source.ks meta.macro.ks punctuation.separator.comma.ks
+                                     
+                                    ^
+                                    source.ks meta.macro.ks
+                                     @
+                                     ^
+                                     source.ks meta.macro.ks storage.modifier.at.ks
+                                      meta
+                                      ^^^^
+                                      source.ks meta.macro.ks variable.parameter.ks
+                                          :
+                                          ^
+                                          source.ks meta.macro.ks meta.type.annotation.ks keyword.operator.type.annotation.ks
+                                            
+                                           ^
+                                           source.ks meta.macro.ks meta.type.annotation.ks
+                                            String
+                                            ^^^^^^
+                                            source.ks meta.macro.ks meta.type.annotation.ks support.type.primitive.ks
+                                                   
+                                                  ^
+                                                  source.ks meta.macro.ks
+                                                   =
+                                                   ^
+                                                   source.ks meta.macro.ks keyword.operator.assignment.ks
+                                                     
+                                                    ^
+                                                    source.ks meta.macro.ks
+                                                     '
+                                                     ^
+                                                     source.ks meta.macro.ks string.quoted.single.ks punctuation.definition.string.begin.ks
+                                                      hier_part [ "?" query ] [ "#" fragment ]
+                                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                                                      source.ks meta.macro.ks string.quoted.single.ks
+                                                                                              '
+                                                                                              ^
+                                                                                              source.ks meta.macro.ks string.quoted.single.ks punctuation.definition.string.end.ks
+                                                                                               )
+                                                                                               ^
+                                                                                               source.ks meta.macro.ks punctuation.definition.parameters.end.bracket.round.ks
+                                                                                                 
+                                                                                                ^
+                                                                                                source.ks meta.macro.ks
+                                                                                                 {
+                                                                                                 ^
+                                                                                                 source.ks meta.macro.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>        import '@zokugun/test-import'
+         
+ ^^^^^^^^
+ source.ks meta.macro.ks
+         import
+         ^^^^^^
+         source.ks meta.macro.ks variable.other.ks
+                
+               ^
+               source.ks meta.macro.ks
+                '
+                ^
+                source.ks meta.macro.ks string.quoted.single.ks punctuation.definition.string.begin.ks
+                 @zokugun/test-import
+                 ^^^^^^^^^^^^^^^^^^^^
+                 source.ks meta.macro.ks string.quoted.single.ks
+                                     '
+                                     ^
+                                     source.ks meta.macro.ks string.quoted.single.ks punctuation.definition.string.end.ks
+>
+>        
+         
+ ^^^^^^^^^
+ source.ks meta.macro.ks
+>
+>        const name = `\(scheme[0].toUpperCase())\(scheme.substr().toLowerCase())URI`
+         
+ ^^^^^^^^
+ source.ks meta.macro.ks
+         const
+         ^^^^^
+         source.ks meta.macro.ks storage.type.constant.ks
+               
+              ^
+              source.ks meta.macro.ks
+               name
+               ^^^^
+               source.ks meta.macro.ks meta.definition.variable.ks variable.other.constant.ks
+                    
+                   ^
+                   source.ks meta.macro.ks
+                    =
+                    ^
+                    source.ks meta.macro.ks keyword.operator.assignment.ks
+                      
+                     ^
+                     source.ks meta.macro.ks
+                      `
+                      ^
+                      source.ks meta.macro.ks punctuation.definition.string.template.begin.ks
+                       \(
+                       ^^
+                       source.ks meta.macro.ks punctuation.definition.template-expression.begin.ks
+                         scheme
+                         ^^^^^^
+                         source.ks meta.macro.ks variable.other.ks
+                               [
+                               ^
+                               source.ks meta.macro.ks punctuation.accessor.array.begin.bracket.square.ks
+                                0
+                                ^
+                                source.ks meta.macro.ks constant.numeric.decimal.ks
+                                 ]
+                                 ^
+                                 source.ks meta.macro.ks punctuation.accessor.array.end.bracket.square.ks
+                                  .
+                                  ^
+                                  source.ks meta.macro.ks punctuation.accessor.object.ks
+                                   toUpperCase
+                                   ^^^^^^^^^^^
+                                   source.ks meta.macro.ks entity.name.function.ks
+                                              (
+                                              ^
+                                              source.ks meta.macro.ks punctuation.definition.arguments.begin.bracket.round.ks
+                                               )
+                                               ^
+                                               source.ks meta.macro.ks punctuation.definition.arguments.end.bracket.round.ks
+                                                )
+                                                ^
+                                                source.ks meta.macro.ks punctuation.definition.template-expression.end.ks
+                                                 \(
+                                                 ^^
+                                                 source.ks meta.macro.ks punctuation.definition.template-expression.begin.ks
+                                                   scheme
+                                                   ^^^^^^
+                                                   source.ks meta.macro.ks variable.other.object.ks
+                                                         .
+                                                         ^
+                                                         source.ks meta.macro.ks punctuation.accessor.object.ks
+                                                          substr
+                                                          ^^^^^^
+                                                          source.ks meta.macro.ks entity.name.function.ks
+                                                                (
+                                                                ^
+                                                                source.ks meta.macro.ks punctuation.definition.arguments.begin.bracket.round.ks
+                                                                 )
+                                                                 ^
+                                                                 source.ks meta.macro.ks punctuation.definition.arguments.end.bracket.round.ks
+                                                                  .
+                                                                  ^
+                                                                  source.ks meta.macro.ks punctuation.accessor.object.ks
+                                                                   toLowerCase
+                                                                   ^^^^^^^^^^^
+                                                                   source.ks meta.macro.ks entity.name.function.ks
+                                                                              (
+                                                                              ^
+                                                                              source.ks meta.macro.ks punctuation.definition.arguments.begin.bracket.round.ks
+                                                                               )
+                                                                               ^
+                                                                               source.ks meta.macro.ks punctuation.definition.arguments.end.bracket.round.ks
+                                                                                )
+                                                                                ^
+                                                                                source.ks meta.macro.ks punctuation.definition.template-expression.end.ks
+                                                                                 URI
+                                                                                 ^^^
+                                                                                 source.ks meta.macro.ks string.template.ks
+                                                                                    `
+                                                                                    ^
+                                                                                    source.ks meta.macro.ks punctuation.definition.string.template.end.ks
+>
+>        
+         
+ ^^^^^^^^^
+ source.ks meta.macro.ks
+>
+>        macro {
+         
+ ^^^^^^^^
+ source.ks meta.macro.ks
+         macro
+         ^^^^^
+         source.ks meta.macro.ks keyword.control.macro.ks
+               
+              ^
+              source.ks meta.macro.ks
+               {
+               ^
+               source.ks meta.macro.ks punctuation.definition.macro-expression.begin.bracket.curly.ks
+>
+>            class #i(name) extends URI {
+             class 
+ ^^^^^^^^^^^^^^^^^^
+ source.ks meta.macro.ks
+                   #
+                   ^
+                   source.ks meta.macro.ks punctuation.accessor.macro.ks
+                    i
+                    ^
+                    source.ks meta.macro.ks storage.modifier.macro.ks
+                     (
+                     ^
+                     source.ks meta.macro.ks punctuation.definition.macro-variable.begin.bracket.round.ks
+                      name
+                      ^^^^
+                      source.ks meta.macro.ks variable.other.macro.ks
+                          )
+                          ^
+                          source.ks meta.macro.ks punctuation.definition.macro-variable.end.bracket.round.ks
+                            extends URI 
+                           ^^^^^^^^^^^^^
+                           source.ks meta.macro.ks
+                                        {
+                                        ^
+                                        source.ks meta.macro.ks punctuation.bracket.curly.ks
+>
+>                private {
+                 private 
+ ^^^^^^^^^^^^^^^^^^^^^^^^
+ source.ks meta.macro.ks
+                         {
+                         ^
+                         source.ks meta.macro.ks punctuation.bracket.curly.ks
+>
+>                    _e: Number    = #PI
+                     _e: Number    = 
+ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ source.ks meta.macro.ks
+                                     #
+                                     ^
+                                     source.ks meta.macro.ks punctuation.accessor.macro.ks
+                                      PI
+                                      ^^
+                                      source.ks meta.macro.ks variable.other.macro.ks
+>
+>                }
+                 
+ ^^^^^^^^^^^^^^^^
+ source.ks meta.macro.ks
+                 }
+                 ^
+                 source.ks meta.macro.ks punctuation.bracket.curly.ks
+>
+>            }
+             
+ ^^^^^^^^^^^^
+ source.ks meta.macro.ks
+             }
+             ^
+             source.ks meta.macro.ks punctuation.bracket.curly.ks
+>
+>        }
+         
+ ^^^^^^^^
+ source.ks meta.macro.ks
+         }
+         ^
+         source.ks meta.macro.ks punctuation.definition.macro-expression.end.bracket.curly.ks
+>
+>    }
+     
+ ^^^^
+ source.ks meta.macro.ks
+     }
+     ^
+     source.ks meta.macro.ks punctuation.definition.block.end.bracket.curly.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.class.end.bracket.curly.ks
+>
+>URI.register!('file', '[ "//" [ host ] ] path_absolute')
+ URI
+ ^^^
+ source.ks variable.other.object.ks
+    .
+    ^
+    source.ks punctuation.accessor.object.ks
+     register
+     ^^^^^^^^
+     source.ks entity.name.function.ks
+             !
+             ^
+             source.ks keyword.operator.function.macro.ks
+              (
+              ^
+              source.ks punctuation.definition.arguments.begin.bracket.round.ks
+               '
+               ^
+               source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
+                file
+                ^^^^
+                source.ks string.quoted.single.ks
+                    '
+                    ^
+                    source.ks string.quoted.single.ks punctuation.definition.string.end.ks
+                     ,
+                     ^
+                     source.ks punctuation.separator.comma.ks
+                       
+                      ^
+                      source.ks
+                       '
+                       ^
+                       source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
+                        [ "//" [ host ] ] path_absolute
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                        source.ks string.quoted.single.ks
+                                                       '
+                                                       ^
+                                                       source.ks string.quoted.single.ks punctuation.definition.string.end.ks
+                                                        )
+                                                        ^
+                                                        source.ks punctuation.definition.arguments.end.bracket.round.ks

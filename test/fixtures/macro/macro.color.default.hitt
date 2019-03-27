@@ -1,0 +1,1002 @@
+original file
+-----------------------------------
+class Color {
+    macro registerSpace(@data: Object) {
+        if data.components? {
+            const fields: Array<Expr> = []
+            const methods: Array<Expr> = []
+            
+            let field
+            for name, component in data.components {
+                field = `_\(name)`
+                
+                fields.push(macro private #i(field): Number)
+                
+                methods.push(macro {
+                    #i(name)() => this.getField(#(name))
+                    #i(name)(value) => this.setField(#(name), value)
+                })
+                
+                data.components[name].field = field
+            }
+            
+            macro {
+                Color.registerSpace(#(data))
+                
+                impl Color {
+                    #b(fields)
+                    #b(methods)
+                }
+            }
+        }
+        else {
+            macro Color.registerSpace(#(data))
+        }
+    }
+}
+Color.registerSpace!({
+    name: Space::SRGB
+    alias: [Space::RGB]
+    components: {
+        red: {
+            max: 255
+        }
+        green: {
+            max: 255
+        }
+        blue: {
+            max: 255
+        }
+    }
+})
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>class Color {
+ class
+ ^^^^^
+ source.ks storage.type.class.ks
+       
+      ^
+      source.ks
+       Color
+       ^^^^^
+       source.ks entity.name.type.class.ks
+             
+            ^
+            source.ks
+             {
+             ^
+             source.ks punctuation.definition.class.begin.bracket.curly.ks
+>
+>    macro registerSpace(@data: Object) {
+     
+ ^^^^
+ source.ks
+     macro
+     ^^^^^
+     source.ks meta.macro.ks storage.type.macro.ks
+           
+          ^
+          source.ks meta.macro.ks
+           registerSpace
+           ^^^^^^^^^^^^^
+           source.ks meta.macro.ks entity.name.type.macro.ks
+                        (
+                        ^
+                        source.ks meta.macro.ks punctuation.definition.parameters.begin.bracket.round.ks
+                         @
+                         ^
+                         source.ks meta.macro.ks storage.modifier.at.ks
+                          data
+                          ^^^^
+                          source.ks meta.macro.ks variable.parameter.ks
+                              :
+                              ^
+                              source.ks meta.macro.ks meta.type.annotation.ks keyword.operator.type.annotation.ks
+                                
+                               ^
+                               source.ks meta.macro.ks meta.type.annotation.ks
+                                Object
+                                ^^^^^^
+                                source.ks meta.macro.ks meta.type.annotation.ks support.type.primitive.ks
+                                      )
+                                      ^
+                                      source.ks meta.macro.ks punctuation.definition.parameters.end.bracket.round.ks
+                                        
+                                       ^
+                                       source.ks meta.macro.ks
+                                        {
+                                        ^
+                                        source.ks meta.macro.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>        if data.components? {
+         
+ ^^^^^^^^
+ source.ks meta.macro.ks
+         if
+         ^^
+         source.ks meta.macro.ks keyword.control.conditional.if.ks
+            
+           ^
+           source.ks meta.macro.ks
+            data
+            ^^^^
+            source.ks meta.macro.ks variable.other.object.ks
+                .
+                ^
+                source.ks meta.macro.ks punctuation.accessor.object.ks
+                 components
+                 ^^^^^^^^^^
+                 source.ks meta.macro.ks variable.other.property.object.ks
+                           ?
+                           ^
+                           source.ks meta.macro.ks keyword.operator.existential.ks
+                             
+                            ^
+                            source.ks meta.macro.ks
+                             {
+                             ^
+                             source.ks meta.macro.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>            const fields: Array<Expr> = []
+             
+ ^^^^^^^^^^^^
+ source.ks meta.macro.ks
+             const
+             ^^^^^
+             source.ks meta.macro.ks storage.type.constant.ks
+                   
+                  ^
+                  source.ks meta.macro.ks
+                   fields
+                   ^^^^^^
+                   source.ks meta.macro.ks meta.definition.variable.ks variable.other.constant.ks
+                         :
+                         ^
+                         source.ks meta.macro.ks meta.type.annotation.ks keyword.operator.type.annotation.ks
+                           
+                          ^
+                          source.ks meta.macro.ks meta.type.annotation.ks
+                           Array
+                           ^^^^^
+                           source.ks meta.macro.ks meta.type.annotation.ks support.type.primitive.ks
+                                <
+                                ^
+                                source.ks meta.macro.ks meta.type.annotation.ks punctuation.definition.typeparameters.begin.ks
+                                 Expr
+                                 ^^^^
+                                 source.ks meta.macro.ks meta.type.annotation.ks entity.name.type.ks
+                                     >
+                                     ^
+                                     source.ks meta.macro.ks meta.type.annotation.ks punctuation.definition.typeparameters.end.ks
+                                       
+                                      ^
+                                      source.ks meta.macro.ks
+                                       =
+                                       ^
+                                       source.ks meta.macro.ks keyword.operator.assignment.ks
+                                         
+                                        ^
+                                        source.ks meta.macro.ks
+                                         [
+                                         ^
+                                         source.ks meta.macro.ks punctuation.definition.array.begin.bracket.square.ks
+                                          ]
+                                          ^
+                                          source.ks meta.macro.ks punctuation.definition.array.end.bracket.square.ks
+>
+>            const methods: Array<Expr> = []
+             
+ ^^^^^^^^^^^^
+ source.ks meta.macro.ks
+             const
+             ^^^^^
+             source.ks meta.macro.ks storage.type.constant.ks
+                   
+                  ^
+                  source.ks meta.macro.ks
+                   methods
+                   ^^^^^^^
+                   source.ks meta.macro.ks meta.definition.variable.ks variable.other.constant.ks
+                          :
+                          ^
+                          source.ks meta.macro.ks meta.type.annotation.ks keyword.operator.type.annotation.ks
+                            
+                           ^
+                           source.ks meta.macro.ks meta.type.annotation.ks
+                            Array
+                            ^^^^^
+                            source.ks meta.macro.ks meta.type.annotation.ks support.type.primitive.ks
+                                 <
+                                 ^
+                                 source.ks meta.macro.ks meta.type.annotation.ks punctuation.definition.typeparameters.begin.ks
+                                  Expr
+                                  ^^^^
+                                  source.ks meta.macro.ks meta.type.annotation.ks entity.name.type.ks
+                                      >
+                                      ^
+                                      source.ks meta.macro.ks meta.type.annotation.ks punctuation.definition.typeparameters.end.ks
+                                        
+                                       ^
+                                       source.ks meta.macro.ks
+                                        =
+                                        ^
+                                        source.ks meta.macro.ks keyword.operator.assignment.ks
+                                          
+                                         ^
+                                         source.ks meta.macro.ks
+                                          [
+                                          ^
+                                          source.ks meta.macro.ks punctuation.definition.array.begin.bracket.square.ks
+                                           ]
+                                           ^
+                                           source.ks meta.macro.ks punctuation.definition.array.end.bracket.square.ks
+>
+>            
+             
+ ^^^^^^^^^^^^^
+ source.ks meta.macro.ks
+>
+>            let field
+             
+ ^^^^^^^^^^^^
+ source.ks meta.macro.ks
+             let
+             ^^^
+             source.ks meta.macro.ks storage.type.readwrite.ks
+                 
+                ^
+                source.ks meta.macro.ks
+                 field
+                 ^^^^^
+                 source.ks meta.macro.ks meta.definition.variable.ks variable.other.readwrite.ks
+>
+>            for name, component in data.components {
+             
+ ^^^^^^^^^^^^
+ source.ks meta.macro.ks
+             for
+             ^^^
+             source.ks meta.macro.ks keyword.control.loop.for.ks
+                 
+                ^
+                source.ks meta.macro.ks
+                 name
+                 ^^^^
+                 source.ks meta.macro.ks variable.other.ks
+                     ,
+                     ^
+                     source.ks meta.macro.ks punctuation.separator.comma.ks
+                       
+                      ^
+                      source.ks meta.macro.ks
+                       component
+                       ^^^^^^^^^
+                       source.ks meta.macro.ks variable.other.ks
+                                 
+                                ^
+                                source.ks meta.macro.ks
+                                 in
+                                 ^^
+                                 source.ks meta.macro.ks keyword.operator.loop.in.ks
+                                    
+                                   ^
+                                   source.ks meta.macro.ks
+                                    data
+                                    ^^^^
+                                    source.ks meta.macro.ks variable.other.object.ks
+                                        .
+                                        ^
+                                        source.ks meta.macro.ks punctuation.accessor.object.ks
+                                         components
+                                         ^^^^^^^^^^
+                                         source.ks meta.macro.ks variable.other.property.object.ks
+                                                    
+                                                   ^
+                                                   source.ks meta.macro.ks
+                                                    {
+                                                    ^
+                                                    source.ks meta.macro.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>                field = `_\(name)`
+                 
+ ^^^^^^^^^^^^^^^^
+ source.ks meta.macro.ks
+                 field
+                 ^^^^^
+                 source.ks meta.macro.ks variable.other.ks
+                       
+                      ^
+                      source.ks meta.macro.ks
+                       =
+                       ^
+                       source.ks meta.macro.ks keyword.operator.assignment.ks
+                         
+                        ^
+                        source.ks meta.macro.ks
+                         `
+                         ^
+                         source.ks meta.macro.ks punctuation.definition.string.template.begin.ks
+                          _
+                          ^
+                          source.ks meta.macro.ks string.template.ks
+                           \(
+                           ^^
+                           source.ks meta.macro.ks punctuation.definition.template-expression.begin.ks
+                             name
+                             ^^^^
+                             source.ks meta.macro.ks variable.other.ks
+                                 )
+                                 ^
+                                 source.ks meta.macro.ks punctuation.definition.template-expression.end.ks
+                                  `
+                                  ^
+                                  source.ks meta.macro.ks punctuation.definition.string.template.end.ks
+>
+>                
+                 
+ ^^^^^^^^^^^^^^^^^
+ source.ks meta.macro.ks
+>
+>                fields.push(macro private #i(field): Number)
+                 
+ ^^^^^^^^^^^^^^^^
+ source.ks meta.macro.ks
+                 fields
+                 ^^^^^^
+                 source.ks meta.macro.ks variable.other.object.ks
+                       .
+                       ^
+                       source.ks meta.macro.ks punctuation.accessor.object.ks
+                        push
+                        ^^^^
+                        source.ks meta.macro.ks entity.name.function.ks
+                            (
+                            ^
+                            source.ks meta.macro.ks punctuation.definition.arguments.begin.bracket.round.ks
+                             macro
+                             ^^^^^
+                             source.ks meta.macro.ks keyword.control.macro.ks
+                                   
+                                  ^
+                                  source.ks meta.macro.ks
+                                   private 
+                                   ^^^^^^^^
+                                   source.ks meta.macro.ks
+                                           #
+                                           ^
+                                           source.ks meta.macro.ks punctuation.accessor.macro.ks
+                                            i
+                                            ^
+                                            source.ks meta.macro.ks storage.modifier.macro.ks
+                                             (
+                                             ^
+                                             source.ks meta.macro.ks punctuation.definition.macro-variable.begin.bracket.round.ks
+                                              field
+                                              ^^^^^
+                                              source.ks meta.macro.ks variable.other.macro.ks
+                                                   )
+                                                   ^
+                                                   source.ks meta.macro.ks punctuation.definition.macro-variable.end.bracket.round.ks
+                                                    : Number
+                                                    ^^^^^^^^
+                                                    source.ks meta.macro.ks
+                                                            )
+                                                            ^
+                                                            source.ks meta.macro.ks punctuation.definition.arguments.end.bracket.round.ks
+>
+>                
+                 
+ ^^^^^^^^^^^^^^^^^
+ source.ks meta.macro.ks
+>
+>                methods.push(macro {
+                 
+ ^^^^^^^^^^^^^^^^
+ source.ks meta.macro.ks
+                 methods
+                 ^^^^^^^
+                 source.ks meta.macro.ks variable.other.object.ks
+                        .
+                        ^
+                        source.ks meta.macro.ks punctuation.accessor.object.ks
+                         push
+                         ^^^^
+                         source.ks meta.macro.ks entity.name.function.ks
+                             (
+                             ^
+                             source.ks meta.macro.ks punctuation.definition.arguments.begin.bracket.round.ks
+                              macro
+                              ^^^^^
+                              source.ks meta.macro.ks keyword.control.macro.ks
+                                    
+                                   ^
+                                   source.ks meta.macro.ks
+                                    {
+                                    ^
+                                    source.ks meta.macro.ks punctuation.definition.macro-expression.begin.bracket.curly.ks
+>
+>                    #i(name)() => this.getField(#(name))
+                     
+ ^^^^^^^^^^^^^^^^^^^^
+ source.ks meta.macro.ks
+                     #
+                     ^
+                     source.ks meta.macro.ks punctuation.accessor.macro.ks
+                      i
+                      ^
+                      source.ks meta.macro.ks storage.modifier.macro.ks
+                       (
+                       ^
+                       source.ks meta.macro.ks punctuation.definition.macro-variable.begin.bracket.round.ks
+                        name
+                        ^^^^
+                        source.ks meta.macro.ks variable.other.macro.ks
+                            )
+                            ^
+                            source.ks meta.macro.ks punctuation.definition.macro-variable.end.bracket.round.ks
+                             (
+                             ^
+                             source.ks meta.macro.ks punctuation.bracket.round.ks
+                              )
+                              ^
+                              source.ks meta.macro.ks punctuation.bracket.round.ks
+                                => this.getField
+                               ^^^^^^^^^^^^^^^^^
+                               source.ks meta.macro.ks
+                                                (
+                                                ^
+                                                source.ks meta.macro.ks punctuation.bracket.round.ks
+                                                 #
+                                                 ^
+                                                 source.ks meta.macro.ks punctuation.accessor.macro.ks
+                                                  (
+                                                  ^
+                                                  source.ks meta.macro.ks punctuation.definition.macro-variable.begin.bracket.round.ks
+                                                   name
+                                                   ^^^^
+                                                   source.ks meta.macro.ks variable.other.macro.ks
+                                                       )
+                                                       ^
+                                                       source.ks meta.macro.ks punctuation.definition.macro-variable.end.bracket.round.ks
+                                                        )
+                                                        ^
+                                                        source.ks meta.macro.ks punctuation.bracket.round.ks
+>
+>                    #i(name)(value) => this.setField(#(name), value)
+                     
+ ^^^^^^^^^^^^^^^^^^^^
+ source.ks meta.macro.ks
+                     #
+                     ^
+                     source.ks meta.macro.ks punctuation.accessor.macro.ks
+                      i
+                      ^
+                      source.ks meta.macro.ks storage.modifier.macro.ks
+                       (
+                       ^
+                       source.ks meta.macro.ks punctuation.definition.macro-variable.begin.bracket.round.ks
+                        name
+                        ^^^^
+                        source.ks meta.macro.ks variable.other.macro.ks
+                            )
+                            ^
+                            source.ks meta.macro.ks punctuation.definition.macro-variable.end.bracket.round.ks
+                             (
+                             ^
+                             source.ks meta.macro.ks punctuation.bracket.round.ks
+                              value
+                              ^^^^^
+                              source.ks meta.macro.ks
+                                   )
+                                   ^
+                                   source.ks meta.macro.ks punctuation.bracket.round.ks
+                                     => this.setField
+                                    ^^^^^^^^^^^^^^^^^
+                                    source.ks meta.macro.ks
+                                                     (
+                                                     ^
+                                                     source.ks meta.macro.ks punctuation.bracket.round.ks
+                                                      #
+                                                      ^
+                                                      source.ks meta.macro.ks punctuation.accessor.macro.ks
+                                                       (
+                                                       ^
+                                                       source.ks meta.macro.ks punctuation.definition.macro-variable.begin.bracket.round.ks
+                                                        name
+                                                        ^^^^
+                                                        source.ks meta.macro.ks variable.other.macro.ks
+                                                            )
+                                                            ^
+                                                            source.ks meta.macro.ks punctuation.definition.macro-variable.end.bracket.round.ks
+                                                             , value
+                                                             ^^^^^^^
+                                                             source.ks meta.macro.ks
+                                                                    )
+                                                                    ^
+                                                                    source.ks meta.macro.ks punctuation.bracket.round.ks
+>
+>                })
+                 
+ ^^^^^^^^^^^^^^^^
+ source.ks meta.macro.ks
+                 }
+                 ^
+                 source.ks meta.macro.ks punctuation.definition.macro-expression.end.bracket.curly.ks
+                  )
+                  ^
+                  source.ks meta.macro.ks punctuation.definition.arguments.end.bracket.round.ks
+>
+>                
+                 
+ ^^^^^^^^^^^^^^^^^
+ source.ks meta.macro.ks
+>
+>                data.components[name].field = field
+                 
+ ^^^^^^^^^^^^^^^^
+ source.ks meta.macro.ks
+                 data
+                 ^^^^
+                 source.ks meta.macro.ks variable.other.object.ks
+                     .
+                     ^
+                     source.ks meta.macro.ks punctuation.accessor.object.ks
+                      components
+                      ^^^^^^^^^^
+                      source.ks meta.macro.ks variable.other.property.object.ks
+                                [
+                                ^
+                                source.ks meta.macro.ks punctuation.accessor.array.begin.bracket.square.ks
+                                 name
+                                 ^^^^
+                                 source.ks meta.macro.ks variable.other.ks
+                                     ]
+                                     ^
+                                     source.ks meta.macro.ks punctuation.accessor.array.end.bracket.square.ks
+                                      .
+                                      ^
+                                      source.ks meta.macro.ks punctuation.accessor.object.ks
+                                       field
+                                       ^^^^^
+                                       source.ks meta.macro.ks variable.other.property.object.ks
+                                             
+                                            ^
+                                            source.ks meta.macro.ks
+                                             =
+                                             ^
+                                             source.ks meta.macro.ks keyword.operator.assignment.ks
+                                               
+                                              ^
+                                              source.ks meta.macro.ks
+                                               field
+                                               ^^^^^
+                                               source.ks meta.macro.ks variable.other.ks
+>
+>            }
+             
+ ^^^^^^^^^^^^
+ source.ks meta.macro.ks
+             }
+             ^
+             source.ks meta.macro.ks punctuation.definition.block.end.bracket.curly.ks
+>
+>            
+             
+ ^^^^^^^^^^^^^
+ source.ks meta.macro.ks
+>
+>            macro {
+             
+ ^^^^^^^^^^^^
+ source.ks meta.macro.ks
+             macro
+             ^^^^^
+             source.ks meta.macro.ks keyword.control.macro.ks
+                   
+                  ^
+                  source.ks meta.macro.ks
+                   {
+                   ^
+                   source.ks meta.macro.ks punctuation.definition.macro-expression.begin.bracket.curly.ks
+>
+>                Color.registerSpace(#(data))
+                 Color.registerSpace
+ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ source.ks meta.macro.ks
+                                    (
+                                    ^
+                                    source.ks meta.macro.ks punctuation.bracket.round.ks
+                                     #
+                                     ^
+                                     source.ks meta.macro.ks punctuation.accessor.macro.ks
+                                      (
+                                      ^
+                                      source.ks meta.macro.ks punctuation.definition.macro-variable.begin.bracket.round.ks
+                                       data
+                                       ^^^^
+                                       source.ks meta.macro.ks variable.other.macro.ks
+                                           )
+                                           ^
+                                           source.ks meta.macro.ks punctuation.definition.macro-variable.end.bracket.round.ks
+                                            )
+                                            ^
+                                            source.ks meta.macro.ks punctuation.bracket.round.ks
+>
+>                
+                 
+ ^^^^^^^^^^^^^^^^^
+ source.ks meta.macro.ks
+>
+>                impl Color {
+                 impl Color 
+ ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ source.ks meta.macro.ks
+                            {
+                            ^
+                            source.ks meta.macro.ks punctuation.bracket.curly.ks
+>
+>                    #b(fields)
+                     
+ ^^^^^^^^^^^^^^^^^^^^
+ source.ks meta.macro.ks
+                     #
+                     ^
+                     source.ks meta.macro.ks punctuation.accessor.macro.ks
+                      b
+                      ^
+                      source.ks meta.macro.ks storage.modifier.macro.ks
+                       (
+                       ^
+                       source.ks meta.macro.ks punctuation.definition.macro-variable.begin.bracket.round.ks
+                        fields
+                        ^^^^^^
+                        source.ks meta.macro.ks variable.other.macro.ks
+                              )
+                              ^
+                              source.ks meta.macro.ks punctuation.definition.macro-variable.end.bracket.round.ks
+>
+>                    #b(methods)
+                     
+ ^^^^^^^^^^^^^^^^^^^^
+ source.ks meta.macro.ks
+                     #
+                     ^
+                     source.ks meta.macro.ks punctuation.accessor.macro.ks
+                      b
+                      ^
+                      source.ks meta.macro.ks storage.modifier.macro.ks
+                       (
+                       ^
+                       source.ks meta.macro.ks punctuation.definition.macro-variable.begin.bracket.round.ks
+                        methods
+                        ^^^^^^^
+                        source.ks meta.macro.ks variable.other.macro.ks
+                               )
+                               ^
+                               source.ks meta.macro.ks punctuation.definition.macro-variable.end.bracket.round.ks
+>
+>                }
+                 
+ ^^^^^^^^^^^^^^^^
+ source.ks meta.macro.ks
+                 }
+                 ^
+                 source.ks meta.macro.ks punctuation.bracket.curly.ks
+>
+>            }
+             
+ ^^^^^^^^^^^^
+ source.ks meta.macro.ks
+             }
+             ^
+             source.ks meta.macro.ks punctuation.definition.macro-expression.end.bracket.curly.ks
+>
+>        }
+         
+ ^^^^^^^^
+ source.ks meta.macro.ks
+         }
+         ^
+         source.ks meta.macro.ks punctuation.definition.block.end.bracket.curly.ks
+>
+>        else {
+         
+ ^^^^^^^^
+ source.ks meta.macro.ks
+         else
+         ^^^^
+         source.ks meta.macro.ks keyword.control.conditional.else.ks
+              
+             ^
+             source.ks meta.macro.ks
+              {
+              ^
+              source.ks meta.macro.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>            macro Color.registerSpace(#(data))
+             
+ ^^^^^^^^^^^^
+ source.ks meta.macro.ks
+             macro
+             ^^^^^
+             source.ks meta.macro.ks keyword.control.macro.ks
+                   
+                  ^
+                  source.ks meta.macro.ks
+                   Color.registerSpace
+                   ^^^^^^^^^^^^^^^^^^^
+                   source.ks meta.macro.ks
+                                      (
+                                      ^
+                                      source.ks meta.macro.ks punctuation.bracket.round.ks
+                                       #
+                                       ^
+                                       source.ks meta.macro.ks punctuation.accessor.macro.ks
+                                        (
+                                        ^
+                                        source.ks meta.macro.ks punctuation.definition.macro-variable.begin.bracket.round.ks
+                                         data
+                                         ^^^^
+                                         source.ks meta.macro.ks variable.other.macro.ks
+                                             )
+                                             ^
+                                             source.ks meta.macro.ks punctuation.definition.macro-variable.end.bracket.round.ks
+                                              )
+                                              ^
+                                              source.ks meta.macro.ks punctuation.bracket.round.ks
+>
+>        }
+         
+ ^^^^^^^^
+ source.ks meta.macro.ks
+         }
+         ^
+         source.ks meta.macro.ks punctuation.definition.block.end.bracket.curly.ks
+>
+>    }
+     
+ ^^^^
+ source.ks meta.macro.ks
+     }
+     ^
+     source.ks meta.macro.ks punctuation.definition.block.end.bracket.curly.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.class.end.bracket.curly.ks
+>
+>Color.registerSpace!({
+ Color
+ ^^^^^
+ source.ks variable.other.object.ks
+      .
+      ^
+      source.ks punctuation.accessor.object.ks
+       registerSpace
+       ^^^^^^^^^^^^^
+       source.ks entity.name.function.ks
+                    !
+                    ^
+                    source.ks keyword.operator.function.macro.ks
+                     (
+                     ^
+                     source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                      {
+                      ^
+                      source.ks punctuation.definition.object.begin.bracket.curly.ks
+>
+>    name: Space::SRGB
+     
+ ^^^^
+ source.ks
+     name
+     ^^^^
+     source.ks meta.object.key.ks
+         :
+         ^
+         source.ks punctuation.separator.key-value.ks
+           
+          ^
+          source.ks
+           Space
+           ^^^^^
+           source.ks variable.other.enum.ks
+                ::
+                ^^
+                source.ks punctuation.accessor.enum.ks
+                  SRGB
+                  ^^^^
+                  source.ks variable.other.property.enum.ks
+>
+>    alias: [Space::RGB]
+     
+ ^^^^
+ source.ks
+     alias
+     ^^^^^
+     source.ks meta.object.key.ks
+          :
+          ^
+          source.ks punctuation.separator.key-value.ks
+            
+           ^
+           source.ks
+            [
+            ^
+            source.ks punctuation.definition.array.begin.bracket.square.ks
+             Space
+             ^^^^^
+             source.ks variable.other.enum.ks
+                  ::
+                  ^^
+                  source.ks punctuation.accessor.enum.ks
+                    RGB
+                    ^^^
+                    source.ks variable.other.property.enum.ks
+                       ]
+                       ^
+                       source.ks punctuation.definition.array.end.bracket.square.ks
+>
+>    components: {
+     
+ ^^^^
+ source.ks
+     components
+     ^^^^^^^^^^
+     source.ks meta.object.key.ks
+               :
+               ^
+               source.ks punctuation.separator.key-value.ks
+                 
+                ^
+                source.ks
+                 {
+                 ^
+                 source.ks punctuation.definition.object.begin.bracket.curly.ks
+>
+>        red: {
+         
+ ^^^^^^^^
+ source.ks
+         red
+         ^^^
+         source.ks meta.object.key.ks
+            :
+            ^
+            source.ks punctuation.separator.key-value.ks
+              
+             ^
+             source.ks
+              {
+              ^
+              source.ks punctuation.definition.object.begin.bracket.curly.ks
+>
+>            max: 255
+             
+ ^^^^^^^^^^^^
+ source.ks
+             max
+             ^^^
+             source.ks meta.object.key.ks
+                :
+                ^
+                source.ks punctuation.separator.key-value.ks
+                  
+                 ^
+                 source.ks
+                  255
+                  ^^^
+                  source.ks constant.numeric.decimal.ks
+>
+>        }
+         
+ ^^^^^^^^
+ source.ks
+         }
+         ^
+         source.ks punctuation.definition.object.end.bracket.curly.ks
+>
+>        green: {
+         
+ ^^^^^^^^
+ source.ks
+         green
+         ^^^^^
+         source.ks meta.object.key.ks
+              :
+              ^
+              source.ks punctuation.separator.key-value.ks
+                
+               ^
+               source.ks
+                {
+                ^
+                source.ks punctuation.definition.object.begin.bracket.curly.ks
+>
+>            max: 255
+             
+ ^^^^^^^^^^^^
+ source.ks
+             max
+             ^^^
+             source.ks meta.object.key.ks
+                :
+                ^
+                source.ks punctuation.separator.key-value.ks
+                  
+                 ^
+                 source.ks
+                  255
+                  ^^^
+                  source.ks constant.numeric.decimal.ks
+>
+>        }
+         
+ ^^^^^^^^
+ source.ks
+         }
+         ^
+         source.ks punctuation.definition.object.end.bracket.curly.ks
+>
+>        blue: {
+         
+ ^^^^^^^^
+ source.ks
+         blue
+         ^^^^
+         source.ks meta.object.key.ks
+             :
+             ^
+             source.ks punctuation.separator.key-value.ks
+               
+              ^
+              source.ks
+               {
+               ^
+               source.ks punctuation.definition.object.begin.bracket.curly.ks
+>
+>            max: 255
+             
+ ^^^^^^^^^^^^
+ source.ks
+             max
+             ^^^
+             source.ks meta.object.key.ks
+                :
+                ^
+                source.ks punctuation.separator.key-value.ks
+                  
+                 ^
+                 source.ks
+                  255
+                  ^^^
+                  source.ks constant.numeric.decimal.ks
+>
+>        }
+         
+ ^^^^^^^^
+ source.ks
+         }
+         ^
+         source.ks punctuation.definition.object.end.bracket.curly.ks
+>
+>    }
+     
+ ^^^^
+ source.ks
+     }
+     ^
+     source.ks punctuation.definition.object.end.bracket.curly.ks
+>
+>})
+ }
+ ^
+ source.ks punctuation.definition.object.end.bracket.curly.ks
+  )
+  ^
+  source.ks punctuation.definition.arguments.end.bracket.round.ks

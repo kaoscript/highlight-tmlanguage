@@ -313,6 +313,7 @@ repository:
           '0': { name: 'punctuation.definition.members.end.bracket.curly.ks' }
         patterns:
         - include: '#class-member'
+      - include: '#macro-statement'
       - include: '#class-member'
   # }}}
   comma: # {{{
@@ -535,6 +536,7 @@ repository:
     - include: '#enum-statement'
     - include: '#function-statement'
     - include: '#let-statement'
+    - include: '#macro-statement'
     - include: '#namespace-statement'
     - include: '#type-statement'
     - begin: '(?=[_$[:alpha:]])'
@@ -619,6 +621,7 @@ repository:
     - include: '#function-call-arguments'
     - include: '#array-accessor'
     - include: '#enum-accessor'
+    - include: '#macro-expression'
     - include: '#object-accessor'
     - include: '#tagged-template'
     - include: '#this-expression'
@@ -831,7 +834,7 @@ repository:
     - include: '#comma'
   # }}}
   function-call-name: # {{{
-    match: '(@)?({{identifier}})(?=(?:\?)?(?:\*[$*]|\^[$^@])?\()'
+    match: '(@)?({{identifier}})(?=(?:\?)?(?:\*[$*]|\^[$^@]|!)?\()'
     captures:
       '1': { name: 'storage.modifier.instance.ks' }
       '2':
@@ -840,11 +843,12 @@ repository:
         - include: '#variable'
   # }}}
   function-call-arguments: # {{{
-    begin: '(?<=[_$[:alnum:]\)\]])(\?)?(\*[$*]|\^[$^@])?(\()'
+    begin: '(?<=[_$[:alnum:]\)\]])(\?)?(?:(\*[$*]|\^[$^@])|(!))?(\()'
     beginCaptures:
       '1': { name: 'keyword.operator.nullable.ks' }
       '2': { name: 'keyword.operator.function.scope.ks' }
-      '3': { name: 'punctuation.definition.arguments.begin.bracket.round.ks' }
+      '3': { name: 'keyword.operator.function.macro.ks' }
+      '4': { name: 'punctuation.definition.arguments.begin.bracket.round.ks' }
     end: \)
     endCaptures:
       '0': { name: 'punctuation.definition.arguments.end.bracket.round.ks' }
@@ -1298,6 +1302,73 @@ repository:
       - include: '#type'
     - include: '#comma'
   # }}}
+  macro-element: # {{{
+    patterns:
+    - begin: '\{'
+      beginCaptures:
+        '0': { name: 'punctuation.bracket.curly.ks' }
+      end: '\}'
+      endCaptures:
+        '0': { name: 'punctuation.bracket.curly.ks' }
+      patterns:
+      - include: '#macro-element'
+    - begin: '\('
+      beginCaptures:
+        '0': { name: 'punctuation.bracket.round.ks' }
+      end: '\)'
+      endCaptures:
+        '0': { name: 'punctuation.bracket.round.ks' }
+      patterns:
+      - include: '#macro-element'
+    - match: '(#)([abei])?(\()({{identifier}})(\))'
+      captures:
+        '1': { name: 'punctuation.accessor.macro.ks' }
+        '2': { name: 'storage.modifier.macro.ks' }
+        '3': { name: 'punctuation.definition.macro-variable.begin.bracket.round.ks' }
+        '4': { name: 'variable.other.macro.ks' }
+        '5': { name: 'punctuation.definition.macro-variable.end.bracket.round.ks' }
+    - match: '(#)({{identifier}})'
+      captures:
+        '1': { name: 'punctuation.accessor.macro.ks' }
+        '2': { name: 'variable.other.macro.ks' }
+  # }}}
+  macro-expression: # {{{
+    patterns:
+    - begin: '\b(macro)\s*(\{)'
+      beginCaptures:
+        '1': { name: 'keyword.control.macro.ks' }
+        '2': { name: 'punctuation.definition.macro-expression.begin.bracket.curly.ks' }
+      end: '\}'
+      endCaptures:
+        '0': { name: 'punctuation.definition.macro-expression.end.bracket.curly.ks' }
+      patterns:
+      - include: '#macro-element'
+    - begin: '(\bmacro\b)\s*(?!:)'
+      beginCaptures:
+        '1': { name: 'keyword.control.macro.ks' }
+      end: '(?=[\)]|$)'
+      patterns:
+      - include: '#macro-element'
+  # }}}
+  macro-statement: # {{{
+    patterns:
+    - name: 'meta.macro.ks'
+      begin: '(\bmacro)\s+({{identifier}})\s*(?=\()'
+      beginCaptures:
+        '1': { name: 'storage.type.macro.ks' }
+        '2': { name: 'entity.name.type.macro.ks' }
+      end: '(?<=\}|$)'
+      patterns:
+      - include: '#function-parameters'
+      - begin: '(=>)\s*'
+        beginCaptures:
+          '1': { name: 'storage.type.function.arrow.ks' }
+        end: '$'
+        patterns:
+        - include: '#macro-element'
+      - include: '#block'
+    - include: '#macro-expression'
+  # }}}
   namespace-statement: # {{{
     begin: '(\bnamespace){{match-identifier}}'
     beginCaptures:
@@ -1633,7 +1704,7 @@ repository:
   # }}}
   statements: # {{{
     patterns:
-    - begin: '^\s*(?=abstract|async|class|const|enum|func|let|namespace|sealed|type)\b'
+    - begin: '^\s*(?=abstract|async|class|const|enum|func|let|macro|namespace|sealed|type)\b'
       end: '(?<=\}|$)'
       patterns:
       - include: '#class-statement'
@@ -1641,6 +1712,7 @@ repository:
       - include: '#enum-statement'
       - include: '#function-statement'
       - include: '#let-statement'
+      - include: '#macro-statement'
       - include: '#namespace-statement'
       - include: '#type-statement'
       - include: '#expression-statement'
@@ -1844,6 +1916,8 @@ repository:
     patterns:
       - name: 'support.type.primitive.ks'
         match: \b(?:Any|any|Array|array|Boolean|bool|class|enum|Error|Function|func(?!\()|Number|number|Object|object|RegExp|String|string|Void|void)\b
+      - name: 'support.type.macro.ks'
+        match: \b(?:Identifier|Expression)\b
       - begin: '(?=(\basync\s+)?(?:\bfunc)?\()'
         end: '(?=$|\s*\|\|)'
         patterns:
