@@ -153,19 +153,19 @@ grammar: kaoscript.tmLanguage
  source.ks
                        #
                        ^
-                       source.ks punctuation.accessor.macro.ks
+                       source.ks meta.macro.variable.ks punctuation.accessor.macro.ks
                         i
                         ^
-                        source.ks storage.modifier.macro.ks
+                        source.ks meta.macro.variable.ks storage.modifier.macro.ks
                          (
                          ^
-                         source.ks punctuation.definition.macro-variable.begin.bracket.round.ks
+                         source.ks meta.macro.variable.ks punctuation.definition.macro-variable.begin.bracket.round.ks
                           name
                           ^^^^
-                          source.ks variable.other.macro.ks
+                          source.ks meta.macro.variable.ks variable.other.ks
                               )
                               ^
-                              source.ks punctuation.definition.macro-variable.end.bracket.round.ks
+                              source.ks meta.macro.variable.ks punctuation.definition.macro-variable.end.bracket.round.ks
                                 extends URI 
                                ^^^^^^^^^^^^^
                                source.ks
@@ -187,10 +187,10 @@ grammar: kaoscript.tmLanguage
  source.ks
                                          #
                                          ^
-                                         source.ks punctuation.accessor.macro.ks
+                                         source.ks meta.macro.variable.ks punctuation.accessor.macro.ks
                                           PI
                                           ^^
-                                          source.ks variable.other.macro.ks
+                                          source.ks meta.macro.variable.ks variable.other.ks
 >
 >                    }
                      

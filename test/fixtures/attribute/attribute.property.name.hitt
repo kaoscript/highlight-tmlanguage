@@ -23,7 +23,7 @@ grammar: kaoscript.tmLanguage
       source.ks meta.attribute.ks punctuation.definition.arguments.begin.bracket.round.ks
        os-linux
        ^^^^^^^^
-       source.ks meta.attribute.ks entity.name
+       source.ks meta.attribute.ks entity.name.ks
                )
                ^
                source.ks meta.attribute.ks punctuation.definition.arguments.end.bracket.round.ks

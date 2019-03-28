@@ -22,7 +22,7 @@ grammar: kaoscript.tmLanguage
   source.ks meta.attribute.ks punctuation.definition.attribute.begin.bracket.square.ks
    foo
    ^^^
-   source.ks meta.attribute.ks entity.name
+   source.ks meta.attribute.ks entity.name.ks
       ]
       ^
       source.ks meta.attribute.ks punctuation.definition.attribute.end.bracket.square.ks
@@ -62,7 +62,7 @@ grammar: kaoscript.tmLanguage
       source.ks meta.attribute.ks punctuation.definition.attribute.begin.bracket.square.ks
        bar
        ^^^
-       source.ks meta.attribute.ks entity.name
+       source.ks meta.attribute.ks entity.name.ks
           ]
           ^
           source.ks meta.attribute.ks punctuation.definition.attribute.end.bracket.square.ks
@@ -105,7 +105,7 @@ grammar: kaoscript.tmLanguage
           source.ks meta.attribute.ks punctuation.definition.attribute.begin.bracket.square.ks
            qux
            ^^^
-           source.ks meta.attribute.ks entity.name
+           source.ks meta.attribute.ks entity.name.ks
               ]
               ^
               source.ks meta.attribute.ks punctuation.definition.attribute.end.bracket.square.ks

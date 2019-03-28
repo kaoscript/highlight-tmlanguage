@@ -263,19 +263,19 @@ grammar: kaoscript.tmLanguage
  source.ks meta.macro.ks
                    #
                    ^
-                   source.ks meta.macro.ks punctuation.accessor.macro.ks
+                   source.ks meta.macro.ks meta.macro.variable.ks punctuation.accessor.macro.ks
                     i
                     ^
-                    source.ks meta.macro.ks storage.modifier.macro.ks
+                    source.ks meta.macro.ks meta.macro.variable.ks storage.modifier.macro.ks
                      (
                      ^
-                     source.ks meta.macro.ks punctuation.definition.macro-variable.begin.bracket.round.ks
+                     source.ks meta.macro.ks meta.macro.variable.ks punctuation.definition.macro-variable.begin.bracket.round.ks
                       name
                       ^^^^
-                      source.ks meta.macro.ks variable.other.macro.ks
+                      source.ks meta.macro.ks meta.macro.variable.ks variable.other.ks
                           )
                           ^
-                          source.ks meta.macro.ks punctuation.definition.macro-variable.end.bracket.round.ks
+                          source.ks meta.macro.ks meta.macro.variable.ks punctuation.definition.macro-variable.end.bracket.round.ks
                             extends URI 
                            ^^^^^^^^^^^^^
                            source.ks meta.macro.ks
@@ -297,10 +297,10 @@ grammar: kaoscript.tmLanguage
  source.ks meta.macro.ks
                                      #
                                      ^
-                                     source.ks meta.macro.ks punctuation.accessor.macro.ks
+                                     source.ks meta.macro.ks meta.macro.variable.ks punctuation.accessor.macro.ks
                                       PI
                                       ^^
-                                      source.ks meta.macro.ks variable.other.macro.ks
+                                      source.ks meta.macro.ks meta.macro.variable.ks variable.other.ks
 >
 >                }
                  

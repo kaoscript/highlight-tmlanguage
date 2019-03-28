@@ -8,7 +8,7 @@ export class Color {
             let field
             for name, component of expression.components {
                 field = `_\(name)`
-                fields.push(macro private #i(field): Number)
+                fields.push(macro private #i(field): #i(component.type))
                 methods.push(macro {
                     #[error(off)]
                     #i(name)() => this.getField(#(name))
@@ -321,7 +321,7 @@ grammar: kaoscript.tmLanguage
                                   ^
                                   source.ks meta.macro.ks punctuation.definition.string.template.end.ks
 >
->                fields.push(macro private #i(field): Number)
+>                fields.push(macro private #i(field): #i(component.type))
                  
  ^^^^^^^^^^^^^^^^
  source.ks meta.macro.ks
@@ -351,28 +351,46 @@ grammar: kaoscript.tmLanguage
                                           source.ks meta.macro.ks
                                            #
                                            ^
-                                           source.ks meta.macro.ks punctuation.accessor.macro.ks
+                                           source.ks meta.macro.ks meta.macro.variable.ks punctuation.accessor.macro.ks
                                             i
                                             ^
-                                            source.ks meta.macro.ks storage.modifier.macro.ks
+                                            source.ks meta.macro.ks meta.macro.variable.ks storage.modifier.macro.ks
                                              (
                                              ^
-                                             source.ks meta.macro.ks punctuation.definition.macro-variable.begin.bracket.round.ks
+                                             source.ks meta.macro.ks meta.macro.variable.ks punctuation.definition.macro-variable.begin.bracket.round.ks
                                               field
                                               ^^^^^
-                                              source.ks meta.macro.ks variable.other.macro.ks
+                                              source.ks meta.macro.ks meta.macro.variable.ks variable.other.ks
                                                    )
                                                    ^
-                                                   source.ks meta.macro.ks punctuation.definition.macro-variable.end.bracket.round.ks
+                                                   source.ks meta.macro.ks meta.macro.variable.ks punctuation.definition.macro-variable.end.bracket.round.ks
                                                     : 
                                                     ^^
                                                     source.ks meta.macro.ks
-                                                      Number
-                                                      ^^^^^^
-                                                      source.ks meta.macro.ks variable.other.ks
-                                                            )
-                                                            ^
-                                                            source.ks meta.macro.ks punctuation.definition.arguments.end.bracket.round.ks
+                                                      #
+                                                      ^
+                                                      source.ks meta.macro.ks meta.macro.variable.ks punctuation.accessor.macro.ks
+                                                       i
+                                                       ^
+                                                       source.ks meta.macro.ks meta.macro.variable.ks storage.modifier.macro.ks
+                                                        (
+                                                        ^
+                                                        source.ks meta.macro.ks meta.macro.variable.ks punctuation.definition.macro-variable.begin.bracket.round.ks
+                                                         component
+                                                         ^^^^^^^^^
+                                                         source.ks meta.macro.ks meta.macro.variable.ks variable.other.object.ks
+                                                                  .
+                                                                  ^
+                                                                  source.ks meta.macro.ks meta.macro.variable.ks punctuation.accessor.object.ks
+                                                                   type
+                                                                   ^^^^
+                                                                   source.ks meta.macro.ks meta.macro.variable.ks variable.other.property.object.ks
+                                                                       )
+                                                                       ^
+                                                                       source.ks meta.macro.ks meta.macro.variable.ks punctuation.definition.macro-variable.end.bracket.round.ks
+                                                                        )
+                                                                        ^
+                                                                        source.ks meta.macro.ks punctuation.definition.arguments.end.bracket.round.ks
 >
 >                methods.push(macro {
                  
@@ -423,19 +441,19 @@ grammar: kaoscript.tmLanguage
  source.ks meta.macro.ks
                      #
                      ^
-                     source.ks meta.macro.ks punctuation.accessor.macro.ks
+                     source.ks meta.macro.ks meta.macro.variable.ks punctuation.accessor.macro.ks
                       i
                       ^
-                      source.ks meta.macro.ks storage.modifier.macro.ks
+                      source.ks meta.macro.ks meta.macro.variable.ks storage.modifier.macro.ks
                        (
                        ^
-                       source.ks meta.macro.ks punctuation.definition.macro-variable.begin.bracket.round.ks
+                       source.ks meta.macro.ks meta.macro.variable.ks punctuation.definition.macro-variable.begin.bracket.round.ks
                         name
                         ^^^^
-                        source.ks meta.macro.ks variable.other.macro.ks
+                        source.ks meta.macro.ks meta.macro.variable.ks variable.other.ks
                             )
                             ^
-                            source.ks meta.macro.ks punctuation.definition.macro-variable.end.bracket.round.ks
+                            source.ks meta.macro.ks meta.macro.variable.ks punctuation.definition.macro-variable.end.bracket.round.ks
                              (
                              ^
                              source.ks meta.macro.ks punctuation.bracket.round.ks
@@ -450,16 +468,16 @@ grammar: kaoscript.tmLanguage
                                                 source.ks meta.macro.ks punctuation.bracket.round.ks
                                                  #
                                                  ^
-                                                 source.ks meta.macro.ks punctuation.accessor.macro.ks
+                                                 source.ks meta.macro.ks meta.macro.variable.ks punctuation.accessor.macro.ks
                                                   (
                                                   ^
-                                                  source.ks meta.macro.ks punctuation.definition.macro-variable.begin.bracket.round.ks
+                                                  source.ks meta.macro.ks meta.macro.variable.ks punctuation.definition.macro-variable.begin.bracket.round.ks
                                                    name
                                                    ^^^^
-                                                   source.ks meta.macro.ks variable.other.macro.ks
+                                                   source.ks meta.macro.ks meta.macro.variable.ks variable.other.ks
                                                        )
                                                        ^
-                                                       source.ks meta.macro.ks punctuation.definition.macro-variable.end.bracket.round.ks
+                                                       source.ks meta.macro.ks meta.macro.variable.ks punctuation.definition.macro-variable.end.bracket.round.ks
                                                         )
                                                         ^
                                                         source.ks meta.macro.ks punctuation.bracket.round.ks
@@ -487,19 +505,19 @@ grammar: kaoscript.tmLanguage
  source.ks meta.macro.ks
                      #
                      ^
-                     source.ks meta.macro.ks punctuation.accessor.macro.ks
+                     source.ks meta.macro.ks meta.macro.variable.ks punctuation.accessor.macro.ks
                       i
                       ^
-                      source.ks meta.macro.ks storage.modifier.macro.ks
+                      source.ks meta.macro.ks meta.macro.variable.ks storage.modifier.macro.ks
                        (
                        ^
-                       source.ks meta.macro.ks punctuation.definition.macro-variable.begin.bracket.round.ks
+                       source.ks meta.macro.ks meta.macro.variable.ks punctuation.definition.macro-variable.begin.bracket.round.ks
                         name
                         ^^^^
-                        source.ks meta.macro.ks variable.other.macro.ks
+                        source.ks meta.macro.ks meta.macro.variable.ks variable.other.ks
                             )
                             ^
-                            source.ks meta.macro.ks punctuation.definition.macro-variable.end.bracket.round.ks
+                            source.ks meta.macro.ks meta.macro.variable.ks punctuation.definition.macro-variable.end.bracket.round.ks
                              (
                              ^
                              source.ks meta.macro.ks punctuation.bracket.round.ks
@@ -517,16 +535,16 @@ grammar: kaoscript.tmLanguage
                                                      source.ks meta.macro.ks punctuation.bracket.round.ks
                                                       #
                                                       ^
-                                                      source.ks meta.macro.ks punctuation.accessor.macro.ks
+                                                      source.ks meta.macro.ks meta.macro.variable.ks punctuation.accessor.macro.ks
                                                        (
                                                        ^
-                                                       source.ks meta.macro.ks punctuation.definition.macro-variable.begin.bracket.round.ks
+                                                       source.ks meta.macro.ks meta.macro.variable.ks punctuation.definition.macro-variable.begin.bracket.round.ks
                                                         name
                                                         ^^^^
-                                                        source.ks meta.macro.ks variable.other.macro.ks
+                                                        source.ks meta.macro.ks meta.macro.variable.ks variable.other.ks
                                                             )
                                                             ^
-                                                            source.ks meta.macro.ks punctuation.definition.macro-variable.end.bracket.round.ks
+                                                            source.ks meta.macro.ks meta.macro.variable.ks punctuation.definition.macro-variable.end.bracket.round.ks
                                                              , value
                                                              ^^^^^^^
                                                              source.ks meta.macro.ks
@@ -617,16 +635,16 @@ grammar: kaoscript.tmLanguage
                                     source.ks meta.macro.ks punctuation.bracket.round.ks
                                      #
                                      ^
-                                     source.ks meta.macro.ks punctuation.accessor.macro.ks
+                                     source.ks meta.macro.ks meta.macro.variable.ks punctuation.accessor.macro.ks
                                       (
                                       ^
-                                      source.ks meta.macro.ks punctuation.definition.macro-variable.begin.bracket.round.ks
+                                      source.ks meta.macro.ks meta.macro.variable.ks punctuation.definition.macro-variable.begin.bracket.round.ks
                                        expression
                                        ^^^^^^^^^^
-                                       source.ks meta.macro.ks variable.other.macro.ks
+                                       source.ks meta.macro.ks meta.macro.variable.ks variable.other.ks
                                                  )
                                                  ^
-                                                 source.ks meta.macro.ks punctuation.definition.macro-variable.end.bracket.round.ks
+                                                 source.ks meta.macro.ks meta.macro.variable.ks punctuation.definition.macro-variable.end.bracket.round.ks
                                                   )
                                                   ^
                                                   source.ks meta.macro.ks punctuation.bracket.round.ks
@@ -645,19 +663,19 @@ grammar: kaoscript.tmLanguage
  source.ks meta.macro.ks
                      #
                      ^
-                     source.ks meta.macro.ks punctuation.accessor.macro.ks
+                     source.ks meta.macro.ks meta.macro.variable.ks punctuation.accessor.macro.ks
                       b
                       ^
-                      source.ks meta.macro.ks storage.modifier.macro.ks
+                      source.ks meta.macro.ks meta.macro.variable.ks storage.modifier.macro.ks
                        (
                        ^
-                       source.ks meta.macro.ks punctuation.definition.macro-variable.begin.bracket.round.ks
+                       source.ks meta.macro.ks meta.macro.variable.ks punctuation.definition.macro-variable.begin.bracket.round.ks
                         fields
                         ^^^^^^
-                        source.ks meta.macro.ks variable.other.macro.ks
+                        source.ks meta.macro.ks meta.macro.variable.ks variable.other.ks
                               )
                               ^
-                              source.ks meta.macro.ks punctuation.definition.macro-variable.end.bracket.round.ks
+                              source.ks meta.macro.ks meta.macro.variable.ks punctuation.definition.macro-variable.end.bracket.round.ks
 >
 >                    #b(methods)
                      
@@ -665,19 +683,19 @@ grammar: kaoscript.tmLanguage
  source.ks meta.macro.ks
                      #
                      ^
-                     source.ks meta.macro.ks punctuation.accessor.macro.ks
+                     source.ks meta.macro.ks meta.macro.variable.ks punctuation.accessor.macro.ks
                       b
                       ^
-                      source.ks meta.macro.ks storage.modifier.macro.ks
+                      source.ks meta.macro.ks meta.macro.variable.ks storage.modifier.macro.ks
                        (
                        ^
-                       source.ks meta.macro.ks punctuation.definition.macro-variable.begin.bracket.round.ks
+                       source.ks meta.macro.ks meta.macro.variable.ks punctuation.definition.macro-variable.begin.bracket.round.ks
                         methods
                         ^^^^^^^
-                        source.ks meta.macro.ks variable.other.macro.ks
+                        source.ks meta.macro.ks meta.macro.variable.ks variable.other.ks
                                )
                                ^
-                               source.ks meta.macro.ks punctuation.definition.macro-variable.end.bracket.round.ks
+                               source.ks meta.macro.ks meta.macro.variable.ks punctuation.definition.macro-variable.end.bracket.round.ks
 >
 >                }
                  
@@ -741,16 +759,16 @@ grammar: kaoscript.tmLanguage
                                       source.ks meta.macro.ks punctuation.definition.arguments.begin.bracket.round.ks
                                        #
                                        ^
-                                       source.ks meta.macro.ks punctuation.accessor.macro.ks
+                                       source.ks meta.macro.ks meta.macro.variable.ks punctuation.accessor.macro.ks
                                         (
                                         ^
-                                        source.ks meta.macro.ks punctuation.definition.macro-variable.begin.bracket.round.ks
+                                        source.ks meta.macro.ks meta.macro.variable.ks punctuation.definition.macro-variable.begin.bracket.round.ks
                                          expression
                                          ^^^^^^^^^^
-                                         source.ks meta.macro.ks variable.other.macro.ks
+                                         source.ks meta.macro.ks meta.macro.variable.ks variable.other.ks
                                                    )
                                                    ^
-                                                   source.ks meta.macro.ks punctuation.definition.macro-variable.end.bracket.round.ks
+                                                   source.ks meta.macro.ks meta.macro.variable.ks punctuation.definition.macro-variable.end.bracket.round.ks
                                                     )
                                                     ^
                                                     source.ks meta.macro.ks punctuation.definition.arguments.end.bracket.round.ks

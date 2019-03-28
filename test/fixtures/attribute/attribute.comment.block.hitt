@@ -18,7 +18,7 @@ grammar: kaoscript.tmLanguage
   source.ks meta.attribute.ks punctuation.definition.attribute.begin.bracket.square.ks
    test
    ^^^^
-   source.ks meta.attribute.ks entity.name
+   source.ks meta.attribute.ks entity.name.ks
        ]
        ^
        source.ks meta.attribute.ks punctuation.definition.attribute.end.bracket.square.ks

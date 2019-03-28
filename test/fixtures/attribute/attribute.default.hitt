@@ -32,7 +32,7 @@ grammar: kaoscript.tmLanguage
   source.ks meta.attribute.ks punctuation.definition.attribute.begin.bracket.square.ks
    test
    ^^^^
-   source.ks meta.attribute.ks entity.name
+   source.ks meta.attribute.ks entity.name.ks
        ]
        ^
        source.ks meta.attribute.ks punctuation.definition.attribute.end.bracket.square.ks
@@ -80,7 +80,7 @@ grammar: kaoscript.tmLanguage
       source.ks meta.attribute.ks punctuation.definition.arguments.begin.bracket.round.ks
        target_os
        ^^^^^^^^^
-       source.ks meta.attribute.ks entity.name
+       source.ks meta.attribute.ks entity.name.ks
                  = 
                 ^^^
                 source.ks meta.attribute.ks
@@ -143,7 +143,7 @@ grammar: kaoscript.tmLanguage
       source.ks meta.attribute.ks punctuation.definition.arguments.begin.bracket.round.ks
        target_os
        ^^^^^^^^^
-       source.ks meta.attribute.ks entity.name
+       source.ks meta.attribute.ks entity.name.ks
                 =
                 ^
                 source.ks meta.attribute.ks
@@ -212,7 +212,7 @@ grammar: kaoscript.tmLanguage
           source.ks meta.attribute.ks punctuation.definition.arguments.begin.bracket.round.ks
            foo
            ^^^
-           source.ks meta.attribute.ks entity.name
+           source.ks meta.attribute.ks entity.name.ks
               ,
               ^
               source.ks meta.attribute.ks punctuation.separator.comma.ks
@@ -221,7 +221,7 @@ grammar: kaoscript.tmLanguage
                source.ks meta.attribute.ks
                 bar
                 ^^^
-                source.ks meta.attribute.ks entity.name
+                source.ks meta.attribute.ks entity.name.ks
                    )
                    ^
                    source.ks meta.attribute.ks punctuation.definition.arguments.end.bracket.round.ks
@@ -281,7 +281,7 @@ grammar: kaoscript.tmLanguage
           source.ks meta.attribute.ks punctuation.definition.arguments.begin.bracket.round.ks
            unix
            ^^^^
-           source.ks meta.attribute.ks entity.name
+           source.ks meta.attribute.ks entity.name.ks
                )
                ^
                source.ks meta.attribute.ks punctuation.definition.arguments.end.bracket.round.ks
@@ -341,7 +341,7 @@ grammar: kaoscript.tmLanguage
           source.ks meta.attribute.ks punctuation.definition.arguments.begin.bracket.round.ks
            foo
            ^^^
-           source.ks meta.attribute.ks entity.name
+           source.ks meta.attribute.ks entity.name.ks
               )
               ^
               source.ks meta.attribute.ks punctuation.definition.arguments.end.bracket.round.ks

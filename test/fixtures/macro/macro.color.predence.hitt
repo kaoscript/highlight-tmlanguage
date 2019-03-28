@@ -345,16 +345,16 @@ grammar: kaoscript.tmLanguage
                                   source.ks meta.macro.ks punctuation.definition.arguments.begin.bracket.round.ks
                                    #
                                    ^
-                                   source.ks meta.macro.ks punctuation.accessor.macro.ks
+                                   source.ks meta.macro.ks meta.macro.variable.ks punctuation.accessor.macro.ks
                                     (
                                     ^
-                                    source.ks meta.macro.ks punctuation.definition.macro-variable.begin.bracket.round.ks
+                                    source.ks meta.macro.ks meta.macro.variable.ks punctuation.definition.macro-variable.begin.bracket.round.ks
                                      expression
                                      ^^^^^^^^^^
-                                     source.ks meta.macro.ks variable.other.macro.ks
+                                     source.ks meta.macro.ks meta.macro.variable.ks variable.other.ks
                                                )
                                                ^
-                                               source.ks meta.macro.ks punctuation.definition.macro-variable.end.bracket.round.ks
+                                               source.ks meta.macro.ks meta.macro.variable.ks punctuation.definition.macro-variable.end.bracket.round.ks
                                                 )
                                                 ^
                                                 source.ks meta.macro.ks punctuation.definition.arguments.end.bracket.round.ks

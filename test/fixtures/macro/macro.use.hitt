@@ -107,10 +107,10 @@ grammar: kaoscript.tmLanguage
  source.ks meta.macro.ks
                  #
                  ^
-                 source.ks meta.macro.ks punctuation.accessor.macro.ks
+                 source.ks meta.macro.ks meta.macro.variable.ks punctuation.accessor.macro.ks
                   a
                   ^
-                  source.ks meta.macro.ks variable.other.macro.ks
+                  source.ks meta.macro.ks meta.macro.variable.ks variable.other.ks
                     = 42
                    ^^^^^^
                    source.ks meta.macro.ks
@@ -121,10 +121,10 @@ grammar: kaoscript.tmLanguage
  source.ks meta.macro.ks
                     #
                     ^
-                    source.ks meta.macro.ks punctuation.accessor.macro.ks
+                    source.ks meta.macro.ks meta.macro.variable.ks punctuation.accessor.macro.ks
                      e
                      ^
-                     source.ks meta.macro.ks variable.other.macro.ks
+                     source.ks meta.macro.ks meta.macro.variable.ks variable.other.ks
 >
 >        })()
          

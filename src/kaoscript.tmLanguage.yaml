@@ -80,7 +80,7 @@ repository:
         '0': { name: 'punctuation.definition.arguments.end.bracket.round.ks' }
       patterns:
       - include: '#attribute-expression'
-    - name: 'entity.name'
+    - name: 'entity.name.ks'
       match: '[_$[:alpha:]][-\._$[:alnum:]]*'
     - include: '#string'
     - include: '#comma'
@@ -1358,17 +1358,22 @@ repository:
   # }}}
   macro-variable: # {{{
     patterns:
-    - match: '(#)([abei])?(\()({{identifier}})(\))'
-      captures:
+    - name: 'meta.macro.variable.ks'
+      begin: '(#)([abei])?(\()'
+      beginCaptures:
         '1': { name: 'punctuation.accessor.macro.ks' }
         '2': { name: 'storage.modifier.macro.ks' }
         '3': { name: 'punctuation.definition.macro-variable.begin.bracket.round.ks' }
-        '4': { name: 'variable.other.macro.ks' }
-        '5': { name: 'punctuation.definition.macro-variable.end.bracket.round.ks' }
-    - match: '(#)({{identifier}})'
+      end: '\)'
+      endCaptures:
+        '0': { name: 'punctuation.definition.macro-variable.end.bracket.round.ks' }
+      patterns:
+      - include: '#expression'
+    - name: 'meta.macro.variable.ks'
+      match: '(#)({{identifier}})'
       captures:
         '1': { name: 'punctuation.accessor.macro.ks' }
-        '2': { name: 'variable.other.macro.ks' }
+        '2': { name: 'variable.other.ks' }
   # }}}
   namespace-statement: # {{{
     begin: '(\bnamespace){{match-identifier}}'

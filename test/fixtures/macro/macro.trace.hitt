@@ -172,10 +172,10 @@ grammar: kaoscript.tmLanguage
  source.ks meta.macro.ks
                                #
                                ^
-                               source.ks meta.macro.ks punctuation.accessor.macro.ks
+                               source.ks meta.macro.ks meta.macro.variable.ks punctuation.accessor.macro.ks
                                 buildTime
                                 ^^^^^^^^^
-                                source.ks meta.macro.ks variable.other.macro.ks
+                                source.ks meta.macro.ks meta.macro.variable.ks variable.other.ks
 >
 >        
          
