@@ -621,11 +621,13 @@ repository:
     - include: '#function-call-arguments'
     - include: '#array-accessor'
     - include: '#enum-accessor'
-    - include: '#macro-expression'
     - include: '#object-accessor'
     - include: '#tagged-template'
     - include: '#this-expression'
     - include: '#switch-expression'
+    #
+    - include: '#macro-expression'
+    - include: '#macro-variable'
     #
     - include: '#operator'
     - include: '#variable'
@@ -1321,17 +1323,7 @@ repository:
         '0': { name: 'punctuation.bracket.round.ks' }
       patterns:
       - include: '#macro-element'
-    - match: '(#)([abei])?(\()({{identifier}})(\))'
-      captures:
-        '1': { name: 'punctuation.accessor.macro.ks' }
-        '2': { name: 'storage.modifier.macro.ks' }
-        '3': { name: 'punctuation.definition.macro-variable.begin.bracket.round.ks' }
-        '4': { name: 'variable.other.macro.ks' }
-        '5': { name: 'punctuation.definition.macro-variable.end.bracket.round.ks' }
-    - match: '(#)({{identifier}})'
-      captures:
-        '1': { name: 'punctuation.accessor.macro.ks' }
-        '2': { name: 'variable.other.macro.ks' }
+    - include: '#macro-variable'
   # }}}
   macro-expression: # {{{
     patterns:
@@ -1342,12 +1334,6 @@ repository:
       end: '\}'
       endCaptures:
         '0': { name: 'punctuation.definition.macro-expression.end.bracket.curly.ks' }
-      patterns:
-      - include: '#macro-element'
-    - begin: '(\bmacro\b)\s*(?!:)'
-      beginCaptures:
-        '1': { name: 'keyword.control.macro.ks' }
-      end: '(?=[\)]|$)'
       patterns:
       - include: '#macro-element'
   # }}}
@@ -1369,6 +1355,20 @@ repository:
         - include: '#macro-element'
       - include: '#block'
     - include: '#macro-expression'
+  # }}}
+  macro-variable: # {{{
+    patterns:
+    - match: '(#)([abei])?(\()({{identifier}})(\))'
+      captures:
+        '1': { name: 'punctuation.accessor.macro.ks' }
+        '2': { name: 'storage.modifier.macro.ks' }
+        '3': { name: 'punctuation.definition.macro-variable.begin.bracket.round.ks' }
+        '4': { name: 'variable.other.macro.ks' }
+        '5': { name: 'punctuation.definition.macro-variable.end.bracket.round.ks' }
+    - match: '(#)({{identifier}})'
+      captures:
+        '1': { name: 'punctuation.accessor.macro.ks' }
+        '2': { name: 'variable.other.macro.ks' }
   # }}}
   namespace-statement: # {{{
     begin: '(\bnamespace){{match-identifier}}'

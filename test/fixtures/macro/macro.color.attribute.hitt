@@ -339,13 +339,16 @@ grammar: kaoscript.tmLanguage
                             source.ks meta.macro.ks punctuation.definition.arguments.begin.bracket.round.ks
                              macro
                              ^^^^^
-                             source.ks meta.macro.ks keyword.control.macro.ks
+                             source.ks meta.macro.ks variable.other.ks
                                    
                                   ^
                                   source.ks meta.macro.ks
-                                   private 
-                                   ^^^^^^^^
-                                   source.ks meta.macro.ks
+                                   private
+                                   ^^^^^^^
+                                   source.ks meta.macro.ks variable.other.ks
+                                           
+                                          ^
+                                          source.ks meta.macro.ks
                                            #
                                            ^
                                            source.ks meta.macro.ks punctuation.accessor.macro.ks
@@ -361,9 +364,12 @@ grammar: kaoscript.tmLanguage
                                                    )
                                                    ^
                                                    source.ks meta.macro.ks punctuation.definition.macro-variable.end.bracket.round.ks
-                                                    : Number
-                                                    ^^^^^^^^
+                                                    : 
+                                                    ^^
                                                     source.ks meta.macro.ks
+                                                      Number
+                                                      ^^^^^^
+                                                      source.ks meta.macro.ks variable.other.ks
                                                             )
                                                             ^
                                                             source.ks meta.macro.ks punctuation.definition.arguments.end.bracket.round.ks
@@ -717,16 +723,22 @@ grammar: kaoscript.tmLanguage
  source.ks meta.macro.ks
              macro
              ^^^^^
-             source.ks meta.macro.ks keyword.control.macro.ks
+             source.ks meta.macro.ks variable.other.ks
                    
                   ^
                   source.ks meta.macro.ks
-                   Color.registerSpace
-                   ^^^^^^^^^^^^^^^^^^^
-                   source.ks meta.macro.ks
+                   Color
+                   ^^^^^
+                   source.ks meta.macro.ks variable.other.object.ks
+                        .
+                        ^
+                        source.ks meta.macro.ks punctuation.accessor.object.ks
+                         registerSpace
+                         ^^^^^^^^^^^^^
+                         source.ks meta.macro.ks entity.name.function.ks
                                       (
                                       ^
-                                      source.ks meta.macro.ks punctuation.bracket.round.ks
+                                      source.ks meta.macro.ks punctuation.definition.arguments.begin.bracket.round.ks
                                        #
                                        ^
                                        source.ks meta.macro.ks punctuation.accessor.macro.ks
@@ -741,7 +753,7 @@ grammar: kaoscript.tmLanguage
                                                    source.ks meta.macro.ks punctuation.definition.macro-variable.end.bracket.round.ks
                                                     )
                                                     ^
-                                                    source.ks meta.macro.ks punctuation.bracket.round.ks
+                                                    source.ks meta.macro.ks punctuation.definition.arguments.end.bracket.round.ks
 >
 >        }
          

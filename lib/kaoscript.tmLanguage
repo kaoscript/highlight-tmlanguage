@@ -1960,10 +1960,6 @@
           </dict>
           <dict>
             <key>include</key>
-            <string>#macro-expression</string>
-          </dict>
-          <dict>
-            <key>include</key>
             <string>#object-accessor</string>
           </dict>
           <dict>
@@ -1977,6 +1973,14 @@
           <dict>
             <key>include</key>
             <string>#switch-expression</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#macro-expression</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#macro-variable</string>
           </dict>
           <dict>
             <key>include</key>
@@ -4301,53 +4305,8 @@
             </array>
           </dict>
           <dict>
-            <key>match</key>
-            <string>(#)([abei])?(\()([_$[:alpha:]][_$[:alnum:]]*)(\))</string>
-            <key>captures</key>
-            <dict>
-              <key>1</key>
-              <dict>
-                <key>name</key>
-                <string>punctuation.accessor.macro.ks</string>
-              </dict>
-              <key>2</key>
-              <dict>
-                <key>name</key>
-                <string>storage.modifier.macro.ks</string>
-              </dict>
-              <key>3</key>
-              <dict>
-                <key>name</key>
-                <string>punctuation.definition.macro-variable.begin.bracket.round.ks</string>
-              </dict>
-              <key>4</key>
-              <dict>
-                <key>name</key>
-                <string>variable.other.macro.ks</string>
-              </dict>
-              <key>5</key>
-              <dict>
-                <key>name</key>
-                <string>punctuation.definition.macro-variable.end.bracket.round.ks</string>
-              </dict>
-            </dict>
-          </dict>
-          <dict>
-            <key>match</key>
-            <string>(#)([_$[:alpha:]][_$[:alnum:]]*)</string>
-            <key>captures</key>
-            <dict>
-              <key>1</key>
-              <dict>
-                <key>name</key>
-                <string>punctuation.accessor.macro.ks</string>
-              </dict>
-              <key>2</key>
-              <dict>
-                <key>name</key>
-                <string>variable.other.macro.ks</string>
-              </dict>
-            </dict>
+            <key>include</key>
+            <string>#macro-variable</string>
           </dict>
         </array>
       </dict>
@@ -4381,27 +4340,6 @@
                 <string>punctuation.definition.macro-expression.end.bracket.curly.ks</string>
               </dict>
             </dict>
-            <key>patterns</key>
-            <array>
-              <dict>
-                <key>include</key>
-                <string>#macro-element</string>
-              </dict>
-            </array>
-          </dict>
-          <dict>
-            <key>begin</key>
-            <string>(\bmacro\b)\s*(?!:)</string>
-            <key>beginCaptures</key>
-            <dict>
-              <key>1</key>
-              <dict>
-                <key>name</key>
-                <string>keyword.control.macro.ks</string>
-              </dict>
-            </dict>
-            <key>end</key>
-            <string>(?=[\)]|$)</string>
             <key>patterns</key>
             <array>
               <dict>
@@ -4472,6 +4410,61 @@
           <dict>
             <key>include</key>
             <string>#macro-expression</string>
+          </dict>
+        </array>
+      </dict>
+      <key>macro-variable</key>
+      <dict>
+        <key>patterns</key>
+        <array>
+          <dict>
+            <key>match</key>
+            <string>(#)([abei])?(\()([_$[:alpha:]][_$[:alnum:]]*)(\))</string>
+            <key>captures</key>
+            <dict>
+              <key>1</key>
+              <dict>
+                <key>name</key>
+                <string>punctuation.accessor.macro.ks</string>
+              </dict>
+              <key>2</key>
+              <dict>
+                <key>name</key>
+                <string>storage.modifier.macro.ks</string>
+              </dict>
+              <key>3</key>
+              <dict>
+                <key>name</key>
+                <string>punctuation.definition.macro-variable.begin.bracket.round.ks</string>
+              </dict>
+              <key>4</key>
+              <dict>
+                <key>name</key>
+                <string>variable.other.macro.ks</string>
+              </dict>
+              <key>5</key>
+              <dict>
+                <key>name</key>
+                <string>punctuation.definition.macro-variable.end.bracket.round.ks</string>
+              </dict>
+            </dict>
+          </dict>
+          <dict>
+            <key>match</key>
+            <string>(#)([_$[:alpha:]][_$[:alnum:]]*)</string>
+            <key>captures</key>
+            <dict>
+              <key>1</key>
+              <dict>
+                <key>name</key>
+                <string>punctuation.accessor.macro.ks</string>
+              </dict>
+              <key>2</key>
+              <dict>
+                <key>name</key>
+                <string>variable.other.macro.ks</string>
+              </dict>
+            </dict>
           </dict>
         </array>
       </dict>
