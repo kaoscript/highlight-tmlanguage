@@ -2130,11 +2130,11 @@
           </dict>
           <dict>
             <key>include</key>
-            <string>#operator</string>
+            <string>#variable</string>
           </dict>
           <dict>
             <key>include</key>
-            <string>#variable</string>
+            <string>#operator</string>
           </dict>
           <dict>
             <key>name</key>
@@ -6652,6 +6652,18 @@
             <string>variable.language.this.ks</string>
             <key>match</key>
             <string>(?&lt;![$\.])\b(this)\b(?!\s*:|\$)</string>
+          </dict>
+          <dict>
+            <key>name</key>
+            <string>variable.language.super.ks</string>
+            <key>match</key>
+            <string>(?&lt;=\.\.\.)\b(super)\b(?!\s*:|\$)</string>
+          </dict>
+          <dict>
+            <key>name</key>
+            <string>variable.language.this.ks</string>
+            <key>match</key>
+            <string>(?&lt;=\.\.\.)\b(this)\b(?!\s*:|\$)</string>
           </dict>
         </array>
       </dict>

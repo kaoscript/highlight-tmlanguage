@@ -10,7 +10,7 @@ extern __dirname, console
 const srcRoot = path.join(__dirname, '..', 'parser', 'test', 'fixtures')
 const destRoot = path.join(__dirname, 'test', 'fixtures')
 
-const fixtures = ['function.parameter.timeout', 'macro.quirk']
+const fixtures = fs.readFileSync('./sync.txt', 'utf8').split(/\n/g)
 
 // 1. update existing files
 for file in klaw(srcRoot, {

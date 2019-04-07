@@ -673,8 +673,8 @@ repository:
     - include: '#this-expression'
     - include: '#tagged-template'
     #
-    - include: '#operator'
     - include: '#variable'
+    - include: '#operator'
     - name: 'variable.other.ks'
       match: '({{identifier}})'
     - name: 'meta.brace.round.ks'
@@ -2038,6 +2038,10 @@ repository:
       match: (?<![$\.])\b(super)\b(?!\s*:|\$)
     - name: variable.language.this.ks
       match: (?<![$\.])\b(this)\b(?!\s*:|\$)
+    - name: variable.language.super.ks
+      match: (?<=\.\.\.)\b(super)\b(?!\s*:|\$)
+    - name: variable.language.this.ks
+      match: (?<=\.\.\.)\b(this)\b(?!\s*:|\$)
   # }}}
   while-statement: # {{{
     begin: '(?=^\s*while\s+)'
