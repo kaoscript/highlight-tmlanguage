@@ -1,10 +1,13 @@
 original file
 -----------------------------------
 extern console
+
 func min() => ['female', 24]
+
 namespace foo {
     let [gender, age] = min()
 }
+
 console.log(foo.age)
 console.log(`\(foo.gender)`)
 -----------------------------------
@@ -22,6 +25,11 @@ grammar: kaoscript.tmLanguage
         console
         ^^^^^^^
         source.ks variable.other.constant.ks
+>
+>
+ 
+ ^
+ source.ks
 >
 >func min() => ['female', 24]
  func
@@ -72,6 +80,11 @@ grammar: kaoscript.tmLanguage
                             ]
                             ^
                             source.ks punctuation.definition.array.end.bracket.square.ks
+>
+>
+ 
+ ^
+ source.ks
 >
 >namespace foo {
  namespace
@@ -141,6 +154,11 @@ grammar: kaoscript.tmLanguage
  }
  ^
  source.ks punctuation.definition.namespace.end.bracket.curly.ks
+>
+>
+ 
+ ^
+ source.ks
 >
 >console.log(foo.age)
  console

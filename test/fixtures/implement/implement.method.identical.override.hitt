@@ -3,27 +3,36 @@ original file
 extern console: {
     log(...args)
 }
+
 class Shape {
     private {
         _color: string = ''
     }
+
     static makeBlue(): Shape {
         return new Shape('blue')
     }
+
     constructor(@color)
+
     draw(): string {
         return `I'm drawing a \(@color) rectangle.`
     }
 }
+
 impl Shape {
     private _name: string = 'circle'
+
     name() => @name
     name(@name) => this
+
     override draw(): string {
         return `I'm drawing a \(@color) \(@name).`
     }
 }
+
 let shape = Shape.makeRed()
+
 console.log(shape.draw())
 -----------------------------------
 
@@ -74,6 +83,11 @@ grammar: kaoscript.tmLanguage
  }
  ^
  source.ks meta.type.annotation.ks punctuation.definition.object.end.bracket.curly.ks
+>
+>
+ 
+ ^
+ source.ks
 >
 >class Shape {
  class
@@ -145,6 +159,11 @@ grammar: kaoscript.tmLanguage
      }
      ^
      source.ks punctuation.definition.members.end.bracket.curly.ks
+>
+>
+ 
+ ^
+ source.ks
 >
 >    static makeBlue(): Shape {
      
@@ -224,6 +243,11 @@ grammar: kaoscript.tmLanguage
      ^
      source.ks punctuation.definition.block.end.bracket.curly.ks
 >
+>
+ 
+ ^
+ source.ks
+>
 >    constructor(@color)
      
  ^^^^
@@ -243,6 +267,11 @@ grammar: kaoscript.tmLanguage
                        )
                        ^
                        source.ks punctuation.definition.parameters.end.bracket.round.ks
+>
+>
+ 
+ ^
+ source.ks
 >
 >    draw(): string {
      
@@ -321,6 +350,11 @@ grammar: kaoscript.tmLanguage
  ^
  source.ks punctuation.definition.class.end.bracket.curly.ks
 >
+>
+ 
+ ^
+ source.ks
+>
 >impl Shape {
  impl
  ^^^^
@@ -378,6 +412,11 @@ grammar: kaoscript.tmLanguage
                                     '
                                     ^
                                     source.ks string.quoted.single.ks punctuation.definition.string.end.ks
+>
+>
+ 
+ ^
+ source.ks
 >
 >    name() => @name
      
@@ -439,6 +478,11 @@ grammar: kaoscript.tmLanguage
                     this
                     ^^^^
                     source.ks variable.language.this.ks
+>
+>
+ 
+ ^
+ source.ks
 >
 >    override draw(): string {
      
@@ -538,6 +582,11 @@ grammar: kaoscript.tmLanguage
  ^
  source.ks punctuation.definition.implement.end.bracket.curly.ks
 >
+>
+ 
+ ^
+ source.ks
+>
 >let shape = Shape.makeRed()
  let
  ^^^
@@ -572,6 +621,11 @@ grammar: kaoscript.tmLanguage
                            )
                            ^
                            source.ks punctuation.definition.arguments.end.bracket.round.ks
+>
+>
+ 
+ ^
+ source.ks
 >
 >console.log(shape.draw())
  console

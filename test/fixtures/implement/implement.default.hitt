@@ -7,6 +7,7 @@ class Shape {
     
     Shape(@color)
 }
+
 impl Shape {
     draw(canvas): string {
         return `I'm drawing a \(this._color) rectangle.`
@@ -117,6 +118,11 @@ grammar: kaoscript.tmLanguage
  }
  ^
  source.ks punctuation.definition.class.end.bracket.curly.ks
+>
+>
+ 
+ ^
+ source.ks
 >
 >impl Shape {
  impl

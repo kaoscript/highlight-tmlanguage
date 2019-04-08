@@ -1433,12 +1433,54 @@
           </dict>
         </dict>
         <key>end</key>
-        <string>(?&lt;=\})</string>
+        <string>^\s*$</string>
         <key>patterns</key>
         <array>
           <dict>
             <key>include</key>
             <string>#block</string>
+          </dict>
+          <dict>
+            <key>begin</key>
+            <string>\b(until)\b</string>
+            <key>beginCaptures</key>
+            <dict>
+              <key>1</key>
+              <dict>
+                <key>name</key>
+                <string>keyword.control.loop.until.ks</string>
+              </dict>
+            </dict>
+            <key>end</key>
+            <string>$</string>
+            <key>patterns</key>
+            <array>
+              <dict>
+                <key>include</key>
+                <string>#expression</string>
+              </dict>
+            </array>
+          </dict>
+          <dict>
+            <key>begin</key>
+            <string>\b(while)\b</string>
+            <key>beginCaptures</key>
+            <dict>
+              <key>1</key>
+              <dict>
+                <key>name</key>
+                <string>keyword.control.loop.while.ks</string>
+              </dict>
+            </dict>
+            <key>end</key>
+            <string>$</string>
+            <key>patterns</key>
+            <array>
+              <dict>
+                <key>include</key>
+                <string>#expression</string>
+              </dict>
+            </array>
           </dict>
         </array>
       </dict>

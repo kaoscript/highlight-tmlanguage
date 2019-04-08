@@ -1,13 +1,16 @@
 original file
 -----------------------------------
 extern t1, t2, t3, h, i
+
 const foo = t1 + (t2 - t1) * (2 / 3 - t3) * 6
 const bar = h + 1 / 3 * - (i - 1)
+
 export class Color {
     macro registerSpace(@expression: Object) {
         macro Color.registerSpace(#(expression))
     }
 }
+
 Color.registerSpace!({
     name: 'FBQ'
     formatters: {
@@ -66,6 +69,11 @@ grammar: kaoscript.tmLanguage
                        i
                        ^
                        source.ks variable.other.constant.ks
+>
+>
+ 
+ ^
+ source.ks
 >
 >const foo = t1 + (t2 - t1) * (2 / 3 - t3) * 6
  const
@@ -257,6 +265,11 @@ grammar: kaoscript.tmLanguage
                                  ^
                                  source.ks meta.brace.round.ks
 >
+>
+ 
+ ^
+ source.ks
+>
 >export class Color {
  export
  ^^^^^^
@@ -371,6 +384,11 @@ grammar: kaoscript.tmLanguage
  }
  ^
  source.ks punctuation.definition.class.end.bracket.curly.ks
+>
+>
+ 
+ ^
+ source.ks
 >
 >Color.registerSpace!({
  Color

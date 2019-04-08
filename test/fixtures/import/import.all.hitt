@@ -1,7 +1,9 @@
 original file
 -----------------------------------
 import 'module1'
+
 import 'module2' => m2
+
 import 'module3' {
     * => m3
 }
@@ -26,6 +28,11 @@ grammar: kaoscript.tmLanguage
                 '
                 ^
                 source.ks string.quoted.single.ks punctuation.definition.string.end.ks
+>
+>
+ 
+ ^
+ source.ks
 >
 >import 'module2' => m2
  import
@@ -55,6 +62,11 @@ grammar: kaoscript.tmLanguage
                      m2
                      ^^
                      source.ks variable.other.constant.ks
+>
+>
+ 
+ ^
+ source.ks
 >
 >import 'module3' {
  import

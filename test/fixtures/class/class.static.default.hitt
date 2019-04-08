@@ -12,7 +12,9 @@ class Shape {
     
     constructor(@type, @color)
 }
+
 let r = Shape.makeRectangle('black')
+
 expect(r.type).to.equal('rectangle')
 expect(r.color).to.equal('black')
 -----------------------------------
@@ -269,6 +271,11 @@ grammar: kaoscript.tmLanguage
  ^
  source.ks punctuation.definition.class.end.bracket.curly.ks
 >
+>
+ 
+ ^
+ source.ks
+>
 >let r = Shape.makeRectangle('black')
  let
  ^^^
@@ -312,6 +319,11 @@ grammar: kaoscript.tmLanguage
                                     )
                                     ^
                                     source.ks punctuation.definition.arguments.end.bracket.round.ks
+>
+>
+ 
+ ^
+ source.ks
 >
 >expect(r.type).to.equal('rectangle')
  expect

@@ -5,6 +5,7 @@ enum Color {
     Green
     Blue
 }
+
 enum Color {
     DarkRed = 3
     DarkGreen
@@ -60,6 +61,11 @@ grammar: kaoscript.tmLanguage
  }
  ^
  source.ks punctuation.definition.enum.end.bracket.curly.ks
+>
+>
+ 
+ ^
+ source.ks
 >
 >enum Color {
  enum

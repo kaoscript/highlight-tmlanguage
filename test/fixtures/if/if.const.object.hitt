@@ -1,6 +1,7 @@
 original file
 -----------------------------------
 if const {x, y, z} = foobar() {
+
 }
 -----------------------------------
 
@@ -71,6 +72,11 @@ grammar: kaoscript.tmLanguage
                                {
                                ^
                                source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>
+ 
+ ^
+ source.ks
 >
 >}
  }

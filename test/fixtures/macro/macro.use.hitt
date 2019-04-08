@@ -8,6 +8,7 @@ macro using_a(a: Identifier, e: Expression) {
         })()
     }
 }
+
 let four = using_a!(a, a / 10)
 -----------------------------------
 
@@ -155,6 +156,11 @@ grammar: kaoscript.tmLanguage
  }
  ^
  source.ks meta.macro.ks punctuation.definition.block.end.bracket.curly.ks
+>
+>
+ 
+ ^
+ source.ks
 >
 >let four = using_a!(a, a / 10)
  let

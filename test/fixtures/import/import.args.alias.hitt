@@ -2,6 +2,7 @@ original file
 -----------------------------------
 let foo = 1
 let bar = 2
+
 import 'module1'(foo1: foo, foo2: bar)
 -----------------------------------
 
@@ -53,6 +54,11 @@ grammar: kaoscript.tmLanguage
            2
            ^
            source.ks constant.numeric.decimal.ks
+>
+>
+ 
+ ^
+ source.ks
 >
 >import 'module1'(foo1: foo, foo2: bar)
  import

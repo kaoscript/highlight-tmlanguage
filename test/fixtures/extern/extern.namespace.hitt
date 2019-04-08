@@ -4,6 +4,8 @@ extern sealed namespace Math1 {
     const PI: Number
     func pow(...): Number
 }
+
+
 extern sealed namespace Math2 {
     PI: Number
     pow(...): Number
@@ -101,6 +103,16 @@ grammar: kaoscript.tmLanguage
  }
  ^
  source.ks punctuation.definition.namespace.end.bracket.curly.ks
+>
+>
+ 
+ ^
+ source.ks
+>
+>
+ 
+ ^
+ source.ks
 >
 >extern sealed namespace Math2 {
  extern

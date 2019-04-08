@@ -1,6 +1,7 @@
 original file
 -----------------------------------
 let somePoint = [1, 1]
+
 switch somePoint {
     with [x, y] where x == 0 && y == 0                        => console.log("(0, 0) is at the origin")
     with [x, y] where y == 0                                => console.log("(\(x), 0) is on the x-axis")
@@ -51,6 +52,11 @@ grammar: kaoscript.tmLanguage
                       ]
                       ^
                       source.ks punctuation.definition.array.end.bracket.square.ks
+>
+>
+ 
+ ^
+ source.ks
 >
 >switch somePoint {
  switch

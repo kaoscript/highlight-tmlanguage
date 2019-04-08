@@ -10,6 +10,7 @@ require {
         space(space: Space): Color
     }
 }
+
 impl Color {
     private _luma: Number
     
@@ -17,6 +18,7 @@ impl Color {
     
     luma(@luma) => this
 }
+
 export Color, Space
 -----------------------------------
 
@@ -175,6 +177,11 @@ grammar: kaoscript.tmLanguage
  ^
  source.ks punctuation.definition.require.end.bracket.curly.ks
 >
+>
+ 
+ ^
+ source.ks
+>
 >impl Color {
  impl
  ^^^^
@@ -302,6 +309,11 @@ grammar: kaoscript.tmLanguage
  }
  ^
  source.ks punctuation.definition.implement.end.bracket.curly.ks
+>
+>
+ 
+ ^
+ source.ks
 >
 >export Color, Space
  export

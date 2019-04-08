@@ -1,6 +1,7 @@
 original file
 -----------------------------------
 extern foo
+
 let tt = (bar = foo.bar).qux?
 -----------------------------------
 
@@ -17,6 +18,11 @@ grammar: kaoscript.tmLanguage
         foo
         ^^^
         source.ks variable.other.constant.ks
+>
+>
+ 
+ ^
+ source.ks
 >
 >let tt = (bar = foo.bar).qux?
  let

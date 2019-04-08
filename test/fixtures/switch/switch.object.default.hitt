@@ -4,6 +4,7 @@ let value = {
     foo: 1,
     bar() => 2
 }
+
 switch value {
     {foo: 1}    with {qux: n}             => console.log(`qux: \(n)`)
     {foo: 1}                             => console.log('foo: 1')
@@ -90,6 +91,11 @@ grammar: kaoscript.tmLanguage
  }
  ^
  source.ks punctuation.definition.object.end.bracket.curly.ks
+>
+>
+ 
+ ^
+ source.ks
 >
 >switch value {
  switch

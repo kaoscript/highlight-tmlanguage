@@ -3,15 +3,18 @@ original file
 type T =
     func(value: Number): Number |
     func(value: String): String
+
 type U =
     async func(value: Number): Number |
     async func(value: String): String
+
 import 'foobar' {
     foo(...) => f1
     async bar()    => b1
     baz(...): T => b2
     qux(): U => q1
 }
+
 import 'barfoo' {
     func foo(...) => f1
     async func bar()    => b1
@@ -103,6 +106,11 @@ grammar: kaoscript.tmLanguage
                           String
                           ^^^^^^
                           source.ks variable.other.ks
+>
+>
+ 
+ ^
+ source.ks
 >
 >type U =
  type
@@ -196,6 +204,11 @@ grammar: kaoscript.tmLanguage
                                 String
                                 ^^^^^^
                                 source.ks variable.other.ks
+>
+>
+ 
+ ^
+ source.ks
 >
 >import 'foobar' {
  import
@@ -358,6 +371,11 @@ grammar: kaoscript.tmLanguage
  }
  ^
  source.ks punctuation.definition.import-specification.end.bracket.curly.ks
+>
+>
+ 
+ ^
+ source.ks
 >
 >import 'barfoo' {
  import

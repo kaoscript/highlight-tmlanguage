@@ -1,7 +1,9 @@
 original file
 -----------------------------------
 extern foo
+
 let tt = foo?(1, 2, 3)
+
 let uu = foo?(1)
 -----------------------------------
 
@@ -18,6 +20,11 @@ grammar: kaoscript.tmLanguage
         foo
         ^^^
         source.ks variable.other.constant.ks
+>
+>
+ 
+ ^
+ source.ks
 >
 >let tt = foo?(1, 2, 3)
  let
@@ -71,6 +78,11 @@ grammar: kaoscript.tmLanguage
                       )
                       ^
                       source.ks punctuation.definition.arguments.end.bracket.round.ks
+>
+>
+ 
+ ^
+ source.ks
 >
 >let uu = foo?(1)
  let

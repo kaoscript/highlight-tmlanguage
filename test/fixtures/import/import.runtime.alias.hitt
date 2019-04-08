@@ -1,6 +1,8 @@
 original file
 -----------------------------------
 import '@kaoscript/runtime' for Helper => H, Type => T
+
+
 import '@kaoscript/runtime' {
     Helper    => H
     Type    => T
@@ -71,6 +73,16 @@ grammar: kaoscript.tmLanguage
                                                       T
                                                       ^
                                                       source.ks variable.other.constant.ks
+>
+>
+ 
+ ^
+ source.ks
+>
+>
+ 
+ ^
+ source.ks
 >
 >import '@kaoscript/runtime' {
  import

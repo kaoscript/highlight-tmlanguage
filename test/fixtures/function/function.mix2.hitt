@@ -3,13 +3,17 @@ original file
 func f1() {
     return 42
 }
+
 let f2 = func() {
     return 42
 }
+
 let f3 = () => {
     return 42
 }
+
 let f4 = () => 42
+
 let f5 = func() => 42
 -----------------------------------
 
@@ -57,6 +61,11 @@ grammar: kaoscript.tmLanguage
  }
  ^
  source.ks punctuation.definition.block.end.bracket.curly.ks
+>
+>
+ 
+ ^
+ source.ks
 >
 >let f2 = func() {
  let
@@ -111,6 +120,11 @@ grammar: kaoscript.tmLanguage
  }
  ^
  source.ks punctuation.definition.block.end.bracket.curly.ks
+>
+>
+ 
+ ^
+ source.ks
 >
 >let f3 = () => {
  let
@@ -169,6 +183,11 @@ grammar: kaoscript.tmLanguage
  ^
  source.ks punctuation.definition.block.end.bracket.curly.ks
 >
+>
+ 
+ ^
+ source.ks
+>
 >let f4 = () => 42
  let
  ^^^
@@ -206,6 +225,11 @@ grammar: kaoscript.tmLanguage
                 42
                 ^^
                 source.ks constant.numeric.decimal.ks
+>
+>
+ 
+ ^
+ source.ks
 >
 >let f5 = func() => 42
  let

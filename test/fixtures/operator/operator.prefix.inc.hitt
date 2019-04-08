@@ -1,6 +1,7 @@
 original file
 -----------------------------------
 let i = 3.14
+
 ++i
 -----------------------------------
 
@@ -29,6 +30,11 @@ grammar: kaoscript.tmLanguage
          3.14
          ^^^^
          source.ks constant.numeric.decimal.ks
+>
+>
+ 
+ ^
+ source.ks
 >
 >++i
  ++

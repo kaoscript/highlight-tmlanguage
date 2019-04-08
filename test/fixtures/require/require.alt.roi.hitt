@@ -1,6 +1,7 @@
 original file
 -----------------------------------
 require|import './array.ks' for Array
+
 impl Array {
     contains(item, from = 0) { // {{{
         return this.indexOf(item, from) != -1
@@ -21,6 +22,7 @@ impl Array {
         return this
     } // }}}
 }
+
 export Array
 -----------------------------------
 
@@ -55,6 +57,11 @@ grammar: kaoscript.tmLanguage
                                  Array
                                  ^^^^^
                                  source.ks variable.other.constant.ks
+>
+>
+ 
+ ^
+ source.ks
 >
 >impl Array {
  impl
@@ -530,6 +537,11 @@ grammar: kaoscript.tmLanguage
  }
  ^
  source.ks punctuation.definition.implement.end.bracket.curly.ks
+>
+>
+ 
+ ^
+ source.ks
 >
 >export Array
  export

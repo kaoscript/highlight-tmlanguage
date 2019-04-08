@@ -1,8 +1,11 @@
 original file
 -----------------------------------
 export func hello() => 'Hello :)'
+
 let bar = 'I\'m bar!'
+
 export bar
+
 export bar => qux
 -----------------------------------
 
@@ -50,6 +53,11 @@ grammar: kaoscript.tmLanguage
                                  ^
                                  source.ks string.quoted.single.ks punctuation.definition.string.end.ks
 >
+>
+ 
+ ^
+ source.ks
+>
 >let bar = 'I\'m bar!'
  let
  ^^^
@@ -85,6 +93,11 @@ grammar: kaoscript.tmLanguage
                      ^
                      source.ks string.quoted.single.ks punctuation.definition.string.end.ks
 >
+>
+ 
+ ^
+ source.ks
+>
 >export bar
  export
  ^^^^^^
@@ -95,6 +108,11 @@ grammar: kaoscript.tmLanguage
         bar
         ^^^
         source.ks variable.other.ks
+>
+>
+ 
+ ^
+ source.ks
 >
 >export bar => qux
  export

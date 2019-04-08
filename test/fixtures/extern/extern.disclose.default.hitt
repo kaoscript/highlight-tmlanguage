@@ -1,6 +1,7 @@
 original file
 -----------------------------------
 extern sealed class String
+
 disclose String {
     split(...): Array<String>
     replace(...): String
@@ -33,6 +34,11 @@ grammar: kaoscript.tmLanguage
                      String
                      ^^^^^^
                      source.ks entity.name.type.class.ks
+>
+>
+ 
+ ^
+ source.ks
 >
 >disclose String {
  disclose

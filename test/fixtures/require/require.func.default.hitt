@@ -1,7 +1,9 @@
 original file
 -----------------------------------
 require func reverse
+
 func reverse(value: Number): Number => -value
+
 export reverse
 -----------------------------------
 
@@ -24,6 +26,11 @@ grammar: kaoscript.tmLanguage
               reverse
               ^^^^^^^
               source.ks entity.name.function.ks
+>
+>
+ 
+ ^
+ source.ks
 >
 >func reverse(value: Number): Number => -value
  func
@@ -77,6 +84,11 @@ grammar: kaoscript.tmLanguage
                                          value
                                          ^^^^^
                                          source.ks variable.other.ks
+>
+>
+ 
+ ^
+ source.ks
 >
 >export reverse
  export

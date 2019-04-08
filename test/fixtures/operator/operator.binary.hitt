@@ -1,23 +1,41 @@
 original file
 -----------------------------------
 z = x + y
+
 z = x - y
+
 z = x * y
+
 z = x / y
+
 z = x % y
+
 z = x > y
+
 z = x >= y
+
 z = x < y
+
 z = x <= y
+
 z = x == y
+
 z = x != y
+
 z = x && y
+
 z = x || y
+
 z = x >> y
+
 z = x << y
+
 z = x & y
+
 z = x | y
+
 z = x ^ y
+
 z = x ?? y
 -----------------------------------
 
@@ -53,6 +71,11 @@ grammar: kaoscript.tmLanguage
          ^
          source.ks variable.other.ks
 >
+>
+ 
+ ^
+ source.ks
+>
 >z = x - y
  z
  ^
@@ -81,6 +104,11 @@ grammar: kaoscript.tmLanguage
          y
          ^
          source.ks variable.other.ks
+>
+>
+ 
+ ^
+ source.ks
 >
 >z = x * y
  z
@@ -111,6 +139,11 @@ grammar: kaoscript.tmLanguage
          ^
          source.ks variable.other.ks
 >
+>
+ 
+ ^
+ source.ks
+>
 >z = x / y
  z
  ^
@@ -139,6 +172,11 @@ grammar: kaoscript.tmLanguage
          y
          ^
          source.ks variable.other.ks
+>
+>
+ 
+ ^
+ source.ks
 >
 >z = x % y
  z
@@ -169,6 +207,11 @@ grammar: kaoscript.tmLanguage
          ^
          source.ks variable.other.ks
 >
+>
+ 
+ ^
+ source.ks
+>
 >z = x > y
  z
  ^
@@ -197,6 +240,11 @@ grammar: kaoscript.tmLanguage
          y
          ^
          source.ks variable.other.ks
+>
+>
+ 
+ ^
+ source.ks
 >
 >z = x >= y
  z
@@ -227,6 +275,11 @@ grammar: kaoscript.tmLanguage
           ^
           source.ks variable.other.ks
 >
+>
+ 
+ ^
+ source.ks
+>
 >z = x < y
  z
  ^
@@ -255,6 +308,11 @@ grammar: kaoscript.tmLanguage
          y
          ^
          source.ks variable.other.ks
+>
+>
+ 
+ ^
+ source.ks
 >
 >z = x <= y
  z
@@ -285,6 +343,11 @@ grammar: kaoscript.tmLanguage
           ^
           source.ks variable.other.ks
 >
+>
+ 
+ ^
+ source.ks
+>
 >z = x == y
  z
  ^
@@ -313,6 +376,11 @@ grammar: kaoscript.tmLanguage
           y
           ^
           source.ks variable.other.ks
+>
+>
+ 
+ ^
+ source.ks
 >
 >z = x != y
  z
@@ -343,6 +411,11 @@ grammar: kaoscript.tmLanguage
           ^
           source.ks variable.other.ks
 >
+>
+ 
+ ^
+ source.ks
+>
 >z = x && y
  z
  ^
@@ -371,6 +444,11 @@ grammar: kaoscript.tmLanguage
           y
           ^
           source.ks variable.other.ks
+>
+>
+ 
+ ^
+ source.ks
 >
 >z = x || y
  z
@@ -401,6 +479,11 @@ grammar: kaoscript.tmLanguage
           ^
           source.ks variable.other.ks
 >
+>
+ 
+ ^
+ source.ks
+>
 >z = x >> y
  z
  ^
@@ -429,6 +512,11 @@ grammar: kaoscript.tmLanguage
           y
           ^
           source.ks variable.other.ks
+>
+>
+ 
+ ^
+ source.ks
 >
 >z = x << y
  z
@@ -459,6 +547,11 @@ grammar: kaoscript.tmLanguage
           ^
           source.ks variable.other.ks
 >
+>
+ 
+ ^
+ source.ks
+>
 >z = x & y
  z
  ^
@@ -487,6 +580,11 @@ grammar: kaoscript.tmLanguage
          y
          ^
          source.ks variable.other.ks
+>
+>
+ 
+ ^
+ source.ks
 >
 >z = x | y
  z
@@ -517,6 +615,11 @@ grammar: kaoscript.tmLanguage
          ^
          source.ks variable.other.ks
 >
+>
+ 
+ ^
+ source.ks
+>
 >z = x ^ y
  z
  ^
@@ -545,6 +648,11 @@ grammar: kaoscript.tmLanguage
          y
          ^
          source.ks variable.other.ks
+>
+>
+ 
+ ^
+ source.ks
 >
 >z = x ?? y
  z

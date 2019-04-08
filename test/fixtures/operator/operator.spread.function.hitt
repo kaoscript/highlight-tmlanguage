@@ -2,7 +2,9 @@ original file
 -----------------------------------
 func foo(x, y, z) {
 }
+
 let args = [0, 1, 2]
+
 foo(...args)
 -----------------------------------
 
@@ -58,6 +60,11 @@ grammar: kaoscript.tmLanguage
  ^
  source.ks punctuation.definition.block.end.bracket.curly.ks
 >
+>
+ 
+ ^
+ source.ks
+>
 >let args = [0, 1, 2]
  let
  ^^^
@@ -104,6 +111,11 @@ grammar: kaoscript.tmLanguage
                     ]
                     ^
                     source.ks punctuation.definition.array.end.bracket.square.ks
+>
+>
+ 
+ ^
+ source.ks
 >
 >foo(...args)
  foo

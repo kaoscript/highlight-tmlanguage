@@ -4,7 +4,9 @@ let decimal: number = 6
 let hex: number = 0xf00d
 let binary: number = 0b1010
 let octal: number = 0o744
+
 let pi: number = 3.14
+
 -----------------------------------
 
 grammar: kaoscript.tmLanguage
@@ -138,6 +140,11 @@ grammar: kaoscript.tmLanguage
                      ^^^^^
                      source.ks constant.numeric.octal.ks
 >
+>
+ 
+ ^
+ source.ks
+>
 >let pi: number = 3.14
  let
  ^^^
@@ -169,3 +176,8 @@ grammar: kaoscript.tmLanguage
                   3.14
                   ^^^^
                   source.ks constant.numeric.decimal.ks
+>
+>
+ 
+ ^
+ source.ks

@@ -17,6 +17,7 @@ class URI {
         }
     }
 }
+
 URI.register!('file', '[ "//" [ host ] ] path_absolute')
 -----------------------------------
 
@@ -236,6 +237,11 @@ grammar: kaoscript.tmLanguage
  }
  ^
  source.ks punctuation.definition.class.end.bracket.curly.ks
+>
+>
+ 
+ ^
+ source.ks
 >
 >URI.register!('file', '[ "//" [ host ] ] path_absolute')
  URI

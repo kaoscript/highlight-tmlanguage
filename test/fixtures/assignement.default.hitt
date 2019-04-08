@@ -1,6 +1,7 @@
 original file
 -----------------------------------
 let foo: string = 'bar'
+
 foo = 'qux'
 -----------------------------------
 
@@ -44,6 +45,11 @@ grammar: kaoscript.tmLanguage
                        '
                        ^
                        source.ks string.quoted.single.ks punctuation.definition.string.end.ks
+>
+>
+ 
+ ^
+ source.ks
 >
 >foo = 'qux'
  foo

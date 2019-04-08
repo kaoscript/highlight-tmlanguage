@@ -2,6 +2,7 @@ original file
 -----------------------------------
 func foo() {
     #![bar]
+
     let bar = 42
 }
 -----------------------------------
@@ -48,6 +49,11 @@ grammar: kaoscript.tmLanguage
            ]
            ^
            source.ks meta.attribute.ks punctuation.definition.attribute.end.bracket.square.ks
+>
+>
+ 
+ ^
+ source.ks
 >
 >    let bar = 42
      

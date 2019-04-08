@@ -1,6 +1,7 @@
 original file
 -----------------------------------
 heroes = ['leto', 'duncan', 'goku']
+
 evenHeroes = [hero for hero, index in heroes when index % 2 == 0]
 -----------------------------------
 
@@ -65,6 +66,11 @@ grammar: kaoscript.tmLanguage
                                    ]
                                    ^
                                    source.ks punctuation.definition.array.end.bracket.square.ks
+>
+>
+ 
+ ^
+ source.ks
 >
 >evenHeroes = [hero for hero, index in heroes when index % 2 == 0]
  evenHeroes

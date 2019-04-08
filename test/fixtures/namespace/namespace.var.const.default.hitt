@@ -1,10 +1,12 @@
 original file
 -----------------------------------
 extern console
+
 namespace Float {
     const PI = 3.14
     const name = 'john'
 }
+
 console.log(Float.PI)
 console.log(`\(Float.name)`)
 -----------------------------------
@@ -22,6 +24,11 @@ grammar: kaoscript.tmLanguage
         console
         ^^^^^^^
         source.ks variable.other.constant.ks
+>
+>
+ 
+ ^
+ source.ks
 >
 >namespace Float {
  namespace
@@ -102,6 +109,11 @@ grammar: kaoscript.tmLanguage
  }
  ^
  source.ks punctuation.definition.namespace.end.bracket.curly.ks
+>
+>
+ 
+ ^
+ source.ks
 >
 >console.log(Float.PI)
  console

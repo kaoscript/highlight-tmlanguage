@@ -1,6 +1,7 @@
 original file
 -----------------------------------
 let foo = bar.new
+
 console.log(foo)
 -----------------------------------
 
@@ -35,6 +36,11 @@ grammar: kaoscript.tmLanguage
                new
                ^^^
                source.ks variable.other.property.object.ks
+>
+>
+ 
+ ^
+ source.ks
 >
 >console.log(foo)
  console

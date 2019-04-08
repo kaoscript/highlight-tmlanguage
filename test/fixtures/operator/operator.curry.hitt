@@ -3,7 +3,9 @@ original file
 func foo(intro, name) {
     return `\(intro) \(name)!`
 }
+
 let bar = foo^^('Hello')
+
 console.log(bar('world'))
 -----------------------------------
 
@@ -91,6 +93,11 @@ grammar: kaoscript.tmLanguage
  ^
  source.ks punctuation.definition.block.end.bracket.curly.ks
 >
+>
+ 
+ ^
+ source.ks
+>
 >let bar = foo^^('Hello')
  let
  ^^^
@@ -131,6 +138,11 @@ grammar: kaoscript.tmLanguage
                         )
                         ^
                         source.ks punctuation.definition.arguments.end.bracket.round.ks
+>
+>
+ 
+ ^
+ source.ks
 >
 >console.log(bar('world'))
  console

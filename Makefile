@@ -8,7 +8,10 @@ endif
 build:
 	npx kaoscript build.ks
 
+patch:
+	npx kaoscript patch.ks
+
 sync:
 	npx kaoscript sync.ks
 
-.PHONY: test build sync
+.PHONY: test build patch sync

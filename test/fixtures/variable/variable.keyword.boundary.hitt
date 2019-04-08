@@ -1,6 +1,7 @@
 original file
 -----------------------------------
 let domain = {}
+
 domain.foo()
 -----------------------------------
 
@@ -32,6 +33,11 @@ grammar: kaoscript.tmLanguage
                }
                ^
                source.ks punctuation.definition.object.end.bracket.curly.ks
+>
+>
+ 
+ ^
+ source.ks
 >
 >domain.foo()
  domain

@@ -1,6 +1,7 @@
 original file
 -----------------------------------
 async func foo(x, y) => x - y
+
 async func bar() => await foo(42, 24)
 -----------------------------------
 
@@ -65,6 +66,11 @@ grammar: kaoscript.tmLanguage
                              y
                              ^
                              source.ks variable.other.ks
+>
+>
+ 
+ ^
+ source.ks
 >
 >async func bar() => await foo(42, 24)
  async

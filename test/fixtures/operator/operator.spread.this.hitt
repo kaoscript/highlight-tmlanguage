@@ -4,7 +4,9 @@ class Greetings {
     private {
         _messages: Array<String>
     }
+
     constructor(@messages)
+
     print() {
         console.log(...this._messages)
     }
@@ -79,6 +81,11 @@ grammar: kaoscript.tmLanguage
      ^
      source.ks punctuation.definition.members.end.bracket.curly.ks
 >
+>
+ 
+ ^
+ source.ks
+>
 >    constructor(@messages)
      
  ^^^^
@@ -98,6 +105,11 @@ grammar: kaoscript.tmLanguage
                           )
                           ^
                           source.ks punctuation.definition.parameters.end.bracket.round.ks
+>
+>
+ 
+ ^
+ source.ks
 >
 >    print() {
      

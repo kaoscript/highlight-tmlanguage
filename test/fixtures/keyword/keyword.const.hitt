@@ -1,6 +1,7 @@
 original file
 -----------------------------------
 let const = 42
+
 console.log(const + 24)
 -----------------------------------
 
@@ -29,6 +30,11 @@ grammar: kaoscript.tmLanguage
              42
              ^^
              source.ks constant.numeric.decimal.ks
+>
+>
+ 
+ ^
+ source.ks
 >
 >console.log(const + 24)
  console

@@ -3,14 +3,19 @@ original file
 func f1(foo) {
     return 42
 }
+
 let f2 = func(foo) {
     return 42
 }
+
 let f3 = (foo) => {
     return 42
 }
+
 let f4 = (foo) => 42
+
 let f5 = func(foo) => 42
+
 let f6 = foo => 42
 -----------------------------------
 
@@ -61,6 +66,11 @@ grammar: kaoscript.tmLanguage
  }
  ^
  source.ks punctuation.definition.block.end.bracket.curly.ks
+>
+>
+ 
+ ^
+ source.ks
 >
 >let f2 = func(foo) {
  let
@@ -118,6 +128,11 @@ grammar: kaoscript.tmLanguage
  }
  ^
  source.ks punctuation.definition.block.end.bracket.curly.ks
+>
+>
+ 
+ ^
+ source.ks
 >
 >let f3 = (foo) => {
  let
@@ -179,6 +194,11 @@ grammar: kaoscript.tmLanguage
  ^
  source.ks punctuation.definition.block.end.bracket.curly.ks
 >
+>
+ 
+ ^
+ source.ks
+>
 >let f4 = (foo) => 42
  let
  ^^^
@@ -219,6 +239,11 @@ grammar: kaoscript.tmLanguage
                    42
                    ^^
                    source.ks constant.numeric.decimal.ks
+>
+>
+ 
+ ^
+ source.ks
 >
 >let f5 = func(foo) => 42
  let
@@ -263,6 +288,11 @@ grammar: kaoscript.tmLanguage
                        42
                        ^^
                        source.ks constant.numeric.decimal.ks
+>
+>
+ 
+ ^
+ source.ks
 >
 >let f6 = foo => 42
  let

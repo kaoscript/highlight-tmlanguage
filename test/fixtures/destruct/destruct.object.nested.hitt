@@ -1,7 +1,9 @@
 original file
 -----------------------------------
 let foo = { bar: { n1: 'hello', n2: 'world' } }
+
 let {bar: { n1, n2: qux }} = foo
+
 consoloe.log(n1, qux)
 -----------------------------------
 
@@ -103,6 +105,11 @@ grammar: kaoscript.tmLanguage
                                                ^
                                                source.ks punctuation.definition.object.end.bracket.curly.ks
 >
+>
+ 
+ ^
+ source.ks
+>
 >let {bar: { n1, n2: qux }} = foo
  let
  ^^^
@@ -170,6 +177,11 @@ grammar: kaoscript.tmLanguage
                               foo
                               ^^^
                               source.ks variable.other.ks
+>
+>
+ 
+ ^
+ source.ks
 >
 >consoloe.log(n1, qux)
  consoloe

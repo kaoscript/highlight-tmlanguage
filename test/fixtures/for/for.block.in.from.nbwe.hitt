@@ -3,7 +3,9 @@ original file
 extern console: {
     log(...args)
 }
+
 heroes = ['leto', 'duncan', 'goku']
+
 for hero, index in heroes til 2 {
     console.log('The hero at index %d is %s', index, hero)
 }
@@ -56,6 +58,11 @@ grammar: kaoscript.tmLanguage
  }
  ^
  source.ks meta.type.annotation.ks punctuation.definition.object.end.bracket.curly.ks
+>
+>
+ 
+ ^
+ source.ks
 >
 >heroes = ['leto', 'duncan', 'goku']
  heroes
@@ -115,6 +122,11 @@ grammar: kaoscript.tmLanguage
                                    ]
                                    ^
                                    source.ks punctuation.definition.array.end.bracket.square.ks
+>
+>
+ 
+ ^
+ source.ks
 >
 >for hero, index in heroes til 2 {
  for

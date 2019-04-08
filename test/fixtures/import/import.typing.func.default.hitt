@@ -8,6 +8,7 @@ import 'foobar' {
     async qux(value: Number): Number => q1
     async qux(value: String): String
 }
+
 import 'barfoo' {
     func foo(...) => f1
     async func bar()    => b1
@@ -285,6 +286,11 @@ grammar: kaoscript.tmLanguage
  }
  ^
  source.ks punctuation.definition.import-specification.end.bracket.curly.ks
+>
+>
+ 
+ ^
+ source.ks
 >
 >import 'barfoo' {
  import

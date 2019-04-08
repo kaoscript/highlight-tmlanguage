@@ -1,18 +1,31 @@
 original file
 -----------------------------------
 x = y
+
 x += y
+
 x -= y
+
 x *= y
+
 x /= y
+
 x %= y
+
 x &= y
+
 x |= y
+
 x ^= y
+
 x <<= y
+
 x >>= y
+
 x ?= y
+
 x !?= y
+
 x ??= y
 -----------------------------------
 
@@ -36,6 +49,11 @@ grammar: kaoscript.tmLanguage
      ^
      source.ks variable.other.ks
 >
+>
+ 
+ ^
+ source.ks
+>
 >x += y
  x
  ^
@@ -52,6 +70,11 @@ grammar: kaoscript.tmLanguage
       y
       ^
       source.ks variable.other.ks
+>
+>
+ 
+ ^
+ source.ks
 >
 >x -= y
  x
@@ -70,6 +93,11 @@ grammar: kaoscript.tmLanguage
       ^
       source.ks variable.other.ks
 >
+>
+ 
+ ^
+ source.ks
+>
 >x *= y
  x
  ^
@@ -86,6 +114,11 @@ grammar: kaoscript.tmLanguage
       y
       ^
       source.ks variable.other.ks
+>
+>
+ 
+ ^
+ source.ks
 >
 >x /= y
  x
@@ -104,6 +137,11 @@ grammar: kaoscript.tmLanguage
       ^
       source.ks variable.other.ks
 >
+>
+ 
+ ^
+ source.ks
+>
 >x %= y
  x
  ^
@@ -120,6 +158,11 @@ grammar: kaoscript.tmLanguage
       y
       ^
       source.ks variable.other.ks
+>
+>
+ 
+ ^
+ source.ks
 >
 >x &= y
  x
@@ -138,6 +181,11 @@ grammar: kaoscript.tmLanguage
       ^
       source.ks variable.other.ks
 >
+>
+ 
+ ^
+ source.ks
+>
 >x |= y
  x
  ^
@@ -154,6 +202,11 @@ grammar: kaoscript.tmLanguage
       y
       ^
       source.ks variable.other.ks
+>
+>
+ 
+ ^
+ source.ks
 >
 >x ^= y
  x
@@ -172,6 +225,11 @@ grammar: kaoscript.tmLanguage
       ^
       source.ks variable.other.ks
 >
+>
+ 
+ ^
+ source.ks
+>
 >x <<= y
  x
  ^
@@ -188,6 +246,11 @@ grammar: kaoscript.tmLanguage
        y
        ^
        source.ks variable.other.ks
+>
+>
+ 
+ ^
+ source.ks
 >
 >x >>= y
  x
@@ -206,6 +269,11 @@ grammar: kaoscript.tmLanguage
        ^
        source.ks variable.other.ks
 >
+>
+ 
+ ^
+ source.ks
+>
 >x ?= y
  x
  ^
@@ -223,6 +291,11 @@ grammar: kaoscript.tmLanguage
       ^
       source.ks variable.other.ks
 >
+>
+ 
+ ^
+ source.ks
+>
 >x !?= y
  x
  ^
@@ -239,6 +312,11 @@ grammar: kaoscript.tmLanguage
        y
        ^
        source.ks variable.other.ks
+>
+>
+ 
+ ^
+ source.ks
 >
 >x ??= y
  x

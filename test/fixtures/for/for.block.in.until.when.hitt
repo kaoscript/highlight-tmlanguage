@@ -1,6 +1,7 @@
 original file
 -----------------------------------
 heroes = ['leto', 'duncan', 'goku']
+
 for    hero, index in heroes
     until hero == 'duncan'
     when index % 2 == 0
@@ -70,6 +71,11 @@ grammar: kaoscript.tmLanguage
                                    ]
                                    ^
                                    source.ks punctuation.definition.array.end.bracket.square.ks
+>
+>
+ 
+ ^
+ source.ks
 >
 >for    hero, index in heroes
  for

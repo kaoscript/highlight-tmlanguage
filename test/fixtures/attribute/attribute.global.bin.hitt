@@ -1,6 +1,7 @@
 original file
 -----------------------------------
 #![bin]
+
 console.log('main program')
 -----------------------------------
 
@@ -20,6 +21,11 @@ grammar: kaoscript.tmLanguage
        ]
        ^
        source.ks meta.attribute.ks punctuation.definition.attribute.end.bracket.square.ks
+>
+>
+ 
+ ^
+ source.ks
 >
 >console.log('main program')
  console

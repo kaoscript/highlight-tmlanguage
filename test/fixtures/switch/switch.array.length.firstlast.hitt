@@ -1,6 +1,7 @@
 original file
 -----------------------------------
 let v = [1, 2, 3]
+
 switch v {
     with [first, ...]    => console.log(first) // <- 1
     with [..., last]    => console.log(last) // <= 3
@@ -57,6 +58,11 @@ grammar: kaoscript.tmLanguage
                  ]
                  ^
                  source.ks punctuation.definition.array.end.bracket.square.ks
+>
+>
+ 
+ ^
+ source.ks
 >
 >switch v {
  switch

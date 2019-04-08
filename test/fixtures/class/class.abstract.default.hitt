@@ -1,6 +1,7 @@
 original file
 -----------------------------------
 extern console
+
 abstract class AbstractGreetings {
     private {
         _message: string = ''
@@ -14,10 +15,13 @@ abstract class AbstractGreetings {
     
     abstract greet(name): String
 }
+
 class Greetings extends AbstractGreetings {
     greet(name) => `\(@message)\nIt's nice to meet you, \(name).`
 }
+
 let hello = new Greetings('Hello world!')
+
 console.log(hello.greet('miss White'))
 -----------------------------------
 
@@ -34,6 +38,11 @@ grammar: kaoscript.tmLanguage
         console
         ^^^^^^^
         source.ks variable.other.constant.ks
+>
+>
+ 
+ ^
+ source.ks
 >
 >abstract class AbstractGreetings {
  abstract
@@ -235,6 +244,11 @@ grammar: kaoscript.tmLanguage
  ^
  source.ks punctuation.definition.class.end.bracket.curly.ks
 >
+>
+ 
+ ^
+ source.ks
+>
 >class Greetings extends AbstractGreetings {
  class
  ^^^^^
@@ -331,6 +345,11 @@ grammar: kaoscript.tmLanguage
  ^
  source.ks punctuation.definition.class.end.bracket.curly.ks
 >
+>
+ 
+ ^
+ source.ks
+>
 >let hello = new Greetings('Hello world!')
  let
  ^^^
@@ -374,6 +393,11 @@ grammar: kaoscript.tmLanguage
                                          )
                                          ^
                                          source.ks punctuation.definition.arguments.end.bracket.round.ks
+>
+>
+ 
+ ^
+ source.ks
 >
 >console.log(hello.greet('miss White'))
  console

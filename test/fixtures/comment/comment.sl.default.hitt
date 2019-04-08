@@ -1,7 +1,9 @@
 original file
 -----------------------------------
 // Line comments are anything after ‘//’ and extend to the end of the line.
+
 let x = 5 // this is also a line comment.
+
 // If you have a long explanation for something, you can put line comments next
 // to each other. Put a space between the // and your comment so that it’s
 // more readable.
@@ -17,6 +19,11 @@ grammar: kaoscript.tmLanguage
     Line comments are anything after ‘//’ and extend to the end of the line.
    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
    source.ks comment.line.double-slash.ks
+>
+>
+ 
+ ^
+ source.ks
 >
 >let x = 5 // this is also a line comment.
  let
@@ -49,6 +56,11 @@ grammar: kaoscript.tmLanguage
               this is also a line comment.
              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
              source.ks comment.line.double-slash.ks
+>
+>
+ 
+ ^
+ source.ks
 >
 >// If you have a long explanation for something, you can put line comments next
  //

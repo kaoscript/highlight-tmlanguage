@@ -8,6 +8,7 @@ namespace NS {
     export func qux() {
     }
 }
+
 export NS for foo => nsFoo, bar => nsBar, qux => nsQux
 -----------------------------------
 
@@ -155,6 +156,11 @@ grammar: kaoscript.tmLanguage
  }
  ^
  source.ks punctuation.definition.namespace.end.bracket.curly.ks
+>
+>
+ 
+ ^
+ source.ks
 >
 >export NS for foo => nsFoo, bar => nsBar, qux => nsQux
  export

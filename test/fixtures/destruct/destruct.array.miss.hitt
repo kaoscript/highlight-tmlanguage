@@ -1,8 +1,10 @@
 original file
 -----------------------------------
 let [,,a,b] = [1,2,3,4,5]
+
 console.log(a)
 // <- 3
+
 console.log(b)
 // <- 4
 -----------------------------------
@@ -81,6 +83,11 @@ grammar: kaoscript.tmLanguage
                          ^
                          source.ks punctuation.definition.array.end.bracket.square.ks
 >
+>
+ 
+ ^
+ source.ks
+>
 >console.log(a)
  console
  ^^^^^^^
@@ -108,6 +115,11 @@ grammar: kaoscript.tmLanguage
     <- 3
    ^^^^^
    source.ks comment.line.double-slash.ks
+>
+>
+ 
+ ^
+ source.ks
 >
 >console.log(b)
  console

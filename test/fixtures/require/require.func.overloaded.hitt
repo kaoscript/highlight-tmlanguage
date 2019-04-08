@@ -2,7 +2,9 @@ original file
 -----------------------------------
 require func reverse(value: Array): Array
 require func reverse(value: String): String
+
 func reverse(value: Number): Number => -value
+
 export reverse
 -----------------------------------
 
@@ -97,6 +99,11 @@ grammar: kaoscript.tmLanguage
                                       ^^^^^^
                                       source.ks meta.function.return-type.ks support.type.primitive.ks
 >
+>
+ 
+ ^
+ source.ks
+>
 >func reverse(value: Number): Number => -value
  func
  ^^^^
@@ -149,6 +156,11 @@ grammar: kaoscript.tmLanguage
                                          value
                                          ^^^^^
                                          source.ks variable.other.ks
+>
+>
+ 
+ ^
+ source.ks
 >
 >export reverse
  export

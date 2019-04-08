@@ -2,6 +2,7 @@ original file
 -----------------------------------
 let a = 4
 let b = 5
+
 let c = (b) * a
 -----------------------------------
 
@@ -53,6 +54,11 @@ grammar: kaoscript.tmLanguage
          5
          ^
          source.ks constant.numeric.decimal.ks
+>
+>
+ 
+ ^
+ source.ks
 >
 >let c = (b) * a
  let

@@ -3,6 +3,7 @@ original file
 macro sayHello() {
     macro console.log('Hello!')
 }
+
 sayHello!()
 -----------------------------------
 
@@ -71,6 +72,11 @@ grammar: kaoscript.tmLanguage
  }
  ^
  source.ks meta.macro.ks punctuation.definition.block.end.bracket.curly.ks
+>
+>
+ 
+ ^
+ source.ks
 >
 >sayHello!()
  sayHello

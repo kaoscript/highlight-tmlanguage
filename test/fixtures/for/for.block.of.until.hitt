@@ -5,6 +5,7 @@ likes = {
     paul: 'chani'
     duncan: 'murbella'
 }
+
 for key, value of likes until key == 'duncan' {
     console.log(`\(key) likes \(value)`)
 }
@@ -103,6 +104,11 @@ grammar: kaoscript.tmLanguage
  }
  ^
  source.ks punctuation.definition.object.end.bracket.curly.ks
+>
+>
+ 
+ ^
+ source.ks
 >
 >for key, value of likes until key == 'duncan' {
  for

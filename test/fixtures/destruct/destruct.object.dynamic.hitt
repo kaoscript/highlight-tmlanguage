@@ -1,7 +1,9 @@
 original file
 -----------------------------------
 let key = 'qux'
+
 let { [key]: foo } = { qux: 'bar' }
+
 console.log(foo)
 // <- 'bar'
 -----------------------------------
@@ -37,6 +39,11 @@ grammar: kaoscript.tmLanguage
                '
                ^
                source.ks string.quoted.single.ks punctuation.definition.string.end.ks
+>
+>
+ 
+ ^
+ source.ks
 >
 >let { [key]: foo } = { qux: 'bar' }
  let
@@ -114,6 +121,11 @@ grammar: kaoscript.tmLanguage
                                    }
                                    ^
                                    source.ks punctuation.definition.object.end.bracket.curly.ks
+>
+>
+ 
+ ^
+ source.ks
 >
 >console.log(foo)
  console

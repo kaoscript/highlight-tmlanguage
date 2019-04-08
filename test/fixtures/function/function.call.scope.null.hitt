@@ -3,6 +3,7 @@ original file
 func log(...args) {
     console.log(...args)
 }
+
 log**('hello')
 -----------------------------------
 
@@ -68,6 +69,11 @@ grammar: kaoscript.tmLanguage
  }
  ^
  source.ks punctuation.definition.block.end.bracket.curly.ks
+>
+>
+ 
+ ^
+ source.ks
 >
 >log**('hello')
  log

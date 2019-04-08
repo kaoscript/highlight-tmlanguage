@@ -1,6 +1,7 @@
 original file
 -----------------------------------
 let x
+
 if (x = 5) {
 }
 else {
@@ -20,6 +21,11 @@ grammar: kaoscript.tmLanguage
      x
      ^
      source.ks meta.definition.variable.ks variable.other.readwrite.ks
+>
+>
+ 
+ ^
+ source.ks
 >
 >if (x = 5) {
  if

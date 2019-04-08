@@ -2,6 +2,7 @@ original file
 -----------------------------------
 let min = 1
 let max = 5
+
 let a = [min..max]
 // 1, 2, 3, 4, 5
 -----------------------------------
@@ -54,6 +55,11 @@ grammar: kaoscript.tmLanguage
            5
            ^
            source.ks constant.numeric.decimal.ks
+>
+>
+ 
+ ^
+ source.ks
 >
 >let a = [min..max]
  let

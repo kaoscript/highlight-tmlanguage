@@ -2,11 +2,13 @@ original file
 -----------------------------------
 let key = 'you'
 let value = 42
+
 likes = {
     leto: 'spice'
     paul: 'chani'
     duncan: 'murbella'
 }
+
 for let key, value of likes {
     console.log(`\(key) likes \(value)`)
 }
@@ -66,6 +68,11 @@ grammar: kaoscript.tmLanguage
              42
              ^^
              source.ks constant.numeric.decimal.ks
+>
+>
+ 
+ ^
+ source.ks
 >
 >likes = {
  likes
@@ -157,6 +164,11 @@ grammar: kaoscript.tmLanguage
  }
  ^
  source.ks punctuation.definition.object.end.bracket.curly.ks
+>
+>
+ 
+ ^
+ source.ks
 >
 >for let key, value of likes {
  for

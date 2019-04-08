@@ -1,6 +1,7 @@
 original file
 -----------------------------------
 // a single line comment
+
 /*
     a multiline comment
     
@@ -18,6 +19,11 @@ grammar: kaoscript.tmLanguage
     a single line comment
    ^^^^^^^^^^^^^^^^^^^^^^
    source.ks comment.line.double-slash.ks
+>
+>
+ 
+ ^
+ source.ks
 >
 >/*
  /*

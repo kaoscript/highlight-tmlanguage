@@ -1,11 +1,15 @@
 original file
 -----------------------------------
 import '@oz/lang'
+
 let a : Array<number> = [1, 3, 2, 4]
+
 console.log(a)
+
 impl Array<number> {
     sort(): Array<number> => (this as Array).sort((a, b) => a - b)
 }
+
 console.log(a.sort())
 -----------------------------------
 
@@ -28,6 +32,11 @@ grammar: kaoscript.tmLanguage
                  '
                  ^
                  source.ks string.quoted.single.ks punctuation.definition.string.end.ks
+>
+>
+ 
+ ^
+ source.ks
 >
 >let a : Array<number> = [1, 3, 2, 4]
  let
@@ -106,6 +115,11 @@ grammar: kaoscript.tmLanguage
                                     ^
                                     source.ks punctuation.definition.array.end.bracket.square.ks
 >
+>
+ 
+ ^
+ source.ks
+>
 >console.log(a)
  console
  ^^^^^^^
@@ -125,6 +139,11 @@ grammar: kaoscript.tmLanguage
               )
               ^
               source.ks punctuation.definition.arguments.end.bracket.round.ks
+>
+>
+ 
+ ^
+ source.ks
 >
 >impl Array<number> {
  impl
@@ -272,6 +291,11 @@ grammar: kaoscript.tmLanguage
  }
  ^
  source.ks punctuation.definition.implement.end.bracket.curly.ks
+>
+>
+ 
+ ^
+ source.ks
 >
 >console.log(a.sort())
  console

@@ -4,6 +4,7 @@ namespace T {
     export class FooX {
     }
 }
+
 class FooY extends T.FooX {
 }
 -----------------------------------
@@ -66,6 +67,11 @@ grammar: kaoscript.tmLanguage
  }
  ^
  source.ks punctuation.definition.namespace.end.bracket.curly.ks
+>
+>
+ 
+ ^
+ source.ks
 >
 >class FooY extends T.FooX {
  class

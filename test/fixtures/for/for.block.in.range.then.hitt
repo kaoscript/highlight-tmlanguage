@@ -2,6 +2,7 @@ original file
 -----------------------------------
 for x in 0<..<10..2 {
 }
+
 for x in 0<..10 {
 }
 -----------------------------------
@@ -54,6 +55,11 @@ grammar: kaoscript.tmLanguage
  }
  ^
  source.ks punctuation.definition.block.end.bracket.curly.ks
+>
+>
+ 
+ ^
+ source.ks
 >
 >for x in 0<..10 {
  for

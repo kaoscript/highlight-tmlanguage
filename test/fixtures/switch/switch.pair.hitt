@@ -1,6 +1,7 @@
 original file
 -----------------------------------
 let pair = [2, -2]
+
 switch pair {
     with [x, y]    where x == y        => console.log("These are twins")
     with [x, y]    where x + y == 0    => console.log("Antimatter, kaboom!")
@@ -52,6 +53,11 @@ grammar: kaoscript.tmLanguage
                   ]
                   ^
                   source.ks punctuation.definition.array.end.bracket.square.ks
+>
+>
+ 
+ ^
+ source.ks
 >
 >switch pair {
  switch

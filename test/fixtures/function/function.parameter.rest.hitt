@@ -3,18 +3,23 @@ original file
 func foo(...items) {
     console.log(items)
 }
+
 func bar(x, ...items) {
     console.log(x, items)
 }
+
 func baz(x, ...items, z) {
     console.log(x, items, z)
 }
+
 func qux(x, ...items, z = 1) {
     console.log(x, items, z)
 }
+
 func quux(x = 1, ...items, z = 1) {
     console.log(x, items, z)
 }
+
 func corge(...items = [1..5]) {
     console.log(items)
 }
@@ -79,6 +84,11 @@ grammar: kaoscript.tmLanguage
  }
  ^
  source.ks punctuation.definition.block.end.bracket.curly.ks
+>
+>
+ 
+ ^
+ source.ks
 >
 >func bar(x, ...items) {
  func
@@ -154,6 +164,11 @@ grammar: kaoscript.tmLanguage
  }
  ^
  source.ks punctuation.definition.block.end.bracket.curly.ks
+>
+>
+ 
+ ^
+ source.ks
 >
 >func baz(x, ...items, z) {
  func
@@ -247,6 +262,11 @@ grammar: kaoscript.tmLanguage
  }
  ^
  source.ks punctuation.definition.block.end.bracket.curly.ks
+>
+>
+ 
+ ^
+ source.ks
 >
 >func qux(x, ...items, z = 1) {
  func
@@ -352,6 +372,11 @@ grammar: kaoscript.tmLanguage
  }
  ^
  source.ks punctuation.definition.block.end.bracket.curly.ks
+>
+>
+ 
+ ^
+ source.ks
 >
 >func quux(x = 1, ...items, z = 1) {
  func
@@ -469,6 +494,11 @@ grammar: kaoscript.tmLanguage
  }
  ^
  source.ks punctuation.definition.block.end.bracket.curly.ks
+>
+>
+ 
+ ^
+ source.ks
 >
 >func corge(...items = [1..5]) {
  func

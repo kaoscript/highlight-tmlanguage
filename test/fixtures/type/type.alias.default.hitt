@@ -1,6 +1,7 @@
 original file
 -----------------------------------
 type T = number | string
+
 let x: T = 0
 -----------------------------------
 
@@ -41,6 +42,11 @@ grammar: kaoscript.tmLanguage
                    string
                    ^^^^^^
                    source.ks support.type.primitive.ks
+>
+>
+ 
+ ^
+ source.ks
 >
 >let x: T = 0
  let

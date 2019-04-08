@@ -8,6 +8,7 @@ namespace qux {
         constructor(@name = 'john')
     }
 }
+
 const x = new qux.Foobar()
 -----------------------------------
 
@@ -140,6 +141,11 @@ grammar: kaoscript.tmLanguage
  }
  ^
  source.ks punctuation.definition.namespace.end.bracket.curly.ks
+>
+>
+ 
+ ^
+ source.ks
 >
 >const x = new qux.Foobar()
  const

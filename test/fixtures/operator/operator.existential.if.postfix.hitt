@@ -1,9 +1,11 @@
 original file
 -----------------------------------
 extern foo
+
 if foo? {
     console.log(foo)
 }
+
 console.log(foo) if foo?
 -----------------------------------
 
@@ -20,6 +22,11 @@ grammar: kaoscript.tmLanguage
         foo
         ^^^
         source.ks variable.other.constant.ks
+>
+>
+ 
+ ^
+ source.ks
 >
 >if foo? {
  if
@@ -68,6 +75,11 @@ grammar: kaoscript.tmLanguage
  }
  ^
  source.ks punctuation.definition.block.end.bracket.curly.ks
+>
+>
+ 
+ ^
+ source.ks
 >
 >console.log(foo) if foo?
  console

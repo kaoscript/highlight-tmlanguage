@@ -30,7 +30,7 @@ func writeTokenLine(line, token, preTextForToken, output) { // {{{
 } // }}}
 
 export func generate(content: String, indentSize: Number = 4): String { // {{{
-	const lines = content.replace(/\t/g, ' '.repeat(indentSize)).lines()
+	const lines = content.replace(/\t/g, ' '.repeat(indentSize)).lines(true)
 
 	const output = [
 		'original file'

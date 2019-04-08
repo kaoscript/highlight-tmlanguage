@@ -1,7 +1,9 @@
 original file
 -----------------------------------
 let list = [1, 2]
+
 list = [...list, 3, 4]
+
 console.log(list)
 //: [1,2,3,4]
 -----------------------------------
@@ -47,6 +49,11 @@ grammar: kaoscript.tmLanguage
                  ^
                  source.ks punctuation.definition.array.end.bracket.square.ks
 >
+>
+ 
+ ^
+ source.ks
+>
 >list = [...list, 3, 4]
  list
  ^^^^
@@ -90,6 +97,11 @@ grammar: kaoscript.tmLanguage
                       ]
                       ^
                       source.ks punctuation.definition.array.end.bracket.square.ks
+>
+>
+ 
+ ^
+ source.ks
 >
 >console.log(list)
  console

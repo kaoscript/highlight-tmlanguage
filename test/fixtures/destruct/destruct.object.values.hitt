@@ -1,12 +1,17 @@
 original file
 -----------------------------------
 let {foo=3} = { foo: 2 }
+
 console.log(foo)
 // <- 2
+
 let {foo=3} = { foo: undefined }
+
 console.log(foo)
 // <- 3
+
 let {foo=3} = { bar: 2 }
+
 console.log(foo)
 // <- 3
 -----------------------------------
@@ -70,6 +75,11 @@ grammar: kaoscript.tmLanguage
                         ^
                         source.ks punctuation.definition.object.end.bracket.curly.ks
 >
+>
+ 
+ ^
+ source.ks
+>
 >console.log(foo)
  console
  ^^^^^^^
@@ -97,6 +107,11 @@ grammar: kaoscript.tmLanguage
     <- 2
    ^^^^^
    source.ks comment.line.double-slash.ks
+>
+>
+ 
+ ^
+ source.ks
 >
 >let {foo=3} = { foo: undefined }
  let
@@ -154,6 +169,11 @@ grammar: kaoscript.tmLanguage
                                 ^
                                 source.ks punctuation.definition.object.end.bracket.curly.ks
 >
+>
+ 
+ ^
+ source.ks
+>
 >console.log(foo)
  console
  ^^^^^^^
@@ -181,6 +201,11 @@ grammar: kaoscript.tmLanguage
     <- 3
    ^^^^^
    source.ks comment.line.double-slash.ks
+>
+>
+ 
+ ^
+ source.ks
 >
 >let {foo=3} = { bar: 2 }
  let
@@ -237,6 +262,11 @@ grammar: kaoscript.tmLanguage
                         }
                         ^
                         source.ks punctuation.definition.object.end.bracket.curly.ks
+>
+>
+ 
+ ^
+ source.ks
 >
 >console.log(foo)
  console

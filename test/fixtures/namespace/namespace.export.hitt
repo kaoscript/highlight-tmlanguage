@@ -1,6 +1,7 @@
 original file
 -----------------------------------
 extern parseFloat
+
 export namespace Float {
     export func toFloat(value: String): Number => parseFloat(value)
 }
@@ -19,6 +20,11 @@ grammar: kaoscript.tmLanguage
         parseFloat
         ^^^^^^^^^^
         source.ks variable.other.constant.ks
+>
+>
+ 
+ ^
+ source.ks
 >
 >export namespace Float {
  export

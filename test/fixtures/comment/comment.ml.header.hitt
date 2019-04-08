@@ -7,6 +7,7 @@ original file
     
     TODO: test
 */
+
 let x = 5
 -----------------------------------
 
@@ -47,6 +48,11 @@ grammar: kaoscript.tmLanguage
  */
  ^^
  source.ks comment.block.ks punctuation.definition.comment.ks
+>
+>
+ 
+ ^
+ source.ks
 >
 >let x = 5
  let

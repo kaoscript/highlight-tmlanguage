@@ -1,6 +1,7 @@
 original file
 -----------------------------------
 let v = [1, 2, 3, 4, 5]
+
 switch v {
     []                                => console.log("empty")
     with [elem]                        => console.log(elem) // <- 1
@@ -75,6 +76,11 @@ grammar: kaoscript.tmLanguage
                        ]
                        ^
                        source.ks punctuation.definition.array.end.bracket.square.ks
+>
+>
+ 
+ ^
+ source.ks
 >
 >switch v {
  switch

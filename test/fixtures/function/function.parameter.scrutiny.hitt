@@ -1,15 +1,19 @@
 original file
 -----------------------------------
 extern console
+
 func foo(item?) {
     console.log(item)
 }
+
 func bar(item = null) {
     console.log(item)
 }
+
 func baz(item: String?) {
     console.log(item)
 }
+
 func qux(item: String? = null) {
     console.log(item)
 }
@@ -28,6 +32,11 @@ grammar: kaoscript.tmLanguage
         console
         ^^^^^^^
         source.ks variable.other.constant.ks
+>
+>
+ 
+ ^
+ source.ks
 >
 >func foo(item?) {
  func
@@ -85,6 +94,11 @@ grammar: kaoscript.tmLanguage
  }
  ^
  source.ks punctuation.definition.block.end.bracket.curly.ks
+>
+>
+ 
+ ^
+ source.ks
 >
 >func bar(item = null) {
  func
@@ -152,6 +166,11 @@ grammar: kaoscript.tmLanguage
  ^
  source.ks punctuation.definition.block.end.bracket.curly.ks
 >
+>
+ 
+ ^
+ source.ks
+>
 >func baz(item: String?) {
  func
  ^^^^
@@ -217,6 +236,11 @@ grammar: kaoscript.tmLanguage
  }
  ^
  source.ks punctuation.definition.block.end.bracket.curly.ks
+>
+>
+ 
+ ^
+ source.ks
 >
 >func qux(item: String? = null) {
  func

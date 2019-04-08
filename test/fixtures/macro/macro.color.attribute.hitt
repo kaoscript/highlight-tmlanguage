@@ -5,20 +5,26 @@ export class Color {
         if expression.components? {
             const fields: Array = []
             const methods: Array = []
+
             let field
             for name, component of expression.components {
                 field = `_\(name)`
+
                 fields.push(macro private #i(field): #i(component.type))
+
                 methods.push(macro {
                     #[error(off)]
                     #i(name)() => this.getField(#(name))
                     #[error(off)]
                     #i(name)(value) => this.setField(#(name), value)
                 })
+
                 expression.components[name].field = field
             }
+
             macro {
                 Color.registerSpace(#(expression))
+
                 impl Color {
                     #b(fields)
                     #b(methods)
@@ -29,13 +35,16 @@ export class Color {
             macro Color.registerSpace(#(expression))
         }
     }
+
     getField(name) ~ Error {
         throw new Error('Not Implemented')
     }
+
     setField(name, value) ~ Error {
         throw new Error('Not Implemented')
     }
 }
+
 Color.registerSpace!({
     name: 'srgb'
     alias: ['rgb']
@@ -225,6 +234,11 @@ grammar: kaoscript.tmLanguage
                                      ^
                                      source.ks meta.macro.ks punctuation.definition.array.end.bracket.square.ks
 >
+>
+ 
+ ^
+ source.ks meta.macro.ks
+>
 >            let field
              
  ^^^^^^^^^^^^
@@ -321,6 +335,11 @@ grammar: kaoscript.tmLanguage
                                   ^
                                   source.ks meta.macro.ks punctuation.definition.string.template.end.ks
 >
+>
+ 
+ ^
+ source.ks meta.macro.ks
+>
 >                fields.push(macro private #i(field): #i(component.type))
                  
  ^^^^^^^^^^^^^^^^
@@ -391,6 +410,11 @@ grammar: kaoscript.tmLanguage
                                                                         )
                                                                         ^
                                                                         source.ks meta.macro.ks punctuation.definition.arguments.end.bracket.round.ks
+>
+>
+ 
+ ^
+ source.ks meta.macro.ks
 >
 >                methods.push(macro {
                  
@@ -563,6 +587,11 @@ grammar: kaoscript.tmLanguage
                   ^
                   source.ks meta.macro.ks punctuation.definition.arguments.end.bracket.round.ks
 >
+>
+ 
+ ^
+ source.ks meta.macro.ks
+>
 >                expression.components[name].field = field
                  
  ^^^^^^^^^^^^^^^^
@@ -612,6 +641,11 @@ grammar: kaoscript.tmLanguage
              ^
              source.ks meta.macro.ks punctuation.definition.block.end.bracket.curly.ks
 >
+>
+ 
+ ^
+ source.ks meta.macro.ks
+>
 >            macro {
              
  ^^^^^^^^^^^^
@@ -648,6 +682,11 @@ grammar: kaoscript.tmLanguage
                                                   )
                                                   ^
                                                   source.ks meta.macro.ks punctuation.bracket.round.ks
+>
+>
+ 
+ ^
+ source.ks meta.macro.ks
 >
 >                impl Color {
                  impl Color 
@@ -789,6 +828,11 @@ grammar: kaoscript.tmLanguage
      ^
      source.ks meta.macro.ks punctuation.definition.block.end.bracket.curly.ks
 >
+>
+ 
+ ^
+ source.ks
+>
 >    getField(name) ~ Error {
      
  ^^^^
@@ -866,6 +910,11 @@ grammar: kaoscript.tmLanguage
      }
      ^
      source.ks punctuation.definition.block.end.bracket.curly.ks
+>
+>
+ 
+ ^
+ source.ks
 >
 >    setField(name, value) ~ Error {
      
@@ -958,6 +1007,11 @@ grammar: kaoscript.tmLanguage
  }
  ^
  source.ks punctuation.definition.class.end.bracket.curly.ks
+>
+>
+ 
+ ^
+ source.ks
 >
 >Color.registerSpace!({
  Color

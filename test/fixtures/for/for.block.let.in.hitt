@@ -2,7 +2,9 @@ original file
 -----------------------------------
 let hero = 'you'
 let index = 42
+
 heroes = ['leto', 'duncan', 'goku']
+
 for let hero, index in heroes {
     console.log('The hero at index %d is %s', index, hero)
 }
@@ -63,6 +65,11 @@ grammar: kaoscript.tmLanguage
              ^^
              source.ks constant.numeric.decimal.ks
 >
+>
+ 
+ ^
+ source.ks
+>
 >heroes = ['leto', 'duncan', 'goku']
  heroes
  ^^^^^^
@@ -121,6 +128,11 @@ grammar: kaoscript.tmLanguage
                                    ]
                                    ^
                                    source.ks punctuation.definition.array.end.bracket.square.ks
+>
+>
+ 
+ ^
+ source.ks
 >
 >for let hero, index in heroes {
  for

@@ -1,6 +1,7 @@
 original file
 -----------------------------------
 heroes = ['leto', 'duncan', 'goku']
+
 for :index in heroes {
     console.log(index)
 }
@@ -67,6 +68,11 @@ grammar: kaoscript.tmLanguage
                                    ]
                                    ^
                                    source.ks punctuation.definition.array.end.bracket.square.ks
+>
+>
+ 
+ ^
+ source.ks
 >
 >for :index in heroes {
  for

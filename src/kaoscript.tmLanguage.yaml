@@ -466,9 +466,21 @@ repository:
     begin: '^\s*(do)\b'
     beginCaptures:
         '1': { name: 'keyword.control.loop.do.ks' }
-    end: '(?<=\})'
+    end: '^\s*$'
     patterns:
     - include: '#block'
+    - begin: '\b(until)\b'
+      beginCaptures:
+        '1': { name: 'keyword.control.loop.until.ks' }
+      end: '$'
+      patterns:
+      - include: '#expression'
+    - begin: '\b(while)\b'
+      beginCaptures:
+        '1': { name: 'keyword.control.loop.while.ks' }
+      end: '$'
+      patterns:
+      - include: '#expression'
   # }}}
   else-statement: # {{{
     begin: '^\s*(else\b)(?=\s*\{|$)'

@@ -1,6 +1,7 @@
 original file
 -----------------------------------
 heroes = ['leto', 'duncan', 'goku']
+
 for    hero in heroes while hero != 'goku'
 {
     console.log(hero)
@@ -68,6 +69,11 @@ grammar: kaoscript.tmLanguage
                                    ]
                                    ^
                                    source.ks punctuation.definition.array.end.bracket.square.ks
+>
+>
+ 
+ ^
+ source.ks
 >
 >for    hero in heroes while hero != 'goku'
  for

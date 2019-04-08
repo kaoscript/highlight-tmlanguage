@@ -1,9 +1,12 @@
 original file
 -----------------------------------
 let foo = { bar: 'hello', baz: 3 }
+
 let {bar: a, baz: b} = foo
+
 console.log(a)
 // <- 'hello'
+
 console.log(b)
 // <- 3
 -----------------------------------
@@ -79,6 +82,11 @@ grammar: kaoscript.tmLanguage
                                   ^
                                   source.ks punctuation.definition.object.end.bracket.curly.ks
 >
+>
+ 
+ ^
+ source.ks
+>
 >let {bar: a, baz: b} = foo
  let
  ^^^
@@ -135,6 +143,11 @@ grammar: kaoscript.tmLanguage
                         ^^^
                         source.ks variable.other.ks
 >
+>
+ 
+ ^
+ source.ks
+>
 >console.log(a)
  console
  ^^^^^^^
@@ -162,6 +175,11 @@ grammar: kaoscript.tmLanguage
     <- 'hello'
    ^^^^^^^^^^^
    source.ks comment.line.double-slash.ks
+>
+>
+ 
+ ^
+ source.ks
 >
 >console.log(b)
  console

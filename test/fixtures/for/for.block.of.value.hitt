@@ -5,6 +5,7 @@ likes = {
     paul: 'chani'
     duncan: 'murbella'
 }
+
 for :value of likes {
     console.log(value)
 }
@@ -103,6 +104,11 @@ grammar: kaoscript.tmLanguage
  }
  ^
  source.ks punctuation.definition.object.end.bracket.curly.ks
+>
+>
+ 
+ ^
+ source.ks
 >
 >for :value of likes {
  for

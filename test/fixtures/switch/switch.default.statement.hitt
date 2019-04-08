@@ -1,6 +1,7 @@
 original file
 -----------------------------------
 let number = 13
+
 switch number {
     => {
         console.log("Ain't special")
@@ -33,6 +34,11 @@ grammar: kaoscript.tmLanguage
               13
               ^^
               source.ks constant.numeric.decimal.ks
+>
+>
+ 
+ ^
+ source.ks
 >
 >switch number {
  switch

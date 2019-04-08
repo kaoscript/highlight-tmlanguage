@@ -6,17 +6,22 @@ class Shape {
     }
     
     constructor(@color)
+
     draw(canvas): string {
         throw new Error('Not Implemented')
     }
 }
+
 class Rectangle extends Shape {
     constructor(@color)
+
     draw(canvas): string {
         return 'I\'m drawing a ' + this._color + ' rectangle.'
     }
 }
+
 let r = new Rectangle('black')
+
 expect(r.draw()).to.equal('I\'m drawing a black rectangle.')
 -----------------------------------
 
@@ -119,6 +124,11 @@ grammar: kaoscript.tmLanguage
                        ^
                        source.ks punctuation.definition.parameters.end.bracket.round.ks
 >
+>
+ 
+ ^
+ source.ks
+>
 >    draw(canvas): string {
      
  ^^^^
@@ -199,6 +209,11 @@ grammar: kaoscript.tmLanguage
  ^
  source.ks punctuation.definition.class.end.bracket.curly.ks
 >
+>
+ 
+ ^
+ source.ks
+>
 >class Rectangle extends Shape {
  class
  ^^^^^
@@ -247,6 +262,11 @@ grammar: kaoscript.tmLanguage
                        )
                        ^
                        source.ks punctuation.definition.parameters.end.bracket.round.ks
+>
+>
+ 
+ ^
+ source.ks
 >
 >    draw(canvas): string {
      
@@ -355,6 +375,11 @@ grammar: kaoscript.tmLanguage
  ^
  source.ks punctuation.definition.class.end.bracket.curly.ks
 >
+>
+ 
+ ^
+ source.ks
+>
 >let r = new Rectangle('black')
  let
  ^^^
@@ -398,6 +423,11 @@ grammar: kaoscript.tmLanguage
                               )
                               ^
                               source.ks punctuation.definition.arguments.end.bracket.round.ks
+>
+>
+ 
+ ^
+ source.ks
 >
 >expect(r.draw()).to.equal('I\'m drawing a black rectangle.')
  expect

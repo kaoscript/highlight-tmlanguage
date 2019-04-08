@@ -3,6 +3,7 @@ original file
 class Rectangle@1 {
     public color: String
     constructor(@color = 'black')
+
     draw(canvas) {
         return `I'm drawing a \(@color) rectangle.`
     }
@@ -95,6 +96,11 @@ grammar: kaoscript.tmLanguage
                                  )
                                  ^
                                  source.ks punctuation.definition.parameters.end.bracket.round.ks
+>
+>
+ 
+ ^
+ source.ks
 >
 >    draw(canvas) {
      

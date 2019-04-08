@@ -2,6 +2,7 @@ original file
 -----------------------------------
 type S = func(value: Number): Number
 type A = async func(value: Number): Number
+
 type S2 = (value: Number): Number
 type A2 = async (value: Number): Number
 -----------------------------------
@@ -114,6 +115,11 @@ grammar: kaoscript.tmLanguage
                                      Number
                                      ^^^^^^
                                      source.ks meta.function.return-type.ks support.type.primitive.ks
+>
+>
+ 
+ ^
+ source.ks
 >
 >type S2 = (value: Number): Number
  type

@@ -11,6 +11,7 @@ enum ANSIColor {
     white
     default
 }
+
 func color(fg: ANSIColor, bg: ANSIColor): String {
     let fg_code = switch fg {
         black => 30
@@ -35,6 +36,7 @@ func color(fg: ANSIColor, bg: ANSIColor): String {
         white => 47
         default => 49
     }
+
     return `\(fg_code);\(bg_code)m`
 }
 -----------------------------------
@@ -135,6 +137,11 @@ grammar: kaoscript.tmLanguage
  }
  ^
  source.ks punctuation.definition.enum.end.bracket.curly.ks
+>
+>
+ 
+ ^
+ source.ks
 >
 >func color(fg: ANSIColor, bg: ANSIColor): String {
  func
@@ -654,6 +661,11 @@ grammar: kaoscript.tmLanguage
      }
      ^
      source.ks punctuation.definition.switch.end.bracket.curly.ks
+>
+>
+ 
+ ^
+ source.ks
 >
 >    return `\(fg_code);\(bg_code)m`
      

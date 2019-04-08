@@ -3,9 +3,11 @@ original file
 export let foo = 'I\'m foo!'
 export const c = 3
 export const b = 5
+
 export func foo() {
     return c + b
 }
+
 export class BarQux {
     private {
         a: int
@@ -117,6 +119,11 @@ grammar: kaoscript.tmLanguage
                   ^
                   source.ks constant.numeric.decimal.ks
 >
+>
+ 
+ ^
+ source.ks
+>
 >export func foo() {
  export
  ^^^^^^
@@ -176,6 +183,11 @@ grammar: kaoscript.tmLanguage
  }
  ^
  source.ks punctuation.definition.block.end.bracket.curly.ks
+>
+>
+ 
+ ^
+ source.ks
 >
 >export class BarQux {
  export

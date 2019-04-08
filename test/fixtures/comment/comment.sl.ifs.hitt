@@ -2,6 +2,7 @@ original file
 -----------------------------------
 if foo {
 }
+
 // test
 if bar {
 }
@@ -31,6 +32,11 @@ grammar: kaoscript.tmLanguage
  }
  ^
  source.ks punctuation.definition.block.end.bracket.curly.ks
+>
+>
+ 
+ ^
+ source.ks
 >
 >// test
  //

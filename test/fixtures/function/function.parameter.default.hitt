@@ -3,18 +3,23 @@ original file
 func foo(item = 1) {
     console.log(item)
 }
+
 func bar(item: any = 1) {
     console.log(item)
 }
+
 func baz(item: any? = 1) {
     console.log(item)
 }
+
 func qux(item: int = 1) {
     console.log(item)
 }
+
 func quux(item: int? = 1) {
     console.log(item)
 }
+
 func corge(item? = 1) {
     console.log(item)
 }
@@ -88,6 +93,11 @@ grammar: kaoscript.tmLanguage
  }
  ^
  source.ks punctuation.definition.block.end.bracket.curly.ks
+>
+>
+ 
+ ^
+ source.ks
 >
 >func bar(item: any = 1) {
  func
@@ -163,6 +173,11 @@ grammar: kaoscript.tmLanguage
  }
  ^
  source.ks punctuation.definition.block.end.bracket.curly.ks
+>
+>
+ 
+ ^
+ source.ks
 >
 >func baz(item: any? = 1) {
  func
@@ -242,6 +257,11 @@ grammar: kaoscript.tmLanguage
  ^
  source.ks punctuation.definition.block.end.bracket.curly.ks
 >
+>
+ 
+ ^
+ source.ks
+>
 >func qux(item: int = 1) {
  func
  ^^^^
@@ -316,6 +336,11 @@ grammar: kaoscript.tmLanguage
  }
  ^
  source.ks punctuation.definition.block.end.bracket.curly.ks
+>
+>
+ 
+ ^
+ source.ks
 >
 >func quux(item: int? = 1) {
  func
@@ -394,6 +419,11 @@ grammar: kaoscript.tmLanguage
  }
  ^
  source.ks punctuation.definition.block.end.bracket.curly.ks
+>
+>
+ 
+ ^
+ source.ks
 >
 >func corge(item? = 1) {
  func

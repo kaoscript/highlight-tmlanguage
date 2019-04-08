@@ -1,6 +1,7 @@
 original file
 -----------------------------------
 require Color: class, Space: enum
+
 impl Color {
     private _luma: int
     
@@ -8,6 +9,7 @@ impl Color {
     
     luma(@luma) => this
 }
+
 export Color, Space
 -----------------------------------
 
@@ -51,6 +53,11 @@ grammar: kaoscript.tmLanguage
                               enum
                               ^^^^
                               source.ks meta.type.annotation.ks support.type.primitive.ks
+>
+>
+ 
+ ^
+ source.ks
 >
 >impl Color {
  impl
@@ -176,6 +183,11 @@ grammar: kaoscript.tmLanguage
  }
  ^
  source.ks punctuation.definition.implement.end.bracket.curly.ks
+>
+>
+ 
+ ^
+ source.ks
 >
 >export Color, Space
  export

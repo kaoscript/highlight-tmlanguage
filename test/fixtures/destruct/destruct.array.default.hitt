@@ -1,6 +1,7 @@
 original file
 -----------------------------------
 let arr = [1, '', true]
+
 let [a, b, c] = arr
 -----------------------------------
 
@@ -56,6 +57,11 @@ grammar: kaoscript.tmLanguage
                        ]
                        ^
                        source.ks punctuation.definition.array.end.bracket.square.ks
+>
+>
+ 
+ ^
+ source.ks
 >
 >let [a, b, c] = arr
  let

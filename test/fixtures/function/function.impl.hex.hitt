@@ -3,6 +3,7 @@ original file
 func hex(n: string | number): int { // {{{
     return Float.parse(n).limit(0, 255).round()
 } // }}}
+
 console.log(hex(128))
 -----------------------------------
 
@@ -152,6 +153,11 @@ grammar: kaoscript.tmLanguage
       }}}
      ^^^^
      source.ks comment.line.double-slash.ks
+>
+>
+ 
+ ^
+ source.ks
 >
 >console.log(hex(128))
  console

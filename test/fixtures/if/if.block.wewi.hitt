@@ -1,6 +1,7 @@
 original file
 -----------------------------------
 let x = 5
+
 if x == 5 {
 }
 else if x == 6 {
@@ -34,6 +35,11 @@ grammar: kaoscript.tmLanguage
          5
          ^
          source.ks constant.numeric.decimal.ks
+>
+>
+ 
+ ^
+ source.ks
 >
 >if x == 5 {
  if

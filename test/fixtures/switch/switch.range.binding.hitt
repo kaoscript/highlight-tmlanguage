@@ -1,6 +1,7 @@
 original file
 -----------------------------------
 func age(): int => 15
+
 func main() {
     switch age() {
         0                    => console.log(`I'm not born yet I guess`)
@@ -51,6 +52,11 @@ grammar: kaoscript.tmLanguage
                     15
                     ^^
                     source.ks constant.numeric.decimal.ks
+>
+>
+ 
+ ^
+ source.ks
 >
 >func main() {
  func

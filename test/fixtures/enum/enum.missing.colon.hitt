@@ -5,6 +5,7 @@ enum Kind {
     B
     C
 }
+
 let k = Kind:A
 -----------------------------------
 
@@ -56,6 +57,11 @@ grammar: kaoscript.tmLanguage
  }
  ^
  source.ks punctuation.definition.enum.end.bracket.curly.ks
+>
+>
+ 
+ ^
+ source.ks
 >
 >let k = Kind:A
  let

@@ -6,7 +6,9 @@ enum CardSuit<string> {
     Hearts
     Spades
 }
+
 let card = CardSuit::Clubs
+
 console.log(card)
 // <- clubs
 -----------------------------------
@@ -77,6 +79,11 @@ grammar: kaoscript.tmLanguage
  ^
  source.ks punctuation.definition.enum.end.bracket.curly.ks
 >
+>
+ 
+ ^
+ source.ks
+>
 >let card = CardSuit::Clubs
  let
  ^^^
@@ -105,6 +112,11 @@ grammar: kaoscript.tmLanguage
                       Clubs
                       ^^^^^
                       source.ks variable.other.property.enum.ks
+>
+>
+ 
+ ^
+ source.ks
 >
 >console.log(card)
  console
