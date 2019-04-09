@@ -1419,7 +1419,7 @@ repository:
     - name: 'constant.numeric.decimal.ks'
       match: '\b[0-9][_0-9]*(?:\.[_0-9]+)?(?:[eE][-+]?[_0-9]+|[a-zA-Z]*)\b'
     - name: 'constant.numeric.decimal.ks'
-      match: '\b\.[_0-9]+(?:[eE][-+]?[_0-9]+|[a-zA-Z]*)\b'
+      match: '\b\.[0-9][_0-9]*(?:[eE][-+]?[_0-9]+|[a-zA-Z]*)\b'
     - name: 'constant.numeric.radix.ks'
       match: '\b(?:[0-9]|[1-2][0-9]|3[0-6])r[_0-9a-zA-Z]+(\.[_0-9a-zA-Z]+)?\b'
   # }}}

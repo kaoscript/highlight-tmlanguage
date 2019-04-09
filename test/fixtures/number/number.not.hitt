@@ -1,0 +1,63 @@
+original file
+-----------------------------------
+foo._bar = 42
+
+@foo._bar = 42
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>foo._bar = 42
+ foo
+ ^^^
+ source.ks variable.other.object.ks
+    .
+    ^
+    source.ks punctuation.accessor.object.ks
+     _bar
+     ^^^^
+     source.ks variable.other.property.object.ks
+          
+         ^
+         source.ks
+          =
+          ^
+          source.ks keyword.operator.assignment.ks
+            
+           ^
+           source.ks
+            42
+            ^^
+            source.ks constant.numeric.decimal.ks
+>
+>
+ 
+ ^
+ source.ks
+>
+>@foo._bar = 42
+ @
+ ^
+ source.ks storage.modifier.instance.ks
+  foo
+  ^^^
+  source.ks variable.other.instance.ks
+     .
+     ^
+     source.ks punctuation.accessor.object.ks
+      _bar
+      ^^^^
+      source.ks variable.other.property.object.ks
+           
+          ^
+          source.ks
+           =
+           ^
+           source.ks keyword.operator.assignment.ks
+             
+            ^
+            source.ks
+             42
+             ^^
+             source.ks constant.numeric.decimal.ks
