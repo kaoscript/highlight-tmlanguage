@@ -1,0 +1,105 @@
+original file
+-----------------------------------
+let foo = {
+    `\(bar)`(name: String) {
+        return name
+    }
+}
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>let foo = {
+ let
+ ^^^
+ source.ks storage.type.readwrite.ks
+     
+    ^
+    source.ks
+     foo
+     ^^^
+     source.ks meta.definition.variable.ks variable.other.readwrite.ks
+         
+        ^
+        source.ks
+         =
+         ^
+         source.ks keyword.operator.assignment.ks
+           
+          ^
+          source.ks
+           {
+           ^
+           source.ks punctuation.definition.object.begin.bracket.curly.ks
+>
+>    `\(bar)`(name: String) {
+     
+ ^^^^
+ source.ks
+     `
+     ^
+     source.ks meta.object-literal.key.ks punctuation.definition.string.template.begin.ks
+      \(
+      ^^
+      source.ks meta.object-literal.key.ks punctuation.definition.template-expression.begin.ks
+        bar
+        ^^^
+        source.ks meta.object-literal.key.ks variable.other.ks
+           )
+           ^
+           source.ks meta.object-literal.key.ks punctuation.definition.template-expression.end.ks
+            `
+            ^
+            source.ks meta.object-literal.key.ks punctuation.definition.string.template.end.ks
+             (
+             ^
+             source.ks meta.definition.method.ks punctuation.definition.parameters.begin.bracket.round.ks
+              name
+              ^^^^
+              source.ks meta.definition.method.ks variable.parameter.ks
+                  :
+                  ^
+                  source.ks meta.definition.method.ks meta.type.annotation.ks keyword.operator.type.annotation.ks
+                    
+                   ^
+                   source.ks meta.definition.method.ks meta.type.annotation.ks
+                    String
+                    ^^^^^^
+                    source.ks meta.definition.method.ks meta.type.annotation.ks support.type.primitive.ks
+                          )
+                          ^
+                          source.ks meta.definition.method.ks punctuation.definition.parameters.end.bracket.round.ks
+                            
+                           ^
+                           source.ks meta.definition.method.ks
+                            {
+                            ^
+                            source.ks meta.definition.method.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>        return name
+         
+ ^^^^^^^^
+ source.ks meta.definition.method.ks
+         return
+         ^^^^^^
+         source.ks meta.definition.method.ks keyword.control.flow.return.ks
+                
+               ^
+               source.ks meta.definition.method.ks
+                name
+                ^^^^
+                source.ks meta.definition.method.ks variable.other.ks
+>
+>    }
+     
+ ^^^^
+ source.ks meta.definition.method.ks
+     }
+     ^
+     source.ks meta.definition.method.ks punctuation.definition.block.end.bracket.curly.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.object.end.bracket.curly.ks

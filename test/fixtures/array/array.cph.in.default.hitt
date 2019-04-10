@@ -1,0 +1,135 @@
+original file
+-----------------------------------
+heroes = ['leto', 'duncan', 'goku']
+
+evenHeroes = [hero for const hero, index in heroes]
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>heroes = ['leto', 'duncan', 'goku']
+ heroes
+ ^^^^^^
+ source.ks variable.other.ks
+        
+       ^
+       source.ks
+        =
+        ^
+        source.ks keyword.operator.assignment.ks
+          
+         ^
+         source.ks
+          [
+          ^
+          source.ks punctuation.definition.array.begin.bracket.square.ks
+           '
+           ^
+           source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
+            leto
+            ^^^^
+            source.ks string.quoted.single.ks
+                '
+                ^
+                source.ks string.quoted.single.ks punctuation.definition.string.end.ks
+                 ,
+                 ^
+                 source.ks punctuation.separator.comma.ks
+                   
+                  ^
+                  source.ks
+                   '
+                   ^
+                   source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
+                    duncan
+                    ^^^^^^
+                    source.ks string.quoted.single.ks
+                          '
+                          ^
+                          source.ks string.quoted.single.ks punctuation.definition.string.end.ks
+                           ,
+                           ^
+                           source.ks punctuation.separator.comma.ks
+                             
+                            ^
+                            source.ks
+                             '
+                             ^
+                             source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
+                              goku
+                              ^^^^
+                              source.ks string.quoted.single.ks
+                                  '
+                                  ^
+                                  source.ks string.quoted.single.ks punctuation.definition.string.end.ks
+                                   ]
+                                   ^
+                                   source.ks punctuation.definition.array.end.bracket.square.ks
+>
+>
+ 
+ ^
+ source.ks
+>
+>evenHeroes = [hero for const hero, index in heroes]
+ evenHeroes
+ ^^^^^^^^^^
+ source.ks variable.other.ks
+            
+           ^
+           source.ks
+            =
+            ^
+            source.ks keyword.operator.assignment.ks
+              
+             ^
+             source.ks
+              [
+              ^
+              source.ks punctuation.definition.array.begin.bracket.square.ks
+               hero
+               ^^^^
+               source.ks variable.other.ks
+                    
+                   ^
+                   source.ks
+                    for
+                    ^^^
+                    source.ks keyword.control.loop.for.ks
+                        
+                       ^
+                       source.ks
+                        const
+                        ^^^^^
+                        source.ks storage.type.constant.ks
+                              
+                             ^
+                             source.ks
+                              hero
+                              ^^^^
+                              source.ks meta.definition.variable.ks variable.other.constant.ks
+                                  ,
+                                  ^
+                                  source.ks punctuation.separator.comma.ks
+                                    
+                                   ^
+                                   source.ks
+                                    index
+                                    ^^^^^
+                                    source.ks meta.definition.variable.ks variable.other.constant.ks
+                                          
+                                         ^
+                                         source.ks
+                                          in
+                                          ^^
+                                          source.ks keyword.control.loop.ks
+                                             
+                                            ^
+                                            source.ks
+                                             heroes
+                                             ^^^^^^
+                                             source.ks variable.other.ks
+                                                   ]
+                                                   ^
+                                                   source.ks punctuation.definition.array.end.bracket.square.ks

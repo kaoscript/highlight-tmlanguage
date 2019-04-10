@@ -41,9 +41,23 @@ repository:
         '0': { name: 'keyword.control.loop.for.ks' }
       end: (?=\])
       patterns:
-        - name: 'keyword.control.loop.ks'
-          match: '\b(by|from|in|of|til|to|until|when|while)\b'
-        - include: '#expression'
+      - begin: 'const'
+        beginCaptures:
+          '0': { name: 'storage.type.constant.ks' }
+        end: '(?=\bfrom\b|\bin\b|\bof\b)'
+        patterns:
+        - include: '#const-statement-variable'
+      - begin: 'let'
+        beginCaptures:
+          '0': { name: 'storage.type.readwrite.ks' }
+        end: '(?=\bfrom\b|\bin\b|\bof\b)'
+        patterns:
+        - include: '#let-statement-variable'
+      - name: 'keyword.control.loop.ks'
+        match: '\b(by|desc|from|in|of|til|to|until|when|while)\b'
+      - name: 'keyword.operator.range.ks'
+        match: '(?<!\.)\<?\.\.\<?(?!\.)'
+      - include: '#expression'
     - include: '#expression'
   # }}}
   array-accessor: # {{{
@@ -1445,7 +1459,7 @@ repository:
       patterns:
         - name: 'meta.object-literal.key.ks'
           begin: (?=['"`\[])
-          end: (?=:)
+          end: (?=:|\()
           patterns:
           - include: '#expression'
         - begin: '\:'
@@ -1454,6 +1468,20 @@ repository:
           end: '(?=$|\,|\})'
           patterns:
           - include: '#expression'
+        - name: 'meta.definition.method.ks'
+          begin: '(?=\()'
+          end: '(?<=\}|$)'
+          patterns:
+          - include: '#function-parameters'
+          - include: '#function-return-type'
+          - include: '#function-throwables'
+          - include: '#block'
+          - begin: '=>'
+            beginCaptures:
+              '0': { name: 'storage.type.function.arrow.ks' }
+            end: '(?=$|[,\)\]])'
+            patterns:
+            - include: '#expression'
     - name: 'meta.definition.method.ks'
       begin: '(?:(\basync)\s+)?({{identifier}})\s*(?=\()'
       beginCaptures:
@@ -1545,7 +1573,7 @@ repository:
       patterns:
       - include: '#type'
     - name: 'punctuation.accessor.object.ks'
-      match: '\.'
+      match: '(?<!\.)\.(?!\.)'
     - name: 'keyword.operator.existential.ks'
       match: '\?'
     - match: '(?<=[_$[:alnum:]\)\]])\s*(if\b)'

@@ -1,0 +1,108 @@
+original file
+-----------------------------------
+a = [i for i from 0 til 10 while foo(i) when bar(i)]
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>a = [i for i from 0 til 10 while foo(i) when bar(i)]
+ a
+ ^
+ source.ks variable.other.ks
+   
+  ^
+  source.ks
+   =
+   ^
+   source.ks keyword.operator.assignment.ks
+     
+    ^
+    source.ks
+     [
+     ^
+     source.ks punctuation.definition.array.begin.bracket.square.ks
+      i
+      ^
+      source.ks variable.other.ks
+        
+       ^
+       source.ks
+        for
+        ^^^
+        source.ks keyword.control.loop.for.ks
+            
+           ^
+           source.ks
+            i
+            ^
+            source.ks variable.other.ks
+              
+             ^
+             source.ks
+              from
+              ^^^^
+              source.ks keyword.control.loop.ks
+                   
+                  ^
+                  source.ks
+                   0
+                   ^
+                   source.ks constant.numeric.decimal.ks
+                     
+                    ^
+                    source.ks
+                     til
+                     ^^^
+                     source.ks keyword.control.loop.ks
+                         
+                        ^
+                        source.ks
+                         10
+                         ^^
+                         source.ks constant.numeric.decimal.ks
+                            
+                           ^
+                           source.ks
+                            while
+                            ^^^^^
+                            source.ks keyword.control.loop.ks
+                                  
+                                 ^
+                                 source.ks
+                                  foo
+                                  ^^^
+                                  source.ks entity.name.function.ks
+                                     (
+                                     ^
+                                     source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                                      i
+                                      ^
+                                      source.ks variable.other.ks
+                                       )
+                                       ^
+                                       source.ks punctuation.definition.arguments.end.bracket.round.ks
+                                         
+                                        ^
+                                        source.ks
+                                         when
+                                         ^^^^
+                                         source.ks keyword.control.loop.ks
+                                              
+                                             ^
+                                             source.ks
+                                              bar
+                                              ^^^
+                                              source.ks entity.name.function.ks
+                                                 (
+                                                 ^
+                                                 source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                                                  i
+                                                  ^
+                                                  source.ks variable.other.ks
+                                                   )
+                                                   ^
+                                                   source.ks punctuation.definition.arguments.end.bracket.round.ks
+                                                    ]
+                                                    ^
+                                                    source.ks punctuation.definition.array.end.bracket.square.ks

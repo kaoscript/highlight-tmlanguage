@@ -103,10 +103,58 @@
             <key>patterns</key>
             <array>
               <dict>
+                <key>begin</key>
+                <string>const</string>
+                <key>beginCaptures</key>
+                <dict>
+                  <key>0</key>
+                  <dict>
+                    <key>name</key>
+                    <string>storage.type.constant.ks</string>
+                  </dict>
+                </dict>
+                <key>end</key>
+                <string>(?=\bfrom\b|\bin\b|\bof\b)</string>
+                <key>patterns</key>
+                <array>
+                  <dict>
+                    <key>include</key>
+                    <string>#const-statement-variable</string>
+                  </dict>
+                </array>
+              </dict>
+              <dict>
+                <key>begin</key>
+                <string>let</string>
+                <key>beginCaptures</key>
+                <dict>
+                  <key>0</key>
+                  <dict>
+                    <key>name</key>
+                    <string>storage.type.readwrite.ks</string>
+                  </dict>
+                </dict>
+                <key>end</key>
+                <string>(?=\bfrom\b|\bin\b|\bof\b)</string>
+                <key>patterns</key>
+                <array>
+                  <dict>
+                    <key>include</key>
+                    <string>#let-statement-variable</string>
+                  </dict>
+                </array>
+              </dict>
+              <dict>
                 <key>name</key>
                 <string>keyword.control.loop.ks</string>
                 <key>match</key>
-                <string>\b(by|from|in|of|til|to|until|when|while)\b</string>
+                <string>\b(by|desc|from|in|of|til|to|until|when|while)\b</string>
+              </dict>
+              <dict>
+                <key>name</key>
+                <string>keyword.operator.range.ks</string>
+                <key>match</key>
+                <string>(?&lt;!\.)\&lt;?\.\.\&lt;?(?!\.)</string>
               </dict>
               <dict>
                 <key>include</key>
@@ -4703,7 +4751,7 @@
                 <key>begin</key>
                 <string>(?=['"`\[])</string>
                 <key>end</key>
-                <string>(?=:)</string>
+                <string>(?=:|\()</string>
                 <key>patterns</key>
                 <array>
                   <dict>
@@ -4730,6 +4778,54 @@
                   <dict>
                     <key>include</key>
                     <string>#expression</string>
+                  </dict>
+                </array>
+              </dict>
+              <dict>
+                <key>name</key>
+                <string>meta.definition.method.ks</string>
+                <key>begin</key>
+                <string>(?=\()</string>
+                <key>end</key>
+                <string>(?&lt;=\}|$)</string>
+                <key>patterns</key>
+                <array>
+                  <dict>
+                    <key>include</key>
+                    <string>#function-parameters</string>
+                  </dict>
+                  <dict>
+                    <key>include</key>
+                    <string>#function-return-type</string>
+                  </dict>
+                  <dict>
+                    <key>include</key>
+                    <string>#function-throwables</string>
+                  </dict>
+                  <dict>
+                    <key>include</key>
+                    <string>#block</string>
+                  </dict>
+                  <dict>
+                    <key>begin</key>
+                    <string>=&gt;</string>
+                    <key>beginCaptures</key>
+                    <dict>
+                      <key>0</key>
+                      <dict>
+                        <key>name</key>
+                        <string>storage.type.function.arrow.ks</string>
+                      </dict>
+                    </dict>
+                    <key>end</key>
+                    <string>(?=$|[,\)\]])</string>
+                    <key>patterns</key>
+                    <array>
+                      <dict>
+                        <key>include</key>
+                        <string>#expression</string>
+                      </dict>
+                    </array>
                   </dict>
                 </array>
               </dict>
@@ -5035,7 +5131,7 @@
             <key>name</key>
             <string>punctuation.accessor.object.ks</string>
             <key>match</key>
-            <string>\.</string>
+            <string>(?&lt;!\.)\.(?!\.)</string>
           </dict>
           <dict>
             <key>name</key>

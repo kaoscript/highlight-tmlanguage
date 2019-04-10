@@ -1,0 +1,66 @@
+original file
+-----------------------------------
+a = [i for const i in 0..10]
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>a = [i for const i in 0..10]
+ a
+ ^
+ source.ks variable.other.ks
+   
+  ^
+  source.ks
+   =
+   ^
+   source.ks keyword.operator.assignment.ks
+     
+    ^
+    source.ks
+     [
+     ^
+     source.ks punctuation.definition.array.begin.bracket.square.ks
+      i
+      ^
+      source.ks variable.other.ks
+        
+       ^
+       source.ks
+        for
+        ^^^
+        source.ks keyword.control.loop.for.ks
+            
+           ^
+           source.ks
+            const
+            ^^^^^
+            source.ks storage.type.constant.ks
+                  
+                 ^
+                 source.ks
+                  i
+                  ^
+                  source.ks meta.definition.variable.ks variable.other.constant.ks
+                    
+                   ^
+                   source.ks
+                    in
+                    ^^
+                    source.ks keyword.control.loop.ks
+                       
+                      ^
+                      source.ks
+                       0
+                       ^
+                       source.ks constant.numeric.decimal.ks
+                        ..
+                        ^^
+                        source.ks keyword.operator.range.ks
+                          10
+                          ^^
+                          source.ks constant.numeric.decimal.ks
+                            ]
+                            ^
+                            source.ks punctuation.definition.array.end.bracket.square.ks
