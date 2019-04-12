@@ -46,17 +46,23 @@ repository:
           '0': { name: 'storage.type.constant.ks' }
         end: '(?=\bfrom\b|\bin\b|\bof\b)'
         patterns:
+        - name: 'punctuation.separator.alternative-value.ks'
+          match: ':'
         - include: '#const-statement-variable'
       - begin: 'let'
         beginCaptures:
           '0': { name: 'storage.type.readwrite.ks' }
         end: '(?=\bfrom\b|\bin\b|\bof\b)'
         patterns:
+        - name: 'punctuation.separator.alternative-value.ks'
+          match: ':'
         - include: '#let-statement-variable'
       - name: 'keyword.control.loop.ks'
         match: '\b(by|desc|from|in|of|til|to|until|when|while)\b'
       - name: 'keyword.operator.range.ks'
         match: '(?<!\.)\<?\.\.\<?(?!\.)'
+      - name: 'punctuation.separator.alternative-value.ks'
+        match: ':'
       - include: '#expression'
     - include: '#expression'
   # }}}

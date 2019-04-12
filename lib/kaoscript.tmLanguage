@@ -118,6 +118,12 @@
                 <key>patterns</key>
                 <array>
                   <dict>
+                    <key>name</key>
+                    <string>punctuation.separator.alternative-value.ks</string>
+                    <key>match</key>
+                    <string>:</string>
+                  </dict>
+                  <dict>
                     <key>include</key>
                     <string>#const-statement-variable</string>
                   </dict>
@@ -139,6 +145,12 @@
                 <key>patterns</key>
                 <array>
                   <dict>
+                    <key>name</key>
+                    <string>punctuation.separator.alternative-value.ks</string>
+                    <key>match</key>
+                    <string>:</string>
+                  </dict>
+                  <dict>
                     <key>include</key>
                     <string>#let-statement-variable</string>
                   </dict>
@@ -155,6 +167,12 @@
                 <string>keyword.operator.range.ks</string>
                 <key>match</key>
                 <string>(?&lt;!\.)\&lt;?\.\.\&lt;?(?!\.)</string>
+              </dict>
+              <dict>
+                <key>name</key>
+                <string>punctuation.separator.alternative-value.ks</string>
+                <key>match</key>
+                <string>:</string>
               </dict>
               <dict>
                 <key>include</key>
