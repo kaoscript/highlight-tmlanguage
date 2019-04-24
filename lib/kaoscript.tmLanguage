@@ -2288,6 +2288,12 @@
             <array>
               <dict>
                 <key>name</key>
+                <string>storage.modifier.extends.ks</string>
+                <key>match</key>
+                <string>\bextends\b</string>
+              </dict>
+              <dict>
+                <key>name</key>
                 <string>entity.name.type.class.ks</string>
                 <key>match</key>
                 <string>[_$[:alpha:]][_$[:alnum:]]*</string>
@@ -4763,6 +4769,10 @@
             <string>(?=$|\,|\})</string>
             <key>patterns</key>
             <array>
+              <dict>
+                <key>include</key>
+                <string>#comment</string>
+              </dict>
               <dict>
                 <key>name</key>
                 <string>meta.object-literal.key.ks</string>
