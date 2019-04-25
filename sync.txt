@@ -1,4 +1,5 @@
 function.parameter.timeout
 macro.quirk
 number.not
+object.comment.template
 operator.spread.this

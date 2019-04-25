@@ -13,14 +13,6 @@ const destRoot = path.join(__dirname, 'test', 'fixtures')
 const fixtures = fs.readFileSync('./sync.txt', 'utf8').split(/\n/g)
 
 // 1. update existing files
-for file in klaw(srcRoot, {
-	nodir: true,
-	traverseAll: true,
-	filter: item => item.path.slice(-3) == '.ks'
-}) {
-	update(file.path)
-}
-
 func update(srcPath) { // {{{
 	return unless fs.existsSync(srcPath.slice(0, -3) + '.json')
 
@@ -60,15 +52,15 @@ func write(dirname, srcFilename, destFilename) { // {{{
 	outputFileSync(path.join(destRoot, dirname, destFilename), data)
 } // }}}
 
-// 2. remove old files
-for file in klaw(destRoot, {
+for file in klaw(srcRoot, {
 	nodir: true,
 	traverseAll: true,
 	filter: item => item.path.slice(-3) == '.ks'
 }) {
-	check(file.path)
+	update(file.path)
 }
 
+// 2. remove old files
 func check(destPath) { // {{{
 	const dirname = path.basename(path.dirname(destPath).substr(destRoot.length))
 	const filename = path.basename(destPath)
@@ -90,3 +82,11 @@ func check(destPath) { // {{{
 		}
 	}
 } // }}}
+
+for file in klaw(destRoot, {
+	nodir: true,
+	traverseAll: true,
+	filter: item => item.path.slice(-3) == '.ks'
+}) {
+	check(file.path)
+}
