@@ -8,6 +8,8 @@ z = x * y
 
 z = x / y
 
+z = x /. y
+
 z = x % y
 
 z = x > y
@@ -25,6 +27,10 @@ z = x != y
 z = x && y
 
 z = x || y
+
+z = x -> y
+
+z = x ^^ y
 
 z = x >> y
 
@@ -172,6 +178,40 @@ grammar: kaoscript.tmLanguage
          y
          ^
          source.ks variable.other.ks
+>
+>
+ 
+ ^
+ source.ks
+>
+>z = x /. y
+ z
+ ^
+ source.ks variable.other.ks
+   
+  ^
+  source.ks
+   =
+   ^
+   source.ks keyword.operator.assignment.ks
+     
+    ^
+    source.ks
+     x
+     ^
+     source.ks variable.other.ks
+       
+      ^
+      source.ks
+       /.
+       ^^
+       source.ks keyword.operator.arithmetic.ks
+          
+         ^
+         source.ks
+          y
+          ^
+          source.ks variable.other.ks
 >
 >
  
@@ -470,6 +510,74 @@ grammar: kaoscript.tmLanguage
       ^
       source.ks
        ||
+       ^^
+       source.ks keyword.operator.logical.ks
+          
+         ^
+         source.ks
+          y
+          ^
+          source.ks variable.other.ks
+>
+>
+ 
+ ^
+ source.ks
+>
+>z = x -> y
+ z
+ ^
+ source.ks variable.other.ks
+   
+  ^
+  source.ks
+   =
+   ^
+   source.ks keyword.operator.assignment.ks
+     
+    ^
+    source.ks
+     x
+     ^
+     source.ks variable.other.ks
+       
+      ^
+      source.ks
+       ->
+       ^^
+       source.ks keyword.operator.logical.ks
+          
+         ^
+         source.ks
+          y
+          ^
+          source.ks variable.other.ks
+>
+>
+ 
+ ^
+ source.ks
+>
+>z = x ^^ y
+ z
+ ^
+ source.ks variable.other.ks
+   
+  ^
+  source.ks
+   =
+   ^
+   source.ks keyword.operator.assignment.ks
+     
+    ^
+    source.ks
+     x
+     ^
+     source.ks variable.other.ks
+       
+      ^
+      source.ks
+       ^^
        ^^
        source.ks keyword.operator.logical.ks
           

@@ -1304,7 +1304,7 @@
               </dict>
             </dict>
             <key>end</key>
-            <string>$|(?=\s*\=)</string>
+            <string>$|(?=\s*[=,])</string>
             <key>patterns</key>
             <array>
               <dict>
@@ -4341,7 +4341,7 @@
               </dict>
             </dict>
             <key>end</key>
-            <string>$|(?=\s*\:?\=)</string>
+            <string>$|(?=\s*(?:\:?\=|,))</string>
             <key>patterns</key>
             <array>
               <dict>
@@ -4688,7 +4688,7 @@
             <key>name</key>
             <string>constant.numeric.decimal.ks</string>
             <key>match</key>
-            <string>\b[0-9][_0-9]*(?:\.[_0-9]+)?(?:[eE][-+]?[_0-9]+|[a-zA-Z]*)\b</string>
+            <string>\b[0-9][_0-9]*(?:\.[_0-9]+)?(?:[eE][-+]?[_0-9]+)?[a-zA-Z]*\b</string>
           </dict>
           <dict>
             <key>name</key>
@@ -4991,7 +4991,7 @@
             <key>name</key>
             <string>keyword.operator.assignment.compound.ks</string>
             <key>match</key>
-            <string>\+=|-=|\*=|(?&lt;!\()/=|%=|\?\?=|!\?=|\?=</string>
+            <string>\+=|-=|\*=|(?&lt;!\()/\.?=|%=|\?\?=|!\?=|\?=</string>
           </dict>
           <dict>
             <key>name</key>
@@ -5015,7 +5015,7 @@
             <key>name</key>
             <string>keyword.operator.logical.ks</string>
             <key>match</key>
-            <string>\|\||&amp;&amp;|!</string>
+            <string>\|\||&amp;&amp;|\^\^|-&gt;|!</string>
           </dict>
           <dict>
             <key>name</key>
@@ -5051,7 +5051,7 @@
             <key>name</key>
             <string>keyword.operator.arithmetic.ks</string>
             <key>match</key>
-            <string>\+|-|\*|/|%</string>
+            <string>\+|-|\*|/\.|/|%</string>
           </dict>
           <dict>
             <key>name</key>

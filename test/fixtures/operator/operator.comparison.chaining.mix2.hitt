@@ -1,0 +1,72 @@
+original file
+-----------------------------------
+if a < b <= c < d {
+
+}
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>if a < b <= c < d {
+ if
+ ^^
+ source.ks keyword.control.conditional.if.ks
+    
+   ^
+   source.ks
+    a
+    ^
+    source.ks variable.other.ks
+      
+     ^
+     source.ks
+      <
+      ^
+      source.ks keyword.operator.comparison.ks
+        
+       ^
+       source.ks
+        b
+        ^
+        source.ks variable.other.ks
+          
+         ^
+         source.ks
+          <=
+          ^^
+          source.ks keyword.operator.comparison.ks
+             
+            ^
+            source.ks
+             c
+             ^
+             source.ks variable.other.ks
+               
+              ^
+              source.ks
+               <
+               ^
+               source.ks keyword.operator.comparison.ks
+                 
+                ^
+                source.ks
+                 d
+                 ^
+                 source.ks variable.other.ks
+                   
+                  ^
+                  source.ks
+                   {
+                   ^
+                   source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>
+ 
+ ^
+ source.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.block.end.bracket.curly.ks

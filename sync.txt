@@ -1,3 +1,5 @@
+await.exec.const
+await.exec.let
 function.parameter.timeout
 macro.quirk
 number.not

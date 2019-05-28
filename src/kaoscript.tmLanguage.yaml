@@ -401,27 +401,11 @@ repository:
     - include: '#binding-object'
     - name: 'meta.definition.variable.ks variable.other.constant.ks'
       match: '{{identifier}}'
-      # - begin: '\['
-      #   beginCaptures:
-      #     '0': { name: 'punctuation.definition.binding-pattern.array.begin.bracket.square.ks' }
-      #   end: '\]'
-      #   endCaptures:
-      #     '0': { name: 'punctuation.definition.binding-pattern.array.end.bracket.square.ks' }
-      #   patterns:
-      #     - include: '#const-statement-variable'
-      # - begin: '\{'
-      #   beginCaptures:
-      #     '0': { name: 'punctuation.definition.binding-pattern.object.begin.bracket.square.ks' }
-      #   end: '\}'
-      #   endCaptures:
-      #     '0': { name: 'punctuation.definition.binding-pattern.object.end.bracket.square.ks' }
-      #   patterns:
-      #     - include: '#const-statement-variable'
     - name: 'meta.type.annotation.ks'
       begin: '(\:)'
       beginCaptures:
         '1': { name: 'keyword.operator.type.annotation.ks' }
-      end: '$|(?=\s*\=)'
+      end: '$|(?=\s*[=,])'
       patterns:
       - include: '#type'
     - include: '#comma'
@@ -1334,7 +1318,7 @@ repository:
       begin: '(:)(?!=)'
       beginCaptures:
         '1': { name: 'keyword.operator.type.annotation.ks' }
-      end: '$|(?=\s*\:?\=)'
+      end: '$|(?=\s*(?:\:?\=|,))'
       patterns:
       - include: '#type'
     - include: '#comma'
@@ -1439,7 +1423,7 @@ repository:
     - name: 'constant.numeric.hex.ks'
       match: '\b0x[_0-9a-fA-F]+(?:\.[_0-9a-fA-F]+[pP][-+]?[_0-9]+)?[a-zA-Z]*\b'
     - name: 'constant.numeric.decimal.ks'
-      match: '\b[0-9][_0-9]*(?:\.[_0-9]+)?(?:[eE][-+]?[_0-9]+|[a-zA-Z]*)\b'
+      match: '\b[0-9][_0-9]*(?:\.[_0-9]+)?(?:[eE][-+]?[_0-9]+)?[a-zA-Z]*\b'
     - name: 'constant.numeric.decimal.ks'
       match: '\b\.[0-9][_0-9]*(?:[eE][-+]?[_0-9]+|[a-zA-Z]*)\b'
     - name: 'constant.numeric.radix.ks'
@@ -1530,7 +1514,7 @@ repository:
   operator: # {{{
     patterns:
     - name: 'keyword.operator.assignment.compound.ks'
-      match: '\+=|-=|\*=|(?<!\()/=|%=|\?\?=|!\?=|\?='
+      match: '\+=|-=|\*=|(?<!\()/\.?=|%=|\?\?=|!\?=|\?='
     - name: 'keyword.operator.assignment.compound.bitwise.ks'
       match: '<<=|>>=|>>=|&=|\^=|\|='
     - name: 'keyword.operator.bitwise.ks'
@@ -1538,7 +1522,7 @@ repository:
     - name: 'keyword.operator.comparison.ks'
       match: '<=|>=|==|<|>|!='
     - name: 'keyword.operator.logical.ks'
-      match: '\|\||&&|!'
+      match: '\|\||&&|\^\^|->|!'
     - name: 'keyword.operator.bitwise.ks'
       match: '\^|~|&|\||<<|>>'
     - name: 'keyword.operator.assignment.ks'
@@ -1550,7 +1534,7 @@ repository:
     - name: 'keyword.operator.spread.ks'
       match: '\.\.\.'
     - name: 'keyword.operator.arithmetic.ks'
-      match: '\+|-|\*|/|%'
+      match: '\+|-|\*|/\.|/|%'
     - name: 'keyword.operator.null-coalescing.ks'
       match: '\?\?'
     - name: 'keyword.control.flow.await.ks'

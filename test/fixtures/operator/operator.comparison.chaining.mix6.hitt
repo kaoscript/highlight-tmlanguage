@@ -1,0 +1,144 @@
+original file
+-----------------------------------
+if 1 < 2 <= 2 < 3 == 3 > 2 >= 1 == 1 < 3 != 5 {
+
+}
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>if 1 < 2 <= 2 < 3 == 3 > 2 >= 1 == 1 < 3 != 5 {
+ if
+ ^^
+ source.ks keyword.control.conditional.if.ks
+    
+   ^
+   source.ks
+    1
+    ^
+    source.ks constant.numeric.decimal.ks
+      
+     ^
+     source.ks
+      <
+      ^
+      source.ks keyword.operator.comparison.ks
+        
+       ^
+       source.ks
+        2
+        ^
+        source.ks constant.numeric.decimal.ks
+          
+         ^
+         source.ks
+          <=
+          ^^
+          source.ks keyword.operator.comparison.ks
+             
+            ^
+            source.ks
+             2
+             ^
+             source.ks constant.numeric.decimal.ks
+               
+              ^
+              source.ks
+               <
+               ^
+               source.ks keyword.operator.comparison.ks
+                 
+                ^
+                source.ks
+                 3
+                 ^
+                 source.ks constant.numeric.decimal.ks
+                   
+                  ^
+                  source.ks
+                   ==
+                   ^^
+                   source.ks keyword.operator.comparison.ks
+                      
+                     ^
+                     source.ks
+                      3
+                      ^
+                      source.ks constant.numeric.decimal.ks
+                        
+                       ^
+                       source.ks
+                        >
+                        ^
+                        source.ks keyword.operator.comparison.ks
+                          
+                         ^
+                         source.ks
+                          2
+                          ^
+                          source.ks constant.numeric.decimal.ks
+                            
+                           ^
+                           source.ks
+                            >=
+                            ^^
+                            source.ks keyword.operator.comparison.ks
+                               
+                              ^
+                              source.ks
+                               1
+                               ^
+                               source.ks constant.numeric.decimal.ks
+                                 
+                                ^
+                                source.ks
+                                 ==
+                                 ^^
+                                 source.ks keyword.operator.comparison.ks
+                                    
+                                   ^
+                                   source.ks
+                                    1
+                                    ^
+                                    source.ks constant.numeric.decimal.ks
+                                      
+                                     ^
+                                     source.ks
+                                      <
+                                      ^
+                                      source.ks keyword.operator.comparison.ks
+                                        
+                                       ^
+                                       source.ks
+                                        3
+                                        ^
+                                        source.ks constant.numeric.decimal.ks
+                                          
+                                         ^
+                                         source.ks
+                                          !=
+                                          ^^
+                                          source.ks keyword.operator.comparison.ks
+                                             
+                                            ^
+                                            source.ks
+                                             5
+                                             ^
+                                             source.ks constant.numeric.decimal.ks
+                                               
+                                              ^
+                                              source.ks
+                                               {
+                                               ^
+                                               source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>
+ 
+ ^
+ source.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.block.end.bracket.curly.ks

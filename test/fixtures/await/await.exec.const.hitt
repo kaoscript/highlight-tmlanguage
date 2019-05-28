@@ -1,0 +1,105 @@
+original file
+-----------------------------------
+import 'child_process' for exec
+
+const stdout: string, stderr = await exec('df -k')
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>import 'child_process' for exec
+ import
+ ^^^^^^
+ source.ks keyword.control.import.ks
+        
+       ^
+       source.ks
+        '
+        ^
+        source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
+         child_process
+         ^^^^^^^^^^^^^
+         source.ks string.quoted.single.ks
+                      '
+                      ^
+                      source.ks string.quoted.single.ks punctuation.definition.string.end.ks
+                        
+                       ^
+                       source.ks
+                        for
+                        ^^^
+                        source.ks keyword.control.dependency.for.ks
+                            
+                           ^
+                           source.ks
+                            exec
+                            ^^^^
+                            source.ks variable.other.constant.ks
+>
+>
+ 
+ ^
+ source.ks
+>
+>const stdout: string, stderr = await exec('df -k')
+ const
+ ^^^^^
+ source.ks storage.type.constant.ks
+       
+      ^
+      source.ks
+       stdout
+       ^^^^^^
+       source.ks meta.definition.variable.ks variable.other.constant.ks
+             :
+             ^
+             source.ks meta.type.annotation.ks keyword.operator.type.annotation.ks
+               
+              ^
+              source.ks meta.type.annotation.ks
+               string
+               ^^^^^^
+               source.ks meta.type.annotation.ks support.type.primitive.ks
+                     ,
+                     ^
+                     source.ks punctuation.separator.comma.ks
+                       
+                      ^
+                      source.ks
+                       stderr
+                       ^^^^^^
+                       source.ks meta.definition.variable.ks variable.other.constant.ks
+                              
+                             ^
+                             source.ks
+                              =
+                              ^
+                              source.ks keyword.operator.assignment.ks
+                                
+                               ^
+                               source.ks
+                                await
+                                ^^^^^
+                                source.ks keyword.control.flow.await.ks
+                                      
+                                     ^
+                                     source.ks
+                                      exec
+                                      ^^^^
+                                      source.ks entity.name.function.ks
+                                          (
+                                          ^
+                                          source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                                           '
+                                           ^
+                                           source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
+                                            df -k
+                                            ^^^^^
+                                            source.ks string.quoted.single.ks
+                                                 '
+                                                 ^
+                                                 source.ks string.quoted.single.ks punctuation.definition.string.end.ks
+                                                  )
+                                                  ^
+                                                  source.ks punctuation.definition.arguments.end.bracket.round.ks
