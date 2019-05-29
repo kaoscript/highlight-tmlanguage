@@ -1232,7 +1232,7 @@
       <key>const-statement</key>
       <dict>
         <key>begin</key>
-        <string>\b(const)\s+</string>
+        <string>\b(const)\s+(?=[\{\[\("'`_$[:alnum:]\.\/@?!~+-])</string>
         <key>beginCaptures</key>
         <dict>
           <key>1</key>
@@ -1414,7 +1414,7 @@
       <key>delete-statement</key>
       <dict>
         <key>begin</key>
-        <string>^\s*(delete)\s+</string>
+        <string>^\s*(delete)\s+(?=[\{\[\("'`_$[:alnum:]\.\/@?!~+-])</string>
         <key>beginCaptures</key>
         <dict>
           <key>1</key>
@@ -1436,7 +1436,7 @@
       <key>disclose-statement</key>
       <dict>
         <key>begin</key>
-        <string>^\s*(disclose)\s+</string>
+        <string>^\s*(disclose)\s+(?=[\{\[\("'`_$[:alnum:]\.\/@?!~+-])</string>
         <key>beginCaptures</key>
         <dict>
           <key>1</key>
@@ -1489,7 +1489,7 @@
       <key>do-statement</key>
       <dict>
         <key>begin</key>
-        <string>^\s*(do)\b</string>
+        <string>^\s*(do)\s*(?=\{)</string>
         <key>beginCaptures</key>
         <dict>
           <key>1</key>
@@ -1499,54 +1499,12 @@
           </dict>
         </dict>
         <key>end</key>
-        <string>^\s*$</string>
+        <string>$</string>
         <key>patterns</key>
         <array>
           <dict>
             <key>include</key>
             <string>#block</string>
-          </dict>
-          <dict>
-            <key>begin</key>
-            <string>\b(until)\b</string>
-            <key>beginCaptures</key>
-            <dict>
-              <key>1</key>
-              <dict>
-                <key>name</key>
-                <string>keyword.control.loop.until.ks</string>
-              </dict>
-            </dict>
-            <key>end</key>
-            <string>$</string>
-            <key>patterns</key>
-            <array>
-              <dict>
-                <key>include</key>
-                <string>#expression</string>
-              </dict>
-            </array>
-          </dict>
-          <dict>
-            <key>begin</key>
-            <string>\b(while)\b</string>
-            <key>beginCaptures</key>
-            <dict>
-              <key>1</key>
-              <dict>
-                <key>name</key>
-                <string>keyword.control.loop.while.ks</string>
-              </dict>
-            </dict>
-            <key>end</key>
-            <string>$</string>
-            <key>patterns</key>
-            <array>
-              <dict>
-                <key>include</key>
-                <string>#expression</string>
-              </dict>
-            </array>
           </dict>
         </array>
       </dict>
@@ -1575,7 +1533,7 @@
       <key>else-if-statement</key>
       <dict>
         <key>begin</key>
-        <string>(?=^\s*else\s+if\s+)</string>
+        <string>(?=^\s*else\s+if\s+[\{\[\("'`_$[:alnum:]\.\/@?!~+-])</string>
         <key>end</key>
         <string>(?&lt;=\})</string>
         <key>patterns</key>
@@ -1958,7 +1916,7 @@
       <key>export-statement</key>
       <dict>
         <key>begin</key>
-        <string>^\s*(export)\s+</string>
+        <string>^\s*(export)\s+(?=[\{\[\("'`_$[:alnum:]\.\/@?!~+-])</string>
         <key>beginCaptures</key>
         <dict>
           <key>1</key>
@@ -2693,7 +2651,7 @@
       <key>extern-require-statement</key>
       <dict>
         <key>begin</key>
-        <string>^\s*(extern\|require)\s+</string>
+        <string>^\s*(extern\|require)\s+(?=[\{\[\("'`_$[:alnum:]\.\/@?!~+-])</string>
         <key>beginCaptures</key>
         <dict>
           <key>1</key>
@@ -2748,7 +2706,7 @@
       <key>extern-statement</key>
       <dict>
         <key>begin</key>
-        <string>^\s*(extern)\s+</string>
+        <string>^\s*(extern)\s+(?=[\{\[\("'`_$[:alnum:]\.\/@?!~+-])</string>
         <key>beginCaptures</key>
         <dict>
           <key>1</key>
@@ -3468,7 +3426,7 @@
       <key>if-statement</key>
       <dict>
         <key>begin</key>
-        <string>(?=^\s*if\s+)</string>
+        <string>(?=^\s*if\s+(?:[\{\[\("'`_$[:alnum:]\.\/@?!~+-]|$))</string>
         <key>end</key>
         <string>(?&lt;=\})</string>
         <key>patterns</key>
@@ -4099,7 +4057,7 @@
       <key>import-statement</key>
       <dict>
         <key>begin</key>
-        <string>^\s*(import)\s+</string>
+        <string>^\s*(import)\s+(?=[\{\[\("'`_$[:alnum:]\.\/@?!~+-])</string>
         <key>beginCaptures</key>
         <dict>
           <key>1</key>
@@ -4154,7 +4112,7 @@
       <key>include-statement</key>
       <dict>
         <key>begin</key>
-        <string>^\s*(include(?:\s(again))?)\s+</string>
+        <string>^\s*(include(?:\s(again))?)\s+(?=[\{\[\("'`_$[:alnum:]\.\/@?!~+-])</string>
         <key>beginCaptures</key>
         <dict>
           <key>1</key>
@@ -4227,7 +4185,7 @@
       <key>let-statement</key>
       <dict>
         <key>begin</key>
-        <string>\b(let)\s+</string>
+        <string>\b(let)\s+(?=[\{\[\("'`_$[:alnum:]\.\/@?!~+-])</string>
         <key>beginCaptures</key>
         <dict>
           <key>1</key>
@@ -5479,7 +5437,7 @@
       <key>require-extern-statement</key>
       <dict>
         <key>begin</key>
-        <string>^\s*(require\|extern)\s+</string>
+        <string>^\s*(require\|extern)\s+(?=[\{\[\("'`_$[:alnum:]\.\/@?!~+-])</string>
         <key>beginCaptures</key>
         <dict>
           <key>1</key>
@@ -5534,7 +5492,7 @@
       <key>require-import-statement</key>
       <dict>
         <key>begin</key>
-        <string>^\s*(require\|import)\s+</string>
+        <string>^\s*(require\|import)\s+(?=[\{\[\("'`_$[:alnum:]\.\/@?!~+-])</string>
         <key>beginCaptures</key>
         <dict>
           <key>1</key>
@@ -5585,7 +5543,7 @@
       <key>require-statement</key>
       <dict>
         <key>begin</key>
-        <string>^\s*(require)\s+</string>
+        <string>^\s*(require)\s+(?=[\{\[\("'`_$[:alnum:]\.\/@?!~+-])</string>
         <key>beginCaptures</key>
         <dict>
           <key>1</key>
@@ -5662,7 +5620,7 @@
       <key>return-statement</key>
       <dict>
         <key>begin</key>
-        <string>^\s*(return)\s+</string>
+        <string>^\s*(return)\s+(?=[\{\[\("'`_$[:alnum:]\.\/@?!~+-])</string>
         <key>beginCaptures</key>
         <dict>
           <key>1</key>
@@ -5864,6 +5822,10 @@
           <dict>
             <key>include</key>
             <string>#expression-statement</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#block</string>
           </dict>
         </array>
       </dict>
@@ -6168,7 +6130,7 @@
       <key>switch-statement</key>
       <dict>
         <key>begin</key>
-        <string>^\s*(switch)\s+</string>
+        <string>^\s*(switch)\s+(?=[\{\[\("'`_$[:alnum:]\.\/@?!~+-])</string>
         <key>beginCaptures</key>
         <dict>
           <key>1</key>
@@ -6307,7 +6269,7 @@
       <key>throw-statement</key>
       <dict>
         <key>begin</key>
-        <string>^\s*(throw)\s+</string>
+        <string>^\s*(throw)\s+(?=[\{\[\("'`_$[:alnum:]\.\/@?!~+-])</string>
         <key>beginCaptures</key>
         <dict>
           <key>1</key>
@@ -6353,13 +6315,18 @@
           </dict>
           <dict>
             <key>begin</key>
-            <string>^\s*(catch\b)</string>
+            <string>^\s*(catch\b)(?:\s+([_$[:alpha:]][_$[:alnum:]]*))?</string>
             <key>beginCaptures</key>
             <dict>
               <key>1</key>
               <dict>
                 <key>name</key>
                 <string>keyword.control.try-catch.catch.ks</string>
+              </dict>
+              <key>2</key>
+              <dict>
+                <key>name</key>
+                <string>variable.parameter.ks</string>
               </dict>
             </dict>
             <key>end</key>
@@ -6369,12 +6336,6 @@
               <dict>
                 <key>include</key>
                 <string>#block</string>
-              </dict>
-              <dict>
-                <key>name</key>
-                <string>variable.parameter.ks</string>
-                <key>match</key>
-                <string>[_$[:alpha:]][_$[:alnum:]]*</string>
               </dict>
             </array>
           </dict>
@@ -6736,7 +6697,7 @@
       <key>unless-statement</key>
       <dict>
         <key>begin</key>
-        <string>(?=^\s*unless\s+)</string>
+        <string>(?=^\s*unless\s+[\{\[\("'`_$[:alnum:]\.\/@?!~+-])</string>
         <key>end</key>
         <string>(?&lt;=\})</string>
         <key>patterns</key>
@@ -6771,35 +6732,26 @@
       <key>until-statement</key>
       <dict>
         <key>begin</key>
-        <string>(?=^\s*until\s+)</string>
+        <string>^\s*(until)\s+(?=[\{\[\("'`_$[:alnum:]\.\/@?!~+-])</string>
+        <key>beginCaptures</key>
+        <dict>
+          <key>1</key>
+          <dict>
+            <key>name</key>
+            <string>keyword.control.loop.until.ks</string>
+          </dict>
+        </dict>
         <key>end</key>
-        <string>(?&lt;=\})</string>
+        <string>$</string>
         <key>patterns</key>
         <array>
           <dict>
-            <key>begin</key>
-            <string>\b(until)\b</string>
-            <key>beginCaptures</key>
-            <dict>
-              <key>1</key>
-              <dict>
-                <key>name</key>
-                <string>keyword.control.loop.until.ks</string>
-              </dict>
-            </dict>
-            <key>end</key>
-            <string>(?=\{)</string>
-            <key>patterns</key>
-            <array>
-              <dict>
-                <key>include</key>
-                <string>#expression</string>
-              </dict>
-            </array>
+            <key>include</key>
+            <string>#block</string>
           </dict>
           <dict>
             <key>include</key>
-            <string>#block</string>
+            <string>#expression</string>
           </dict>
         </array>
       </dict>
@@ -6836,35 +6788,26 @@
       <key>while-statement</key>
       <dict>
         <key>begin</key>
-        <string>(?=^\s*while\s+)</string>
+        <string>^\s*(while)\s+(?=[\{\[\("'`_$[:alnum:]\.\/@?!~+-])</string>
+        <key>beginCaptures</key>
+        <dict>
+          <key>1</key>
+          <dict>
+            <key>name</key>
+            <string>keyword.control.loop.while.ks</string>
+          </dict>
+        </dict>
         <key>end</key>
-        <string>(?&lt;=\})</string>
+        <string>$</string>
         <key>patterns</key>
         <array>
           <dict>
-            <key>begin</key>
-            <string>\b(while)\b</string>
-            <key>beginCaptures</key>
-            <dict>
-              <key>1</key>
-              <dict>
-                <key>name</key>
-                <string>keyword.control.loop.while.ks</string>
-              </dict>
-            </dict>
-            <key>end</key>
-            <string>(?=\{)</string>
-            <key>patterns</key>
-            <array>
-              <dict>
-                <key>include</key>
-                <string>#expression</string>
-              </dict>
-            </array>
+            <key>include</key>
+            <string>#block</string>
           </dict>
           <dict>
             <key>include</key>
-            <string>#block</string>
+            <string>#expression</string>
           </dict>
         </array>
       </dict>

@@ -1,0 +1,132 @@
+original file
+-----------------------------------
+if test() {
+    do {
+        buy()
+    }
+    while supply > demand
+}
+
+const price = 42
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>if test() {
+ if
+ ^^
+ source.ks keyword.control.conditional.if.ks
+    
+   ^
+   source.ks
+    test
+    ^^^^
+    source.ks entity.name.function.ks
+        (
+        ^
+        source.ks punctuation.definition.arguments.begin.bracket.round.ks
+         )
+         ^
+         source.ks punctuation.definition.arguments.end.bracket.round.ks
+           
+          ^
+          source.ks
+           {
+           ^
+           source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>    do {
+     
+ ^^^^
+ source.ks
+     do
+     ^^
+     source.ks keyword.control.loop.do.ks
+        
+       ^
+       source.ks
+        {
+        ^
+        source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>        buy()
+         
+ ^^^^^^^^
+ source.ks
+         buy
+         ^^^
+         source.ks entity.name.function.ks
+            (
+            ^
+            source.ks punctuation.definition.arguments.begin.bracket.round.ks
+             )
+             ^
+             source.ks punctuation.definition.arguments.end.bracket.round.ks
+>
+>    }
+     
+ ^^^^
+ source.ks
+     }
+     ^
+     source.ks punctuation.definition.block.end.bracket.curly.ks
+>
+>    while supply > demand
+     
+ ^^^^
+ source.ks
+     while
+     ^^^^^
+     source.ks keyword.control.loop.while.ks
+           
+          ^
+          source.ks
+           supply
+           ^^^^^^
+           source.ks variable.other.ks
+                  
+                 ^
+                 source.ks
+                  >
+                  ^
+                  source.ks keyword.operator.comparison.ks
+                    
+                   ^
+                   source.ks
+                    demand
+                    ^^^^^^
+                    source.ks variable.other.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.block.end.bracket.curly.ks
+>
+>
+ 
+ ^
+ source.ks
+>
+>const price = 42
+ const
+ ^^^^^
+ source.ks storage.type.constant.ks
+       
+      ^
+      source.ks
+       price
+       ^^^^^
+       source.ks meta.definition.variable.ks variable.other.constant.ks
+             
+            ^
+            source.ks
+             =
+             ^
+             source.ks keyword.operator.assignment.ks
+               
+              ^
+              source.ks
+               42
+               ^^
+               source.ks constant.numeric.decimal.ks

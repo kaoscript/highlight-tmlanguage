@@ -1,6 +1,10 @@
 await.exec.const
 await.exec.let
+do.while.if
 function.parameter.timeout
+keyword.var.let
+keyword.var.until
+keyword.var.while
 macro.quirk
 number.not
 object.comment.template

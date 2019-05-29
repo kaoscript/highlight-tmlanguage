@@ -4,6 +4,7 @@ fileTypes: [ks]
 uuid: 371123EB-AE4B-471E-BB5C-1AB23093F1C9
 
 variables:
+  expression-beginning: '[\{\[\("''`_$[:alnum:]\.\/@?!~+-]'
   identifier: '[_$[:alpha:]][_$[:alnum:]]*'
   match-identifier: '\s+(?=[_$[:alpha:]])'
   function-block: '(?:(?:\basync\s+)?\bfunc\s*{{function-sig}}|(?:\basync\s+)?{{function-sig}}\s*=>|{{identifier}}\s*=>\s*)\s*\{'
@@ -382,7 +383,7 @@ repository:
     - include: '#comment-block'
   # }}}
   const-statement: # {{{
-    begin: '\b(const)\s+'
+    begin: '\b(const)\s+(?={{expression-beginning}})'
     beginCaptures:
       '1': { name: 'storage.type.constant.ks' }
     end: '$'
@@ -442,7 +443,7 @@ repository:
       - include: '#expression'
   # }}}
   delete-statement: # {{{
-    begin: '^\s*(delete)\s+'
+    begin: '^\s*(delete)\s+(?={{expression-beginning}})'
     beginCaptures:
       '1': { name: 'keyword.control.delete.ks' }
     end: '$'
@@ -450,7 +451,7 @@ repository:
     - include: '#expression'
   # }}}
   disclose-statement: # {{{
-    begin: '^\s*(disclose)\s+'
+    begin: '^\s*(disclose)\s+(?={{expression-beginning}})'
     beginCaptures:
       '1': { name: 'keyword.control.dependency.disclose.ks' }
     end: '(?<=\})'
@@ -467,24 +468,12 @@ repository:
       match: '\b{{identifier}}\b'
   # }}}
   do-statement: # {{{
-    begin: '^\s*(do)\b'
+    begin: '^\s*(do)\s*(?=\{)'
     beginCaptures:
         '1': { name: 'keyword.control.loop.do.ks' }
-    end: '^\s*$'
+    end: '$'
     patterns:
     - include: '#block'
-    - begin: '\b(until)\b'
-      beginCaptures:
-        '1': { name: 'keyword.control.loop.until.ks' }
-      end: '$'
-      patterns:
-      - include: '#expression'
-    - begin: '\b(while)\b'
-      beginCaptures:
-        '1': { name: 'keyword.control.loop.while.ks' }
-      end: '$'
-      patterns:
-      - include: '#expression'
   # }}}
   else-statement: # {{{
     begin: '^\s*(else\b)(?=\s*\{|$)'
@@ -495,7 +484,7 @@ repository:
     - include: '#block'
   # }}}
   else-if-statement: # {{{
-    begin: '(?=^\s*else\s+if\s+)'
+    begin: '(?=^\s*else\s+if\s+{{expression-beginning}})'
     end: '(?<=\})'
     patterns:
     - match: '^\s*(else)'
@@ -605,7 +594,7 @@ repository:
     - include: '#comma'
   # }}}
   export-statement: # {{{
-    begin: '^\s*(export)\s+'
+    begin: '^\s*(export)\s+(?={{expression-beginning}})'
     beginCaptures:
       '1': { name: 'keyword.control.export.ks' }
     end: '(?<=\}|$)'
@@ -820,7 +809,7 @@ repository:
         - include: '#type'
   # }}}
   extern-require-statement: # {{{
-    begin: '^\s*(extern\|require)\s+'
+    begin: '^\s*(extern\|require)\s+(?={{expression-beginning}})'
     beginCaptures:
       '1': { name: 'keyword.control.extern-require.ks' }
     end: '(?<=\}|$)'
@@ -837,7 +826,7 @@ repository:
     - include: '#comma'
   # }}}
   extern-statement: # {{{
-    begin: '^\s*(extern)\s+'
+    begin: '^\s*(extern)\s+(?={{expression-beginning}})'
     beginCaptures:
       '1': { name: 'keyword.control.dependency.extern.ks' }
     end: '(?<=\}|$)'
@@ -1059,7 +1048,7 @@ repository:
     - include: '#block'
   # }}}
   if-statement: # {{{
-    begin: '(?=^\s*if\s+)'
+    begin: '(?=^\s*if\s+(?:{{expression-beginning}}|$))'
     end: '(?<=\})'
     patterns:
     - include: '#if-statement-body'
@@ -1243,7 +1232,7 @@ repository:
     - include: '#import-alias'
   # }}}
   import-statement: # {{{
-    begin: '^\s*(import)\s+'
+    begin: '^\s*(import)\s+(?={{expression-beginning}})'
     beginCaptures:
       '1': { name: 'keyword.control.import.ks' }
     end: '(?<=\}|$)'
@@ -1260,7 +1249,7 @@ repository:
     - include: '#import-declarator'
   # }}}
   include-statement: # {{{
-    begin: '^\s*(include(?:\s(again))?)\s+'
+    begin: '^\s*(include(?:\s(again))?)\s+(?={{expression-beginning}})'
     beginCaptures:
       '1': { name: 'keyword.control.include.ks' }
     end: '(?<=\}|$)'
@@ -1283,7 +1272,7 @@ repository:
       - include: '#string'
   # }}}
   let-statement: # {{{
-    begin: '\b(let)\s+'
+    begin: '\b(let)\s+(?={{expression-beginning}})'
     beginCaptures:
       '1': { name: 'storage.type.readwrite.ks' }
     end: '$'
@@ -1658,7 +1647,7 @@ repository:
       match: \\.
   # }}}
   require-extern-statement: # {{{
-    begin: '^\s*(require\|extern)\s+'
+    begin: '^\s*(require\|extern)\s+(?={{expression-beginning}})'
     beginCaptures:
       '1': { name: 'keyword.control.require-extern.ks' }
     end: '(?<=\}|$)'
@@ -1675,7 +1664,7 @@ repository:
     - include: '#comma'
   # }}}
   require-import-statement: # {{{
-    begin: '^\s*(require\|import)\s+'
+    begin: '^\s*(require\|import)\s+(?={{expression-beginning}})'
     beginCaptures:
       '1': { name: 'keyword.control.dependency.require-import.ks' }
     end: '(?<=\}|$)'
@@ -1691,7 +1680,7 @@ repository:
     - include: '#import-declarator'
   # }}}
   require-statement: # {{{
-    begin: '^\s*(require)\s+'
+    begin: '^\s*(require)\s+(?={{expression-beginning}})'
     beginCaptures:
       '1': { name: 'keyword.control.require.ks' }
     end: '(?<=\}|$)'
@@ -1716,7 +1705,7 @@ repository:
     - include: '#expression'
   # }}}
   return-statement: # {{{
-    begin: '^\s*(return)\s+'
+    begin: '^\s*(return)\s+(?={{expression-beginning}})'
     beginCaptures:
       '1': { name: 'keyword.control.flow.return.ks' }
     end: '$'
@@ -1773,6 +1762,7 @@ repository:
     - include: '#until-statement'
     - include: '#while-statement'
     - include: '#expression-statement'
+    - include: '#block'
   # }}}
   string: # {{{
     patterns:
@@ -1866,7 +1856,7 @@ repository:
     - include: '#expression'
   # }}}
   switch-statement: # {{{
-    begin: '^\s*(switch)\s+'
+    begin: '^\s*(switch)\s+(?={{expression-beginning}})'
     beginCaptures:
       '1': { name: 'keyword.control.switch.ks' }
     end: '(?<=\})'
@@ -1912,7 +1902,7 @@ repository:
       - include: '#expression'
   # }}}
   throw-statement: # {{{
-    begin: '^\s*(throw)\s+'
+    begin: '^\s*(throw)\s+(?={{expression-beginning}})'
     beginCaptures:
       '1': { name: 'keyword.control.try-catch.throw.ks' }
     end: '$'
@@ -1927,14 +1917,13 @@ repository:
         end: '(?<=\})'
         patterns:
         - include: '#block'
-      - begin: '^\s*(catch\b)'
+      - begin: '^\s*(catch\b)(?:\s+({{identifier}}))?'
         beginCaptures:
           '1': { name: 'keyword.control.try-catch.catch.ks' }
+          '2': { name: 'variable.parameter.ks' }
         end: '(?<=\})'
         patterns:
         - include: '#block'
-        - name: 'variable.parameter.ks'
-          match: '{{identifier}}'
       - begin: '^\s*(finally\b)\s*(?=\{)'
         beginCaptures:
           '1': { name: 'keyword.control.try-catch.finally.ks' }
@@ -2042,7 +2031,7 @@ repository:
     - include: '#type'
   # }}}
   unless-statement: # {{{
-    begin: '(?=^\s*unless\s+)'
+    begin: '(?=^\s*unless\s+{{expression-beginning}})'
     end: '(?<=\})'
     patterns:
     - begin: '\b(unless)\b'
@@ -2054,16 +2043,13 @@ repository:
     - include: '#block'
   # }}}
   until-statement: # {{{
-    begin: '(?=^\s*until\s+)'
-    end: '(?<=\})'
+    begin: '^\s*(until)\s+(?={{expression-beginning}})'
+    beginCaptures:
+      '1': { name: 'keyword.control.loop.until.ks' }
+    end: '$'
     patterns:
-    - begin: '\b(until)\b'
-      beginCaptures:
-        '1': { name: 'keyword.control.loop.until.ks' }
-      end: '(?=\{)'
-      patterns:
-      - include: '#expression'
     - include: '#block'
+    - include: '#expression'
   # }}}
   variable: # {{{
     patterns:
@@ -2077,14 +2063,11 @@ repository:
       match: (?<=\.\.\.)\b(this)\b(?!\s*:|\$)
   # }}}
   while-statement: # {{{
-    begin: '(?=^\s*while\s+)'
-    end: '(?<=\})'
+    begin: '^\s*(while)\s+(?={{expression-beginning}})'
+    beginCaptures:
+      '1': { name: 'keyword.control.loop.while.ks' }
+    end: '$'
     patterns:
-    - begin: '\b(while)\b'
-      beginCaptures:
-        '1': { name: 'keyword.control.loop.while.ks' }
-      end: '(?=\{)'
-      patterns:
-      - include: '#expression'
     - include: '#block'
+    - include: '#expression'
   # }}}
