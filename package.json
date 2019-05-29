@@ -1,7 +1,7 @@
 {
 	"name": "highlight-tmlanguage",
 	"description": "tmLanguage grammar file for kaoscript",
-	"version": "0.2.1",
+	"version": "0.2.2",
 	"publisher": "kaoscript",
 	"homepage": "https://github.com/kaoscript/highlight-tmlanguage",
 	"repository": {
