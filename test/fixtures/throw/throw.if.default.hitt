@@ -1,0 +1,57 @@
+original file
+-----------------------------------
+throw new Error('Not Defined') if !?x
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>throw new Error('Not Defined') if !?x
+ throw
+ ^^^^^
+ source.ks keyword.control.try-catch.throw.ks
+       
+      ^
+      source.ks
+       new
+       ^^^
+       source.ks keyword.operator.new.ks
+           
+          ^
+          source.ks
+           Error
+           ^^^^^
+           source.ks entity.name.type.ks
+                (
+                ^
+                source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                 '
+                 ^
+                 source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
+                  Not Defined
+                  ^^^^^^^^^^^
+                  source.ks string.quoted.single.ks
+                             '
+                             ^
+                             source.ks string.quoted.single.ks punctuation.definition.string.end.ks
+                              )
+                              ^
+                              source.ks punctuation.definition.arguments.end.bracket.round.ks
+                                
+                               ^
+                               source.ks
+                                if
+                                ^^
+                                source.ks keyword.control.conditional.if.ks
+                                   
+                                  ^
+                                  source.ks
+                                   !
+                                   ^
+                                   source.ks keyword.operator.logical.ks
+                                    ?
+                                    ^
+                                    source.ks keyword.operator.existential.ks
+                                     x
+                                     ^
+                                     source.ks variable.other.ks

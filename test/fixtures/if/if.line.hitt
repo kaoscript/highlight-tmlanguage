@@ -1,0 +1,42 @@
+original file
+-----------------------------------
+foo() if x == 5
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>foo() if x == 5
+ foo
+ ^^^
+ source.ks entity.name.function.ks
+    (
+    ^
+    source.ks punctuation.definition.arguments.begin.bracket.round.ks
+     )
+     ^
+     source.ks punctuation.definition.arguments.end.bracket.round.ks
+       
+      ^
+      source.ks
+       if
+       ^^
+       source.ks keyword.control.conditional.if.ks
+          
+         ^
+         source.ks
+          x
+          ^
+          source.ks variable.other.ks
+            
+           ^
+           source.ks
+            ==
+            ^^
+            source.ks keyword.operator.comparison.ks
+               
+              ^
+              source.ks
+               5
+               ^
+               source.ks constant.numeric.decimal.ks

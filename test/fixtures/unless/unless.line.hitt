@@ -1,0 +1,42 @@
+original file
+-----------------------------------
+foo() unless x == 0
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>foo() unless x == 0
+ foo
+ ^^^
+ source.ks entity.name.function.ks
+    (
+    ^
+    source.ks punctuation.definition.arguments.begin.bracket.round.ks
+     )
+     ^
+     source.ks punctuation.definition.arguments.end.bracket.round.ks
+       
+      ^
+      source.ks
+       unless
+       ^^^^^^
+       source.ks keyword.control.conditional.unless.ks
+              
+             ^
+             source.ks
+              x
+              ^
+              source.ks variable.other.ks
+                
+               ^
+               source.ks
+                ==
+                ^^
+                source.ks keyword.operator.comparison.ks
+                   
+                  ^
+                  source.ks
+                   0
+                   ^
+                   source.ks constant.numeric.decimal.ks

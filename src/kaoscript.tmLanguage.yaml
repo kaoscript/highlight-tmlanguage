@@ -487,7 +487,7 @@ repository:
     begin: '(?=^\s*else\s+if\s+{{expression-beginning}})'
     end: '(?<=\})'
     patterns:
-    - match: '^\s*(else)'
+    - match: '^\s*(else)\b'
       captures:
         '1': { name: 'keyword.control.conditional.else.ks' }
     - begin: '(?=\bif\b)'
@@ -644,18 +644,9 @@ repository:
   # }}}
   expression-statement: # {{{
     patterns:
-    - begin: '\bif\b'
-      beginCaptures:
-        '0': { name: 'keyword.control.conditional.if.ks' }
-      end: '$'
-      patterns:
-      - include: '#expression'
-    - begin: '\bunless\b'
-      beginCaptures:
-        '0': { name: 'keyword.control.conditional.unless.ks' }
-      end: '$'
-      patterns:
-      - include: '#expression'
+    - include: '#for-expression'
+    - include: '#if-else-expression'
+    - include: '#unless-expression'
     - include: '#expression'
   # }}}
   expression-without-function: # {{{
@@ -996,7 +987,7 @@ repository:
     - include: '#comma'
   # }}}
   for-expression: # {{{
-    begin: '(\bfor)\s+(?=[:_$[:alpha:]])'
+    begin: '\b(for)\s+(?={{expression-beginning}}|:)'
     beginCaptures:
       '1': { name: 'keyword.control.loop.for.ks' }
     end: '(?<=\})'
@@ -1046,6 +1037,28 @@ repository:
     patterns:
     - include: '#for-expression'
     - include: '#block'
+  # }}}
+  if-else-expression: # {{{
+    begin: '\b(if)\s+(?={{expression-beginning}})'
+    beginCaptures:
+      '1': { name: 'keyword.control.conditional.if.ks' }
+    end: '$'
+    patterns:
+    - begin: '\b(else)\s+(?={{expression-beginning}})'
+      beginCaptures:
+        '1': { name: 'keyword.control.conditional.else.ks' }
+      end: '$'
+      patterns:
+      - include: '#expression'
+    - include: '#expression'
+  # }}}
+  if-expression: # {{{
+    begin: '\b(if)\s+(?={{expression-beginning}})'
+    beginCaptures:
+      '1': { name: 'keyword.control.conditional.if.ks' }
+    end: '$'
+    patterns:
+    - include: '#expression'
   # }}}
   if-statement: # {{{
     begin: '(?=^\s*if\s+(?:{{expression-beginning}}|$))'
@@ -1280,20 +1293,10 @@ repository:
     - begin: '(\:?\=)'
       beginCaptures:
         '1': { name: 'keyword.operator.assignment.ks' }
-      end: '(?=$|\bif\b|\bunless\b)'
-      patterns:
-      - include: '#expression'
-    - begin: '(\bif\b)'
-      beginCaptures:
-        '1': { name: 'keyword.control.conditional.if.ks' }
       end: '$'
       patterns:
-      - include: '#expression'
-    - begin: '(\bunless\b)'
-      beginCaptures:
-        '1': { name: 'keyword.control.conditional.unless.ks' }
-      end: '$'
-      patterns:
+      - include: '#if-else-expression'
+      - include: '#unless-expression'
       - include: '#expression'
     - include: '#let-statement-variable'
   # }}}
@@ -1558,13 +1561,6 @@ repository:
       match: '(?<!\.)\.(?!\.)'
     - name: 'keyword.operator.existential.ks'
       match: '\?'
-    - match: '(?<=[_$[:alnum:]\)\]])\s*(if\b)'
-      captures:
-        '1': { name: 'keyword.control.conditional.if.ks' }
-    - match: '(?<=[_$[:alnum:]\)\]])\s*(else\b)'
-      captures:
-        '1': { name: 'keyword.control.conditional.else.ks' }
-    - include: '#for-expression'
   # }}}
   regex: # {{{
     name: 'string.regexp.ks'
@@ -1705,29 +1701,13 @@ repository:
     - include: '#expression'
   # }}}
   return-statement: # {{{
-    begin: '^\s*(return)\s+(?={{expression-beginning}})'
+    begin: '^\s*(return)\s+(?={{expression-beginning}}|$)'
     beginCaptures:
       '1': { name: 'keyword.control.flow.return.ks' }
     end: '$'
     patterns:
-    - begin: '\bif\b'
-      beginCaptures:
-        '0': { name: 'keyword.control.conditional.if.ks' }
-      end: '$'
-      patterns:
-      - begin: '\belse\b'
-        beginCaptures:
-          '0': { name: 'keyword.control.conditional.else.ks' }
-        end: '$'
-        patterns:
-        - include: '#expression'
-      - include: '#expression'
-    - begin: '\bunless\b'
-      beginCaptures:
-        '0': { name: 'keyword.control.conditional.unless.ks' }
-      end: '$'
-      patterns:
-      - include: '#expression'
+    - include: '#if-else-expression'
+    - include: '#unless-expression'
     - include: '#expression'
   # }}}
   statements: # {{{
@@ -1907,7 +1887,9 @@ repository:
       '1': { name: 'keyword.control.try-catch.throw.ks' }
     end: '$'
     patterns:
-      - include: '#expression'
+    - include: '#if-expression'
+    - include: '#unless-expression'
+    - include: '#expression'
   # }}}
   try-catch-statement: # {{{
     patterns:
@@ -2029,6 +2011,14 @@ repository:
     end: '$'
     patterns:
     - include: '#type'
+  # }}}
+  unless-expression: # {{{
+    begin: '\b(unless)\s+(?={{expression-beginning}})'
+    beginCaptures:
+      '1': { name: 'keyword.control.conditional.unless.ks' }
+    end: '$'
+    patterns:
+    - include: '#expression'
   # }}}
   unless-statement: # {{{
     begin: '(?=^\s*unless\s+{{expression-beginning}})'
