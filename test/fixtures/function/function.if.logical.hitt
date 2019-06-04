@@ -1,0 +1,177 @@
+original file
+-----------------------------------
+func foobar(xyz) { // {{{
+    if    xyz.x ||
+        xyz.y ||
+        xyz.z
+    {
+
+    }
+    else
+    {
+
+    }
+} // }}}
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>func foobar(xyz) { // {{{
+ func
+ ^^^^
+ source.ks storage.type.function.ks
+      
+     ^
+     source.ks
+      foobar
+      ^^^^^^
+      source.ks entity.name.function.ks
+            (
+            ^
+            source.ks punctuation.definition.parameters.begin.bracket.round.ks
+             xyz
+             ^^^
+             source.ks variable.parameter.ks
+                )
+                ^
+                source.ks punctuation.definition.parameters.end.bracket.round.ks
+                  
+                 ^
+                 source.ks
+                  {
+                  ^
+                  source.ks punctuation.definition.block.begin.bracket.curly.ks
+                    
+                   ^
+                   source.ks
+                    //
+                    ^^
+                    source.ks comment.line.double-slash.ks punctuation.definition.comment.ks
+                       {{{
+                      ^^^^
+                      source.ks comment.line.double-slash.ks
+>
+>    if    xyz.x ||
+     
+ ^^^^
+ source.ks
+     if
+     ^^
+     source.ks keyword.control.conditional.if.ks
+           
+       ^^^^
+       source.ks
+           xyz
+           ^^^
+           source.ks variable.other.object.ks
+              .
+              ^
+              source.ks punctuation.accessor.object.ks
+               x
+               ^
+               source.ks variable.other.property.object.ks
+                 
+                ^
+                source.ks
+                 ||
+                 ^^
+                 source.ks keyword.operator.logical.ks
+>
+>        xyz.y ||
+         
+ ^^^^^^^^
+ source.ks
+         xyz
+         ^^^
+         source.ks variable.other.object.ks
+            .
+            ^
+            source.ks punctuation.accessor.object.ks
+             y
+             ^
+             source.ks variable.other.property.object.ks
+               
+              ^
+              source.ks
+               ||
+               ^^
+               source.ks keyword.operator.logical.ks
+>
+>        xyz.z
+         
+ ^^^^^^^^
+ source.ks
+         xyz
+         ^^^
+         source.ks variable.other.object.ks
+            .
+            ^
+            source.ks punctuation.accessor.object.ks
+             z
+             ^
+             source.ks variable.other.property.object.ks
+>
+>    {
+     
+ ^^^^
+ source.ks
+     {
+     ^
+     source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>
+ 
+ ^
+ source.ks
+>
+>    }
+     
+ ^^^^
+ source.ks
+     }
+     ^
+     source.ks punctuation.definition.block.end.bracket.curly.ks
+>
+>    else
+     
+ ^^^^
+ source.ks
+     else
+     ^^^^
+     source.ks keyword.control.conditional.else.ks
+>
+>    {
+     
+ ^^^^
+ source.ks
+     {
+     ^
+     source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>
+ 
+ ^
+ source.ks
+>
+>    }
+     
+ ^^^^
+ source.ks
+     }
+     ^
+     source.ks punctuation.definition.block.end.bracket.curly.ks
+>
+>} // }}}
+ }
+ ^
+ source.ks punctuation.definition.block.end.bracket.curly.ks
+   
+  ^
+  source.ks
+   //
+   ^^
+   source.ks comment.line.double-slash.ks punctuation.definition.comment.ks
+      }}}
+     ^^^^
+     source.ks comment.line.double-slash.ks

@@ -317,6 +317,152 @@
           </dict>
         </array>
       </dict>
+      <key>binary-operator</key>
+      <dict>
+        <key>patterns</key>
+        <array>
+          <dict>
+            <key>begin</key>
+            <string>(\|\||&amp;&amp;|\^\^|-&gt;|!)\s*(?=[\{\[\("'`_$[:alnum:]\.\/@?!~+-])</string>
+            <key>beginCaptures</key>
+            <dict>
+              <key>1</key>
+              <dict>
+                <key>name</key>
+                <string>keyword.operator.logical.ks</string>
+              </dict>
+            </dict>
+            <key>end</key>
+            <string>(?=[\{\[\("'`_$[:alnum:]\.\/@?!~+-])</string>
+          </dict>
+          <dict>
+            <key>begin</key>
+            <string>(\|\||&amp;&amp;|\^\^|-&gt;|!)\s*(?=\/\/|$)</string>
+            <key>beginCaptures</key>
+            <dict>
+              <key>1</key>
+              <dict>
+                <key>name</key>
+                <string>keyword.operator.logical.ks</string>
+              </dict>
+            </dict>
+            <key>end</key>
+            <string>(?=[\{\}\]\)\|\^\-\*\.~+=!&lt;&gt;%&amp;]|^$)</string>
+            <key>patterns</key>
+            <array>
+              <dict>
+                <key>include</key>
+                <string>#expression</string>
+              </dict>
+            </array>
+          </dict>
+          <dict>
+            <key>begin</key>
+            <string>(\^|~|&amp;|\||&lt;&lt;|&gt;&gt;)\s*(?=[\{\[\("'`_$[:alnum:]\.\/@?!~+-])</string>
+            <key>beginCaptures</key>
+            <dict>
+              <key>1</key>
+              <dict>
+                <key>name</key>
+                <string>keyword.operator.bitwise.ks</string>
+              </dict>
+            </dict>
+            <key>end</key>
+            <string>(?=[\{\[\("'`_$[:alnum:]\.\/@?!~+-])</string>
+          </dict>
+          <dict>
+            <key>begin</key>
+            <string>(\^|~|&amp;|\||&lt;&lt;|&gt;&gt;)\s*(?=\/\/|$)</string>
+            <key>beginCaptures</key>
+            <dict>
+              <key>1</key>
+              <dict>
+                <key>name</key>
+                <string>keyword.operator.bitwise.ks</string>
+              </dict>
+            </dict>
+            <key>end</key>
+            <string>(?=[\{\}\]\)\|\^\-\*\.~+=!&lt;&gt;%&amp;]|^$)</string>
+            <key>patterns</key>
+            <array>
+              <dict>
+                <key>include</key>
+                <string>#expression</string>
+              </dict>
+            </array>
+          </dict>
+          <dict>
+            <key>begin</key>
+            <string>(\+|-|\*|/\.|/|%)\s*(?=[\{\[\("'`_$[:alnum:]\.\/@?!~+-])</string>
+            <key>beginCaptures</key>
+            <dict>
+              <key>1</key>
+              <dict>
+                <key>name</key>
+                <string>keyword.operator.arithmetic.ks</string>
+              </dict>
+            </dict>
+            <key>end</key>
+            <string>(?=[\{\[\("'`_$[:alnum:]\.\/@?!~+-])</string>
+          </dict>
+          <dict>
+            <key>begin</key>
+            <string>(\+|-|\*|/\.|/|%)\s*(?=\/\/|$)</string>
+            <key>beginCaptures</key>
+            <dict>
+              <key>1</key>
+              <dict>
+                <key>name</key>
+                <string>keyword.operator.arithmetic.ks</string>
+              </dict>
+            </dict>
+            <key>end</key>
+            <string>(?=[\{\}\]\)\|\^\-\*\.~+=!&lt;&gt;%&amp;]|^$)</string>
+            <key>patterns</key>
+            <array>
+              <dict>
+                <key>include</key>
+                <string>#expression</string>
+              </dict>
+            </array>
+          </dict>
+          <dict>
+            <key>begin</key>
+            <string>(?&lt;!\.)(\.)(?!\.)\s*(?=[\{\[\("'`_$[:alnum:]\.\/@?!~+-])</string>
+            <key>beginCaptures</key>
+            <dict>
+              <key>1</key>
+              <dict>
+                <key>name</key>
+                <string>punctuation.accessor.object.ks</string>
+              </dict>
+            </dict>
+            <key>end</key>
+            <string>(?=[\{\[\("'`_$[:alnum:]\.\/@?!~+-])</string>
+          </dict>
+          <dict>
+            <key>begin</key>
+            <string>(?&lt;!\.)(\.)(?!\.)\s*(?=\/\/|$)</string>
+            <key>beginCaptures</key>
+            <dict>
+              <key>1</key>
+              <dict>
+                <key>name</key>
+                <string>punctuation.accessor.object.ks</string>
+              </dict>
+            </dict>
+            <key>end</key>
+            <string>(?=[\{\}\]\)\|\^\-\*\.~+=!&lt;&gt;%&amp;]|^$)</string>
+            <key>patterns</key>
+            <array>
+              <dict>
+                <key>include</key>
+                <string>#expression</string>
+              </dict>
+            </array>
+          </dict>
+        </array>
+      </dict>
       <key>binding-array</key>
       <dict>
         <key>begin</key>
@@ -616,7 +762,7 @@
               </dict>
             </dict>
             <key>end</key>
-            <string>(?&lt;=\}|$)</string>
+            <string>(?&lt;=\})|$|(?=\})</string>
             <key>patterns</key>
             <array>
               <dict>
@@ -647,7 +793,7 @@
                   </dict>
                 </dict>
                 <key>end</key>
-                <string>$</string>
+                <string>(?=\}|$)</string>
                 <key>patterns</key>
                 <array>
                   <dict>
@@ -791,6 +937,27 @@
           <dict>
             <key>include</key>
             <string>#comment</string>
+          </dict>
+          <dict>
+            <key>begin</key>
+            <string>(\|\||&amp;&amp;|\^\^|-&gt;|!)</string>
+            <key>beginCaptures</key>
+            <dict>
+              <key>1</key>
+              <dict>
+                <key>name</key>
+                <string>keyword.operator.logical.ks</string>
+              </dict>
+            </dict>
+            <key>end</key>
+            <string>(?=[\{\}\]\)\|\^\-\*\.~+=!&lt;&gt;%&amp;]|^$)</string>
+            <key>patterns</key>
+            <array>
+              <dict>
+                <key>include</key>
+                <string>#expression</string>
+              </dict>
+            </array>
           </dict>
         </array>
       </dict>
@@ -2054,6 +2221,10 @@
           </dict>
           <dict>
             <key>include</key>
+            <string>#binary-operator</string>
+          </dict>
+          <dict>
+            <key>include</key>
             <string>#variable</string>
           </dict>
           <dict>
@@ -2171,6 +2342,10 @@
           <dict>
             <key>include</key>
             <string>#operator</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#binary-operator</string>
           </dict>
           <dict>
             <key>name</key>
@@ -4972,18 +5147,6 @@
           </dict>
           <dict>
             <key>name</key>
-            <string>keyword.operator.logical.ks</string>
-            <key>match</key>
-            <string>\|\||&amp;&amp;|\^\^|-&gt;|!</string>
-          </dict>
-          <dict>
-            <key>name</key>
-            <string>keyword.operator.bitwise.ks</string>
-            <key>match</key>
-            <string>\^|~|&amp;|\||&lt;&lt;|&gt;&gt;</string>
-          </dict>
-          <dict>
-            <key>name</key>
             <string>keyword.operator.assignment.ks</string>
             <key>match</key>
             <string>=|:=</string>
@@ -5005,12 +5168,6 @@
             <string>keyword.operator.spread.ks</string>
             <key>match</key>
             <string>\.\.\.</string>
-          </dict>
-          <dict>
-            <key>name</key>
-            <string>keyword.operator.arithmetic.ks</string>
-            <key>match</key>
-            <string>\+|-|\*|/\.|/|%</string>
           </dict>
           <dict>
             <key>name</key>
@@ -5113,12 +5270,6 @@
                 <string>#type</string>
               </dict>
             </array>
-          </dict>
-          <dict>
-            <key>name</key>
-            <string>punctuation.accessor.object.ks</string>
-            <key>match</key>
-            <string>(?&lt;!\.)\.(?!\.)</string>
           </dict>
           <dict>
             <key>name</key>
@@ -5603,7 +5754,7 @@
           </dict>
         </dict>
         <key>end</key>
-        <string>$</string>
+        <string>(?=\}|$)</string>
         <key>patterns</key>
         <array>
           <dict>
@@ -6344,7 +6495,7 @@
             <key>begin</key>
             <string>(?=(\basync\s+)?(?:\bfunc)?\()</string>
             <key>end</key>
-            <string>(?=$|\s*\|\|)</string>
+            <string>(?=$|\s*\|\||\s*\|\s*$)</string>
             <key>patterns</key>
             <array>
               <dict>
@@ -6370,14 +6521,14 @@
                 <string>:</string>
                 <key>beginCaptures</key>
                 <dict>
-                  <key>1</key>
+                  <key>0</key>
                   <dict>
                     <key>name</key>
                     <string>keyword.operator.type.annotation.ks</string>
                   </dict>
                 </dict>
                 <key>end</key>
-                <string>(?=$|\s*~|\s*\|\|)</string>
+                <string>(?=$|\s*~|\s*\|\||\s*\|\s*$)</string>
                 <key>patterns</key>
                 <array>
                   <dict>
@@ -6428,25 +6579,10 @@
             <string>\?</string>
           </dict>
           <dict>
-            <key>begin</key>
+            <key>name</key>
+            <string>keyword.operator.type.union.ks</string>
+            <key>match</key>
             <string>\|\|?</string>
-            <key>beginCaptures</key>
-            <dict>
-              <key>0</key>
-              <dict>
-                <key>name</key>
-                <string>keyword.operator.type.union.ks</string>
-              </dict>
-            </dict>
-            <key>end</key>
-            <string>(?=$|[,:=\{\)])</string>
-            <key>patterns</key>
-            <array>
-              <dict>
-                <key>include</key>
-                <string>#type</string>
-              </dict>
-            </array>
           </dict>
           <dict>
             <key>include</key>
@@ -6590,33 +6726,69 @@
       </dict>
       <key>type-statement</key>
       <dict>
-        <key>begin</key>
-        <string>(\btype)\s+([_$[:alpha:]][_$[:alnum:]]*)\s*(=)</string>
-        <key>beginCaptures</key>
-        <dict>
-          <key>1</key>
-          <dict>
-            <key>name</key>
-            <string>storage.type.type.ks</string>
-          </dict>
-          <key>2</key>
-          <dict>
-            <key>name</key>
-            <string>entity.name.type.alias.ks</string>
-          </dict>
-          <key>3</key>
-          <dict>
-            <key>name</key>
-            <string>keyword.operator.assignment.ks</string>
-          </dict>
-        </dict>
-        <key>end</key>
-        <string>$</string>
         <key>patterns</key>
         <array>
           <dict>
-            <key>include</key>
-            <string>#type</string>
+            <key>begin</key>
+            <string>(\btype)\s+([_$[:alpha:]][_$[:alnum:]]*)\s*(=)\s*(?=[_$[:alnum:]\(])</string>
+            <key>beginCaptures</key>
+            <dict>
+              <key>1</key>
+              <dict>
+                <key>name</key>
+                <string>storage.type.type.ks</string>
+              </dict>
+              <key>2</key>
+              <dict>
+                <key>name</key>
+                <string>entity.name.type.alias.ks</string>
+              </dict>
+              <key>3</key>
+              <dict>
+                <key>name</key>
+                <string>keyword.operator.assignment.ks</string>
+              </dict>
+            </dict>
+            <key>end</key>
+            <string>$</string>
+            <key>patterns</key>
+            <array>
+              <dict>
+                <key>include</key>
+                <string>#type</string>
+              </dict>
+            </array>
+          </dict>
+          <dict>
+            <key>begin</key>
+            <string>(\btype)\s+([_$[:alpha:]][_$[:alnum:]]*)\s*(=)\s*(?=\/\/|$)</string>
+            <key>beginCaptures</key>
+            <dict>
+              <key>1</key>
+              <dict>
+                <key>name</key>
+                <string>storage.type.type.ks</string>
+              </dict>
+              <key>2</key>
+              <dict>
+                <key>name</key>
+                <string>entity.name.type.alias.ks</string>
+              </dict>
+              <key>3</key>
+              <dict>
+                <key>name</key>
+                <string>keyword.operator.assignment.ks</string>
+              </dict>
+            </dict>
+            <key>end</key>
+            <string>^$</string>
+            <key>patterns</key>
+            <array>
+              <dict>
+                <key>include</key>
+                <string>#type</string>
+              </dict>
+            </array>
           </dict>
         </array>
       </dict>

@@ -49,34 +49,40 @@ grammar: kaoscript.tmLanguage
  source.ks
      func
      ^^^^
-     source.ks entity.name.function.ks
+     source.ks storage.type.function.ks
          (
          ^
-         source.ks punctuation.definition.arguments.begin.bracket.round.ks
+         source.ks punctuation.definition.parameters.begin.bracket.round.ks
           value
           ^^^^^
-          source.ks variable.other.ks
-               : 
-               ^^
-               source.ks
+          source.ks variable.parameter.ks
+               :
+               ^
+               source.ks meta.type.annotation.ks keyword.operator.type.annotation.ks
+                 
+                ^
+                source.ks meta.type.annotation.ks
                  Number
                  ^^^^^^
-                 source.ks variable.other.ks
+                 source.ks meta.type.annotation.ks support.type.primitive.ks
                        )
                        ^
-                       source.ks punctuation.definition.arguments.end.bracket.round.ks
-                        : 
-                        ^^
-                        source.ks
+                       source.ks punctuation.definition.parameters.end.bracket.round.ks
+                        :
+                        ^
+                        source.ks meta.function.return-type.ks keyword.operator.type.annotation.ks
+                          
+                         ^
+                         source.ks meta.function.return-type.ks
                           Number
                           ^^^^^^
-                          source.ks variable.other.ks
+                          source.ks meta.function.return-type.ks support.type.primitive.ks
                                  
                                 ^
                                 source.ks
                                  |
                                  ^
-                                 source.ks keyword.operator.bitwise.ks
+                                 source.ks keyword.operator.type.union.ks
 >
 >    func(value: String): String
      
@@ -84,28 +90,34 @@ grammar: kaoscript.tmLanguage
  source.ks
      func
      ^^^^
-     source.ks entity.name.function.ks
+     source.ks storage.type.function.ks
          (
          ^
-         source.ks punctuation.definition.arguments.begin.bracket.round.ks
+         source.ks punctuation.definition.parameters.begin.bracket.round.ks
           value
           ^^^^^
-          source.ks variable.other.ks
-               : 
-               ^^
-               source.ks
+          source.ks variable.parameter.ks
+               :
+               ^
+               source.ks meta.type.annotation.ks keyword.operator.type.annotation.ks
+                 
+                ^
+                source.ks meta.type.annotation.ks
                  String
                  ^^^^^^
-                 source.ks variable.other.ks
+                 source.ks meta.type.annotation.ks support.type.primitive.ks
                        )
                        ^
-                       source.ks punctuation.definition.arguments.end.bracket.round.ks
-                        : 
-                        ^^
-                        source.ks
+                       source.ks punctuation.definition.parameters.end.bracket.round.ks
+                        :
+                        ^
+                        source.ks meta.function.return-type.ks keyword.operator.type.annotation.ks
+                          
+                         ^
+                         source.ks meta.function.return-type.ks
                           String
                           ^^^^^^
-                          source.ks variable.other.ks
+                          source.ks meta.function.return-type.ks support.type.primitive.ks
 >
 >
  
@@ -135,40 +147,46 @@ grammar: kaoscript.tmLanguage
  source.ks
      async
      ^^^^^
-     source.ks variable.other.ks
+     source.ks storage.modifier.async.ks
            
           ^
           source.ks
            func
            ^^^^
-           source.ks entity.name.function.ks
+           source.ks storage.type.function.ks
                (
                ^
-               source.ks punctuation.definition.arguments.begin.bracket.round.ks
+               source.ks punctuation.definition.parameters.begin.bracket.round.ks
                 value
                 ^^^^^
-                source.ks variable.other.ks
-                     : 
-                     ^^
-                     source.ks
+                source.ks variable.parameter.ks
+                     :
+                     ^
+                     source.ks meta.type.annotation.ks keyword.operator.type.annotation.ks
+                       
+                      ^
+                      source.ks meta.type.annotation.ks
                        Number
                        ^^^^^^
-                       source.ks variable.other.ks
+                       source.ks meta.type.annotation.ks support.type.primitive.ks
                              )
                              ^
-                             source.ks punctuation.definition.arguments.end.bracket.round.ks
-                              : 
-                              ^^
-                              source.ks
+                             source.ks punctuation.definition.parameters.end.bracket.round.ks
+                              :
+                              ^
+                              source.ks meta.function.return-type.ks keyword.operator.type.annotation.ks
+                                
+                               ^
+                               source.ks meta.function.return-type.ks
                                 Number
                                 ^^^^^^
-                                source.ks variable.other.ks
+                                source.ks meta.function.return-type.ks support.type.primitive.ks
                                        
                                       ^
                                       source.ks
                                        |
                                        ^
-                                       source.ks keyword.operator.bitwise.ks
+                                       source.ks keyword.operator.type.union.ks
 >
 >    async func(value: String): String
      
@@ -176,34 +194,40 @@ grammar: kaoscript.tmLanguage
  source.ks
      async
      ^^^^^
-     source.ks variable.other.ks
+     source.ks storage.modifier.async.ks
            
           ^
           source.ks
            func
            ^^^^
-           source.ks entity.name.function.ks
+           source.ks storage.type.function.ks
                (
                ^
-               source.ks punctuation.definition.arguments.begin.bracket.round.ks
+               source.ks punctuation.definition.parameters.begin.bracket.round.ks
                 value
                 ^^^^^
-                source.ks variable.other.ks
-                     : 
-                     ^^
-                     source.ks
+                source.ks variable.parameter.ks
+                     :
+                     ^
+                     source.ks meta.type.annotation.ks keyword.operator.type.annotation.ks
+                       
+                      ^
+                      source.ks meta.type.annotation.ks
                        String
                        ^^^^^^
-                       source.ks variable.other.ks
+                       source.ks meta.type.annotation.ks support.type.primitive.ks
                              )
                              ^
-                             source.ks punctuation.definition.arguments.end.bracket.round.ks
-                              : 
-                              ^^
-                              source.ks
+                             source.ks punctuation.definition.parameters.end.bracket.round.ks
+                              :
+                              ^
+                              source.ks meta.function.return-type.ks keyword.operator.type.annotation.ks
+                                
+                               ^
+                               source.ks meta.function.return-type.ks
                                 String
                                 ^^^^^^
-                                source.ks variable.other.ks
+                                source.ks meta.function.return-type.ks support.type.primitive.ks
 >
 >
  

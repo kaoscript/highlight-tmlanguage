@@ -1,0 +1,291 @@
+original file
+-----------------------------------
+class Foobar {
+    foobar(xyz) =>    xyz.x()
+                    || xyz.y()
+                    || xyz.z()
+}
+
+let xyz = 42
+
+func foobar(xyz) =>    xyz.x()
+                    || xyz.y()
+                    || xyz.z()
+
+let xyz = 42
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>class Foobar {
+ class
+ ^^^^^
+ source.ks storage.type.class.ks
+       
+      ^
+      source.ks
+       Foobar
+       ^^^^^^
+       source.ks entity.name.type.class.ks
+              
+             ^
+             source.ks
+              {
+              ^
+              source.ks punctuation.definition.class.begin.bracket.curly.ks
+>
+>    foobar(xyz) =>    xyz.x()
+     
+ ^^^^
+ source.ks
+     foobar
+     ^^^^^^
+     source.ks entity.name.function.ks
+           (
+           ^
+           source.ks punctuation.definition.parameters.begin.bracket.round.ks
+            xyz
+            ^^^
+            source.ks variable.parameter.ks
+               )
+               ^
+               source.ks punctuation.definition.parameters.end.bracket.round.ks
+                 
+                ^
+                source.ks
+                 =>
+                 ^^
+                 source.ks storage.type.function.arrow.ks
+                       
+                   ^^^^
+                   source.ks
+                       xyz
+                       ^^^
+                       source.ks variable.other.object.ks
+                          .
+                          ^
+                          source.ks punctuation.accessor.object.ks
+                           x
+                           ^
+                           source.ks entity.name.function.ks
+                            (
+                            ^
+                            source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                             )
+                             ^
+                             source.ks punctuation.definition.arguments.end.bracket.round.ks
+>
+>                    || xyz.y()
+                     
+ ^^^^^^^^^^^^^^^^^^^^
+ source.ks
+                     ||
+                     ^^
+                     source.ks keyword.operator.logical.ks
+                        
+                       ^
+                       source.ks
+                        xyz
+                        ^^^
+                        source.ks variable.other.object.ks
+                           .
+                           ^
+                           source.ks punctuation.accessor.object.ks
+                            y
+                            ^
+                            source.ks entity.name.function.ks
+                             (
+                             ^
+                             source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                              )
+                              ^
+                              source.ks punctuation.definition.arguments.end.bracket.round.ks
+>
+>                    || xyz.z()
+                     
+ ^^^^^^^^^^^^^^^^^^^^
+ source.ks
+                     ||
+                     ^^
+                     source.ks keyword.operator.logical.ks
+                        
+                       ^
+                       source.ks
+                        xyz
+                        ^^^
+                        source.ks variable.other.object.ks
+                           .
+                           ^
+                           source.ks punctuation.accessor.object.ks
+                            z
+                            ^
+                            source.ks entity.name.function.ks
+                             (
+                             ^
+                             source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                              )
+                              ^
+                              source.ks punctuation.definition.arguments.end.bracket.round.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.class.end.bracket.curly.ks
+>
+>
+ 
+ ^
+ source.ks
+>
+>let xyz = 42
+ let
+ ^^^
+ source.ks storage.type.readwrite.ks
+     
+    ^
+    source.ks
+     xyz
+     ^^^
+     source.ks meta.definition.variable.ks variable.other.readwrite.ks
+         
+        ^
+        source.ks
+         =
+         ^
+         source.ks keyword.operator.assignment.ks
+           
+          ^
+          source.ks
+           42
+           ^^
+           source.ks constant.numeric.decimal.ks
+>
+>
+ 
+ ^
+ source.ks
+>
+>func foobar(xyz) =>    xyz.x()
+ func
+ ^^^^
+ source.ks storage.type.function.ks
+      
+     ^
+     source.ks
+      foobar
+      ^^^^^^
+      source.ks entity.name.function.ks
+            (
+            ^
+            source.ks punctuation.definition.parameters.begin.bracket.round.ks
+             xyz
+             ^^^
+             source.ks variable.parameter.ks
+                )
+                ^
+                source.ks punctuation.definition.parameters.end.bracket.round.ks
+                  
+                 ^
+                 source.ks
+                  =>
+                  ^^
+                  source.ks storage.type.function.arrow.ks
+                        
+                    ^^^^
+                    source.ks
+                        xyz
+                        ^^^
+                        source.ks variable.other.object.ks
+                           .
+                           ^
+                           source.ks punctuation.accessor.object.ks
+                            x
+                            ^
+                            source.ks entity.name.function.ks
+                             (
+                             ^
+                             source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                              )
+                              ^
+                              source.ks punctuation.definition.arguments.end.bracket.round.ks
+>
+>                    || xyz.y()
+                     
+ ^^^^^^^^^^^^^^^^^^^^
+ source.ks
+                     ||
+                     ^^
+                     source.ks keyword.operator.logical.ks
+                        
+                       ^
+                       source.ks
+                        xyz
+                        ^^^
+                        source.ks variable.other.object.ks
+                           .
+                           ^
+                           source.ks punctuation.accessor.object.ks
+                            y
+                            ^
+                            source.ks entity.name.function.ks
+                             (
+                             ^
+                             source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                              )
+                              ^
+                              source.ks punctuation.definition.arguments.end.bracket.round.ks
+>
+>                    || xyz.z()
+                     
+ ^^^^^^^^^^^^^^^^^^^^
+ source.ks
+                     ||
+                     ^^
+                     source.ks keyword.operator.logical.ks
+                        
+                       ^
+                       source.ks
+                        xyz
+                        ^^^
+                        source.ks variable.other.object.ks
+                           .
+                           ^
+                           source.ks punctuation.accessor.object.ks
+                            z
+                            ^
+                            source.ks entity.name.function.ks
+                             (
+                             ^
+                             source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                              )
+                              ^
+                              source.ks punctuation.definition.arguments.end.bracket.round.ks
+>
+>
+ 
+ ^
+ source.ks
+>
+>let xyz = 42
+ let
+ ^^^
+ source.ks storage.type.readwrite.ks
+     
+    ^
+    source.ks
+     xyz
+     ^^^
+     source.ks meta.definition.variable.ks variable.other.readwrite.ks
+         
+        ^
+        source.ks
+         =
+         ^
+         source.ks keyword.operator.assignment.ks
+           
+          ^
+          source.ks
+           42
+           ^^
+           source.ks constant.numeric.decimal.ks

@@ -1,7 +1,11 @@
 await.exec.const
 await.exec.let
+class.method.lambda.ends
+class.method.lambda.starts
 do.while.if
+function.if.logical
 function.parameter.timeout
+function.return.logical
 keyword.var.let
 keyword.var.until
 keyword.var.while
