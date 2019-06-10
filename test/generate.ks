@@ -12,14 +12,6 @@ const register = new vt.Registry()
 
 const grammar = register.loadGrammarFromPathSync(grammarFilePath)
 
-func tokenizeLine(line, context) { // {{{
-    const {tokens, ruleStack} = context.grammar.tokenizeLine(line, context.ruleStack)
-
-    context.ruleStack = ruleStack
-
-    return tokens
-} // }}}
-
 func writeTokenLine(line, token, preTextForToken, output) { // {{{
 	const startingSpaces = ' '.repeat(token.startIndex + 1)
 	const locatingString = '^'.repeat(token.endIndex - token.startIndex)
@@ -42,17 +34,11 @@ export func generate(content: String, indentSize: Number = 4): String { // {{{
 		'-----------------------------------'
 	]
 
-	const context = {
-		grammar
-	}
-
-	// let tokens: Array = null
-	// let ruleStack = null
+	let tokens: Array = null
+	let ruleStack = null
 
 	for const line, index in lines {
-		// {tokens, ruleStack} = grammar.tokenizeLine(line, ruleStack)
-
-		const tokens = tokenizeLine(line, context)
+		{tokens, ruleStack} = grammar.tokenizeLine(line, ruleStack)
 
 		output.push(`>`, `>\(line)`)
 

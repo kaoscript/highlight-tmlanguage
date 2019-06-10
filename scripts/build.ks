@@ -12,9 +12,8 @@ const YAML_FILE = './src/kaoscript.tmLanguage.yaml'
 const PLIST_FILE = './lib/kaoscript.tmLanguage'
 
 func replacePatternVariables(value, variables) {
-	/* for const [regex, replacement] in variables { */
-	for const variable in variables {
-		value = value.replace(variable[0], variable[1])
+	for const [regex, replacement] in variables {
+		value = value.replace(regex, replacement)
 	}
 
 	return value
