@@ -6,7 +6,7 @@ likes = {
     duncan: 'murbella'
 }
 
-spicyHeroes = [hero for hero, like of likes while foo(hero, like) when like == 'spice']
+spicyHeroes = [hero for like, hero of likes while foo(hero, like) when like == 'spice']
 -----------------------------------
 
 grammar: kaoscript.tmLanguage
@@ -108,7 +108,7 @@ grammar: kaoscript.tmLanguage
  ^
  source.ks
 >
->spicyHeroes = [hero for hero, like of likes while foo(hero, like) when like == 'spice']
+>spicyHeroes = [hero for like, hero of likes while foo(hero, like) when like == 'spice']
  spicyHeroes
  ^^^^^^^^^^^
  source.ks variable.other.ks
@@ -136,7 +136,7 @@ grammar: kaoscript.tmLanguage
                          
                         ^
                         source.ks
-                         hero
+                         like
                          ^^^^
                          source.ks variable.other.ks
                              ,
@@ -145,7 +145,7 @@ grammar: kaoscript.tmLanguage
                                
                               ^
                               source.ks
-                               like
+                               hero
                                ^^^^
                                source.ks variable.other.ks
                                     

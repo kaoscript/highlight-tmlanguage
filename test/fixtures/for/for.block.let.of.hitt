@@ -9,7 +9,7 @@ likes = {
     duncan: 'murbella'
 }
 
-for let key, value of likes {
+for let value, key of likes {
     console.log(`\(key) likes \(value)`)
 }
 -----------------------------------
@@ -170,7 +170,7 @@ grammar: kaoscript.tmLanguage
  ^
  source.ks
 >
->for let key, value of likes {
+>for let value, key of likes {
  for
  ^^^
  source.ks keyword.control.loop.for.ks
@@ -183,18 +183,18 @@ grammar: kaoscript.tmLanguage
          
         ^
         source.ks
-         key
-         ^^^
+         value
+         ^^^^^
          source.ks meta.definition.variable.ks variable.other.readwrite.ks
-            ,
-            ^
-            source.ks punctuation.separator.comma.ks
-              
-             ^
-             source.ks
-              value
-              ^^^^^
-              source.ks meta.definition.variable.ks variable.other.readwrite.ks
+              ,
+              ^
+              source.ks punctuation.separator.comma.ks
+                
+               ^
+               source.ks
+                key
+                ^^^
+                source.ks meta.definition.variable.ks variable.other.readwrite.ks
                     
                    ^
                    source.ks

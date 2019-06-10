@@ -6,12 +6,15 @@ else
 endif
 
 build:
-	npx kaoscript build.ks
+	npx kaoscript scripts/build.ks
 
 patch:
-	npx kaoscript patch.ks
+	npx kaoscript scripts/patch.ks
 
 sync:
-	npx kaoscript sync.ks
+	npx kaoscript scripts/sync.ks
 
-.PHONY: test build patch sync
+copy:
+	cp lib/kaoscript.tmLanguage ../highlight-vscode/syntaxes
+
+.PHONY: test build patch sync copy

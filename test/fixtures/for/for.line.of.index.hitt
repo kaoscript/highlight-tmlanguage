@@ -6,7 +6,7 @@ likes = {
     duncan: 'murbella'
 }
 
-console.log('%s likes %s', key, value) for key, value of likes
+console.log('%s likes %s', key, value) for value, key of likes
 -----------------------------------
 
 grammar: kaoscript.tmLanguage
@@ -108,7 +108,7 @@ grammar: kaoscript.tmLanguage
  ^
  source.ks
 >
->console.log('%s likes %s', key, value) for key, value of likes
+>console.log('%s likes %s', key, value) for value, key of likes
  console
  ^^^^^^^
  source.ks variable.other.object.ks
@@ -160,18 +160,18 @@ grammar: kaoscript.tmLanguage
                                             
                                            ^
                                            source.ks
-                                            key
-                                            ^^^
+                                            value
+                                            ^^^^^
                                             source.ks variable.other.ks
-                                               ,
-                                               ^
-                                               source.ks punctuation.separator.comma.ks
-                                                 
-                                                ^
-                                                source.ks
-                                                 value
-                                                 ^^^^^
-                                                 source.ks variable.other.ks
+                                                 ,
+                                                 ^
+                                                 source.ks punctuation.separator.comma.ks
+                                                   
+                                                  ^
+                                                  source.ks
+                                                   key
+                                                   ^^^
+                                                   source.ks variable.other.ks
                                                        
                                                       ^
                                                       source.ks

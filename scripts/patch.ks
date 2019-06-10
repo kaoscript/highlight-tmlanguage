@@ -12,18 +12,9 @@ import {
 	'path'
 }
 
-const grammarFilePath = path.resolve(__dirname, 'lib', 'kaoscript.tmLanguage')
+const grammarFilePath = path.resolve(__dirname, '..', 'lib', 'kaoscript.tmLanguage')
 
-import './test/generate'(grammarFilePath)
-
-
-for file in klawSync(path.join(__dirname, 'test', 'fixtures'), {
-	nodir: true
-	traverseAll: true
-	filter: item => item.path.slice(-3) == '.ks'
-}) {
-	prepare(file.path)
-}
+import '../test/generate'(grammarFilePath)
 
 func prepare(file) {
 	const root = path.dirname(file)
@@ -36,4 +27,12 @@ func prepare(file) {
 	const data = generate(source)
 
 	outputFileSync(path.join(root, `\(name).hitt`), data)
+}
+
+for file in klawSync(path.join(__dirname, '..', 'test', 'fixtures'), {
+	nodir: true
+	traverseAll: true
+	filter: item => item.path.slice(-3) == '.ks'
+}) {
+	prepare(file.path)
 }

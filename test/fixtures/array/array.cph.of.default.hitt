@@ -6,7 +6,7 @@ likes = {
     duncan: 'murbella'
 }
 
-spicyHeroes = [hero for const hero, like of likes]
+spicyHeroes = [hero for const like, hero of likes]
 -----------------------------------
 
 grammar: kaoscript.tmLanguage
@@ -108,7 +108,7 @@ grammar: kaoscript.tmLanguage
  ^
  source.ks
 >
->spicyHeroes = [hero for const hero, like of likes]
+>spicyHeroes = [hero for const like, hero of likes]
  spicyHeroes
  ^^^^^^^^^^^
  source.ks variable.other.ks
@@ -142,7 +142,7 @@ grammar: kaoscript.tmLanguage
                                
                               ^
                               source.ks
-                               hero
+                               like
                                ^^^^
                                source.ks meta.definition.variable.ks variable.other.constant.ks
                                    ,
@@ -151,7 +151,7 @@ grammar: kaoscript.tmLanguage
                                      
                                     ^
                                     source.ks
-                                     like
+                                     hero
                                      ^^^^
                                      source.ks meta.definition.variable.ks variable.other.constant.ks
                                           

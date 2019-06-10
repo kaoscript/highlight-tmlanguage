@@ -3,6 +3,8 @@ await.exec.let
 class.method.lambda.ends
 class.method.lambda.starts
 do.while.if
+for.block.const.key
+for.block.let.key
 function.if.logical
 function.parameter.timeout
 function.return.logical

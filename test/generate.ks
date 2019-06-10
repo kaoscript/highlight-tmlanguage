@@ -46,8 +46,11 @@ export func generate(content: String, indentSize: Number = 4): String { // {{{
 		grammar
 	}
 
+	// let tokens: Array = null
+	// let ruleStack = null
+
 	for const line, index in lines {
-		/* {tokens, ruleStack} = grammar.tokenizeLine(line, ruleStack) */
+		// {tokens, ruleStack} = grammar.tokenizeLine(line, ruleStack)
 
 		const tokens = tokenizeLine(line, context)
 

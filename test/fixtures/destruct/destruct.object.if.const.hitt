@@ -1,0 +1,69 @@
+original file
+-----------------------------------
+if const {bar, baz} = foo {
+
+}
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>if const {bar, baz} = foo {
+ if
+ ^^
+ source.ks keyword.control.conditional.if.ks
+    
+   ^
+   source.ks
+    const
+    ^^^^^
+    source.ks storage.type.constant.ks
+          
+         ^
+         source.ks
+          {
+          ^
+          source.ks punctuation.definition.binding-pattern.object.begin.bracket.square.ks
+           bar
+           ^^^
+           source.ks meta.definition.variable.ks variable.other.constant.ks
+              ,
+              ^
+              source.ks punctuation.separator.comma.ks
+                
+               ^
+               source.ks
+                baz
+                ^^^
+                source.ks meta.definition.variable.ks variable.other.constant.ks
+                   }
+                   ^
+                   source.ks punctuation.definition.binding-pattern.object.end.bracket.square.ks
+                     
+                    ^
+                    source.ks
+                     =
+                     ^
+                     source.ks keyword.operator.assignment.ks
+                       
+                      ^
+                      source.ks
+                       foo
+                       ^^^
+                       source.ks variable.other.ks
+                           
+                          ^
+                          source.ks
+                           {
+                           ^
+                           source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>
+ 
+ ^
+ source.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.block.end.bracket.curly.ks

@@ -6,7 +6,7 @@ likes = {
     duncan: 'murbella'
 }
 
-for key, value of likes when isFremen(key) {
+for value, key of likes when isFremen(key) {
     console.log(`\(key) likes \(value)`)
 }
 -----------------------------------
@@ -110,25 +110,25 @@ grammar: kaoscript.tmLanguage
  ^
  source.ks
 >
->for key, value of likes when isFremen(key) {
+>for value, key of likes when isFremen(key) {
  for
  ^^^
  source.ks keyword.control.loop.for.ks
      
     ^
     source.ks
-     key
-     ^^^
+     value
+     ^^^^^
      source.ks variable.other.ks
-        ,
-        ^
-        source.ks punctuation.separator.comma.ks
-          
-         ^
-         source.ks
-          value
-          ^^^^^
-          source.ks variable.other.ks
+          ,
+          ^
+          source.ks punctuation.separator.comma.ks
+            
+           ^
+           source.ks
+            key
+            ^^^
+            source.ks variable.other.ks
                 
                ^
                source.ks

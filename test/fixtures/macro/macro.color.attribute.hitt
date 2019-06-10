@@ -7,7 +7,7 @@ export class Color {
             const methods: Array = []
 
             let field
-            for name, component of expression.components {
+            for component, name of expression.components {
                 field = `_\(name)`
 
                 fields.push(macro private #i(field): #i(component.type))
@@ -253,7 +253,7 @@ grammar: kaoscript.tmLanguage
                  ^^^^^
                  source.ks meta.macro.ks meta.definition.variable.ks variable.other.readwrite.ks
 >
->            for name, component of expression.components {
+>            for component, name of expression.components {
              
  ^^^^^^^^^^^^
  source.ks meta.macro.ks
@@ -263,18 +263,18 @@ grammar: kaoscript.tmLanguage
                  
                 ^
                 source.ks meta.macro.ks
-                 name
-                 ^^^^
+                 component
+                 ^^^^^^^^^
                  source.ks meta.macro.ks variable.other.ks
-                     ,
-                     ^
-                     source.ks meta.macro.ks punctuation.separator.comma.ks
-                       
-                      ^
-                      source.ks meta.macro.ks
-                       component
-                       ^^^^^^^^^
-                       source.ks meta.macro.ks variable.other.ks
+                          ,
+                          ^
+                          source.ks meta.macro.ks punctuation.separator.comma.ks
+                            
+                           ^
+                           source.ks meta.macro.ks
+                            name
+                            ^^^^
+                            source.ks meta.macro.ks variable.other.ks
                                  
                                 ^
                                 source.ks meta.macro.ks

@@ -178,6 +178,9 @@ repository:
     endCaptures:
       '0': { name: 'punctuation.definition.binding-pattern.object.end.bracket.curly.ks' }
     patterns:
+    - include: '#binding-object-elements'
+  binding-object-elements:
+    patterns:
     - name: 'variable.other.ks'
       match: '{{identifier}}'
     - begin: '='
@@ -1039,23 +1042,51 @@ repository:
     - include: '#comma'
   # }}}
   for-expression: # {{{
-    begin: '\b(for)\s+(?={{expression-beginning}}|:)'
+    begin: '\b(for)(?=\s+(?:{{expression-beginning}}|:))'
     beginCaptures:
       '1': { name: 'keyword.control.loop.for.ks' }
     end: '(?<=\})'
     patterns:
+      - begin: '(const)\s+(:)'
+        beginCaptures:
+          '1': { name: 'storage.type.constant.ks' }
+          '2': { name: 'punctuation.separator.alternative-value.ks' }
+        end: '(?=\bfrom\b|\bin\b|\bof\b)'
+        patterns:
+        - include: '#const-statement-variable'
       - begin: 'const'
         beginCaptures:
           '0': { name: 'storage.type.constant.ks' }
         end: '(?=\bfrom\b|\bin\b|\bof\b)'
         patterns:
         - include: '#const-statement-variable'
+      - begin: '(let)\s+(:)'
+        beginCaptures:
+          '1': { name: 'storage.type.readwrite.ks' }
+          '2': { name: 'punctuation.separator.alternative-value.ks' }
+        end: '(?=\bfrom\b|\bin\b|\bof\b)'
+        patterns:
+        - include: '#let-statement-variable'
       - begin: 'let'
         beginCaptures:
           '0': { name: 'storage.type.readwrite.ks' }
         end: '(?=\bfrom\b|\bin\b|\bof\b)'
         patterns:
         - include: '#let-statement-variable'
+      - begin: '(?<=for)\s+(?=\[)'
+        end: '(?=\{)'
+        patterns:
+        - include: '#binding-array'
+        - include: '#expression'
+      - begin: '(?<=for)\s+(\{)'
+        beginCaptures:
+          '1': { name: 'punctuation.definition.binding-pattern.object.begin.bracket.curly.ks' }
+        end: '(?=\{)'
+        patterns:
+        - include: '#binding-object-elements'
+        - name: 'punctuation.definition.binding-pattern.object.end.bracket.curly.ks'
+          match: '\}'
+        - include: '#expression'
       - name: 'keyword.operator.loop.from.ks'
         match: '\bfrom\b(?![\[\]\(\)\.])'
       - name: 'keyword.operator.loop.til.ks'
@@ -1184,6 +1215,23 @@ repository:
         end: '(?=\{)'
         patterns:
         - include: '#expression'
+    - begin: '\b(if)\s+(?=\[)'
+      beginCaptures:
+        '1': { name: 'keyword.control.conditional.if.ks' }
+      end: '(?=\{)'
+      patterns:
+      - include: '#binding-array'
+      - include: '#expression'
+    - begin: '\b(if)\s+(\{)'
+      beginCaptures:
+        '1': { name: 'keyword.control.conditional.if.ks' }
+        '2': { name: 'punctuation.definition.binding-pattern.object.begin.bracket.curly.ks' }
+      end: '(?=\{)'
+      patterns:
+      - include: '#binding-object-elements'
+      - name: 'punctuation.definition.binding-pattern.object.end.bracket.curly.ks'
+        match: '\}'
+      - include: '#expression'
     - begin: '\bif\b'
       beginCaptures:
         '0': { name: 'keyword.control.conditional.if.ks' }

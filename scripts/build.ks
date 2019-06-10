@@ -1,5 +1,7 @@
 #![bin]
 
+extern console
+
 import 'fs'
 import 'path'
 import 'output-file-sync'
@@ -20,14 +22,14 @@ func replacePatternVariables(value, variables) {
 
 func transformGrammar(grammar) {
 	if grammar.variables? {
-		for const name, value of grammar.variables {
-			for const key of grammar.variables {
+		for const value, name of grammar.variables {
+			for const :key of grammar.variables {
 				grammar.variables[key] = grammar.variables[key].replace(new RegExp(`{{\(name)}}`, 'gim'), value)
 			}
 		}
 
 		const variables = []
-		for const name, value of grammar.variables {
+		for const value, name of grammar.variables {
 			variables.push([new RegExp(`{{\(name)}}`, 'gim'), value])
 		}
 
@@ -43,7 +45,7 @@ func transformGrammar(grammar) {
 }
 
 func transformGrammarRepository(grammar, transformProperty) {
-	for const :value of grammar.repository {
+	for const value of grammar.repository {
 		transformGrammarRule(value, transformProperty)
 	}
 }
@@ -55,14 +57,14 @@ func transformGrammarRule(rule, transformProperty) {
 		}
 	}
 
-	for const :rules of rule when rules is Array {
+	for const rules of rule when rules is Array {
 		for const rule in rules {
 			transformGrammarRule(rule, transformProperty)
 		}
 	}
 
 	if rule.captures? {
-		for const :rule of rule.captures {
+		for const rule of rule.captures {
 			transformGrammarRule(rule, transformProperty)
 		}
 	}
