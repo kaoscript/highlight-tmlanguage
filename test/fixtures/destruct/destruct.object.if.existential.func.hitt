@@ -1,0 +1,69 @@
+original file
+-----------------------------------
+if {bar, baz} ?= foobar() {
+
+}
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>if {bar, baz} ?= foobar() {
+ if
+ ^^
+ source.ks keyword.control.conditional.if.ks
+    
+   ^
+   source.ks
+    {
+    ^
+    source.ks punctuation.definition.binding-pattern.object.begin.bracket.curly.ks
+     bar
+     ^^^
+     source.ks variable.other.ks
+        ,
+        ^
+        source.ks punctuation.separator.comma.ks
+          
+         ^
+         source.ks
+          baz
+          ^^^
+          source.ks variable.other.ks
+             }
+             ^
+             source.ks punctuation.definition.binding-pattern.object.end.bracket.curly.ks
+               
+              ^
+              source.ks
+               ?=
+               ^^
+               source.ks keyword.operator.assignment.compound.ks
+                  
+                 ^
+                 source.ks
+                  foobar
+                  ^^^^^^
+                  source.ks entity.name.function.ks
+                        (
+                        ^
+                        source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                         )
+                         ^
+                         source.ks punctuation.definition.arguments.end.bracket.round.ks
+                           
+                          ^
+                          source.ks
+                           {
+                           ^
+                           source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>
+ 
+ ^
+ source.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.block.end.bracket.curly.ks

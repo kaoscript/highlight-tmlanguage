@@ -1,6 +1,6 @@
 original file
 -----------------------------------
-for {bar, baz} in foo {
+for [bar, baz] in foo {
 
 }
 -----------------------------------
@@ -8,16 +8,16 @@ for {bar, baz} in foo {
 grammar: kaoscript.tmLanguage
 -----------------------------------
 >
->for {bar, baz} in foo {
+>for [bar, baz] in foo {
  for
  ^^^
  source.ks keyword.control.loop.for.ks
      
     ^
     source.ks
-     {
+     [
      ^
-     source.ks punctuation.definition.binding-pattern.object.begin.bracket.curly.ks
+     source.ks punctuation.definition.binding-pattern.array.begin.bracket.square.ks
       bar
       ^^^
       source.ks variable.other.ks
@@ -30,9 +30,9 @@ grammar: kaoscript.tmLanguage
            baz
            ^^^
            source.ks variable.other.ks
-              }
+              ]
               ^
-              source.ks punctuation.definition.binding-pattern.object.end.bracket.curly.ks
+              source.ks punctuation.definition.binding-pattern.array.end.bracket.square.ks
                 
                ^
                source.ks

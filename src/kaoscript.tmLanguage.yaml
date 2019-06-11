@@ -179,7 +179,8 @@ repository:
       '0': { name: 'punctuation.definition.binding-pattern.object.end.bracket.curly.ks' }
     patterns:
     - include: '#binding-object-elements'
-  binding-object-elements:
+  # }}}
+  binding-object-elements: # {{{
     patterns:
     - name: 'variable.other.ks'
       match: '{{identifier}}'
@@ -1074,14 +1075,14 @@ repository:
         patterns:
         - include: '#let-statement-variable'
       - begin: '(?<=for)\s+(?=\[)'
-        end: '(?=\{)'
+        end: '(?=\bin\b|\bof\b)'
         patterns:
         - include: '#binding-array'
         - include: '#expression'
       - begin: '(?<=for)\s+(\{)'
         beginCaptures:
           '1': { name: 'punctuation.definition.binding-pattern.object.begin.bracket.curly.ks' }
-        end: '(?=\{)'
+        end: '(?=\bin\b|\bof\b)'
         patterns:
         - include: '#binding-object-elements'
         - name: 'punctuation.definition.binding-pattern.object.end.bracket.curly.ks'
@@ -1115,7 +1116,7 @@ repository:
       - include: '#expression'
   # }}}
   for-statement: # {{{
-    begin: '^\s*(?=for\s+[:_$[:alpha:]])'
+    begin: '^\s*(?=for\s+[:_$[:alpha:]\{\[])'
     end: '(?<=\})'
     patterns:
     - include: '#for-expression'
@@ -1222,15 +1223,19 @@ repository:
       patterns:
       - include: '#binding-array'
       - include: '#expression'
-    - begin: '\b(if)\s+(\{)'
+    - begin: '\b(if)(?=\s+\{)'
       beginCaptures:
         '1': { name: 'keyword.control.conditional.if.ks' }
-        '2': { name: 'punctuation.definition.binding-pattern.object.begin.bracket.curly.ks' }
       end: '(?=\{)'
       patterns:
-      - include: '#binding-object-elements'
-      - name: 'punctuation.definition.binding-pattern.object.end.bracket.curly.ks'
-        match: '\}'
+      - begin: '(?<=if)\s+(\{)'
+        beginCaptures:
+          '1': { name: 'punctuation.definition.binding-pattern.object.begin.bracket.curly.ks' }
+        end: '\}'
+        endCaptures:
+          '0': { name: 'punctuation.definition.binding-pattern.object.end.bracket.curly.ks' }
+        patterns:
+        - include: '#binding-object-elements'
       - include: '#expression'
     - begin: '\bif\b'
       beginCaptures:

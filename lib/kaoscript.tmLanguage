@@ -3534,7 +3534,7 @@
             <key>begin</key>
             <string>(?&lt;=for)\s+(?=\[)</string>
             <key>end</key>
-            <string>(?=\{)</string>
+            <string>(?=\bin\b|\bof\b)</string>
             <key>patterns</key>
             <array>
               <dict>
@@ -3559,7 +3559,7 @@
               </dict>
             </dict>
             <key>end</key>
-            <string>(?=\{)</string>
+            <string>(?=\bin\b|\bof\b)</string>
             <key>patterns</key>
             <array>
               <dict>
@@ -3663,7 +3663,7 @@
       <key>for-statement</key>
       <dict>
         <key>begin</key>
-        <string>^\s*(?=for\s+[:_$[:alpha:]])</string>
+        <string>^\s*(?=for\s+[:_$[:alpha:]\{\[])</string>
         <key>end</key>
         <string>(?&lt;=\})</string>
         <key>patterns</key>
@@ -4020,7 +4020,7 @@
           </dict>
           <dict>
             <key>begin</key>
-            <string>\b(if)\s+(\{)</string>
+            <string>\b(if)(?=\s+\{)</string>
             <key>beginCaptures</key>
             <dict>
               <key>1</key>
@@ -4028,25 +4028,39 @@
                 <key>name</key>
                 <string>keyword.control.conditional.if.ks</string>
               </dict>
-              <key>2</key>
-              <dict>
-                <key>name</key>
-                <string>punctuation.definition.binding-pattern.object.begin.bracket.curly.ks</string>
-              </dict>
             </dict>
             <key>end</key>
             <string>(?=\{)</string>
             <key>patterns</key>
             <array>
               <dict>
-                <key>include</key>
-                <string>#binding-object-elements</string>
-              </dict>
-              <dict>
-                <key>name</key>
-                <string>punctuation.definition.binding-pattern.object.end.bracket.curly.ks</string>
-                <key>match</key>
+                <key>begin</key>
+                <string>(?&lt;=if)\s+(\{)</string>
+                <key>beginCaptures</key>
+                <dict>
+                  <key>1</key>
+                  <dict>
+                    <key>name</key>
+                    <string>punctuation.definition.binding-pattern.object.begin.bracket.curly.ks</string>
+                  </dict>
+                </dict>
+                <key>end</key>
                 <string>\}</string>
+                <key>endCaptures</key>
+                <dict>
+                  <key>0</key>
+                  <dict>
+                    <key>name</key>
+                    <string>punctuation.definition.binding-pattern.object.end.bracket.curly.ks</string>
+                  </dict>
+                </dict>
+                <key>patterns</key>
+                <array>
+                  <dict>
+                    <key>include</key>
+                    <string>#binding-object-elements</string>
+                  </dict>
+                </array>
               </dict>
               <dict>
                 <key>include</key>

@@ -2,6 +2,9 @@ await.exec.const
 await.exec.let
 class.method.lambda.ends
 class.method.lambda.starts
+destruct.array.for.const
+destruct.array.for.default
+destruct.object.if.existential.func
 do.while.if
 for.block.const.key
 for.block.let.key
