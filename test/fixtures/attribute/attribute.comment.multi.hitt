@@ -13,7 +13,7 @@ grammar: kaoscript.tmLanguage
 >#[test]
  #
  ^
- source.ks meta.attribute.ks punctuation.attribute.ks
+ source.ks meta.attribute.ks punctuation.attribute.outer.ks
   [
   ^
   source.ks meta.attribute.ks punctuation.definition.attribute.begin.bracket.square.ks
@@ -38,7 +38,7 @@ grammar: kaoscript.tmLanguage
 >#[cfg(any(foo, bar))]
  #
  ^
- source.ks meta.attribute.ks punctuation.attribute.ks
+ source.ks meta.attribute.ks punctuation.attribute.outer.ks
   [
   ^
   source.ks meta.attribute.ks punctuation.definition.attribute.begin.bracket.square.ks

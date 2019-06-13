@@ -31,7 +31,7 @@ grammar: kaoscript.tmLanguage
 >#[test]
  #
  ^
- source.ks meta.attribute.ks punctuation.attribute.ks
+ source.ks meta.attribute.ks punctuation.attribute.outer.ks
   [
   ^
   source.ks meta.attribute.ks punctuation.definition.attribute.begin.bracket.square.ks
@@ -78,7 +78,7 @@ grammar: kaoscript.tmLanguage
 >#[cfg(target_os = "darwin")]
  #
  ^
- source.ks meta.attribute.ks punctuation.attribute.ks
+ source.ks meta.attribute.ks punctuation.attribute.outer.ks
   [
   ^
   source.ks meta.attribute.ks punctuation.definition.attribute.begin.bracket.square.ks
@@ -146,7 +146,7 @@ grammar: kaoscript.tmLanguage
 >#[cfg(target_os="linux")]
  #
  ^
- source.ks meta.attribute.ks punctuation.attribute.ks
+ source.ks meta.attribute.ks punctuation.attribute.outer.ks
   [
   ^
   source.ks meta.attribute.ks punctuation.definition.attribute.begin.bracket.square.ks
@@ -214,7 +214,7 @@ grammar: kaoscript.tmLanguage
 >#[cfg(any(foo, bar))]
  #
  ^
- source.ks meta.attribute.ks punctuation.attribute.ks
+ source.ks meta.attribute.ks punctuation.attribute.outer.ks
   [
   ^
   source.ks meta.attribute.ks punctuation.definition.attribute.begin.bracket.square.ks
@@ -288,7 +288,7 @@ grammar: kaoscript.tmLanguage
 >#[cfg(all(unix))]
  #
  ^
- source.ks meta.attribute.ks punctuation.attribute.ks
+ source.ks meta.attribute.ks punctuation.attribute.outer.ks
   [
   ^
   source.ks meta.attribute.ks punctuation.definition.attribute.begin.bracket.square.ks
@@ -353,7 +353,7 @@ grammar: kaoscript.tmLanguage
 >#[cfg(not(foo))]
  #
  ^
- source.ks meta.attribute.ks punctuation.attribute.ks
+ source.ks meta.attribute.ks punctuation.attribute.outer.ks
   [
   ^
   source.ks meta.attribute.ks punctuation.definition.attribute.begin.bracket.square.ks

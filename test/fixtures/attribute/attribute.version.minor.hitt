@@ -11,7 +11,7 @@ grammar: kaoscript.tmLanguage
 >#[if(gt(v8-v6.2))]
  #
  ^
- source.ks meta.attribute.ks punctuation.attribute.ks
+ source.ks meta.attribute.ks punctuation.attribute.outer.ks
   [
   ^
   source.ks meta.attribute.ks punctuation.definition.attribute.begin.bracket.square.ks

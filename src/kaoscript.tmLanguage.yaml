@@ -83,8 +83,8 @@ repository:
     name: meta.attribute.ks
     begin: '(?:(#)|(#!))(\[)'
     beginCaptures:
-      '1': { name: 'punctuation.attribute.ks' }
-      '2': { name: 'punctuation.attribute.block.ks' }
+      '1': { name: 'punctuation.attribute.outer.ks' }
+      '2': { name: 'punctuation.attribute.inner.ks' }
       '3': { name: 'punctuation.definition.attribute.begin.bracket.square.ks' }
     end: \]
     endCaptures:
@@ -243,6 +243,16 @@ repository:
         end: '$'
         patterns:
         - include: '#expression'
+    - begin: '(destructor)(?=\()'
+      beginCaptures:
+        '1': { name: 'storage.type.destructor.ks' }
+      end: '(?<=\})'
+      patterns:
+      - name: 'punctuation.definition.parameters.begin.bracket.round.ks'
+        match: '\('
+      - name: 'punctuation.definition.parameters.end.bracket.round.ks'
+        match: '\)'
+      - include: '#block'
     - begin: '(?:(\basync)\s*)?({{identifier}})(?=\()'
       beginCaptures:
         '1': { name: 'storage.modifier.async.ks' }

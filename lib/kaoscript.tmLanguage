@@ -232,12 +232,12 @@
           <key>1</key>
           <dict>
             <key>name</key>
-            <string>punctuation.attribute.ks</string>
+            <string>punctuation.attribute.outer.ks</string>
           </dict>
           <key>2</key>
           <dict>
             <key>name</key>
-            <string>punctuation.attribute.block.ks</string>
+            <string>punctuation.attribute.inner.ks</string>
           </dict>
           <key>3</key>
           <dict>
@@ -752,6 +752,39 @@
                     <string>#expression</string>
                   </dict>
                 </array>
+              </dict>
+            </array>
+          </dict>
+          <dict>
+            <key>begin</key>
+            <string>(destructor)(?=\()</string>
+            <key>beginCaptures</key>
+            <dict>
+              <key>1</key>
+              <dict>
+                <key>name</key>
+                <string>storage.type.destructor.ks</string>
+              </dict>
+            </dict>
+            <key>end</key>
+            <string>(?&lt;=\})</string>
+            <key>patterns</key>
+            <array>
+              <dict>
+                <key>name</key>
+                <string>punctuation.definition.parameters.begin.bracket.round.ks</string>
+                <key>match</key>
+                <string>\(</string>
+              </dict>
+              <dict>
+                <key>name</key>
+                <string>punctuation.definition.parameters.end.bracket.round.ks</string>
+                <key>match</key>
+                <string>\)</string>
+              </dict>
+              <dict>
+                <key>include</key>
+                <string>#block</string>
               </dict>
             </array>
           </dict>
