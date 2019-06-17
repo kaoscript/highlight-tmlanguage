@@ -1,0 +1,129 @@
+original file
+-----------------------------------
+class Foobar {
+    #![error(off)]
+
+    foo() {
+    }
+
+    bar() {
+    }
+}
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>class Foobar {
+ class
+ ^^^^^
+ source.ks storage.type.class.ks
+       
+      ^
+      source.ks
+       Foobar
+       ^^^^^^
+       source.ks entity.name.type.class.ks
+              
+             ^
+             source.ks
+              {
+              ^
+              source.ks punctuation.definition.class.begin.bracket.curly.ks
+>
+>    #![error(off)]
+     
+ ^^^^
+ source.ks
+     #!
+     ^^
+     source.ks meta.attribute.ks punctuation.attribute.inner.ks
+       [
+       ^
+       source.ks meta.attribute.ks punctuation.definition.attribute.begin.bracket.square.ks
+        error
+        ^^^^^
+        source.ks meta.attribute.ks entity.name.function.ks
+             (
+             ^
+             source.ks meta.attribute.ks punctuation.definition.arguments.begin.bracket.round.ks
+              off
+              ^^^
+              source.ks meta.attribute.ks entity.name.ks
+                 )
+                 ^
+                 source.ks meta.attribute.ks punctuation.definition.arguments.end.bracket.round.ks
+                  ]
+                  ^
+                  source.ks meta.attribute.ks punctuation.definition.attribute.end.bracket.square.ks
+>
+>
+ 
+ ^
+ source.ks
+>
+>    foo() {
+     
+ ^^^^
+ source.ks
+     foo
+     ^^^
+     source.ks entity.name.function.ks
+        (
+        ^
+        source.ks punctuation.definition.parameters.begin.bracket.round.ks
+         )
+         ^
+         source.ks punctuation.definition.parameters.end.bracket.round.ks
+           
+          ^
+          source.ks
+           {
+           ^
+           source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>    }
+     
+ ^^^^
+ source.ks
+     }
+     ^
+     source.ks punctuation.definition.block.end.bracket.curly.ks
+>
+>
+ 
+ ^
+ source.ks
+>
+>    bar() {
+     
+ ^^^^
+ source.ks
+     bar
+     ^^^
+     source.ks entity.name.function.ks
+        (
+        ^
+        source.ks punctuation.definition.parameters.begin.bracket.round.ks
+         )
+         ^
+         source.ks punctuation.definition.parameters.end.bracket.round.ks
+           
+          ^
+          source.ks
+           {
+           ^
+           source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>    }
+     
+ ^^^^
+ source.ks
+     }
+     ^
+     source.ks punctuation.definition.block.end.bracket.curly.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.class.end.bracket.curly.ks

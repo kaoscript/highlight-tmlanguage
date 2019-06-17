@@ -39,34 +39,22 @@ grammar: kaoscript.tmLanguage
  source.ks meta.macro.ks
      macro
      ^^^^^
-     source.ks meta.macro.ks variable.other.ks
+     source.ks meta.macro.ks keyword.control.macro.ks
            
           ^
           source.ks meta.macro.ks
-           console
-           ^^^^^^^
-           source.ks meta.macro.ks variable.other.object.ks
-                  .
-                  ^
-                  source.ks meta.macro.ks punctuation.accessor.object.ks
-                   log
-                   ^^^
-                   source.ks meta.macro.ks entity.name.function.ks
+           console.log
+           ^^^^^^^^^^^
+           source.ks meta.macro.ks
                       (
                       ^
-                      source.ks meta.macro.ks punctuation.definition.arguments.begin.bracket.round.ks
-                       '
-                       ^
-                       source.ks meta.macro.ks string.quoted.single.ks punctuation.definition.string.begin.ks
-                        Hello!
-                        ^^^^^^
-                        source.ks meta.macro.ks string.quoted.single.ks
-                              '
-                              ^
-                              source.ks meta.macro.ks string.quoted.single.ks punctuation.definition.string.end.ks
+                      source.ks meta.macro.ks punctuation.bracket.round.ks
+                       'Hello!'
+                       ^^^^^^^^
+                       source.ks meta.macro.ks
                                )
                                ^
-                               source.ks meta.macro.ks punctuation.definition.arguments.end.bracket.round.ks
+                               source.ks meta.macro.ks punctuation.bracket.round.ks
 >
 >}
  }

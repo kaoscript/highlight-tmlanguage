@@ -1,0 +1,132 @@
+original file
+-----------------------------------
+if test {
+    #![foo]
+}
+else if ytest {
+    #![bar]
+}
+else {
+    #![qux]
+}
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>if test {
+ if
+ ^^
+ source.ks keyword.control.conditional.if.ks
+    
+   ^
+   source.ks
+    test
+    ^^^^
+    source.ks variable.other.ks
+         
+        ^
+        source.ks
+         {
+         ^
+         source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>    #![foo]
+     
+ ^^^^
+ source.ks
+     #!
+     ^^
+     source.ks meta.attribute.ks punctuation.attribute.inner.ks
+       [
+       ^
+       source.ks meta.attribute.ks punctuation.definition.attribute.begin.bracket.square.ks
+        foo
+        ^^^
+        source.ks meta.attribute.ks entity.name.ks
+           ]
+           ^
+           source.ks meta.attribute.ks punctuation.definition.attribute.end.bracket.square.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.block.end.bracket.curly.ks
+>
+>else if ytest {
+ else
+ ^^^^
+ source.ks keyword.control.conditional.else.ks
+      
+     ^
+     source.ks
+      if
+      ^^
+      source.ks keyword.control.conditional.if.ks
+         
+        ^
+        source.ks
+         ytest
+         ^^^^^
+         source.ks variable.other.ks
+               
+              ^
+              source.ks
+               {
+               ^
+               source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>    #![bar]
+     
+ ^^^^
+ source.ks
+     #!
+     ^^
+     source.ks meta.attribute.ks punctuation.attribute.inner.ks
+       [
+       ^
+       source.ks meta.attribute.ks punctuation.definition.attribute.begin.bracket.square.ks
+        bar
+        ^^^
+        source.ks meta.attribute.ks entity.name.ks
+           ]
+           ^
+           source.ks meta.attribute.ks punctuation.definition.attribute.end.bracket.square.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.block.end.bracket.curly.ks
+>
+>else {
+ else
+ ^^^^
+ source.ks keyword.control.conditional.else.ks
+      
+     ^
+     source.ks
+      {
+      ^
+      source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>    #![qux]
+     
+ ^^^^
+ source.ks
+     #!
+     ^^
+     source.ks meta.attribute.ks punctuation.attribute.inner.ks
+       [
+       ^
+       source.ks meta.attribute.ks punctuation.definition.attribute.begin.bracket.square.ks
+        qux
+        ^^^
+        source.ks meta.attribute.ks entity.name.ks
+           ]
+           ^
+           source.ks meta.attribute.ks punctuation.definition.attribute.end.bracket.square.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.block.end.bracket.curly.ks

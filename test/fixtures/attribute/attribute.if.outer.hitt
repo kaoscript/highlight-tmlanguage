@@ -1,0 +1,93 @@
+original file
+-----------------------------------
+#[foo]
+if test {
+}
+else if ytest {
+}
+else {
+}
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>#[foo]
+ #
+ ^
+ source.ks meta.attribute.ks punctuation.attribute.outer.ks
+  [
+  ^
+  source.ks meta.attribute.ks punctuation.definition.attribute.begin.bracket.square.ks
+   foo
+   ^^^
+   source.ks meta.attribute.ks entity.name.ks
+      ]
+      ^
+      source.ks meta.attribute.ks punctuation.definition.attribute.end.bracket.square.ks
+>
+>if test {
+ if
+ ^^
+ source.ks keyword.control.conditional.if.ks
+    
+   ^
+   source.ks
+    test
+    ^^^^
+    source.ks variable.other.ks
+         
+        ^
+        source.ks
+         {
+         ^
+         source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.block.end.bracket.curly.ks
+>
+>else if ytest {
+ else
+ ^^^^
+ source.ks keyword.control.conditional.else.ks
+      
+     ^
+     source.ks
+      if
+      ^^
+      source.ks keyword.control.conditional.if.ks
+         
+        ^
+        source.ks
+         ytest
+         ^^^^^
+         source.ks variable.other.ks
+               
+              ^
+              source.ks
+               {
+               ^
+               source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.block.end.bracket.curly.ks
+>
+>else {
+ else
+ ^^^^
+ source.ks keyword.control.conditional.else.ks
+      
+     ^
+     source.ks
+      {
+      ^
+      source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.block.end.bracket.curly.ks

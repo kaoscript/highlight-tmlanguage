@@ -1,0 +1,63 @@
+original file
+-----------------------------------
+import 'module1'(path.join(__dirname, 'foobar.txt'))
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>import 'module1'(path.join(__dirname, 'foobar.txt'))
+ import
+ ^^^^^^
+ source.ks keyword.control.import.ks
+        
+       ^
+       source.ks
+        '
+        ^
+        source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
+         module1
+         ^^^^^^^
+         source.ks string.quoted.single.ks
+                '
+                ^
+                source.ks string.quoted.single.ks punctuation.definition.string.end.ks
+                 (
+                 ^
+                 source.ks punctuation.definition.parameters.begin.bracket.round.ks
+                  path
+                  ^^^^
+                  source.ks variable.other.object.ks
+                      .
+                      ^
+                      source.ks punctuation.accessor.object.ks
+                       join
+                       ^^^^
+                       source.ks entity.name.function.ks
+                           (
+                           ^
+                           source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                            __dirname
+                            ^^^^^^^^^
+                            source.ks variable.other.ks
+                                     ,
+                                     ^
+                                     source.ks punctuation.separator.comma.ks
+                                       
+                                      ^
+                                      source.ks
+                                       '
+                                       ^
+                                       source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
+                                        foobar.txt
+                                        ^^^^^^^^^^
+                                        source.ks string.quoted.single.ks
+                                                  '
+                                                  ^
+                                                  source.ks string.quoted.single.ks punctuation.definition.string.end.ks
+                                                   )
+                                                   ^
+                                                   source.ks punctuation.definition.arguments.end.bracket.round.ks
+                                                    )
+                                                    ^
+                                                    source.ks punctuation.definition.parameters.end.bracket.round.ks

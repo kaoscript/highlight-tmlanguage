@@ -16,5 +16,6 @@ sync:
 
 copy:
 	cp lib/kaoscript.tmLanguage ../highlight-vscode/syntaxes
+	cp lib/kaoscript.tmLanguage ../website/vscode_extensions/language-kaoscript/syntaxes
 
 .PHONY: test build patch sync copy

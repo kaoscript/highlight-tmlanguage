@@ -1,0 +1,60 @@
+original file
+-----------------------------------
+macro times_five_bl(e) {
+    macro 5 * #e
+}
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>macro times_five_bl(e) {
+ macro
+ ^^^^^
+ source.ks meta.macro.ks storage.type.macro.ks
+       
+      ^
+      source.ks meta.macro.ks
+       times_five_bl
+       ^^^^^^^^^^^^^
+       source.ks meta.macro.ks entity.name.type.macro.ks
+                    (
+                    ^
+                    source.ks meta.macro.ks punctuation.definition.parameters.begin.bracket.round.ks
+                     e
+                     ^
+                     source.ks meta.macro.ks variable.parameter.ks
+                      )
+                      ^
+                      source.ks meta.macro.ks punctuation.definition.parameters.end.bracket.round.ks
+                        
+                       ^
+                       source.ks meta.macro.ks
+                        {
+                        ^
+                        source.ks meta.macro.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>    macro 5 * #e
+     
+ ^^^^
+ source.ks meta.macro.ks
+     macro
+     ^^^^^
+     source.ks meta.macro.ks keyword.control.macro.ks
+           
+          ^
+          source.ks meta.macro.ks
+           5 * 
+           ^^^^
+           source.ks meta.macro.ks
+               #
+               ^
+               source.ks meta.macro.ks meta.macro.variable.ks punctuation.accessor.macro.ks
+                e
+                ^
+                source.ks meta.macro.ks meta.macro.variable.ks variable.other.ks
+>
+>}
+ }
+ ^
+ source.ks meta.macro.ks punctuation.definition.block.end.bracket.curly.ks

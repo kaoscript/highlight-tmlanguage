@@ -1317,14 +1317,11 @@ repository:
         captures:
           '1': { name: 'storage.modifier.seep.ks' }
           '2': { name: 'variable.other.ks' }
-      - match: '({{identifier}})\s*(:)\s*({{identifier}})'
+      - match: '({{identifier}})\s*(:)\s*'
         captures:
           '1': { name: 'variable.other.ks' }
           '2': { name: 'punctuation.separator.alias.ks' }
-          '3': { name: 'variable.other.ks' }
-      - name: 'variable.other.ks'
-        match: '{{identifier}}'
-      - include: '#comma'
+      - include: '#expression'
     - include: '#import-specifier'
     - begin: '\bfor\b'
       beginCaptures:
@@ -1459,6 +1456,12 @@ repository:
       end: '\}'
       endCaptures:
         '0': { name: 'punctuation.definition.macro-expression.end.bracket.curly.ks' }
+      patterns:
+      - include: '#macro-element'
+    - begin: '\b(macro)\s+(?![\|\^\-\*\.~+=!<>%&]|in|of|$)'
+      beginCaptures:
+        '1': { name: 'keyword.control.macro.ks' }
+      end: '(?=$|\))'
       patterns:
       - include: '#macro-element'
   # }}}

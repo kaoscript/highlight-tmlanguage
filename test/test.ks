@@ -15,10 +15,7 @@ import {
 	'path'
 }
 
-/* import './tokenize'(path.resolve(__dirname, '..', 'lib', 'kaoscript.tmLanguage')) */
-const grammarFilePath = path.resolve(__dirname, '..', 'lib', 'kaoscript.tmLanguage')
-
-import './generate'(grammarFilePath)
+import './generate'(path.resolve(__dirname, '..', 'lib', 'kaoscript.tmLanguage'))
 
 describe('highlight', func() {
 	func prepare(file) {

@@ -15,6 +15,7 @@ function.return.logical
 keyword.var.let
 keyword.var.until
 keyword.var.while
+macro.number
 macro.quirk
 number.not
 object.comment.template

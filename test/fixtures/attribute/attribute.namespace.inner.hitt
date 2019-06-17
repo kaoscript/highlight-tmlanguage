@@ -1,0 +1,141 @@
+original file
+-----------------------------------
+namespace Foobar {
+    #![error(off)]
+
+    func foo() {
+    }
+
+    func bar() {
+    }
+}
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>namespace Foobar {
+ namespace
+ ^^^^^^^^^
+ source.ks storage.type.namespace.ks
+           
+          ^
+          source.ks
+           Foobar
+           ^^^^^^
+           source.ks entity.name.type.namespace.ks
+                  
+                 ^
+                 source.ks
+                  {
+                  ^
+                  source.ks punctuation.definition.namespace.begin.bracket.curly.ks
+>
+>    #![error(off)]
+     
+ ^^^^
+ source.ks
+     #!
+     ^^
+     source.ks meta.attribute.ks punctuation.attribute.inner.ks
+       [
+       ^
+       source.ks meta.attribute.ks punctuation.definition.attribute.begin.bracket.square.ks
+        error
+        ^^^^^
+        source.ks meta.attribute.ks entity.name.function.ks
+             (
+             ^
+             source.ks meta.attribute.ks punctuation.definition.arguments.begin.bracket.round.ks
+              off
+              ^^^
+              source.ks meta.attribute.ks entity.name.ks
+                 )
+                 ^
+                 source.ks meta.attribute.ks punctuation.definition.arguments.end.bracket.round.ks
+                  ]
+                  ^
+                  source.ks meta.attribute.ks punctuation.definition.attribute.end.bracket.square.ks
+>
+>
+ 
+ ^
+ source.ks
+>
+>    func foo() {
+     
+ ^^^^
+ source.ks
+     func
+     ^^^^
+     source.ks storage.type.function.ks
+          
+         ^
+         source.ks
+          foo
+          ^^^
+          source.ks entity.name.function.ks
+             (
+             ^
+             source.ks punctuation.definition.parameters.begin.bracket.round.ks
+              )
+              ^
+              source.ks punctuation.definition.parameters.end.bracket.round.ks
+                
+               ^
+               source.ks
+                {
+                ^
+                source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>    }
+     
+ ^^^^
+ source.ks
+     }
+     ^
+     source.ks punctuation.definition.block.end.bracket.curly.ks
+>
+>
+ 
+ ^
+ source.ks
+>
+>    func bar() {
+     
+ ^^^^
+ source.ks
+     func
+     ^^^^
+     source.ks storage.type.function.ks
+          
+         ^
+         source.ks
+          bar
+          ^^^
+          source.ks entity.name.function.ks
+             (
+             ^
+             source.ks punctuation.definition.parameters.begin.bracket.round.ks
+              )
+              ^
+              source.ks punctuation.definition.parameters.end.bracket.round.ks
+                
+               ^
+               source.ks
+                {
+                ^
+                source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>    }
+     
+ ^^^^
+ source.ks
+     }
+     ^
+     source.ks punctuation.definition.block.end.bracket.curly.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.namespace.end.bracket.curly.ks
