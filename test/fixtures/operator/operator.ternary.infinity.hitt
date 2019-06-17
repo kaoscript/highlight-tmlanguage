@@ -1,0 +1,54 @@
+original file
+-----------------------------------
+const val = test ? Infinity : Infinity
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>const val = test ? Infinity : Infinity
+ const
+ ^^^^^
+ source.ks storage.type.constant.ks
+       
+      ^
+      source.ks
+       val
+       ^^^
+       source.ks meta.definition.variable.ks variable.other.constant.ks
+           
+          ^
+          source.ks
+           =
+           ^
+           source.ks keyword.operator.assignment.ks
+             
+            ^
+            source.ks
+             test
+             ^^^^
+             source.ks variable.other.ks
+                  
+                 ^
+                 source.ks
+                  ?
+                  ^
+                  source.ks keyword.operator.ternary.ks
+                    
+                   ^
+                   source.ks
+                    Infinity
+                    ^^^^^^^^
+                    source.ks constant.language.ks
+                             
+                            ^
+                            source.ks
+                             :
+                             ^
+                             source.ks keyword.operator.ternary.ks
+                               
+                              ^
+                              source.ks
+                               Infinity
+                               ^^^^^^^^
+                               source.ks constant.language.ks

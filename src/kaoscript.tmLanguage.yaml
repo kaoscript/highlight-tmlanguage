@@ -478,11 +478,11 @@ repository:
   constant: # {{{
     patterns:
     - name: constant.language.boolean.$1.ks
-      match: (?<![$\.])\b(true|false)(?!\s*:)\b
+      match: (?<![$\.])\b(true|false)\b
     - name: constant.language.null.ks
-      match: (?<![$\.])\b(null)(?!\s*:)\b
+      match: (?<![$\.])\b(null)\b
     - name: constant.language.ks
-      match: (?<![$\.])\b(Infinity|NaN)(?!\s*:)\b
+      match: (?<![$\.])\b(Infinity|NaN)\b
   # }}}
   continue-statement: # {{{
     begin: '^\s*(continue)'

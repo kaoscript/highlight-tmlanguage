@@ -1,0 +1,1 @@
+const val = test ? Infinity : Infinity

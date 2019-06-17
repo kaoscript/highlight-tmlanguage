@@ -19,4 +19,8 @@ macro.number
 macro.quirk
 number.not
 object.comment.template
+object.key.constant
 operator.spread.this
+operator.ternary.infinity
+operator.ternary.null
+operator.ternary.true

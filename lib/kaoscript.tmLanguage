@@ -1537,19 +1537,19 @@
             <key>name</key>
             <string>constant.language.boolean.$1.ks</string>
             <key>match</key>
-            <string>(?&lt;![$\.])\b(true|false)(?!\s*:)\b</string>
+            <string>(?&lt;![$\.])\b(true|false)\b</string>
           </dict>
           <dict>
             <key>name</key>
             <string>constant.language.null.ks</string>
             <key>match</key>
-            <string>(?&lt;![$\.])\b(null)(?!\s*:)\b</string>
+            <string>(?&lt;![$\.])\b(null)\b</string>
           </dict>
           <dict>
             <key>name</key>
             <string>constant.language.ks</string>
             <key>match</key>
-            <string>(?&lt;![$\.])\b(Infinity|NaN)(?!\s*:)\b</string>
+            <string>(?&lt;![$\.])\b(Infinity|NaN)\b</string>
           </dict>
         </array>
       </dict>

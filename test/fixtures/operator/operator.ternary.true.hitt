@@ -1,0 +1,54 @@
+original file
+-----------------------------------
+const val = test ? true : true
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>const val = test ? true : true
+ const
+ ^^^^^
+ source.ks storage.type.constant.ks
+       
+      ^
+      source.ks
+       val
+       ^^^
+       source.ks meta.definition.variable.ks variable.other.constant.ks
+           
+          ^
+          source.ks
+           =
+           ^
+           source.ks keyword.operator.assignment.ks
+             
+            ^
+            source.ks
+             test
+             ^^^^
+             source.ks variable.other.ks
+                  
+                 ^
+                 source.ks
+                  ?
+                  ^
+                  source.ks keyword.operator.ternary.ks
+                    
+                   ^
+                   source.ks
+                    true
+                    ^^^^
+                    source.ks constant.language.boolean.true.ks
+                         
+                        ^
+                        source.ks
+                         :
+                         ^
+                         source.ks keyword.operator.ternary.ks
+                           
+                          ^
+                          source.ks
+                           true
+                           ^^^^
+                           source.ks constant.language.boolean.true.ks
