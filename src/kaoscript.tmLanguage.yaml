@@ -1313,9 +1313,9 @@ repository:
       endCaptures:
         '0': { name: 'punctuation.definition.parameters.end.bracket.round.ks' }
       patterns:
-      - match: '(\bseep)\s+({{identifier}})'
+      - match: '(\brequire)\s+({{identifier}})'
         captures:
-          '1': { name: 'storage.modifier.seep.ks' }
+          '1': { name: 'storage.modifier.require.ks' }
           '2': { name: 'variable.other.ks' }
       - match: '({{identifier}})\s*(:)\s*'
         captures:

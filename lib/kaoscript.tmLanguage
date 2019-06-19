@@ -4315,13 +4315,13 @@
             <array>
               <dict>
                 <key>match</key>
-                <string>(\bseep)\s+([_$[:alpha:]][_$[:alnum:]]*)</string>
+                <string>(\brequire)\s+([_$[:alpha:]][_$[:alnum:]]*)</string>
                 <key>captures</key>
                 <dict>
                   <key>1</key>
                   <dict>
                     <key>name</key>
-                    <string>storage.modifier.seep.ks</string>
+                    <string>storage.modifier.require.ks</string>
                   </dict>
                   <key>2</key>
                   <dict>

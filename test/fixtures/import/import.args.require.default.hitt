@@ -1,12 +1,12 @@
 original file
 -----------------------------------
-import 'module1'(seep, foobar)
+import 'module1'(require Foobar)
 -----------------------------------
 
 grammar: kaoscript.tmLanguage
 -----------------------------------
 >
->import 'module1'(seep, foobar)
+>import 'module1'(require Foobar)
  import
  ^^^^^^
  source.ks keyword.control.import.ks
@@ -25,18 +25,15 @@ grammar: kaoscript.tmLanguage
                  (
                  ^
                  source.ks punctuation.definition.parameters.begin.bracket.round.ks
-                  seep
-                  ^^^^
-                  source.ks variable.other.ks
-                      ,
-                      ^
-                      source.ks punctuation.separator.comma.ks
-                        
-                       ^
-                       source.ks
-                        foobar
-                        ^^^^^^
-                        source.ks variable.other.ks
-                              )
-                              ^
-                              source.ks punctuation.definition.parameters.end.bracket.round.ks
+                  require
+                  ^^^^^^^
+                  source.ks storage.modifier.require.ks
+                          
+                         ^
+                         source.ks
+                          Foobar
+                          ^^^^^^
+                          source.ks variable.other.ks
+                                )
+                                ^
+                                source.ks punctuation.definition.parameters.end.bracket.round.ks
