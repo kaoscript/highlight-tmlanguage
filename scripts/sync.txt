@@ -9,6 +9,7 @@ destruct.object.if.existential.func
 do.while.if
 for.block.const.key
 for.block.let.key
+function.decl.ml
 function.if.logical
 function.parameter.timeout
 function.return.logical

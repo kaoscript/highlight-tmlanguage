@@ -1034,6 +1034,7 @@ repository:
       - include: '#function-parameters'
       - include: '#function-return-type'
       - include: '#function-throwables'
+      - include: '#comment'
     - include: '#block'
     - begin: '=>'
       beginCaptures:

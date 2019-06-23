@@ -1,0 +1,117 @@
+original file
+-----------------------------------
+func foobar() // {{{
+{
+
+}
+// }}}
+
+func quxbaz() // {{{
+    => 42
+// }}}
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>func foobar() // {{{
+ func
+ ^^^^
+ source.ks storage.type.function.ks
+      
+     ^
+     source.ks
+      foobar
+      ^^^^^^
+      source.ks entity.name.function.ks
+            (
+            ^
+            source.ks punctuation.definition.parameters.begin.bracket.round.ks
+             )
+             ^
+             source.ks punctuation.definition.parameters.end.bracket.round.ks
+               
+              ^
+              source.ks
+               //
+               ^^
+               source.ks comment.line.double-slash.ks punctuation.definition.comment.ks
+                  {{{
+                 ^^^^
+                 source.ks comment.line.double-slash.ks
+>
+>{
+ {
+ ^
+ source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>
+ 
+ ^
+ source.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.block.end.bracket.curly.ks
+>
+>// }}}
+ //
+ ^^
+ source.ks comment.line.double-slash.ks punctuation.definition.comment.ks
+    }}}
+   ^^^^
+   source.ks comment.line.double-slash.ks
+>
+>
+ 
+ ^
+ source.ks
+>
+>func quxbaz() // {{{
+ func
+ ^^^^
+ source.ks storage.type.function.ks
+      
+     ^
+     source.ks
+      quxbaz
+      ^^^^^^
+      source.ks entity.name.function.ks
+            (
+            ^
+            source.ks punctuation.definition.parameters.begin.bracket.round.ks
+             )
+             ^
+             source.ks punctuation.definition.parameters.end.bracket.round.ks
+               
+              ^
+              source.ks
+               //
+               ^^
+               source.ks comment.line.double-slash.ks punctuation.definition.comment.ks
+                  {{{
+                 ^^^^
+                 source.ks comment.line.double-slash.ks
+>
+>    => 42
+     
+ ^^^^
+ source.ks
+     =>
+     ^^
+     source.ks storage.type.function.arrow.ks
+        
+       ^
+       source.ks
+        42
+        ^^
+        source.ks constant.numeric.decimal.ks
+>
+>// }}}
+ //
+ ^^
+ source.ks comment.line.double-slash.ks punctuation.definition.comment.ks
+    }}}
+   ^^^^
+   source.ks comment.line.double-slash.ks
