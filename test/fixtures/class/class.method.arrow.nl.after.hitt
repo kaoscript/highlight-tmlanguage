@@ -1,0 +1,66 @@
+original file
+-----------------------------------
+class Foobar {
+    hello() =>
+        'Hello :)'
+}
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>class Foobar {
+ class
+ ^^^^^
+ source.ks storage.type.class.ks
+       
+      ^
+      source.ks
+       Foobar
+       ^^^^^^
+       source.ks entity.name.type.class.ks
+              
+             ^
+             source.ks
+              {
+              ^
+              source.ks punctuation.definition.class.begin.bracket.curly.ks
+>
+>    hello() =>
+     
+ ^^^^
+ source.ks
+     hello
+     ^^^^^
+     source.ks entity.name.function.ks
+          (
+          ^
+          source.ks punctuation.definition.parameters.begin.bracket.round.ks
+           )
+           ^
+           source.ks punctuation.definition.parameters.end.bracket.round.ks
+             
+            ^
+            source.ks
+             =>
+             ^^
+             source.ks storage.type.function.arrow.ks
+>
+>        'Hello :)'
+         
+ ^^^^^^^^
+ source.ks
+         '
+         ^
+         source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
+          Hello :)
+          ^^^^^^^^
+          source.ks string.quoted.single.ks
+                  '
+                  ^
+                  source.ks string.quoted.single.ks punctuation.definition.string.end.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.class.end.bracket.curly.ks

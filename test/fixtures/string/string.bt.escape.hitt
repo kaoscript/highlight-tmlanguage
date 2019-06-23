@@ -1,0 +1,36 @@
+original file
+-----------------------------------
+let foobar = `abc\\(xyz)def`
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>let foobar = `abc\\(xyz)def`
+ let
+ ^^^
+ source.ks storage.type.readwrite.ks
+     
+    ^
+    source.ks
+     foobar
+     ^^^^^^
+     source.ks meta.definition.variable.ks variable.other.readwrite.ks
+            
+           ^
+           source.ks
+            =
+            ^
+            source.ks keyword.operator.assignment.ks
+              
+             ^
+             source.ks
+              `
+              ^
+              source.ks punctuation.definition.string.template.begin.ks
+               abc\\(xyz)def
+               ^^^^^^^^^^^^^
+               source.ks string.template.ks
+                            `
+                            ^
+                            source.ks punctuation.definition.string.template.end.ks

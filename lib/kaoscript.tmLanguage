@@ -790,15 +790,30 @@
           </dict>
           <dict>
             <key>begin</key>
-            <string>(?:(\basync)\s*)?([_$[:alpha:]][_$[:alnum:]]*)(?=\()</string>
+            <string>(?:\b(private|protected|public)\b\s*)?(?:(\babstract\b)\s*|(\bstatic\b)\s*)?(?:(\basync)\s*)?([_$[:alpha:]][_$[:alnum:]]*)(?=\()</string>
             <key>beginCaptures</key>
             <dict>
               <key>1</key>
               <dict>
                 <key>name</key>
-                <string>storage.modifier.async.ks</string>
+                <string>storage.modifier.access.ks</string>
               </dict>
               <key>2</key>
+              <dict>
+                <key>name</key>
+                <string>storage.modifier.abstract.ks</string>
+              </dict>
+              <key>3</key>
+              <dict>
+                <key>name</key>
+                <string>storage.modifier.access.ks</string>
+              </dict>
+              <key>4</key>
+              <dict>
+                <key>name</key>
+                <string>storage.modifier.async.ks</string>
+              </dict>
+              <key>5</key>
               <dict>
                 <key>name</key>
                 <string>entity.name.function.ks</string>
@@ -849,10 +864,20 @@
           </dict>
           <dict>
             <key>begin</key>
-            <string>([_$[:alpha:]][_$[:alnum:]]*)\s*(?=\{)</string>
+            <string>(?:\b(private|protected|public)\b\s*)?(?:\b(static)\b\s*)?([_$[:alpha:]][_$[:alnum:]]*)\s*(?=\{)</string>
             <key>beginCaptures</key>
             <dict>
               <key>1</key>
+              <dict>
+                <key>name</key>
+                <string>storage.modifier.access.ks</string>
+              </dict>
+              <key>2</key>
+              <dict>
+                <key>name</key>
+                <string>storage.modifier.access.ks</string>
+              </dict>
+              <key>3</key>
               <dict>
                 <key>name</key>
                 <string>entity.name.variable.property.ks</string>
@@ -870,10 +895,20 @@
           </dict>
           <dict>
             <key>begin</key>
-            <string>([_$[:alpha:]][_$[:alnum:]]*)\s*(?=:\s*[_$[:alpha:]][_$[:alnum:]]*\s*\{)</string>
+            <string>(?:\b(private|protected|public)\b\s*)?(?:\b(static)\b\s*)?([_$[:alpha:]][_$[:alnum:]]*)\s*(?=:\s*[_$[:alpha:]][_$[:alnum:]]*\s*\{)</string>
             <key>beginCaptures</key>
             <dict>
               <key>1</key>
+              <dict>
+                <key>name</key>
+                <string>storage.modifier.access.ks</string>
+              </dict>
+              <key>2</key>
+              <dict>
+                <key>name</key>
+                <string>storage.modifier.access.ks</string>
+              </dict>
+              <key>3</key>
               <dict>
                 <key>name</key>
                 <string>entity.name.variable.property.ks</string>
@@ -914,10 +949,20 @@
           </dict>
           <dict>
             <key>begin</key>
-            <string>[_$[:alpha:]][_$[:alnum:]]*</string>
+            <string>(?:\b(private|protected|public)\b\s*)?(?:\b(static)\b\s*)?([_$[:alpha:]][_$[:alnum:]]*)</string>
             <key>beginCaptures</key>
             <dict>
-              <key>0</key>
+              <key>1</key>
+              <dict>
+                <key>name</key>
+                <string>storage.modifier.access.ks</string>
+              </dict>
+              <key>2</key>
+              <dict>
+                <key>name</key>
+                <string>storage.modifier.access.ks</string>
+              </dict>
+              <key>3</key>
               <dict>
                 <key>name</key>
                 <string>entity.name.variable.field.ks</string>
@@ -1001,6 +1046,35 @@
                 <string>#expression</string>
               </dict>
             </array>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#block</string>
+          </dict>
+          <dict>
+            <key>begin</key>
+            <string>=&gt;</string>
+            <key>beginCaptures</key>
+            <dict>
+              <key>0</key>
+              <dict>
+                <key>name</key>
+                <string>storage.type.function.arrow.ks</string>
+              </dict>
+            </dict>
+            <key>end</key>
+            <string>(?=\}|$)</string>
+            <key>patterns</key>
+            <array>
+              <dict>
+                <key>include</key>
+                <string>#expression</string>
+              </dict>
+            </array>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#expression</string>
           </dict>
         </array>
       </dict>
@@ -1244,29 +1318,60 @@
             <key>patterns</key>
             <array>
               <dict>
-                <key>name</key>
-                <string>storage.modifier.access.ks</string>
-                <key>match</key>
-                <string>(?:private|protected|public|static)(?!\s*\()</string>
-              </dict>
-              <dict>
-                <key>name</key>
-                <string>storage.modifier.abstract.ks</string>
-                <key>match</key>
-                <string>(?:abstract)(?!\s*\()</string>
-              </dict>
-              <dict>
-                <key>name</key>
-                <string>storage.modifier.async.ks</string>
-                <key>match</key>
-                <string>(?:async)(?!\s*\()</string>
+                <key>begin</key>
+                <string>\b(private|protected|public)\s+(\{)</string>
+                <key>beginCaptures</key>
+                <dict>
+                  <key>1</key>
+                  <dict>
+                    <key>name</key>
+                    <string>storage.modifier.access.ks</string>
+                  </dict>
+                  <key>2</key>
+                  <dict>
+                    <key>name</key>
+                    <string>punctuation.definition.members.begin.bracket.curly.ks</string>
+                  </dict>
+                </dict>
+                <key>end</key>
+                <string>\}</string>
+                <key>endCaptures</key>
+                <dict>
+                  <key>0</key>
+                  <dict>
+                    <key>name</key>
+                    <string>punctuation.definition.members.end.bracket.curly.ks</string>
+                  </dict>
+                </dict>
+                <key>patterns</key>
+                <array>
+                  <dict>
+                    <key>include</key>
+                    <string>#class-member</string>
+                  </dict>
+                </array>
               </dict>
               <dict>
                 <key>begin</key>
-                <string>\{</string>
+                <string>(?:\b(private|protected|public)\b)?\s*(?:(\babstract)|(\bstatic))\s+(\{)</string>
                 <key>beginCaptures</key>
                 <dict>
-                  <key>0</key>
+                  <key>1</key>
+                  <dict>
+                    <key>name</key>
+                    <string>storage.modifier.access.ks</string>
+                  </dict>
+                  <key>2</key>
+                  <dict>
+                    <key>name</key>
+                    <string>storage.modifier.abstract.ks</string>
+                  </dict>
+                  <key>3</key>
+                  <dict>
+                    <key>name</key>
+                    <string>storage.modifier.access.ks</string>
+                  </dict>
+                  <key>4</key>
                   <dict>
                     <key>name</key>
                     <string>punctuation.definition.members.begin.bracket.curly.ks</string>

@@ -253,10 +253,13 @@ repository:
       - name: 'punctuation.definition.parameters.end.bracket.round.ks'
         match: '\)'
       - include: '#block'
-    - begin: '(?:(\basync)\s*)?({{identifier}})(?=\()'
+    - begin: '(?:\b(private|protected|public)\b\s*)?(?:(\babstract\b)\s*|(\bstatic\b)\s*)?(?:(\basync)\s*)?({{identifier}})(?=\()'
       beginCaptures:
-        '1': { name: 'storage.modifier.async.ks' }
-        '2': { name: 'entity.name.function.ks' }
+        '1': { name: 'storage.modifier.access.ks' }
+        '2': { name: 'storage.modifier.abstract.ks' }
+        '3': { name: 'storage.modifier.access.ks' }
+        '4': { name: 'storage.modifier.async.ks' }
+        '5': { name: 'entity.name.function.ks' }
       end: '(?<=\})|$|(?=\})'
       patterns:
       - include: '#function-parameters'
@@ -269,15 +272,19 @@ repository:
         end: '(?=\}|$)'
         patterns:
         - include: '#expression'
-    - begin: '({{identifier}})\s*(?=\{)'
+    - begin: '(?:\b(private|protected|public)\b\s*)?(?:\b(static)\b\s*)?({{identifier}})\s*(?=\{)'
       beginCaptures:
-        '1': { name: 'entity.name.variable.property.ks' }
+        '1': { name: 'storage.modifier.access.ks' }
+        '2': { name: 'storage.modifier.access.ks' }
+        '3': { name: 'entity.name.variable.property.ks' }
       end: '$'
       patterns:
       - include: '#class-property'
-    - begin: '({{identifier}})\s*(?=:\s*{{identifier}}\s*\{)'
+    - begin: '(?:\b(private|protected|public)\b\s*)?(?:\b(static)\b\s*)?({{identifier}})\s*(?=:\s*{{identifier}}\s*\{)'
       beginCaptures:
-        '1': { name: 'entity.name.variable.property.ks' }
+        '1': { name: 'storage.modifier.access.ks' }
+        '2': { name: 'storage.modifier.access.ks' }
+        '3': { name: 'entity.name.variable.property.ks' }
       end: '$'
       patterns:
       - name: 'meta.type.annotation.ks'
@@ -288,9 +295,11 @@ repository:
         patterns:
         - include: '#type'
       - include: '#class-property'
-    - begin: '{{identifier}}'
+    - begin: '(?:\b(private|protected|public)\b\s*)?(?:\b(static)\b\s*)?({{identifier}})'
       beginCaptures:
-        '0': { name: 'entity.name.variable.field.ks' }
+        '1': { name: 'storage.modifier.access.ks' }
+        '2': { name: 'storage.modifier.access.ks' }
+        '3': { name: 'entity.name.variable.field.ks' }
       end: '$'
       patterns:
       - name: 'meta.type.annotation.ks'
@@ -314,6 +323,14 @@ repository:
       end: '(?={{expression-ending}})'
       patterns:
       - include: '#expression'
+    - include: '#block'
+    - begin: '=>'
+      beginCaptures:
+        '0': { name: 'storage.type.function.arrow.ks' }
+      end: '(?=\}|$)'
+      patterns:
+      - include: '#expression'
+    - include: '#expression'
   # }}}
   class-property: # {{{
     patterns:
@@ -384,15 +401,21 @@ repository:
       endCaptures:
         '0': { name: 'punctuation.definition.class.end.bracket.curly.ks' }
       patterns:
-      - name: 'storage.modifier.access.ks'
-        match: '(?:private|protected|public|static)(?!\s*\()'
-      - name: 'storage.modifier.abstract.ks'
-        match: '(?:abstract)(?!\s*\()'
-      - name: 'storage.modifier.async.ks'
-        match: '(?:async)(?!\s*\()'
-      - begin: '\{'
+      - begin: '\b(private|protected|public)\s+(\{)'
         beginCaptures:
-          '0': { name: 'punctuation.definition.members.begin.bracket.curly.ks' }
+          '1': { name: 'storage.modifier.access.ks' }
+          '2': { name: 'punctuation.definition.members.begin.bracket.curly.ks' }
+        end: '\}'
+        endCaptures:
+          '0': { name: 'punctuation.definition.members.end.bracket.curly.ks' }
+        patterns:
+        - include: '#class-member'
+      - begin: '(?:\b(private|protected|public)\b)?\s*(?:(\babstract)|(\bstatic))\s+(\{)'
+        beginCaptures:
+          '1': { name: 'storage.modifier.access.ks' }
+          '2': { name: 'storage.modifier.abstract.ks' }
+          '3': { name: 'storage.modifier.access.ks' }
+          '4': { name: 'punctuation.definition.members.begin.bracket.curly.ks' }
         end: '\}'
         endCaptures:
           '0': { name: 'punctuation.definition.members.end.bracket.curly.ks' }
