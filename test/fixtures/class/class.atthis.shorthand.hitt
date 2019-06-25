@@ -1,0 +1,141 @@
+original file
+-----------------------------------
+class Foobar {
+    private {
+        _x: Number
+    }
+    constructor(@x)
+    export() => {
+        @x
+    }
+}
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>class Foobar {
+ class
+ ^^^^^
+ source.ks storage.type.class.ks
+       
+      ^
+      source.ks
+       Foobar
+       ^^^^^^
+       source.ks entity.name.type.class.ks
+              
+             ^
+             source.ks
+              {
+              ^
+              source.ks punctuation.definition.class.begin.bracket.curly.ks
+>
+>    private {
+     
+ ^^^^
+ source.ks
+     private
+     ^^^^^^^
+     source.ks storage.modifier.access.ks
+             
+            ^
+            source.ks
+             {
+             ^
+             source.ks punctuation.definition.members.begin.bracket.curly.ks
+>
+>        _x: Number
+         
+ ^^^^^^^^
+ source.ks
+         _x
+         ^^
+         source.ks entity.name.variable.field.ks
+           :
+           ^
+           source.ks meta.type.annotation.ks keyword.operator.type.annotation.ks
+             
+            ^
+            source.ks meta.type.annotation.ks
+             Number
+             ^^^^^^
+             source.ks meta.type.annotation.ks support.type.primitive.ks
+>
+>    }
+     
+ ^^^^
+ source.ks
+     }
+     ^
+     source.ks punctuation.definition.members.end.bracket.curly.ks
+>
+>    constructor(@x)
+     
+ ^^^^
+ source.ks
+     constructor
+     ^^^^^^^^^^^
+     source.ks storage.type.constructor.ks
+                (
+                ^
+                source.ks punctuation.definition.parameters.begin.bracket.round.ks
+                 @
+                 ^
+                 source.ks storage.modifier.at.ks
+                  x
+                  ^
+                  source.ks variable.parameter.ks
+                   )
+                   ^
+                   source.ks punctuation.definition.parameters.end.bracket.round.ks
+>
+>    export() => {
+     
+ ^^^^
+ source.ks
+     export
+     ^^^^^^
+     source.ks entity.name.function.ks
+           (
+           ^
+           source.ks punctuation.definition.parameters.begin.bracket.round.ks
+            )
+            ^
+            source.ks punctuation.definition.parameters.end.bracket.round.ks
+              
+             ^
+             source.ks
+              =>
+              ^^
+              source.ks storage.type.function.arrow.ks
+                 
+                ^
+                source.ks
+                 {
+                 ^
+                 source.ks punctuation.definition.object.begin.bracket.curly.ks
+>
+>        @x
+         
+ ^^^^^^^^
+ source.ks
+         @
+         ^
+         source.ks storage.modifier.at.ks
+          x
+          ^
+          source.ks variable.other.ks
+>
+>    }
+     
+ ^^^^
+ source.ks
+     }
+     ^
+     source.ks punctuation.definition.object.end.bracket.curly.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.class.end.bracket.curly.ks

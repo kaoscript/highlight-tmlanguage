@@ -1,0 +1,126 @@
+original file
+-----------------------------------
+func drawCircle({center: [x, y], radius: r}) {
+    return [x, y, r]
+}
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>func drawCircle({center: [x, y], radius: r}) {
+ func
+ ^^^^
+ source.ks storage.type.function.ks
+      
+     ^
+     source.ks
+      drawCircle
+      ^^^^^^^^^^
+      source.ks entity.name.function.ks
+                (
+                ^
+                source.ks punctuation.definition.parameters.begin.bracket.round.ks
+                 {
+                 ^
+                 source.ks punctuation.definition.binding-pattern.object.begin.bracket.curly.ks
+                  center
+                  ^^^^^^
+                  source.ks meta.object.key.ks
+                        :
+                        ^
+                        source.ks punctuation.separator.key-value.ks
+                          
+                         ^
+                         source.ks
+                          [
+                          ^
+                          source.ks punctuation.definition.binding-pattern.array.begin.bracket.square.ks
+                           x
+                           ^
+                           source.ks variable.parameter.ks
+                            ,
+                            ^
+                            source.ks punctuation.separator.comma.ks
+                              
+                             ^
+                             source.ks
+                              y
+                              ^
+                              source.ks variable.parameter.ks
+                               ]
+                               ^
+                               source.ks punctuation.definition.binding-pattern.array.end.bracket.square.ks
+                                ,
+                                ^
+                                source.ks punctuation.separator.comma.ks
+                                  
+                                 ^
+                                 source.ks
+                                  radius
+                                  ^^^^^^
+                                  source.ks meta.object.key.ks
+                                        :
+                                        ^
+                                        source.ks punctuation.separator.key-value.ks
+                                          
+                                         ^
+                                         source.ks
+                                          r
+                                          ^
+                                          source.ks variable.parameter.ks
+                                           }
+                                           ^
+                                           source.ks punctuation.definition.binding-pattern.object.end.bracket.curly.ks
+                                            )
+                                            ^
+                                            source.ks punctuation.definition.parameters.end.bracket.round.ks
+                                              
+                                             ^
+                                             source.ks
+                                              {
+                                              ^
+                                              source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>    return [x, y, r]
+     
+ ^^^^
+ source.ks
+     return
+     ^^^^^^
+     source.ks keyword.control.flow.return.ks
+            
+           ^
+           source.ks
+            [
+            ^
+            source.ks punctuation.definition.array.begin.bracket.square.ks
+             x
+             ^
+             source.ks variable.other.ks
+              ,
+              ^
+              source.ks punctuation.separator.comma.ks
+                
+               ^
+               source.ks
+                y
+                ^
+                source.ks variable.other.ks
+                 ,
+                 ^
+                 source.ks punctuation.separator.comma.ks
+                   
+                  ^
+                  source.ks
+                   r
+                   ^
+                   source.ks variable.other.ks
+                    ]
+                    ^
+                    source.ks punctuation.definition.array.end.bracket.square.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.block.end.bracket.curly.ks

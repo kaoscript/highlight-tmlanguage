@@ -4,7 +4,7 @@ let foo = { bar: { n1: 'hello', n2: 'world' } }
 
 let {bar: { n1, n2: qux }} = foo
 
-consoloe.log(n1, qux)
+console.log(n1, qux)
 -----------------------------------
 
 grammar: kaoscript.tmLanguage
@@ -183,31 +183,31 @@ grammar: kaoscript.tmLanguage
  ^
  source.ks
 >
->consoloe.log(n1, qux)
- consoloe
- ^^^^^^^^
+>console.log(n1, qux)
+ console
+ ^^^^^^^
  source.ks variable.other.object.ks
-         .
-         ^
-         source.ks punctuation.accessor.object.ks
-          log
-          ^^^
-          source.ks entity.name.function.ks
-             (
-             ^
-             source.ks punctuation.definition.arguments.begin.bracket.round.ks
-              n1
-              ^^
-              source.ks variable.other.ks
-                ,
+        .
+        ^
+        source.ks punctuation.accessor.object.ks
+         log
+         ^^^
+         source.ks entity.name.function.ks
+            (
+            ^
+            source.ks punctuation.definition.arguments.begin.bracket.round.ks
+             n1
+             ^^
+             source.ks variable.other.ks
+               ,
+               ^
+               source.ks punctuation.separator.comma.ks
+                 
                 ^
-                source.ks punctuation.separator.comma.ks
-                  
-                 ^
-                 source.ks
-                  qux
-                  ^^^
-                  source.ks variable.other.ks
-                     )
-                     ^
-                     source.ks punctuation.definition.arguments.end.bracket.round.ks
+                source.ks
+                 qux
+                 ^^^
+                 source.ks variable.other.ks
+                    )
+                    ^
+                    source.ks punctuation.definition.arguments.end.bracket.round.ks

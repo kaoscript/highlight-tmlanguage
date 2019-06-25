@@ -38,7 +38,7 @@ grammar: kaoscript.tmLanguage
                source.ks
                 in
                 ^^
-                source.ks keyword.operator.loop.in.ks
+                source.ks variable.other.ks
                    
                   ^
                   source.ks
@@ -50,7 +50,7 @@ grammar: kaoscript.tmLanguage
                       source.ks
                        {
                        ^
-                       source.ks punctuation.definition.block.begin.bracket.curly.ks
+                       source.ks punctuation.definition.object.begin.bracket.curly.ks
 >
 >
  
@@ -60,4 +60,4 @@ grammar: kaoscript.tmLanguage
 >}
  }
  ^
- source.ks punctuation.definition.block.end.bracket.curly.ks
+ source.ks punctuation.definition.object.end.bracket.curly.ks

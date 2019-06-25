@@ -12,7 +12,7 @@ grammar: kaoscript.tmLanguage
  source.ks variable.other.ks
     :
     ^
-    source.ks keyword.operator.type-casting.ks
+    source.ks keyword.operator.type-casting.sign.ks
      String
      ^^^^^^
      source.ks support.type.primitive.ks

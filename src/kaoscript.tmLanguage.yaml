@@ -182,8 +182,10 @@ repository:
   # }}}
   binding-object-elements: # {{{
     patterns:
-    - name: 'variable.other.ks'
-      match: '{{identifier}}'
+    - match: '(\.\.\.)?\s*(\b{{identifier}}\b)'
+      captures:
+        '1': { name: 'keyword.operator.rest.ks' }
+        '2': { name: 'variable.other.ks' }
     - begin: '='
       beginCaptures:
         '0': { name: 'keyword.operator.assignment.ks' }
@@ -620,6 +622,7 @@ repository:
         end: '$'
         patterns:
         - include: '#expression'
+      - include: '#comment'
   # }}}
   export-declarator: # {{{
     patterns:
@@ -1006,31 +1009,113 @@ repository:
       beginCaptures:
         '1': { name: 'storage.modifier.at.ks' }
         '2': { name: 'variable.parameter.ks' }
-      end: (?=[,\)\/])
+      end: (?=[\:\=\,\)\/])
       patterns:
       - name: 'storage.modifier.nullable.ks'
         match: '\?'
-      - name: 'meta.type.annotation.ks'
-        begin: '(\:)(?!\=)'
-        beginCaptures:
-          '1': { name: 'keyword.operator.type.annotation.ks' }
-        end: '(?=\s*[\=,\)\/])'
-        patterns:
-        - include: '#type'
-      - begin: '\='
-        beginCaptures:
-          '0': { name: 'keyword.operator.assignment.ks' }
-        end: (?=[,\)\/])
-        patterns:
-        - include: '#expression'
+      # - name: 'meta.type.annotation.ks'
+      #   begin: '(\:)(?!\=)'
+      #   beginCaptures:
+      #     '1': { name: 'keyword.operator.type.annotation.ks' }
+      #   end: '(?=\s*[\=,\)\/])'
+      #   patterns:
+      #   - include: '#type'
+      # - begin: '\='
+      #   beginCaptures:
+      #     '0': { name: 'keyword.operator.assignment.ks' }
+      #   end: (?=[,\)\/])
+      #   patterns:
+      #   - include: '#expression'
     - name: 'meta.type.annotation.ks'
-      begin: '(\:)(?!\=)'
+      begin: '\:'
       beginCaptures:
-        '1': { name: 'keyword.operator.type.annotation.ks' }
-      end: '(?=\s*[,\)\/])'
+        '0': { name: 'keyword.operator.type.annotation.ks' }
+      end: '(?=\s*[\=,\)\/])'
       patterns:
       - include: '#type'
+    - begin: '\='
+      beginCaptures:
+        '0': { name: 'keyword.operator.assignment.ks' }
+      end: (?=[,\)\/])
+      patterns:
+      - include: '#expression'
+    - include: '#function-parameter-binding-array'
+    - include: '#function-parameter-binding-object'
     - include: '#comment'
+    - include: '#comma'
+  # }}}
+  function-parameter-binding-array: # {{{
+    begin: '\['
+    beginCaptures:
+      '0': { name: 'punctuation.definition.binding-pattern.array.begin.bracket.square.ks' }
+    end: '\]'
+    endCaptures:
+      '0': { name: 'punctuation.definition.binding-pattern.array.end.bracket.square.ks' }
+    patterns:
+    - match: '(\@)?(\b{{identifier}}\b)'
+      captures:
+        '1': { name: 'storage.modifier.at.ks' }
+        '2': { name: 'variable.parameter.ks' }
+    - name: 'meta.type.annotation.ks'
+      begin: '\:'
+      beginCaptures:
+        '0': { name: 'keyword.operator.type.annotation.ks' }
+      end: '(?=\s*[\=,\)\/\]])'
+      patterns:
+      - include: '#type'
+    - begin: '='
+      beginCaptures:
+        '0': { name: 'keyword.operator.assignment.ks' }
+      end: '(?=[\],])'
+      patterns:
+      - include: '#expression'
+    - name: 'keyword.operator.rest.ks'
+      match: '\.\.\.'
+    - include: '#function-parameter-binding-array'
+    - include: '#function-parameter-binding-object'
+    - include: '#comma'
+  # }}}
+  function-parameter-binding-object: # {{{
+    begin: '\{'
+    beginCaptures:
+      '0': { name: 'punctuation.definition.binding-pattern.object.begin.bracket.curly.ks' }
+    end: '\}'
+    endCaptures:
+      '0': { name: 'punctuation.definition.binding-pattern.object.end.bracket.curly.ks' }
+    patterns:
+    - include: '#function-parameter-binding-object-elements'
+  # }}}
+  function-parameter-binding-object-elements: # {{{
+    patterns:
+    - match: '(\.\.\.)?(\@)?(\b{{identifier}}\b)\s*(?!:)'
+      captures:
+        '1': { name: 'keyword.operator.rest.ks' }
+        '2': { name: 'storage.modifier.at.ks' }
+        '3': { name: 'variable.parameter.ks' }
+    - begin: '\b({{identifier}})\s*(\:)'
+      beginCaptures:
+        '1': { name: 'meta.object.key.ks' }
+        '2': { name: 'punctuation.separator.key-value.ks' }
+      end: '(?=[\},$])'
+      patterns:
+      - match: '(\@)?(\b{{identifier}}\b)'
+        captures:
+          '1': { name: 'storage.modifier.at.ks' }
+          '2': { name: 'variable.parameter.ks' }
+      - begin: '='
+        beginCaptures:
+          '0': { name: 'keyword.operator.assignment.ks' }
+        end: '(?=[\},])'
+        patterns:
+        - include: '#expression'
+      - include: '#function-parameter-binding-array'
+      - include: '#function-parameter-binding-object'
+    - begin: '='
+      beginCaptures:
+        '0': { name: 'keyword.operator.assignment.ks' }
+      end: '(?=[\},])'
+      patterns:
+      - include: '#expression'
     - include: '#comma'
   # }}}
   function-return-type: # {{{
@@ -1438,10 +1523,10 @@ repository:
   # }}}
   let-statement-variable: # {{{
     patterns:
-    - name: 'meta.definition.variable.ks variable.other.readwrite.ks'
-      match: '{{identifier}}'
     - include: '#binding-array'
     - include: '#binding-object'
+    - name: 'meta.definition.variable.ks variable.other.readwrite.ks'
+      match: '{{identifier}}'
     - name: 'meta.type.annotation.ks'
       begin: '(:)(?!=)'
       beginCaptures:
@@ -1626,8 +1711,12 @@ repository:
         end: '(?=$|[,\)\]])'
         patterns:
         - include: '#expression'
-    - name: 'variable.other.ks'
-      match: '({{identifier}})'
+    - match: '(\@)?(\b{{identifier}}\b)'
+      captures:
+        '1': { name: 'storage.modifier.at.ks' }
+        '2': { name: 'variable.other.ks' }
+    - name: 'keyword.operator.spread.ks'
+      match: '\.\.\.'
     - include: '#comma'
   # }}}
   object-accessor: # {{{
@@ -1689,7 +1778,7 @@ repository:
       - include: '#type'
     - begin: '(?!<\s):(?!\s)'
       beginCaptures:
-        '0': { name: 'keyword.operator.type-casting.ks' }
+        '0': { name: 'keyword.operator.type-casting.sign.ks' }
       end: '(?=$|[\)\{\]\?,&\|\.])'
       patterns:
       - include: '#type'
@@ -2092,6 +2181,15 @@ repository:
       - name: 'keyword.operator.type.union.ks'
         match: '\|\|?'
       - include: '#type-generic'
+      - begin: '\['
+        beginCaptures:
+          '0': { name: 'punctuation.definition.array.begin.bracket.square.ks' }
+        end: '\]'
+        endCaptures:
+          '0': { name: 'punctuation.definition.array.end.bracket.square.ks' }
+        patterns:
+        - include: '#type'
+        - include: '#comma'
       - begin: '\{'
         beginCaptures:
           '0': { name: 'punctuation.definition.object.begin.bracket.curly.ks' }

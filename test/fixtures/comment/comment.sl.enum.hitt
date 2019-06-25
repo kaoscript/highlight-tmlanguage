@@ -1,0 +1,93 @@
+original file
+-----------------------------------
+enum Color {
+    Red
+    // Magenta
+    Green
+    // Yellow
+    Blue
+    // Cyan
+}
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>enum Color {
+ enum
+ ^^^^
+ source.ks storage.type.enum.ks
+      
+     ^
+     source.ks
+      Color
+      ^^^^^
+      source.ks entity.name.type.enum.ks
+            
+           ^
+           source.ks
+            {
+            ^
+            source.ks punctuation.definition.enum.begin.bracket.curly.ks
+>
+>    Red
+     
+ ^^^^
+ source.ks
+     Red
+     ^^^
+     source.ks variable.other.enummember.ks
+>
+>    // Magenta
+     
+ ^^^^
+ source.ks punctuation.whitespace.comment.leading.ks
+     //
+     ^^
+     source.ks comment.line.double-slash.ks punctuation.definition.comment.ks
+        Magenta
+       ^^^^^^^^
+       source.ks comment.line.double-slash.ks
+>
+>    Green
+     
+ ^^^^
+ source.ks
+     Green
+     ^^^^^
+     source.ks variable.other.enummember.ks
+>
+>    // Yellow
+     
+ ^^^^
+ source.ks punctuation.whitespace.comment.leading.ks
+     //
+     ^^
+     source.ks comment.line.double-slash.ks punctuation.definition.comment.ks
+        Yellow
+       ^^^^^^^
+       source.ks comment.line.double-slash.ks
+>
+>    Blue
+     
+ ^^^^
+ source.ks
+     Blue
+     ^^^^
+     source.ks variable.other.enummember.ks
+>
+>    // Cyan
+     
+ ^^^^
+ source.ks punctuation.whitespace.comment.leading.ks
+     //
+     ^^
+     source.ks comment.line.double-slash.ks punctuation.definition.comment.ks
+        Cyan
+       ^^^^^
+       source.ks comment.line.double-slash.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.enum.end.bracket.curly.ks
