@@ -7,6 +7,7 @@ destruct.array.for.const
 destruct.array.for.default
 destruct.object.if.existential.func
 do.while.if
+extern.disclose.class.static
 for.block.const.key
 for.block.let.key
 function.decl.ml
@@ -16,6 +17,7 @@ function.return.logical
 keyword.var.let
 keyword.var.until
 keyword.var.while
+keyword.this.ternary
 macro.number
 macro.quirk
 number.not
@@ -25,3 +27,4 @@ operator.spread.this
 operator.ternary.infinity
 operator.ternary.null
 operator.ternary.true
+type.cast.operation

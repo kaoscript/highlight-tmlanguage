@@ -19,7 +19,7 @@
 	"devDependencies": {
 		"@zokugun/lang": "github:ZokugunKS/lang",
 		"chai": "^4.2.0",
-		"coveralls": "^3.0.4",
+		"coveralls": "^3.0.5",
 		"istanbul": "^0.4.5",
 		"js-yaml": "^3.13.1",
 		"kaoscript": "github:kaoscript/kaoscript",

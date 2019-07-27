@@ -1,0 +1,180 @@
+original file
+-----------------------------------
+func foobar(x, y) => 42 if x + y == 0
+
+func quxbaz(x, y) => 42 if x + y == 0 else 24
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>func foobar(x, y) => 42 if x + y == 0
+ func
+ ^^^^
+ source.ks storage.type.function.ks
+      
+     ^
+     source.ks
+      foobar
+      ^^^^^^
+      source.ks entity.name.function.ks
+            (
+            ^
+            source.ks punctuation.definition.parameters.begin.bracket.round.ks
+             x
+             ^
+             source.ks variable.parameter.ks
+              ,
+              ^
+              source.ks punctuation.separator.comma.ks
+                
+               ^
+               source.ks
+                y
+                ^
+                source.ks variable.parameter.ks
+                 )
+                 ^
+                 source.ks punctuation.definition.parameters.end.bracket.round.ks
+                   
+                  ^
+                  source.ks
+                   =>
+                   ^^
+                   source.ks storage.type.function.arrow.ks
+                      
+                     ^
+                     source.ks
+                      42
+                      ^^
+                      source.ks constant.numeric.decimal.ks
+                         
+                        ^
+                        source.ks
+                         if
+                         ^^
+                         source.ks keyword.control.conditional.if.ks
+                            
+                           ^
+                           source.ks
+                            x
+                            ^
+                            source.ks variable.other.ks
+                              
+                             ^
+                             source.ks
+                              +
+                              ^
+                              source.ks keyword.operator.arithmetic.ks
+                                
+                               ^
+                               source.ks
+                                y
+                                ^
+                                source.ks variable.other.ks
+                                  
+                                 ^
+                                 source.ks
+                                  ==
+                                  ^^
+                                  source.ks keyword.operator.comparison.ks
+                                     
+                                    ^
+                                    source.ks
+                                     0
+                                     ^
+                                     source.ks constant.numeric.decimal.ks
+>
+>
+ 
+ ^
+ source.ks
+>
+>func quxbaz(x, y) => 42 if x + y == 0 else 24
+ func
+ ^^^^
+ source.ks storage.type.function.ks
+      
+     ^
+     source.ks
+      quxbaz
+      ^^^^^^
+      source.ks entity.name.function.ks
+            (
+            ^
+            source.ks punctuation.definition.parameters.begin.bracket.round.ks
+             x
+             ^
+             source.ks variable.parameter.ks
+              ,
+              ^
+              source.ks punctuation.separator.comma.ks
+                
+               ^
+               source.ks
+                y
+                ^
+                source.ks variable.parameter.ks
+                 )
+                 ^
+                 source.ks punctuation.definition.parameters.end.bracket.round.ks
+                   
+                  ^
+                  source.ks
+                   =>
+                   ^^
+                   source.ks storage.type.function.arrow.ks
+                      
+                     ^
+                     source.ks
+                      42
+                      ^^
+                      source.ks constant.numeric.decimal.ks
+                         
+                        ^
+                        source.ks
+                         if
+                         ^^
+                         source.ks keyword.control.conditional.if.ks
+                            
+                           ^
+                           source.ks
+                            x
+                            ^
+                            source.ks variable.other.ks
+                              
+                             ^
+                             source.ks
+                              +
+                              ^
+                              source.ks keyword.operator.arithmetic.ks
+                                
+                               ^
+                               source.ks
+                                y
+                                ^
+                                source.ks variable.other.ks
+                                  
+                                 ^
+                                 source.ks
+                                  ==
+                                  ^^
+                                  source.ks keyword.operator.comparison.ks
+                                     
+                                    ^
+                                    source.ks
+                                     0
+                                     ^
+                                     source.ks constant.numeric.decimal.ks
+                                       
+                                      ^
+                                      source.ks
+                                       else
+                                       ^^^^
+                                       source.ks keyword.control.conditional.else.ks
+                                            
+                                           ^
+                                           source.ks
+                                            24
+                                            ^^
+                                            source.ks constant.numeric.decimal.ks

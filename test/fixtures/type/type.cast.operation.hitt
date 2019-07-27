@@ -1,0 +1,102 @@
+original file
+-----------------------------------
+func foobar(x, y, z) {
+    return x:String + y + z
+}
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>func foobar(x, y, z) {
+ func
+ ^^^^
+ source.ks storage.type.function.ks
+      
+     ^
+     source.ks
+      foobar
+      ^^^^^^
+      source.ks entity.name.function.ks
+            (
+            ^
+            source.ks punctuation.definition.parameters.begin.bracket.round.ks
+             x
+             ^
+             source.ks variable.parameter.ks
+              ,
+              ^
+              source.ks punctuation.separator.comma.ks
+                
+               ^
+               source.ks
+                y
+                ^
+                source.ks variable.parameter.ks
+                 ,
+                 ^
+                 source.ks punctuation.separator.comma.ks
+                   
+                  ^
+                  source.ks
+                   z
+                   ^
+                   source.ks variable.parameter.ks
+                    )
+                    ^
+                    source.ks punctuation.definition.parameters.end.bracket.round.ks
+                      
+                     ^
+                     source.ks
+                      {
+                      ^
+                      source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>    return x:String + y + z
+     
+ ^^^^
+ source.ks
+     return
+     ^^^^^^
+     source.ks keyword.control.flow.return.ks
+            
+           ^
+           source.ks
+            x
+            ^
+            source.ks variable.other.ks
+             :
+             ^
+             source.ks keyword.operator.type-casting.sign.ks
+              String
+              ^^^^^^
+              source.ks support.type.primitive.ks
+                     
+                    ^
+                    source.ks
+                     +
+                     ^
+                     source.ks keyword.operator.arithmetic.ks
+                       
+                      ^
+                      source.ks
+                       y
+                       ^
+                       source.ks variable.other.ks
+                         
+                        ^
+                        source.ks
+                         +
+                         ^
+                         source.ks keyword.operator.arithmetic.ks
+                           
+                          ^
+                          source.ks
+                           z
+                           ^
+                           source.ks variable.other.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.block.end.bracket.curly.ks

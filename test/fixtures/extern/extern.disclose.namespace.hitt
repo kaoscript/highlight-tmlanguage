@@ -32,7 +32,7 @@ grammar: kaoscript.tmLanguage
  source.ks
      PI
      ^^
-     source.ks variable.other.constant.ks
+     source.ks entity.name.variable.field.ks
        :
        ^
        source.ks meta.type.annotation.ks keyword.operator.type.annotation.ks

@@ -1,0 +1,84 @@
+original file
+-----------------------------------
+class Foobar {
+    private @foo: Number
+    public @bar: String
+}
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>class Foobar {
+ class
+ ^^^^^
+ source.ks storage.type.class.ks
+       
+      ^
+      source.ks
+       Foobar
+       ^^^^^^
+       source.ks entity.name.type.class.ks
+              
+             ^
+             source.ks
+              {
+              ^
+              source.ks punctuation.definition.class.begin.bracket.curly.ks
+>
+>    private @foo: Number
+     
+ ^^^^
+ source.ks
+     private
+     ^^^^^^^
+     source.ks storage.modifier.access.ks
+             
+            ^
+            source.ks
+             @
+             ^
+             source.ks storage.modifier.instance.ks
+              foo
+              ^^^
+              source.ks entity.name.variable.field.ks
+                 :
+                 ^
+                 source.ks meta.type.annotation.ks keyword.operator.type.annotation.ks
+                   
+                  ^
+                  source.ks meta.type.annotation.ks
+                   Number
+                   ^^^^^^
+                   source.ks meta.type.annotation.ks support.type.primitive.ks
+>
+>    public @bar: String
+     
+ ^^^^
+ source.ks
+     public
+     ^^^^^^
+     source.ks storage.modifier.access.ks
+            
+           ^
+           source.ks
+            @
+            ^
+            source.ks storage.modifier.instance.ks
+             bar
+             ^^^
+             source.ks entity.name.variable.field.ks
+                :
+                ^
+                source.ks meta.type.annotation.ks keyword.operator.type.annotation.ks
+                  
+                 ^
+                 source.ks meta.type.annotation.ks
+                  String
+                  ^^^^^^
+                  source.ks meta.type.annotation.ks support.type.primitive.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.class.end.bracket.curly.ks
