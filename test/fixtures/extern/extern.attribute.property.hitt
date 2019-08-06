@@ -1,0 +1,162 @@
+original file
+-----------------------------------
+extern {
+    class Foobar {
+        #[foobar]
+        foobar()
+    }
+
+    namespace Quxbaz {
+        #[foobar]
+        func foobar()
+    }
+}
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>extern {
+ extern
+ ^^^^^^
+ source.ks keyword.control.dependency.extern.ks
+        
+       ^
+       source.ks
+        {
+        ^
+        source.ks punctuation.definition.extern.begin.bracket.curly.ks
+>
+>    class Foobar {
+     
+ ^^^^
+ source.ks
+     class
+     ^^^^^
+     source.ks storage.type.class.ks
+           
+          ^
+          source.ks
+           Foobar
+           ^^^^^^
+           source.ks entity.name.type.class.ks
+                  
+                 ^
+                 source.ks
+                  {
+                  ^
+                  source.ks punctuation.definition.class.begin.bracket.curly.ks
+>
+>        #[foobar]
+         
+ ^^^^^^^^
+ source.ks
+         #
+         ^
+         source.ks meta.attribute.ks punctuation.attribute.outer.ks
+          [
+          ^
+          source.ks meta.attribute.ks punctuation.definition.attribute.begin.bracket.square.ks
+           foobar
+           ^^^^^^
+           source.ks meta.attribute.ks entity.name.ks
+                 ]
+                 ^
+                 source.ks meta.attribute.ks punctuation.definition.attribute.end.bracket.square.ks
+>
+>        foobar()
+         
+ ^^^^^^^^
+ source.ks
+         foobar
+         ^^^^^^
+         source.ks entity.name.function.ks
+               (
+               ^
+               source.ks punctuation.definition.parameters.begin.bracket.round.ks
+                )
+                ^
+                source.ks punctuation.definition.parameters.end.bracket.round.ks
+>
+>    }
+     
+ ^^^^
+ source.ks
+     }
+     ^
+     source.ks punctuation.definition.class.end.bracket.curly.ks
+>
+>
+ 
+ ^
+ source.ks
+>
+>    namespace Quxbaz {
+     
+ ^^^^
+ source.ks
+     namespace
+     ^^^^^^^^^
+     source.ks storage.type.namespace.ks
+               
+              ^
+              source.ks
+               Quxbaz
+               ^^^^^^
+               source.ks entity.name.type.namespace.ks
+                      
+                     ^
+                     source.ks
+                      {
+                      ^
+                      source.ks punctuation.definition.namespace.begin.bracket.curly.ks
+>
+>        #[foobar]
+         
+ ^^^^^^^^
+ source.ks
+         #
+         ^
+         source.ks meta.attribute.ks punctuation.attribute.outer.ks
+          [
+          ^
+          source.ks meta.attribute.ks punctuation.definition.attribute.begin.bracket.square.ks
+           foobar
+           ^^^^^^
+           source.ks meta.attribute.ks entity.name.ks
+                 ]
+                 ^
+                 source.ks meta.attribute.ks punctuation.definition.attribute.end.bracket.square.ks
+>
+>        func foobar()
+         
+ ^^^^^^^^
+ source.ks
+         func
+         ^^^^
+         source.ks storage.type.function.ks
+              
+             ^
+             source.ks
+              foobar
+              ^^^^^^
+              source.ks entity.name.function.ks
+                    (
+                    ^
+                    source.ks punctuation.definition.parameters.begin.bracket.round.ks
+                     )
+                     ^
+                     source.ks punctuation.definition.parameters.end.bracket.round.ks
+>
+>    }
+     
+ ^^^^
+ source.ks
+     }
+     ^
+     source.ks punctuation.definition.namespace.end.bracket.curly.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.extern.end.bracket.curly.ks

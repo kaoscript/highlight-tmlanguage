@@ -2,11 +2,11 @@ original file
 -----------------------------------
 import {
     'module1' => m1
-    
+
     'module2' {
         foo
     }
-    
+
     'module3' {
         foo => bar
     }
@@ -53,9 +53,9 @@ grammar: kaoscript.tmLanguage
                   ^^
                   source.ks variable.other.constant.ks
 >
->    
-     
- ^^^^^
+>
+ 
+ ^
  source.ks
 >
 >    'module2' {
@@ -94,9 +94,9 @@ grammar: kaoscript.tmLanguage
      ^
      source.ks punctuation.definition.import-specification.end.bracket.curly.ks
 >
->    
-     
- ^^^^^
+>
+ 
+ ^
  source.ks
 >
 >    'module3' {

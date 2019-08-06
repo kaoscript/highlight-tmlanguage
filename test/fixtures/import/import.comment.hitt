@@ -1,0 +1,84 @@
+original file
+-----------------------------------
+import 'module' {
+    // #[foobar]
+    class Foobar {
+
+    }
+}
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>import 'module' {
+ import
+ ^^^^^^
+ source.ks keyword.control.import.ks
+        
+       ^
+       source.ks
+        '
+        ^
+        source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
+         module
+         ^^^^^^
+         source.ks string.quoted.single.ks
+               '
+               ^
+               source.ks string.quoted.single.ks punctuation.definition.string.end.ks
+                 
+                ^
+                source.ks
+                 {
+                 ^
+                 source.ks punctuation.definition.import-specification.begin.bracket.curly.ks
+>
+>    // #[foobar]
+     
+ ^^^^
+ source.ks punctuation.whitespace.comment.leading.ks
+     //
+     ^^
+     source.ks comment.line.double-slash.ks punctuation.definition.comment.ks
+        #[foobar]
+       ^^^^^^^^^^
+       source.ks comment.line.double-slash.ks
+>
+>    class Foobar {
+     
+ ^^^^
+ source.ks
+     class
+     ^^^^^
+     source.ks storage.type.class.ks
+           
+          ^
+          source.ks
+           Foobar
+           ^^^^^^
+           source.ks entity.name.type.class.ks
+                  
+                 ^
+                 source.ks
+                  {
+                  ^
+                  source.ks punctuation.definition.class.begin.bracket.curly.ks
+>
+>
+ 
+ ^
+ source.ks
+>
+>    }
+     
+ ^^^^
+ source.ks
+     }
+     ^
+     source.ks punctuation.definition.class.end.bracket.curly.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.import-specification.end.bracket.curly.ks

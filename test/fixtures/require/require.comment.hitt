@@ -1,0 +1,72 @@
+original file
+-----------------------------------
+require {
+    // #[foobar]
+    class Foobar {
+
+    }
+}
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>require {
+ require
+ ^^^^^^^
+ source.ks keyword.control.require.ks
+         
+        ^
+        source.ks
+         {
+         ^
+         source.ks punctuation.definition.require.begin.bracket.curly.ks
+>
+>    // #[foobar]
+     
+ ^^^^
+ source.ks punctuation.whitespace.comment.leading.ks
+     //
+     ^^
+     source.ks comment.line.double-slash.ks punctuation.definition.comment.ks
+        #[foobar]
+       ^^^^^^^^^^
+       source.ks comment.line.double-slash.ks
+>
+>    class Foobar {
+     
+ ^^^^
+ source.ks
+     class
+     ^^^^^
+     source.ks storage.type.class.ks
+           
+          ^
+          source.ks
+           Foobar
+           ^^^^^^
+           source.ks entity.name.type.class.ks
+                  
+                 ^
+                 source.ks
+                  {
+                  ^
+                  source.ks punctuation.definition.class.begin.bracket.curly.ks
+>
+>
+ 
+ ^
+ source.ks
+>
+>    }
+     
+ ^^^^
+ source.ks
+     }
+     ^
+     source.ks punctuation.definition.class.end.bracket.curly.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.require.end.bracket.curly.ks

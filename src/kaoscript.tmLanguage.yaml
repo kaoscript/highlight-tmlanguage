@@ -683,6 +683,7 @@ repository:
       - name: 'variable.other.ks'
         match: '{{identifier}}'
     - include: '#comma'
+    - include: '#attribute'
     - include: '#comment'
   # }}}
   export-statement: # {{{
@@ -877,6 +878,8 @@ repository:
         end: '(?=\s*,|$)'
         patterns:
         - include: '#type'
+    - include: '#attribute'
+    - include: '#comment'
   # }}}
   extern-require-statement: # {{{
     begin: '^\s*(extern\|require)\s+(?={{expression-beginning}})'
@@ -1449,6 +1452,8 @@ repository:
         '3': { name: 'variable.other.constant.ks' }
     - include: '#extern-declarator'
     - include: '#import-alias'
+    - include: '#attribute'
+    - include: '#comment'
   # }}}
   import-statement: # {{{
     begin: '^\s*(import)\s+(?={{expression-beginning}})'
@@ -1463,8 +1468,9 @@ repository:
       endCaptures:
         '0': { name: 'punctuation.definition.import.end.bracket.curly.ks' }
       patterns:
-      - include: '#comment'
       - include: '#import-declarator'
+      - include: '#attribute'
+      - include: '#comment'
     - include: '#import-declarator'
   # }}}
   include-statement: # {{{
@@ -1881,6 +1887,8 @@ repository:
         '0': { name: 'punctuation.definition.require-import.end.bracket.curly.ks' }
       patterns:
       - include: '#import-declarator'
+      - include: '#attribute'
+      - include: '#comment'
     - include: '#import-declarator'
   # }}}
   require-statement: # {{{

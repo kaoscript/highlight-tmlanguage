@@ -77,7 +77,10 @@ func check(destPath) { // {{{
 		if !fixtures.some(fixture => fixture == name) {
 			console.log(`- deleting: \(path.join(dirname, name)).ks`)
 
-			fs.unlinkSync(path.join(destRoot, dirname, `\(name).hitt`))
+			try {
+				fs.unlinkSync(path.join(destRoot, dirname, `\(name).hitt`))
+			}
+
 			fs.unlinkSync(path.join(destRoot, dirname, filename))
 		}
 	}
