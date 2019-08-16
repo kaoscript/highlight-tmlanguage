@@ -10,7 +10,7 @@ variables:
   match-identifier: '\s+(?=[_$[:alpha:]])'
   function-block: '(?:(?:\basync\s+)?\bfunc\s*{{function-sig}}|(?:\basync\s+)?{{function-sig}}\s*=>|{{identifier}}\s*=>\s*)\s*\{'
   function-line: '(?:(?:\basync\s*)?(?:\bfunc\s*)?{{function-sig}}|{{identifier}})\s*=>\s*(?!\{)'
-  function-sig: '\((?:\s*{{parameter}}\s*,)*\s*(?:{{parameter}})?\s*\)(?:{{type}})?'
+  function-sig: '\((\s*,)*(?:\s*{{parameter}}\s*,)*\s*(?:{{parameter}})?\s*\)(?:{{type}})?'
   parameter: '(?:\.\.\.(?:\{\d*,?\d*\})?)?{{identifier}}(?:{{type}}|\?)?(?:\s*=\s*(?:\(.*\)|[^\)])+)?'
   type: ':\s*{{type-identifier}}(?:\s*\|\s*{{type-identifier}})*'
   type-identifier: '{{identifier}}(?:<{{identifier}}>)?'
@@ -38,12 +38,12 @@ repository:
     patterns:
     - name: 'keyword.operator.range.ks'
       match: '(?<!\.)\<?\.\.\<?(?!\.)'
-    - begin: 'for'
+    - begin: '\bfor\b'
       beginCaptures:
         '0': { name: 'keyword.control.loop.for.ks' }
       end: (?=\])
       patterns:
-      - begin: 'const'
+      - begin: '\bconst\b'
         beginCaptures:
           '0': { name: 'storage.type.constant.ks' }
         end: '(?=\bfrom\b|\bin\b|\bof\b)'
@@ -51,7 +51,7 @@ repository:
         - name: 'punctuation.separator.alternative-value.ks'
           match: ':'
         - include: '#const-statement-variable'
-      - begin: 'let'
+      - begin: '\blet\b'
         beginCaptures:
           '0': { name: 'storage.type.readwrite.ks' }
         end: '(?=\bfrom\b|\bin\b|\bof\b)'
@@ -732,8 +732,14 @@ repository:
     - include: '#variable'
     - name: 'variable.other.ks'
       match: '({{identifier}})'
-    - name: 'meta.brace.round.ks'
-      match: '[()]'
+    - begin: '\('
+      beginCaptures:
+        '0': { name: 'meta.brace.round.ks' }
+      end: '\)'
+      endCaptures:
+        '0': { name: 'meta.brace.round.ks' }
+      patterns:
+      - include: '#expression'
     - include: '#comma'
   # }}}
   expression-statement: # {{{
@@ -768,8 +774,14 @@ repository:
     - include: '#binary-operator'
     - name: 'variable.other.ks'
       match: '({{identifier}})'
-    - name: 'meta.brace.round.ks'
-      match: '[()]'
+    - begin: '\('
+      beginCaptures:
+        '0': { name: 'meta.brace.round.ks' }
+      end: '\)'
+      endCaptures:
+        '0': { name: 'meta.brace.round.ks' }
+      patterns:
+      - include: '#expression-without-function'
     - include: '#comma'
   # }}}
   extern-declarator: # {{{

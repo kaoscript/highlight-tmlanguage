@@ -89,7 +89,7 @@
           </dict>
           <dict>
             <key>begin</key>
-            <string>for</string>
+            <string>\bfor\b</string>
             <key>beginCaptures</key>
             <dict>
               <key>0</key>
@@ -104,7 +104,7 @@
             <array>
               <dict>
                 <key>begin</key>
-                <string>const</string>
+                <string>\bconst\b</string>
                 <key>beginCaptures</key>
                 <dict>
                   <key>0</key>
@@ -131,7 +131,7 @@
               </dict>
               <dict>
                 <key>begin</key>
-                <string>let</string>
+                <string>\blet\b</string>
                 <key>beginCaptures</key>
                 <dict>
                   <key>0</key>
@@ -2410,10 +2410,33 @@
             <string>([_$[:alpha:]][_$[:alnum:]]*)</string>
           </dict>
           <dict>
-            <key>name</key>
-            <string>meta.brace.round.ks</string>
-            <key>match</key>
-            <string>[()]</string>
+            <key>begin</key>
+            <string>\(</string>
+            <key>beginCaptures</key>
+            <dict>
+              <key>0</key>
+              <dict>
+                <key>name</key>
+                <string>meta.brace.round.ks</string>
+              </dict>
+            </dict>
+            <key>end</key>
+            <string>\)</string>
+            <key>endCaptures</key>
+            <dict>
+              <key>0</key>
+              <dict>
+                <key>name</key>
+                <string>meta.brace.round.ks</string>
+              </dict>
+            </dict>
+            <key>patterns</key>
+            <array>
+              <dict>
+                <key>include</key>
+                <string>#expression</string>
+              </dict>
+            </array>
           </dict>
           <dict>
             <key>include</key>
@@ -2530,10 +2553,33 @@
             <string>([_$[:alpha:]][_$[:alnum:]]*)</string>
           </dict>
           <dict>
-            <key>name</key>
-            <string>meta.brace.round.ks</string>
-            <key>match</key>
-            <string>[()]</string>
+            <key>begin</key>
+            <string>\(</string>
+            <key>beginCaptures</key>
+            <dict>
+              <key>0</key>
+              <dict>
+                <key>name</key>
+                <string>meta.brace.round.ks</string>
+              </dict>
+            </dict>
+            <key>end</key>
+            <string>\)</string>
+            <key>endCaptures</key>
+            <dict>
+              <key>0</key>
+              <dict>
+                <key>name</key>
+                <string>meta.brace.round.ks</string>
+              </dict>
+            </dict>
+            <key>patterns</key>
+            <array>
+              <dict>
+                <key>include</key>
+                <string>#expression-without-function</string>
+              </dict>
+            </array>
           </dict>
           <dict>
             <key>include</key>
@@ -3108,7 +3154,7 @@
         <array>
           <dict>
             <key>begin</key>
-            <string>(?=(?:(?:\basync\s+)?\bfunc\s*\((?:\s*(?:\.\.\.(?:\{\d*,?\d*\})?)?[_$[:alpha:]][_$[:alnum:]]*(?::\s*[_$[:alpha:]][_$[:alnum:]]*(?:&lt;[_$[:alpha:]][_$[:alnum:]]*&gt;)?(?:\s*\|\s*[_$[:alpha:]][_$[:alnum:]]*(?:&lt;[_$[:alpha:]][_$[:alnum:]]*&gt;)?)*|\?)?(?:\s*=\s*(?:\(.*\)|[^\)])+)?\s*,)*\s*(?:(?:\.\.\.(?:\{\d*,?\d*\})?)?[_$[:alpha:]][_$[:alnum:]]*(?::\s*[_$[:alpha:]][_$[:alnum:]]*(?:&lt;[_$[:alpha:]][_$[:alnum:]]*&gt;)?(?:\s*\|\s*[_$[:alpha:]][_$[:alnum:]]*(?:&lt;[_$[:alpha:]][_$[:alnum:]]*&gt;)?)*|\?)?(?:\s*=\s*(?:\(.*\)|[^\)])+)?)?\s*\)(?::\s*[_$[:alpha:]][_$[:alnum:]]*(?:&lt;[_$[:alpha:]][_$[:alnum:]]*&gt;)?(?:\s*\|\s*[_$[:alpha:]][_$[:alnum:]]*(?:&lt;[_$[:alpha:]][_$[:alnum:]]*&gt;)?)*)?|(?:\basync\s+)?\((?:\s*(?:\.\.\.(?:\{\d*,?\d*\})?)?[_$[:alpha:]][_$[:alnum:]]*(?::\s*[_$[:alpha:]][_$[:alnum:]]*(?:&lt;[_$[:alpha:]][_$[:alnum:]]*&gt;)?(?:\s*\|\s*[_$[:alpha:]][_$[:alnum:]]*(?:&lt;[_$[:alpha:]][_$[:alnum:]]*&gt;)?)*|\?)?(?:\s*=\s*(?:\(.*\)|[^\)])+)?\s*,)*\s*(?:(?:\.\.\.(?:\{\d*,?\d*\})?)?[_$[:alpha:]][_$[:alnum:]]*(?::\s*[_$[:alpha:]][_$[:alnum:]]*(?:&lt;[_$[:alpha:]][_$[:alnum:]]*&gt;)?(?:\s*\|\s*[_$[:alpha:]][_$[:alnum:]]*(?:&lt;[_$[:alpha:]][_$[:alnum:]]*&gt;)?)*|\?)?(?:\s*=\s*(?:\(.*\)|[^\)])+)?)?\s*\)(?::\s*[_$[:alpha:]][_$[:alnum:]]*(?:&lt;[_$[:alpha:]][_$[:alnum:]]*&gt;)?(?:\s*\|\s*[_$[:alpha:]][_$[:alnum:]]*(?:&lt;[_$[:alpha:]][_$[:alnum:]]*&gt;)?)*)?\s*=&gt;|[_$[:alpha:]][_$[:alnum:]]*\s*=&gt;\s*)\s*\{)</string>
+            <string>(?=(?:(?:\basync\s+)?\bfunc\s*\((\s*,)*(?:\s*(?:\.\.\.(?:\{\d*,?\d*\})?)?[_$[:alpha:]][_$[:alnum:]]*(?::\s*[_$[:alpha:]][_$[:alnum:]]*(?:&lt;[_$[:alpha:]][_$[:alnum:]]*&gt;)?(?:\s*\|\s*[_$[:alpha:]][_$[:alnum:]]*(?:&lt;[_$[:alpha:]][_$[:alnum:]]*&gt;)?)*|\?)?(?:\s*=\s*(?:\(.*\)|[^\)])+)?\s*,)*\s*(?:(?:\.\.\.(?:\{\d*,?\d*\})?)?[_$[:alpha:]][_$[:alnum:]]*(?::\s*[_$[:alpha:]][_$[:alnum:]]*(?:&lt;[_$[:alpha:]][_$[:alnum:]]*&gt;)?(?:\s*\|\s*[_$[:alpha:]][_$[:alnum:]]*(?:&lt;[_$[:alpha:]][_$[:alnum:]]*&gt;)?)*|\?)?(?:\s*=\s*(?:\(.*\)|[^\)])+)?)?\s*\)(?::\s*[_$[:alpha:]][_$[:alnum:]]*(?:&lt;[_$[:alpha:]][_$[:alnum:]]*&gt;)?(?:\s*\|\s*[_$[:alpha:]][_$[:alnum:]]*(?:&lt;[_$[:alpha:]][_$[:alnum:]]*&gt;)?)*)?|(?:\basync\s+)?\((\s*,)*(?:\s*(?:\.\.\.(?:\{\d*,?\d*\})?)?[_$[:alpha:]][_$[:alnum:]]*(?::\s*[_$[:alpha:]][_$[:alnum:]]*(?:&lt;[_$[:alpha:]][_$[:alnum:]]*&gt;)?(?:\s*\|\s*[_$[:alpha:]][_$[:alnum:]]*(?:&lt;[_$[:alpha:]][_$[:alnum:]]*&gt;)?)*|\?)?(?:\s*=\s*(?:\(.*\)|[^\)])+)?\s*,)*\s*(?:(?:\.\.\.(?:\{\d*,?\d*\})?)?[_$[:alpha:]][_$[:alnum:]]*(?::\s*[_$[:alpha:]][_$[:alnum:]]*(?:&lt;[_$[:alpha:]][_$[:alnum:]]*&gt;)?(?:\s*\|\s*[_$[:alpha:]][_$[:alnum:]]*(?:&lt;[_$[:alpha:]][_$[:alnum:]]*&gt;)?)*|\?)?(?:\s*=\s*(?:\(.*\)|[^\)])+)?)?\s*\)(?::\s*[_$[:alpha:]][_$[:alnum:]]*(?:&lt;[_$[:alpha:]][_$[:alnum:]]*&gt;)?(?:\s*\|\s*[_$[:alpha:]][_$[:alnum:]]*(?:&lt;[_$[:alpha:]][_$[:alnum:]]*&gt;)?)*)?\s*=&gt;|[_$[:alpha:]][_$[:alnum:]]*\s*=&gt;\s*)\s*\{)</string>
             <key>end</key>
             <string>(?&lt;=\}|$)</string>
             <key>patterns</key>
@@ -3178,7 +3224,7 @@
           </dict>
           <dict>
             <key>begin</key>
-            <string>(?=(?:(?:\basync\s*)?(?:\bfunc\s*)?\((?:\s*(?:\.\.\.(?:\{\d*,?\d*\})?)?[_$[:alpha:]][_$[:alnum:]]*(?::\s*[_$[:alpha:]][_$[:alnum:]]*(?:&lt;[_$[:alpha:]][_$[:alnum:]]*&gt;)?(?:\s*\|\s*[_$[:alpha:]][_$[:alnum:]]*(?:&lt;[_$[:alpha:]][_$[:alnum:]]*&gt;)?)*|\?)?(?:\s*=\s*(?:\(.*\)|[^\)])+)?\s*,)*\s*(?:(?:\.\.\.(?:\{\d*,?\d*\})?)?[_$[:alpha:]][_$[:alnum:]]*(?::\s*[_$[:alpha:]][_$[:alnum:]]*(?:&lt;[_$[:alpha:]][_$[:alnum:]]*&gt;)?(?:\s*\|\s*[_$[:alpha:]][_$[:alnum:]]*(?:&lt;[_$[:alpha:]][_$[:alnum:]]*&gt;)?)*|\?)?(?:\s*=\s*(?:\(.*\)|[^\)])+)?)?\s*\)(?::\s*[_$[:alpha:]][_$[:alnum:]]*(?:&lt;[_$[:alpha:]][_$[:alnum:]]*&gt;)?(?:\s*\|\s*[_$[:alpha:]][_$[:alnum:]]*(?:&lt;[_$[:alpha:]][_$[:alnum:]]*&gt;)?)*)?|[_$[:alpha:]][_$[:alnum:]]*)\s*=&gt;\s*(?!\{))</string>
+            <string>(?=(?:(?:\basync\s*)?(?:\bfunc\s*)?\((\s*,)*(?:\s*(?:\.\.\.(?:\{\d*,?\d*\})?)?[_$[:alpha:]][_$[:alnum:]]*(?::\s*[_$[:alpha:]][_$[:alnum:]]*(?:&lt;[_$[:alpha:]][_$[:alnum:]]*&gt;)?(?:\s*\|\s*[_$[:alpha:]][_$[:alnum:]]*(?:&lt;[_$[:alpha:]][_$[:alnum:]]*&gt;)?)*|\?)?(?:\s*=\s*(?:\(.*\)|[^\)])+)?\s*,)*\s*(?:(?:\.\.\.(?:\{\d*,?\d*\})?)?[_$[:alpha:]][_$[:alnum:]]*(?::\s*[_$[:alpha:]][_$[:alnum:]]*(?:&lt;[_$[:alpha:]][_$[:alnum:]]*&gt;)?(?:\s*\|\s*[_$[:alpha:]][_$[:alnum:]]*(?:&lt;[_$[:alpha:]][_$[:alnum:]]*&gt;)?)*|\?)?(?:\s*=\s*(?:\(.*\)|[^\)])+)?)?\s*\)(?::\s*[_$[:alpha:]][_$[:alnum:]]*(?:&lt;[_$[:alpha:]][_$[:alnum:]]*&gt;)?(?:\s*\|\s*[_$[:alpha:]][_$[:alnum:]]*(?:&lt;[_$[:alpha:]][_$[:alnum:]]*&gt;)?)*)?|[_$[:alpha:]][_$[:alnum:]]*)\s*=&gt;\s*(?!\{))</string>
             <key>end</key>
             <string>(?=$|[,\)\]])</string>
             <key>patterns</key>

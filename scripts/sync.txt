@@ -1,3 +1,4 @@
+array.cph.boundary
 await.exec.const
 await.exec.let
 class.method.lambda.ends
@@ -12,6 +13,7 @@ for.block.const.key
 for.block.let.key
 function.decl.ml
 function.if.logical
+function.lambda.param.anonym
 function.parameter.timeout
 function.return.logical
 keyword.var.let
@@ -27,4 +29,5 @@ operator.spread.this
 operator.ternary.infinity
 operator.ternary.null
 operator.ternary.true
+template.parenthesis.match
 type.cast.operation

@@ -1,0 +1,75 @@
+original file
+-----------------------------------
+const format = 42
+
+const array = [
+    format
+]
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>const format = 42
+ const
+ ^^^^^
+ source.ks storage.type.constant.ks
+       
+      ^
+      source.ks
+       format
+       ^^^^^^
+       source.ks meta.definition.variable.ks variable.other.constant.ks
+              
+             ^
+             source.ks
+              =
+              ^
+              source.ks keyword.operator.assignment.ks
+                
+               ^
+               source.ks
+                42
+                ^^
+                source.ks constant.numeric.decimal.ks
+>
+>
+ 
+ ^
+ source.ks
+>
+>const array = [
+ const
+ ^^^^^
+ source.ks storage.type.constant.ks
+       
+      ^
+      source.ks
+       array
+       ^^^^^
+       source.ks meta.definition.variable.ks variable.other.constant.ks
+             
+            ^
+            source.ks
+             =
+             ^
+             source.ks keyword.operator.assignment.ks
+               
+              ^
+              source.ks
+               [
+               ^
+               source.ks punctuation.definition.array.begin.bracket.square.ks
+>
+>    format
+     
+ ^^^^
+ source.ks
+     format
+     ^^^^^^
+     source.ks variable.other.ks
+>
+>]
+ ]
+ ^
+ source.ks punctuation.definition.array.end.bracket.square.ks

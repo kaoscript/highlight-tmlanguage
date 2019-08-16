@@ -1,0 +1,177 @@
+original file
+-----------------------------------
+func foobar(value: String) {
+    return value.replace(/\-/g, (, index) => {
+        if index == 0 {
+
+        }
+    })
+}
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>func foobar(value: String) {
+ func
+ ^^^^
+ source.ks storage.type.function.ks
+      
+     ^
+     source.ks
+      foobar
+      ^^^^^^
+      source.ks entity.name.function.ks
+            (
+            ^
+            source.ks punctuation.definition.parameters.begin.bracket.round.ks
+             value
+             ^^^^^
+             source.ks variable.parameter.ks
+                  :
+                  ^
+                  source.ks meta.type.annotation.ks keyword.operator.type.annotation.ks
+                    
+                   ^
+                   source.ks meta.type.annotation.ks
+                    String
+                    ^^^^^^
+                    source.ks meta.type.annotation.ks support.type.primitive.ks
+                          )
+                          ^
+                          source.ks punctuation.definition.parameters.end.bracket.round.ks
+                            
+                           ^
+                           source.ks
+                            {
+                            ^
+                            source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>    return value.replace(/\-/g, (, index) => {
+     
+ ^^^^
+ source.ks
+     return
+     ^^^^^^
+     source.ks keyword.control.flow.return.ks
+            
+           ^
+           source.ks
+            value
+            ^^^^^
+            source.ks variable.other.object.ks
+                 .
+                 ^
+                 source.ks punctuation.accessor.object.ks
+                  replace
+                  ^^^^^^^
+                  source.ks entity.name.function.ks
+                         (
+                         ^
+                         source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                          /
+                          ^
+                          source.ks string.regexp.ks punctuation.definition.string.begin.ks
+                           \-
+                           ^^
+                           source.ks string.regexp.ks constant.character.escape.backslash.regexp
+                             /
+                             ^
+                             source.ks string.regexp.ks punctuation.definition.string.end.ks
+                              g
+                              ^
+                              source.ks string.regexp.ks
+                               ,
+                               ^
+                               source.ks punctuation.separator.comma.ks
+                                 
+                                ^
+                                source.ks
+                                 (
+                                 ^
+                                 source.ks punctuation.definition.parameters.begin.bracket.round.ks
+                                  ,
+                                  ^
+                                  source.ks punctuation.separator.comma.ks
+                                    
+                                   ^
+                                   source.ks
+                                    index
+                                    ^^^^^
+                                    source.ks variable.parameter.ks
+                                         )
+                                         ^
+                                         source.ks punctuation.definition.parameters.end.bracket.round.ks
+                                           
+                                          ^
+                                          source.ks
+                                           =>
+                                           ^^
+                                           source.ks storage.type.function.arrow.ks
+                                              
+                                             ^
+                                             source.ks
+                                              {
+                                              ^
+                                              source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>        if index == 0 {
+         
+ ^^^^^^^^
+ source.ks
+         if
+         ^^
+         source.ks keyword.control.conditional.if.ks
+            
+           ^
+           source.ks
+            index
+            ^^^^^
+            source.ks variable.other.ks
+                  
+                 ^
+                 source.ks
+                  ==
+                  ^^
+                  source.ks keyword.operator.comparison.ks
+                     
+                    ^
+                    source.ks
+                     0
+                     ^
+                     source.ks constant.numeric.decimal.ks
+                       
+                      ^
+                      source.ks
+                       {
+                       ^
+                       source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>
+ 
+ ^
+ source.ks
+>
+>        }
+         
+ ^^^^^^^^
+ source.ks
+         }
+         ^
+         source.ks punctuation.definition.block.end.bracket.curly.ks
+>
+>    })
+     
+ ^^^^
+ source.ks
+     }
+     ^
+     source.ks punctuation.definition.block.end.bracket.curly.ks
+      )
+      ^
+      source.ks punctuation.definition.arguments.end.bracket.round.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.block.end.bracket.curly.ks

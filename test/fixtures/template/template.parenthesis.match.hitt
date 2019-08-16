@@ -1,0 +1,117 @@
+original file
+-----------------------------------
+func foobar(date: Date) {
+    return `\((date.getHours() % 12) || 12)`
+}
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>func foobar(date: Date) {
+ func
+ ^^^^
+ source.ks storage.type.function.ks
+      
+     ^
+     source.ks
+      foobar
+      ^^^^^^
+      source.ks entity.name.function.ks
+            (
+            ^
+            source.ks punctuation.definition.parameters.begin.bracket.round.ks
+             date
+             ^^^^
+             source.ks variable.parameter.ks
+                 :
+                 ^
+                 source.ks meta.type.annotation.ks keyword.operator.type.annotation.ks
+                   
+                  ^
+                  source.ks meta.type.annotation.ks
+                   Date
+                   ^^^^
+                   source.ks meta.type.annotation.ks entity.name.type.ks
+                       )
+                       ^
+                       source.ks punctuation.definition.parameters.end.bracket.round.ks
+                         
+                        ^
+                        source.ks
+                         {
+                         ^
+                         source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>    return `\((date.getHours() % 12) || 12)`
+     
+ ^^^^
+ source.ks
+     return
+     ^^^^^^
+     source.ks keyword.control.flow.return.ks
+            
+           ^
+           source.ks
+            `
+            ^
+            source.ks punctuation.definition.string.template.begin.ks
+             \(
+             ^^
+             source.ks punctuation.definition.template-expression.begin.ks
+               (
+               ^
+               source.ks meta.brace.round.ks
+                date
+                ^^^^
+                source.ks variable.other.object.ks
+                    .
+                    ^
+                    source.ks punctuation.accessor.object.ks
+                     getHours
+                     ^^^^^^^^
+                     source.ks entity.name.function.ks
+                             (
+                             ^
+                             source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                              )
+                              ^
+                              source.ks punctuation.definition.arguments.end.bracket.round.ks
+                                
+                               ^
+                               source.ks
+                                %
+                                ^
+                                source.ks keyword.operator.arithmetic.ks
+                                  
+                                 ^
+                                 source.ks
+                                  12
+                                  ^^
+                                  source.ks constant.numeric.decimal.ks
+                                    )
+                                    ^
+                                    source.ks meta.brace.round.ks
+                                      
+                                     ^
+                                     source.ks
+                                      ||
+                                      ^^
+                                      source.ks keyword.operator.logical.ks
+                                         
+                                        ^
+                                        source.ks
+                                         12
+                                         ^^
+                                         source.ks constant.numeric.decimal.ks
+                                           )
+                                           ^
+                                           source.ks punctuation.definition.template-expression.end.ks
+                                            `
+                                            ^
+                                            source.ks punctuation.definition.string.template.end.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.block.end.bracket.curly.ks
