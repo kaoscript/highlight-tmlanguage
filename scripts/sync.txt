@@ -16,6 +16,8 @@ function.if.logical
 function.lambda.param.anonym
 function.parameter.timeout
 function.return.logical
+if.comment.cond
+if.comment.else
 keyword.var.let
 keyword.var.until
 keyword.var.while

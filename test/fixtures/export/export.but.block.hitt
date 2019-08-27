@@ -1,0 +1,315 @@
+original file
+-----------------------------------
+let foo = 'I\'m foo!'
+const c = 3
+const b = 5
+
+func foo() {
+    return c + b
+}
+
+class BarQux {
+    private {
+        a: int
+    }
+
+    BarQux(@a)
+}
+
+export * but {
+    foo
+    c
+    b
+}
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>let foo = 'I\'m foo!'
+ let
+ ^^^
+ source.ks storage.type.readwrite.ks
+     
+    ^
+    source.ks
+     foo
+     ^^^
+     source.ks meta.definition.variable.ks variable.other.readwrite.ks
+         
+        ^
+        source.ks
+         =
+         ^
+         source.ks keyword.operator.assignment.ks
+           
+          ^
+          source.ks
+           '
+           ^
+           source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
+            I
+            ^
+            source.ks string.quoted.single.ks
+             \'
+             ^^
+             source.ks string.quoted.single.ks constant.character.escape.ks
+               m foo!
+               ^^^^^^
+               source.ks string.quoted.single.ks
+                     '
+                     ^
+                     source.ks string.quoted.single.ks punctuation.definition.string.end.ks
+>
+>const c = 3
+ const
+ ^^^^^
+ source.ks storage.type.constant.ks
+       
+      ^
+      source.ks
+       c
+       ^
+       source.ks meta.definition.variable.ks variable.other.constant.ks
+         
+        ^
+        source.ks
+         =
+         ^
+         source.ks keyword.operator.assignment.ks
+           
+          ^
+          source.ks
+           3
+           ^
+           source.ks constant.numeric.decimal.ks
+>
+>const b = 5
+ const
+ ^^^^^
+ source.ks storage.type.constant.ks
+       
+      ^
+      source.ks
+       b
+       ^
+       source.ks meta.definition.variable.ks variable.other.constant.ks
+         
+        ^
+        source.ks
+         =
+         ^
+         source.ks keyword.operator.assignment.ks
+           
+          ^
+          source.ks
+           5
+           ^
+           source.ks constant.numeric.decimal.ks
+>
+>
+ 
+ ^
+ source.ks
+>
+>func foo() {
+ func
+ ^^^^
+ source.ks storage.type.function.ks
+      
+     ^
+     source.ks
+      foo
+      ^^^
+      source.ks entity.name.function.ks
+         (
+         ^
+         source.ks punctuation.definition.parameters.begin.bracket.round.ks
+          )
+          ^
+          source.ks punctuation.definition.parameters.end.bracket.round.ks
+            
+           ^
+           source.ks
+            {
+            ^
+            source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>    return c + b
+     
+ ^^^^
+ source.ks
+     return
+     ^^^^^^
+     source.ks keyword.control.flow.return.ks
+            
+           ^
+           source.ks
+            c
+            ^
+            source.ks variable.other.ks
+              
+             ^
+             source.ks
+              +
+              ^
+              source.ks keyword.operator.arithmetic.ks
+                
+               ^
+               source.ks
+                b
+                ^
+                source.ks variable.other.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.block.end.bracket.curly.ks
+>
+>
+ 
+ ^
+ source.ks
+>
+>class BarQux {
+ class
+ ^^^^^
+ source.ks storage.type.class.ks
+       
+      ^
+      source.ks
+       BarQux
+       ^^^^^^
+       source.ks entity.name.type.class.ks
+              
+             ^
+             source.ks
+              {
+              ^
+              source.ks punctuation.definition.class.begin.bracket.curly.ks
+>
+>    private {
+     
+ ^^^^
+ source.ks
+     private
+     ^^^^^^^
+     source.ks storage.modifier.access.ks
+             
+            ^
+            source.ks
+             {
+             ^
+             source.ks punctuation.definition.members.begin.bracket.curly.ks
+>
+>        a: int
+         
+ ^^^^^^^^
+ source.ks
+         a
+         ^
+         source.ks entity.name.variable.field.ks
+          :
+          ^
+          source.ks meta.type.annotation.ks keyword.operator.type.annotation.ks
+            
+           ^
+           source.ks meta.type.annotation.ks
+            int
+            ^^^
+            source.ks meta.type.annotation.ks entity.name.type.ks
+>
+>    }
+     
+ ^^^^
+ source.ks
+     }
+     ^
+     source.ks punctuation.definition.members.end.bracket.curly.ks
+>
+>
+ 
+ ^
+ source.ks
+>
+>    BarQux(@a)
+     
+ ^^^^
+ source.ks
+     BarQux
+     ^^^^^^
+     source.ks entity.name.function.ks
+           (
+           ^
+           source.ks punctuation.definition.parameters.begin.bracket.round.ks
+            @
+            ^
+            source.ks storage.modifier.at.ks
+             a
+             ^
+             source.ks variable.parameter.ks
+              )
+              ^
+              source.ks punctuation.definition.parameters.end.bracket.round.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.class.end.bracket.curly.ks
+>
+>
+ 
+ ^
+ source.ks
+>
+>export * but {
+ export
+ ^^^^^^
+ source.ks keyword.control.export.ks
+        
+       ^
+       source.ks
+        *
+        ^
+        source.ks constant.language.export-all.ks
+          
+         ^
+         source.ks
+          but
+          ^^^
+          source.ks keyword.control.export.exclusion.ks
+              
+             ^
+             source.ks
+              {
+              ^
+              source.ks punctuation.definition.export-exclusion.begin.bracket.curly.ks
+>
+>    foo
+     
+ ^^^^
+ source.ks
+     foo
+     ^^^
+     source.ks variable.other.ks
+>
+>    c
+     
+ ^^^^
+ source.ks
+     c
+     ^
+     source.ks variable.other.ks
+>
+>    b
+     
+ ^^^^
+ source.ks
+     b
+     ^
+     source.ks variable.other.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.export-exclusion.end.bracket.curly.ks

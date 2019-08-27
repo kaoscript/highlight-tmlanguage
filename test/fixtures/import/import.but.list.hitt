@@ -1,0 +1,45 @@
+original file
+-----------------------------------
+import 'module' but foo, bar
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>import 'module' but foo, bar
+ import
+ ^^^^^^
+ source.ks keyword.control.import.ks
+        
+       ^
+       source.ks
+        '
+        ^
+        source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
+         module
+         ^^^^^^
+         source.ks string.quoted.single.ks
+               '
+               ^
+               source.ks string.quoted.single.ks punctuation.definition.string.end.ks
+                 
+                ^
+                source.ks
+                 but
+                 ^^^
+                 source.ks keyword.control.dependency.exclusion.ks
+                     
+                    ^
+                    source.ks
+                     foo
+                     ^^^
+                     source.ks variable.other.ks
+                        ,
+                        ^
+                        source.ks punctuation.separator.comma.ks
+                          
+                         ^
+                         source.ks
+                          bar
+                          ^^^
+                          source.ks variable.other.ks

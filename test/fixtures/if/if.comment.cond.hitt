@@ -1,0 +1,57 @@
+original file
+-----------------------------------
+if x is String/*  && x is Number*/ {
+
+}
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>if x is String/*  && x is Number*/ {
+ if
+ ^^
+ source.ks keyword.control.conditional.if.ks
+    
+   ^
+   source.ks
+    x
+    ^
+    source.ks variable.other.ks
+      
+     ^
+     source.ks
+      is
+      ^^
+      source.ks keyword.operator.type-checking.ks
+         
+        ^
+        source.ks
+         String
+         ^^^^^^
+         source.ks support.type.primitive.ks
+               /*
+               ^^
+               source.ks comment.block.ks punctuation.definition.comment.ks
+                   && x is Number
+                 ^^^^^^^^^^^^^^^^
+                 source.ks comment.block.ks
+                                 */
+                                 ^^
+                                 source.ks comment.block.ks punctuation.definition.comment.ks
+                                    
+                                   ^
+                                   source.ks
+                                    {
+                                    ^
+                                    source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>
+ 
+ ^
+ source.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.block.end.bracket.curly.ks

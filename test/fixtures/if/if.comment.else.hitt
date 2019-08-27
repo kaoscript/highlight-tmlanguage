@@ -1,0 +1,69 @@
+original file
+-----------------------------------
+if x {
+
+}
+else/*  if y */ {
+
+}
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>if x {
+ if
+ ^^
+ source.ks keyword.control.conditional.if.ks
+    
+   ^
+   source.ks
+    x
+    ^
+    source.ks variable.other.ks
+      
+     ^
+     source.ks
+      {
+      ^
+      source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>
+ 
+ ^
+ source.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.block.end.bracket.curly.ks
+>
+>else/*  if y */ {
+ else
+ ^^^^
+ source.ks keyword.control.conditional.else.ks
+     /*
+     ^^
+     source.ks comment.block.ks punctuation.definition.comment.ks
+         if y 
+       ^^^^^^^
+       source.ks comment.block.ks
+              */
+              ^^
+              source.ks comment.block.ks punctuation.definition.comment.ks
+                 
+                ^
+                source.ks
+                 {
+                 ^
+                 source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>
+ 
+ ^
+ source.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.block.end.bracket.curly.ks

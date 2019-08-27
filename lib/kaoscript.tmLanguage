@@ -1842,7 +1842,7 @@
       <key>else-statement</key>
       <dict>
         <key>begin</key>
-        <string>^\s*(else\b)(?=\s*\{|$)</string>
+        <string>^\s*(else\b)(?=\s*\{|\/\*|\/\/|$)</string>
         <key>beginCaptures</key>
         <dict>
           <key>1</key>
@@ -1858,6 +1858,10 @@
           <dict>
             <key>include</key>
             <string>#block</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#comment</string>
           </dict>
         </array>
       </dict>
@@ -2243,6 +2247,81 @@
             </array>
           </dict>
           <dict>
+            <key>begin</key>
+            <string>\*</string>
+            <key>beginCaptures</key>
+            <dict>
+              <key>0</key>
+              <dict>
+                <key>name</key>
+                <string>constant.language.export-all.ks</string>
+              </dict>
+            </dict>
+            <key>end</key>
+            <string>$</string>
+            <key>patterns</key>
+            <array>
+              <dict>
+                <key>begin</key>
+                <string>\bbut\b</string>
+                <key>beginCaptures</key>
+                <dict>
+                  <key>0</key>
+                  <dict>
+                    <key>name</key>
+                    <string>keyword.control.export.exclusion.ks</string>
+                  </dict>
+                </dict>
+                <key>end</key>
+                <string>$</string>
+                <key>patterns</key>
+                <array>
+                  <dict>
+                    <key>begin</key>
+                    <string>\{</string>
+                    <key>beginCaptures</key>
+                    <dict>
+                      <key>0</key>
+                      <dict>
+                        <key>name</key>
+                        <string>punctuation.definition.export-exclusion.begin.bracket.curly.ks</string>
+                      </dict>
+                    </dict>
+                    <key>end</key>
+                    <string>\}</string>
+                    <key>endCaptures</key>
+                    <dict>
+                      <key>0</key>
+                      <dict>
+                        <key>name</key>
+                        <string>punctuation.definition.export-exclusion.end.bracket.curly.ks</string>
+                      </dict>
+                    </dict>
+                    <key>patterns</key>
+                    <array>
+                      <dict>
+                        <key>name</key>
+                        <string>variable.other.ks</string>
+                        <key>match</key>
+                        <string>[_$[:alpha:]][_$[:alnum:]]*</string>
+                      </dict>
+                    </array>
+                  </dict>
+                  <dict>
+                    <key>name</key>
+                    <string>variable.other.ks</string>
+                    <key>match</key>
+                    <string>[_$[:alpha:]][_$[:alnum:]]*</string>
+                  </dict>
+                  <dict>
+                    <key>include</key>
+                    <string>#comma</string>
+                  </dict>
+                </array>
+              </dict>
+            </array>
+          </dict>
+          <dict>
             <key>include</key>
             <string>#comma</string>
           </dict>
@@ -2259,7 +2338,7 @@
       <key>export-statement</key>
       <dict>
         <key>begin</key>
-        <string>^\s*(export)\s+(?=[\{\[\("'`_$[:alnum:]\.\/@?!~+-])</string>
+        <string>^\s*(export)\s+(?=[\{\[\("'`_$[:alnum:]\.\/@?!~+-]|\*)</string>
         <key>beginCaptures</key>
         <dict>
           <key>1</key>
@@ -4799,6 +4878,64 @@
           </dict>
           <dict>
             <key>begin</key>
+            <string>\bbut\b</string>
+            <key>beginCaptures</key>
+            <dict>
+              <key>0</key>
+              <dict>
+                <key>name</key>
+                <string>keyword.control.dependency.exclusion.ks</string>
+              </dict>
+            </dict>
+            <key>end</key>
+            <string>$</string>
+            <key>patterns</key>
+            <array>
+              <dict>
+                <key>begin</key>
+                <string>\{</string>
+                <key>beginCaptures</key>
+                <dict>
+                  <key>0</key>
+                  <dict>
+                    <key>name</key>
+                    <string>punctuation.definition.dependency-exclusion.begin.bracket.curly.ks</string>
+                  </dict>
+                </dict>
+                <key>end</key>
+                <string>\}</string>
+                <key>endCaptures</key>
+                <dict>
+                  <key>0</key>
+                  <dict>
+                    <key>name</key>
+                    <string>punctuation.definition.dependency-exclusion.end.bracket.curly.ks</string>
+                  </dict>
+                </dict>
+                <key>patterns</key>
+                <array>
+                  <dict>
+                    <key>name</key>
+                    <string>variable.other.ks</string>
+                    <key>match</key>
+                    <string>[_$[:alpha:]][_$[:alnum:]]*</string>
+                  </dict>
+                </array>
+              </dict>
+              <dict>
+                <key>name</key>
+                <string>variable.other.ks</string>
+                <key>match</key>
+                <string>[_$[:alpha:]][_$[:alnum:]]*</string>
+              </dict>
+              <dict>
+                <key>include</key>
+                <string>#comma</string>
+              </dict>
+            </array>
+          </dict>
+          <dict>
+            <key>begin</key>
             <string>=&gt;</string>
             <key>beginCaptures</key>
             <dict>
@@ -7325,6 +7462,10 @@
                 <string>#type-object</string>
               </dict>
             </array>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#comment</string>
           </dict>
         </array>
       </dict>

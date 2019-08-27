@@ -566,12 +566,13 @@ repository:
     - include: '#block'
   # }}}
   else-statement: # {{{
-    begin: '^\s*(else\b)(?=\s*\{|$)'
+    begin: '^\s*(else\b)(?=\s*\{|\/\*|\/\/|$)'
     beginCaptures:
       '1': { name: 'keyword.control.conditional.else.ks' }
     end: '(?<=\})'
     patterns:
     - include: '#block'
+    - include: '#comment'
   # }}}
   else-if-statement: # {{{
     begin: '(?=^\s*else\s+if\s+{{expression-beginning}})'
@@ -682,12 +683,34 @@ repository:
           '2': { name: 'variable.other.ks' }
       - name: 'variable.other.ks'
         match: '{{identifier}}'
+    - begin: '\*'
+      beginCaptures:
+        '0': { name: 'constant.language.export-all.ks' }
+      end: '$'
+      patterns:
+      - begin: '\bbut\b'
+        beginCaptures:
+          '0': { name: 'keyword.control.export.exclusion.ks' }
+        end: '$'
+        patterns:
+        - begin: '\{'
+          beginCaptures:
+            '0': { name: 'punctuation.definition.export-exclusion.begin.bracket.curly.ks' }
+          end: '\}'
+          endCaptures:
+            '0': { name: 'punctuation.definition.export-exclusion.end.bracket.curly.ks' }
+          patterns:
+          - name: 'variable.other.ks'
+            match: '{{identifier}}'
+        - name: 'variable.other.ks'
+          match: '{{identifier}}'
+        - include: '#comma'
     - include: '#comma'
     - include: '#attribute'
     - include: '#comment'
   # }}}
   export-statement: # {{{
-    begin: '^\s*(export)\s+(?={{expression-beginning}})'
+    begin: '^\s*(export)\s+(?={{expression-beginning}}|\*)'
     beginCaptures:
       '1': { name: 'keyword.control.export.ks' }
     end: '(?<=\}|$)'
@@ -1439,6 +1462,23 @@ repository:
       patterns:
       - include: '#extern-declarator'
       - include: '#import-alias'
+      - include: '#comma'
+    - begin: '\bbut\b'
+      beginCaptures:
+        '0': { name: 'keyword.control.dependency.exclusion.ks' }
+      end: '$'
+      patterns:
+      - begin: '\{'
+        beginCaptures:
+          '0': { name: 'punctuation.definition.dependency-exclusion.begin.bracket.curly.ks' }
+        end: '\}'
+        endCaptures:
+          '0': { name: 'punctuation.definition.dependency-exclusion.end.bracket.curly.ks' }
+        patterns:
+        - name: 'variable.other.ks'
+          match: '{{identifier}}'
+      - name: 'variable.other.ks'
+        match: '{{identifier}}'
       - include: '#comma'
     - begin: '=>'
       beginCaptures:
@@ -2203,6 +2243,7 @@ repository:
           '0': { name: 'punctuation.definition.object.end.bracket.curly.ks' }
         patterns:
         - include: '#type-object'
+      - include: '#comment'
   # }}}
   type-generic: # {{{
     begin: '<'
