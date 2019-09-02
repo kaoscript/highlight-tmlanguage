@@ -7308,7 +7308,7 @@
             <key>begin</key>
             <string>(?=(\basync\s+)?(?:\bfunc)?\()</string>
             <key>end</key>
-            <string>(?=$|\s*\|\||\s*\|\s*$)</string>
+            <string>(?=$|\s*\|\||\s*\|\s*$|\s*[&gt;\)])</string>
             <key>patterns</key>
             <array>
               <dict>
@@ -7341,7 +7341,7 @@
                   </dict>
                 </dict>
                 <key>end</key>
-                <string>(?=$|\s*~|\s*\|\||\s*\|\s*$)</string>
+                <string>(?=$|\s*~|\s*\|\||\s*\|\s*$|\s*[&gt;\)])</string>
                 <key>patterns</key>
                 <array>
                   <dict>

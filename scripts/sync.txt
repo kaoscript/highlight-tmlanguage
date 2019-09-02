@@ -16,6 +16,7 @@ function.if.logical
 function.lambda.param.anonym
 function.parameter.timeout
 function.return.logical
+generics.array.param.func.wr.gt
 if.comment.cond
 if.comment.else
 keyword.var.let
@@ -33,3 +34,4 @@ operator.ternary.null
 operator.ternary.true
 template.parenthesis.match
 type.cast.operation
+type.parameter.func.wr.gt

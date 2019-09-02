@@ -2197,7 +2197,7 @@ repository:
       - name: 'support.type.macro.ks'
         match: \b(?:Identifier|Expression)\b
       - begin: '(?=(\basync\s+)?(?:\bfunc)?\()'
-        end: '(?=$|\s*\|\||\s*\|\s*$)'
+        end: '(?=$|\s*\|\||\s*\|\s*$|\s*[>\)])'
         patterns:
         - name: 'storage.modifier.async.ks'
           match: '\basync\b'
@@ -2208,7 +2208,7 @@ repository:
           begin: ':'
           beginCaptures:
             '0': { name: 'keyword.operator.type.annotation.ks' }
-          end: '(?=$|\s*~|\s*\|\||\s*\|\s*$)'
+          end: '(?=$|\s*~|\s*\|\||\s*\|\s*$|\s*[>\)])'
           patterns:
           - include: '#type'
         - name: 'meta.throwables.ks'
