@@ -1,0 +1,78 @@
+original file
+-----------------------------------
+func foobar(): Number? {
+}
+
+call(foobar()!!)
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>func foobar(): Number? {
+ func
+ ^^^^
+ source.ks storage.type.function.ks
+      
+     ^
+     source.ks
+      foobar
+      ^^^^^^
+      source.ks entity.name.function.ks
+            (
+            ^
+            source.ks punctuation.definition.parameters.begin.bracket.round.ks
+             )
+             ^
+             source.ks punctuation.definition.parameters.end.bracket.round.ks
+              :
+              ^
+              source.ks meta.function.return-type.ks keyword.operator.type.annotation.ks
+                
+               ^
+               source.ks meta.function.return-type.ks
+                Number
+                ^^^^^^
+                source.ks meta.function.return-type.ks support.type.primitive.ks
+                      ?
+                      ^
+                      source.ks meta.function.return-type.ks storage.modifier.nullable.ks
+                        
+                       ^
+                       source.ks
+                        {
+                        ^
+                        source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.block.end.bracket.curly.ks
+>
+>
+ 
+ ^
+ source.ks
+>
+>call(foobar()!!)
+ call
+ ^^^^
+ source.ks entity.name.function.ks
+     (
+     ^
+     source.ks punctuation.definition.arguments.begin.bracket.round.ks
+      foobar
+      ^^^^^^
+      source.ks entity.name.function.ks
+            (
+            ^
+            source.ks punctuation.definition.arguments.begin.bracket.round.ks
+             )
+             ^
+             source.ks punctuation.definition.arguments.end.bracket.round.ks
+              !!
+              ^^
+              source.ks keyword.operator.type-casting.forced.ks
+                )
+                ^
+                source.ks punctuation.definition.arguments.end.bracket.round.ks

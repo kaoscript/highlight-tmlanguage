@@ -87,7 +87,7 @@ grammar: kaoscript.tmLanguage
          source.ks variable.other.ks
              :
              ^
-             source.ks keyword.operator.type-casting.sign.ks
+             source.ks keyword.operator.type-casting.up.short.ks
               A
               ^
               source.ks entity.name.type.ks

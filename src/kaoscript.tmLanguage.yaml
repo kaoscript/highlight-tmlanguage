@@ -1815,16 +1815,20 @@ repository:
       - include: '#type'
     - begin: '(\bas\b)\s*'
       beginCaptures:
-        '1': { name: 'keyword.operator.type-casting.ks' }
+        '1': { name: 'keyword.operator.type-casting.up.full.ks' }
       end: '(?=$|[\)\{\]\?,&\|\.\s])'
       patterns:
       - include: '#type'
     - begin: '(?!<\s):(?!\s)'
       beginCaptures:
-        '0': { name: 'keyword.operator.type-casting.sign.ks' }
+        '0': { name: 'keyword.operator.type-casting.up.short.ks' }
       end: '(?=$|[\)\{\]\?,&\|\.\+\-\*\/])'
       patterns:
       - include: '#type'
+    - name: 'keyword.operator.type-casting.nullable.ks'
+      match: '(?<=[_$[:alnum:]\]\)])!\?'
+    - name: 'keyword.operator.type-casting.forced.ks'
+      match: '(?<=[_$[:alnum:]\]\)])!!'
     - name: 'keyword.operator.existential.ks'
       match: '\?'
   # }}}
@@ -2197,7 +2201,7 @@ repository:
       - name: 'support.type.macro.ks'
         match: \b(?:Identifier|Expression)\b
       - begin: '(?=(\basync\s+)?(?:\bfunc)?\()'
-        end: '(?=$|\s*\|\||\s*\|\s*$|\s*[>\)])'
+        end: '(?=$|\s*\|\||\s*\&\&|\s*[|&]\s*$|\s*[>\)])'
         patterns:
         - name: 'storage.modifier.async.ks'
           match: '\basync\b'
@@ -2208,14 +2212,14 @@ repository:
           begin: ':'
           beginCaptures:
             '0': { name: 'keyword.operator.type.annotation.ks' }
-          end: '(?=$|\s*~|\s*\|\||\s*\|\s*$|\s*[>\)])'
+          end: '(?=$|\s*~|\s*\|\||\s*\&\&|\s*[|&]\s*$|\s*[>\)])'
           patterns:
           - include: '#type'
         - name: 'meta.throwables.ks'
           begin: '~'
           beginCaptures:
             '0': { name: 'storage.modifier.throwables.ks' }
-          end: '(?=$|\s*\|\|)'
+          end: '(?=$|\s*\|\||\s*\&\&)'
           patterns:
           - include: '#type'
           - include: '#comma'
@@ -2225,6 +2229,8 @@ repository:
         match: '\?'
       - name: 'keyword.operator.type.union.ks'
         match: '\|\|?'
+      - name: 'keyword.operator.type.fusion.ks'
+        match: '\&\&?'
       - include: '#type-generic'
       - begin: '\['
         beginCaptures:
@@ -2269,7 +2275,7 @@ repository:
       - include: '#function-throwables'
     - begin: '({{identifier}})(:)'
       beginCaptures:
-        '1': { name: 'variable.object.property.ks' }
+        '1': { name: 'meta.object.key.ks' }
         '2': { name: 'keyword.operator.type.annotation.ks' }
       end: '(?=$|,|\})'
       patterns:
@@ -2278,7 +2284,7 @@ repository:
   # }}}
   type-statement: # {{{
     patterns:
-      - begin: '(\btype)\s+({{identifier}})\s*(=)\s*(?=[_$[:alnum:]\(])'
+      - begin: '(\btype)\s+({{identifier}})\s*(=)\s*(?=[_$[:alnum:]\(\{\[])'
         beginCaptures:
           '1': { name: 'storage.type.type.ks' }
           '2': { name: 'entity.name.type.alias.ks' }

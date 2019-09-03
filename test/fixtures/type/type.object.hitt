@@ -32,7 +32,7 @@ grammar: kaoscript.tmLanguage
         source.ks meta.type.annotation.ks punctuation.definition.object.begin.bracket.curly.ks
          foo
          ^^^
-         source.ks meta.type.annotation.ks variable.object.property.ks
+         source.ks meta.type.annotation.ks meta.object.key.ks
             :
             ^
             source.ks meta.type.annotation.ks keyword.operator.type.annotation.ks
@@ -50,7 +50,7 @@ grammar: kaoscript.tmLanguage
                   source.ks meta.type.annotation.ks
                    bar
                    ^^^
-                   source.ks meta.type.annotation.ks variable.object.property.ks
+                   source.ks meta.type.annotation.ks meta.object.key.ks
                       :
                       ^
                       source.ks meta.type.annotation.ks keyword.operator.type.annotation.ks

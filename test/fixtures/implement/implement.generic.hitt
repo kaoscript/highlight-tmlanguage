@@ -222,7 +222,7 @@ grammar: kaoscript.tmLanguage
                                    source.ks
                                     as
                                     ^^
-                                    source.ks keyword.operator.type-casting.ks
+                                    source.ks keyword.operator.type-casting.up.full.ks
                                        
                                       ^
                                       source.ks

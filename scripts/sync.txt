@@ -33,5 +33,6 @@ operator.ternary.infinity
 operator.ternary.null
 operator.ternary.true
 template.parenthesis.match
+type.alias.object
 type.cast.operation
 type.parameter.func.wr.gt

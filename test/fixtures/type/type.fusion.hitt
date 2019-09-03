@@ -1,0 +1,96 @@
+original file
+-----------------------------------
+type RegExpExecArray = Array<String?> & {
+    index: Number
+    input: String
+}
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>type RegExpExecArray = Array<String?> & {
+ type
+ ^^^^
+ source.ks storage.type.type.ks
+      
+     ^
+     source.ks
+      RegExpExecArray
+      ^^^^^^^^^^^^^^^
+      source.ks entity.name.type.alias.ks
+                      
+                     ^
+                     source.ks
+                      =
+                      ^
+                      source.ks keyword.operator.assignment.ks
+                        
+                       ^
+                       source.ks
+                        Array
+                        ^^^^^
+                        source.ks support.type.primitive.ks
+                             <
+                             ^
+                             source.ks punctuation.definition.typeparameters.begin.ks
+                              String
+                              ^^^^^^
+                              source.ks support.type.primitive.ks
+                                    ?
+                                    ^
+                                    source.ks storage.modifier.nullable.ks
+                                     >
+                                     ^
+                                     source.ks punctuation.definition.typeparameters.end.ks
+                                       
+                                      ^
+                                      source.ks
+                                       &
+                                       ^
+                                       source.ks keyword.operator.type.fusion.ks
+                                         
+                                        ^
+                                        source.ks
+                                         {
+                                         ^
+                                         source.ks punctuation.definition.object.begin.bracket.curly.ks
+>
+>    index: Number
+     
+ ^^^^
+ source.ks
+     index
+     ^^^^^
+     source.ks meta.object.key.ks
+          :
+          ^
+          source.ks keyword.operator.type.annotation.ks
+            
+           ^
+           source.ks
+            Number
+            ^^^^^^
+            source.ks support.type.primitive.ks
+>
+>    input: String
+     
+ ^^^^
+ source.ks
+     input
+     ^^^^^
+     source.ks meta.object.key.ks
+          :
+          ^
+          source.ks keyword.operator.type.annotation.ks
+            
+           ^
+           source.ks
+            String
+            ^^^^^^
+            source.ks support.type.primitive.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.object.end.bracket.curly.ks

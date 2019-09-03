@@ -6042,7 +6042,7 @@
               <key>1</key>
               <dict>
                 <key>name</key>
-                <string>keyword.operator.type-casting.ks</string>
+                <string>keyword.operator.type-casting.up.full.ks</string>
               </dict>
             </dict>
             <key>end</key>
@@ -6063,7 +6063,7 @@
               <key>0</key>
               <dict>
                 <key>name</key>
-                <string>keyword.operator.type-casting.sign.ks</string>
+                <string>keyword.operator.type-casting.up.short.ks</string>
               </dict>
             </dict>
             <key>end</key>
@@ -6075,6 +6075,18 @@
                 <string>#type</string>
               </dict>
             </array>
+          </dict>
+          <dict>
+            <key>name</key>
+            <string>keyword.operator.type-casting.nullable.ks</string>
+            <key>match</key>
+            <string>(?&lt;=[_$[:alnum:]\]\)])!\?</string>
+          </dict>
+          <dict>
+            <key>name</key>
+            <string>keyword.operator.type-casting.forced.ks</string>
+            <key>match</key>
+            <string>(?&lt;=[_$[:alnum:]\]\)])!!</string>
           </dict>
           <dict>
             <key>name</key>
@@ -7308,7 +7320,7 @@
             <key>begin</key>
             <string>(?=(\basync\s+)?(?:\bfunc)?\()</string>
             <key>end</key>
-            <string>(?=$|\s*\|\||\s*\|\s*$|\s*[&gt;\)])</string>
+            <string>(?=$|\s*\|\||\s*\&amp;\&amp;|\s*[|&amp;]\s*$|\s*[&gt;\)])</string>
             <key>patterns</key>
             <array>
               <dict>
@@ -7341,7 +7353,7 @@
                   </dict>
                 </dict>
                 <key>end</key>
-                <string>(?=$|\s*~|\s*\|\||\s*\|\s*$|\s*[&gt;\)])</string>
+                <string>(?=$|\s*~|\s*\|\||\s*\&amp;\&amp;|\s*[|&amp;]\s*$|\s*[&gt;\)])</string>
                 <key>patterns</key>
                 <array>
                   <dict>
@@ -7364,7 +7376,7 @@
                   </dict>
                 </dict>
                 <key>end</key>
-                <string>(?=$|\s*\|\|)</string>
+                <string>(?=$|\s*\|\||\s*\&amp;\&amp;)</string>
                 <key>patterns</key>
                 <array>
                   <dict>
@@ -7396,6 +7408,12 @@
             <string>keyword.operator.type.union.ks</string>
             <key>match</key>
             <string>\|\|?</string>
+          </dict>
+          <dict>
+            <key>name</key>
+            <string>keyword.operator.type.fusion.ks</string>
+            <key>match</key>
+            <string>\&amp;\&amp;?</string>
           </dict>
           <dict>
             <key>include</key>
@@ -7550,7 +7568,7 @@
               <key>1</key>
               <dict>
                 <key>name</key>
-                <string>variable.object.property.ks</string>
+                <string>meta.object.key.ks</string>
               </dict>
               <key>2</key>
               <dict>
@@ -7580,7 +7598,7 @@
         <array>
           <dict>
             <key>begin</key>
-            <string>(\btype)\s+([_$[:alpha:]][_$[:alnum:]]*)\s*(=)\s*(?=[_$[:alnum:]\(])</string>
+            <string>(\btype)\s+([_$[:alpha:]][_$[:alnum:]]*)\s*(=)\s*(?=[_$[:alnum:]\(\{\[])</string>
             <key>beginCaptures</key>
             <dict>
               <key>1</key>
