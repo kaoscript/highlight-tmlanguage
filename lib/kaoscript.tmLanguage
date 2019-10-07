@@ -6089,7 +6089,7 @@
               </dict>
             </dict>
             <key>end</key>
-            <string>(?=$|[\)\{\]\?,&amp;\|\.\+\-\*\/])</string>
+            <string>(?=$|[\)\{\]\?,&amp;\|\.\+\-\*\/\s])</string>
             <key>patterns</key>
             <array>
               <dict>

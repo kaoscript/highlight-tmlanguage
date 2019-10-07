@@ -1,4 +1,5 @@
 array.cph.boundary
+array.cph.in.typed
 await.exec.const
 await.exec.let
 class.method.lambda.ends

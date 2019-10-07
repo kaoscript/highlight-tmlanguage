@@ -1828,7 +1828,7 @@ repository:
     - begin: '(?!<\s):(?!\s)'
       beginCaptures:
         '0': { name: 'keyword.operator.type-casting.up.short.ks' }
-      end: '(?=$|[\)\{\]\?,&\|\.\+\-\*\/])'
+      end: '(?=$|[\)\{\]\?,&\|\.\+\-\*\/\s])'
       patterns:
       - include: '#type'
     - name: 'keyword.operator.type-casting.nullable.ks'
