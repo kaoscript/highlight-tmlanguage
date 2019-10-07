@@ -23,7 +23,7 @@ grammar: kaoscript.tmLanguage
 >sealed class Greetings {
  sealed
  ^^^^^^
- source.ks storage.modifier.sealed.ks
+ source.ks storage.modifier.ks
         
        ^
        source.ks

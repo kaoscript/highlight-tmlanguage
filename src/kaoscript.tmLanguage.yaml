@@ -255,13 +255,15 @@ repository:
       - name: 'punctuation.definition.parameters.end.bracket.round.ks'
         match: '\)'
       - include: '#block'
-    - begin: '(?:\b(private|protected|public)\b\s*)?(?:(\babstract\b)\s*|(\bstatic\b)\s*)?(?:(\basync)\s*)?({{identifier}})(?=\()'
+    - begin: '(?:\b(private|protected|public)\b\s*)?(\bfinal\b\s*)?(?:(\babstract\b)\s*|(\bstatic\b)\s*|(\boverride\b)\s*)?(?:(\basync)\s*)?({{identifier}})(?=\()'
       beginCaptures:
         '1': { name: 'storage.modifier.access.ks' }
-        '2': { name: 'storage.modifier.abstract.ks' }
-        '3': { name: 'storage.modifier.access.ks' }
-        '4': { name: 'storage.modifier.async.ks' }
-        '5': { name: 'entity.name.function.ks' }
+        '2': { name: 'storage.modifier.ks' }
+        '3': { name: 'storage.modifier.abstract.ks' }
+        '4': { name: 'storage.modifier.access.ks' }
+        '5': { name: 'storage.modifier.ks' }
+        '6': { name: 'storage.modifier.async.ks' }
+        '7': { name: 'entity.name.function.ks' }
       end: '(?<=\})|$|(?=\})'
       patterns:
       - include: '#function-parameters'
@@ -377,9 +379,9 @@ repository:
       - include: '#expression'
   # }}}
   class-statement: # {{{
-    begin: '(?:(\bsealed)\s+)?(?:(\babstract)\s+)?(\bclass){{match-identifier}}'
+    begin: '(?:(\bsealed|\bfinal)\s+)?(?:(\babstract)\s+)?(\bclass){{match-identifier}}'
     beginCaptures:
-      '1': { name: 'storage.modifier.sealed.ks' }
+      '1': { name: 'storage.modifier.ks' }
       '2': { name: 'storage.modifier.abstract.ks' }
       '3': { name: 'storage.type.class.ks' }
     end: '(?<=\})'
@@ -1412,7 +1414,7 @@ repository:
       - name: 'storage.modifier.access.ks'
         match: 'private|protected|public|static'
       - name: 'storage.modifier.ks'
-        match: 'override'
+        match: 'override|overwrite'
       - begin: '\{'
         beginCaptures:
           '0': { name: 'punctuation.definition.members.begin.bracket.curly.ks' }
@@ -1797,8 +1799,12 @@ repository:
       match: '\.\.\.'
     - name: 'keyword.operator.null-coalescing.ks'
       match: '\?\?'
+    - name: 'keyword.operator.exception-coalescing.ks'
+      match: '~~'
     - name: 'keyword.control.flow.await.ks'
-      match: '\bawait\b'
+      match: '\bawait\b(?=\s*{{expression-beginning}})'
+    - name: 'keyword.control.flow.try.ks'
+      match: '\btry(?:!|\b)(?=\s*{{expression-beginning}})'
     - begin: '(?<=\s)\?(?=\s|$)'
       beginCaptures:
         '0': { name: 'keyword.operator.ternary.ks' }
@@ -1984,7 +1990,7 @@ repository:
   # }}}
   statements: # {{{
     patterns:
-    - begin: '^\s*(?=abstract|async|class|const|enum|func|let|macro|namespace|sealed|type)\b'
+    - begin: '^\s*(?=abstract\b|async\b|class\b|const\b|enum\b|final\b|func\b|let\b|macro\b|namespace\b|sealed\b|type\b)'
       end: '(?<=\}|$)'
       patterns:
       - include: '#class-statement'

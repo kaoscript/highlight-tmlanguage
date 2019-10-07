@@ -16,7 +16,7 @@ grammar: kaoscript.tmLanguage
        source.ks
         sealed
         ^^^^^^
-        source.ks storage.modifier.sealed.ks
+        source.ks storage.modifier.ks
                
               ^
               source.ks

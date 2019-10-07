@@ -1,0 +1,213 @@
+original file
+-----------------------------------
+func foobar(x) ~ Error {
+    if x {
+        return 42
+    }
+    else {
+        throw new Error('foobar')
+    }
+}
+
+let x = try foobar(true) ?? 24
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>func foobar(x) ~ Error {
+ func
+ ^^^^
+ source.ks storage.type.function.ks
+      
+     ^
+     source.ks
+      foobar
+      ^^^^^^
+      source.ks entity.name.function.ks
+            (
+            ^
+            source.ks punctuation.definition.parameters.begin.bracket.round.ks
+             x
+             ^
+             source.ks variable.parameter.ks
+              )
+              ^
+              source.ks punctuation.definition.parameters.end.bracket.round.ks
+                
+               ^
+               source.ks
+                ~
+                ^
+                source.ks meta.throwables.ks storage.modifier.throwables.ks
+                  
+                 ^
+                 source.ks meta.throwables.ks
+                  Error
+                  ^^^^^
+                  source.ks meta.throwables.ks support.type.primitive.ks
+                        
+                       ^
+                       source.ks
+                        {
+                        ^
+                        source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>    if x {
+     
+ ^^^^
+ source.ks
+     if
+     ^^
+     source.ks keyword.control.conditional.if.ks
+        
+       ^
+       source.ks
+        x
+        ^
+        source.ks variable.other.ks
+          
+         ^
+         source.ks
+          {
+          ^
+          source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>        return 42
+         
+ ^^^^^^^^
+ source.ks
+         return
+         ^^^^^^
+         source.ks keyword.control.flow.return.ks
+                
+               ^
+               source.ks
+                42
+                ^^
+                source.ks constant.numeric.decimal.ks
+>
+>    }
+     
+ ^^^^
+ source.ks
+     }
+     ^
+     source.ks punctuation.definition.block.end.bracket.curly.ks
+>
+>    else {
+     
+ ^^^^
+ source.ks
+     else
+     ^^^^
+     source.ks keyword.control.conditional.else.ks
+          
+         ^
+         source.ks
+          {
+          ^
+          source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>        throw new Error('foobar')
+         
+ ^^^^^^^^
+ source.ks
+         throw
+         ^^^^^
+         source.ks keyword.control.try-catch.throw.ks
+               
+              ^
+              source.ks
+               new
+               ^^^
+               source.ks keyword.operator.new.ks
+                   
+                  ^
+                  source.ks
+                   Error
+                   ^^^^^
+                   source.ks entity.name.type.ks
+                        (
+                        ^
+                        source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                         '
+                         ^
+                         source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
+                          foobar
+                          ^^^^^^
+                          source.ks string.quoted.single.ks
+                                '
+                                ^
+                                source.ks string.quoted.single.ks punctuation.definition.string.end.ks
+                                 )
+                                 ^
+                                 source.ks punctuation.definition.arguments.end.bracket.round.ks
+>
+>    }
+     
+ ^^^^
+ source.ks
+     }
+     ^
+     source.ks punctuation.definition.block.end.bracket.curly.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.block.end.bracket.curly.ks
+>
+>
+ 
+ ^
+ source.ks
+>
+>let x = try foobar(true) ?? 24
+ let
+ ^^^
+ source.ks storage.type.readwrite.ks
+     
+    ^
+    source.ks
+     x
+     ^
+     source.ks meta.definition.variable.ks variable.other.readwrite.ks
+       
+      ^
+      source.ks
+       =
+       ^
+       source.ks keyword.operator.assignment.ks
+         
+        ^
+        source.ks
+         try
+         ^^^
+         source.ks keyword.control.flow.try.ks
+             
+            ^
+            source.ks
+             foobar
+             ^^^^^^
+             source.ks entity.name.function.ks
+                   (
+                   ^
+                   source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                    true
+                    ^^^^
+                    source.ks constant.language.boolean.true.ks
+                        )
+                        ^
+                        source.ks punctuation.definition.arguments.end.bracket.round.ks
+                          
+                         ^
+                         source.ks
+                          ??
+                          ^^
+                          source.ks keyword.operator.null-coalescing.ks
+                             
+                            ^
+                            source.ks
+                             24
+                             ^^
+                             source.ks constant.numeric.decimal.ks
