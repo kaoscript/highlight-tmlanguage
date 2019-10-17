@@ -1803,8 +1803,10 @@ repository:
       match: '~~'
     - name: 'keyword.control.flow.await.ks'
       match: '\bawait\b(?=\s*{{expression-beginning}})'
-    - name: 'keyword.control.flow.try.ks'
-      match: '\btry(?:!|\b)(?=\s*{{expression-beginning}})'
+    - match: '\b(try)(?:(!)|\b)(?=\s*{{expression-beginning}})'
+      captures:
+        '1': { name: 'keyword.control.flow.try.ks' }
+        '2': { name: 'keyword.operator.try.unwrap.ks' }
     - begin: '(?<=\s)\?(?=\s|$)'
       beginCaptures:
         '0': { name: 'keyword.operator.ternary.ks' }
@@ -2354,6 +2356,8 @@ repository:
     - match: (?<=\?)\s+(this)\s+(?=:)
       captures:
         '1': { name: variable.language.this.ks }
+    - name: variable.language.precursor.ks
+      match: (?<![$\.])\b(precursor)\b(?!\s*:|\$)
   # }}}
   while-statement: # {{{
     begin: '(?=^\s*while\s+(?:{{expression-beginning}}|$))'

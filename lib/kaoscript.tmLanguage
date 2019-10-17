@@ -6003,10 +6003,21 @@
             <string>\bawait\b(?=\s*[\{\[\("'`_$[:alnum:]\.\/@?!~+-])</string>
           </dict>
           <dict>
-            <key>name</key>
-            <string>keyword.control.flow.try.ks</string>
             <key>match</key>
-            <string>\btry(?:!|\b)(?=\s*[\{\[\("'`_$[:alnum:]\.\/@?!~+-])</string>
+            <string>\b(try)(?:(!)|\b)(?=\s*[\{\[\("'`_$[:alnum:]\.\/@?!~+-])</string>
+            <key>captures</key>
+            <dict>
+              <key>1</key>
+              <dict>
+                <key>name</key>
+                <string>keyword.control.flow.try.ks</string>
+              </dict>
+              <key>2</key>
+              <dict>
+                <key>name</key>
+                <string>keyword.operator.try.unwrap.ks</string>
+              </dict>
+            </dict>
           </dict>
           <dict>
             <key>begin</key>
@@ -7822,6 +7833,12 @@
                 <string>variable.language.this.ks</string>
               </dict>
             </dict>
+          </dict>
+          <dict>
+            <key>name</key>
+            <string>variable.language.precursor.ks</string>
+            <key>match</key>
+            <string>(?&lt;![$\.])\b(precursor)\b(?!\s*:|\$)</string>
           </dict>
         </array>
       </dict>

@@ -181,9 +181,12 @@ grammar: kaoscript.tmLanguage
          
         ^
         source.ks
-         try!
-         ^^^^
+         try
+         ^^^
          source.ks keyword.control.flow.try.ks
+            !
+            ^
+            source.ks keyword.operator.try.unwrap.ks
               
              ^
              source.ks

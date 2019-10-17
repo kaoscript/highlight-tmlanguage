@@ -160,7 +160,7 @@ grammar: kaoscript.tmLanguage
  source.ks
          precursor
          ^^^^^^^^^
-         source.ks entity.name.function.ks
+         source.ks entity.name.function.ks variable.language.precursor.ks
                   (
                   ^
                   source.ks punctuation.definition.arguments.begin.bracket.round.ks
