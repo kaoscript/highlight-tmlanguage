@@ -4,11 +4,11 @@ class URI {
     macro {
         register(@scheme: String, @meta: String = 'hier_part [ "?" query ] [ "#" fragment ]') {
             import '@zokugun/test-import'
-            
+
             const name = `\(scheme[0].toUpperCase())\(scheme.substr().toLowerCase())URI`
-            
+
             macro {
-                class #i(name) extends URI {
+                class #w(name) extends URI {
                     private {
                         _e: Number    = #PI
                     }
@@ -80,9 +80,9 @@ grammar: kaoscript.tmLanguage
  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
  source.ks
 >
->            
-             
- ^^^^^^^^^^^^^
+>
+ 
+ ^
  source.ks
 >
 >            const name = `\(scheme[0].toUpperCase())\(scheme.substr().toLowerCase())URI`
@@ -135,9 +135,9 @@ grammar: kaoscript.tmLanguage
                                                                                      ^^^^^
                                                                                      source.ks
 >
->            
-             
- ^^^^^^^^^^^^^
+>
+ 
+ ^
  source.ks
 >
 >            macro {
@@ -148,14 +148,14 @@ grammar: kaoscript.tmLanguage
                    ^
                    source.ks punctuation.bracket.curly.ks
 >
->                class #i(name) extends URI {
+>                class #w(name) extends URI {
                  class 
  ^^^^^^^^^^^^^^^^^^^^^^
  source.ks
                        #
                        ^
                        source.ks meta.macro.variable.ks punctuation.accessor.macro.ks
-                        i
+                        w
                         ^
                         source.ks meta.macro.variable.ks storage.modifier.macro.ks
                          (

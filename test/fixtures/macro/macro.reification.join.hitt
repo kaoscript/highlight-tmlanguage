@@ -1,0 +1,105 @@
+original file
+-----------------------------------
+macro foobar() {
+    macro #j(['foobar()', 'quxbaz()'], ' && ')
+}
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>macro foobar() {
+ macro
+ ^^^^^
+ source.ks meta.macro.ks storage.type.macro.ks
+       
+      ^
+      source.ks meta.macro.ks
+       foobar
+       ^^^^^^
+       source.ks meta.macro.ks entity.name.type.macro.ks
+             (
+             ^
+             source.ks meta.macro.ks punctuation.definition.parameters.begin.bracket.round.ks
+              )
+              ^
+              source.ks meta.macro.ks punctuation.definition.parameters.end.bracket.round.ks
+                
+               ^
+               source.ks meta.macro.ks
+                {
+                ^
+                source.ks meta.macro.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>    macro #j(['foobar()', 'quxbaz()'], ' && ')
+     
+ ^^^^
+ source.ks meta.macro.ks
+     macro
+     ^^^^^
+     source.ks meta.macro.ks keyword.control.macro.ks
+           
+          ^
+          source.ks meta.macro.ks
+           #
+           ^
+           source.ks meta.macro.ks meta.macro.variable.ks punctuation.accessor.macro.ks
+            j
+            ^
+            source.ks meta.macro.ks meta.macro.variable.ks storage.modifier.macro.ks
+             (
+             ^
+             source.ks meta.macro.ks meta.macro.variable.ks punctuation.definition.macro-variable.begin.bracket.round.ks
+              [
+              ^
+              source.ks meta.macro.ks meta.macro.variable.ks punctuation.definition.array.begin.bracket.square.ks
+               '
+               ^
+               source.ks meta.macro.ks meta.macro.variable.ks string.quoted.single.ks punctuation.definition.string.begin.ks
+                foobar()
+                ^^^^^^^^
+                source.ks meta.macro.ks meta.macro.variable.ks string.quoted.single.ks
+                        '
+                        ^
+                        source.ks meta.macro.ks meta.macro.variable.ks string.quoted.single.ks punctuation.definition.string.end.ks
+                         ,
+                         ^
+                         source.ks meta.macro.ks meta.macro.variable.ks punctuation.separator.comma.ks
+                           
+                          ^
+                          source.ks meta.macro.ks meta.macro.variable.ks
+                           '
+                           ^
+                           source.ks meta.macro.ks meta.macro.variable.ks string.quoted.single.ks punctuation.definition.string.begin.ks
+                            quxbaz()
+                            ^^^^^^^^
+                            source.ks meta.macro.ks meta.macro.variable.ks string.quoted.single.ks
+                                    '
+                                    ^
+                                    source.ks meta.macro.ks meta.macro.variable.ks string.quoted.single.ks punctuation.definition.string.end.ks
+                                     ]
+                                     ^
+                                     source.ks meta.macro.ks meta.macro.variable.ks punctuation.definition.array.end.bracket.square.ks
+                                      ,
+                                      ^
+                                      source.ks meta.macro.ks meta.macro.variable.ks punctuation.separator.comma.ks
+                                        
+                                       ^
+                                       source.ks meta.macro.ks meta.macro.variable.ks
+                                        '
+                                        ^
+                                        source.ks meta.macro.ks meta.macro.variable.ks string.quoted.single.ks punctuation.definition.string.begin.ks
+                                          && 
+                                         ^^^^
+                                         source.ks meta.macro.ks meta.macro.variable.ks string.quoted.single.ks
+                                             '
+                                             ^
+                                             source.ks meta.macro.ks meta.macro.variable.ks string.quoted.single.ks punctuation.definition.string.end.ks
+                                              )
+                                              ^
+                                              source.ks meta.macro.ks meta.macro.variable.ks punctuation.definition.macro-variable.end.bracket.round.ks
+>
+>}
+ }
+ ^
+ source.ks meta.macro.ks punctuation.definition.block.end.bracket.curly.ks

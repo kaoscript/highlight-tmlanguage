@@ -1641,7 +1641,7 @@ repository:
   macro-variable: # {{{
     patterns:
     - name: 'meta.macro.variable.ks'
-      begin: '(#)([abei])?(\()'
+      begin: '(#)([aejsw])?(\()'
       beginCaptures:
         '1': { name: 'punctuation.accessor.macro.ks' }
         '2': { name: 'storage.modifier.macro.ks' }
@@ -2237,6 +2237,8 @@ repository:
         match: '\|\|?'
       - name: 'keyword.operator.type.fusion.ks'
         match: '\&\&?'
+      - name: 'keyword.operator.type.exclusion.ks'
+        match: '\^\^?'
       - include: '#type-generic'
       - begin: '\['
         beginCaptures:
@@ -2354,11 +2356,100 @@ repository:
         '1': { name: variable.language.this.ks }
   # }}}
   while-statement: # {{{
-    begin: '^\s*(while)\s+(?={{expression-beginning}})'
-    beginCaptures:
-      '1': { name: 'keyword.control.loop.while.ks' }
-    end: '$'
+    begin: '(?=^\s*while\s+(?:{{expression-beginning}}|$))'
+    end: '(?<=\}|$)'
     patterns:
+    - begin: '\b(while)\s+(const)\s*(\{)'
+      beginCaptures:
+        '1': { name: 'keyword.control.loop.while.ks' }
+        '2': { name: 'storage.type.constant.ks' }
+        '3': { name: 'punctuation.definition.binding-pattern.object.begin.bracket.square.ks' }
+      end: '(?=\{)'
+      patterns:
+      - begin: '(?<=\{)'
+        end: '\}'
+        endCaptures:
+          '0': { name: 'punctuation.definition.binding-pattern.object.end.bracket.square.ks' }
+        patterns:
+          - include: '#const-statement-variable'
+      - begin: '(\=)'
+        beginCaptures:
+          '1': { name: 'keyword.operator.assignment.ks' }
+        end: '(?=\{)'
+        patterns:
+        - include: '#expression'
+    - begin: '\b(while)\s+(const)(?=\s+[_$[:alpha:]\[])'
+      beginCaptures:
+        '1': { name: 'keyword.control.loop.while.ks' }
+        '2': { name: 'storage.type.constant.ks' }
+      end: '(?=\{)'
+      patterns:
+      - include: '#const-statement-variable'
+      - begin: '(\=)'
+        beginCaptures:
+          '1': { name: 'keyword.operator.assignment.ks' }
+        end: '(?=\{)'
+        patterns:
+        - include: '#expression'
+    - begin: '\b(while)\s+(let)\s*(\{)'
+      beginCaptures:
+        '1': { name: 'keyword.control.loop.while.ks' }
+        '2': { name: 'storage.type.readwrite.ks' }
+        '3': { name: 'punctuation.definition.binding-pattern.object.begin.bracket.curly.ks' }
+      end: '(?=\{)'
+      patterns:
+      - begin: '(?<=\{)'
+        end: '\}'
+        endCaptures:
+          '0': { name: 'punctuation.definition.binding-pattern.object.end.bracket.curly.ks' }
+        patterns:
+          - include: '#let-statement-variable'
+      - begin: '(\:?\=)'
+        beginCaptures:
+          '1': { name: 'keyword.operator.assignment.ks' }
+        end: '(?=\{)'
+        patterns:
+        - include: '#expression'
+    - begin: '\b(while)\s+(let)(?=\s+[_$[:alpha:]\[])'
+      beginCaptures:
+        '1': { name: 'keyword.control.loop.while.ks' }
+        '2': { name: 'storage.type.readwrite.ks' }
+      end: '(?=\{)'
+      patterns:
+      - include: '#let-statement-variable'
+      - begin: '(\:?\=)'
+        beginCaptures:
+          '1': { name: 'keyword.operator.assignment.ks' }
+        end: '(?=\{)'
+        patterns:
+        - include: '#expression'
+    - begin: '\b(while)\s+(?=\[)'
+      beginCaptures:
+        '1': { name: 'keyword.control.conditional.if.ks' }
+      end: '(?=\{)'
+      patterns:
+      - include: '#binding-array'
+      - include: '#expression'
+    - begin: '\b(while)(?=\s+\{)'
+      beginCaptures:
+        '1': { name: 'keyword.control.conditional.if.ks' }
+      end: '(?=\{)'
+      patterns:
+      - begin: '(?<=if)\s+(\{)'
+        beginCaptures:
+          '1': { name: 'punctuation.definition.binding-pattern.object.begin.bracket.curly.ks' }
+        end: '\}'
+        endCaptures:
+          '0': { name: 'punctuation.definition.binding-pattern.object.end.bracket.curly.ks' }
+        patterns:
+        - include: '#binding-object-elements'
+      - include: '#expression'
+    - begin: '\bwhile\b'
+      beginCaptures:
+        '0': { name: 'keyword.control.loop.while.ks' }
+      end: '$'
+      patterns:
+      - include: '#block'
+      - include: '#expression'
     - include: '#block'
-    - include: '#expression'
   # }}}

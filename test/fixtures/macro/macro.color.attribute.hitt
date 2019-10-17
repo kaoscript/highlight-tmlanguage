@@ -10,13 +10,13 @@ export class Color {
             for component, name of expression.components {
                 field = `_\(name)`
 
-                fields.push(macro private #i(field): #i(component.type))
+                fields.push(macro private #w(field): #w(component.type))
 
                 methods.push(macro {
                     #[error(off)]
-                    #i(name)() => this.getField(#(name))
+                    #w(name)() => this.getField(#(name))
                     #[error(off)]
-                    #i(name)(value) => this.setField(#(name), value)
+                    #w(name)(value) => this.setField(#(name), value)
                 })
 
                 expression.components[name].field = field
@@ -26,8 +26,8 @@ export class Color {
                 Color.registerSpace(#(expression))
 
                 impl Color {
-                    #b(fields)
-                    #b(methods)
+                    #s(fields)
+                    #s(methods)
                 }
             }
         }
@@ -340,7 +340,7 @@ grammar: kaoscript.tmLanguage
  ^
  source.ks meta.macro.ks
 >
->                fields.push(macro private #i(field): #i(component.type))
+>                fields.push(macro private #w(field): #w(component.type))
                  
  ^^^^^^^^^^^^^^^^
  source.ks meta.macro.ks
@@ -368,7 +368,7 @@ grammar: kaoscript.tmLanguage
                                            #
                                            ^
                                            source.ks meta.macro.ks meta.macro.variable.ks punctuation.accessor.macro.ks
-                                            i
+                                            w
                                             ^
                                             source.ks meta.macro.ks meta.macro.variable.ks storage.modifier.macro.ks
                                              (
@@ -386,7 +386,7 @@ grammar: kaoscript.tmLanguage
                                                       #
                                                       ^
                                                       source.ks meta.macro.ks meta.macro.variable.ks punctuation.accessor.macro.ks
-                                                       i
+                                                       w
                                                        ^
                                                        source.ks meta.macro.ks meta.macro.variable.ks storage.modifier.macro.ks
                                                         (
@@ -456,14 +456,14 @@ grammar: kaoscript.tmLanguage
                                  ^^
                                  source.ks meta.macro.ks
 >
->                    #i(name)() => this.getField(#(name))
+>                    #w(name)() => this.getField(#(name))
                      
  ^^^^^^^^^^^^^^^^^^^^
  source.ks meta.macro.ks
                      #
                      ^
                      source.ks meta.macro.ks meta.macro.variable.ks punctuation.accessor.macro.ks
-                      i
+                      w
                       ^
                       source.ks meta.macro.ks meta.macro.variable.ks storage.modifier.macro.ks
                        (
@@ -520,14 +520,14 @@ grammar: kaoscript.tmLanguage
                                  ^^
                                  source.ks meta.macro.ks
 >
->                    #i(name)(value) => this.setField(#(name), value)
+>                    #w(name)(value) => this.setField(#(name), value)
                      
  ^^^^^^^^^^^^^^^^^^^^
  source.ks meta.macro.ks
                      #
                      ^
                      source.ks meta.macro.ks meta.macro.variable.ks punctuation.accessor.macro.ks
-                      i
+                      w
                       ^
                       source.ks meta.macro.ks meta.macro.variable.ks storage.modifier.macro.ks
                        (
@@ -693,14 +693,14 @@ grammar: kaoscript.tmLanguage
                             ^
                             source.ks meta.macro.ks punctuation.bracket.curly.ks
 >
->                    #b(fields)
+>                    #s(fields)
                      
  ^^^^^^^^^^^^^^^^^^^^
  source.ks meta.macro.ks
                      #
                      ^
                      source.ks meta.macro.ks meta.macro.variable.ks punctuation.accessor.macro.ks
-                      b
+                      s
                       ^
                       source.ks meta.macro.ks meta.macro.variable.ks storage.modifier.macro.ks
                        (
@@ -713,14 +713,14 @@ grammar: kaoscript.tmLanguage
                               ^
                               source.ks meta.macro.ks meta.macro.variable.ks punctuation.definition.macro-variable.end.bracket.round.ks
 >
->                    #b(methods)
+>                    #s(methods)
                      
  ^^^^^^^^^^^^^^^^^^^^
  source.ks meta.macro.ks
                      #
                      ^
                      source.ks meta.macro.ks meta.macro.variable.ks punctuation.accessor.macro.ks
-                      b
+                      s
                       ^
                       source.ks meta.macro.ks meta.macro.variable.ks storage.modifier.macro.ks
                        (

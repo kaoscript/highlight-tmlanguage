@@ -1,0 +1,78 @@
+original file
+-----------------------------------
+type Instance = Object ^ Array ^ Enum ^ Function ^ Namespace
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>type Instance = Object ^ Array ^ Enum ^ Function ^ Namespace
+ type
+ ^^^^
+ source.ks storage.type.type.ks
+      
+     ^
+     source.ks
+      Instance
+      ^^^^^^^^
+      source.ks entity.name.type.alias.ks
+               
+              ^
+              source.ks
+               =
+               ^
+               source.ks keyword.operator.assignment.ks
+                 
+                ^
+                source.ks
+                 Object
+                 ^^^^^^
+                 source.ks support.type.primitive.ks
+                        
+                       ^
+                       source.ks
+                        ^
+                        ^
+                        source.ks keyword.operator.type.exclusion.ks
+                          
+                         ^
+                         source.ks
+                          Array
+                          ^^^^^
+                          source.ks support.type.primitive.ks
+                                
+                               ^
+                               source.ks
+                                ^
+                                ^
+                                source.ks keyword.operator.type.exclusion.ks
+                                  
+                                 ^
+                                 source.ks
+                                  Enum
+                                  ^^^^
+                                  source.ks entity.name.type.ks
+                                       
+                                      ^
+                                      source.ks
+                                       ^
+                                       ^
+                                       source.ks keyword.operator.type.exclusion.ks
+                                         
+                                        ^
+                                        source.ks
+                                         Function
+                                         ^^^^^^^^
+                                         source.ks support.type.primitive.ks
+                                                  
+                                                 ^
+                                                 source.ks
+                                                  ^
+                                                  ^
+                                                  source.ks keyword.operator.type.exclusion.ks
+                                                    
+                                                   ^
+                                                   source.ks
+                                                    Namespace
+                                                    ^^^^^^^^^
+                                                    source.ks entity.name.type.ks
