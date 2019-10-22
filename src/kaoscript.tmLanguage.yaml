@@ -48,23 +48,17 @@ repository:
           '0': { name: 'storage.type.constant.ks' }
         end: '(?=\bfrom\b|\bin\b|\bof\b)'
         patterns:
-        - name: 'punctuation.separator.alternative-value.ks'
-          match: ':'
         - include: '#const-statement-variable'
       - begin: '\blet\b'
         beginCaptures:
           '0': { name: 'storage.type.readwrite.ks' }
         end: '(?=\bfrom\b|\bin\b|\bof\b)'
         patterns:
-        - name: 'punctuation.separator.alternative-value.ks'
-          match: ':'
         - include: '#let-statement-variable'
       - name: 'keyword.control.loop.ks'
         match: '\b(by|desc|from|in|of|til|to|until|when|while)\b'
       - name: 'keyword.operator.range.ks'
         match: '(?<!\.)\<?\.\.\<?(?!\.)'
-      - name: 'punctuation.separator.alternative-value.ks'
-        match: ':'
       - include: '#expression'
     - include: '#expression'
   # }}}
@@ -158,6 +152,8 @@ repository:
     endCaptures:
       '0': { name: 'punctuation.definition.binding-pattern.array.end.bracket.square.ks' }
     patterns:
+    - name: 'variable.anonymous.ks'
+      match: '\b\_\b'
     - name: 'variable.other.ks'
       match: '{{identifier}}'
     - begin: '='
@@ -492,13 +488,15 @@ repository:
     patterns:
     - include: '#binding-array'
     - include: '#binding-object'
+    - name: 'variable.anonymous.ks'
+      match: '\b\_\b'
     - name: 'meta.definition.variable.ks variable.other.constant.ks'
       match: '{{identifier}}'
     - name: 'meta.type.annotation.ks'
       begin: '(\:)'
       beginCaptures:
         '1': { name: 'keyword.operator.type.annotation.ks' }
-      end: '$|(?=\s*[=,])'
+      end: '$|(?=\s*(?:=|,|in|of))'
       patterns:
       - include: '#type'
     - include: '#comma'
@@ -755,6 +753,8 @@ repository:
     - include: '#operator'
     - include: '#binary-operator'
     - include: '#variable'
+    - name: 'variable.anonymous.ks'
+      match: '\b\_\b'
     - name: 'variable.other.ks'
       match: '({{identifier}})'
     - begin: '\('
@@ -797,6 +797,8 @@ repository:
     - include: '#variable'
     - include: '#operator'
     - include: '#binary-operator'
+    - name: 'variable.anonymous.ks'
+      match: '\b\_\b'
     - name: 'variable.other.ks'
       match: '({{identifier}})'
     - begin: '\('
@@ -1181,7 +1183,7 @@ repository:
     begin: '(\~)'
     beginCaptures:
       '1': { name: 'storage.modifier.throwables.ks' }
-    end: '(?=\s*[\{=])'
+    end: '(?=$|\s*[\{=])'
     patterns:
     - include: '#type'
     - include: '#comma'
@@ -1192,26 +1194,12 @@ repository:
       '1': { name: 'keyword.control.loop.for.ks' }
     end: '(?<=\})'
     patterns:
-      - begin: '(const)\s+(:)'
-        beginCaptures:
-          '1': { name: 'storage.type.constant.ks' }
-          '2': { name: 'punctuation.separator.alternative-value.ks' }
-        end: '(?=\bfrom\b|\bin\b|\bof\b)'
-        patterns:
-        - include: '#const-statement-variable'
       - begin: 'const'
         beginCaptures:
           '0': { name: 'storage.type.constant.ks' }
         end: '(?=\bfrom\b|\bin\b|\bof\b)'
         patterns:
         - include: '#const-statement-variable'
-      - begin: '(let)\s+(:)'
-        beginCaptures:
-          '1': { name: 'storage.type.readwrite.ks' }
-          '2': { name: 'punctuation.separator.alternative-value.ks' }
-        end: '(?=\bfrom\b|\bin\b|\bof\b)'
-        patterns:
-        - include: '#let-statement-variable'
       - begin: 'let'
         beginCaptures:
           '0': { name: 'storage.type.readwrite.ks' }
@@ -1255,9 +1243,14 @@ repository:
       - include: '#block'
       - name: 'keyword.operator.range.ks'
         match: '(?<!\.)\<?\.\.\<?(?!\.)'
-      - name: 'punctuation.separator.alternative-value.ks'
-        match: ':'
       - include: '#expression'
+      - name: 'meta.type.annotation.ks'
+        begin: '(\:)'
+        beginCaptures:
+          '1': { name: 'keyword.operator.type.annotation.ks' }
+        end: '$|(?=\s*(?:,|in|of))'
+        patterns:
+        - include: '#type'
   # }}}
   for-statement: # {{{
     begin: '^\s*(?=for\s+[:_$[:alpha:]\{\[])'
@@ -1570,13 +1563,15 @@ repository:
     patterns:
     - include: '#binding-array'
     - include: '#binding-object'
+    - name: 'variable.anonymous.ks'
+      match: '\b\_\b'
     - name: 'meta.definition.variable.ks variable.other.readwrite.ks'
       match: '{{identifier}}'
     - name: 'meta.type.annotation.ks'
       begin: '(:)(?!=)'
       beginCaptures:
         '1': { name: 'keyword.operator.type.annotation.ks' }
-      end: '$|(?=\s*(?:\:?\=|,))'
+      end: '$|(?=\s*(?:\:?\=|,|in|of))'
       patterns:
       - include: '#type'
     - include: '#comma'

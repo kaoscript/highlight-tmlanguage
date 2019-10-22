@@ -21,7 +21,7 @@ class Foobar {
 
     }
 
-    foo([, y, ...]) {
+    foo([_, y, ...]) {
 
     }
 
@@ -614,7 +614,7 @@ grammar: kaoscript.tmLanguage
  ^
  source.ks
 >
->    foo([, y, ...]) {
+>    foo([_, y, ...]) {
      
  ^^^^
  source.ks
@@ -627,36 +627,39 @@ grammar: kaoscript.tmLanguage
          [
          ^
          source.ks punctuation.definition.binding-pattern.array.begin.bracket.square.ks
-          ,
+          _
           ^
-          source.ks punctuation.separator.comma.ks
-            
+          source.ks variable.parameter.ks
+           ,
            ^
-           source.ks
-            y
+           source.ks punctuation.separator.comma.ks
+             
             ^
-            source.ks variable.parameter.ks
-             ,
+            source.ks
+             y
              ^
-             source.ks punctuation.separator.comma.ks
-               
+             source.ks variable.parameter.ks
+              ,
               ^
-              source.ks
-               ...
-               ^^^
-               source.ks keyword.operator.rest.ks
-                  ]
-                  ^
-                  source.ks punctuation.definition.binding-pattern.array.end.bracket.square.ks
-                   )
+              source.ks punctuation.separator.comma.ks
+                
+               ^
+               source.ks
+                ...
+                ^^^
+                source.ks keyword.operator.rest.ks
+                   ]
                    ^
-                   source.ks punctuation.definition.parameters.end.bracket.round.ks
-                     
+                   source.ks punctuation.definition.binding-pattern.array.end.bracket.square.ks
+                    )
                     ^
-                    source.ks
-                     {
+                    source.ks punctuation.definition.parameters.end.bracket.round.ks
+                      
                      ^
-                     source.ks punctuation.definition.block.begin.bracket.curly.ks
+                     source.ks
+                      {
+                      ^
+                      source.ks punctuation.definition.block.begin.bracket.curly.ks
 >
 >
  

@@ -1,0 +1,63 @@
+original file
+-----------------------------------
+for const value: String of values {
+
+}
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>for const value: String of values {
+ for
+ ^^^
+ source.ks keyword.control.loop.for.ks
+     
+    ^
+    source.ks
+     const
+     ^^^^^
+     source.ks storage.type.constant.ks
+           
+          ^
+          source.ks
+           value
+           ^^^^^
+           source.ks meta.definition.variable.ks variable.other.constant.ks
+                :
+                ^
+                source.ks meta.type.annotation.ks keyword.operator.type.annotation.ks
+                  
+                 ^
+                 source.ks meta.type.annotation.ks
+                  String
+                  ^^^^^^
+                  source.ks meta.type.annotation.ks support.type.primitive.ks
+                         
+                        ^
+                        source.ks
+                         of
+                         ^^
+                         source.ks keyword.operator.loop.of.ks
+                            
+                           ^
+                           source.ks
+                            values
+                            ^^^^^^
+                            source.ks variable.other.ks
+                                   
+                                  ^
+                                  source.ks
+                                   {
+                                   ^
+                                   source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>
+ 
+ ^
+ source.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.block.end.bracket.curly.ks

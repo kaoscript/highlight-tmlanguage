@@ -2,6 +2,7 @@ array.cph.boundary
 array.cph.in.typed
 await.exec.const
 await.exec.let
+class.abstract.method.throws
 class.method.lambda.ends
 class.method.lambda.starts
 delete.class.default

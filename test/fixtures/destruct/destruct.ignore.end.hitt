@@ -1,12 +1,12 @@
 original file
 -----------------------------------
-let [x, y,] = foobar()
+let [x, y, _] = foobar()
 -----------------------------------
 
 grammar: kaoscript.tmLanguage
 -----------------------------------
 >
->let [x, y,] = foobar()
+>let [x, y, _] = foobar()
  let
  ^^^
  source.ks storage.type.readwrite.ks
@@ -31,24 +31,30 @@ grammar: kaoscript.tmLanguage
           ,
           ^
           source.ks punctuation.separator.comma.ks
-           ]
+            
            ^
-           source.ks punctuation.definition.binding-pattern.array.end.bracket.square.ks
-             
+           source.ks
+            _
             ^
-            source.ks
-             =
+            source.ks variable.anonymous.ks
+             ]
              ^
-             source.ks keyword.operator.assignment.ks
+             source.ks punctuation.definition.binding-pattern.array.end.bracket.square.ks
                
               ^
               source.ks
-               foobar
-               ^^^^^^
-               source.ks entity.name.function.ks
-                     (
-                     ^
-                     source.ks punctuation.definition.arguments.begin.bracket.round.ks
-                      )
-                      ^
-                      source.ks punctuation.definition.arguments.end.bracket.round.ks
+               =
+               ^
+               source.ks keyword.operator.assignment.ks
+                 
+                ^
+                source.ks
+                 foobar
+                 ^^^^^^
+                 source.ks entity.name.function.ks
+                       (
+                       ^
+                       source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                        )
+                        ^
+                        source.ks punctuation.definition.arguments.end.bracket.round.ks

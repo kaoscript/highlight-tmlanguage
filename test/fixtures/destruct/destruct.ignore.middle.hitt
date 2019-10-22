@@ -1,12 +1,12 @@
 original file
 -----------------------------------
-let [x, , z] = foobar()
+let [x, _, z] = foobar()
 -----------------------------------
 
 grammar: kaoscript.tmLanguage
 -----------------------------------
 >
->let [x, , z] = foobar()
+>let [x, _, z] = foobar()
  let
  ^^^
  source.ks storage.type.readwrite.ks
@@ -25,33 +25,36 @@ grammar: kaoscript.tmLanguage
          
         ^
         source.ks
-         ,
+         _
          ^
-         source.ks punctuation.separator.comma.ks
-           
+         source.ks variable.anonymous.ks
+          ,
           ^
-          source.ks
-           z
+          source.ks punctuation.separator.comma.ks
+            
            ^
-           source.ks variable.other.ks
-            ]
+           source.ks
+            z
             ^
-            source.ks punctuation.definition.binding-pattern.array.end.bracket.square.ks
-              
+            source.ks variable.other.ks
+             ]
              ^
-             source.ks
-              =
+             source.ks punctuation.definition.binding-pattern.array.end.bracket.square.ks
+               
               ^
-              source.ks keyword.operator.assignment.ks
-                
+              source.ks
+               =
                ^
-               source.ks
-                foobar
-                ^^^^^^
-                source.ks entity.name.function.ks
-                      (
-                      ^
-                      source.ks punctuation.definition.arguments.begin.bracket.round.ks
-                       )
+               source.ks keyword.operator.assignment.ks
+                 
+                ^
+                source.ks
+                 foobar
+                 ^^^^^^
+                 source.ks entity.name.function.ks
+                       (
                        ^
-                       source.ks punctuation.definition.arguments.end.bracket.round.ks
+                       source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                        )
+                        ^
+                        source.ks punctuation.definition.arguments.end.bracket.round.ks

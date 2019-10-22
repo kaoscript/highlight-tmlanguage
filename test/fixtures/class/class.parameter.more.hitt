@@ -1,18 +1,18 @@
 original file
 -----------------------------------
 class Foo {
-    foo(,x) {
+    foo(_, x) {
     }
-    
-    bar(x?,, z?) {
+
+    bar(x?, _, z?) {
     }
-    
-    baz(x?, :any?, z?) {
+
+    baz(x?, _?, z?) {
     }
-    
+
     qux(...{,3}items) {
     }
-    
+
     quux(...{1,3}items, x) {
     }
 }
@@ -38,7 +38,7 @@ grammar: kaoscript.tmLanguage
            ^
            source.ks punctuation.definition.class.begin.bracket.curly.ks
 >
->    foo(,x) {
+>    foo(_, x) {
      
  ^^^^
  source.ks
@@ -48,21 +48,27 @@ grammar: kaoscript.tmLanguage
         (
         ^
         source.ks punctuation.definition.parameters.begin.bracket.round.ks
-         ,
+         _
          ^
-         source.ks punctuation.separator.comma.ks
-          x
+         source.ks variable.parameter.ks
+          ,
           ^
-          source.ks variable.parameter.ks
-           )
+          source.ks punctuation.separator.comma.ks
+            
            ^
-           source.ks punctuation.definition.parameters.end.bracket.round.ks
-             
+           source.ks
+            x
             ^
-            source.ks
-             {
+            source.ks variable.parameter.ks
+             )
              ^
-             source.ks punctuation.definition.block.begin.bracket.curly.ks
+             source.ks punctuation.definition.parameters.end.bracket.round.ks
+               
+              ^
+              source.ks
+               {
+               ^
+               source.ks punctuation.definition.block.begin.bracket.curly.ks
 >
 >    }
      
@@ -72,12 +78,12 @@ grammar: kaoscript.tmLanguage
      ^
      source.ks punctuation.definition.block.end.bracket.curly.ks
 >
->    
-     
- ^^^^^
+>
+ 
+ ^
  source.ks
 >
->    bar(x?,, z?) {
+>    bar(x?, _, z?) {
      
  ^^^^
  source.ks
@@ -96,27 +102,33 @@ grammar: kaoscript.tmLanguage
            ,
            ^
            source.ks punctuation.separator.comma.ks
-            ,
+             
             ^
-            source.ks punctuation.separator.comma.ks
-              
+            source.ks
+             _
              ^
-             source.ks
-              z
+             source.ks variable.parameter.ks
+              ,
               ^
-              source.ks variable.parameter.ks
-               ?
+              source.ks punctuation.separator.comma.ks
+                
                ^
-               source.ks storage.modifier.nullable.ks
-                )
+               source.ks
+                z
                 ^
-                source.ks punctuation.definition.parameters.end.bracket.round.ks
-                  
+                source.ks variable.parameter.ks
+                 ?
                  ^
-                 source.ks
-                  {
+                 source.ks storage.modifier.nullable.ks
+                  )
                   ^
-                  source.ks punctuation.definition.block.begin.bracket.curly.ks
+                  source.ks punctuation.definition.parameters.end.bracket.round.ks
+                    
+                   ^
+                   source.ks
+                    {
+                    ^
+                    source.ks punctuation.definition.block.begin.bracket.curly.ks
 >
 >    }
      
@@ -126,12 +138,12 @@ grammar: kaoscript.tmLanguage
      ^
      source.ks punctuation.definition.block.end.bracket.curly.ks
 >
->    
-     
- ^^^^^
+>
+ 
+ ^
  source.ks
 >
->    baz(x?, :any?, z?) {
+>    baz(x?, _?, z?) {
      
  ^^^^
  source.ks
@@ -153,36 +165,33 @@ grammar: kaoscript.tmLanguage
              
             ^
             source.ks
-             :
+             _
              ^
-             source.ks meta.type.annotation.ks keyword.operator.type.annotation.ks
-              any
-              ^^^
-              source.ks meta.type.annotation.ks support.type.primitive.ks
-                 ?
+             source.ks variable.parameter.ks
+              ?
+              ^
+              source.ks storage.modifier.nullable.ks
+               ,
+               ^
+               source.ks punctuation.separator.comma.ks
+                 
+                ^
+                source.ks
+                 z
                  ^
-                 source.ks meta.type.annotation.ks storage.modifier.nullable.ks
-                  ,
+                 source.ks variable.parameter.ks
+                  ?
                   ^
-                  source.ks punctuation.separator.comma.ks
-                    
+                  source.ks storage.modifier.nullable.ks
+                   )
                    ^
-                   source.ks
-                    z
+                   source.ks punctuation.definition.parameters.end.bracket.round.ks
+                     
                     ^
-                    source.ks variable.parameter.ks
-                     ?
+                    source.ks
+                     {
                      ^
-                     source.ks storage.modifier.nullable.ks
-                      )
-                      ^
-                      source.ks punctuation.definition.parameters.end.bracket.round.ks
-                        
-                       ^
-                       source.ks
-                        {
-                        ^
-                        source.ks punctuation.definition.block.begin.bracket.curly.ks
+                     source.ks punctuation.definition.block.begin.bracket.curly.ks
 >
 >    }
      
@@ -192,9 +201,9 @@ grammar: kaoscript.tmLanguage
      ^
      source.ks punctuation.definition.block.end.bracket.curly.ks
 >
->    
-     
- ^^^^^
+>
+ 
+ ^
  source.ks
 >
 >    qux(...{,3}items) {
@@ -243,9 +252,9 @@ grammar: kaoscript.tmLanguage
      ^
      source.ks punctuation.definition.block.end.bracket.curly.ks
 >
->    
-     
- ^^^^^
+>
+ 
+ ^
  source.ks
 >
 >    quux(...{1,3}items, x) {

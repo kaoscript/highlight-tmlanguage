@@ -7,6 +7,6 @@ likes = {
 	duncan: 'murbella'
 }
 
-for const :key of likes {
+for const _, key of likes {
 	console.log(key)
 }

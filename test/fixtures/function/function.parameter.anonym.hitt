@@ -1,14 +1,14 @@
 original file
 -----------------------------------
-func foo(x,, y) {
+func foo(x, _, y) {
     console.log(x, y)
 }
 
-func bar(, x, y) {
+func bar(_, x, y) {
     console.log(x, y)
 }
 
-func baz(x, y,) {
+func baz(x, y, _) {
     console.log(x, y)
 }
 
@@ -31,7 +31,7 @@ func grault(...) {
 grammar: kaoscript.tmLanguage
 -----------------------------------
 >
->func foo(x,, y) {
+>func foo(x, _, y) {
  func
  ^^^^
  source.ks storage.type.function.ks
@@ -50,24 +50,30 @@ grammar: kaoscript.tmLanguage
            ,
            ^
            source.ks punctuation.separator.comma.ks
-            ,
+             
             ^
-            source.ks punctuation.separator.comma.ks
-              
+            source.ks
+             _
              ^
-             source.ks
-              y
+             source.ks variable.parameter.ks
+              ,
               ^
-              source.ks variable.parameter.ks
-               )
+              source.ks punctuation.separator.comma.ks
+                
                ^
-               source.ks punctuation.definition.parameters.end.bracket.round.ks
-                 
+               source.ks
+                y
                 ^
-                source.ks
-                 {
+                source.ks variable.parameter.ks
+                 )
                  ^
-                 source.ks punctuation.definition.block.begin.bracket.curly.ks
+                 source.ks punctuation.definition.parameters.end.bracket.round.ks
+                   
+                  ^
+                  source.ks
+                   {
+                   ^
+                   source.ks punctuation.definition.block.begin.bracket.curly.ks
 >
 >    console.log(x, y)
      
@@ -111,7 +117,7 @@ grammar: kaoscript.tmLanguage
  ^
  source.ks
 >
->func bar(, x, y) {
+>func bar(_, x, y) {
  func
  ^^^^
  source.ks storage.type.function.ks
@@ -124,33 +130,36 @@ grammar: kaoscript.tmLanguage
          (
          ^
          source.ks punctuation.definition.parameters.begin.bracket.round.ks
-          ,
+          _
           ^
-          source.ks punctuation.separator.comma.ks
-            
+          source.ks variable.parameter.ks
+           ,
            ^
-           source.ks
-            x
+           source.ks punctuation.separator.comma.ks
+             
             ^
-            source.ks variable.parameter.ks
-             ,
+            source.ks
+             x
              ^
-             source.ks punctuation.separator.comma.ks
-               
+             source.ks variable.parameter.ks
+              ,
               ^
-              source.ks
-               y
+              source.ks punctuation.separator.comma.ks
+                
                ^
-               source.ks variable.parameter.ks
-                )
+               source.ks
+                y
                 ^
-                source.ks punctuation.definition.parameters.end.bracket.round.ks
-                  
+                source.ks variable.parameter.ks
+                 )
                  ^
-                 source.ks
-                  {
+                 source.ks punctuation.definition.parameters.end.bracket.round.ks
+                   
                   ^
-                  source.ks punctuation.definition.block.begin.bracket.curly.ks
+                  source.ks
+                   {
+                   ^
+                   source.ks punctuation.definition.block.begin.bracket.curly.ks
 >
 >    console.log(x, y)
      
@@ -194,7 +203,7 @@ grammar: kaoscript.tmLanguage
  ^
  source.ks
 >
->func baz(x, y,) {
+>func baz(x, y, _) {
  func
  ^^^^
  source.ks storage.type.function.ks
@@ -222,15 +231,21 @@ grammar: kaoscript.tmLanguage
               ,
               ^
               source.ks punctuation.separator.comma.ks
-               )
+                
                ^
-               source.ks punctuation.definition.parameters.end.bracket.round.ks
-                 
+               source.ks
+                _
                 ^
-                source.ks
-                 {
+                source.ks variable.parameter.ks
+                 )
                  ^
-                 source.ks punctuation.definition.block.begin.bracket.curly.ks
+                 source.ks punctuation.definition.parameters.end.bracket.round.ks
+                   
+                  ^
+                  source.ks
+                   {
+                   ^
+                   source.ks punctuation.definition.block.begin.bracket.curly.ks
 >
 >    console.log(x, y)
      

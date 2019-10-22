@@ -1,0 +1,111 @@
+original file
+-----------------------------------
+abstract class Foobar {
+    abstract foobar() ~ Error
+}
+
+const x = new Foobar()
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>abstract class Foobar {
+ abstract
+ ^^^^^^^^
+ source.ks storage.modifier.abstract.ks
+          
+         ^
+         source.ks
+          class
+          ^^^^^
+          source.ks storage.type.class.ks
+                
+               ^
+               source.ks
+                Foobar
+                ^^^^^^
+                source.ks entity.name.type.class.ks
+                       
+                      ^
+                      source.ks
+                       {
+                       ^
+                       source.ks punctuation.definition.class.begin.bracket.curly.ks
+>
+>    abstract foobar() ~ Error
+     
+ ^^^^
+ source.ks
+     abstract
+     ^^^^^^^^
+     source.ks storage.modifier.abstract.ks
+              
+             ^
+             source.ks
+              foobar
+              ^^^^^^
+              source.ks entity.name.function.ks
+                    (
+                    ^
+                    source.ks punctuation.definition.parameters.begin.bracket.round.ks
+                     )
+                     ^
+                     source.ks punctuation.definition.parameters.end.bracket.round.ks
+                       
+                      ^
+                      source.ks
+                       ~
+                       ^
+                       source.ks meta.throwables.ks storage.modifier.throwables.ks
+                         
+                        ^
+                        source.ks meta.throwables.ks
+                         Error
+                         ^^^^^
+                         source.ks meta.throwables.ks support.type.primitive.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.class.end.bracket.curly.ks
+>
+>
+ 
+ ^
+ source.ks
+>
+>const x = new Foobar()
+ const
+ ^^^^^
+ source.ks storage.type.constant.ks
+       
+      ^
+      source.ks
+       x
+       ^
+       source.ks meta.definition.variable.ks variable.other.constant.ks
+         
+        ^
+        source.ks
+         =
+         ^
+         source.ks keyword.operator.assignment.ks
+           
+          ^
+          source.ks
+           new
+           ^^^
+           source.ks keyword.operator.new.ks
+               
+              ^
+              source.ks
+               Foobar
+               ^^^^^^
+               source.ks entity.name.type.ks
+                     (
+                     ^
+                     source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                      )
+                      ^
+                      source.ks punctuation.definition.arguments.end.bracket.round.ks

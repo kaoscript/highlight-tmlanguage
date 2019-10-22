@@ -1,0 +1,57 @@
+original file
+-----------------------------------
+for value: String in values {
+
+}
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>for value: String in values {
+ for
+ ^^^
+ source.ks keyword.control.loop.for.ks
+     
+    ^
+    source.ks
+     value
+     ^^^^^
+     source.ks variable.other.ks
+          :
+          ^
+          source.ks meta.type.annotation.ks keyword.operator.type.annotation.ks
+            
+           ^
+           source.ks meta.type.annotation.ks
+            String
+            ^^^^^^
+            source.ks meta.type.annotation.ks support.type.primitive.ks
+                   
+                  ^
+                  source.ks
+                   in
+                   ^^
+                   source.ks keyword.operator.loop.in.ks
+                      
+                     ^
+                     source.ks
+                      values
+                      ^^^^^^
+                      source.ks variable.other.ks
+                             
+                            ^
+                            source.ks
+                             {
+                             ^
+                             source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>
+ 
+ ^
+ source.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.block.end.bracket.curly.ks

@@ -2,7 +2,7 @@ original file
 -----------------------------------
 heroes = ['leto', 'duncan', 'goku']
 
-for :index in heroes {
+for _, index in heroes {
     console.log(index)
 }
 -----------------------------------
@@ -74,37 +74,43 @@ grammar: kaoscript.tmLanguage
  ^
  source.ks
 >
->for :index in heroes {
+>for _, index in heroes {
  for
  ^^^
  source.ks keyword.control.loop.for.ks
      
     ^
     source.ks
-     :
+     _
      ^
-     source.ks punctuation.separator.alternative-value.ks
-      index
-      ^^^^^
-      source.ks variable.other.ks
-            
-           ^
-           source.ks
-            in
-            ^^
-            source.ks keyword.operator.loop.in.ks
-               
-              ^
-              source.ks
-               heroes
-               ^^^^^^
-               source.ks variable.other.ks
-                      
-                     ^
-                     source.ks
-                      {
-                      ^
-                      source.ks punctuation.definition.block.begin.bracket.curly.ks
+     source.ks variable.anonymous.ks
+      ,
+      ^
+      source.ks punctuation.separator.comma.ks
+        
+       ^
+       source.ks
+        index
+        ^^^^^
+        source.ks variable.other.ks
+              
+             ^
+             source.ks
+              in
+              ^^
+              source.ks keyword.operator.loop.in.ks
+                 
+                ^
+                source.ks
+                 heroes
+                 ^^^^^^
+                 source.ks variable.other.ks
+                        
+                       ^
+                       source.ks
+                        {
+                        ^
+                        source.ks punctuation.definition.block.begin.bracket.curly.ks
 >
 >    console.log(index)
      

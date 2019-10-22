@@ -5,7 +5,7 @@ let v = [1, 2, 3, 4, 5]
 switch v {
     []                                => console.log("empty")
     with [elem]                        => console.log(elem) // <- 1
-    with [,, ...rest]                => console.log(rest) // <- [3, 4, 5]
+    with [_, _, ...rest]            => console.log(rest) // <- [3, 4, 5]
 }
 -----------------------------------
 
@@ -199,7 +199,7 @@ grammar: kaoscript.tmLanguage
                                                                ^^^^^
                                                                source.ks comment.line.double-slash.ks
 >
->    with [,, ...rest]                => console.log(rest) // <- [3, 4, 5]
+>    with [_, _, ...rest]            => console.log(rest) // <- [3, 4, 5]
      
  ^^^^
  source.ks
@@ -212,60 +212,69 @@ grammar: kaoscript.tmLanguage
           [
           ^
           source.ks punctuation.definition.array.begin.bracket.square.ks
-           ,
+           _
            ^
-           source.ks punctuation.separator.comma.ks
+           source.ks variable.anonymous.ks
             ,
             ^
             source.ks punctuation.separator.comma.ks
               
              ^
              source.ks
-              ...
-              ^^^
-              source.ks keyword.operator.spread.ks
-                 rest
-                 ^^^^
-                 source.ks variable.other.ks
-                     ]
-                     ^
-                     source.ks punctuation.definition.array.end.bracket.square.ks
-                                      
-                      ^^^^^^^^^^^^^^^^
-                      source.ks
-                                      =>
-                                      ^^
-                                      source.ks keyword.control.switch.body.ks
-                                         
-                                        ^
-                                        source.ks
-                                         console
-                                         ^^^^^^^
-                                         source.ks variable.other.object.ks
-                                                .
-                                                ^
-                                                source.ks punctuation.accessor.object.ks
-                                                 log
-                                                 ^^^
-                                                 source.ks entity.name.function.ks
-                                                    (
-                                                    ^
-                                                    source.ks punctuation.definition.arguments.begin.bracket.round.ks
-                                                     rest
-                                                     ^^^^
-                                                     source.ks variable.other.ks
-                                                         )
+              _
+              ^
+              source.ks variable.anonymous.ks
+               ,
+               ^
+               source.ks punctuation.separator.comma.ks
+                 
+                ^
+                source.ks
+                 ...
+                 ^^^
+                 source.ks keyword.operator.spread.ks
+                    rest
+                    ^^^^
+                    source.ks variable.other.ks
+                        ]
+                        ^
+                        source.ks punctuation.definition.array.end.bracket.square.ks
+                                     
+                         ^^^^^^^^^^^^
+                         source.ks
+                                     =>
+                                     ^^
+                                     source.ks keyword.control.switch.body.ks
+                                        
+                                       ^
+                                       source.ks
+                                        console
+                                        ^^^^^^^
+                                        source.ks variable.other.object.ks
+                                               .
+                                               ^
+                                               source.ks punctuation.accessor.object.ks
+                                                log
+                                                ^^^
+                                                source.ks entity.name.function.ks
+                                                   (
+                                                   ^
+                                                   source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                                                    rest
+                                                    ^^^^
+                                                    source.ks variable.other.ks
+                                                        )
+                                                        ^
+                                                        source.ks punctuation.definition.arguments.end.bracket.round.ks
+                                                          
                                                          ^
-                                                         source.ks punctuation.definition.arguments.end.bracket.round.ks
-                                                           
-                                                          ^
-                                                          source.ks
-                                                           //
-                                                           ^^
-                                                           source.ks comment.line.double-slash.ks punctuation.definition.comment.ks
-                                                              <- [3, 4, 5]
-                                                             ^^^^^^^^^^^^^
-                                                             source.ks comment.line.double-slash.ks
+                                                         source.ks
+                                                          //
+                                                          ^^
+                                                          source.ks comment.line.double-slash.ks punctuation.definition.comment.ks
+                                                             <- [3, 4, 5]
+                                                            ^^^^^^^^^^^^^
+                                                            source.ks comment.line.double-slash.ks
 >
 >}
  }
