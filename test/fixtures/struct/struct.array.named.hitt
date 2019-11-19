@@ -1,0 +1,291 @@
+original file
+-----------------------------------
+struct Pair [
+    x: String    = ''
+    y: Number    = 0
+]
+
+let pair = Pair('x', 0.1)
+
+console.log(pair.x, pair.y)
+
+let pair2 = Pair(y: 0.1)
+
+console.log(pair2.x, pair2.y)
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>struct Pair [
+ struct
+ ^^^^^^
+ source.ks storage.type.struct.ks
+        
+       ^
+       source.ks
+        Pair
+        ^^^^
+        source.ks variable.other.struct.ks
+             
+            ^
+            source.ks
+             [
+             ^
+             source.ks punctuation.definition.struct.begin.bracket.square.ks
+>
+>    x: String    = ''
+     
+ ^^^^
+ source.ks
+     x
+     ^
+     source.ks entity.name.variable.field.ks
+      :
+      ^
+      source.ks meta.type.annotation.ks keyword.operator.type.annotation.ks
+        
+       ^
+       source.ks meta.type.annotation.ks
+        String
+        ^^^^^^
+        source.ks meta.type.annotation.ks support.type.primitive.ks
+                  
+              ^^^^
+              source.ks meta.type.annotation.ks
+                  =
+                  ^
+                  source.ks keyword.operator.assignment.ks
+                    
+                   ^
+                   source.ks
+                    '
+                    ^
+                    source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
+                     '
+                     ^
+                     source.ks string.quoted.single.ks punctuation.definition.string.end.ks
+>
+>    y: Number    = 0
+     
+ ^^^^
+ source.ks
+     y
+     ^
+     source.ks entity.name.variable.field.ks
+      :
+      ^
+      source.ks meta.type.annotation.ks keyword.operator.type.annotation.ks
+        
+       ^
+       source.ks meta.type.annotation.ks
+        Number
+        ^^^^^^
+        source.ks meta.type.annotation.ks support.type.primitive.ks
+                  
+              ^^^^
+              source.ks meta.type.annotation.ks
+                  =
+                  ^
+                  source.ks keyword.operator.assignment.ks
+                    
+                   ^
+                   source.ks
+                    0
+                    ^
+                    source.ks constant.numeric.decimal.ks
+>
+>]
+ ]
+ ^
+ source.ks punctuation.definition.struct.end.bracket.square.ks
+>
+>
+ 
+ ^
+ source.ks
+>
+>let pair = Pair('x', 0.1)
+ let
+ ^^^
+ source.ks storage.type.readwrite.ks
+     
+    ^
+    source.ks
+     pair
+     ^^^^
+     source.ks meta.definition.variable.ks variable.other.readwrite.ks
+          
+         ^
+         source.ks
+          =
+          ^
+          source.ks keyword.operator.assignment.ks
+            
+           ^
+           source.ks
+            Pair
+            ^^^^
+            source.ks entity.name.function.ks
+                (
+                ^
+                source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                 '
+                 ^
+                 source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
+                  x
+                  ^
+                  source.ks string.quoted.single.ks
+                   '
+                   ^
+                   source.ks string.quoted.single.ks punctuation.definition.string.end.ks
+                    ,
+                    ^
+                    source.ks punctuation.separator.comma.ks
+                      
+                     ^
+                     source.ks
+                      0.1
+                      ^^^
+                      source.ks constant.numeric.decimal.ks
+                         )
+                         ^
+                         source.ks punctuation.definition.arguments.end.bracket.round.ks
+>
+>
+ 
+ ^
+ source.ks
+>
+>console.log(pair.x, pair.y)
+ console
+ ^^^^^^^
+ source.ks variable.other.object.ks
+        .
+        ^
+        source.ks punctuation.accessor.object.ks
+         log
+         ^^^
+         source.ks entity.name.function.ks
+            (
+            ^
+            source.ks punctuation.definition.arguments.begin.bracket.round.ks
+             pair
+             ^^^^
+             source.ks variable.other.object.ks
+                 .
+                 ^
+                 source.ks punctuation.accessor.object.ks
+                  x
+                  ^
+                  source.ks variable.other.property.object.ks
+                   ,
+                   ^
+                   source.ks punctuation.separator.comma.ks
+                     
+                    ^
+                    source.ks
+                     pair
+                     ^^^^
+                     source.ks variable.other.object.ks
+                         .
+                         ^
+                         source.ks punctuation.accessor.object.ks
+                          y
+                          ^
+                          source.ks variable.other.property.object.ks
+                           )
+                           ^
+                           source.ks punctuation.definition.arguments.end.bracket.round.ks
+>
+>
+ 
+ ^
+ source.ks
+>
+>let pair2 = Pair(y: 0.1)
+ let
+ ^^^
+ source.ks storage.type.readwrite.ks
+     
+    ^
+    source.ks
+     pair2
+     ^^^^^
+     source.ks meta.definition.variable.ks variable.other.readwrite.ks
+           
+          ^
+          source.ks
+           =
+           ^
+           source.ks keyword.operator.assignment.ks
+             
+            ^
+            source.ks
+             Pair
+             ^^^^
+             source.ks entity.name.function.ks
+                 (
+                 ^
+                 source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                  y
+                  ^
+                  source.ks meta.argument.key.ks
+                   :
+                   ^
+                   source.ks punctuation.separator.key-value.ks
+                     
+                    ^
+                    source.ks
+                     0.1
+                     ^^^
+                     source.ks constant.numeric.decimal.ks
+                        )
+                        ^
+                        source.ks punctuation.definition.arguments.end.bracket.round.ks
+>
+>
+ 
+ ^
+ source.ks
+>
+>console.log(pair2.x, pair2.y)
+ console
+ ^^^^^^^
+ source.ks variable.other.object.ks
+        .
+        ^
+        source.ks punctuation.accessor.object.ks
+         log
+         ^^^
+         source.ks entity.name.function.ks
+            (
+            ^
+            source.ks punctuation.definition.arguments.begin.bracket.round.ks
+             pair2
+             ^^^^^
+             source.ks variable.other.object.ks
+                  .
+                  ^
+                  source.ks punctuation.accessor.object.ks
+                   x
+                   ^
+                   source.ks variable.other.property.object.ks
+                    ,
+                    ^
+                    source.ks punctuation.separator.comma.ks
+                      
+                     ^
+                     source.ks
+                      pair2
+                      ^^^^^
+                      source.ks variable.other.object.ks
+                           .
+                           ^
+                           source.ks punctuation.accessor.object.ks
+                            y
+                            ^
+                            source.ks variable.other.property.object.ks
+                             )
+                             ^
+                             source.ks punctuation.definition.arguments.end.bracket.round.ks

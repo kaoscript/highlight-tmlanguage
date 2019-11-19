@@ -1,0 +1,54 @@
+original file
+-----------------------------------
+struct Unit
+
+let unit = Unit()
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>struct Unit
+ struct
+ ^^^^^^
+ source.ks storage.type.struct.ks
+        
+       ^
+       source.ks
+        Unit
+        ^^^^
+        source.ks variable.other.struct.ks
+>
+>
+ 
+ ^
+ source.ks
+>
+>let unit = Unit()
+ let
+ ^^^
+ source.ks storage.type.readwrite.ks
+     
+    ^
+    source.ks
+     unit
+     ^^^^
+     source.ks meta.definition.variable.ks variable.other.readwrite.ks
+          
+         ^
+         source.ks
+          =
+          ^
+          source.ks keyword.operator.assignment.ks
+            
+           ^
+           source.ks
+            Unit
+            ^^^^
+            source.ks entity.name.function.ks
+                (
+                ^
+                source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                 )
+                 ^
+                 source.ks punctuation.definition.arguments.end.bracket.round.ks

@@ -1,0 +1,84 @@
+original file
+-----------------------------------
+let x, y, z
+
+x = y = z = 42
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>let x, y, z
+ let
+ ^^^
+ source.ks storage.type.readwrite.ks
+     
+    ^
+    source.ks
+     x
+     ^
+     source.ks meta.definition.variable.ks variable.other.readwrite.ks
+      ,
+      ^
+      source.ks punctuation.separator.comma.ks
+        
+       ^
+       source.ks
+        y
+        ^
+        source.ks meta.definition.variable.ks variable.other.readwrite.ks
+         ,
+         ^
+         source.ks punctuation.separator.comma.ks
+           
+          ^
+          source.ks
+           z
+           ^
+           source.ks meta.definition.variable.ks variable.other.readwrite.ks
+>
+>
+ 
+ ^
+ source.ks
+>
+>x = y = z = 42
+ x
+ ^
+ source.ks variable.other.ks
+   
+  ^
+  source.ks
+   =
+   ^
+   source.ks keyword.operator.assignment.ks
+     
+    ^
+    source.ks
+     y
+     ^
+     source.ks variable.other.ks
+       
+      ^
+      source.ks
+       =
+       ^
+       source.ks keyword.operator.assignment.ks
+         
+        ^
+        source.ks
+         z
+         ^
+         source.ks variable.other.ks
+           
+          ^
+          source.ks
+           =
+           ^
+           source.ks keyword.operator.assignment.ks
+             
+            ^
+            source.ks
+             42
+             ^^
+             source.ks constant.numeric.decimal.ks

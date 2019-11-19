@@ -1,0 +1,186 @@
+original file
+-----------------------------------
+struct Point {
+    x: Number    = 0
+    y: Number    = 0
+}
+
+let point = Point(0.4, 0.3)
+
+console.log(point.x, point.y)
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>struct Point {
+ struct
+ ^^^^^^
+ source.ks storage.type.struct.ks
+        
+       ^
+       source.ks
+        Point
+        ^^^^^
+        source.ks variable.other.struct.ks
+              
+             ^
+             source.ks
+              {
+              ^
+              source.ks punctuation.definition.struct.begin.bracket.curly.ks
+>
+>    x: Number    = 0
+     
+ ^^^^
+ source.ks
+     x
+     ^
+     source.ks entity.name.variable.field.ks
+      :
+      ^
+      source.ks meta.type.annotation.ks keyword.operator.type.annotation.ks
+        
+       ^
+       source.ks meta.type.annotation.ks
+        Number
+        ^^^^^^
+        source.ks meta.type.annotation.ks support.type.primitive.ks
+                  
+              ^^^^
+              source.ks meta.type.annotation.ks
+                  =
+                  ^
+                  source.ks keyword.operator.assignment.ks
+                    
+                   ^
+                   source.ks
+                    0
+                    ^
+                    source.ks constant.numeric.decimal.ks
+>
+>    y: Number    = 0
+     
+ ^^^^
+ source.ks
+     y
+     ^
+     source.ks entity.name.variable.field.ks
+      :
+      ^
+      source.ks meta.type.annotation.ks keyword.operator.type.annotation.ks
+        
+       ^
+       source.ks meta.type.annotation.ks
+        Number
+        ^^^^^^
+        source.ks meta.type.annotation.ks support.type.primitive.ks
+                  
+              ^^^^
+              source.ks meta.type.annotation.ks
+                  =
+                  ^
+                  source.ks keyword.operator.assignment.ks
+                    
+                   ^
+                   source.ks
+                    0
+                    ^
+                    source.ks constant.numeric.decimal.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.struct.end.bracket.curly.ks
+>
+>
+ 
+ ^
+ source.ks
+>
+>let point = Point(0.4, 0.3)
+ let
+ ^^^
+ source.ks storage.type.readwrite.ks
+     
+    ^
+    source.ks
+     point
+     ^^^^^
+     source.ks meta.definition.variable.ks variable.other.readwrite.ks
+           
+          ^
+          source.ks
+           =
+           ^
+           source.ks keyword.operator.assignment.ks
+             
+            ^
+            source.ks
+             Point
+             ^^^^^
+             source.ks entity.name.function.ks
+                  (
+                  ^
+                  source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                   0.4
+                   ^^^
+                   source.ks constant.numeric.decimal.ks
+                      ,
+                      ^
+                      source.ks punctuation.separator.comma.ks
+                        
+                       ^
+                       source.ks
+                        0.3
+                        ^^^
+                        source.ks constant.numeric.decimal.ks
+                           )
+                           ^
+                           source.ks punctuation.definition.arguments.end.bracket.round.ks
+>
+>
+ 
+ ^
+ source.ks
+>
+>console.log(point.x, point.y)
+ console
+ ^^^^^^^
+ source.ks variable.other.object.ks
+        .
+        ^
+        source.ks punctuation.accessor.object.ks
+         log
+         ^^^
+         source.ks entity.name.function.ks
+            (
+            ^
+            source.ks punctuation.definition.arguments.begin.bracket.round.ks
+             point
+             ^^^^^
+             source.ks variable.other.object.ks
+                  .
+                  ^
+                  source.ks punctuation.accessor.object.ks
+                   x
+                   ^
+                   source.ks variable.other.property.object.ks
+                    ,
+                    ^
+                    source.ks punctuation.separator.comma.ks
+                      
+                     ^
+                     source.ks
+                      point
+                      ^^^^^
+                      source.ks variable.other.object.ks
+                           .
+                           ^
+                           source.ks punctuation.accessor.object.ks
+                            y
+                            ^
+                            source.ks variable.other.property.object.ks
+                             )
+                             ^
+                             source.ks punctuation.definition.arguments.end.bracket.round.ks

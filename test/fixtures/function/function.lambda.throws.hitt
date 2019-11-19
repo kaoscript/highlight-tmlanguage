@@ -1,0 +1,117 @@
+original file
+-----------------------------------
+func foobar() {
+    return (x) ~ Error => {
+        throw new Error()
+    }
+}
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>func foobar() {
+ func
+ ^^^^
+ source.ks storage.type.function.ks
+      
+     ^
+     source.ks
+      foobar
+      ^^^^^^
+      source.ks entity.name.function.ks
+            (
+            ^
+            source.ks punctuation.definition.parameters.begin.bracket.round.ks
+             )
+             ^
+             source.ks punctuation.definition.parameters.end.bracket.round.ks
+               
+              ^
+              source.ks
+               {
+               ^
+               source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>    return (x) ~ Error => {
+     
+ ^^^^
+ source.ks
+     return
+     ^^^^^^
+     source.ks keyword.control.flow.return.ks
+            
+           ^
+           source.ks
+            (
+            ^
+            source.ks punctuation.definition.parameters.begin.bracket.round.ks
+             x
+             ^
+             source.ks variable.parameter.ks
+              )
+              ^
+              source.ks punctuation.definition.parameters.end.bracket.round.ks
+                
+               ^
+               source.ks
+                ~
+                ^
+                source.ks meta.throwables.ks storage.modifier.throwables.ks
+                  
+                 ^
+                 source.ks meta.throwables.ks
+                  Error
+                  ^^^^^
+                  source.ks meta.throwables.ks support.type.primitive.ks
+                        
+                       ^
+                       source.ks
+                        =>
+                        ^^
+                        source.ks storage.type.function.arrow.ks
+                           
+                          ^
+                          source.ks
+                           {
+                           ^
+                           source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>        throw new Error()
+         
+ ^^^^^^^^
+ source.ks
+         throw
+         ^^^^^
+         source.ks keyword.control.try-catch.throw.ks
+               
+              ^
+              source.ks
+               new
+               ^^^
+               source.ks keyword.operator.new.ks
+                   
+                  ^
+                  source.ks
+                   Error
+                   ^^^^^
+                   source.ks entity.name.type.ks
+                        (
+                        ^
+                        source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                         )
+                         ^
+                         source.ks punctuation.definition.arguments.end.bracket.round.ks
+>
+>    }
+     
+ ^^^^
+ source.ks
+     }
+     ^
+     source.ks punctuation.definition.block.end.bracket.curly.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.block.end.bracket.curly.ks

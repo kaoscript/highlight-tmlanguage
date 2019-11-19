@@ -1,0 +1,174 @@
+original file
+-----------------------------------
+struct Pair(String?, Number?)
+
+struct Point {
+    x?
+    y?
+}
+
+struct Pair2 [
+    x?    = 1
+    y?    = 2
+]
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>struct Pair(String?, Number?)
+ struct
+ ^^^^^^
+ source.ks storage.type.struct.ks
+        
+       ^
+       source.ks
+        Pair
+        ^^^^
+        source.ks variable.other.struct.ks
+            (
+            ^
+            source.ks punctuation.definition.struct.begin.bracket.round.ks
+             String
+             ^^^^^^
+             source.ks support.type.primitive.ks
+                   ?
+                   ^
+                   source.ks storage.modifier.nullable.ks
+                    ,
+                    ^
+                    source.ks punctuation.separator.comma.ks
+                      
+                     ^
+                     source.ks
+                      Number
+                      ^^^^^^
+                      source.ks support.type.primitive.ks
+                            ?
+                            ^
+                            source.ks storage.modifier.nullable.ks
+                             )
+                             ^
+                             source.ks punctuation.definition.struct.end.bracket.round.ks
+>
+>
+ 
+ ^
+ source.ks
+>
+>struct Point {
+ struct
+ ^^^^^^
+ source.ks storage.type.struct.ks
+        
+       ^
+       source.ks
+        Point
+        ^^^^^
+        source.ks variable.other.struct.ks
+              
+             ^
+             source.ks
+              {
+              ^
+              source.ks punctuation.definition.struct.begin.bracket.curly.ks
+>
+>    x?
+     
+ ^^^^
+ source.ks
+     x
+     ^
+     source.ks entity.name.variable.field.ks
+      ?
+      ^
+      source.ks storage.modifier.nullable.ks
+>
+>    y?
+     
+ ^^^^
+ source.ks
+     y
+     ^
+     source.ks entity.name.variable.field.ks
+      ?
+      ^
+      source.ks storage.modifier.nullable.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.struct.end.bracket.curly.ks
+>
+>
+ 
+ ^
+ source.ks
+>
+>struct Pair2 [
+ struct
+ ^^^^^^
+ source.ks storage.type.struct.ks
+        
+       ^
+       source.ks
+        Pair2
+        ^^^^^
+        source.ks variable.other.struct.ks
+              
+             ^
+             source.ks
+              [
+              ^
+              source.ks punctuation.definition.struct.begin.bracket.square.ks
+>
+>    x?    = 1
+     
+ ^^^^
+ source.ks
+     x
+     ^
+     source.ks entity.name.variable.field.ks
+      ?
+      ^
+      source.ks storage.modifier.nullable.ks
+           
+       ^^^^
+       source.ks
+           =
+           ^
+           source.ks keyword.operator.assignment.ks
+             
+            ^
+            source.ks
+             1
+             ^
+             source.ks constant.numeric.decimal.ks
+>
+>    y?    = 2
+     
+ ^^^^
+ source.ks
+     y
+     ^
+     source.ks entity.name.variable.field.ks
+      ?
+      ^
+      source.ks storage.modifier.nullable.ks
+           
+       ^^^^
+       source.ks
+           =
+           ^
+           source.ks keyword.operator.assignment.ks
+             
+            ^
+            source.ks
+             2
+             ^
+             source.ks constant.numeric.decimal.ks
+>
+>]
+ ]
+ ^
+ source.ks punctuation.definition.struct.end.bracket.square.ks
