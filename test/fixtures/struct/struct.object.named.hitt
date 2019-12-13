@@ -22,7 +22,7 @@ grammar: kaoscript.tmLanguage
        source.ks
         Point
         ^^^^^
-        source.ks variable.other.struct.ks
+        source.ks entity.name.type.struct.ks
               
              ^
              source.ks

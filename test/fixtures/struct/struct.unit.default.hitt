@@ -17,7 +17,7 @@ grammar: kaoscript.tmLanguage
        source.ks
         Unit
         ^^^^
-        source.ks variable.other.struct.ks
+        source.ks entity.name.type.struct.ks
 >
 >
  

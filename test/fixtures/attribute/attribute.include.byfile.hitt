@@ -1,0 +1,114 @@
+original file
+-----------------------------------
+include {
+    #[error(off)]
+    './module1'
+
+    #[error(off)]
+    './module2'
+}
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>include {
+ include
+ ^^^^^^^
+ source.ks keyword.control.include.ks
+         
+        ^
+        source.ks
+         {
+         ^
+         source.ks punctuation.definition.include.begin.bracket.curly.ks
+>
+>    #[error(off)]
+     
+ ^^^^
+ source.ks
+     #
+     ^
+     source.ks meta.attribute.ks punctuation.attribute.outer.ks
+      [
+      ^
+      source.ks meta.attribute.ks punctuation.definition.attribute.begin.bracket.square.ks
+       error
+       ^^^^^
+       source.ks meta.attribute.ks entity.name.function.ks
+            (
+            ^
+            source.ks meta.attribute.ks punctuation.definition.arguments.begin.bracket.round.ks
+             off
+             ^^^
+             source.ks meta.attribute.ks entity.name.ks
+                )
+                ^
+                source.ks meta.attribute.ks punctuation.definition.arguments.end.bracket.round.ks
+                 ]
+                 ^
+                 source.ks meta.attribute.ks punctuation.definition.attribute.end.bracket.square.ks
+>
+>    './module1'
+     
+ ^^^^
+ source.ks
+     '
+     ^
+     source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
+      ./module1
+      ^^^^^^^^^
+      source.ks string.quoted.single.ks
+               '
+               ^
+               source.ks string.quoted.single.ks punctuation.definition.string.end.ks
+>
+>
+ 
+ ^
+ source.ks
+>
+>    #[error(off)]
+     
+ ^^^^
+ source.ks
+     #
+     ^
+     source.ks meta.attribute.ks punctuation.attribute.outer.ks
+      [
+      ^
+      source.ks meta.attribute.ks punctuation.definition.attribute.begin.bracket.square.ks
+       error
+       ^^^^^
+       source.ks meta.attribute.ks entity.name.function.ks
+            (
+            ^
+            source.ks meta.attribute.ks punctuation.definition.arguments.begin.bracket.round.ks
+             off
+             ^^^
+             source.ks meta.attribute.ks entity.name.ks
+                )
+                ^
+                source.ks meta.attribute.ks punctuation.definition.arguments.end.bracket.round.ks
+                 ]
+                 ^
+                 source.ks meta.attribute.ks punctuation.definition.attribute.end.bracket.square.ks
+>
+>    './module2'
+     
+ ^^^^
+ source.ks
+     '
+     ^
+     source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
+      ./module2
+      ^^^^^^^^^
+      source.ks string.quoted.single.ks
+               '
+               ^
+               source.ks string.quoted.single.ks punctuation.definition.string.end.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.include.end.bracket.curly.ks

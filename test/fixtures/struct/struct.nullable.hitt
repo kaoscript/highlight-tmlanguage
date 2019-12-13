@@ -25,7 +25,7 @@ grammar: kaoscript.tmLanguage
        source.ks
         Pair
         ^^^^
-        source.ks variable.other.struct.ks
+        source.ks entity.name.type.struct.ks
             (
             ^
             source.ks punctuation.definition.struct.begin.bracket.round.ks
@@ -65,7 +65,7 @@ grammar: kaoscript.tmLanguage
        source.ks
         Point
         ^^^^^
-        source.ks variable.other.struct.ks
+        source.ks entity.name.type.struct.ks
               
              ^
              source.ks
@@ -114,7 +114,7 @@ grammar: kaoscript.tmLanguage
        source.ks
         Pair2
         ^^^^^
-        source.ks variable.other.struct.ks
+        source.ks entity.name.type.struct.ks
               
              ^
              source.ks

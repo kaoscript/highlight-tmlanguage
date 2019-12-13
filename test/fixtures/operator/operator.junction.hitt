@@ -276,7 +276,7 @@ grammar: kaoscript.tmLanguage
  source.ks variable.other.ks
     :
     ^
-    source.ks keyword.operator.type-casting.up.short.ks
+    source.ks keyword.operator.type-casting.manual.default.abbr.ks
      bar
      ^^^
      source.ks entity.name.type.ks

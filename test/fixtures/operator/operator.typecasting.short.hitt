@@ -1,30 +1,243 @@
 original file
 -----------------------------------
-foo:String.trim()
+func foobar(p: Point) {
+    const d3 = p:Point3D
+}
+
+func quxbaz(p: Point) {
+    const d3 = p:!Point3D
+}
+
+func corge(p: Point) {
+    const d3 = p:?Point3D
+}
 -----------------------------------
 
 grammar: kaoscript.tmLanguage
 -----------------------------------
 >
->foo:String.trim()
- foo
- ^^^
- source.ks variable.other.ks
-    :
-    ^
-    source.ks keyword.operator.type-casting.up.short.ks
-     String
-     ^^^^^^
-     source.ks support.type.primitive.ks
-           .
-           ^
-           source.ks punctuation.accessor.object.ks
-            trim
-            ^^^^
-            source.ks entity.name.function.ks
-                (
+>func foobar(p: Point) {
+ func
+ ^^^^
+ source.ks storage.type.function.ks
+      
+     ^
+     source.ks
+      foobar
+      ^^^^^^
+      source.ks entity.name.function.ks
+            (
+            ^
+            source.ks punctuation.definition.parameters.begin.bracket.round.ks
+             p
+             ^
+             source.ks variable.parameter.ks
+              :
+              ^
+              source.ks meta.type.annotation.ks keyword.operator.type.annotation.ks
+                
+               ^
+               source.ks meta.type.annotation.ks
+                Point
+                ^^^^^
+                source.ks meta.type.annotation.ks entity.name.type.ks
+                     )
+                     ^
+                     source.ks punctuation.definition.parameters.end.bracket.round.ks
+                       
+                      ^
+                      source.ks
+                       {
+                       ^
+                       source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>    const d3 = p:Point3D
+     
+ ^^^^
+ source.ks
+     const
+     ^^^^^
+     source.ks storage.type.constant.ks
+           
+          ^
+          source.ks
+           d3
+           ^^
+           source.ks meta.definition.variable.ks variable.other.constant.ks
+              
+             ^
+             source.ks
+              =
+              ^
+              source.ks keyword.operator.assignment.ks
+                
+               ^
+               source.ks
+                p
                 ^
-                source.ks punctuation.definition.arguments.begin.bracket.round.ks
-                 )
+                source.ks variable.other.ks
+                 :
                  ^
-                 source.ks punctuation.definition.arguments.end.bracket.round.ks
+                 source.ks keyword.operator.type-casting.manual.default.abbr.ks
+                  Point3D
+                  ^^^^^^^
+                  source.ks entity.name.type.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.block.end.bracket.curly.ks
+>
+>
+ 
+ ^
+ source.ks
+>
+>func quxbaz(p: Point) {
+ func
+ ^^^^
+ source.ks storage.type.function.ks
+      
+     ^
+     source.ks
+      quxbaz
+      ^^^^^^
+      source.ks entity.name.function.ks
+            (
+            ^
+            source.ks punctuation.definition.parameters.begin.bracket.round.ks
+             p
+             ^
+             source.ks variable.parameter.ks
+              :
+              ^
+              source.ks meta.type.annotation.ks keyword.operator.type.annotation.ks
+                
+               ^
+               source.ks meta.type.annotation.ks
+                Point
+                ^^^^^
+                source.ks meta.type.annotation.ks entity.name.type.ks
+                     )
+                     ^
+                     source.ks punctuation.definition.parameters.end.bracket.round.ks
+                       
+                      ^
+                      source.ks
+                       {
+                       ^
+                       source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>    const d3 = p:!Point3D
+     
+ ^^^^
+ source.ks
+     const
+     ^^^^^
+     source.ks storage.type.constant.ks
+           
+          ^
+          source.ks
+           d3
+           ^^
+           source.ks meta.definition.variable.ks variable.other.constant.ks
+              
+             ^
+             source.ks
+              =
+              ^
+              source.ks keyword.operator.assignment.ks
+                
+               ^
+               source.ks
+                p
+                ^
+                source.ks variable.other.ks
+                 :!
+                 ^^
+                 source.ks keyword.operator.type-casting.manual.forced.abbr.ks
+                   Point3D
+                   ^^^^^^^
+                   source.ks entity.name.type.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.block.end.bracket.curly.ks
+>
+>
+ 
+ ^
+ source.ks
+>
+>func corge(p: Point) {
+ func
+ ^^^^
+ source.ks storage.type.function.ks
+      
+     ^
+     source.ks
+      corge
+      ^^^^^
+      source.ks entity.name.function.ks
+           (
+           ^
+           source.ks punctuation.definition.parameters.begin.bracket.round.ks
+            p
+            ^
+            source.ks variable.parameter.ks
+             :
+             ^
+             source.ks meta.type.annotation.ks keyword.operator.type.annotation.ks
+               
+              ^
+              source.ks meta.type.annotation.ks
+               Point
+               ^^^^^
+               source.ks meta.type.annotation.ks entity.name.type.ks
+                    )
+                    ^
+                    source.ks punctuation.definition.parameters.end.bracket.round.ks
+                      
+                     ^
+                     source.ks
+                      {
+                      ^
+                      source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>    const d3 = p:?Point3D
+     
+ ^^^^
+ source.ks
+     const
+     ^^^^^
+     source.ks storage.type.constant.ks
+           
+          ^
+          source.ks
+           d3
+           ^^
+           source.ks meta.definition.variable.ks variable.other.constant.ks
+              
+             ^
+             source.ks
+              =
+              ^
+              source.ks keyword.operator.assignment.ks
+                
+               ^
+               source.ks
+                p
+                ^
+                source.ks variable.other.ks
+                 :?
+                 ^^
+                 source.ks keyword.operator.type-casting.manual.nullable.abbr.ks
+                   Point3D
+                   ^^^^^^^
+                   source.ks entity.name.type.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.block.end.bracket.curly.ks

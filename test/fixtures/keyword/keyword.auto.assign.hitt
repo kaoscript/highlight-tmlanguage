@@ -1,0 +1,54 @@
+original file
+-----------------------------------
+auto auto = 42
+
+auto = 24
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>auto auto = 42
+ auto
+ ^^^^
+ source.ks storage.type.readwrite.ks
+      
+     ^
+     source.ks
+      auto
+      ^^^^
+      source.ks meta.definition.variable.ks variable.other.readwrite.ks
+           
+          ^
+          source.ks
+           =
+           ^
+           source.ks keyword.operator.assignment.ks
+             
+            ^
+            source.ks
+             42
+             ^^
+             source.ks constant.numeric.decimal.ks
+>
+>
+ 
+ ^
+ source.ks
+>
+>auto = 24
+ auto
+ ^^^^
+ source.ks variable.other.ks
+      
+     ^
+     source.ks
+      =
+      ^
+      source.ks keyword.operator.assignment.ks
+        
+       ^
+       source.ks
+        24
+        ^^
+        source.ks constant.numeric.decimal.ks

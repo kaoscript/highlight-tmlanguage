@@ -1,0 +1,45 @@
+original file
+-----------------------------------
+func foobar(): auto => 42
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>func foobar(): auto => 42
+ func
+ ^^^^
+ source.ks storage.type.function.ks
+      
+     ^
+     source.ks
+      foobar
+      ^^^^^^
+      source.ks entity.name.function.ks
+            (
+            ^
+            source.ks punctuation.definition.parameters.begin.bracket.round.ks
+             )
+             ^
+             source.ks punctuation.definition.parameters.end.bracket.round.ks
+              :
+              ^
+              source.ks meta.function.return-type.ks keyword.operator.type.annotation.ks
+                
+               ^
+               source.ks meta.function.return-type.ks
+                auto
+                ^^^^
+                source.ks meta.function.return-type.ks variable.language.auto.ks
+                     
+                    ^
+                    source.ks
+                     =>
+                     ^^
+                     source.ks storage.type.function.arrow.ks
+                        
+                       ^
+                       source.ks
+                        42
+                        ^^
+                        source.ks constant.numeric.decimal.ks

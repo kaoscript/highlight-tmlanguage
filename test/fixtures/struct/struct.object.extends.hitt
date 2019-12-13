@@ -1,0 +1,246 @@
+original file
+-----------------------------------
+struct Point {
+    x: Number
+    y: Number
+}
+
+struct Point3D extends Point {
+    z: Number
+}
+
+let point = Point3D(0.3, 0.4, 0.5)
+
+console.log(point.x, point.y, point.z)
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>struct Point {
+ struct
+ ^^^^^^
+ source.ks storage.type.struct.ks
+        
+       ^
+       source.ks
+        Point
+        ^^^^^
+        source.ks entity.name.type.struct.ks
+              
+             ^
+             source.ks
+              {
+              ^
+              source.ks punctuation.definition.struct.begin.bracket.curly.ks
+>
+>    x: Number
+     
+ ^^^^
+ source.ks
+     x
+     ^
+     source.ks entity.name.variable.field.ks
+      :
+      ^
+      source.ks meta.type.annotation.ks keyword.operator.type.annotation.ks
+        
+       ^
+       source.ks meta.type.annotation.ks
+        Number
+        ^^^^^^
+        source.ks meta.type.annotation.ks support.type.primitive.ks
+>
+>    y: Number
+     
+ ^^^^
+ source.ks
+     y
+     ^
+     source.ks entity.name.variable.field.ks
+      :
+      ^
+      source.ks meta.type.annotation.ks keyword.operator.type.annotation.ks
+        
+       ^
+       source.ks meta.type.annotation.ks
+        Number
+        ^^^^^^
+        source.ks meta.type.annotation.ks support.type.primitive.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.struct.end.bracket.curly.ks
+>
+>
+ 
+ ^
+ source.ks
+>
+>struct Point3D extends Point {
+ struct
+ ^^^^^^
+ source.ks storage.type.struct.ks
+        
+       ^
+       source.ks
+        Point3D
+        ^^^^^^^
+        source.ks entity.name.type.struct.ks
+                
+               ^
+               source.ks
+                extends
+                ^^^^^^^
+                source.ks storage.modifier.extends.ks
+                        
+                       ^
+                       source.ks
+                        Point
+                        ^^^^^
+                        source.ks entity.name.type.struct.ks
+                              
+                             ^
+                             source.ks
+                              {
+                              ^
+                              source.ks punctuation.definition.struct.begin.bracket.curly.ks
+>
+>    z: Number
+     
+ ^^^^
+ source.ks
+     z
+     ^
+     source.ks entity.name.variable.field.ks
+      :
+      ^
+      source.ks meta.type.annotation.ks keyword.operator.type.annotation.ks
+        
+       ^
+       source.ks meta.type.annotation.ks
+        Number
+        ^^^^^^
+        source.ks meta.type.annotation.ks support.type.primitive.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.struct.end.bracket.curly.ks
+>
+>
+ 
+ ^
+ source.ks
+>
+>let point = Point3D(0.3, 0.4, 0.5)
+ let
+ ^^^
+ source.ks storage.type.readwrite.ks
+     
+    ^
+    source.ks
+     point
+     ^^^^^
+     source.ks meta.definition.variable.ks variable.other.readwrite.ks
+           
+          ^
+          source.ks
+           =
+           ^
+           source.ks keyword.operator.assignment.ks
+             
+            ^
+            source.ks
+             Point3D
+             ^^^^^^^
+             source.ks entity.name.function.ks
+                    (
+                    ^
+                    source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                     0.3
+                     ^^^
+                     source.ks constant.numeric.decimal.ks
+                        ,
+                        ^
+                        source.ks punctuation.separator.comma.ks
+                          
+                         ^
+                         source.ks
+                          0.4
+                          ^^^
+                          source.ks constant.numeric.decimal.ks
+                             ,
+                             ^
+                             source.ks punctuation.separator.comma.ks
+                               
+                              ^
+                              source.ks
+                               0.5
+                               ^^^
+                               source.ks constant.numeric.decimal.ks
+                                  )
+                                  ^
+                                  source.ks punctuation.definition.arguments.end.bracket.round.ks
+>
+>
+ 
+ ^
+ source.ks
+>
+>console.log(point.x, point.y, point.z)
+ console
+ ^^^^^^^
+ source.ks variable.other.object.ks
+        .
+        ^
+        source.ks punctuation.accessor.object.ks
+         log
+         ^^^
+         source.ks entity.name.function.ks
+            (
+            ^
+            source.ks punctuation.definition.arguments.begin.bracket.round.ks
+             point
+             ^^^^^
+             source.ks variable.other.object.ks
+                  .
+                  ^
+                  source.ks punctuation.accessor.object.ks
+                   x
+                   ^
+                   source.ks variable.other.property.object.ks
+                    ,
+                    ^
+                    source.ks punctuation.separator.comma.ks
+                      
+                     ^
+                     source.ks
+                      point
+                      ^^^^^
+                      source.ks variable.other.object.ks
+                           .
+                           ^
+                           source.ks punctuation.accessor.object.ks
+                            y
+                            ^
+                            source.ks variable.other.property.object.ks
+                             ,
+                             ^
+                             source.ks punctuation.separator.comma.ks
+                               
+                              ^
+                              source.ks
+                               point
+                               ^^^^^
+                               source.ks variable.other.object.ks
+                                    .
+                                    ^
+                                    source.ks punctuation.accessor.object.ks
+                                     z
+                                     ^
+                                     source.ks variable.other.property.object.ks
+                                      )
+                                      ^
+                                      source.ks punctuation.definition.arguments.end.bracket.round.ks

@@ -26,7 +26,7 @@ grammar: kaoscript.tmLanguage
        source.ks
         Pair
         ^^^^
-        source.ks variable.other.struct.ks
+        source.ks entity.name.type.struct.ks
              
             ^
             source.ks

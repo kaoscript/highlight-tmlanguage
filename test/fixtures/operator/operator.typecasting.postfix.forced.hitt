@@ -72,7 +72,7 @@ grammar: kaoscript.tmLanguage
              source.ks punctuation.definition.arguments.end.bracket.round.ks
               !!
               ^^
-              source.ks keyword.operator.type-casting.forced.ks
+              source.ks keyword.operator.type-casting.auto.forced.ks
                 )
                 ^
                 source.ks punctuation.definition.arguments.end.bracket.round.ks

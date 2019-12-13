@@ -1,0 +1,201 @@
+original file
+-----------------------------------
+struct Pair(String, Number)
+
+struct Triple(Boolean) extends Pair
+
+const triple = Triple('x', 0.1, true)
+
+console.log(triple.0, triple.1, triple.2)
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>struct Pair(String, Number)
+ struct
+ ^^^^^^
+ source.ks storage.type.struct.ks
+        
+       ^
+       source.ks
+        Pair
+        ^^^^
+        source.ks entity.name.type.struct.ks
+            (
+            ^
+            source.ks punctuation.definition.struct.begin.bracket.round.ks
+             String
+             ^^^^^^
+             source.ks support.type.primitive.ks
+                   ,
+                   ^
+                   source.ks punctuation.separator.comma.ks
+                     
+                    ^
+                    source.ks
+                     Number
+                     ^^^^^^
+                     source.ks support.type.primitive.ks
+                           )
+                           ^
+                           source.ks punctuation.definition.struct.end.bracket.round.ks
+>
+>
+ 
+ ^
+ source.ks
+>
+>struct Triple(Boolean) extends Pair
+ struct
+ ^^^^^^
+ source.ks storage.type.struct.ks
+        
+       ^
+       source.ks
+        Triple
+        ^^^^^^
+        source.ks entity.name.type.struct.ks
+              (
+              ^
+              source.ks punctuation.definition.struct.begin.bracket.round.ks
+               Boolean
+               ^^^^^^^
+               source.ks support.type.primitive.ks
+                      )
+                      ^
+                      source.ks punctuation.definition.struct.end.bracket.round.ks
+                        
+                       ^
+                       source.ks
+                        extends
+                        ^^^^^^^
+                        source.ks storage.modifier.extends.ks
+                                
+                               ^
+                               source.ks
+                                Pair
+                                ^^^^
+                                source.ks entity.name.type.struct.ks
+>
+>
+ 
+ ^
+ source.ks
+>
+>const triple = Triple('x', 0.1, true)
+ const
+ ^^^^^
+ source.ks storage.type.constant.ks
+       
+      ^
+      source.ks
+       triple
+       ^^^^^^
+       source.ks meta.definition.variable.ks variable.other.constant.ks
+              
+             ^
+             source.ks
+              =
+              ^
+              source.ks keyword.operator.assignment.ks
+                
+               ^
+               source.ks
+                Triple
+                ^^^^^^
+                source.ks entity.name.function.ks
+                      (
+                      ^
+                      source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                       '
+                       ^
+                       source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
+                        x
+                        ^
+                        source.ks string.quoted.single.ks
+                         '
+                         ^
+                         source.ks string.quoted.single.ks punctuation.definition.string.end.ks
+                          ,
+                          ^
+                          source.ks punctuation.separator.comma.ks
+                            
+                           ^
+                           source.ks
+                            0.1
+                            ^^^
+                            source.ks constant.numeric.decimal.ks
+                               ,
+                               ^
+                               source.ks punctuation.separator.comma.ks
+                                 
+                                ^
+                                source.ks
+                                 true
+                                 ^^^^
+                                 source.ks constant.language.boolean.true.ks
+                                     )
+                                     ^
+                                     source.ks punctuation.definition.arguments.end.bracket.round.ks
+>
+>
+ 
+ ^
+ source.ks
+>
+>console.log(triple.0, triple.1, triple.2)
+ console
+ ^^^^^^^
+ source.ks variable.other.object.ks
+        .
+        ^
+        source.ks punctuation.accessor.object.ks
+         log
+         ^^^
+         source.ks entity.name.function.ks
+            (
+            ^
+            source.ks punctuation.definition.arguments.begin.bracket.round.ks
+             triple
+             ^^^^^^
+             source.ks variable.other.object.ks
+                   .
+                   ^
+                   source.ks punctuation.accessor.object.ks
+                    0
+                    ^
+                    source.ks constant.numeric.decimal.ks
+                     ,
+                     ^
+                     source.ks punctuation.separator.comma.ks
+                       
+                      ^
+                      source.ks
+                       triple
+                       ^^^^^^
+                       source.ks variable.other.object.ks
+                             .
+                             ^
+                             source.ks punctuation.accessor.object.ks
+                              1
+                              ^
+                              source.ks constant.numeric.decimal.ks
+                               ,
+                               ^
+                               source.ks punctuation.separator.comma.ks
+                                 
+                                ^
+                                source.ks
+                                 triple
+                                 ^^^^^^
+                                 source.ks variable.other.object.ks
+                                       .
+                                       ^
+                                       source.ks punctuation.accessor.object.ks
+                                        2
+                                        ^
+                                        source.ks constant.numeric.decimal.ks
+                                         )
+                                         ^
+                                         source.ks punctuation.definition.arguments.end.bracket.round.ks

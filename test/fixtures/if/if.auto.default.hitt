@@ -1,6 +1,6 @@
 original file
 -----------------------------------
-if let x := foobar() {
+if auto x = foobar() {
     console.log(x)
 }
 -----------------------------------
@@ -8,28 +8,28 @@ if let x := foobar() {
 grammar: kaoscript.tmLanguage
 -----------------------------------
 >
->if let x := foobar() {
+>if auto x = foobar() {
  if
  ^^
  source.ks keyword.control.conditional.if.ks
     
    ^
    source.ks
-    let
-    ^^^
+    auto
+    ^^^^
     source.ks storage.type.readwrite.ks
-        
-       ^
-       source.ks
-        x
+         
         ^
-        source.ks meta.definition.variable.ks variable.other.readwrite.ks
-          
+        source.ks
+         x
          ^
-         source.ks
-          :=
-          ^^
-          source.ks keyword.operator.assignment.ks
+         source.ks meta.definition.variable.ks variable.other.readwrite.ks
+           
+          ^
+          source.ks
+           =
+           ^
+           source.ks keyword.operator.assignment.ks
              
             ^
             source.ks
