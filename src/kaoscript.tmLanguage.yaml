@@ -267,6 +267,26 @@ repository:
       - name: 'punctuation.definition.parameters.end.bracket.round.ks'
         match: '\)'
       - include: '#block'
+    - begin: '\b(internal|private|protected|public)\s+(\{)'
+      beginCaptures:
+        '1': { name: 'storage.modifier.access.ks' }
+        '2': { name: 'punctuation.definition.members.begin.bracket.curly.ks' }
+      end: '\}'
+      endCaptures:
+        '0': { name: 'punctuation.definition.members.end.bracket.curly.ks' }
+      patterns:
+      - include: '#class-member'
+    - begin: '(?:\b(internal|private|protected|public)\b)?\s*(?:(\babstract)|(\bstatic))\s+(\{)'
+      beginCaptures:
+        '1': { name: 'storage.modifier.access.ks' }
+        '2': { name: 'storage.modifier.abstract.ks' }
+        '3': { name: 'storage.modifier.access.ks' }
+        '4': { name: 'punctuation.definition.members.begin.bracket.curly.ks' }
+      end: '\}'
+      endCaptures:
+        '0': { name: 'punctuation.definition.members.end.bracket.curly.ks' }
+      patterns:
+      - include: '#class-member'
     - begin: '(?:\b(internal|private|protected|public)\b\s*)?(\bfinal\b\s*)?(?:(\babstract\b)\s*|(\bstatic\b)\s*|(\boverride\b)\s*)?(?:(\basync)\s*)?({{identifier}})(?=\()'
       beginCaptures:
         '1': { name: 'storage.modifier.access.ks' }
@@ -358,7 +378,7 @@ repository:
       endCaptures:
         '0': { name: 'punctuation.definition.property.end.bracket.curly.ks' }
       patterns:
-      - begin: 'get'
+      - begin: '\bget\b'
         beginCaptures:
           '0': { name: 'keyword.other.property.get.ks' }
         end: '(?=$|[\},])'
@@ -370,7 +390,7 @@ repository:
           end: '$'
           patterns:
           - include: '#expression'
-      - begin: 'set'
+      - begin: '\bset\b'
         beginCaptures:
           '0': { name: 'keyword.other.property.set.ks' }
         end: '(?=$|[\},])'
@@ -418,26 +438,6 @@ repository:
       endCaptures:
         '0': { name: 'punctuation.definition.class.end.bracket.curly.ks' }
       patterns:
-      - begin: '\b(private|protected|public)\s+(\{)'
-        beginCaptures:
-          '1': { name: 'storage.modifier.access.ks' }
-          '2': { name: 'punctuation.definition.members.begin.bracket.curly.ks' }
-        end: '\}'
-        endCaptures:
-          '0': { name: 'punctuation.definition.members.end.bracket.curly.ks' }
-        patterns:
-        - include: '#class-member'
-      - begin: '(?:\b(private|protected|public)\b)?\s*(?:(\babstract)|(\bstatic))\s+(\{)'
-        beginCaptures:
-          '1': { name: 'storage.modifier.access.ks' }
-          '2': { name: 'storage.modifier.abstract.ks' }
-          '3': { name: 'storage.modifier.access.ks' }
-          '4': { name: 'punctuation.definition.members.begin.bracket.curly.ks' }
-        end: '\}'
-        endCaptures:
-          '0': { name: 'punctuation.definition.members.end.bracket.curly.ks' }
-        patterns:
-        - include: '#class-member'
       - include: '#macro-statement'
       - include: '#class-member'
   # }}}

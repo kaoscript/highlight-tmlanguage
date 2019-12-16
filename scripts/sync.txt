@@ -11,6 +11,7 @@ destruct.array.for.default
 destruct.object.if.existential.func
 do.while.if
 extern.disclose.class.static
+extern.disclose.internal
 for.block.const.key
 for.block.let.key
 function.decl.ml
