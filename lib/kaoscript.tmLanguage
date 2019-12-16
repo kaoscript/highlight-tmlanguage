@@ -3313,7 +3313,7 @@
         <array>
           <dict>
             <key>begin</key>
-            <string>([_$[:alpha:]][_$[:alnum:]]*)\s*(:)</string>
+            <string>([_$[:alpha:]][_$[:alnum:]]*)\s*(:)\s+</string>
             <key>beginCaptures</key>
             <dict>
               <key>1</key>
@@ -4356,7 +4356,7 @@
       <key>if-statement</key>
       <dict>
         <key>begin</key>
-        <string>(?=^\s*if\s+(?:[\{\[\("'`_$[:alnum:]\.\/@?!~+-]|$))</string>
+        <string>(?&lt;=^|\*\/)(?=\s*if\s+(?:[\{\[\("'`_$[:alnum:]\.\/@?!~+-]|$))</string>
         <key>end</key>
         <string>(?&lt;=\})</string>
         <key>patterns</key>
@@ -6922,6 +6922,10 @@
         <key>patterns</key>
         <array>
           <dict>
+            <key>include</key>
+            <string>#comment</string>
+          </dict>
+          <dict>
             <key>begin</key>
             <string>^\s*(?=abstract\b|async\b|auto\b|class\b|const\b|enum\b|final\b|func\b|lateinit\b|let\b|macro\b|namespace\b|sealed\b|type\b)</string>
             <key>end</key>
@@ -8718,7 +8722,7 @@
               <key>1</key>
               <dict>
                 <key>name</key>
-                <string>keyword.control.conditional.if.ks</string>
+                <string>keyword.control.loop.while.ks</string>
               </dict>
             </dict>
             <key>end</key>
@@ -8743,7 +8747,7 @@
               <key>1</key>
               <dict>
                 <key>name</key>
-                <string>keyword.control.conditional.if.ks</string>
+                <string>keyword.control.loop.while.ks</string>
               </dict>
             </dict>
             <key>end</key>

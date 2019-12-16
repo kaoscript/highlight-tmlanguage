@@ -998,7 +998,7 @@ repository:
     endCaptures:
       '0': { name: 'punctuation.definition.arguments.end.bracket.round.ks' }
     patterns:
-    - begin: '({{identifier}})\s*(:)'
+    - begin: '({{identifier}})\s*(:)\s+'
       beginCaptures:
         '1': { name: 'meta.argument.key.ks' }
         '2': { name: 'punctuation.separator.key-value.ks' }
@@ -1315,7 +1315,7 @@ repository:
     - include: '#expression'
   # }}}
   if-statement: # {{{
-    begin: '(?=^\s*if\s+(?:{{expression-beginning}}|$))'
+    begin: '(?<=^|\*\/)(?=\s*if\s+(?:{{expression-beginning}}|$))'
     end: '(?<=\})'
     patterns:
     - include: '#if-statement-body'
@@ -2081,6 +2081,7 @@ repository:
   # }}}
   statements: # {{{
     patterns:
+    - include: '#comment'
     - begin: '^\s*(?=abstract\b|async\b|auto\b|class\b|const\b|enum\b|final\b|func\b|lateinit\b|let\b|macro\b|namespace\b|sealed\b|type\b)'
       end: '(?<=\}|$)'
       patterns:
@@ -2616,14 +2617,14 @@ repository:
         - include: '#expression'
     - begin: '\b(while)\s+(?=\[)'
       beginCaptures:
-        '1': { name: 'keyword.control.conditional.if.ks' }
+        '1': { name: 'keyword.control.loop.while.ks' }
       end: '(?=\{)'
       patterns:
       - include: '#binding-array'
       - include: '#expression'
     - begin: '\b(while)(?=\s+\{)'
       beginCaptures:
-        '1': { name: 'keyword.control.conditional.if.ks' }
+        '1': { name: 'keyword.control.loop.while.ks' }
       end: '(?=\{)'
       patterns:
       - begin: '(?<=if)\s+(\{)'

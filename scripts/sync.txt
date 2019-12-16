@@ -17,9 +17,11 @@ function.decl.ml
 function.if.logical
 function.lambda.param.anonym
 function.parameter.timeout
+function.parameter.typecasting
 function.return.logical
 generics.array.param.func.wr.gt
 if.comment.cond
+if.comment.const
 if.comment.else
 keyword.var.let
 keyword.var.until
