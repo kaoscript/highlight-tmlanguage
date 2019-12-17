@@ -1,0 +1,54 @@
+original file
+-----------------------------------
+for const constructor in data.constructors {
+}
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>for const constructor in data.constructors {
+ for
+ ^^^
+ source.ks keyword.control.loop.for.ks
+     
+    ^
+    source.ks
+     const
+     ^^^^^
+     source.ks storage.type.constant.ks
+           
+          ^
+          source.ks
+           constructor
+           ^^^^^^^^^^^
+           source.ks meta.definition.variable.ks variable.other.constant.ks
+                       
+                      ^
+                      source.ks
+                       in
+                       ^^
+                       source.ks keyword.operator.loop.in.ks
+                          
+                         ^
+                         source.ks
+                          data
+                          ^^^^
+                          source.ks variable.other.object.ks
+                              .
+                              ^
+                              source.ks punctuation.accessor.object.ks
+                               constructors
+                               ^^^^^^^^^^^^
+                               source.ks variable.other.property.object.ks
+                                            
+                                           ^
+                                           source.ks
+                                            {
+                                            ^
+                                            source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.block.end.bracket.curly.ks

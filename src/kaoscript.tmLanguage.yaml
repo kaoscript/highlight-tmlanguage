@@ -1227,13 +1227,13 @@ repository:
       '1': { name: 'keyword.control.loop.for.ks' }
     end: '(?<=\})'
     patterns:
-      - begin: 'const'
+      - begin: '\bconst\b'
         beginCaptures:
           '0': { name: 'storage.type.constant.ks' }
         end: '(?=\bfrom\b|\bin\b|\bof\b)'
         patterns:
         - include: '#const-statement-variable'
-      - begin: 'let'
+      - begin: '\blet\b'
         beginCaptures:
           '0': { name: 'storage.type.readwrite.ks' }
         end: '(?=\bfrom\b|\bin\b|\bof\b)'
