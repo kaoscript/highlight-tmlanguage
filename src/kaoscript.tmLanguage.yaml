@@ -19,6 +19,7 @@ patterns:
 - include: '#disclose-statement'
 - include: '#export-statement'
 - include: '#extern-statement'
+- include: '#extern-import-statement'
 - include: '#extern-require-statement'
 - include: '#import-statement'
 - include: '#include-statement'
@@ -830,10 +831,11 @@ repository:
   # }}}
   extern-declarator: # {{{
     patterns:
-    - begin: '\b(?:(sealed)\s+)?(class)\b'
+    - begin: '\b(?:(sealed)\s+|(systemic)\s+)?(class)\b'
       beginCaptures:
         '1': { name: 'storage.modifier.sealed.ks' }
-        '2': { name: 'storage.type.class.ks' }
+        '2': { name: 'storage.modifier.system.ks' }
+        '3': { name: 'storage.type.class.ks' }
       end: '(?=[,=\}]|$)'
       patterns:
       - name: 'storage.modifier.extends.ks'
@@ -883,10 +885,11 @@ repository:
       - include: '#function-parameters'
       - include: '#function-return-type'
       - include: '#function-throwables'
-    - begin: '\b(?:(sealed)\s+)?(namespace)\b'
+    - begin: '\b(?:(sealed)\s+|(systemic)\s+)?(namespace)\b'
       beginCaptures:
         '1': { name: 'storage.modifier.sealed.ks' }
-        '2': { name: 'storage.type.namespace.ks' }
+        '2': { name: 'storage.modifier.system.ks' }
+        '3': { name: 'storage.type.namespace.ks' }
       end: '(?=[,=\}]|$)'
       patterns:
       - name: 'entity.name.type.namespace.ks'
@@ -922,10 +925,11 @@ repository:
       - include: '#function-parameters'
       - include: '#function-return-type'
       - include: '#function-throwables'
-    - begin: '\b(?:(sealed)\s+)?({{identifier}})\b'
+    - begin: '\b(?:(sealed)\s+|(systemic)\s+)?({{identifier}})\b'
       beginCaptures:
         '1': { name: 'storage.modifier.sealed.ks' }
-        '2': { name: 'variable.other.constant.ks' }
+        '2': { name: 'storage.modifier.system.ks' }
+        '3': { name: 'variable.other.constant.ks' }
       end: '(?=[,=]|$)'
       patterns:
       - name: 'meta.type.annotation.ks'
@@ -937,6 +941,24 @@ repository:
         - include: '#type'
     - include: '#attribute'
     - include: '#comment'
+  # }}}
+  extern-import-statement: # {{{
+    begin: '^\s*(extern\|import)\s+(?={{expression-beginning}})'
+    beginCaptures:
+      '1': { name: 'keyword.control.dependency.extern-import.ks' }
+    end: '(?<=\}|$)'
+    patterns:
+    - begin: '\{'
+      beginCaptures:
+        '0': { name: 'punctuation.definition.extern-import.begin.bracket.curly.ks' }
+      end: '\}'
+      endCaptures:
+        '0': { name: 'punctuation.definition.extern-import.end.bracket.curly.ks' }
+      patterns:
+      - include: '#import-declarator'
+      - include: '#attribute'
+      - include: '#comment'
+    - include: '#import-declarator'
   # }}}
   extern-require-statement: # {{{
     begin: '^\s*(extern\|require)\s+(?={{expression-beginning}})'

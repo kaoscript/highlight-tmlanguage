@@ -1,0 +1,24 @@
+original file
+-----------------------------------
+extern|import './underscore.ks'
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>extern|import './underscore.ks'
+ extern|import
+ ^^^^^^^^^^^^^
+ source.ks keyword.control.dependency.extern-import.ks
+               
+              ^
+              source.ks
+               '
+               ^
+               source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
+                ./underscore.ks
+                ^^^^^^^^^^^^^^^
+                source.ks string.quoted.single.ks
+                               '
+                               ^
+                               source.ks string.quoted.single.ks punctuation.definition.string.end.ks

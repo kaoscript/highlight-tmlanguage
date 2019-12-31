@@ -1,0 +1,549 @@
+original file
+-----------------------------------
+require systemic class Array
+
+impl Array {
+    contains(item, from = 0) { // {{{
+        return this.indexOf(item, from) != -1
+    } // }}}
+    pushUniq(...args) { // {{{
+        if args.length == 1 {
+            if !this.contains(args[0]) {
+                this.push(args[0])
+            }
+        }
+        else {
+            for item in args {
+                if !this.contains(item) {
+                    this.push(item)
+                }
+            }
+        }
+        return this
+    } // }}}
+}
+
+export Array
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>require systemic class Array
+ require
+ ^^^^^^^
+ source.ks keyword.control.require.ks
+         
+        ^
+        source.ks
+         systemic
+         ^^^^^^^^
+         source.ks storage.modifier.system.ks
+                  
+                 ^
+                 source.ks
+                  class
+                  ^^^^^
+                  source.ks storage.type.class.ks
+                        
+                       ^
+                       source.ks
+                        Array
+                        ^^^^^
+                        source.ks entity.name.type.class.ks
+>
+>
+ 
+ ^
+ source.ks
+>
+>impl Array {
+ impl
+ ^^^^
+ source.ks keyword.control.implement.ks
+      
+     ^
+     source.ks
+      Array
+      ^^^^^
+      source.ks entity.name.type.ks
+            
+           ^
+           source.ks
+            {
+            ^
+            source.ks punctuation.definition.implement.begin.bracket.curly.ks
+>
+>    contains(item, from = 0) { // {{{
+     
+ ^^^^
+ source.ks
+     contains
+     ^^^^^^^^
+     source.ks entity.name.function.ks
+             (
+             ^
+             source.ks punctuation.definition.parameters.begin.bracket.round.ks
+              item
+              ^^^^
+              source.ks variable.parameter.ks
+                  ,
+                  ^
+                  source.ks punctuation.separator.comma.ks
+                    
+                   ^
+                   source.ks
+                    from
+                    ^^^^
+                    source.ks variable.parameter.ks
+                         
+                        ^
+                        source.ks
+                         =
+                         ^
+                         source.ks keyword.operator.assignment.ks
+                           
+                          ^
+                          source.ks
+                           0
+                           ^
+                           source.ks constant.numeric.decimal.ks
+                            )
+                            ^
+                            source.ks punctuation.definition.parameters.end.bracket.round.ks
+                              
+                             ^
+                             source.ks
+                              {
+                              ^
+                              source.ks punctuation.definition.block.begin.bracket.curly.ks
+                                
+                               ^
+                               source.ks
+                                //
+                                ^^
+                                source.ks comment.line.double-slash.ks punctuation.definition.comment.ks
+                                   {{{
+                                  ^^^^
+                                  source.ks comment.line.double-slash.ks
+>
+>        return this.indexOf(item, from) != -1
+         
+ ^^^^^^^^
+ source.ks
+         return
+         ^^^^^^
+         source.ks keyword.control.flow.return.ks
+                
+               ^
+               source.ks
+                this
+                ^^^^
+                source.ks variable.language.this.ks
+                    .
+                    ^
+                    source.ks punctuation.accessor.object.ks
+                     indexOf
+                     ^^^^^^^
+                     source.ks entity.name.function.ks
+                            (
+                            ^
+                            source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                             item
+                             ^^^^
+                             source.ks variable.other.ks
+                                 ,
+                                 ^
+                                 source.ks punctuation.separator.comma.ks
+                                   
+                                  ^
+                                  source.ks
+                                   from
+                                   ^^^^
+                                   source.ks variable.other.ks
+                                       )
+                                       ^
+                                       source.ks punctuation.definition.arguments.end.bracket.round.ks
+                                         
+                                        ^
+                                        source.ks
+                                         !=
+                                         ^^
+                                         source.ks keyword.operator.comparison.ks
+                                            
+                                           ^
+                                           source.ks
+                                            -
+                                            ^
+                                            source.ks keyword.operator.arithmetic.ks
+                                             1
+                                             ^
+                                             source.ks constant.numeric.decimal.ks
+>
+>    } // }}}
+     
+ ^^^^
+ source.ks
+     }
+     ^
+     source.ks punctuation.definition.block.end.bracket.curly.ks
+       
+      ^
+      source.ks
+       //
+       ^^
+       source.ks comment.line.double-slash.ks punctuation.definition.comment.ks
+          }}}
+         ^^^^
+         source.ks comment.line.double-slash.ks
+>
+>    pushUniq(...args) { // {{{
+     
+ ^^^^
+ source.ks
+     pushUniq
+     ^^^^^^^^
+     source.ks entity.name.function.ks
+             (
+             ^
+             source.ks punctuation.definition.parameters.begin.bracket.round.ks
+              ...
+              ^^^
+              source.ks keyword.operator.rest.ks
+                 args
+                 ^^^^
+                 source.ks variable.parameter.ks
+                     )
+                     ^
+                     source.ks punctuation.definition.parameters.end.bracket.round.ks
+                       
+                      ^
+                      source.ks
+                       {
+                       ^
+                       source.ks punctuation.definition.block.begin.bracket.curly.ks
+                         
+                        ^
+                        source.ks
+                         //
+                         ^^
+                         source.ks comment.line.double-slash.ks punctuation.definition.comment.ks
+                            {{{
+                           ^^^^
+                           source.ks comment.line.double-slash.ks
+>
+>        if args.length == 1 {
+         
+ ^^^^^^^^
+ source.ks
+         if
+         ^^
+         source.ks keyword.control.conditional.if.ks
+            
+           ^
+           source.ks
+            args
+            ^^^^
+            source.ks variable.other.object.ks
+                .
+                ^
+                source.ks punctuation.accessor.object.ks
+                 length
+                 ^^^^^^
+                 source.ks variable.other.property.object.ks
+                        
+                       ^
+                       source.ks
+                        ==
+                        ^^
+                        source.ks keyword.operator.comparison.ks
+                           
+                          ^
+                          source.ks
+                           1
+                           ^
+                           source.ks constant.numeric.decimal.ks
+                             
+                            ^
+                            source.ks
+                             {
+                             ^
+                             source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>            if !this.contains(args[0]) {
+             
+ ^^^^^^^^^^^^
+ source.ks
+             if
+             ^^
+             source.ks keyword.control.conditional.if.ks
+                
+               ^
+               source.ks
+                !
+                ^
+                source.ks keyword.operator.logical.ks
+                 this
+                 ^^^^
+                 source.ks variable.language.this.ks
+                     .
+                     ^
+                     source.ks punctuation.accessor.object.ks
+                      contains
+                      ^^^^^^^^
+                      source.ks entity.name.function.ks
+                              (
+                              ^
+                              source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                               args
+                               ^^^^
+                               source.ks variable.other.ks
+                                   [
+                                   ^
+                                   source.ks punctuation.accessor.array.begin.bracket.square.ks
+                                    0
+                                    ^
+                                    source.ks constant.numeric.decimal.ks
+                                     ]
+                                     ^
+                                     source.ks punctuation.accessor.array.end.bracket.square.ks
+                                      )
+                                      ^
+                                      source.ks punctuation.definition.arguments.end.bracket.round.ks
+                                        
+                                       ^
+                                       source.ks
+                                        {
+                                        ^
+                                        source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>                this.push(args[0])
+                 
+ ^^^^^^^^^^^^^^^^
+ source.ks
+                 this
+                 ^^^^
+                 source.ks variable.language.this.ks
+                     .
+                     ^
+                     source.ks punctuation.accessor.object.ks
+                      push
+                      ^^^^
+                      source.ks entity.name.function.ks
+                          (
+                          ^
+                          source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                           args
+                           ^^^^
+                           source.ks variable.other.ks
+                               [
+                               ^
+                               source.ks punctuation.accessor.array.begin.bracket.square.ks
+                                0
+                                ^
+                                source.ks constant.numeric.decimal.ks
+                                 ]
+                                 ^
+                                 source.ks punctuation.accessor.array.end.bracket.square.ks
+                                  )
+                                  ^
+                                  source.ks punctuation.definition.arguments.end.bracket.round.ks
+>
+>            }
+             
+ ^^^^^^^^^^^^
+ source.ks
+             }
+             ^
+             source.ks punctuation.definition.block.end.bracket.curly.ks
+>
+>        }
+         
+ ^^^^^^^^
+ source.ks
+         }
+         ^
+         source.ks punctuation.definition.block.end.bracket.curly.ks
+>
+>        else {
+         
+ ^^^^^^^^
+ source.ks
+         else
+         ^^^^
+         source.ks keyword.control.conditional.else.ks
+              
+             ^
+             source.ks
+              {
+              ^
+              source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>            for item in args {
+             
+ ^^^^^^^^^^^^
+ source.ks
+             for
+             ^^^
+             source.ks keyword.control.loop.for.ks
+                 
+                ^
+                source.ks
+                 item
+                 ^^^^
+                 source.ks variable.other.ks
+                      
+                     ^
+                     source.ks
+                      in
+                      ^^
+                      source.ks keyword.operator.loop.in.ks
+                         
+                        ^
+                        source.ks
+                         args
+                         ^^^^
+                         source.ks variable.other.ks
+                              
+                             ^
+                             source.ks
+                              {
+                              ^
+                              source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>                if !this.contains(item) {
+                 
+ ^^^^^^^^^^^^^^^^
+ source.ks
+                 if
+                 ^^
+                 source.ks keyword.control.conditional.if.ks
+                    
+                   ^
+                   source.ks
+                    !
+                    ^
+                    source.ks keyword.operator.logical.ks
+                     this
+                     ^^^^
+                     source.ks variable.language.this.ks
+                         .
+                         ^
+                         source.ks punctuation.accessor.object.ks
+                          contains
+                          ^^^^^^^^
+                          source.ks entity.name.function.ks
+                                  (
+                                  ^
+                                  source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                                   item
+                                   ^^^^
+                                   source.ks variable.other.ks
+                                       )
+                                       ^
+                                       source.ks punctuation.definition.arguments.end.bracket.round.ks
+                                         
+                                        ^
+                                        source.ks
+                                         {
+                                         ^
+                                         source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>                    this.push(item)
+                     
+ ^^^^^^^^^^^^^^^^^^^^
+ source.ks
+                     this
+                     ^^^^
+                     source.ks variable.language.this.ks
+                         .
+                         ^
+                         source.ks punctuation.accessor.object.ks
+                          push
+                          ^^^^
+                          source.ks entity.name.function.ks
+                              (
+                              ^
+                              source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                               item
+                               ^^^^
+                               source.ks variable.other.ks
+                                   )
+                                   ^
+                                   source.ks punctuation.definition.arguments.end.bracket.round.ks
+>
+>                }
+                 
+ ^^^^^^^^^^^^^^^^
+ source.ks
+                 }
+                 ^
+                 source.ks punctuation.definition.block.end.bracket.curly.ks
+>
+>            }
+             
+ ^^^^^^^^^^^^
+ source.ks
+             }
+             ^
+             source.ks punctuation.definition.block.end.bracket.curly.ks
+>
+>        }
+         
+ ^^^^^^^^
+ source.ks
+         }
+         ^
+         source.ks punctuation.definition.block.end.bracket.curly.ks
+>
+>        return this
+         
+ ^^^^^^^^
+ source.ks
+         return
+         ^^^^^^
+         source.ks keyword.control.flow.return.ks
+                
+               ^
+               source.ks
+                this
+                ^^^^
+                source.ks variable.language.this.ks
+>
+>    } // }}}
+     
+ ^^^^
+ source.ks
+     }
+     ^
+     source.ks punctuation.definition.block.end.bracket.curly.ks
+       
+      ^
+      source.ks
+       //
+       ^^
+       source.ks comment.line.double-slash.ks punctuation.definition.comment.ks
+          }}}
+         ^^^^
+         source.ks comment.line.double-slash.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.implement.end.bracket.curly.ks
+>
+>
+ 
+ ^
+ source.ks
+>
+>export Array
+ export
+ ^^^^^^
+ source.ks keyword.control.export.ks
+        
+       ^
+       source.ks
+        Array
+        ^^^^^
+        source.ks variable.other.ks

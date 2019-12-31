@@ -28,6 +28,10 @@
       </dict>
       <dict>
         <key>include</key>
+        <string>#extern-import-statement</string>
+      </dict>
+      <dict>
+        <key>include</key>
         <string>#extern-require-statement</string>
       </dict>
       <dict>
@@ -2743,7 +2747,7 @@
         <array>
           <dict>
             <key>begin</key>
-            <string>\b(?:(sealed)\s+)?(class)\b</string>
+            <string>\b(?:(sealed)\s+|(systemic)\s+)?(class)\b</string>
             <key>beginCaptures</key>
             <dict>
               <key>1</key>
@@ -2752,6 +2756,11 @@
                 <string>storage.modifier.sealed.ks</string>
               </dict>
               <key>2</key>
+              <dict>
+                <key>name</key>
+                <string>storage.modifier.system.ks</string>
+              </dict>
+              <key>3</key>
               <dict>
                 <key>name</key>
                 <string>storage.type.class.ks</string>
@@ -2929,7 +2938,7 @@
           </dict>
           <dict>
             <key>begin</key>
-            <string>\b(?:(sealed)\s+)?(namespace)\b</string>
+            <string>\b(?:(sealed)\s+|(systemic)\s+)?(namespace)\b</string>
             <key>beginCaptures</key>
             <dict>
               <key>1</key>
@@ -2938,6 +2947,11 @@
                 <string>storage.modifier.sealed.ks</string>
               </dict>
               <key>2</key>
+              <dict>
+                <key>name</key>
+                <string>storage.modifier.system.ks</string>
+              </dict>
+              <key>3</key>
               <dict>
                 <key>name</key>
                 <string>storage.type.namespace.ks</string>
@@ -3069,7 +3083,7 @@
           </dict>
           <dict>
             <key>begin</key>
-            <string>\b(?:(sealed)\s+)?([_$[:alpha:]][_$[:alnum:]]*)\b</string>
+            <string>\b(?:(sealed)\s+|(systemic)\s+)?([_$[:alpha:]][_$[:alnum:]]*)\b</string>
             <key>beginCaptures</key>
             <dict>
               <key>1</key>
@@ -3078,6 +3092,11 @@
                 <string>storage.modifier.sealed.ks</string>
               </dict>
               <key>2</key>
+              <dict>
+                <key>name</key>
+                <string>storage.modifier.system.ks</string>
+              </dict>
+              <key>3</key>
               <dict>
                 <key>name</key>
                 <string>variable.other.constant.ks</string>
@@ -3119,6 +3138,65 @@
           <dict>
             <key>include</key>
             <string>#comment</string>
+          </dict>
+        </array>
+      </dict>
+      <key>extern-import-statement</key>
+      <dict>
+        <key>begin</key>
+        <string>^\s*(extern\|import)\s+(?=[\{\[\("'`_$[:alnum:]\.\/@?!~+-])</string>
+        <key>beginCaptures</key>
+        <dict>
+          <key>1</key>
+          <dict>
+            <key>name</key>
+            <string>keyword.control.dependency.extern-import.ks</string>
+          </dict>
+        </dict>
+        <key>end</key>
+        <string>(?&lt;=\}|$)</string>
+        <key>patterns</key>
+        <array>
+          <dict>
+            <key>begin</key>
+            <string>\{</string>
+            <key>beginCaptures</key>
+            <dict>
+              <key>0</key>
+              <dict>
+                <key>name</key>
+                <string>punctuation.definition.extern-import.begin.bracket.curly.ks</string>
+              </dict>
+            </dict>
+            <key>end</key>
+            <string>\}</string>
+            <key>endCaptures</key>
+            <dict>
+              <key>0</key>
+              <dict>
+                <key>name</key>
+                <string>punctuation.definition.extern-import.end.bracket.curly.ks</string>
+              </dict>
+            </dict>
+            <key>patterns</key>
+            <array>
+              <dict>
+                <key>include</key>
+                <string>#import-declarator</string>
+              </dict>
+              <dict>
+                <key>include</key>
+                <string>#attribute</string>
+              </dict>
+              <dict>
+                <key>include</key>
+                <string>#comment</string>
+              </dict>
+            </array>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#import-declarator</string>
           </dict>
         </array>
       </dict>

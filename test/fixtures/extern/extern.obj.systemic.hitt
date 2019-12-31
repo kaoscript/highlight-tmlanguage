@@ -1,0 +1,141 @@
+original file
+-----------------------------------
+extern systemic console: {
+    log(...args): void
+    time(label: string): void
+    timeEnd(label: string): void
+}
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>extern systemic console: {
+ extern
+ ^^^^^^
+ source.ks keyword.control.dependency.extern.ks
+        
+       ^
+       source.ks
+        systemic
+        ^^^^^^^^
+        source.ks storage.modifier.system.ks
+                 
+                ^
+                source.ks
+                 console
+                 ^^^^^^^
+                 source.ks variable.other.constant.ks
+                        :
+                        ^
+                        source.ks meta.type.annotation.ks keyword.operator.type.annotation.ks
+                          
+                         ^
+                         source.ks meta.type.annotation.ks
+                          {
+                          ^
+                          source.ks meta.type.annotation.ks punctuation.definition.object.begin.bracket.curly.ks
+>
+>    log(...args): void
+     
+ ^^^^
+ source.ks meta.type.annotation.ks
+     log
+     ^^^
+     source.ks meta.type.annotation.ks entity.name.function.ks
+        (
+        ^
+        source.ks meta.type.annotation.ks punctuation.definition.parameters.begin.bracket.round.ks
+         ...
+         ^^^
+         source.ks meta.type.annotation.ks keyword.operator.rest.ks
+            args
+            ^^^^
+            source.ks meta.type.annotation.ks variable.parameter.ks
+                )
+                ^
+                source.ks meta.type.annotation.ks punctuation.definition.parameters.end.bracket.round.ks
+                 :
+                 ^
+                 source.ks meta.type.annotation.ks meta.function.return-type.ks keyword.operator.type.annotation.ks
+                   
+                  ^
+                  source.ks meta.type.annotation.ks meta.function.return-type.ks
+                   void
+                   ^^^^
+                   source.ks meta.type.annotation.ks meta.function.return-type.ks support.type.primitive.ks
+>
+>    time(label: string): void
+     
+ ^^^^
+ source.ks meta.type.annotation.ks
+     time
+     ^^^^
+     source.ks meta.type.annotation.ks entity.name.function.ks
+         (
+         ^
+         source.ks meta.type.annotation.ks punctuation.definition.parameters.begin.bracket.round.ks
+          label
+          ^^^^^
+          source.ks meta.type.annotation.ks variable.parameter.ks
+               :
+               ^
+               source.ks meta.type.annotation.ks meta.type.annotation.ks keyword.operator.type.annotation.ks
+                 
+                ^
+                source.ks meta.type.annotation.ks meta.type.annotation.ks
+                 string
+                 ^^^^^^
+                 source.ks meta.type.annotation.ks meta.type.annotation.ks support.type.primitive.ks
+                       )
+                       ^
+                       source.ks meta.type.annotation.ks punctuation.definition.parameters.end.bracket.round.ks
+                        :
+                        ^
+                        source.ks meta.type.annotation.ks meta.function.return-type.ks keyword.operator.type.annotation.ks
+                          
+                         ^
+                         source.ks meta.type.annotation.ks meta.function.return-type.ks
+                          void
+                          ^^^^
+                          source.ks meta.type.annotation.ks meta.function.return-type.ks support.type.primitive.ks
+>
+>    timeEnd(label: string): void
+     
+ ^^^^
+ source.ks meta.type.annotation.ks
+     timeEnd
+     ^^^^^^^
+     source.ks meta.type.annotation.ks entity.name.function.ks
+            (
+            ^
+            source.ks meta.type.annotation.ks punctuation.definition.parameters.begin.bracket.round.ks
+             label
+             ^^^^^
+             source.ks meta.type.annotation.ks variable.parameter.ks
+                  :
+                  ^
+                  source.ks meta.type.annotation.ks meta.type.annotation.ks keyword.operator.type.annotation.ks
+                    
+                   ^
+                   source.ks meta.type.annotation.ks meta.type.annotation.ks
+                    string
+                    ^^^^^^
+                    source.ks meta.type.annotation.ks meta.type.annotation.ks support.type.primitive.ks
+                          )
+                          ^
+                          source.ks meta.type.annotation.ks punctuation.definition.parameters.end.bracket.round.ks
+                           :
+                           ^
+                           source.ks meta.type.annotation.ks meta.function.return-type.ks keyword.operator.type.annotation.ks
+                             
+                            ^
+                            source.ks meta.type.annotation.ks meta.function.return-type.ks
+                             void
+                             ^^^^
+                             source.ks meta.type.annotation.ks meta.function.return-type.ks support.type.primitive.ks
+>
+>}
+ }
+ ^
+ source.ks meta.type.annotation.ks punctuation.definition.object.end.bracket.curly.ks
