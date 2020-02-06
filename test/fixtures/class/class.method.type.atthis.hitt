@@ -104,10 +104,10 @@ grammar: kaoscript.tmLanguage
              source.ks meta.function.return-type.ks
               @
               ^
-              source.ks meta.function.return-type.ks storage.modifier.at.ks
+              source.ks meta.function.return-type.ks storage.modifier.instance.ks
                value
                ^^^^^
-               source.ks meta.function.return-type.ks variable.field.ks
+               source.ks meta.function.return-type.ks variable.other.instance.ks
 >
 >    value(@value): Foobar => this
      

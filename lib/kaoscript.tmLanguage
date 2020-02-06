@@ -878,7 +878,7 @@
           </dict>
           <dict>
             <key>begin</key>
-            <string>(?:\b(internal|private|protected|public)\b)?\s*(?:(\babstract)|(\bstatic))\s+(\{)</string>
+            <string>(?:\b(internal|private|protected|public)\b)?\s*(?:(\babstract)|(\blateinit)|(\boverride)|(\bstatic))\s+(\{)</string>
             <key>beginCaptures</key>
             <dict>
               <key>1</key>
@@ -894,9 +894,19 @@
               <key>3</key>
               <dict>
                 <key>name</key>
-                <string>storage.modifier.access.ks</string>
+                <string>storage.modifier.ks</string>
               </dict>
               <key>4</key>
+              <dict>
+                <key>name</key>
+                <string>storage.modifier.ks</string>
+              </dict>
+              <key>5</key>
+              <dict>
+                <key>name</key>
+                <string>storage.modifier.access.ks</string>
+              </dict>
+              <key>6</key>
               <dict>
                 <key>name</key>
                 <string>punctuation.definition.members.begin.bracket.curly.ks</string>
@@ -1091,7 +1101,7 @@
           </dict>
           <dict>
             <key>begin</key>
-            <string>(?:\b(internal|private|protected|public)\b\s*)?(?:\b(static)\b\s+|(@))?([_$[:alpha:]][_$[:alnum:]]*)</string>
+            <string>(?:\b(internal|private|protected|public)\b\s*)?(?:\b(static)\b\s*)?(?:\b(lateinit)\b\s*)?(?:\b(auto)\b\s*|\b(const)\b\s*)?(@)?([_$[:alpha:]][_$[:alnum:]]*)</string>
             <key>beginCaptures</key>
             <dict>
               <key>1</key>
@@ -1107,9 +1117,24 @@
               <key>3</key>
               <dict>
                 <key>name</key>
-                <string>storage.modifier.instance.ks</string>
+                <string>storage.modifier.ks</string>
               </dict>
               <key>4</key>
+              <dict>
+                <key>name</key>
+                <string>storage.type.auto.ks</string>
+              </dict>
+              <key>5</key>
+              <dict>
+                <key>name</key>
+                <string>storage.type.constant.ks</string>
+              </dict>
+              <key>6</key>
+              <dict>
+                <key>name</key>
+                <string>storage.modifier.instance.ks</string>
+              </dict>
+              <key>7</key>
               <dict>
                 <key>name</key>
                 <string>entity.name.variable.field.ks</string>
@@ -5780,12 +5805,12 @@
               <key>1</key>
               <dict>
                 <key>name</key>
-                <string>storage.modifier.at.ks</string>
+                <string>storage.modifier.instance.ks</string>
               </dict>
               <key>2</key>
               <dict>
                 <key>name</key>
-                <string>variable.field.ks</string>
+                <string>variable.other.instance.ks</string>
               </dict>
             </dict>
           </dict>
@@ -6136,20 +6161,26 @@
           </dict>
           <dict>
             <key>match</key>
-            <string>(\@)?(\b[_$[:alpha:]][_$[:alnum:]]*\b)</string>
+            <string>(\@)(\b[_$[:alpha:]][_$[:alnum:]]*\b)</string>
             <key>captures</key>
             <dict>
               <key>1</key>
               <dict>
                 <key>name</key>
-                <string>storage.modifier.at.ks</string>
+                <string>storage.modifier.instance.ks</string>
               </dict>
               <key>2</key>
               <dict>
                 <key>name</key>
-                <string>variable.other.ks</string>
+                <string>variable.other.instance.ks</string>
               </dict>
             </dict>
+          </dict>
+          <dict>
+            <key>name</key>
+            <string>variable.other.ks</string>
+            <key>match</key>
+            <string>\b[_$[:alpha:]][_$[:alnum:]]*\b</string>
           </dict>
           <dict>
             <key>name</key>

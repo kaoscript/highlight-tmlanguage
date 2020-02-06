@@ -1,0 +1,96 @@
+original file
+-----------------------------------
+class Foobar {
+    public lateinit const ID: String
+    private lateinit const @x
+}
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>class Foobar {
+ class
+ ^^^^^
+ source.ks storage.type.class.ks
+       
+      ^
+      source.ks
+       Foobar
+       ^^^^^^
+       source.ks entity.name.type.class.ks
+              
+             ^
+             source.ks
+              {
+              ^
+              source.ks punctuation.definition.class.begin.bracket.curly.ks
+>
+>    public lateinit const ID: String
+     
+ ^^^^
+ source.ks
+     public
+     ^^^^^^
+     source.ks storage.modifier.access.ks
+            
+           ^
+           source.ks
+            lateinit
+            ^^^^^^^^
+            source.ks storage.modifier.ks
+                     
+                    ^
+                    source.ks
+                     const
+                     ^^^^^
+                     source.ks storage.type.constant.ks
+                           
+                          ^
+                          source.ks
+                           ID
+                           ^^
+                           source.ks entity.name.variable.field.ks
+                             :
+                             ^
+                             source.ks meta.type.annotation.ks keyword.operator.type.annotation.ks
+                               
+                              ^
+                              source.ks meta.type.annotation.ks
+                               String
+                               ^^^^^^
+                               source.ks meta.type.annotation.ks support.type.primitive.ks
+>
+>    private lateinit const @x
+     
+ ^^^^
+ source.ks
+     private
+     ^^^^^^^
+     source.ks storage.modifier.access.ks
+             
+            ^
+            source.ks
+             lateinit
+             ^^^^^^^^
+             source.ks storage.modifier.ks
+                      
+                     ^
+                     source.ks
+                      const
+                      ^^^^^
+                      source.ks storage.type.constant.ks
+                            
+                           ^
+                           source.ks
+                            @
+                            ^
+                            source.ks storage.modifier.instance.ks
+                             x
+                             ^
+                             source.ks entity.name.variable.field.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.class.end.bracket.curly.ks

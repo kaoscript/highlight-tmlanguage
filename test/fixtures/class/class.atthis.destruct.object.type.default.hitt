@@ -1,0 +1,219 @@
+original file
+-----------------------------------
+class Greetings {
+    private {
+        @message: String
+    }
+    constructor({message}: {message: String}) {
+        this.message(message)
+    }
+    message(): @message
+    message(@message): this
+}
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>class Greetings {
+ class
+ ^^^^^
+ source.ks storage.type.class.ks
+       
+      ^
+      source.ks
+       Greetings
+       ^^^^^^^^^
+       source.ks entity.name.type.class.ks
+                 
+                ^
+                source.ks
+                 {
+                 ^
+                 source.ks punctuation.definition.class.begin.bracket.curly.ks
+>
+>    private {
+     
+ ^^^^
+ source.ks
+     private
+     ^^^^^^^
+     source.ks storage.modifier.access.ks
+             
+            ^
+            source.ks
+             {
+             ^
+             source.ks punctuation.definition.members.begin.bracket.curly.ks
+>
+>        @message: String
+         
+ ^^^^^^^^
+ source.ks
+         @
+         ^
+         source.ks storage.modifier.instance.ks
+          message
+          ^^^^^^^
+          source.ks entity.name.variable.field.ks
+                 :
+                 ^
+                 source.ks meta.type.annotation.ks keyword.operator.type.annotation.ks
+                   
+                  ^
+                  source.ks meta.type.annotation.ks
+                   String
+                   ^^^^^^
+                   source.ks meta.type.annotation.ks support.type.primitive.ks
+>
+>    }
+     
+ ^^^^
+ source.ks
+     }
+     ^
+     source.ks punctuation.definition.members.end.bracket.curly.ks
+>
+>    constructor({message}: {message: String}) {
+     
+ ^^^^
+ source.ks
+     constructor
+     ^^^^^^^^^^^
+     source.ks storage.type.constructor.ks
+                (
+                ^
+                source.ks punctuation.definition.parameters.begin.bracket.round.ks
+                 {
+                 ^
+                 source.ks punctuation.definition.binding-pattern.object.begin.bracket.curly.ks
+                  message
+                  ^^^^^^^
+                  source.ks variable.parameter.ks
+                         }
+                         ^
+                         source.ks punctuation.definition.binding-pattern.object.end.bracket.curly.ks
+                          :
+                          ^
+                          source.ks meta.type.annotation.ks keyword.operator.type.annotation.ks
+                            
+                           ^
+                           source.ks meta.type.annotation.ks
+                            {
+                            ^
+                            source.ks meta.type.annotation.ks punctuation.definition.object.begin.bracket.curly.ks
+                             message
+                             ^^^^^^^
+                             source.ks meta.type.annotation.ks meta.object.key.ks
+                                    :
+                                    ^
+                                    source.ks meta.type.annotation.ks keyword.operator.type.annotation.ks
+                                      
+                                     ^
+                                     source.ks meta.type.annotation.ks
+                                      String
+                                      ^^^^^^
+                                      source.ks meta.type.annotation.ks support.type.primitive.ks
+                                            }
+                                            ^
+                                            source.ks meta.type.annotation.ks punctuation.definition.object.end.bracket.curly.ks
+                                             )
+                                             ^
+                                             source.ks punctuation.definition.parameters.end.bracket.round.ks
+                                               
+                                              ^
+                                              source.ks
+                                               {
+                                               ^
+                                               source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>        this.message(message)
+         
+ ^^^^^^^^
+ source.ks
+         this
+         ^^^^
+         source.ks variable.language.this.ks
+             .
+             ^
+             source.ks punctuation.accessor.object.ks
+              message
+              ^^^^^^^
+              source.ks entity.name.function.ks
+                     (
+                     ^
+                     source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                      message
+                      ^^^^^^^
+                      source.ks variable.other.ks
+                             )
+                             ^
+                             source.ks punctuation.definition.arguments.end.bracket.round.ks
+>
+>    }
+     
+ ^^^^
+ source.ks
+     }
+     ^
+     source.ks punctuation.definition.block.end.bracket.curly.ks
+>
+>    message(): @message
+     
+ ^^^^
+ source.ks
+     message
+     ^^^^^^^
+     source.ks entity.name.function.ks
+            (
+            ^
+            source.ks punctuation.definition.parameters.begin.bracket.round.ks
+             )
+             ^
+             source.ks punctuation.definition.parameters.end.bracket.round.ks
+              :
+              ^
+              source.ks meta.function.return-type.ks keyword.operator.type.annotation.ks
+                
+               ^
+               source.ks meta.function.return-type.ks
+                @
+                ^
+                source.ks meta.function.return-type.ks storage.modifier.instance.ks
+                 message
+                 ^^^^^^^
+                 source.ks meta.function.return-type.ks variable.other.instance.ks
+>
+>    message(@message): this
+     
+ ^^^^
+ source.ks
+     message
+     ^^^^^^^
+     source.ks entity.name.function.ks
+            (
+            ^
+            source.ks punctuation.definition.parameters.begin.bracket.round.ks
+             @
+             ^
+             source.ks storage.modifier.at.ks
+              message
+              ^^^^^^^
+              source.ks variable.parameter.ks
+                     )
+                     ^
+                     source.ks punctuation.definition.parameters.end.bracket.round.ks
+                      :
+                      ^
+                      source.ks meta.function.return-type.ks keyword.operator.type.annotation.ks
+                        
+                       ^
+                       source.ks meta.function.return-type.ks
+                        this
+                        ^^^^
+                        source.ks meta.function.return-type.ks variable.language.this.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.class.end.bracket.curly.ks

@@ -277,12 +277,14 @@ repository:
         '0': { name: 'punctuation.definition.members.end.bracket.curly.ks' }
       patterns:
       - include: '#class-member'
-    - begin: '(?:\b(internal|private|protected|public)\b)?\s*(?:(\babstract)|(\bstatic))\s+(\{)'
+    - begin: '(?:\b(internal|private|protected|public)\b)?\s*(?:(\babstract)|(\blateinit)|(\boverride)|(\bstatic))\s+(\{)'
       beginCaptures:
         '1': { name: 'storage.modifier.access.ks' }
         '2': { name: 'storage.modifier.abstract.ks' }
-        '3': { name: 'storage.modifier.access.ks' }
-        '4': { name: 'punctuation.definition.members.begin.bracket.curly.ks' }
+        '3': { name: 'storage.modifier.ks' }
+        '4': { name: 'storage.modifier.ks' }
+        '5': { name: 'storage.modifier.access.ks' }
+        '6': { name: 'punctuation.definition.members.begin.bracket.curly.ks' }
       end: '\}'
       endCaptures:
         '0': { name: 'punctuation.definition.members.end.bracket.curly.ks' }
@@ -332,12 +334,15 @@ repository:
         patterns:
         - include: '#type'
       - include: '#class-property'
-    - begin: '(?:\b(internal|private|protected|public)\b\s*)?(?:\b(static)\b\s+|(@))?({{identifier}})'
+    - begin: '(?:\b(internal|private|protected|public)\b\s*)?(?:\b(static)\b\s*)?(?:\b(lateinit)\b\s*)?(?:\b(auto)\b\s*|\b(const)\b\s*)?(@)?({{identifier}})'
       beginCaptures:
         '1': { name: 'storage.modifier.access.ks' }
         '2': { name: 'storage.modifier.access.ks' }
-        '3': { name: 'storage.modifier.instance.ks' }
-        '4': { name: 'entity.name.variable.field.ks' }
+        '3': { name: 'storage.modifier.ks' }
+        '4': { name: 'storage.type.auto.ks' }
+        '5': { name: 'storage.type.constant.ks' }
+        '6': { name: 'storage.modifier.instance.ks' }
+        '7': { name: 'entity.name.variable.field.ks' }
       end: '$'
       patterns:
       - name: 'meta.type.annotation.ks'
@@ -1736,8 +1741,8 @@ repository:
     patterns:
     - match: '(\@)({{identifier}}\b)'
       captures:
-        '1': { name: 'storage.modifier.at.ks' }
-        '2': { name: 'variable.field.ks' }
+        '1': { name: 'storage.modifier.instance.ks' }
+        '2': { name: 'variable.other.instance.ks' }
     - name: 'variable.language.auto.ks'
       match: '\bauto\b'
     - name: 'variable.language.this.ks'
@@ -1843,10 +1848,12 @@ repository:
         end: '(?=$|[,\)\]])'
         patterns:
         - include: '#expression'
-    - match: '(\@)?(\b{{identifier}}\b)'
+    - match: '(\@)(\b{{identifier}}\b)'
       captures:
-        '1': { name: 'storage.modifier.at.ks' }
-        '2': { name: 'variable.other.ks' }
+        '1': { name: 'storage.modifier.instance.ks' }
+        '2': { name: 'variable.other.instance.ks' }
+    - name: 'variable.other.ks'
+      match: '\b{{identifier}}\b'
     - name: 'keyword.operator.spread.ks'
       match: '\.\.\.'
     - include: '#comma'

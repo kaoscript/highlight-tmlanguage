@@ -122,10 +122,10 @@ grammar: kaoscript.tmLanguage
  source.ks
          @
          ^
-         source.ks storage.modifier.at.ks
+         source.ks storage.modifier.instance.ks
           x
           ^
-          source.ks variable.other.ks
+          source.ks variable.other.instance.ks
 >
 >    }
      

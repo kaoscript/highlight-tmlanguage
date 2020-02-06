@@ -1,0 +1,69 @@
+original file
+-----------------------------------
+const lateinit = 42
+
+console.log(lateinit + 24)
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>const lateinit = 42
+ const
+ ^^^^^
+ source.ks storage.type.constant.ks
+       
+      ^
+      source.ks
+       lateinit
+       ^^^^^^^^
+       source.ks meta.definition.variable.ks variable.other.constant.ks
+                
+               ^
+               source.ks
+                =
+                ^
+                source.ks keyword.operator.assignment.ks
+                  
+                 ^
+                 source.ks
+                  42
+                  ^^
+                  source.ks constant.numeric.decimal.ks
+>
+>
+ 
+ ^
+ source.ks
+>
+>console.log(lateinit + 24)
+ console
+ ^^^^^^^
+ source.ks variable.other.object.ks
+        .
+        ^
+        source.ks punctuation.accessor.object.ks
+         log
+         ^^^
+         source.ks entity.name.function.ks
+            (
+            ^
+            source.ks punctuation.definition.arguments.begin.bracket.round.ks
+             lateinit
+             ^^^^^^^^
+             source.ks variable.other.ks
+                      
+                     ^
+                     source.ks
+                      +
+                      ^
+                      source.ks keyword.operator.arithmetic.ks
+                        
+                       ^
+                       source.ks
+                        24
+                        ^^
+                        source.ks constant.numeric.decimal.ks
+                          )
+                          ^
+                          source.ks punctuation.definition.arguments.end.bracket.round.ks
