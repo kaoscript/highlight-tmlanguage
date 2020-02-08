@@ -2157,6 +2157,10 @@
           </dict>
           <dict>
             <key>include</key>
+            <string>#tuple-statement-body</string>
+          </dict>
+          <dict>
+            <key>include</key>
             <string>#type-statement</string>
           </dict>
           <dict>
@@ -3071,6 +3075,10 @@
           <dict>
             <key>include</key>
             <string>#struct-statement-body</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#tuple-statement-body</string>
           </dict>
           <dict>
             <key>begin</key>
@@ -7153,6 +7161,10 @@
           </dict>
           <dict>
             <key>include</key>
+            <string>#tuple-statement</string>
+          </dict>
+          <dict>
+            <key>include</key>
             <string>#unless-statement</string>
           </dict>
           <dict>
@@ -7334,7 +7346,7 @@
         <key>begin</key>
         <string>(?=^\s*struct\s+[_$[:alpha:]][_$[:alnum:]]*\b)</string>
         <key>end</key>
-        <string>(?&lt;=[\]\}]|$)</string>
+        <string>(?&lt;=\}|$)</string>
         <key>patterns</key>
         <array>
           <dict>
@@ -7349,7 +7361,7 @@
         <array>
           <dict>
             <key>begin</key>
-            <string>\b(struct)\s+([_$[:alpha:]][_$[:alnum:]]*)\s*(?=[\[\{\(]|extends\b)</string>
+            <string>\b(struct)\s+([_$[:alpha:]][_$[:alnum:]]*)(?:\s+(extends)\s+([_$[:alpha:]][_$[:alnum:]]*))?\s*(?=\{)</string>
             <key>beginCaptures</key>
             <dict>
               <key>1</key>
@@ -7362,157 +7374,21 @@
                 <key>name</key>
                 <string>entity.name.type.struct.ks</string>
               </dict>
+              <key>3</key>
+              <dict>
+                <key>name</key>
+                <string>storage.modifier.extends.ks</string>
+              </dict>
+              <key>4</key>
+              <dict>
+                <key>name</key>
+                <string>entity.name.type.struct.ks</string>
+              </dict>
             </dict>
             <key>end</key>
-            <string>(?&lt;=[\]\}]|$)</string>
+            <string>(?&lt;=\}|$)</string>
             <key>patterns</key>
             <array>
-              <dict>
-                <key>begin</key>
-                <string>\(</string>
-                <key>beginCaptures</key>
-                <dict>
-                  <key>0</key>
-                  <dict>
-                    <key>name</key>
-                    <string>punctuation.definition.struct.begin.bracket.round.ks</string>
-                  </dict>
-                </dict>
-                <key>end</key>
-                <string>\)</string>
-                <key>endCaptures</key>
-                <dict>
-                  <key>0</key>
-                  <dict>
-                    <key>name</key>
-                    <string>punctuation.definition.struct.end.bracket.round.ks</string>
-                  </dict>
-                </dict>
-                <key>patterns</key>
-                <array>
-                  <dict>
-                    <key>include</key>
-                    <string>#type</string>
-                  </dict>
-                  <dict>
-                    <key>begin</key>
-                    <string>=</string>
-                    <key>beginCaptures</key>
-                    <dict>
-                      <key>0</key>
-                      <dict>
-                        <key>name</key>
-                        <string>keyword.operator.assignment.ks</string>
-                      </dict>
-                    </dict>
-                    <key>end</key>
-                    <string>$</string>
-                    <key>patterns</key>
-                    <array>
-                      <dict>
-                        <key>include</key>
-                        <string>#expression</string>
-                      </dict>
-                    </array>
-                  </dict>
-                  <dict>
-                    <key>include</key>
-                    <string>#comma</string>
-                  </dict>
-                </array>
-              </dict>
-              <dict>
-                <key>begin</key>
-                <string>\[</string>
-                <key>beginCaptures</key>
-                <dict>
-                  <key>0</key>
-                  <dict>
-                    <key>name</key>
-                    <string>punctuation.definition.struct.begin.bracket.square.ks</string>
-                  </dict>
-                </dict>
-                <key>end</key>
-                <string>\]</string>
-                <key>endCaptures</key>
-                <dict>
-                  <key>0</key>
-                  <dict>
-                    <key>name</key>
-                    <string>punctuation.definition.struct.end.bracket.square.ks</string>
-                  </dict>
-                </dict>
-                <key>patterns</key>
-                <array>
-                  <dict>
-                    <key>begin</key>
-                    <string>[_$[:alpha:]][_$[:alnum:]]*</string>
-                    <key>beginCaptures</key>
-                    <dict>
-                      <key>0</key>
-                      <dict>
-                        <key>name</key>
-                        <string>entity.name.variable.field.ks</string>
-                      </dict>
-                    </dict>
-                    <key>end</key>
-                    <string>$</string>
-                    <key>patterns</key>
-                    <array>
-                      <dict>
-                        <key>name</key>
-                        <string>storage.modifier.nullable.ks</string>
-                        <key>match</key>
-                        <string>\?</string>
-                      </dict>
-                      <dict>
-                        <key>name</key>
-                        <string>meta.type.annotation.ks</string>
-                        <key>begin</key>
-                        <string>:</string>
-                        <key>beginCaptures</key>
-                        <dict>
-                          <key>0</key>
-                          <dict>
-                            <key>name</key>
-                            <string>keyword.operator.type.annotation.ks</string>
-                          </dict>
-                        </dict>
-                        <key>end</key>
-                        <string>(?=$|=)</string>
-                        <key>patterns</key>
-                        <array>
-                          <dict>
-                            <key>include</key>
-                            <string>#type</string>
-                          </dict>
-                        </array>
-                      </dict>
-                      <dict>
-                        <key>begin</key>
-                        <string>=</string>
-                        <key>beginCaptures</key>
-                        <dict>
-                          <key>0</key>
-                          <dict>
-                            <key>name</key>
-                            <string>keyword.operator.assignment.ks</string>
-                          </dict>
-                        </dict>
-                        <key>end</key>
-                        <string>$</string>
-                        <key>patterns</key>
-                        <array>
-                          <dict>
-                            <key>include</key>
-                            <string>#expression</string>
-                          </dict>
-                        </array>
-                      </dict>
-                    </array>
-                  </dict>
-                </array>
-              </dict>
               <dict>
                 <key>begin</key>
                 <string>\{</string>
@@ -7604,23 +7480,6 @@
                     </array>
                   </dict>
                 </array>
-              </dict>
-              <dict>
-                <key>match</key>
-                <string>\b(extends)\s+([_$[:alpha:]][_$[:alnum:]]*)</string>
-                <key>captures</key>
-                <dict>
-                  <key>1</key>
-                  <dict>
-                    <key>name</key>
-                    <string>storage.modifier.extends.ks</string>
-                  </dict>
-                  <key>2</key>
-                  <dict>
-                    <key>name</key>
-                    <string>entity.name.type.struct.ks</string>
-                  </dict>
-                </dict>
               </dict>
             </array>
           </dict>
@@ -8071,6 +7930,238 @@
                 <string>#block</string>
               </dict>
             </array>
+          </dict>
+        </array>
+      </dict>
+      <key>tuple-statement</key>
+      <dict>
+        <key>begin</key>
+        <string>(?=^\s*tuple\s+[_$[:alpha:]][_$[:alnum:]]*\b)</string>
+        <key>end</key>
+        <string>(?&lt;=\}|$)</string>
+        <key>patterns</key>
+        <array>
+          <dict>
+            <key>include</key>
+            <string>#tuple-statement-body</string>
+          </dict>
+        </array>
+      </dict>
+      <key>tuple-statement-body</key>
+      <dict>
+        <key>patterns</key>
+        <array>
+          <dict>
+            <key>begin</key>
+            <string>\b(tuple)\s+([_$[:alpha:]][_$[:alnum:]]*)\s*(?=[\{\(]|extends\b)</string>
+            <key>beginCaptures</key>
+            <dict>
+              <key>1</key>
+              <dict>
+                <key>name</key>
+                <string>storage.type.tuple.ks</string>
+              </dict>
+              <key>2</key>
+              <dict>
+                <key>name</key>
+                <string>entity.name.type.tuple.ks</string>
+              </dict>
+            </dict>
+            <key>end</key>
+            <string>(?&lt;=[\]\}]|$)</string>
+            <key>patterns</key>
+            <array>
+              <dict>
+                <key>begin</key>
+                <string>\(</string>
+                <key>beginCaptures</key>
+                <dict>
+                  <key>0</key>
+                  <dict>
+                    <key>name</key>
+                    <string>punctuation.definition.tuple.begin.bracket.round.ks</string>
+                  </dict>
+                </dict>
+                <key>end</key>
+                <string>\)</string>
+                <key>endCaptures</key>
+                <dict>
+                  <key>0</key>
+                  <dict>
+                    <key>name</key>
+                    <string>punctuation.definition.tuple.end.bracket.round.ks</string>
+                  </dict>
+                </dict>
+                <key>patterns</key>
+                <array>
+                  <dict>
+                    <key>include</key>
+                    <string>#type</string>
+                  </dict>
+                  <dict>
+                    <key>begin</key>
+                    <string>=</string>
+                    <key>beginCaptures</key>
+                    <dict>
+                      <key>0</key>
+                      <dict>
+                        <key>name</key>
+                        <string>keyword.operator.assignment.ks</string>
+                      </dict>
+                    </dict>
+                    <key>end</key>
+                    <string>$</string>
+                    <key>patterns</key>
+                    <array>
+                      <dict>
+                        <key>include</key>
+                        <string>#expression</string>
+                      </dict>
+                    </array>
+                  </dict>
+                  <dict>
+                    <key>include</key>
+                    <string>#comma</string>
+                  </dict>
+                </array>
+              </dict>
+              <dict>
+                <key>begin</key>
+                <string>\{</string>
+                <key>beginCaptures</key>
+                <dict>
+                  <key>0</key>
+                  <dict>
+                    <key>name</key>
+                    <string>punctuation.definition.tuple.begin.bracket.curly.ks</string>
+                  </dict>
+                </dict>
+                <key>end</key>
+                <string>\}</string>
+                <key>endCaptures</key>
+                <dict>
+                  <key>0</key>
+                  <dict>
+                    <key>name</key>
+                    <string>punctuation.definition.tuple.end.bracket.curly.ks</string>
+                  </dict>
+                </dict>
+                <key>patterns</key>
+                <array>
+                  <dict>
+                    <key>begin</key>
+                    <string>[_$[:alpha:]][_$[:alnum:]]*</string>
+                    <key>beginCaptures</key>
+                    <dict>
+                      <key>0</key>
+                      <dict>
+                        <key>name</key>
+                        <string>entity.name.variable.field.ks</string>
+                      </dict>
+                    </dict>
+                    <key>end</key>
+                    <string>$</string>
+                    <key>patterns</key>
+                    <array>
+                      <dict>
+                        <key>name</key>
+                        <string>storage.modifier.nullable.ks</string>
+                        <key>match</key>
+                        <string>\?</string>
+                      </dict>
+                      <dict>
+                        <key>name</key>
+                        <string>meta.type.annotation.ks</string>
+                        <key>begin</key>
+                        <string>:</string>
+                        <key>beginCaptures</key>
+                        <dict>
+                          <key>0</key>
+                          <dict>
+                            <key>name</key>
+                            <string>keyword.operator.type.annotation.ks</string>
+                          </dict>
+                        </dict>
+                        <key>end</key>
+                        <string>(?=$|=)</string>
+                        <key>patterns</key>
+                        <array>
+                          <dict>
+                            <key>include</key>
+                            <string>#type</string>
+                          </dict>
+                        </array>
+                      </dict>
+                      <dict>
+                        <key>begin</key>
+                        <string>=</string>
+                        <key>beginCaptures</key>
+                        <dict>
+                          <key>0</key>
+                          <dict>
+                            <key>name</key>
+                            <string>keyword.operator.assignment.ks</string>
+                          </dict>
+                        </dict>
+                        <key>end</key>
+                        <string>$</string>
+                        <key>patterns</key>
+                        <array>
+                          <dict>
+                            <key>include</key>
+                            <string>#expression</string>
+                          </dict>
+                        </array>
+                      </dict>
+                    </array>
+                  </dict>
+                </array>
+              </dict>
+              <dict>
+                <key>match</key>
+                <string>\b(extends)\s+([_$[:alpha:]][_$[:alnum:]]*)</string>
+                <key>captures</key>
+                <dict>
+                  <key>1</key>
+                  <dict>
+                    <key>name</key>
+                    <string>storage.modifier.extends.ks</string>
+                  </dict>
+                  <key>2</key>
+                  <dict>
+                    <key>name</key>
+                    <string>entity.name.type.tuple.ks</string>
+                  </dict>
+                </dict>
+              </dict>
+            </array>
+          </dict>
+          <dict>
+            <key>match</key>
+            <string>\b(tuple)\s+([_$[:alpha:]][_$[:alnum:]]*)(?:\s+(extends)\s+([_$[:alpha:]][_$[:alnum:]]*))?</string>
+            <key>captures</key>
+            <dict>
+              <key>1</key>
+              <dict>
+                <key>name</key>
+                <string>storage.type.tuple.ks</string>
+              </dict>
+              <key>2</key>
+              <dict>
+                <key>name</key>
+                <string>entity.name.type.tuple.ks</string>
+              </dict>
+              <key>3</key>
+              <dict>
+                <key>name</key>
+                <string>storage.modifier.extends.ks</string>
+              </dict>
+              <key>4</key>
+              <dict>
+                <key>name</key>
+                <string>entity.name.type.tuple.ks</string>
+              </dict>
+            </dict>
           </dict>
         </array>
       </dict>

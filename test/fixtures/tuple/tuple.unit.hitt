@@ -1,0 +1,54 @@
+original file
+-----------------------------------
+tuple Unit
+
+let unit = Unit()
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>tuple Unit
+ tuple
+ ^^^^^
+ source.ks storage.type.tuple.ks
+       
+      ^
+      source.ks
+       Unit
+       ^^^^
+       source.ks entity.name.type.tuple.ks
+>
+>
+ 
+ ^
+ source.ks
+>
+>let unit = Unit()
+ let
+ ^^^
+ source.ks storage.type.readwrite.ks
+     
+    ^
+    source.ks
+     unit
+     ^^^^
+     source.ks meta.definition.variable.ks variable.other.readwrite.ks
+          
+         ^
+         source.ks
+          =
+          ^
+          source.ks keyword.operator.assignment.ks
+            
+           ^
+           source.ks
+            Unit
+            ^^^^
+            source.ks entity.name.function.ks
+                (
+                ^
+                source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                 )
+                 ^
+                 source.ks punctuation.definition.arguments.end.bracket.round.ks

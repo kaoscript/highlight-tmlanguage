@@ -1,60 +1,18 @@
 original file
 -----------------------------------
-struct Pair(String?, Number?)
-
 struct Point {
     x?
     y?
 }
 
-struct Pair2 [
+struct Pair2 {
     x?    = 1
     y?    = 2
-]
+}
 -----------------------------------
 
 grammar: kaoscript.tmLanguage
 -----------------------------------
->
->struct Pair(String?, Number?)
- struct
- ^^^^^^
- source.ks storage.type.struct.ks
-        
-       ^
-       source.ks
-        Pair
-        ^^^^
-        source.ks entity.name.type.struct.ks
-            (
-            ^
-            source.ks punctuation.definition.struct.begin.bracket.round.ks
-             String
-             ^^^^^^
-             source.ks support.type.primitive.ks
-                   ?
-                   ^
-                   source.ks storage.modifier.nullable.ks
-                    ,
-                    ^
-                    source.ks punctuation.separator.comma.ks
-                      
-                     ^
-                     source.ks
-                      Number
-                      ^^^^^^
-                      source.ks support.type.primitive.ks
-                            ?
-                            ^
-                            source.ks storage.modifier.nullable.ks
-                             )
-                             ^
-                             source.ks punctuation.definition.struct.end.bracket.round.ks
->
->
- 
- ^
- source.ks
 >
 >struct Point {
  struct
@@ -105,7 +63,7 @@ grammar: kaoscript.tmLanguage
  ^
  source.ks
 >
->struct Pair2 [
+>struct Pair2 {
  struct
  ^^^^^^
  source.ks storage.type.struct.ks
@@ -118,9 +76,9 @@ grammar: kaoscript.tmLanguage
               
              ^
              source.ks
-              [
+              {
               ^
-              source.ks punctuation.definition.struct.begin.bracket.square.ks
+              source.ks punctuation.definition.struct.begin.bracket.curly.ks
 >
 >    x?    = 1
      
@@ -168,7 +126,7 @@ grammar: kaoscript.tmLanguage
              ^
              source.ks constant.numeric.decimal.ks
 >
->]
- ]
+>}
+ }
  ^
- source.ks punctuation.definition.struct.end.bracket.square.ks
+ source.ks punctuation.definition.struct.end.bracket.curly.ks

@@ -658,6 +658,7 @@ repository:
     - include: '#macro-statement'
     - include: '#namespace-statement'
     - include: '#struct-statement-body'
+    - include: '#tuple-statement-body'
     - include: '#type-statement'
     - begin: '(?=[_$[:alpha:]])'
       end: '(?=,|$)'
@@ -921,6 +922,7 @@ repository:
             - include: '#type'
         - include: '#extern-declarator'
     - include: '#struct-statement-body'
+    - include: '#tuple-statement-body'
     - begin: '(?:(\basync)\s+)?({{identifier}})\s*(?=\()'
       beginCaptures:
         '1': { name: 'storage.modifier.async.ks' }
@@ -2141,6 +2143,7 @@ repository:
     - include: '#switch-statement'
     - include: '#throw-statement'
     - include: '#try-catch-statement'
+    - include: '#tuple-statement'
     - include: '#unless-statement'
     - include: '#until-statement'
     - include: '#while-statement'
@@ -2197,60 +2200,20 @@ repository:
   # }}}
   struct-statement: # {{{
     begin: '(?=^\s*struct\s+{{identifier}}\b)'
-    end: '(?<=[\]\}]|$)'
+    end: '(?<=\}|$)'
     patterns:
     - include: '#struct-statement-body'
   # }}}
   struct-statement-body: # {{{
     patterns:
-    - begin: '\b(struct)\s+({{identifier}})\s*(?=[\[\{\(]|extends\b)'
+    - begin: '\b(struct)\s+({{identifier}})(?:\s+(extends)\s+({{identifier}}))?\s*(?=\{)'
       beginCaptures:
         '1': { name: 'storage.type.struct.ks' }
         '2': { name: 'entity.name.type.struct.ks' }
-      end: '(?<=[\]\}]|$)'
+        '3': { name: 'storage.modifier.extends.ks' }
+        '4': { name: 'entity.name.type.struct.ks' }
+      end: '(?<=\}|$)'
       patterns:
-      - begin: '\('
-        beginCaptures:
-          '0': { name: 'punctuation.definition.struct.begin.bracket.round.ks' }
-        end: '\)'
-        endCaptures:
-          '0': { name: 'punctuation.definition.struct.end.bracket.round.ks' }
-        patterns:
-        - include: '#type'
-        - begin: '='
-          beginCaptures:
-            '0': { name: 'keyword.operator.assignment.ks' }
-          end: '$'
-          patterns:
-          - include: '#expression'
-        - include: '#comma'
-      - begin: '\['
-        beginCaptures:
-          '0': { name: 'punctuation.definition.struct.begin.bracket.square.ks' }
-        end: '\]'
-        endCaptures:
-          '0': { name: 'punctuation.definition.struct.end.bracket.square.ks' }
-        patterns:
-        - begin: '{{identifier}}'
-          beginCaptures:
-            '0': { name: 'entity.name.variable.field.ks' }
-          end: '$'
-          patterns:
-          - name: 'storage.modifier.nullable.ks'
-            match: '\?'
-          - name: 'meta.type.annotation.ks'
-            begin: ':'
-            beginCaptures:
-              '0': { name: 'keyword.operator.type.annotation.ks' }
-            end: '(?=$|=)'
-            patterns:
-            - include: '#type'
-          - begin: '='
-            beginCaptures:
-              '0': { name: 'keyword.operator.assignment.ks' }
-            end: '$'
-            patterns:
-            - include: '#expression'
       - begin: '\{'
         beginCaptures:
           '0': { name: 'punctuation.definition.struct.begin.bracket.curly.ks' }
@@ -2278,10 +2241,6 @@ repository:
             end: '$'
             patterns:
             - include: '#expression'
-      - match: '\b(extends)\s+({{identifier}})'
-        captures:
-          '1': { name: 'storage.modifier.extends.ks' }
-          '2': { name: 'entity.name.type.struct.ks' }
     - match: '\b(struct)\s+({{identifier}})(?:\s+(extends)\s+({{identifier}}))?'
       captures:
         '1': { name: 'storage.type.struct.ks' }
@@ -2418,6 +2377,73 @@ repository:
         end: '(?<=\})'
         patterns:
         - include: '#block'
+  # }}}
+  tuple-statement: # {{{
+    begin: '(?=^\s*tuple\s+{{identifier}}\b)'
+    end: '(?<=\}|$)'
+    patterns:
+    - include: '#tuple-statement-body'
+  # }}}
+  tuple-statement-body: # {{{
+    patterns:
+    - begin: '\b(tuple)\s+({{identifier}})\s*(?=[\{\(]|extends\b)'
+      beginCaptures:
+        '1': { name: 'storage.type.tuple.ks' }
+        '2': { name: 'entity.name.type.tuple.ks' }
+      end: '(?<=[\]\}]|$)'
+      patterns:
+      - begin: '\('
+        beginCaptures:
+          '0': { name: 'punctuation.definition.tuple.begin.bracket.round.ks' }
+        end: '\)'
+        endCaptures:
+          '0': { name: 'punctuation.definition.tuple.end.bracket.round.ks' }
+        patterns:
+        - include: '#type'
+        - begin: '='
+          beginCaptures:
+            '0': { name: 'keyword.operator.assignment.ks' }
+          end: '$'
+          patterns:
+          - include: '#expression'
+        - include: '#comma'
+      - begin: '\{'
+        beginCaptures:
+          '0': { name: 'punctuation.definition.tuple.begin.bracket.curly.ks' }
+        end: '\}'
+        endCaptures:
+          '0': { name: 'punctuation.definition.tuple.end.bracket.curly.ks' }
+        patterns:
+        - begin: '{{identifier}}'
+          beginCaptures:
+            '0': { name: 'entity.name.variable.field.ks' }
+          end: '$'
+          patterns:
+          - name: 'storage.modifier.nullable.ks'
+            match: '\?'
+          - name: 'meta.type.annotation.ks'
+            begin: ':'
+            beginCaptures:
+              '0': { name: 'keyword.operator.type.annotation.ks' }
+            end: '(?=$|=)'
+            patterns:
+            - include: '#type'
+          - begin: '='
+            beginCaptures:
+              '0': { name: 'keyword.operator.assignment.ks' }
+            end: '$'
+            patterns:
+            - include: '#expression'
+      - match: '\b(extends)\s+({{identifier}})'
+        captures:
+          '1': { name: 'storage.modifier.extends.ks' }
+          '2': { name: 'entity.name.type.tuple.ks' }
+    - match: '\b(tuple)\s+({{identifier}})(?:\s+(extends)\s+({{identifier}}))?'
+      captures:
+        '1': { name: 'storage.type.tuple.ks' }
+        '2': { name: 'entity.name.type.tuple.ks' }
+        '3': { name: 'storage.modifier.extends.ks' }
+        '4': { name: 'entity.name.type.tuple.ks' }
   # }}}
   type: # {{{
     patterns:

@@ -1,6 +1,6 @@
 original file
 -----------------------------------
-struct Pair(
+tuple Pair(
     String    = ''
     Number    = 0
 )
@@ -13,19 +13,19 @@ console.log(pair.0, pair.1)
 grammar: kaoscript.tmLanguage
 -----------------------------------
 >
->struct Pair(
- struct
- ^^^^^^
- source.ks storage.type.struct.ks
-        
-       ^
-       source.ks
-        Pair
-        ^^^^
-        source.ks entity.name.type.struct.ks
-            (
-            ^
-            source.ks punctuation.definition.struct.begin.bracket.round.ks
+>tuple Pair(
+ tuple
+ ^^^^^
+ source.ks storage.type.tuple.ks
+       
+      ^
+      source.ks
+       Pair
+       ^^^^
+       source.ks entity.name.type.tuple.ks
+           (
+           ^
+           source.ks punctuation.definition.tuple.begin.bracket.round.ks
 >
 >    String    = ''
      
@@ -73,7 +73,7 @@ grammar: kaoscript.tmLanguage
 >)
  )
  ^
- source.ks punctuation.definition.struct.end.bracket.round.ks
+ source.ks punctuation.definition.tuple.end.bracket.round.ks
 >
 >
  
