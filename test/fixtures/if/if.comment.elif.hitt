@@ -1,0 +1,102 @@
+original file
+-----------------------------------
+let x = 5
+
+if x == 3 {
+}
+else /* if x == 4 */ {
+}
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>let x = 5
+ let
+ ^^^
+ source.ks storage.type.readwrite.ks
+     
+    ^
+    source.ks
+     x
+     ^
+     source.ks meta.definition.variable.ks variable.other.readwrite.ks
+       
+      ^
+      source.ks
+       =
+       ^
+       source.ks keyword.operator.assignment.ks
+         
+        ^
+        source.ks
+         5
+         ^
+         source.ks constant.numeric.decimal.ks
+>
+>
+ 
+ ^
+ source.ks
+>
+>if x == 3 {
+ if
+ ^^
+ source.ks keyword.control.conditional.if.ks
+    
+   ^
+   source.ks
+    x
+    ^
+    source.ks variable.other.ks
+      
+     ^
+     source.ks
+      ==
+      ^^
+      source.ks keyword.operator.comparison.ks
+         
+        ^
+        source.ks
+         3
+         ^
+         source.ks constant.numeric.decimal.ks
+           
+          ^
+          source.ks
+           {
+           ^
+           source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.block.end.bracket.curly.ks
+>
+>else /* if x == 4 */ {
+ else
+ ^^^^
+ source.ks keyword.control.conditional.else.ks
+      
+     ^
+     source.ks
+      /*
+      ^^
+      source.ks comment.block.ks punctuation.definition.comment.ks
+         if x == 4 
+        ^^^^^^^^^^^
+        source.ks comment.block.ks
+                   */
+                   ^^
+                   source.ks comment.block.ks punctuation.definition.comment.ks
+                      
+                     ^
+                     source.ks
+                      {
+                      ^
+                      source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.block.end.bracket.curly.ks

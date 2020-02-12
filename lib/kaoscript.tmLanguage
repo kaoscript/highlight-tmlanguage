@@ -1516,7 +1516,7 @@
             <key>name</key>
             <string>comment.block.documentation.ks</string>
             <key>begin</key>
-            <string>/\*\*(?!/)</string>
+            <string>\/\*\*(?!\/)</string>
             <key>beginCaptures</key>
             <dict>
               <key>0</key>
@@ -1526,7 +1526,7 @@
               </dict>
             </dict>
             <key>end</key>
-            <string>\*/</string>
+            <string>\*\/</string>
             <key>endCaptures</key>
             <dict>
               <key>0</key>
@@ -1611,7 +1611,7 @@
         <key>name</key>
         <string>comment.block.ks</string>
         <key>begin</key>
-        <string>/\*</string>
+        <string>\/\*</string>
         <key>beginCaptures</key>
         <dict>
           <key>0</key>
@@ -1621,7 +1621,7 @@
           </dict>
         </dict>
         <key>end</key>
-        <string>\*/</string>
+        <string>\*\/</string>
         <key>endCaptures</key>
         <dict>
           <key>0</key>
@@ -1926,7 +1926,7 @@
       <key>else-statement</key>
       <dict>
         <key>begin</key>
-        <string>^\s*(else\b)(?=\s*\{|\/\*|\/\/|$)</string>
+        <string>^\s*(else\b)\s*(?=\{|\/\*|\/\/|$)</string>
         <key>beginCaptures</key>
         <dict>
           <key>1</key>
@@ -2335,6 +2335,10 @@
                 <string>variable.other.ks</string>
                 <key>match</key>
                 <string>[_$[:alpha:]][_$[:alnum:]]*</string>
+              </dict>
+              <dict>
+                <key>include</key>
+                <string>#comment</string>
               </dict>
             </array>
           </dict>
@@ -4039,31 +4043,72 @@
       </dict>
       <key>function-return-type</key>
       <dict>
-        <key>name</key>
-        <string>meta.function.return-type.ks</string>
-        <key>begin</key>
-        <string>(\:)(?!\=)</string>
-        <key>beginCaptures</key>
-        <dict>
-          <key>1</key>
-          <dict>
-            <key>name</key>
-            <string>keyword.operator.type.annotation.ks</string>
-          </dict>
-        </dict>
-        <key>end</key>
-        <string>(?=\s*[\{~=]|$)</string>
         <key>patterns</key>
         <array>
           <dict>
             <key>name</key>
-            <string>variable.language.auto.ks</string>
-            <key>match</key>
-            <string>\bauto\b</string>
+            <string>meta.function.return-type.ks</string>
+            <key>begin</key>
+            <string>(\:)\s+(\{)</string>
+            <key>beginCaptures</key>
+            <dict>
+              <key>1</key>
+              <dict>
+                <key>name</key>
+                <string>keyword.operator.type.annotation.ks</string>
+              </dict>
+              <key>2</key>
+              <dict>
+                <key>name</key>
+                <string>punctuation.definition.object.begin.bracket.curly.ks</string>
+              </dict>
+            </dict>
+            <key>end</key>
+            <string>\}</string>
+            <key>endCaptures</key>
+            <dict>
+              <key>0</key>
+              <dict>
+                <key>name</key>
+                <string>punctuation.definition.object.end.bracket.curly.ks</string>
+              </dict>
+            </dict>
+            <key>patterns</key>
+            <array>
+              <dict>
+                <key>include</key>
+                <string>#type-object</string>
+              </dict>
+            </array>
           </dict>
           <dict>
-            <key>include</key>
-            <string>#type</string>
+            <key>name</key>
+            <string>meta.function.return-type.ks</string>
+            <key>begin</key>
+            <string>(\:)(?!\=)</string>
+            <key>beginCaptures</key>
+            <dict>
+              <key>1</key>
+              <dict>
+                <key>name</key>
+                <string>keyword.operator.type.annotation.ks</string>
+              </dict>
+            </dict>
+            <key>end</key>
+            <string>(?=\s*[\{~=]|$)</string>
+            <key>patterns</key>
+            <array>
+              <dict>
+                <key>name</key>
+                <string>variable.language.auto.ks</string>
+                <key>match</key>
+                <string>\bauto\b</string>
+              </dict>
+              <dict>
+                <key>include</key>
+                <string>#type</string>
+              </dict>
+            </array>
           </dict>
         </array>
       </dict>

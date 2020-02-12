@@ -10,6 +10,8 @@ destruct.array.for.const
 destruct.array.for.default
 destruct.object.if.existential.func
 do.while.if
+export.comment.list.ml
+export.comment.list.sl
 extern.disclose.class.static
 extern.disclose.internal
 for.block.in.constructor
@@ -24,6 +26,7 @@ function.return.logical
 generics.array.param.func.wr.gt
 if.comment.cond
 if.comment.const
+if.comment.elif
 if.comment.else
 keyword.var.let
 keyword.var.until
@@ -41,4 +44,5 @@ operator.ternary.true
 template.parenthesis.match
 type.alias.object
 type.cast.operation
+type.function.ret.object
 type.parameter.func.wr.gt

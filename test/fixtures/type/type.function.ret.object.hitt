@@ -1,0 +1,108 @@
+original file
+-----------------------------------
+func foobar(): {foo: int, bar: string} {
+    if x {
+    }
+}
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>func foobar(): {foo: int, bar: string} {
+ func
+ ^^^^
+ source.ks storage.type.function.ks
+      
+     ^
+     source.ks
+      foobar
+      ^^^^^^
+      source.ks entity.name.function.ks
+            (
+            ^
+            source.ks punctuation.definition.parameters.begin.bracket.round.ks
+             )
+             ^
+             source.ks punctuation.definition.parameters.end.bracket.round.ks
+              :
+              ^
+              source.ks meta.function.return-type.ks keyword.operator.type.annotation.ks
+                
+               ^
+               source.ks meta.function.return-type.ks
+                {
+                ^
+                source.ks meta.function.return-type.ks punctuation.definition.object.begin.bracket.curly.ks
+                 foo
+                 ^^^
+                 source.ks meta.function.return-type.ks meta.object.key.ks
+                    :
+                    ^
+                    source.ks meta.function.return-type.ks keyword.operator.type.annotation.ks
+                      
+                     ^
+                     source.ks meta.function.return-type.ks
+                      int
+                      ^^^
+                      source.ks meta.function.return-type.ks entity.name.type.ks
+                         ,
+                         ^
+                         source.ks meta.function.return-type.ks punctuation.separator.comma.ks
+                           
+                          ^
+                          source.ks meta.function.return-type.ks
+                           bar
+                           ^^^
+                           source.ks meta.function.return-type.ks meta.object.key.ks
+                              :
+                              ^
+                              source.ks meta.function.return-type.ks keyword.operator.type.annotation.ks
+                                
+                               ^
+                               source.ks meta.function.return-type.ks
+                                string
+                                ^^^^^^
+                                source.ks meta.function.return-type.ks support.type.primitive.ks
+                                      }
+                                      ^
+                                      source.ks meta.function.return-type.ks punctuation.definition.object.end.bracket.curly.ks
+                                        
+                                       ^
+                                       source.ks
+                                        {
+                                        ^
+                                        source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>    if x {
+     
+ ^^^^
+ source.ks
+     if
+     ^^
+     source.ks keyword.control.conditional.if.ks
+        
+       ^
+       source.ks
+        x
+        ^
+        source.ks variable.other.ks
+          
+         ^
+         source.ks
+          {
+          ^
+          source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>    }
+     
+ ^^^^
+ source.ks
+     }
+     ^
+     source.ks punctuation.definition.block.end.bracket.curly.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.block.end.bracket.curly.ks

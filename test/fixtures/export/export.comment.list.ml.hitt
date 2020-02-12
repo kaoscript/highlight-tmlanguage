@@ -1,0 +1,36 @@
+original file
+-----------------------------------
+export x, y/* , z */
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>export x, y/* , z */
+ export
+ ^^^^^^
+ source.ks keyword.control.export.ks
+        
+       ^
+       source.ks
+        x
+        ^
+        source.ks variable.other.ks
+         ,
+         ^
+         source.ks punctuation.separator.comma.ks
+           
+          ^
+          source.ks
+           y
+           ^
+           source.ks variable.other.ks
+            /*
+            ^^
+            source.ks comment.block.ks punctuation.definition.comment.ks
+               , z 
+              ^^^^^
+              source.ks comment.block.ks
+                   */
+                   ^^
+                   source.ks comment.block.ks punctuation.definition.comment.ks
