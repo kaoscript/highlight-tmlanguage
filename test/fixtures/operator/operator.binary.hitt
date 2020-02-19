@@ -32,15 +32,15 @@ z = x -> y
 
 z = x ^^ y
 
-z = x >> y
+z = x >>> y
 
-z = x << y
+z = x <<< y
 
-z = x & y
+z = x &&& y
 
-z = x | y
+z = x ||| y
 
-z = x ^ y
+z = x ^^^ y
 
 z = x ?? y
 -----------------------------------
@@ -592,7 +592,7 @@ grammar: kaoscript.tmLanguage
  ^
  source.ks
 >
->z = x >> y
+>z = x >>> y
  z
  ^
  source.ks variable.other.ks
@@ -611,22 +611,22 @@ grammar: kaoscript.tmLanguage
        
       ^
       source.ks
-       >>
-       ^^
+       >>>
+       ^^^
        source.ks keyword.operator.bitwise.ks
-          
-         ^
-         source.ks
-          y
+           
           ^
-          source.ks variable.other.ks
+          source.ks
+           y
+           ^
+           source.ks variable.other.ks
 >
 >
  
  ^
  source.ks
 >
->z = x << y
+>z = x <<< y
  z
  ^
  source.ks variable.other.ks
@@ -645,22 +645,22 @@ grammar: kaoscript.tmLanguage
        
       ^
       source.ks
-       <<
-       ^^
+       <<<
+       ^^^
        source.ks keyword.operator.bitwise.ks
-          
-         ^
-         source.ks
-          y
+           
           ^
-          source.ks variable.other.ks
+          source.ks
+           y
+           ^
+           source.ks variable.other.ks
 >
 >
  
  ^
  source.ks
 >
->z = x & y
+>z = x &&& y
  z
  ^
  source.ks variable.other.ks
@@ -679,22 +679,22 @@ grammar: kaoscript.tmLanguage
        
       ^
       source.ks
-       &
-       ^
+       &&&
+       ^^^
        source.ks keyword.operator.bitwise.ks
-         
-        ^
-        source.ks
-         y
-         ^
-         source.ks variable.other.ks
+           
+          ^
+          source.ks
+           y
+           ^
+           source.ks variable.other.ks
 >
 >
  
  ^
  source.ks
 >
->z = x | y
+>z = x ||| y
  z
  ^
  source.ks variable.other.ks
@@ -713,22 +713,22 @@ grammar: kaoscript.tmLanguage
        
       ^
       source.ks
-       |
-       ^
+       |||
+       ^^^
        source.ks keyword.operator.bitwise.ks
-         
-        ^
-        source.ks
-         y
-         ^
-         source.ks variable.other.ks
+           
+          ^
+          source.ks
+           y
+           ^
+           source.ks variable.other.ks
 >
 >
  
  ^
  source.ks
 >
->z = x ^ y
+>z = x ^^^ y
  z
  ^
  source.ks variable.other.ks
@@ -747,15 +747,15 @@ grammar: kaoscript.tmLanguage
        
       ^
       source.ks
-       ^
-       ^
+       ^^^
+       ^^^
        source.ks keyword.operator.bitwise.ks
-         
-        ^
-        source.ks
-         y
-         ^
-         source.ks variable.other.ks
+           
+          ^
+          source.ks
+           y
+           ^
+           source.ks variable.other.ks
 >
 >
  

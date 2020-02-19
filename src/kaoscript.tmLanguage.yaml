@@ -130,16 +130,8 @@ repository:
       end: '(?={{expression-ending}})'
       patterns:
       - include: '#expression'
-    - begin: '(\^|~|&|\||<<|>>)\s*(?={{expression-beginning}})'
-      beginCaptures:
-        '1': { name: 'keyword.operator.bitwise.ks' }
-      end: '(?={{expression-beginning}})'
-    - begin: '(\^|~|&|\||<<|>>)\s*(?=\/\/|$)'
-      beginCaptures:
-        '1': { name: 'keyword.operator.bitwise.ks' }
-      end: '(?={{expression-ending}})'
-      patterns:
-      - include: '#expression'
+    - name: 'keyword.operator.junctive.ks'
+      match: '&|\||\^'
     - begin: '(\+|-|\*|/\.|/|%)\s*(?={{expression-beginning}})'
       beginCaptures:
         '1': { name: 'keyword.operator.arithmetic.ks' }
@@ -1892,11 +1884,11 @@ repository:
     - name: 'keyword.operator.assignment.compound.ks'
       match: '\+=|-=|\*=|(?<!\()/\.?=|%=|\?\?=|!\?=|\?='
     - name: 'keyword.operator.assignment.compound.bitwise.ks'
-      match: '<<=|>>=|>>=|&=|\^=|\|='
+      match: '<<=|>>=|>>=|&&=|\^\^=|\|\|='
     - name: 'keyword.operator.bitwise.ks'
-      match: '<<|>>'
+      match: '\^\^\^|~~~|&&&|\|\|\||<<<|>>>'
     - name: 'keyword.operator.comparison.ks'
-      match: '<=|>=|==|<|>|!='
+      match: '<=|>=|==|<|>|!=|~~|!~'
     - name: 'keyword.operator.assignment.ks'
       match: '=|:='
     - name: 'keyword.operator.decrement.ks'
@@ -1908,7 +1900,7 @@ repository:
     - name: 'keyword.operator.null-coalescing.ks'
       match: '\?\?'
     - name: 'keyword.operator.exception-coalescing.ks'
-      match: '~~'
+      match: '~'
     - name: 'keyword.control.flow.await.ks'
       match: '\bawait\b(?=\s*{{expression-beginning}})'
     - match: '\b(try)(?:(!)|\b)(?=\s*{{expression-beginning}})'
@@ -2253,6 +2245,8 @@ repository:
             end: '$'
             patterns:
             - include: '#expression'
+          - include: '#comment'
+        - include: '#comment'
     - match: '\b(struct)\s+({{identifier}})(?:\s+(extends)\s+({{identifier}}))?'
       captures:
         '1': { name: 'storage.type.struct.ks' }
@@ -2446,6 +2440,8 @@ repository:
             end: '$'
             patterns:
             - include: '#expression'
+          - include: '#comment'
+        - include: '#comment'
       - match: '\b(extends)\s+({{identifier}})'
         captures:
           '1': { name: 'storage.modifier.extends.ks' }

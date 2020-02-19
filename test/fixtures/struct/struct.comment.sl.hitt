@@ -1,0 +1,60 @@
+original file
+-----------------------------------
+struct Point {
+    x: Number
+    // y: Number
+}
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>struct Point {
+ struct
+ ^^^^^^
+ source.ks storage.type.struct.ks
+        
+       ^
+       source.ks
+        Point
+        ^^^^^
+        source.ks entity.name.type.struct.ks
+              
+             ^
+             source.ks
+              {
+              ^
+              source.ks punctuation.definition.struct.begin.bracket.curly.ks
+>
+>    x: Number
+     
+ ^^^^
+ source.ks
+     x
+     ^
+     source.ks entity.name.variable.field.ks
+      :
+      ^
+      source.ks meta.type.annotation.ks keyword.operator.type.annotation.ks
+        
+       ^
+       source.ks meta.type.annotation.ks
+        Number
+        ^^^^^^
+        source.ks meta.type.annotation.ks support.type.primitive.ks
+>
+>    // y: Number
+     
+ ^^^^
+ source.ks punctuation.whitespace.comment.leading.ks
+     //
+     ^^
+     source.ks comment.line.double-slash.ks punctuation.definition.comment.ks
+        y: Number
+       ^^^^^^^^^^
+       source.ks comment.line.double-slash.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.struct.end.bracket.curly.ks

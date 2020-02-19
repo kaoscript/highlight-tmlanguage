@@ -394,39 +394,10 @@
             </array>
           </dict>
           <dict>
-            <key>begin</key>
-            <string>(\^|~|&amp;|\||&lt;&lt;|&gt;&gt;)\s*(?=[\{\[\("'`_$[:alnum:]\.\/@?!~+-])</string>
-            <key>beginCaptures</key>
-            <dict>
-              <key>1</key>
-              <dict>
-                <key>name</key>
-                <string>keyword.operator.bitwise.ks</string>
-              </dict>
-            </dict>
-            <key>end</key>
-            <string>(?=[\{\[\("'`_$[:alnum:]\.\/@?!~+-])</string>
-          </dict>
-          <dict>
-            <key>begin</key>
-            <string>(\^|~|&amp;|\||&lt;&lt;|&gt;&gt;)\s*(?=\/\/|$)</string>
-            <key>beginCaptures</key>
-            <dict>
-              <key>1</key>
-              <dict>
-                <key>name</key>
-                <string>keyword.operator.bitwise.ks</string>
-              </dict>
-            </dict>
-            <key>end</key>
-            <string>(?=[\{\}\]\)\|\^\-\*\.~+=!&lt;&gt;%&amp;]|^$)</string>
-            <key>patterns</key>
-            <array>
-              <dict>
-                <key>include</key>
-                <string>#expression</string>
-              </dict>
-            </array>
+            <key>name</key>
+            <string>keyword.operator.junctive.ks</string>
+            <key>match</key>
+            <string>&amp;|\||\^</string>
           </dict>
           <dict>
             <key>begin</key>
@@ -6312,19 +6283,19 @@
             <key>name</key>
             <string>keyword.operator.assignment.compound.bitwise.ks</string>
             <key>match</key>
-            <string>&lt;&lt;=|&gt;&gt;=|&gt;&gt;=|&amp;=|\^=|\|=</string>
+            <string>&lt;&lt;=|&gt;&gt;=|&gt;&gt;=|&amp;&amp;=|\^\^=|\|\|=</string>
           </dict>
           <dict>
             <key>name</key>
             <string>keyword.operator.bitwise.ks</string>
             <key>match</key>
-            <string>&lt;&lt;|&gt;&gt;</string>
+            <string>\^\^\^|~~~|&amp;&amp;&amp;|\|\|\||&lt;&lt;&lt;|&gt;&gt;&gt;</string>
           </dict>
           <dict>
             <key>name</key>
             <string>keyword.operator.comparison.ks</string>
             <key>match</key>
-            <string>&lt;=|&gt;=|==|&lt;|&gt;|!=</string>
+            <string>&lt;=|&gt;=|==|&lt;|&gt;|!=|~~|!~</string>
           </dict>
           <dict>
             <key>name</key>
@@ -6360,7 +6331,7 @@
             <key>name</key>
             <string>keyword.operator.exception-coalescing.ks</string>
             <key>match</key>
-            <string>~~</string>
+            <string>~</string>
           </dict>
           <dict>
             <key>name</key>
@@ -7522,7 +7493,15 @@
                           </dict>
                         </array>
                       </dict>
+                      <dict>
+                        <key>include</key>
+                        <string>#comment</string>
+                      </dict>
                     </array>
+                  </dict>
+                  <dict>
+                    <key>include</key>
+                    <string>#comment</string>
                   </dict>
                 </array>
               </dict>
@@ -8158,7 +8137,15 @@
                           </dict>
                         </array>
                       </dict>
+                      <dict>
+                        <key>include</key>
+                        <string>#comment</string>
+                      </dict>
                     </array>
+                  </dict>
+                  <dict>
+                    <key>include</key>
+                    <string>#comment</string>
                   </dict>
                 </array>
               </dict>

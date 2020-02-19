@@ -1,0 +1,102 @@
+original file
+-----------------------------------
+if color ~~ 'white' | 'black' | 'gray' | 'grey' {
+}
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>if color ~~ 'white' | 'black' | 'gray' | 'grey' {
+ if
+ ^^
+ source.ks keyword.control.conditional.if.ks
+    
+   ^
+   source.ks
+    color
+    ^^^^^
+    source.ks variable.other.ks
+          
+         ^
+         source.ks
+          ~~
+          ^^
+          source.ks keyword.operator.comparison.ks
+             
+            ^
+            source.ks
+             '
+             ^
+             source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
+              white
+              ^^^^^
+              source.ks string.quoted.single.ks
+                   '
+                   ^
+                   source.ks string.quoted.single.ks punctuation.definition.string.end.ks
+                     
+                    ^
+                    source.ks
+                     |
+                     ^
+                     source.ks keyword.operator.junctive.ks
+                       
+                      ^
+                      source.ks
+                       '
+                       ^
+                       source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
+                        black
+                        ^^^^^
+                        source.ks string.quoted.single.ks
+                             '
+                             ^
+                             source.ks string.quoted.single.ks punctuation.definition.string.end.ks
+                               
+                              ^
+                              source.ks
+                               |
+                               ^
+                               source.ks keyword.operator.junctive.ks
+                                 
+                                ^
+                                source.ks
+                                 '
+                                 ^
+                                 source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
+                                  gray
+                                  ^^^^
+                                  source.ks string.quoted.single.ks
+                                      '
+                                      ^
+                                      source.ks string.quoted.single.ks punctuation.definition.string.end.ks
+                                        
+                                       ^
+                                       source.ks
+                                        |
+                                        ^
+                                        source.ks keyword.operator.junctive.ks
+                                          
+                                         ^
+                                         source.ks
+                                          '
+                                          ^
+                                          source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
+                                           grey
+                                           ^^^^
+                                           source.ks string.quoted.single.ks
+                                               '
+                                               ^
+                                               source.ks string.quoted.single.ks punctuation.definition.string.end.ks
+                                                 
+                                                ^
+                                                source.ks
+                                                 {
+                                                 ^
+                                                 source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.block.end.bracket.curly.ks

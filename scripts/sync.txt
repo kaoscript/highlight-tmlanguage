@@ -41,7 +41,11 @@ operator.spread.this
 operator.ternary.infinity
 operator.ternary.null
 operator.ternary.true
+struct.comment.ml
+struct.comment.sl
 template.parenthesis.match
+tuple.named.comment.ml
+tuple.named.comment.sl
 type.alias.object
 type.cast.operation
 type.function.ret.object

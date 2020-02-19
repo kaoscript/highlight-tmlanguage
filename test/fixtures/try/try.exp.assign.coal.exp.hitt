@@ -9,7 +9,7 @@ func foobar(x) ~ Error {
     }
 }
 
-let x = try foobar(true) ~~ 24
+let x = try foobar(true) ~ 24
 -----------------------------------
 
 grammar: kaoscript.tmLanguage
@@ -162,7 +162,7 @@ grammar: kaoscript.tmLanguage
  ^
  source.ks
 >
->let x = try foobar(true) ~~ 24
+>let x = try foobar(true) ~ 24
  let
  ^^^
  source.ks storage.type.readwrite.ks
@@ -202,12 +202,12 @@ grammar: kaoscript.tmLanguage
                           
                          ^
                          source.ks
-                          ~~
-                          ^^
+                          ~
+                          ^
                           source.ks keyword.operator.exception-coalescing.ks
-                             
-                            ^
-                            source.ks
-                             24
-                             ^^
-                             source.ks constant.numeric.decimal.ks
+                            
+                           ^
+                           source.ks
+                            24
+                            ^^
+                            source.ks constant.numeric.decimal.ks

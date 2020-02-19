@@ -1,12 +1,12 @@
 original file
 -----------------------------------
-let a = ~4
+let a = ~~~4
 -----------------------------------
 
 grammar: kaoscript.tmLanguage
 -----------------------------------
 >
->let a = ~4
+>let a = ~~~4
  let
  ^^^
  source.ks storage.type.readwrite.ks
@@ -25,9 +25,9 @@ grammar: kaoscript.tmLanguage
          
         ^
         source.ks
-         ~
-         ^
+         ~~~
+         ^^^
          source.ks keyword.operator.bitwise.ks
-          4
-          ^
-          source.ks constant.numeric.decimal.ks
+            4
+            ^
+            source.ks constant.numeric.decimal.ks
