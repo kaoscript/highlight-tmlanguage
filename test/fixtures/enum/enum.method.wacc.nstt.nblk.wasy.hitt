@@ -1,0 +1,171 @@
+original file
+-----------------------------------
+enum Weekday {
+    MONDAY
+    TUESDAY
+    WEDNESDAY
+    THURSDAY
+    FRIDAY
+    SATURDAY
+    SUNDAY
+
+    internal async isWeekend(): Boolean => this == SATURDAY + SUNDAY
+}
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>enum Weekday {
+ enum
+ ^^^^
+ source.ks storage.type.enum.ks
+      
+     ^
+     source.ks
+      Weekday
+      ^^^^^^^
+      source.ks entity.name.type.enum.ks
+              
+             ^
+             source.ks
+              {
+              ^
+              source.ks punctuation.definition.enum.begin.bracket.curly.ks
+>
+>    MONDAY
+     
+ ^^^^
+ source.ks
+     MONDAY
+     ^^^^^^
+     source.ks entity.name.variable.field.ks
+>
+>    TUESDAY
+     
+ ^^^^
+ source.ks
+     TUESDAY
+     ^^^^^^^
+     source.ks entity.name.variable.field.ks
+>
+>    WEDNESDAY
+     
+ ^^^^
+ source.ks
+     WEDNESDAY
+     ^^^^^^^^^
+     source.ks entity.name.variable.field.ks
+>
+>    THURSDAY
+     
+ ^^^^
+ source.ks
+     THURSDAY
+     ^^^^^^^^
+     source.ks entity.name.variable.field.ks
+>
+>    FRIDAY
+     
+ ^^^^
+ source.ks
+     FRIDAY
+     ^^^^^^
+     source.ks entity.name.variable.field.ks
+>
+>    SATURDAY
+     
+ ^^^^
+ source.ks
+     SATURDAY
+     ^^^^^^^^
+     source.ks entity.name.variable.field.ks
+>
+>    SUNDAY
+     
+ ^^^^
+ source.ks
+     SUNDAY
+     ^^^^^^
+     source.ks entity.name.variable.field.ks
+>
+>
+ 
+ ^
+ source.ks
+>
+>    internal async isWeekend(): Boolean => this == SATURDAY + SUNDAY
+     
+ ^^^^
+ source.ks
+     internal
+     ^^^^^^^^
+     source.ks storage.modifier.access.ks
+              
+             ^
+             source.ks
+              async
+              ^^^^^
+              source.ks storage.modifier.async.ks
+                    
+                   ^
+                   source.ks
+                    isWeekend
+                    ^^^^^^^^^
+                    source.ks entity.name.function.ks
+                             (
+                             ^
+                             source.ks punctuation.definition.parameters.begin.bracket.round.ks
+                              )
+                              ^
+                              source.ks punctuation.definition.parameters.end.bracket.round.ks
+                               :
+                               ^
+                               source.ks meta.function.return-type.ks keyword.operator.type.annotation.ks
+                                 
+                                ^
+                                source.ks meta.function.return-type.ks
+                                 Boolean
+                                 ^^^^^^^
+                                 source.ks meta.function.return-type.ks support.type.primitive.ks
+                                         
+                                        ^
+                                        source.ks
+                                         =>
+                                         ^^
+                                         source.ks storage.type.function.arrow.ks
+                                            
+                                           ^
+                                           source.ks
+                                            this
+                                            ^^^^
+                                            source.ks variable.language.this.ks
+                                                 
+                                                ^
+                                                source.ks
+                                                 ==
+                                                 ^^
+                                                 source.ks keyword.operator.comparison.ks
+                                                    
+                                                   ^
+                                                   source.ks
+                                                    SATURDAY
+                                                    ^^^^^^^^
+                                                    source.ks variable.other.ks
+                                                             
+                                                            ^
+                                                            source.ks
+                                                             +
+                                                             ^
+                                                             source.ks keyword.operator.arithmetic.ks
+                                                               
+                                                              ^
+                                                              source.ks
+                                                               SUNDAY
+                                                               ^^^^^^
+                                                               source.ks variable.other.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.enum.end.bracket.curly.ks

@@ -10,7 +10,7 @@ switch value {
     {foo: 1}                             => console.log('foo: 1')
     {foo}                                => console.log('has foo')
     {qux}                                => console.log('has qux')
-                where value.bar() == 0    => console.log('bar() == 0')
+                when value.bar() == 0    => console.log('bar() == 0')
                                         => console.log('oops!')
 }
 -----------------------------------
@@ -356,76 +356,76 @@ grammar: kaoscript.tmLanguage
                                                                   ^
                                                                   source.ks punctuation.definition.arguments.end.bracket.round.ks
 >
->                where value.bar() == 0    => console.log('bar() == 0')
+>                when value.bar() == 0    => console.log('bar() == 0')
                  
  ^^^^^^^^^^^^^^^^
  source.ks
-                 where
-                 ^^^^^
+                 when
+                 ^^^^
                  source.ks keyword.control.switch.binding-condition.ks
-                       
-                      ^
-                      source.ks
-                       value
-                       ^^^^^
-                       source.ks variable.other.object.ks
-                            .
-                            ^
-                            source.ks punctuation.accessor.object.ks
-                             bar
-                             ^^^
-                             source.ks entity.name.function.ks
-                                (
+                      
+                     ^
+                     source.ks
+                      value
+                      ^^^^^
+                      source.ks variable.other.object.ks
+                           .
+                           ^
+                           source.ks punctuation.accessor.object.ks
+                            bar
+                            ^^^
+                            source.ks entity.name.function.ks
+                               (
+                               ^
+                               source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                                )
                                 ^
-                                source.ks punctuation.definition.arguments.begin.bracket.round.ks
-                                 )
+                                source.ks punctuation.definition.arguments.end.bracket.round.ks
+                                  
                                  ^
-                                 source.ks punctuation.definition.arguments.end.bracket.round.ks
-                                   
-                                  ^
-                                  source.ks
-                                   ==
-                                   ^^
-                                   source.ks keyword.operator.comparison.ks
-                                      
+                                 source.ks
+                                  ==
+                                  ^^
+                                  source.ks keyword.operator.comparison.ks
+                                     
+                                    ^
+                                    source.ks
+                                     0
                                      ^
-                                     source.ks
-                                      0
-                                      ^
-                                      source.ks constant.numeric.decimal.ks
-                                           
-                                       ^^^^
-                                       source.ks
-                                           =>
-                                           ^^
-                                           source.ks keyword.control.switch.body.ks
-                                              
-                                             ^
-                                             source.ks
-                                              console
-                                              ^^^^^^^
-                                              source.ks variable.other.object.ks
-                                                     .
-                                                     ^
-                                                     source.ks punctuation.accessor.object.ks
-                                                      log
-                                                      ^^^
-                                                      source.ks entity.name.function.ks
-                                                         (
+                                     source.ks constant.numeric.decimal.ks
+                                          
+                                      ^^^^
+                                      source.ks
+                                          =>
+                                          ^^
+                                          source.ks keyword.control.switch.body.ks
+                                             
+                                            ^
+                                            source.ks
+                                             console
+                                             ^^^^^^^
+                                             source.ks variable.other.object.ks
+                                                    .
+                                                    ^
+                                                    source.ks punctuation.accessor.object.ks
+                                                     log
+                                                     ^^^
+                                                     source.ks entity.name.function.ks
+                                                        (
+                                                        ^
+                                                        source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                                                         '
                                                          ^
-                                                         source.ks punctuation.definition.arguments.begin.bracket.round.ks
-                                                          '
-                                                          ^
-                                                          source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
-                                                           bar() == 0
-                                                           ^^^^^^^^^^
-                                                           source.ks string.quoted.single.ks
-                                                                     '
+                                                         source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
+                                                          bar() == 0
+                                                          ^^^^^^^^^^
+                                                          source.ks string.quoted.single.ks
+                                                                    '
+                                                                    ^
+                                                                    source.ks string.quoted.single.ks punctuation.definition.string.end.ks
+                                                                     )
                                                                      ^
-                                                                     source.ks string.quoted.single.ks punctuation.definition.string.end.ks
-                                                                      )
-                                                                      ^
-                                                                      source.ks punctuation.definition.arguments.end.bracket.round.ks
+                                                                     source.ks punctuation.definition.arguments.end.bracket.round.ks
 >
 >                                        => console.log('oops!')
                                          

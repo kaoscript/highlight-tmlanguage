@@ -36,7 +36,7 @@ grammar: kaoscript.tmLanguage
  source.ks
      Red
      ^^^
-     source.ks variable.other.enummember.ks
+     source.ks entity.name.variable.field.ks
 >
 >    Green
      
@@ -44,7 +44,7 @@ grammar: kaoscript.tmLanguage
  source.ks
      Green
      ^^^^^
-     source.ks variable.other.enummember.ks
+     source.ks entity.name.variable.field.ks
 >
 >    Blue
      
@@ -52,7 +52,7 @@ grammar: kaoscript.tmLanguage
  source.ks
      Blue
      ^^^^
-     source.ks variable.other.enummember.ks
+     source.ks entity.name.variable.field.ks
 >
 >    /* Magenta
      

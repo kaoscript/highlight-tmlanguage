@@ -1,0 +1,120 @@
+original file
+-----------------------------------
+enum Foobar1 {
+    static() => false
+}
+
+enum Foobar2 {
+    public static() => false
+}
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>enum Foobar1 {
+ enum
+ ^^^^
+ source.ks storage.type.enum.ks
+      
+     ^
+     source.ks
+      Foobar1
+      ^^^^^^^
+      source.ks entity.name.type.enum.ks
+              
+             ^
+             source.ks
+              {
+              ^
+              source.ks punctuation.definition.enum.begin.bracket.curly.ks
+>
+>    static() => false
+     
+ ^^^^
+ source.ks
+     static
+     ^^^^^^
+     source.ks entity.name.function.ks
+           (
+           ^
+           source.ks punctuation.definition.parameters.begin.bracket.round.ks
+            )
+            ^
+            source.ks punctuation.definition.parameters.end.bracket.round.ks
+              
+             ^
+             source.ks
+              =>
+              ^^
+              source.ks storage.type.function.arrow.ks
+                 
+                ^
+                source.ks
+                 false
+                 ^^^^^
+                 source.ks constant.language.boolean.false.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.enum.end.bracket.curly.ks
+>
+>
+ 
+ ^
+ source.ks
+>
+>enum Foobar2 {
+ enum
+ ^^^^
+ source.ks storage.type.enum.ks
+      
+     ^
+     source.ks
+      Foobar2
+      ^^^^^^^
+      source.ks entity.name.type.enum.ks
+              
+             ^
+             source.ks
+              {
+              ^
+              source.ks punctuation.definition.enum.begin.bracket.curly.ks
+>
+>    public static() => false
+     
+ ^^^^
+ source.ks
+     public
+     ^^^^^^
+     source.ks storage.modifier.access.ks
+            
+           ^
+           source.ks
+            static
+            ^^^^^^
+            source.ks entity.name.function.ks
+                  (
+                  ^
+                  source.ks punctuation.definition.parameters.begin.bracket.round.ks
+                   )
+                   ^
+                   source.ks punctuation.definition.parameters.end.bracket.round.ks
+                     
+                    ^
+                    source.ks
+                     =>
+                     ^^
+                     source.ks storage.type.function.arrow.ks
+                        
+                       ^
+                       source.ks
+                        false
+                        ^^^^^
+                        source.ks constant.language.boolean.false.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.enum.end.bracket.curly.ks

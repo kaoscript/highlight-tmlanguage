@@ -1,0 +1,369 @@
+original file
+-----------------------------------
+enum Foobar1 {
+    internal() => false
+    private() => false
+    public() => false
+}
+
+enum Foobar2 {
+    internal internal() => false
+    private private() => false
+    public public() => false
+}
+
+enum Foobar3 {
+    static internal() => false
+    static private() => false
+    static public() => false
+}
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>enum Foobar1 {
+ enum
+ ^^^^
+ source.ks storage.type.enum.ks
+      
+     ^
+     source.ks
+      Foobar1
+      ^^^^^^^
+      source.ks entity.name.type.enum.ks
+              
+             ^
+             source.ks
+              {
+              ^
+              source.ks punctuation.definition.enum.begin.bracket.curly.ks
+>
+>    internal() => false
+     
+ ^^^^
+ source.ks
+     internal
+     ^^^^^^^^
+     source.ks entity.name.function.ks
+             (
+             ^
+             source.ks punctuation.definition.parameters.begin.bracket.round.ks
+              )
+              ^
+              source.ks punctuation.definition.parameters.end.bracket.round.ks
+                
+               ^
+               source.ks
+                =>
+                ^^
+                source.ks storage.type.function.arrow.ks
+                   
+                  ^
+                  source.ks
+                   false
+                   ^^^^^
+                   source.ks constant.language.boolean.false.ks
+>
+>    private() => false
+     
+ ^^^^
+ source.ks
+     private
+     ^^^^^^^
+     source.ks entity.name.function.ks
+            (
+            ^
+            source.ks punctuation.definition.parameters.begin.bracket.round.ks
+             )
+             ^
+             source.ks punctuation.definition.parameters.end.bracket.round.ks
+               
+              ^
+              source.ks
+               =>
+               ^^
+               source.ks storage.type.function.arrow.ks
+                  
+                 ^
+                 source.ks
+                  false
+                  ^^^^^
+                  source.ks constant.language.boolean.false.ks
+>
+>    public() => false
+     
+ ^^^^
+ source.ks
+     public
+     ^^^^^^
+     source.ks entity.name.function.ks
+           (
+           ^
+           source.ks punctuation.definition.parameters.begin.bracket.round.ks
+            )
+            ^
+            source.ks punctuation.definition.parameters.end.bracket.round.ks
+              
+             ^
+             source.ks
+              =>
+              ^^
+              source.ks storage.type.function.arrow.ks
+                 
+                ^
+                source.ks
+                 false
+                 ^^^^^
+                 source.ks constant.language.boolean.false.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.enum.end.bracket.curly.ks
+>
+>
+ 
+ ^
+ source.ks
+>
+>enum Foobar2 {
+ enum
+ ^^^^
+ source.ks storage.type.enum.ks
+      
+     ^
+     source.ks
+      Foobar2
+      ^^^^^^^
+      source.ks entity.name.type.enum.ks
+              
+             ^
+             source.ks
+              {
+              ^
+              source.ks punctuation.definition.enum.begin.bracket.curly.ks
+>
+>    internal internal() => false
+     
+ ^^^^
+ source.ks
+     internal
+     ^^^^^^^^
+     source.ks storage.modifier.access.ks
+              
+             ^
+             source.ks
+              internal
+              ^^^^^^^^
+              source.ks entity.name.function.ks
+                      (
+                      ^
+                      source.ks punctuation.definition.parameters.begin.bracket.round.ks
+                       )
+                       ^
+                       source.ks punctuation.definition.parameters.end.bracket.round.ks
+                         
+                        ^
+                        source.ks
+                         =>
+                         ^^
+                         source.ks storage.type.function.arrow.ks
+                            
+                           ^
+                           source.ks
+                            false
+                            ^^^^^
+                            source.ks constant.language.boolean.false.ks
+>
+>    private private() => false
+     
+ ^^^^
+ source.ks
+     private
+     ^^^^^^^
+     source.ks storage.modifier.access.ks
+             
+            ^
+            source.ks
+             private
+             ^^^^^^^
+             source.ks entity.name.function.ks
+                    (
+                    ^
+                    source.ks punctuation.definition.parameters.begin.bracket.round.ks
+                     )
+                     ^
+                     source.ks punctuation.definition.parameters.end.bracket.round.ks
+                       
+                      ^
+                      source.ks
+                       =>
+                       ^^
+                       source.ks storage.type.function.arrow.ks
+                          
+                         ^
+                         source.ks
+                          false
+                          ^^^^^
+                          source.ks constant.language.boolean.false.ks
+>
+>    public public() => false
+     
+ ^^^^
+ source.ks
+     public
+     ^^^^^^
+     source.ks storage.modifier.access.ks
+            
+           ^
+           source.ks
+            public
+            ^^^^^^
+            source.ks entity.name.function.ks
+                  (
+                  ^
+                  source.ks punctuation.definition.parameters.begin.bracket.round.ks
+                   )
+                   ^
+                   source.ks punctuation.definition.parameters.end.bracket.round.ks
+                     
+                    ^
+                    source.ks
+                     =>
+                     ^^
+                     source.ks storage.type.function.arrow.ks
+                        
+                       ^
+                       source.ks
+                        false
+                        ^^^^^
+                        source.ks constant.language.boolean.false.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.enum.end.bracket.curly.ks
+>
+>
+ 
+ ^
+ source.ks
+>
+>enum Foobar3 {
+ enum
+ ^^^^
+ source.ks storage.type.enum.ks
+      
+     ^
+     source.ks
+      Foobar3
+      ^^^^^^^
+      source.ks entity.name.type.enum.ks
+              
+             ^
+             source.ks
+              {
+              ^
+              source.ks punctuation.definition.enum.begin.bracket.curly.ks
+>
+>    static internal() => false
+     
+ ^^^^
+ source.ks
+     static
+     ^^^^^^
+     source.ks storage.modifier.access.ks
+            
+           ^
+           source.ks
+            internal
+            ^^^^^^^^
+            source.ks entity.name.function.ks
+                    (
+                    ^
+                    source.ks punctuation.definition.parameters.begin.bracket.round.ks
+                     )
+                     ^
+                     source.ks punctuation.definition.parameters.end.bracket.round.ks
+                       
+                      ^
+                      source.ks
+                       =>
+                       ^^
+                       source.ks storage.type.function.arrow.ks
+                          
+                         ^
+                         source.ks
+                          false
+                          ^^^^^
+                          source.ks constant.language.boolean.false.ks
+>
+>    static private() => false
+     
+ ^^^^
+ source.ks
+     static
+     ^^^^^^
+     source.ks storage.modifier.access.ks
+            
+           ^
+           source.ks
+            private
+            ^^^^^^^
+            source.ks entity.name.function.ks
+                   (
+                   ^
+                   source.ks punctuation.definition.parameters.begin.bracket.round.ks
+                    )
+                    ^
+                    source.ks punctuation.definition.parameters.end.bracket.round.ks
+                      
+                     ^
+                     source.ks
+                      =>
+                      ^^
+                      source.ks storage.type.function.arrow.ks
+                         
+                        ^
+                        source.ks
+                         false
+                         ^^^^^
+                         source.ks constant.language.boolean.false.ks
+>
+>    static public() => false
+     
+ ^^^^
+ source.ks
+     static
+     ^^^^^^
+     source.ks storage.modifier.access.ks
+            
+           ^
+           source.ks
+            public
+            ^^^^^^
+            source.ks entity.name.function.ks
+                  (
+                  ^
+                  source.ks punctuation.definition.parameters.begin.bracket.round.ks
+                   )
+                   ^
+                   source.ks punctuation.definition.parameters.end.bracket.round.ks
+                     
+                    ^
+                    source.ks
+                     =>
+                     ^^
+                     source.ks storage.type.function.arrow.ks
+                        
+                       ^
+                       source.ks
+                        false
+                        ^^^^^
+                        source.ks constant.language.boolean.false.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.enum.end.bracket.curly.ks

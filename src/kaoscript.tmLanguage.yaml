@@ -608,11 +608,72 @@ repository:
       '2': { name: 'punctuation.accessor.enum.ks' }
       '3': { name: 'variable.other.property.enum.ks' }
   # }}}
+  enum-member: #{{{
+    patterns:
+    - begin: '\b(internal|private|public)\s+(\{)'
+      beginCaptures:
+        '1': { name: 'storage.modifier.access.ks' }
+        '2': { name: 'punctuation.definition.members.begin.bracket.curly.ks' }
+      end: '\}'
+      endCaptures:
+        '0': { name: 'punctuation.definition.members.end.bracket.curly.ks' }
+      patterns:
+      - include: '#class-member'
+    - begin: '(?:\b(internal|private|public)\b)?\s*(?:(\bstatic))\s+(\{)'
+      beginCaptures:
+        '1': { name: 'storage.modifier.access.ks' }
+        '2': { name: 'storage.modifier.access.ks' }
+        '3': { name: 'punctuation.definition.members.begin.bracket.curly.ks' }
+      end: '\}'
+      endCaptures:
+        '0': { name: 'punctuation.definition.members.end.bracket.curly.ks' }
+      patterns:
+      - include: '#class-member'
+    - begin: '(?:\b(internal|private|public)\b\s*)?(?:(\bstatic\b)\s*)?(?:(\basync)\s*)?({{identifier}})(?=\()'
+      beginCaptures:
+        '1': { name: 'storage.modifier.access.ks' }
+        '2': { name: 'storage.modifier.access.ks' }
+        '3': { name: 'storage.modifier.async.ks' }
+        '4': { name: 'entity.name.function.ks' }
+      end: '(?<=\})|$|(?=\})'
+      patterns:
+      - include: '#function-parameters'
+      - include: '#function-return-type'
+      - include: '#function-throwables'
+      - include: '#block'
+      - begin: '=>'
+        beginCaptures:
+          '0': { name: 'storage.type.function.arrow.ks' }
+        end: '(?=\}|$)'
+        patterns:
+        - include: '#expression'
+    - begin: '(?:\b(internal|private|public)\b\s*)?(?:\b(static)\b\s*)?({{identifier}})'
+      beginCaptures:
+        '1': { name: 'storage.modifier.access.ks' }
+        '2': { name: 'storage.modifier.access.ks' }
+        '3': { name: 'entity.name.variable.field.ks' }
+      end: '$'
+      patterns:
+      - begin: '='
+        beginCaptures:
+          '0': { name: 'keyword.operator.assignment.ks' }
+        end: '$'
+        patterns:
+        - include: '#expression'
+    - include: '#comment'
+  # }}}
   enum-statement: # {{{
-    begin: '\b(enum)\s+({{identifier}})'
+    begin: '(?=^\s*(?:flagged\s+)?enum\s+{{identifier}}\b)'
+    end: '(?<=\}|$)'
+    patterns:
+    - include: '#enum-statement-body'
+  # }}}
+  enum-statement-body: # {{{
+    begin: '(?:(\bflagged)\s+)?(\benum)\s+({{identifier}})'
     beginCaptures:
-      '1': { name: 'storage.type.enum.ks' }
-      '2': { name: 'entity.name.type.enum.ks' }
+      '1': { name: 'storage.modifier.ks' }
+      '2': { name: 'storage.type.enum.ks' }
+      '3': { name: 'entity.name.type.enum.ks' }
     end: '(?<=\})'
     patterns:
     - begin: '(\<)'
@@ -630,21 +691,13 @@ repository:
       endCaptures:
         '0': { name: 'punctuation.definition.enum.end.bracket.curly.ks' }
       patterns:
-      - name: 'variable.other.enummember.ks'
-        match: '{{identifier}}'
-      - begin: '='
-        beginCaptures:
-          '0': { name: 'keyword.operator.assignment.ks' }
-        end: '$'
-        patterns:
-        - include: '#expression'
-      - include: '#comment'
+      - include: '#enum-member'
   # }}}
   export-declarator: # {{{
     patterns:
     - include: '#class-statement'
     - include: '#const-statement'
-    - include: '#enum-statement'
+    - include: '#enum-statement-body'
     - include: '#function-statement'
     - include: '#let-statement'
     - include: '#macro-statement'
@@ -849,30 +902,6 @@ repository:
           '0': { name: 'punctuation.definition.class.end.bracket.curly.ks' }
         patterns:
         - include: '#class-member'
-    - begin: '\benum\b'
-      beginCaptures:
-        '0': { name: 'storage.type.enum.ks' }
-      end: '(?=[,=\}]|$)'
-      patterns:
-      - name: 'entity.name.type.enum.ks'
-        match: '{{identifier}}'
-      - begin: '(\<)'
-        beginCaptures:
-          '1': { name: 'punctuation.definition.typeparameters.begin.ks' }
-        end: '(\>)'
-        endCaptures:
-          '1': { name: 'punctuation.definition.typeparameters.end.ks' }
-        patterns:
-        - include: '#type'
-      - begin: '\{'
-        beginCaptures:
-          '0': { name: 'punctuation.definition.enum.begin.bracket.curly.ks' }
-        end: '\}'
-        endCaptures:
-          '0': { name: 'punctuation.definition.enum.end.bracket.curly.ks' }
-        patterns:
-        - name: 'variable.other.enummember.ks'
-          match: '{{identifier}}'
     - begin: '\b(?:(async)\s+)?(func)\b'
       beginCaptures:
         '1': { name: 'storage.modifier.async.ks' }
@@ -914,8 +943,6 @@ repository:
             patterns:
             - include: '#type'
         - include: '#extern-declarator'
-    - include: '#struct-statement-body'
-    - include: '#tuple-statement-body'
     - begin: '(?:(\basync)\s+)?({{identifier}})\s*(?=\()'
       beginCaptures:
         '1': { name: 'storage.modifier.async.ks' }
@@ -2044,6 +2071,13 @@ repository:
     - name: constant.character.escape.backslash.regexp
       match: \\.
   # }}}
+  require-declarator: # {{{
+    patterns:
+    - include: '#enum-statement-body'
+    - include: '#struct-statement-body'
+    - include: '#tuple-statement-body'
+    - include: '#extern-declarator'
+  # }}}
   require-extern-statement: # {{{
     begin: '^\s*(require\|extern)\s+(?={{expression-beginning}})'
     beginCaptures:
@@ -2092,8 +2126,8 @@ repository:
       endCaptures:
         '0': { name: 'punctuation.definition.require.end.bracket.curly.ks' }
       patterns:
-      - include: '#extern-declarator'
-    - include: '#extern-declarator'
+      - include: '#require-declarator'
+    - include: '#require-declarator'
     - include: '#comma'
   # }}}
   return-expression: # {{{
@@ -2117,7 +2151,7 @@ repository:
   statements: # {{{
     patterns:
     - include: '#comment'
-    - begin: '^\s*(?=abstract\b|async\b|auto\b|class\b|const\b|enum\b|final\b|func\b|lateinit\b|let\b|macro\b|namespace\b|sealed\b|type\b)'
+    - begin: '^\s*(?=abstract\b|async\b|auto\b|class\b|const\b|enum\b|final\b|flagged\b|func\b|lateinit\b|let\b|macro\b|namespace\b|sealed\b|type\b)'
       end: '(?<=\}|$)'
       patterns:
       - include: '#auto-statement'
@@ -2259,10 +2293,10 @@ repository:
     - begin: 'with'
       beginCaptures:
         '0': { name: 'keyword.control.switch.binding.ks' }
-      end: (?=\bwhere\b|=>)
+      end: (?=\bwhen\b|=>)
       patterns:
       - include: '#expression-without-function'
-    - begin: 'where'
+    - begin: 'when'
       beginCaptures:
         '0': { name: 'keyword.control.switch.binding-condition.ks' }
       end: (?==>)

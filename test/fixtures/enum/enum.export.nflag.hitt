@@ -1,0 +1,72 @@
+original file
+-----------------------------------
+export enum CardSuit {
+    Clubs
+    Diamonds
+    Hearts
+    Spades
+}
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>export enum CardSuit {
+ export
+ ^^^^^^
+ source.ks keyword.control.export.ks
+        
+       ^
+       source.ks
+        enum
+        ^^^^
+        source.ks storage.type.enum.ks
+             
+            ^
+            source.ks
+             CardSuit
+             ^^^^^^^^
+             source.ks entity.name.type.enum.ks
+                      
+                     ^
+                     source.ks
+                      {
+                      ^
+                      source.ks punctuation.definition.enum.begin.bracket.curly.ks
+>
+>    Clubs
+     
+ ^^^^
+ source.ks
+     Clubs
+     ^^^^^
+     source.ks entity.name.variable.field.ks
+>
+>    Diamonds
+     
+ ^^^^
+ source.ks
+     Diamonds
+     ^^^^^^^^
+     source.ks entity.name.variable.field.ks
+>
+>    Hearts
+     
+ ^^^^
+ source.ks
+     Hearts
+     ^^^^^^
+     source.ks entity.name.variable.field.ks
+>
+>    Spades
+     
+ ^^^^
+ source.ks
+     Spades
+     ^^^^^^
+     source.ks entity.name.variable.field.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.enum.end.bracket.curly.ks

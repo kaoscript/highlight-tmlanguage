@@ -1,0 +1,144 @@
+original file
+-----------------------------------
+require tuple Pair(String, Number)
+
+let pair = Pair('x', 0.1)
+
+console.log(pair.0, pair.1)
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>require tuple Pair(String, Number)
+ require
+ ^^^^^^^
+ source.ks keyword.control.require.ks
+         
+        ^
+        source.ks
+         tuple
+         ^^^^^
+         source.ks storage.type.tuple.ks
+               
+              ^
+              source.ks
+               Pair
+               ^^^^
+               source.ks entity.name.type.tuple.ks
+                   (
+                   ^
+                   source.ks punctuation.definition.tuple.begin.bracket.round.ks
+                    String
+                    ^^^^^^
+                    source.ks support.type.primitive.ks
+                          ,
+                          ^
+                          source.ks punctuation.separator.comma.ks
+                            
+                           ^
+                           source.ks
+                            Number
+                            ^^^^^^
+                            source.ks support.type.primitive.ks
+                                  )
+                                  ^
+                                  source.ks punctuation.definition.tuple.end.bracket.round.ks
+>
+>
+ 
+ ^
+ source.ks
+>
+>let pair = Pair('x', 0.1)
+ let
+ ^^^
+ source.ks storage.type.readwrite.ks
+     
+    ^
+    source.ks
+     pair
+     ^^^^
+     source.ks meta.definition.variable.ks variable.other.readwrite.ks
+          
+         ^
+         source.ks
+          =
+          ^
+          source.ks keyword.operator.assignment.ks
+            
+           ^
+           source.ks
+            Pair
+            ^^^^
+            source.ks entity.name.function.ks
+                (
+                ^
+                source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                 '
+                 ^
+                 source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
+                  x
+                  ^
+                  source.ks string.quoted.single.ks
+                   '
+                   ^
+                   source.ks string.quoted.single.ks punctuation.definition.string.end.ks
+                    ,
+                    ^
+                    source.ks punctuation.separator.comma.ks
+                      
+                     ^
+                     source.ks
+                      0.1
+                      ^^^
+                      source.ks constant.numeric.decimal.ks
+                         )
+                         ^
+                         source.ks punctuation.definition.arguments.end.bracket.round.ks
+>
+>
+ 
+ ^
+ source.ks
+>
+>console.log(pair.0, pair.1)
+ console
+ ^^^^^^^
+ source.ks variable.other.object.ks
+        .
+        ^
+        source.ks punctuation.accessor.object.ks
+         log
+         ^^^
+         source.ks entity.name.function.ks
+            (
+            ^
+            source.ks punctuation.definition.arguments.begin.bracket.round.ks
+             pair
+             ^^^^
+             source.ks variable.other.object.ks
+                 .
+                 ^
+                 source.ks punctuation.accessor.object.ks
+                  0
+                  ^
+                  source.ks constant.numeric.decimal.ks
+                   ,
+                   ^
+                   source.ks punctuation.separator.comma.ks
+                     
+                    ^
+                    source.ks
+                     pair
+                     ^^^^
+                     source.ks variable.other.object.ks
+                         .
+                         ^
+                         source.ks punctuation.accessor.object.ks
+                          1
+                          ^
+                          source.ks constant.numeric.decimal.ks
+                           )
+                           ^
+                           source.ks punctuation.definition.arguments.end.bracket.round.ks

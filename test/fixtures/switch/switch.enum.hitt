@@ -67,7 +67,7 @@ grammar: kaoscript.tmLanguage
  source.ks
      black
      ^^^^^
-     source.ks variable.other.enummember.ks
+     source.ks entity.name.variable.field.ks
 >
 >    red
      
@@ -75,7 +75,7 @@ grammar: kaoscript.tmLanguage
  source.ks
      red
      ^^^
-     source.ks variable.other.enummember.ks
+     source.ks entity.name.variable.field.ks
 >
 >    green
      
@@ -83,7 +83,7 @@ grammar: kaoscript.tmLanguage
  source.ks
      green
      ^^^^^
-     source.ks variable.other.enummember.ks
+     source.ks entity.name.variable.field.ks
 >
 >    yellow
      
@@ -91,7 +91,7 @@ grammar: kaoscript.tmLanguage
  source.ks
      yellow
      ^^^^^^
-     source.ks variable.other.enummember.ks
+     source.ks entity.name.variable.field.ks
 >
 >    blue
      
@@ -99,7 +99,7 @@ grammar: kaoscript.tmLanguage
  source.ks
      blue
      ^^^^
-     source.ks variable.other.enummember.ks
+     source.ks entity.name.variable.field.ks
 >
 >    magenta
      
@@ -107,7 +107,7 @@ grammar: kaoscript.tmLanguage
  source.ks
      magenta
      ^^^^^^^
-     source.ks variable.other.enummember.ks
+     source.ks entity.name.variable.field.ks
 >
 >    cyan
      
@@ -115,7 +115,7 @@ grammar: kaoscript.tmLanguage
  source.ks
      cyan
      ^^^^
-     source.ks variable.other.enummember.ks
+     source.ks entity.name.variable.field.ks
 >
 >    white
      
@@ -123,7 +123,7 @@ grammar: kaoscript.tmLanguage
  source.ks
      white
      ^^^^^
-     source.ks variable.other.enummember.ks
+     source.ks entity.name.variable.field.ks
 >
 >    default
      
@@ -131,7 +131,7 @@ grammar: kaoscript.tmLanguage
  source.ks
      default
      ^^^^^^^
-     source.ks variable.other.enummember.ks
+     source.ks entity.name.variable.field.ks
 >
 >}
  }

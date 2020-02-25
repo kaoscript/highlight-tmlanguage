@@ -1,0 +1,57 @@
+original file
+-----------------------------------
+enum Keyword {
+    private
+    public
+    internal
+}
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>enum Keyword {
+ enum
+ ^^^^
+ source.ks storage.type.enum.ks
+      
+     ^
+     source.ks
+      Keyword
+      ^^^^^^^
+      source.ks entity.name.type.enum.ks
+              
+             ^
+             source.ks
+              {
+              ^
+              source.ks punctuation.definition.enum.begin.bracket.curly.ks
+>
+>    private
+     
+ ^^^^
+ source.ks
+     private
+     ^^^^^^^
+     source.ks entity.name.variable.field.ks
+>
+>    public
+     
+ ^^^^
+ source.ks
+     public
+     ^^^^^^
+     source.ks entity.name.variable.field.ks
+>
+>    internal
+     
+ ^^^^
+ source.ks
+     internal
+     ^^^^^^^^
+     source.ks entity.name.variable.field.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.enum.end.bracket.curly.ks

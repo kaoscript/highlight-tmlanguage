@@ -1,0 +1,252 @@
+original file
+-----------------------------------
+enum Foobar1 {
+    async() => false
+}
+
+enum Foobar2 {
+    public async() => false
+}
+
+enum Foobar3 {
+    public static async() => false
+}
+
+enum Foobar4 {
+    static async() => false
+}
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>enum Foobar1 {
+ enum
+ ^^^^
+ source.ks storage.type.enum.ks
+      
+     ^
+     source.ks
+      Foobar1
+      ^^^^^^^
+      source.ks entity.name.type.enum.ks
+              
+             ^
+             source.ks
+              {
+              ^
+              source.ks punctuation.definition.enum.begin.bracket.curly.ks
+>
+>    async() => false
+     
+ ^^^^
+ source.ks
+     async
+     ^^^^^
+     source.ks entity.name.function.ks
+          (
+          ^
+          source.ks punctuation.definition.parameters.begin.bracket.round.ks
+           )
+           ^
+           source.ks punctuation.definition.parameters.end.bracket.round.ks
+             
+            ^
+            source.ks
+             =>
+             ^^
+             source.ks storage.type.function.arrow.ks
+                
+               ^
+               source.ks
+                false
+                ^^^^^
+                source.ks constant.language.boolean.false.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.enum.end.bracket.curly.ks
+>
+>
+ 
+ ^
+ source.ks
+>
+>enum Foobar2 {
+ enum
+ ^^^^
+ source.ks storage.type.enum.ks
+      
+     ^
+     source.ks
+      Foobar2
+      ^^^^^^^
+      source.ks entity.name.type.enum.ks
+              
+             ^
+             source.ks
+              {
+              ^
+              source.ks punctuation.definition.enum.begin.bracket.curly.ks
+>
+>    public async() => false
+     
+ ^^^^
+ source.ks
+     public
+     ^^^^^^
+     source.ks storage.modifier.access.ks
+            
+           ^
+           source.ks
+            async
+            ^^^^^
+            source.ks entity.name.function.ks
+                 (
+                 ^
+                 source.ks punctuation.definition.parameters.begin.bracket.round.ks
+                  )
+                  ^
+                  source.ks punctuation.definition.parameters.end.bracket.round.ks
+                    
+                   ^
+                   source.ks
+                    =>
+                    ^^
+                    source.ks storage.type.function.arrow.ks
+                       
+                      ^
+                      source.ks
+                       false
+                       ^^^^^
+                       source.ks constant.language.boolean.false.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.enum.end.bracket.curly.ks
+>
+>
+ 
+ ^
+ source.ks
+>
+>enum Foobar3 {
+ enum
+ ^^^^
+ source.ks storage.type.enum.ks
+      
+     ^
+     source.ks
+      Foobar3
+      ^^^^^^^
+      source.ks entity.name.type.enum.ks
+              
+             ^
+             source.ks
+              {
+              ^
+              source.ks punctuation.definition.enum.begin.bracket.curly.ks
+>
+>    public static async() => false
+     
+ ^^^^
+ source.ks
+     public
+     ^^^^^^
+     source.ks storage.modifier.access.ks
+            
+           ^
+           source.ks
+            static
+            ^^^^^^
+            source.ks storage.modifier.access.ks
+                   
+                  ^
+                  source.ks
+                   async
+                   ^^^^^
+                   source.ks entity.name.function.ks
+                        (
+                        ^
+                        source.ks punctuation.definition.parameters.begin.bracket.round.ks
+                         )
+                         ^
+                         source.ks punctuation.definition.parameters.end.bracket.round.ks
+                           
+                          ^
+                          source.ks
+                           =>
+                           ^^
+                           source.ks storage.type.function.arrow.ks
+                              
+                             ^
+                             source.ks
+                              false
+                              ^^^^^
+                              source.ks constant.language.boolean.false.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.enum.end.bracket.curly.ks
+>
+>
+ 
+ ^
+ source.ks
+>
+>enum Foobar4 {
+ enum
+ ^^^^
+ source.ks storage.type.enum.ks
+      
+     ^
+     source.ks
+      Foobar4
+      ^^^^^^^
+      source.ks entity.name.type.enum.ks
+              
+             ^
+             source.ks
+              {
+              ^
+              source.ks punctuation.definition.enum.begin.bracket.curly.ks
+>
+>    static async() => false
+     
+ ^^^^
+ source.ks
+     static
+     ^^^^^^
+     source.ks storage.modifier.access.ks
+            
+           ^
+           source.ks
+            async
+            ^^^^^
+            source.ks entity.name.function.ks
+                 (
+                 ^
+                 source.ks punctuation.definition.parameters.begin.bracket.round.ks
+                  )
+                  ^
+                  source.ks punctuation.definition.parameters.end.bracket.round.ks
+                    
+                   ^
+                   source.ks
+                    =>
+                    ^^
+                    source.ks storage.type.function.arrow.ks
+                       
+                      ^
+                      source.ks
+                       false
+                       ^^^^^
+                       source.ks constant.language.boolean.false.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.enum.end.bracket.curly.ks

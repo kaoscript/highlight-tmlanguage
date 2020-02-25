@@ -1982,18 +1982,237 @@
           </dict>
         </dict>
       </dict>
+      <key>enum-member</key>
+      <dict>
+        <key>patterns</key>
+        <array>
+          <dict>
+            <key>begin</key>
+            <string>\b(internal|private|public)\s+(\{)</string>
+            <key>beginCaptures</key>
+            <dict>
+              <key>1</key>
+              <dict>
+                <key>name</key>
+                <string>storage.modifier.access.ks</string>
+              </dict>
+              <key>2</key>
+              <dict>
+                <key>name</key>
+                <string>punctuation.definition.members.begin.bracket.curly.ks</string>
+              </dict>
+            </dict>
+            <key>end</key>
+            <string>\}</string>
+            <key>endCaptures</key>
+            <dict>
+              <key>0</key>
+              <dict>
+                <key>name</key>
+                <string>punctuation.definition.members.end.bracket.curly.ks</string>
+              </dict>
+            </dict>
+            <key>patterns</key>
+            <array>
+              <dict>
+                <key>include</key>
+                <string>#class-member</string>
+              </dict>
+            </array>
+          </dict>
+          <dict>
+            <key>begin</key>
+            <string>(?:\b(internal|private|public)\b)?\s*(?:(\bstatic))\s+(\{)</string>
+            <key>beginCaptures</key>
+            <dict>
+              <key>1</key>
+              <dict>
+                <key>name</key>
+                <string>storage.modifier.access.ks</string>
+              </dict>
+              <key>2</key>
+              <dict>
+                <key>name</key>
+                <string>storage.modifier.access.ks</string>
+              </dict>
+              <key>3</key>
+              <dict>
+                <key>name</key>
+                <string>punctuation.definition.members.begin.bracket.curly.ks</string>
+              </dict>
+            </dict>
+            <key>end</key>
+            <string>\}</string>
+            <key>endCaptures</key>
+            <dict>
+              <key>0</key>
+              <dict>
+                <key>name</key>
+                <string>punctuation.definition.members.end.bracket.curly.ks</string>
+              </dict>
+            </dict>
+            <key>patterns</key>
+            <array>
+              <dict>
+                <key>include</key>
+                <string>#class-member</string>
+              </dict>
+            </array>
+          </dict>
+          <dict>
+            <key>begin</key>
+            <string>(?:\b(internal|private|public)\b\s*)?(?:(\bstatic\b)\s*)?(?:(\basync)\s*)?([_$[:alpha:]][_$[:alnum:]]*)(?=\()</string>
+            <key>beginCaptures</key>
+            <dict>
+              <key>1</key>
+              <dict>
+                <key>name</key>
+                <string>storage.modifier.access.ks</string>
+              </dict>
+              <key>2</key>
+              <dict>
+                <key>name</key>
+                <string>storage.modifier.access.ks</string>
+              </dict>
+              <key>3</key>
+              <dict>
+                <key>name</key>
+                <string>storage.modifier.async.ks</string>
+              </dict>
+              <key>4</key>
+              <dict>
+                <key>name</key>
+                <string>entity.name.function.ks</string>
+              </dict>
+            </dict>
+            <key>end</key>
+            <string>(?&lt;=\})|$|(?=\})</string>
+            <key>patterns</key>
+            <array>
+              <dict>
+                <key>include</key>
+                <string>#function-parameters</string>
+              </dict>
+              <dict>
+                <key>include</key>
+                <string>#function-return-type</string>
+              </dict>
+              <dict>
+                <key>include</key>
+                <string>#function-throwables</string>
+              </dict>
+              <dict>
+                <key>include</key>
+                <string>#block</string>
+              </dict>
+              <dict>
+                <key>begin</key>
+                <string>=&gt;</string>
+                <key>beginCaptures</key>
+                <dict>
+                  <key>0</key>
+                  <dict>
+                    <key>name</key>
+                    <string>storage.type.function.arrow.ks</string>
+                  </dict>
+                </dict>
+                <key>end</key>
+                <string>(?=\}|$)</string>
+                <key>patterns</key>
+                <array>
+                  <dict>
+                    <key>include</key>
+                    <string>#expression</string>
+                  </dict>
+                </array>
+              </dict>
+            </array>
+          </dict>
+          <dict>
+            <key>begin</key>
+            <string>(?:\b(internal|private|public)\b\s*)?(?:\b(static)\b\s*)?([_$[:alpha:]][_$[:alnum:]]*)</string>
+            <key>beginCaptures</key>
+            <dict>
+              <key>1</key>
+              <dict>
+                <key>name</key>
+                <string>storage.modifier.access.ks</string>
+              </dict>
+              <key>2</key>
+              <dict>
+                <key>name</key>
+                <string>storage.modifier.access.ks</string>
+              </dict>
+              <key>3</key>
+              <dict>
+                <key>name</key>
+                <string>entity.name.variable.field.ks</string>
+              </dict>
+            </dict>
+            <key>end</key>
+            <string>$</string>
+            <key>patterns</key>
+            <array>
+              <dict>
+                <key>begin</key>
+                <string>=</string>
+                <key>beginCaptures</key>
+                <dict>
+                  <key>0</key>
+                  <dict>
+                    <key>name</key>
+                    <string>keyword.operator.assignment.ks</string>
+                  </dict>
+                </dict>
+                <key>end</key>
+                <string>$</string>
+                <key>patterns</key>
+                <array>
+                  <dict>
+                    <key>include</key>
+                    <string>#expression</string>
+                  </dict>
+                </array>
+              </dict>
+            </array>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#comment</string>
+          </dict>
+        </array>
+      </dict>
       <key>enum-statement</key>
       <dict>
         <key>begin</key>
-        <string>\b(enum)\s+([_$[:alpha:]][_$[:alnum:]]*)</string>
+        <string>(?=^\s*(?:flagged\s+)?enum\s+[_$[:alpha:]][_$[:alnum:]]*\b)</string>
+        <key>end</key>
+        <string>(?&lt;=\}|$)</string>
+        <key>patterns</key>
+        <array>
+          <dict>
+            <key>include</key>
+            <string>#enum-statement-body</string>
+          </dict>
+        </array>
+      </dict>
+      <key>enum-statement-body</key>
+      <dict>
+        <key>begin</key>
+        <string>(?:(\bflagged)\s+)?(\benum)\s+([_$[:alpha:]][_$[:alnum:]]*)</string>
         <key>beginCaptures</key>
         <dict>
           <key>1</key>
           <dict>
             <key>name</key>
-            <string>storage.type.enum.ks</string>
+            <string>storage.modifier.ks</string>
           </dict>
           <key>2</key>
+          <dict>
+            <key>name</key>
+            <string>storage.type.enum.ks</string>
+          </dict>
+          <key>3</key>
           <dict>
             <key>name</key>
             <string>entity.name.type.enum.ks</string>
@@ -2056,35 +2275,8 @@
             <key>patterns</key>
             <array>
               <dict>
-                <key>name</key>
-                <string>variable.other.enummember.ks</string>
-                <key>match</key>
-                <string>[_$[:alpha:]][_$[:alnum:]]*</string>
-              </dict>
-              <dict>
-                <key>begin</key>
-                <string>=</string>
-                <key>beginCaptures</key>
-                <dict>
-                  <key>0</key>
-                  <dict>
-                    <key>name</key>
-                    <string>keyword.operator.assignment.ks</string>
-                  </dict>
-                </dict>
-                <key>end</key>
-                <string>$</string>
-                <key>patterns</key>
-                <array>
-                  <dict>
-                    <key>include</key>
-                    <string>#expression</string>
-                  </dict>
-                </array>
-              </dict>
-              <dict>
                 <key>include</key>
-                <string>#comment</string>
+                <string>#enum-member</string>
               </dict>
             </array>
           </dict>
@@ -2104,7 +2296,7 @@
           </dict>
           <dict>
             <key>include</key>
-            <string>#enum-statement</string>
+            <string>#enum-statement-body</string>
           </dict>
           <dict>
             <key>include</key>
@@ -2819,89 +3011,6 @@
           </dict>
           <dict>
             <key>begin</key>
-            <string>\benum\b</string>
-            <key>beginCaptures</key>
-            <dict>
-              <key>0</key>
-              <dict>
-                <key>name</key>
-                <string>storage.type.enum.ks</string>
-              </dict>
-            </dict>
-            <key>end</key>
-            <string>(?=[,=\}]|$)</string>
-            <key>patterns</key>
-            <array>
-              <dict>
-                <key>name</key>
-                <string>entity.name.type.enum.ks</string>
-                <key>match</key>
-                <string>[_$[:alpha:]][_$[:alnum:]]*</string>
-              </dict>
-              <dict>
-                <key>begin</key>
-                <string>(\&lt;)</string>
-                <key>beginCaptures</key>
-                <dict>
-                  <key>1</key>
-                  <dict>
-                    <key>name</key>
-                    <string>punctuation.definition.typeparameters.begin.ks</string>
-                  </dict>
-                </dict>
-                <key>end</key>
-                <string>(\&gt;)</string>
-                <key>endCaptures</key>
-                <dict>
-                  <key>1</key>
-                  <dict>
-                    <key>name</key>
-                    <string>punctuation.definition.typeparameters.end.ks</string>
-                  </dict>
-                </dict>
-                <key>patterns</key>
-                <array>
-                  <dict>
-                    <key>include</key>
-                    <string>#type</string>
-                  </dict>
-                </array>
-              </dict>
-              <dict>
-                <key>begin</key>
-                <string>\{</string>
-                <key>beginCaptures</key>
-                <dict>
-                  <key>0</key>
-                  <dict>
-                    <key>name</key>
-                    <string>punctuation.definition.enum.begin.bracket.curly.ks</string>
-                  </dict>
-                </dict>
-                <key>end</key>
-                <string>\}</string>
-                <key>endCaptures</key>
-                <dict>
-                  <key>0</key>
-                  <dict>
-                    <key>name</key>
-                    <string>punctuation.definition.enum.end.bracket.curly.ks</string>
-                  </dict>
-                </dict>
-                <key>patterns</key>
-                <array>
-                  <dict>
-                    <key>name</key>
-                    <string>variable.other.enummember.ks</string>
-                    <key>match</key>
-                    <string>[_$[:alpha:]][_$[:alnum:]]*</string>
-                  </dict>
-                </array>
-              </dict>
-            </array>
-          </dict>
-          <dict>
-            <key>begin</key>
             <string>\b(?:(async)\s+)?(func)\b</string>
             <key>beginCaptures</key>
             <dict>
@@ -3046,14 +3155,6 @@
                 </array>
               </dict>
             </array>
-          </dict>
-          <dict>
-            <key>include</key>
-            <string>#struct-statement-body</string>
-          </dict>
-          <dict>
-            <key>include</key>
-            <string>#tuple-statement-body</string>
           </dict>
           <dict>
             <key>begin</key>
@@ -6829,6 +6930,28 @@
           </dict>
         </array>
       </dict>
+      <key>require-declarator</key>
+      <dict>
+        <key>patterns</key>
+        <array>
+          <dict>
+            <key>include</key>
+            <string>#enum-statement-body</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#struct-statement-body</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#tuple-statement-body</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#extern-declarator</string>
+          </dict>
+        </array>
+      </dict>
       <key>require-extern-statement</key>
       <dict>
         <key>begin</key>
@@ -6984,13 +7107,13 @@
             <array>
               <dict>
                 <key>include</key>
-                <string>#extern-declarator</string>
+                <string>#require-declarator</string>
               </dict>
             </array>
           </dict>
           <dict>
             <key>include</key>
-            <string>#extern-declarator</string>
+            <string>#require-declarator</string>
           </dict>
           <dict>
             <key>include</key>
@@ -7060,7 +7183,7 @@
           </dict>
           <dict>
             <key>begin</key>
-            <string>^\s*(?=abstract\b|async\b|auto\b|class\b|const\b|enum\b|final\b|func\b|lateinit\b|let\b|macro\b|namespace\b|sealed\b|type\b)</string>
+            <string>^\s*(?=abstract\b|async\b|auto\b|class\b|const\b|enum\b|final\b|flagged\b|func\b|lateinit\b|let\b|macro\b|namespace\b|sealed\b|type\b)</string>
             <key>end</key>
             <string>(?&lt;=\}|$)</string>
             <key>patterns</key>
@@ -7552,7 +7675,7 @@
               </dict>
             </dict>
             <key>end</key>
-            <string>(?=\bwhere\b|=&gt;)</string>
+            <string>(?=\bwhen\b|=&gt;)</string>
             <key>patterns</key>
             <array>
               <dict>
@@ -7563,7 +7686,7 @@
           </dict>
           <dict>
             <key>begin</key>
-            <string>where</string>
+            <string>when</string>
             <key>beginCaptures</key>
             <dict>
               <key>0</key>

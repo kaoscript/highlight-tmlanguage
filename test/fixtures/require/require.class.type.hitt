@@ -71,7 +71,7 @@ grammar: kaoscript.tmLanguage
  source.ks
          RGB
          ^^^
-         source.ks variable.other.enummember.ks
+         source.ks entity.name.variable.field.ks
 >
 >    }
      

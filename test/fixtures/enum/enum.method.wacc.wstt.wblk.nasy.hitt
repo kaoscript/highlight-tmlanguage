@@ -1,0 +1,267 @@
+original file
+-----------------------------------
+enum Weekday {
+    MONDAY
+    TUESDAY
+    WEDNESDAY
+    THURSDAY
+    FRIDAY
+    SATURDAY
+    SUNDAY
+
+    public static {
+        fromString(value: String): Weekday? {
+            switch value {
+                'monday' => return MONDAY
+            }
+
+            return null
+        }
+    }
+}
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>enum Weekday {
+ enum
+ ^^^^
+ source.ks storage.type.enum.ks
+      
+     ^
+     source.ks
+      Weekday
+      ^^^^^^^
+      source.ks entity.name.type.enum.ks
+              
+             ^
+             source.ks
+              {
+              ^
+              source.ks punctuation.definition.enum.begin.bracket.curly.ks
+>
+>    MONDAY
+     
+ ^^^^
+ source.ks
+     MONDAY
+     ^^^^^^
+     source.ks entity.name.variable.field.ks
+>
+>    TUESDAY
+     
+ ^^^^
+ source.ks
+     TUESDAY
+     ^^^^^^^
+     source.ks entity.name.variable.field.ks
+>
+>    WEDNESDAY
+     
+ ^^^^
+ source.ks
+     WEDNESDAY
+     ^^^^^^^^^
+     source.ks entity.name.variable.field.ks
+>
+>    THURSDAY
+     
+ ^^^^
+ source.ks
+     THURSDAY
+     ^^^^^^^^
+     source.ks entity.name.variable.field.ks
+>
+>    FRIDAY
+     
+ ^^^^
+ source.ks
+     FRIDAY
+     ^^^^^^
+     source.ks entity.name.variable.field.ks
+>
+>    SATURDAY
+     
+ ^^^^
+ source.ks
+     SATURDAY
+     ^^^^^^^^
+     source.ks entity.name.variable.field.ks
+>
+>    SUNDAY
+     
+ ^^^^
+ source.ks
+     SUNDAY
+     ^^^^^^
+     source.ks entity.name.variable.field.ks
+>
+>
+ 
+ ^
+ source.ks
+>
+>    public static {
+     
+ ^^^^
+ source.ks
+     public
+     ^^^^^^
+     source.ks storage.modifier.access.ks
+            
+           ^
+           source.ks
+            static
+            ^^^^^^
+            source.ks storage.modifier.access.ks
+                   
+                  ^
+                  source.ks
+                   {
+                   ^
+                   source.ks punctuation.definition.members.begin.bracket.curly.ks
+>
+>        fromString(value: String): Weekday? {
+         
+ ^^^^^^^^
+ source.ks
+         fromString
+         ^^^^^^^^^^
+         source.ks entity.name.function.ks
+                   (
+                   ^
+                   source.ks punctuation.definition.parameters.begin.bracket.round.ks
+                    value
+                    ^^^^^
+                    source.ks variable.parameter.ks
+                         :
+                         ^
+                         source.ks meta.type.annotation.ks keyword.operator.type.annotation.ks
+                           
+                          ^
+                          source.ks meta.type.annotation.ks
+                           String
+                           ^^^^^^
+                           source.ks meta.type.annotation.ks support.type.primitive.ks
+                                 )
+                                 ^
+                                 source.ks punctuation.definition.parameters.end.bracket.round.ks
+                                  :
+                                  ^
+                                  source.ks meta.function.return-type.ks keyword.operator.type.annotation.ks
+                                    
+                                   ^
+                                   source.ks meta.function.return-type.ks
+                                    Weekday
+                                    ^^^^^^^
+                                    source.ks meta.function.return-type.ks entity.name.type.ks
+                                           ?
+                                           ^
+                                           source.ks meta.function.return-type.ks storage.modifier.nullable.ks
+                                             
+                                            ^
+                                            source.ks
+                                             {
+                                             ^
+                                             source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>            switch value {
+             
+ ^^^^^^^^^^^^
+ source.ks
+             switch
+             ^^^^^^
+             source.ks keyword.control.switch.ks
+                    
+                   ^
+                   source.ks
+                    value
+                    ^^^^^
+                    source.ks variable.other.ks
+                          
+                         ^
+                         source.ks
+                          {
+                          ^
+                          source.ks punctuation.definition.switch.begin.bracket.curly.ks
+>
+>                'monday' => return MONDAY
+                 
+ ^^^^^^^^^^^^^^^^
+ source.ks
+                 '
+                 ^
+                 source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
+                  monday
+                  ^^^^^^
+                  source.ks string.quoted.single.ks
+                        '
+                        ^
+                        source.ks string.quoted.single.ks punctuation.definition.string.end.ks
+                          
+                         ^
+                         source.ks
+                          =>
+                          ^^
+                          source.ks keyword.control.switch.body.ks
+                             
+                            ^
+                            source.ks
+                             return
+                             ^^^^^^
+                             source.ks keyword.control.flow.return.ks
+                                    
+                                   ^
+                                   source.ks
+                                    MONDAY
+                                    ^^^^^^
+                                    source.ks variable.other.ks
+>
+>            }
+             
+ ^^^^^^^^^^^^
+ source.ks
+             }
+             ^
+             source.ks punctuation.definition.switch.end.bracket.curly.ks
+>
+>
+ 
+ ^
+ source.ks
+>
+>            return null
+             
+ ^^^^^^^^^^^^
+ source.ks
+             return
+             ^^^^^^
+             source.ks keyword.control.flow.return.ks
+                    
+                   ^
+                   source.ks
+                    null
+                    ^^^^
+                    source.ks constant.language.null.ks
+>
+>        }
+         
+ ^^^^^^^^
+ source.ks
+         }
+         ^
+         source.ks punctuation.definition.block.end.bracket.curly.ks
+>
+>    }
+     
+ ^^^^
+ source.ks
+     }
+     ^
+     source.ks punctuation.definition.members.end.bracket.curly.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.enum.end.bracket.curly.ks

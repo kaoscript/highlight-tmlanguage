@@ -1,0 +1,93 @@
+original file
+-----------------------------------
+enum Color {
+    Red        = 0
+    Green    = 127
+    Blue    = 255
+}
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>enum Color {
+ enum
+ ^^^^
+ source.ks storage.type.enum.ks
+      
+     ^
+     source.ks
+      Color
+      ^^^^^
+      source.ks entity.name.type.enum.ks
+            
+           ^
+           source.ks
+            {
+            ^
+            source.ks punctuation.definition.enum.begin.bracket.curly.ks
+>
+>    Red        = 0
+     
+ ^^^^
+ source.ks
+     Red
+     ^^^
+     source.ks entity.name.variable.field.ks
+                
+        ^^^^^^^^
+        source.ks
+                =
+                ^
+                source.ks keyword.operator.assignment.ks
+                  
+                 ^
+                 source.ks
+                  0
+                  ^
+                  source.ks constant.numeric.decimal.ks
+>
+>    Green    = 127
+     
+ ^^^^
+ source.ks
+     Green
+     ^^^^^
+     source.ks entity.name.variable.field.ks
+              
+          ^^^^
+          source.ks
+              =
+              ^
+              source.ks keyword.operator.assignment.ks
+                
+               ^
+               source.ks
+                127
+                ^^^
+                source.ks constant.numeric.decimal.ks
+>
+>    Blue    = 255
+     
+ ^^^^
+ source.ks
+     Blue
+     ^^^^
+     source.ks entity.name.variable.field.ks
+             
+         ^^^^
+         source.ks
+             =
+             ^
+             source.ks keyword.operator.assignment.ks
+               
+              ^
+              source.ks
+               255
+               ^^^
+               source.ks constant.numeric.decimal.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.enum.end.bracket.curly.ks

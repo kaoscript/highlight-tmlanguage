@@ -1,6 +1,6 @@
 original file
 -----------------------------------
-extern struct Point {
+require struct Point {
     x: Number
     y: Number
 }
@@ -13,28 +13,28 @@ console.log(point.x, point.y)
 grammar: kaoscript.tmLanguage
 -----------------------------------
 >
->extern struct Point {
- extern
- ^^^^^^
- source.ks keyword.control.dependency.extern.ks
-        
-       ^
-       source.ks
-        struct
-        ^^^^^^
-        source.ks storage.type.struct.ks
-               
-              ^
-              source.ks
-               Point
-               ^^^^^
-               source.ks entity.name.type.struct.ks
-                     
-                    ^
-                    source.ks
-                     {
+>require struct Point {
+ require
+ ^^^^^^^
+ source.ks keyword.control.require.ks
+         
+        ^
+        source.ks
+         struct
+         ^^^^^^
+         source.ks storage.type.struct.ks
+                
+               ^
+               source.ks
+                Point
+                ^^^^^
+                source.ks entity.name.type.struct.ks
+                      
                      ^
-                     source.ks punctuation.definition.struct.begin.bracket.curly.ks
+                     source.ks
+                      {
+                      ^
+                      source.ks punctuation.definition.struct.begin.bracket.curly.ks
 >
 >    x: Number
      
