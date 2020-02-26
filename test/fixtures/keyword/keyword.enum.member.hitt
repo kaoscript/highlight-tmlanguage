@@ -1,0 +1,54 @@
+original file
+-----------------------------------
+const enum = 0
+
+enum.toString()
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>const enum = 0
+ const
+ ^^^^^
+ source.ks storage.type.constant.ks
+       
+      ^
+      source.ks
+       enum
+       ^^^^
+       source.ks meta.definition.variable.ks variable.other.constant.ks
+            
+           ^
+           source.ks
+            =
+            ^
+            source.ks keyword.operator.assignment.ks
+              
+             ^
+             source.ks
+              0
+              ^
+              source.ks constant.numeric.decimal.ks
+>
+>
+ 
+ ^
+ source.ks
+>
+>enum.toString()
+ enum
+ ^^^^
+ source.ks variable.other.object.ks
+     .
+     ^
+     source.ks punctuation.accessor.object.ks
+      toString
+      ^^^^^^^^
+      source.ks entity.name.function.ks
+              (
+              ^
+              source.ks punctuation.definition.arguments.begin.bracket.round.ks
+               )
+               ^
+               source.ks punctuation.definition.arguments.end.bracket.round.ks

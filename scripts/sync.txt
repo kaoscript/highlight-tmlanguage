@@ -34,6 +34,8 @@ keyword.var.while
 keyword.this.ternary
 macro.number
 macro.quirk
+namespace.enum.default
+namespace.enum.flags
 number.not
 object.comment.template
 object.key.constant

@@ -2185,7 +2185,7 @@
       <key>enum-statement</key>
       <dict>
         <key>begin</key>
-        <string>(?=^\s*(?:flagged\s+)?enum\s+[_$[:alpha:]][_$[:alnum:]]*\b)</string>
+        <string>(?=(?:\bflagged\s+)?\benum\s+[_$[:alpha:]][_$[:alnum:]]*\b)</string>
         <key>end</key>
         <string>(?&lt;=\}|$)</string>
         <key>patterns</key>

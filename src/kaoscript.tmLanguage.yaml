@@ -663,7 +663,7 @@ repository:
     - include: '#comment'
   # }}}
   enum-statement: # {{{
-    begin: '(?=^\s*(?:flagged\s+)?enum\s+{{identifier}}\b)'
+    begin: '(?=(?:\bflagged\s+)?\benum\s+{{identifier}}\b)'
     end: '(?<=\}|$)'
     patterns:
     - include: '#enum-statement-body'

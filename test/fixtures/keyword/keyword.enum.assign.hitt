@@ -1,0 +1,54 @@
+original file
+-----------------------------------
+auto enum = 42
+
+enum = 24
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>auto enum = 42
+ auto
+ ^^^^
+ source.ks storage.type.readwrite.ks
+      
+     ^
+     source.ks
+      enum
+      ^^^^
+      source.ks meta.definition.variable.ks variable.other.readwrite.ks
+           
+          ^
+          source.ks
+           =
+           ^
+           source.ks keyword.operator.assignment.ks
+             
+            ^
+            source.ks
+             42
+             ^^
+             source.ks constant.numeric.decimal.ks
+>
+>
+ 
+ ^
+ source.ks
+>
+>enum = 24
+ enum
+ ^^^^
+ source.ks variable.other.ks
+      
+     ^
+     source.ks
+      =
+      ^
+      source.ks keyword.operator.assignment.ks
+        
+       ^
+       source.ks
+        24
+        ^^
+        source.ks constant.numeric.decimal.ks

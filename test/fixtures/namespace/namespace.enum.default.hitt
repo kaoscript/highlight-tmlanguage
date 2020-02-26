@@ -1,0 +1,123 @@
+original file
+-----------------------------------
+namespace NS {
+    enum Weekday {
+        MONDAY
+        TUESDAY
+        WEDNESDAY
+        THURSDAY
+        FRIDAY
+        SATURDAY
+        SUNDAY
+    }
+}
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>namespace NS {
+ namespace
+ ^^^^^^^^^
+ source.ks storage.type.namespace.ks
+           
+          ^
+          source.ks
+           NS
+           ^^
+           source.ks entity.name.type.namespace.ks
+              
+             ^
+             source.ks
+              {
+              ^
+              source.ks punctuation.definition.namespace.begin.bracket.curly.ks
+>
+>    enum Weekday {
+     
+ ^^^^
+ source.ks
+     enum
+     ^^^^
+     source.ks storage.type.enum.ks
+          
+         ^
+         source.ks
+          Weekday
+          ^^^^^^^
+          source.ks entity.name.type.enum.ks
+                  
+                 ^
+                 source.ks
+                  {
+                  ^
+                  source.ks punctuation.definition.enum.begin.bracket.curly.ks
+>
+>        MONDAY
+         
+ ^^^^^^^^
+ source.ks
+         MONDAY
+         ^^^^^^
+         source.ks entity.name.variable.field.ks
+>
+>        TUESDAY
+         
+ ^^^^^^^^
+ source.ks
+         TUESDAY
+         ^^^^^^^
+         source.ks entity.name.variable.field.ks
+>
+>        WEDNESDAY
+         
+ ^^^^^^^^
+ source.ks
+         WEDNESDAY
+         ^^^^^^^^^
+         source.ks entity.name.variable.field.ks
+>
+>        THURSDAY
+         
+ ^^^^^^^^
+ source.ks
+         THURSDAY
+         ^^^^^^^^
+         source.ks entity.name.variable.field.ks
+>
+>        FRIDAY
+         
+ ^^^^^^^^
+ source.ks
+         FRIDAY
+         ^^^^^^
+         source.ks entity.name.variable.field.ks
+>
+>        SATURDAY
+         
+ ^^^^^^^^
+ source.ks
+         SATURDAY
+         ^^^^^^^^
+         source.ks entity.name.variable.field.ks
+>
+>        SUNDAY
+         
+ ^^^^^^^^
+ source.ks
+         SUNDAY
+         ^^^^^^
+         source.ks entity.name.variable.field.ks
+>
+>    }
+     
+ ^^^^
+ source.ks
+     }
+     ^
+     source.ks punctuation.definition.enum.end.bracket.curly.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.namespace.end.bracket.curly.ks
