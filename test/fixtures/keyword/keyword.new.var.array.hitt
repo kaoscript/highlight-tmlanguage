@@ -1,0 +1,66 @@
+original file
+-----------------------------------
+const new = 0
+
+console.log(values[new])
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>const new = 0
+ const
+ ^^^^^
+ source.ks storage.type.constant.ks
+       
+      ^
+      source.ks
+       new
+       ^^^
+       source.ks meta.definition.variable.ks variable.other.constant.ks
+           
+          ^
+          source.ks
+           =
+           ^
+           source.ks keyword.operator.assignment.ks
+             
+            ^
+            source.ks
+             0
+             ^
+             source.ks constant.numeric.decimal.ks
+>
+>
+ 
+ ^
+ source.ks
+>
+>console.log(values[new])
+ console
+ ^^^^^^^
+ source.ks variable.other.object.ks
+        .
+        ^
+        source.ks punctuation.accessor.object.ks
+         log
+         ^^^
+         source.ks entity.name.function.ks
+            (
+            ^
+            source.ks punctuation.definition.arguments.begin.bracket.round.ks
+             values
+             ^^^^^^
+             source.ks variable.other.ks
+                   [
+                   ^
+                   source.ks punctuation.accessor.array.begin.bracket.square.ks
+                    new
+                    ^^^
+                    source.ks variable.other.ks
+                       ]
+                       ^
+                       source.ks punctuation.accessor.array.end.bracket.square.ks
+                        )
+                        ^
+                        source.ks punctuation.definition.arguments.end.bracket.round.ks

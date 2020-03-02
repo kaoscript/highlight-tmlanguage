@@ -539,7 +539,7 @@ repository:
       end: '(?<=$|[\)\]\},])'
       patterns:
       - include: '#expression'
-    - begin: '(?<![\.\]\)])\bnew\b'
+    - begin: '(?<![\.\]\)])\bnew\b(?!\s*[\{\}\]\)\|\^\-\*\.~+=!<>%&])'
       beginCaptures:
         '0': { name: 'keyword.operator.new.ks' }
       end: '(?<=$|[\)\]\},])'
@@ -2136,6 +2136,8 @@ repository:
       '1': { name: 'keyword.control.flow.return.ks' }
     end: '$'
     patterns:
+    - include: '#if-else-expression'
+    - include: '#unless-expression'
     - include: '#expression'
   # }}}
   return-statement: # {{{

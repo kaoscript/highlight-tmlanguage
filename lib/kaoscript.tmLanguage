@@ -1776,7 +1776,7 @@
           </dict>
           <dict>
             <key>begin</key>
-            <string>(?&lt;![\.\]\)])\bnew\b</string>
+            <string>(?&lt;![\.\]\)])\bnew\b(?!\s*[\{\}\]\)\|\^\-\*\.~+=!&lt;&gt;%&amp;])</string>
             <key>beginCaptures</key>
             <dict>
               <key>0</key>
@@ -7137,6 +7137,14 @@
         <string>$</string>
         <key>patterns</key>
         <array>
+          <dict>
+            <key>include</key>
+            <string>#if-else-expression</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#unless-expression</string>
+          </dict>
           <dict>
             <key>include</key>
             <string>#expression</string>
