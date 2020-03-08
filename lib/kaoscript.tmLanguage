@@ -8624,6 +8624,10 @@
             <key>include</key>
             <string>#comma</string>
           </dict>
+          <dict>
+            <key>include</key>
+            <string>#comment</string>
+          </dict>
         </array>
       </dict>
       <key>type-statement</key>

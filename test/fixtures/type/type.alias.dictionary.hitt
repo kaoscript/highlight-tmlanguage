@@ -1,0 +1,84 @@
+original file
+-----------------------------------
+type Coord = {
+    x: Number
+    y: Number
+    // z: Number
+}
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>type Coord = {
+ type
+ ^^^^
+ source.ks storage.type.type.ks
+      
+     ^
+     source.ks
+      Coord
+      ^^^^^
+      source.ks entity.name.type.alias.ks
+            
+           ^
+           source.ks
+            =
+            ^
+            source.ks keyword.operator.assignment.ks
+              
+             ^
+             source.ks
+              {
+              ^
+              source.ks punctuation.definition.object.begin.bracket.curly.ks
+>
+>    x: Number
+     
+ ^^^^
+ source.ks
+     x
+     ^
+     source.ks meta.object.key.ks
+      :
+      ^
+      source.ks keyword.operator.type.annotation.ks
+        
+       ^
+       source.ks
+        Number
+        ^^^^^^
+        source.ks support.type.primitive.ks
+>
+>    y: Number
+     
+ ^^^^
+ source.ks
+     y
+     ^
+     source.ks meta.object.key.ks
+      :
+      ^
+      source.ks keyword.operator.type.annotation.ks
+        
+       ^
+       source.ks
+        Number
+        ^^^^^^
+        source.ks support.type.primitive.ks
+>
+>    // z: Number
+     
+ ^^^^
+ source.ks punctuation.whitespace.comment.leading.ks
+     //
+     ^^
+     source.ks comment.line.double-slash.ks punctuation.definition.comment.ks
+        z: Number
+       ^^^^^^^^^^
+       source.ks comment.line.double-slash.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.object.end.bracket.curly.ks

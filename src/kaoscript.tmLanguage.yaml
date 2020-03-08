@@ -2578,6 +2578,7 @@ repository:
       patterns:
       - include: '#type'
     - include: '#comma'
+    - include: '#comment'
   # }}}
   type-statement: # {{{
     patterns:

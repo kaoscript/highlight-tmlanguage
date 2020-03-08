@@ -48,6 +48,7 @@ struct.comment.sl
 template.parenthesis.match
 tuple.named.comment.ml
 tuple.named.comment.sl
+type.alias.dictionary
 type.alias.object
 type.cast.operation
 type.function.ret.object
