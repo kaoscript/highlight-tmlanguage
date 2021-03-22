@@ -538,6 +538,10 @@
             <key>include</key>
             <string>#comma</string>
           </dict>
+          <dict>
+            <key>include</key>
+            <string>#comment</string>
+          </dict>
         </array>
       </dict>
       <key>binding-object</key>
@@ -567,6 +571,10 @@
           <dict>
             <key>include</key>
             <string>#binding-object-elements</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#comment</string>
           </dict>
         </array>
       </dict>
@@ -6143,7 +6151,7 @@
                 <key>begin</key>
                 <string>(?=['"`\[])</string>
                 <key>end</key>
-                <string>(?=:|\()</string>
+                <string>(?=[:\(\}])</string>
                 <key>patterns</key>
                 <array>
                   <dict>

@@ -1,9 +1,5 @@
 test:
-ifeq ($(g),)
-	node_modules/.bin/mocha --colors --check-leaks --require kaoscript/register --reporter spec "test/test.ks"
-else
-	node_modules/.bin/mocha --colors --check-leaks --require kaoscript/register --reporter spec -g "$(g)" "test/test.ks"
-endif
+	node_modules/.bin/mocha --colors --check-leaks --require kaoscript/register --reporter spec$(if $(value g), -g "$(g)") "test/test.ks"
 
 build:
 	npx kaoscript scripts/build.ks

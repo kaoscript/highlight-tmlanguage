@@ -1,0 +1,60 @@
+original file
+-----------------------------------
+const [ x/* , y */, z ] = values
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>const [ x/* , y */, z ] = values
+ const
+ ^^^^^
+ source.ks storage.type.constant.ks
+       
+      ^
+      source.ks
+       [
+       ^
+       source.ks punctuation.definition.binding-pattern.array.begin.bracket.square.ks
+         
+        ^
+        source.ks
+         x
+         ^
+         source.ks variable.other.ks
+          /*
+          ^^
+          source.ks comment.block.ks punctuation.definition.comment.ks
+             , y 
+            ^^^^^
+            source.ks comment.block.ks
+                 */
+                 ^^
+                 source.ks comment.block.ks punctuation.definition.comment.ks
+                   ,
+                   ^
+                   source.ks punctuation.separator.comma.ks
+                     
+                    ^
+                    source.ks
+                     z
+                     ^
+                     source.ks variable.other.ks
+                       
+                      ^
+                      source.ks
+                       ]
+                       ^
+                       source.ks punctuation.definition.binding-pattern.array.end.bracket.square.ks
+                         
+                        ^
+                        source.ks
+                         =
+                         ^
+                         source.ks keyword.operator.assignment.ks
+                           
+                          ^
+                          source.ks
+                           values
+                           ^^^^^^
+                           source.ks variable.other.ks
