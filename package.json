@@ -26,7 +26,7 @@
 		"klaw-sync": "^6.0.0",
 		"mocha": "^5.2.0",
 		"output-file-sync": "^2.0.1",
-		"plist": "^2.1.0",
+		"plist": "^3.0.5",
 		"vscode-textmate": "^3.0.1"
 	},
 	"scripts": {
