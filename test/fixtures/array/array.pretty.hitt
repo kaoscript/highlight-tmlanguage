@@ -1,6 +1,6 @@
 original file
 -----------------------------------
-let a =
+var a =
     [
         1
     ]
@@ -9,16 +9,16 @@ let a =
 grammar: kaoscript.tmLanguage
 -----------------------------------
 >
->let a =
- let
+>var a =
+ var
  ^^^
- source.ks storage.type.readwrite.ks
+ source.ks storage.type.constant.ks
      
     ^
     source.ks
      a
      ^
-     source.ks meta.definition.variable.ks variable.other.readwrite.ks
+     source.ks meta.definition.variable.ks variable.other.ks
        
       ^
       source.ks

@@ -32,13 +32,13 @@ grammar: kaoscript.tmLanguage
 >const macros = {}
  const
  ^^^^^
- source.ks storage.type.constant.ks
+ source.ks variable.other.ks
        
       ^
       source.ks
        macros
        ^^^^^^
-       source.ks meta.definition.variable.ks variable.other.constant.ks
+       source.ks variable.other.ks
               
              ^
              source.ks

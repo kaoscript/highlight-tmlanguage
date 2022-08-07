@@ -1,6 +1,6 @@
 original file
 -----------------------------------
-let until = {}
+var until = {}
 
 until.foo = 42
 -----------------------------------
@@ -8,16 +8,16 @@ until.foo = 42
 grammar: kaoscript.tmLanguage
 -----------------------------------
 >
->let until = {}
- let
+>var until = {}
+ var
  ^^^
- source.ks storage.type.readwrite.ks
+ source.ks storage.type.constant.ks
      
     ^
     source.ks
      until
      ^^^^^
-     source.ks meta.definition.variable.ks variable.other.readwrite.ks
+     source.ks meta.definition.variable.ks variable.other.ks
            
           ^
           source.ks

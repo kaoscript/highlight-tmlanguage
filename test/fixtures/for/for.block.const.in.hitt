@@ -1,11 +1,11 @@
 original file
 -----------------------------------
-let hero = 'you'
-let index = 42
+var dyn hero = 'you'
+var dyn index = 42
 
 heroes = ['leto', 'duncan', 'goku']
 
-for const hero, index in heroes {
+for var hero, index in heroes {
     console.log('The hero at index %d is %s', index, hero)
 }
 -----------------------------------
@@ -13,57 +13,63 @@ for const hero, index in heroes {
 grammar: kaoscript.tmLanguage
 -----------------------------------
 >
->let hero = 'you'
- let
- ^^^
+>var dyn hero = 'you'
+ var 
+ ^^^^
  source.ks storage.type.readwrite.ks
-     
-    ^
-    source.ks
-     hero
-     ^^^^
-     source.ks meta.definition.variable.ks variable.other.readwrite.ks
-          
-         ^
-         source.ks
-          =
-          ^
-          source.ks keyword.operator.assignment.ks
-            
-           ^
-           source.ks
-            '
-            ^
-            source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
-             you
-             ^^^
-             source.ks string.quoted.single.ks
+     dyn
+     ^^^
+     source.ks storage.type.readwrite.ks storage.modifier.dynamic.ks
+         
+        ^
+        source.ks
+         hero
+         ^^^^
+         source.ks meta.definition.variable.ks variable.other.ks
+              
+             ^
+             source.ks
+              =
+              ^
+              source.ks keyword.operator.assignment.ks
+                
+               ^
+               source.ks
                 '
                 ^
-                source.ks string.quoted.single.ks punctuation.definition.string.end.ks
+                source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
+                 you
+                 ^^^
+                 source.ks string.quoted.single.ks
+                    '
+                    ^
+                    source.ks string.quoted.single.ks punctuation.definition.string.end.ks
 >
->let index = 42
- let
- ^^^
+>var dyn index = 42
+ var 
+ ^^^^
  source.ks storage.type.readwrite.ks
-     
-    ^
-    source.ks
-     index
-     ^^^^^
-     source.ks meta.definition.variable.ks variable.other.readwrite.ks
-           
-          ^
-          source.ks
-           =
-           ^
-           source.ks keyword.operator.assignment.ks
-             
-            ^
-            source.ks
-             42
-             ^^
-             source.ks constant.numeric.decimal.ks
+     dyn
+     ^^^
+     source.ks storage.type.readwrite.ks storage.modifier.dynamic.ks
+         
+        ^
+        source.ks
+         index
+         ^^^^^
+         source.ks meta.definition.variable.ks variable.other.ks
+               
+              ^
+              source.ks
+               =
+               ^
+               source.ks keyword.operator.assignment.ks
+                 
+                ^
+                source.ks
+                 42
+                 ^^
+                 source.ks constant.numeric.decimal.ks
 >
 >
  
@@ -134,49 +140,49 @@ grammar: kaoscript.tmLanguage
  ^
  source.ks
 >
->for const hero, index in heroes {
+>for var hero, index in heroes {
  for
  ^^^
  source.ks keyword.control.loop.for.ks
      
     ^
     source.ks
-     const
-     ^^^^^
+     var
+     ^^^
      source.ks storage.type.constant.ks
-           
-          ^
-          source.ks
-           hero
-           ^^^^
-           source.ks meta.definition.variable.ks variable.other.constant.ks
-               ,
-               ^
-               source.ks punctuation.separator.comma.ks
-                 
-                ^
-                source.ks
-                 index
-                 ^^^^^
-                 source.ks meta.definition.variable.ks variable.other.constant.ks
-                       
-                      ^
-                      source.ks
-                       in
-                       ^^
-                       source.ks keyword.operator.loop.in.ks
-                          
-                         ^
-                         source.ks
-                          heroes
-                          ^^^^^^
-                          source.ks variable.other.ks
-                                 
-                                ^
-                                source.ks
-                                 {
-                                 ^
-                                 source.ks punctuation.definition.block.begin.bracket.curly.ks
+         
+        ^
+        source.ks
+         hero
+         ^^^^
+         source.ks meta.definition.variable.ks variable.other.ks
+             ,
+             ^
+             source.ks punctuation.separator.comma.ks
+               
+              ^
+              source.ks
+               index
+               ^^^^^
+               source.ks meta.definition.variable.ks variable.other.ks
+                     
+                    ^
+                    source.ks
+                     in
+                     ^^
+                     source.ks keyword.operator.loop.in.ks
+                        
+                       ^
+                       source.ks
+                        heroes
+                        ^^^^^^
+                        source.ks variable.other.ks
+                               
+                              ^
+                              source.ks
+                               {
+                               ^
+                               source.ks punctuation.definition.block.begin.bracket.curly.ks
 >
 >    console.log('The hero at index %d is %s', index, hero)
      

@@ -2,7 +2,7 @@ original file
 -----------------------------------
 type T = number | string
 
-let x: T = 0
+var dyn x: T = 0
 -----------------------------------
 
 grammar: kaoscript.tmLanguage
@@ -48,34 +48,37 @@ grammar: kaoscript.tmLanguage
  ^
  source.ks
 >
->let x: T = 0
- let
- ^^^
+>var dyn x: T = 0
+ var 
+ ^^^^
  source.ks storage.type.readwrite.ks
-     
-    ^
-    source.ks
-     x
-     ^
-     source.ks meta.definition.variable.ks variable.other.readwrite.ks
-      :
-      ^
-      source.ks meta.type.annotation.ks keyword.operator.type.annotation.ks
-        
-       ^
-       source.ks meta.type.annotation.ks
-        T
+     dyn
+     ^^^
+     source.ks storage.type.readwrite.ks storage.modifier.dynamic.ks
+         
         ^
-        source.ks meta.type.annotation.ks entity.name.type.ks
-          
+        source.ks
+         x
          ^
-         source.ks
-          =
+         source.ks meta.definition.variable.ks variable.other.ks
+          :
           ^
-          source.ks keyword.operator.assignment.ks
+          source.ks meta.type.annotation.ks keyword.operator.type.annotation.ks
             
            ^
-           source.ks
-            0
+           source.ks meta.type.annotation.ks
+            T
             ^
-            source.ks constant.numeric.decimal.ks
+            source.ks meta.type.annotation.ks entity.name.type.ks
+              
+             ^
+             source.ks
+              =
+              ^
+              source.ks keyword.operator.assignment.ks
+                
+               ^
+               source.ks
+                0
+                ^
+                source.ks constant.numeric.decimal.ks

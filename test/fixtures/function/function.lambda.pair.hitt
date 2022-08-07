@@ -1,84 +1,87 @@
 original file
 -----------------------------------
-let foo = (x = null, y) => [x, y]
+var dyn foo = (x = null, y) => [x, y]
 -----------------------------------
 
 grammar: kaoscript.tmLanguage
 -----------------------------------
 >
->let foo = (x = null, y) => [x, y]
- let
- ^^^
+>var dyn foo = (x = null, y) => [x, y]
+ var 
+ ^^^^
  source.ks storage.type.readwrite.ks
-     
-    ^
-    source.ks
-     foo
+     dyn
      ^^^
-     source.ks meta.definition.variable.ks variable.other.readwrite.ks
+     source.ks storage.type.readwrite.ks storage.modifier.dynamic.ks
          
         ^
         source.ks
-         =
-         ^
-         source.ks keyword.operator.assignment.ks
-           
-          ^
-          source.ks
-           (
-           ^
-           source.ks punctuation.definition.parameters.begin.bracket.round.ks
-            x
+         foo
+         ^^^
+         source.ks meta.definition.variable.ks variable.other.ks
+             
             ^
-            source.ks variable.parameter.ks
-              
+            source.ks
+             =
              ^
-             source.ks
-              =
+             source.ks keyword.operator.assignment.ks
+               
               ^
-              source.ks keyword.operator.assignment.ks
-                
+              source.ks
+               (
                ^
-               source.ks
-                null
-                ^^^^
-                source.ks constant.language.null.ks
-                    ,
-                    ^
-                    source.ks punctuation.separator.comma.ks
-                      
-                     ^
-                     source.ks
-                      y
-                      ^
-                      source.ks variable.parameter.ks
-                       )
-                       ^
-                       source.ks punctuation.definition.parameters.end.bracket.round.ks
-                         
+               source.ks punctuation.definition.parameters.begin.bracket.round.ks
+                x
+                ^
+                source.ks variable.parameter.ks
+                  
+                 ^
+                 source.ks
+                  =
+                  ^
+                  source.ks keyword.operator.assignment.ks
+                    
+                   ^
+                   source.ks
+                    null
+                    ^^^^
+                    source.ks constant.language.null.ks
+                        ,
                         ^
-                        source.ks
-                         =>
-                         ^^
-                         source.ks storage.type.function.arrow.ks
-                            
+                        source.ks punctuation.separator.comma.ks
+                          
+                         ^
+                         source.ks
+                          y
+                          ^
+                          source.ks variable.parameter.ks
+                           )
                            ^
-                           source.ks
-                            [
+                           source.ks punctuation.definition.parameters.end.bracket.round.ks
+                             
                             ^
-                            source.ks punctuation.definition.array.begin.bracket.square.ks
-                             x
-                             ^
-                             source.ks variable.other.ks
-                              ,
-                              ^
-                              source.ks punctuation.separator.comma.ks
+                            source.ks
+                             =>
+                             ^^
+                             source.ks storage.type.function.arrow.ks
                                 
                                ^
                                source.ks
-                                y
+                                [
                                 ^
-                                source.ks variable.other.ks
-                                 ]
+                                source.ks punctuation.definition.array.begin.bracket.square.ks
+                                 x
                                  ^
-                                 source.ks punctuation.definition.array.end.bracket.square.ks
+                                 source.ks variable.other.ks
+                                  ,
+                                  ^
+                                  source.ks punctuation.separator.comma.ks
+                                    
+                                   ^
+                                   source.ks
+                                    y
+                                    ^
+                                    source.ks variable.other.ks
+                                     ]
+                                     ^
+                                     source.ks punctuation.definition.array.end.bracket.square.ks

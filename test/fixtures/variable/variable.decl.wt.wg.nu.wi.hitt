@@ -1,84 +1,87 @@
 original file
 -----------------------------------
-let a : Array<Number> = [1, 2, 3, 4]
+var mut a : Array<Number> = [1, 2, 3, 4]
 -----------------------------------
 
 grammar: kaoscript.tmLanguage
 -----------------------------------
 >
->let a : Array<Number> = [1, 2, 3, 4]
- let
- ^^^
+>var mut a : Array<Number> = [1, 2, 3, 4]
+ var 
+ ^^^^
  source.ks storage.type.readwrite.ks
-     
-    ^
-    source.ks
-     a
-     ^
-     source.ks meta.definition.variable.ks variable.other.readwrite.ks
-       
-      ^
-      source.ks
-       :
-       ^
-       source.ks meta.type.annotation.ks keyword.operator.type.annotation.ks
+     mut
+     ^^^
+     source.ks storage.type.readwrite.ks storage.modifier.mutable.ks
          
         ^
-        source.ks meta.type.annotation.ks
-         Array
-         ^^^^^
-         source.ks meta.type.annotation.ks support.type.primitive.ks
-              <
-              ^
-              source.ks meta.type.annotation.ks punctuation.definition.typeparameters.begin.ks
-               Number
-               ^^^^^^
-               source.ks meta.type.annotation.ks support.type.primitive.ks
-                     >
-                     ^
-                     source.ks meta.type.annotation.ks punctuation.definition.typeparameters.end.ks
-                       
-                      ^
-                      source.ks
-                       =
-                       ^
-                       source.ks keyword.operator.assignment.ks
-                         
-                        ^
-                        source.ks
-                         [
+        source.ks
+         a
+         ^
+         source.ks meta.definition.variable.ks variable.other.ks
+           
+          ^
+          source.ks
+           :
+           ^
+           source.ks meta.type.annotation.ks keyword.operator.type.annotation.ks
+             
+            ^
+            source.ks meta.type.annotation.ks
+             Array
+             ^^^^^
+             source.ks meta.type.annotation.ks support.type.primitive.ks
+                  <
+                  ^
+                  source.ks meta.type.annotation.ks punctuation.definition.typeparameters.begin.ks
+                   Number
+                   ^^^^^^
+                   source.ks meta.type.annotation.ks support.type.primitive.ks
+                         >
                          ^
-                         source.ks punctuation.definition.array.begin.bracket.square.ks
-                          1
+                         source.ks meta.type.annotation.ks punctuation.definition.typeparameters.end.ks
+                           
                           ^
-                          source.ks constant.numeric.decimal.ks
-                           ,
+                          source.ks
+                           =
                            ^
-                           source.ks punctuation.separator.comma.ks
+                           source.ks keyword.operator.assignment.ks
                              
                             ^
                             source.ks
-                             2
+                             [
                              ^
-                             source.ks constant.numeric.decimal.ks
-                              ,
+                             source.ks punctuation.definition.array.begin.bracket.square.ks
+                              1
                               ^
-                              source.ks punctuation.separator.comma.ks
-                                
+                              source.ks constant.numeric.decimal.ks
+                               ,
                                ^
-                               source.ks
-                                3
+                               source.ks punctuation.separator.comma.ks
+                                 
                                 ^
-                                source.ks constant.numeric.decimal.ks
-                                 ,
+                                source.ks
+                                 2
                                  ^
-                                 source.ks punctuation.separator.comma.ks
-                                   
+                                 source.ks constant.numeric.decimal.ks
+                                  ,
                                   ^
-                                  source.ks
-                                   4
+                                  source.ks punctuation.separator.comma.ks
+                                    
                                    ^
-                                   source.ks constant.numeric.decimal.ks
-                                    ]
+                                   source.ks
+                                    3
                                     ^
-                                    source.ks punctuation.definition.array.end.bracket.square.ks
+                                    source.ks constant.numeric.decimal.ks
+                                     ,
+                                     ^
+                                     source.ks punctuation.separator.comma.ks
+                                       
+                                      ^
+                                      source.ks
+                                       4
+                                       ^
+                                       source.ks constant.numeric.decimal.ks
+                                        ]
+                                        ^
+                                        source.ks punctuation.definition.array.end.bracket.square.ks

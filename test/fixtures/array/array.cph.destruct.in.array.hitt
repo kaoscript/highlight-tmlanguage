@@ -1,0 +1,105 @@
+original file
+-----------------------------------
+func foobar(items: Array) {
+    return [key for var [key] in items]
+}
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>func foobar(items: Array) {
+ func
+ ^^^^
+ source.ks storage.type.function.ks
+      
+     ^
+     source.ks
+      foobar
+      ^^^^^^
+      source.ks entity.name.function.ks
+            (
+            ^
+            source.ks punctuation.definition.parameters.begin.bracket.round.ks
+             items
+             ^^^^^
+             source.ks variable.parameter.ks
+                  :
+                  ^
+                  source.ks meta.type.annotation.ks keyword.operator.type.annotation.ks
+                    
+                   ^
+                   source.ks meta.type.annotation.ks
+                    Array
+                    ^^^^^
+                    source.ks meta.type.annotation.ks support.type.primitive.ks
+                         )
+                         ^
+                         source.ks punctuation.definition.parameters.end.bracket.round.ks
+                           
+                          ^
+                          source.ks
+                           {
+                           ^
+                           source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>    return [key for var [key] in items]
+     
+ ^^^^
+ source.ks
+     return
+     ^^^^^^
+     source.ks keyword.control.flow.return.ks
+            
+           ^
+           source.ks
+            [
+            ^
+            source.ks punctuation.definition.array.begin.bracket.square.ks
+             key
+             ^^^
+             source.ks variable.other.ks
+                 
+                ^
+                source.ks
+                 for
+                 ^^^
+                 source.ks keyword.control.loop.for.ks
+                     
+                    ^
+                    source.ks
+                     var
+                     ^^^
+                     source.ks storage.type.constant.ks
+                         
+                        ^
+                        source.ks
+                         [
+                         ^
+                         source.ks punctuation.definition.binding-pattern.array.begin.bracket.square.ks
+                          key
+                          ^^^
+                          source.ks variable.other.ks
+                             ]
+                             ^
+                             source.ks punctuation.definition.binding-pattern.array.end.bracket.square.ks
+                               
+                              ^
+                              source.ks
+                               in
+                               ^^
+                               source.ks keyword.control.loop.ks
+                                  
+                                 ^
+                                 source.ks
+                                  items
+                                  ^^^^^
+                                  source.ks variable.other.ks
+                                       ]
+                                       ^
+                                       source.ks punctuation.definition.array.end.bracket.square.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.block.end.bracket.curly.ks

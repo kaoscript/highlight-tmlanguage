@@ -1,42 +1,45 @@
 original file
 -----------------------------------
-let a : number | string
+var mut a : number | string
 -----------------------------------
 
 grammar: kaoscript.tmLanguage
 -----------------------------------
 >
->let a : number | string
- let
- ^^^
+>var mut a : number | string
+ var 
+ ^^^^
  source.ks storage.type.readwrite.ks
-     
-    ^
-    source.ks
-     a
-     ^
-     source.ks meta.definition.variable.ks variable.other.readwrite.ks
-       
-      ^
-      source.ks
-       :
-       ^
-       source.ks meta.type.annotation.ks keyword.operator.type.annotation.ks
+     mut
+     ^^^
+     source.ks storage.type.readwrite.ks storage.modifier.mutable.ks
          
         ^
-        source.ks meta.type.annotation.ks
-         number
-         ^^^^^^
-         source.ks meta.type.annotation.ks support.type.primitive.ks
-                
-               ^
-               source.ks meta.type.annotation.ks
-                |
-                ^
-                source.ks meta.type.annotation.ks keyword.operator.type.union.ks
-                  
-                 ^
-                 source.ks meta.type.annotation.ks
-                  string
-                  ^^^^^^
-                  source.ks meta.type.annotation.ks support.type.primitive.ks
+        source.ks
+         a
+         ^
+         source.ks meta.definition.variable.ks variable.other.ks
+           
+          ^
+          source.ks
+           :
+           ^
+           source.ks meta.type.annotation.ks keyword.operator.type.annotation.ks
+             
+            ^
+            source.ks meta.type.annotation.ks
+             number
+             ^^^^^^
+             source.ks meta.type.annotation.ks support.type.primitive.ks
+                    
+                   ^
+                   source.ks meta.type.annotation.ks
+                    |
+                    ^
+                    source.ks meta.type.annotation.ks keyword.operator.type.union.ks
+                      
+                     ^
+                     source.ks meta.type.annotation.ks
+                      string
+                      ^^^^^^
+                      source.ks meta.type.annotation.ks support.type.primitive.ks

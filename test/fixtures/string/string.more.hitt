@@ -1,6 +1,6 @@
 original file
 -----------------------------------
-const $escapes = {
+var $escapes = {
     '\x00': '\\0'
     '\b': '\\b'
     '\t': '\\t'
@@ -15,28 +15,28 @@ const $escapes = {
 grammar: kaoscript.tmLanguage
 -----------------------------------
 >
->const $escapes = {
- const
- ^^^^^
+>var $escapes = {
+ var
+ ^^^
  source.ks storage.type.constant.ks
-       
-      ^
-      source.ks
-       $escapes
-       ^^^^^^^^
-       source.ks meta.definition.variable.ks variable.other.constant.ks
+     
+    ^
+    source.ks
+     $escapes
+     ^^^^^^^^
+     source.ks meta.definition.variable.ks variable.other.ks
+              
+             ^
+             source.ks
+              =
+              ^
+              source.ks keyword.operator.assignment.ks
                 
                ^
                source.ks
-                =
+                {
                 ^
-                source.ks keyword.operator.assignment.ks
-                  
-                 ^
-                 source.ks
-                  {
-                  ^
-                  source.ks punctuation.definition.object.begin.bracket.curly.ks
+                source.ks punctuation.definition.object.begin.bracket.curly.ks
 >
 >    '\x00': '\\0'
      

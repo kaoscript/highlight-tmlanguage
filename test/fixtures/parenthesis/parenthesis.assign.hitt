@@ -1,90 +1,96 @@
 original file
 -----------------------------------
-let a = 'HELLO'
-let c = (b = a).toLowerCase()
+var dyn a = 'HELLO'
+var dyn c = (b = a).toLowerCase()
 -----------------------------------
 
 grammar: kaoscript.tmLanguage
 -----------------------------------
 >
->let a = 'HELLO'
- let
- ^^^
+>var dyn a = 'HELLO'
+ var 
+ ^^^^
  source.ks storage.type.readwrite.ks
-     
-    ^
-    source.ks
-     a
-     ^
-     source.ks meta.definition.variable.ks variable.other.readwrite.ks
-       
-      ^
-      source.ks
-       =
-       ^
-       source.ks keyword.operator.assignment.ks
+     dyn
+     ^^^
+     source.ks storage.type.readwrite.ks storage.modifier.dynamic.ks
          
         ^
         source.ks
-         '
+         a
          ^
-         source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
-          HELLO
-          ^^^^^
-          source.ks string.quoted.single.ks
-               '
-               ^
-               source.ks string.quoted.single.ks punctuation.definition.string.end.ks
->
->let c = (b = a).toLowerCase()
- let
- ^^^
- source.ks storage.type.readwrite.ks
-     
-    ^
-    source.ks
-     c
-     ^
-     source.ks meta.definition.variable.ks variable.other.readwrite.ks
-       
-      ^
-      source.ks
-       =
-       ^
-       source.ks keyword.operator.assignment.ks
-         
-        ^
-        source.ks
-         (
-         ^
-         source.ks meta.brace.round.ks
-          b
+         source.ks meta.definition.variable.ks variable.other.ks
+           
           ^
-          source.ks variable.other.ks
-            
+          source.ks
+           =
            ^
-           source.ks
-            =
+           source.ks keyword.operator.assignment.ks
+             
             ^
-            source.ks keyword.operator.assignment.ks
-              
+            source.ks
+             '
              ^
-             source.ks
-              a
+             source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
+              HELLO
+              ^^^^^
+              source.ks string.quoted.single.ks
+                   '
+                   ^
+                   source.ks string.quoted.single.ks punctuation.definition.string.end.ks
+>
+>var dyn c = (b = a).toLowerCase()
+ var 
+ ^^^^
+ source.ks storage.type.readwrite.ks
+     dyn
+     ^^^
+     source.ks storage.type.readwrite.ks storage.modifier.dynamic.ks
+         
+        ^
+        source.ks
+         c
+         ^
+         source.ks meta.definition.variable.ks variable.other.ks
+           
+          ^
+          source.ks
+           =
+           ^
+           source.ks keyword.operator.assignment.ks
+             
+            ^
+            source.ks
+             (
+             ^
+             source.ks meta.brace.round.ks
+              b
               ^
               source.ks variable.other.ks
-               )
+                
                ^
-               source.ks meta.brace.round.ks
-                .
+               source.ks
+                =
                 ^
-                source.ks punctuation.accessor.object.ks
-                 toLowerCase
-                 ^^^^^^^^^^^
-                 source.ks entity.name.function.ks
-                            (
-                            ^
-                            source.ks punctuation.definition.arguments.begin.bracket.round.ks
-                             )
-                             ^
-                             source.ks punctuation.definition.arguments.end.bracket.round.ks
+                source.ks keyword.operator.assignment.ks
+                  
+                 ^
+                 source.ks
+                  a
+                  ^
+                  source.ks variable.other.ks
+                   )
+                   ^
+                   source.ks meta.brace.round.ks
+                    .
+                    ^
+                    source.ks punctuation.accessor.object.ks
+                     toLowerCase
+                     ^^^^^^^^^^^
+                     source.ks entity.name.function.ks
+                                (
+                                ^
+                                source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                                 )
+                                 ^
+                                 source.ks punctuation.definition.arguments.end.bracket.round.ks

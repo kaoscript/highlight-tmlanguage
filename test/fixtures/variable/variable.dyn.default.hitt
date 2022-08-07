@@ -1,0 +1,33 @@
+original file
+-----------------------------------
+var dyn a = 42
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>var dyn a = 42
+ var 
+ ^^^^
+ source.ks storage.type.readwrite.ks
+     dyn
+     ^^^
+     source.ks storage.type.readwrite.ks storage.modifier.dynamic.ks
+         
+        ^
+        source.ks
+         a
+         ^
+         source.ks meta.definition.variable.ks variable.other.ks
+           
+          ^
+          source.ks
+           =
+           ^
+           source.ks keyword.operator.assignment.ks
+             
+            ^
+            source.ks
+             42
+             ^^
+             source.ks constant.numeric.decimal.ks

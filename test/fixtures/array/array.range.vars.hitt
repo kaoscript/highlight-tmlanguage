@@ -1,25 +1,25 @@
 original file
 -----------------------------------
-let min = 1
-let max = 5
+var min = 1
+var max = 5
 
-let a = [min..max]
+var a = [min..max]
 // 1, 2, 3, 4, 5
 -----------------------------------
 
 grammar: kaoscript.tmLanguage
 -----------------------------------
 >
->let min = 1
- let
+>var min = 1
+ var
  ^^^
- source.ks storage.type.readwrite.ks
+ source.ks storage.type.constant.ks
      
     ^
     source.ks
      min
      ^^^
-     source.ks meta.definition.variable.ks variable.other.readwrite.ks
+     source.ks meta.definition.variable.ks variable.other.ks
          
         ^
         source.ks
@@ -33,16 +33,16 @@ grammar: kaoscript.tmLanguage
            ^
            source.ks constant.numeric.decimal.ks
 >
->let max = 5
- let
+>var max = 5
+ var
  ^^^
- source.ks storage.type.readwrite.ks
+ source.ks storage.type.constant.ks
      
     ^
     source.ks
      max
      ^^^
-     source.ks meta.definition.variable.ks variable.other.readwrite.ks
+     source.ks meta.definition.variable.ks variable.other.ks
          
         ^
         source.ks
@@ -61,16 +61,16 @@ grammar: kaoscript.tmLanguage
  ^
  source.ks
 >
->let a = [min..max]
- let
+>var a = [min..max]
+ var
  ^^^
- source.ks storage.type.readwrite.ks
+ source.ks storage.type.constant.ks
      
     ^
     source.ks
      a
      ^
-     source.ks meta.definition.variable.ks variable.other.readwrite.ks
+     source.ks meta.definition.variable.ks variable.other.ks
        
       ^
       source.ks

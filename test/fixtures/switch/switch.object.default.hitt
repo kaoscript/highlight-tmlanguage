@@ -1,6 +1,6 @@
 original file
 -----------------------------------
-let value = {
+var dyn value = {
     foo: 1,
     bar() => 2
 }
@@ -18,28 +18,31 @@ switch value {
 grammar: kaoscript.tmLanguage
 -----------------------------------
 >
->let value = {
- let
- ^^^
+>var dyn value = {
+ var 
+ ^^^^
  source.ks storage.type.readwrite.ks
-     
-    ^
-    source.ks
-     value
-     ^^^^^
-     source.ks meta.definition.variable.ks variable.other.readwrite.ks
-           
-          ^
-          source.ks
-           =
-           ^
-           source.ks keyword.operator.assignment.ks
-             
-            ^
-            source.ks
-             {
-             ^
-             source.ks punctuation.definition.object.begin.bracket.curly.ks
+     dyn
+     ^^^
+     source.ks storage.type.readwrite.ks storage.modifier.dynamic.ks
+         
+        ^
+        source.ks
+         value
+         ^^^^^
+         source.ks meta.definition.variable.ks variable.other.ks
+               
+              ^
+              source.ks
+               =
+               ^
+               source.ks keyword.operator.assignment.ks
+                 
+                ^
+                source.ks
+                 {
+                 ^
+                 source.ks punctuation.definition.object.begin.bracket.curly.ks
 >
 >    foo: 1,
      

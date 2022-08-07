@@ -1,6 +1,6 @@
 original file
 -----------------------------------
-let a: {foo: int, bar: string} = {
+var dyn a: {foo: int, bar: string} = {
     foo: 3.14
     bar: 'hello'
 }
@@ -11,70 +11,73 @@ console.log(a)
 grammar: kaoscript.tmLanguage
 -----------------------------------
 >
->let a: {foo: int, bar: string} = {
- let
- ^^^
+>var dyn a: {foo: int, bar: string} = {
+ var 
+ ^^^^
  source.ks storage.type.readwrite.ks
-     
-    ^
-    source.ks
-     a
-     ^
-     source.ks meta.definition.variable.ks variable.other.readwrite.ks
-      :
-      ^
-      source.ks meta.type.annotation.ks keyword.operator.type.annotation.ks
-        
-       ^
-       source.ks meta.type.annotation.ks
-        {
+     dyn
+     ^^^
+     source.ks storage.type.readwrite.ks storage.modifier.dynamic.ks
+         
         ^
-        source.ks meta.type.annotation.ks punctuation.definition.object.begin.bracket.curly.ks
-         foo
-         ^^^
-         source.ks meta.type.annotation.ks meta.object.key.ks
-            :
+        source.ks
+         a
+         ^
+         source.ks meta.definition.variable.ks variable.other.ks
+          :
+          ^
+          source.ks meta.type.annotation.ks keyword.operator.type.annotation.ks
+            
+           ^
+           source.ks meta.type.annotation.ks
+            {
             ^
-            source.ks meta.type.annotation.ks keyword.operator.type.annotation.ks
-              
-             ^
-             source.ks meta.type.annotation.ks
-              int
-              ^^^
-              source.ks meta.type.annotation.ks entity.name.type.ks
-                 ,
+            source.ks meta.type.annotation.ks punctuation.definition.object.begin.bracket.curly.ks
+             foo
+             ^^^
+             source.ks meta.type.annotation.ks meta.object.key.ks
+                :
+                ^
+                source.ks meta.type.annotation.ks keyword.operator.type.annotation.ks
+                  
                  ^
-                 source.ks meta.type.annotation.ks punctuation.separator.comma.ks
-                   
-                  ^
-                  source.ks meta.type.annotation.ks
-                   bar
-                   ^^^
-                   source.ks meta.type.annotation.ks meta.object.key.ks
-                      :
+                 source.ks meta.type.annotation.ks
+                  int
+                  ^^^
+                  source.ks meta.type.annotation.ks entity.name.type.ks
+                     ,
+                     ^
+                     source.ks meta.type.annotation.ks punctuation.separator.comma.ks
+                       
                       ^
-                      source.ks meta.type.annotation.ks keyword.operator.type.annotation.ks
-                        
-                       ^
-                       source.ks meta.type.annotation.ks
-                        string
-                        ^^^^^^
-                        source.ks meta.type.annotation.ks support.type.primitive.ks
-                              }
-                              ^
-                              source.ks meta.type.annotation.ks punctuation.definition.object.end.bracket.curly.ks
-                                
-                               ^
-                               source.ks
-                                =
-                                ^
-                                source.ks keyword.operator.assignment.ks
-                                  
-                                 ^
-                                 source.ks
-                                  {
+                      source.ks meta.type.annotation.ks
+                       bar
+                       ^^^
+                       source.ks meta.type.annotation.ks meta.object.key.ks
+                          :
+                          ^
+                          source.ks meta.type.annotation.ks keyword.operator.type.annotation.ks
+                            
+                           ^
+                           source.ks meta.type.annotation.ks
+                            string
+                            ^^^^^^
+                            source.ks meta.type.annotation.ks support.type.primitive.ks
+                                  }
                                   ^
-                                  source.ks punctuation.definition.object.begin.bracket.curly.ks
+                                  source.ks meta.type.annotation.ks punctuation.definition.object.end.bracket.curly.ks
+                                    
+                                   ^
+                                   source.ks
+                                    =
+                                    ^
+                                    source.ks keyword.operator.assignment.ks
+                                      
+                                     ^
+                                     source.ks
+                                      {
+                                      ^
+                                      source.ks punctuation.definition.object.begin.bracket.curly.ks
 >
 >    foo: 3.14
      

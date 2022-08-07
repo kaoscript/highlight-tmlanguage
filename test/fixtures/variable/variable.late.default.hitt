@@ -1,0 +1,45 @@
+original file
+-----------------------------------
+var late a
+
+a = 42
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>var late a
+ var 
+ ^^^^
+ source.ks storage.type.readwrite.ks
+     late
+     ^^^^
+     source.ks storage.type.readwrite.ks storage.modifier.lateinit.ks
+          
+         ^
+         source.ks
+          a
+          ^
+          source.ks meta.definition.variable.ks variable.other.ks
+>
+>
+ 
+ ^
+ source.ks
+>
+>a = 42
+ a
+ ^
+ source.ks variable.other.ks
+   
+  ^
+  source.ks
+   =
+   ^
+   source.ks keyword.operator.assignment.ks
+     
+    ^
+    source.ks
+     42
+     ^^
+     source.ks constant.numeric.decimal.ks

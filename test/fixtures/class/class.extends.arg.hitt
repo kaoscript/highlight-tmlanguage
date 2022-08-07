@@ -4,7 +4,7 @@ class Shape {
     protected {
         _color: string = ''
     }
-    
+
     constructor(@color)
 
     draw(canvas): string {
@@ -20,7 +20,7 @@ class Rectangle extends Shape {
     }
 }
 
-let r = new Rectangle('black')
+var r = new Rectangle('black')
 
 expect(r.draw()).to.equal('I\'m drawing a black rectangle.')
 -----------------------------------
@@ -99,9 +99,9 @@ grammar: kaoscript.tmLanguage
      ^
      source.ks punctuation.definition.members.end.bracket.curly.ks
 >
->    
-     
- ^^^^^
+>
+ 
+ ^
  source.ks
 >
 >    constructor(@color)
@@ -380,16 +380,16 @@ grammar: kaoscript.tmLanguage
  ^
  source.ks
 >
->let r = new Rectangle('black')
- let
+>var r = new Rectangle('black')
+ var
  ^^^
- source.ks storage.type.readwrite.ks
+ source.ks storage.type.constant.ks
      
     ^
     source.ks
      r
      ^
-     source.ks meta.definition.variable.ks variable.other.readwrite.ks
+     source.ks meta.definition.variable.ks variable.other.ks
        
       ^
       source.ks

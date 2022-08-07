@@ -6,7 +6,7 @@ likes = {
     duncan: 'murbella'
 }
 
-spicyHeroes = [hero for const like, hero of likes]
+spicyHeroes = [hero for var like, hero of likes]
 -----------------------------------
 
 grammar: kaoscript.tmLanguage
@@ -108,7 +108,7 @@ grammar: kaoscript.tmLanguage
  ^
  source.ks
 >
->spicyHeroes = [hero for const like, hero of likes]
+>spicyHeroes = [hero for var like, hero of likes]
  spicyHeroes
  ^^^^^^^^^^^
  source.ks variable.other.ks
@@ -136,36 +136,36 @@ grammar: kaoscript.tmLanguage
                          
                         ^
                         source.ks
-                         const
-                         ^^^^^
+                         var
+                         ^^^
                          source.ks storage.type.constant.ks
-                               
-                              ^
-                              source.ks
-                               like
-                               ^^^^
-                               source.ks meta.definition.variable.ks variable.other.constant.ks
-                                   ,
-                                   ^
-                                   source.ks punctuation.separator.comma.ks
-                                     
-                                    ^
-                                    source.ks
-                                     hero
-                                     ^^^^
-                                     source.ks meta.definition.variable.ks variable.other.constant.ks
-                                          
-                                         ^
-                                         source.ks
-                                          of
-                                          ^^
-                                          source.ks keyword.control.loop.ks
-                                             
-                                            ^
-                                            source.ks
-                                             likes
-                                             ^^^^^
-                                             source.ks variable.other.ks
-                                                  ]
-                                                  ^
-                                                  source.ks punctuation.definition.array.end.bracket.square.ks
+                             
+                            ^
+                            source.ks
+                             like
+                             ^^^^
+                             source.ks meta.definition.variable.ks variable.other.ks
+                                 ,
+                                 ^
+                                 source.ks punctuation.separator.comma.ks
+                                   
+                                  ^
+                                  source.ks
+                                   hero
+                                   ^^^^
+                                   source.ks meta.definition.variable.ks variable.other.ks
+                                        
+                                       ^
+                                       source.ks
+                                        of
+                                        ^^
+                                        source.ks keyword.control.loop.ks
+                                           
+                                          ^
+                                          source.ks
+                                           likes
+                                           ^^^^^
+                                           source.ks variable.other.ks
+                                                ]
+                                                ^
+                                                source.ks punctuation.definition.array.end.bracket.square.ks

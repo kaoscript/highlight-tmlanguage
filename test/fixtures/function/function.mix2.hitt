@@ -4,17 +4,17 @@ func f1() {
     return 42
 }
 
-let f2 = func() {
+var dyn f2 = func() {
     return 42
 }
 
-let f3 = () => {
+var dyn f3 = () => {
     return 42
 }
 
-let f4 = () => 42
+var dyn f4 = () => 42
 
-let f5 = func() => 42
+var dyn f5 = func() => 42
 -----------------------------------
 
 grammar: kaoscript.tmLanguage
@@ -67,28 +67,90 @@ grammar: kaoscript.tmLanguage
  ^
  source.ks
 >
->let f2 = func() {
- let
- ^^^
+>var dyn f2 = func() {
+ var 
+ ^^^^
  source.ks storage.type.readwrite.ks
-     
-    ^
-    source.ks
-     f2
-     ^^
-     source.ks meta.definition.variable.ks variable.other.readwrite.ks
-        
-       ^
-       source.ks
-        =
+     dyn
+     ^^^
+     source.ks storage.type.readwrite.ks storage.modifier.dynamic.ks
+         
         ^
-        source.ks keyword.operator.assignment.ks
-          
-         ^
-         source.ks
-          func
-          ^^^^
-          source.ks storage.type.function.ks
+        source.ks
+         f2
+         ^^
+         source.ks meta.definition.variable.ks variable.other.ks
+            
+           ^
+           source.ks
+            =
+            ^
+            source.ks keyword.operator.assignment.ks
+              
+             ^
+             source.ks
+              func
+              ^^^^
+              source.ks storage.type.function.ks
+                  (
+                  ^
+                  source.ks punctuation.definition.parameters.begin.bracket.round.ks
+                   )
+                   ^
+                   source.ks punctuation.definition.parameters.end.bracket.round.ks
+                     
+                    ^
+                    source.ks
+                     {
+                     ^
+                     source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>    return 42
+     
+ ^^^^
+ source.ks
+     return
+     ^^^^^^
+     source.ks keyword.control.flow.return.ks
+            
+           ^
+           source.ks
+            42
+            ^^
+            source.ks constant.numeric.decimal.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.block.end.bracket.curly.ks
+>
+>
+ 
+ ^
+ source.ks
+>
+>var dyn f3 = () => {
+ var 
+ ^^^^
+ source.ks storage.type.readwrite.ks
+     dyn
+     ^^^
+     source.ks storage.type.readwrite.ks storage.modifier.dynamic.ks
+         
+        ^
+        source.ks
+         f3
+         ^^
+         source.ks meta.definition.variable.ks variable.other.ks
+            
+           ^
+           source.ks
+            =
+            ^
+            source.ks keyword.operator.assignment.ks
+              
+             ^
+             source.ks
               (
               ^
               source.ks punctuation.definition.parameters.begin.bracket.round.ks
@@ -98,9 +160,15 @@ grammar: kaoscript.tmLanguage
                  
                 ^
                 source.ks
-                 {
-                 ^
-                 source.ks punctuation.definition.block.begin.bracket.curly.ks
+                 =>
+                 ^^
+                 source.ks storage.type.function.arrow.ks
+                    
+                   ^
+                   source.ks
+                    {
+                    ^
+                    source.ks punctuation.definition.block.begin.bracket.curly.ks
 >
 >    return 42
      
@@ -126,133 +194,28 @@ grammar: kaoscript.tmLanguage
  ^
  source.ks
 >
->let f3 = () => {
- let
- ^^^
- source.ks storage.type.readwrite.ks
-     
-    ^
-    source.ks
-     f3
-     ^^
-     source.ks meta.definition.variable.ks variable.other.readwrite.ks
-        
-       ^
-       source.ks
-        =
-        ^
-        source.ks keyword.operator.assignment.ks
-          
-         ^
-         source.ks
-          (
-          ^
-          source.ks punctuation.definition.parameters.begin.bracket.round.ks
-           )
-           ^
-           source.ks punctuation.definition.parameters.end.bracket.round.ks
-             
-            ^
-            source.ks
-             =>
-             ^^
-             source.ks storage.type.function.arrow.ks
-                
-               ^
-               source.ks
-                {
-                ^
-                source.ks punctuation.definition.block.begin.bracket.curly.ks
->
->    return 42
-     
+>var dyn f4 = () => 42
+ var 
  ^^^^
- source.ks
-     return
-     ^^^^^^
-     source.ks keyword.control.flow.return.ks
+ source.ks storage.type.readwrite.ks
+     dyn
+     ^^^
+     source.ks storage.type.readwrite.ks storage.modifier.dynamic.ks
+         
+        ^
+        source.ks
+         f4
+         ^^
+         source.ks meta.definition.variable.ks variable.other.ks
             
            ^
            source.ks
-            42
-            ^^
-            source.ks constant.numeric.decimal.ks
->
->}
- }
- ^
- source.ks punctuation.definition.block.end.bracket.curly.ks
->
->
- 
- ^
- source.ks
->
->let f4 = () => 42
- let
- ^^^
- source.ks storage.type.readwrite.ks
-     
-    ^
-    source.ks
-     f4
-     ^^
-     source.ks meta.definition.variable.ks variable.other.readwrite.ks
-        
-       ^
-       source.ks
-        =
-        ^
-        source.ks keyword.operator.assignment.ks
-          
-         ^
-         source.ks
-          (
-          ^
-          source.ks punctuation.definition.parameters.begin.bracket.round.ks
-           )
-           ^
-           source.ks punctuation.definition.parameters.end.bracket.round.ks
-             
+            =
             ^
-            source.ks
-             =>
-             ^^
-             source.ks storage.type.function.arrow.ks
-                
-               ^
-               source.ks
-                42
-                ^^
-                source.ks constant.numeric.decimal.ks
->
->
- 
- ^
- source.ks
->
->let f5 = func() => 42
- let
- ^^^
- source.ks storage.type.readwrite.ks
-     
-    ^
-    source.ks
-     f5
-     ^^
-     source.ks meta.definition.variable.ks variable.other.readwrite.ks
-        
-       ^
-       source.ks
-        =
-        ^
-        source.ks keyword.operator.assignment.ks
-          
-         ^
-         source.ks
-          func
-          ^^^^
-          source.ks storage.type.function.ks
+            source.ks keyword.operator.assignment.ks
+              
+             ^
+             source.ks
               (
               ^
               source.ks punctuation.definition.parameters.begin.bracket.round.ks
@@ -271,3 +234,52 @@ grammar: kaoscript.tmLanguage
                     42
                     ^^
                     source.ks constant.numeric.decimal.ks
+>
+>
+ 
+ ^
+ source.ks
+>
+>var dyn f5 = func() => 42
+ var 
+ ^^^^
+ source.ks storage.type.readwrite.ks
+     dyn
+     ^^^
+     source.ks storage.type.readwrite.ks storage.modifier.dynamic.ks
+         
+        ^
+        source.ks
+         f5
+         ^^
+         source.ks meta.definition.variable.ks variable.other.ks
+            
+           ^
+           source.ks
+            =
+            ^
+            source.ks keyword.operator.assignment.ks
+              
+             ^
+             source.ks
+              func
+              ^^^^
+              source.ks storage.type.function.ks
+                  (
+                  ^
+                  source.ks punctuation.definition.parameters.begin.bracket.round.ks
+                   )
+                   ^
+                   source.ks punctuation.definition.parameters.end.bracket.round.ks
+                     
+                    ^
+                    source.ks
+                     =>
+                     ^^
+                     source.ks storage.type.function.arrow.ks
+                        
+                       ^
+                       source.ks
+                        42
+                        ^^
+                        source.ks constant.numeric.decimal.ks

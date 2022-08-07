@@ -31,9 +31,12 @@ grammar: kaoscript.tmLanguage
      
  ^^^^
  source.ks
-     final 
-     ^^^^^^
-     source.ks storage.modifier.ks
+     final
+     ^^^^^
+     source.ks storage.modifier.constant.ks
+           
+          ^
+          source.ks
            foobar
            ^^^^^^
            source.ks entity.name.function.ks

@@ -2,7 +2,7 @@ original file
 -----------------------------------
 heroes = ['leto', 'duncan', 'goku']
 
-evenHeroes = [hero for const hero, index in heroes]
+evenHeroes = [hero for var hero, index in heroes]
 -----------------------------------
 
 grammar: kaoscript.tmLanguage
@@ -72,7 +72,7 @@ grammar: kaoscript.tmLanguage
  ^
  source.ks
 >
->evenHeroes = [hero for const hero, index in heroes]
+>evenHeroes = [hero for var hero, index in heroes]
  evenHeroes
  ^^^^^^^^^^
  source.ks variable.other.ks
@@ -100,36 +100,36 @@ grammar: kaoscript.tmLanguage
                         
                        ^
                        source.ks
-                        const
-                        ^^^^^
+                        var
+                        ^^^
                         source.ks storage.type.constant.ks
-                              
-                             ^
-                             source.ks
-                              hero
-                              ^^^^
-                              source.ks meta.definition.variable.ks variable.other.constant.ks
-                                  ,
-                                  ^
-                                  source.ks punctuation.separator.comma.ks
-                                    
-                                   ^
-                                   source.ks
-                                    index
-                                    ^^^^^
-                                    source.ks meta.definition.variable.ks variable.other.constant.ks
-                                          
-                                         ^
-                                         source.ks
-                                          in
-                                          ^^
-                                          source.ks keyword.control.loop.ks
-                                             
-                                            ^
-                                            source.ks
-                                             heroes
-                                             ^^^^^^
-                                             source.ks variable.other.ks
-                                                   ]
-                                                   ^
-                                                   source.ks punctuation.definition.array.end.bracket.square.ks
+                            
+                           ^
+                           source.ks
+                            hero
+                            ^^^^
+                            source.ks meta.definition.variable.ks variable.other.ks
+                                ,
+                                ^
+                                source.ks punctuation.separator.comma.ks
+                                  
+                                 ^
+                                 source.ks
+                                  index
+                                  ^^^^^
+                                  source.ks meta.definition.variable.ks variable.other.ks
+                                        
+                                       ^
+                                       source.ks
+                                        in
+                                        ^^
+                                        source.ks keyword.control.loop.ks
+                                           
+                                          ^
+                                          source.ks
+                                           heroes
+                                           ^^^^^^
+                                           source.ks variable.other.ks
+                                                 ]
+                                                 ^
+                                                 source.ks punctuation.definition.array.end.bracket.square.ks

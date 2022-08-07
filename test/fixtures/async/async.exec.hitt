@@ -2,7 +2,7 @@ original file
 -----------------------------------
 import 'child_process' for exec
 
-let stdout, stderr = await exec(cmd)
+var stdout, stderr = await exec(cmd)
 -----------------------------------
 
 grammar: kaoscript.tmLanguage
@@ -42,16 +42,16 @@ grammar: kaoscript.tmLanguage
  ^
  source.ks
 >
->let stdout, stderr = await exec(cmd)
- let
+>var stdout, stderr = await exec(cmd)
+ var
  ^^^
- source.ks storage.type.readwrite.ks
+ source.ks storage.type.constant.ks
      
     ^
     source.ks
      stdout
      ^^^^^^
-     source.ks meta.definition.variable.ks variable.other.readwrite.ks
+     source.ks meta.definition.variable.ks variable.other.ks
            ,
            ^
            source.ks punctuation.separator.comma.ks
@@ -60,7 +60,7 @@ grammar: kaoscript.tmLanguage
             source.ks
              stderr
              ^^^^^^
-             source.ks meta.definition.variable.ks variable.other.readwrite.ks
+             source.ks meta.definition.variable.ks variable.other.ks
                     
                    ^
                    source.ks

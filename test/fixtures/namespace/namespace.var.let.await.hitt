@@ -5,7 +5,7 @@ extern console
 async func min() => 'female'
 
 namespace foo {
-    let gender: String = await min()
+    var dyn gender: String = await min()
 }
 
 console.log(`\(foo.gender)`)
@@ -93,52 +93,55 @@ grammar: kaoscript.tmLanguage
                ^
                source.ks punctuation.definition.namespace.begin.bracket.curly.ks
 >
->    let gender: String = await min()
+>    var dyn gender: String = await min()
      
  ^^^^
  source.ks
-     let
-     ^^^
+     var 
+     ^^^^
      source.ks storage.type.readwrite.ks
-         
-        ^
-        source.ks
-         gender
-         ^^^^^^
-         source.ks meta.definition.variable.ks variable.other.readwrite.ks
-               :
-               ^
-               source.ks meta.type.annotation.ks keyword.operator.type.annotation.ks
-                 
-                ^
-                source.ks meta.type.annotation.ks
-                 String
-                 ^^^^^^
-                 source.ks meta.type.annotation.ks support.type.primitive.ks
-                        
-                       ^
-                       source.ks
-                        =
-                        ^
-                        source.ks keyword.operator.assignment.ks
-                          
-                         ^
-                         source.ks
-                          await
-                          ^^^^^
-                          source.ks keyword.control.flow.await.ks
-                                
-                               ^
-                               source.ks
-                                min
-                                ^^^
-                                source.ks entity.name.function.ks
-                                   (
+         dyn
+         ^^^
+         source.ks storage.type.readwrite.ks storage.modifier.dynamic.ks
+             
+            ^
+            source.ks
+             gender
+             ^^^^^^
+             source.ks meta.definition.variable.ks variable.other.ks
+                   :
+                   ^
+                   source.ks meta.type.annotation.ks keyword.operator.type.annotation.ks
+                     
+                    ^
+                    source.ks meta.type.annotation.ks
+                     String
+                     ^^^^^^
+                     source.ks meta.type.annotation.ks support.type.primitive.ks
+                            
+                           ^
+                           source.ks
+                            =
+                            ^
+                            source.ks keyword.operator.assignment.ks
+                              
+                             ^
+                             source.ks
+                              await
+                              ^^^^^
+                              source.ks keyword.control.flow.await.ks
+                                    
                                    ^
-                                   source.ks punctuation.definition.arguments.begin.bracket.round.ks
-                                    )
-                                    ^
-                                    source.ks punctuation.definition.arguments.end.bracket.round.ks
+                                   source.ks
+                                    min
+                                    ^^^
+                                    source.ks entity.name.function.ks
+                                       (
+                                       ^
+                                       source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                                        )
+                                        ^
+                                        source.ks punctuation.definition.arguments.end.bracket.round.ks
 >
 >}
  }

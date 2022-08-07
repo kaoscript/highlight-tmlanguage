@@ -108,13 +108,13 @@ grammar: kaoscript.tmLanguage
                               source.ks
                                const
                                ^^^^^
-                               source.ks storage.type.constant.ks
+                               source.ks variable.other.ks
                                      
                                     ^
                                     source.ks
                                      hero
                                      ^^^^
-                                     source.ks meta.definition.variable.ks variable.other.constant.ks
+                                     source.ks variable.other.ks
                                          ,
                                          ^
                                          source.ks punctuation.separator.comma.ks
@@ -123,7 +123,7 @@ grammar: kaoscript.tmLanguage
                                           source.ks
                                            index
                                            ^^^^^
-                                           source.ks meta.definition.variable.ks variable.other.constant.ks
+                                           source.ks variable.other.ks
                                                  
                                                 ^
                                                 source.ks

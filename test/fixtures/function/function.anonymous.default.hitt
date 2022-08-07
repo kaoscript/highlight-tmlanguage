@@ -1,6 +1,6 @@
 original file
 -----------------------------------
-const foo = func(a:int, b:int): int {
+var foo = func(a:int, b:int): int {
     return a - b
 }
 -----------------------------------
@@ -8,73 +8,73 @@ const foo = func(a:int, b:int): int {
 grammar: kaoscript.tmLanguage
 -----------------------------------
 >
->const foo = func(a:int, b:int): int {
- const
- ^^^^^
+>var foo = func(a:int, b:int): int {
+ var
+ ^^^
  source.ks storage.type.constant.ks
-       
-      ^
-      source.ks
-       foo
-       ^^^
-       source.ks meta.definition.variable.ks variable.other.constant.ks
+     
+    ^
+    source.ks
+     foo
+     ^^^
+     source.ks meta.definition.variable.ks variable.other.ks
+         
+        ^
+        source.ks
+         =
+         ^
+         source.ks keyword.operator.assignment.ks
            
           ^
           source.ks
-           =
-           ^
-           source.ks keyword.operator.assignment.ks
-             
-            ^
-            source.ks
-             func
-             ^^^^
-             source.ks storage.type.function.ks
-                 (
+           func
+           ^^^^
+           source.ks storage.type.function.ks
+               (
+               ^
+               source.ks punctuation.definition.parameters.begin.bracket.round.ks
+                a
+                ^
+                source.ks variable.parameter.ks
+                 :
                  ^
-                 source.ks punctuation.definition.parameters.begin.bracket.round.ks
-                  a
-                  ^
-                  source.ks variable.parameter.ks
-                   :
-                   ^
-                   source.ks meta.type.annotation.ks keyword.operator.type.annotation.ks
-                    int
-                    ^^^
-                    source.ks meta.type.annotation.ks entity.name.type.ks
-                       ,
+                 source.ks meta.type.annotation.ks keyword.operator.type.annotation.ks
+                  int
+                  ^^^
+                  source.ks meta.type.annotation.ks entity.name.type.ks
+                     ,
+                     ^
+                     source.ks punctuation.separator.comma.ks
+                       
+                      ^
+                      source.ks
+                       b
                        ^
-                       source.ks punctuation.separator.comma.ks
-                         
+                       source.ks variable.parameter.ks
+                        :
                         ^
-                        source.ks
-                         b
-                         ^
-                         source.ks variable.parameter.ks
-                          :
-                          ^
-                          source.ks meta.type.annotation.ks keyword.operator.type.annotation.ks
-                           int
-                           ^^^
-                           source.ks meta.type.annotation.ks entity.name.type.ks
-                              )
+                        source.ks meta.type.annotation.ks keyword.operator.type.annotation.ks
+                         int
+                         ^^^
+                         source.ks meta.type.annotation.ks entity.name.type.ks
+                            )
+                            ^
+                            source.ks punctuation.definition.parameters.end.bracket.round.ks
+                             :
+                             ^
+                             source.ks meta.function.return-type.ks keyword.operator.type.annotation.ks
+                               
                               ^
-                              source.ks punctuation.definition.parameters.end.bracket.round.ks
-                               :
-                               ^
-                               source.ks meta.function.return-type.ks keyword.operator.type.annotation.ks
-                                 
-                                ^
-                                source.ks meta.function.return-type.ks
-                                 int
-                                 ^^^
-                                 source.ks meta.function.return-type.ks entity.name.type.ks
-                                     
-                                    ^
-                                    source.ks
-                                     {
-                                     ^
-                                     source.ks punctuation.definition.block.begin.bracket.curly.ks
+                              source.ks meta.function.return-type.ks
+                               int
+                               ^^^
+                               source.ks meta.function.return-type.ks entity.name.type.ks
+                                   
+                                  ^
+                                  source.ks
+                                   {
+                                   ^
+                                   source.ks punctuation.definition.block.begin.bracket.curly.ks
 >
 >    return a - b
      

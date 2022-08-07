@@ -1,42 +1,45 @@
 original file
 -----------------------------------
-let qux = foo?.bar()
+var dyn qux = foo?.bar()
 -----------------------------------
 
 grammar: kaoscript.tmLanguage
 -----------------------------------
 >
->let qux = foo?.bar()
- let
- ^^^
+>var dyn qux = foo?.bar()
+ var 
+ ^^^^
  source.ks storage.type.readwrite.ks
-     
-    ^
-    source.ks
-     qux
+     dyn
      ^^^
-     source.ks meta.definition.variable.ks variable.other.readwrite.ks
+     source.ks storage.type.readwrite.ks storage.modifier.dynamic.ks
          
         ^
         source.ks
-         =
-         ^
-         source.ks keyword.operator.assignment.ks
-           
-          ^
-          source.ks
-           foo
-           ^^^
-           source.ks variable.other.object.ks
-              ?.
-              ^^
-              source.ks punctuation.accessor.optional.ks
-                bar
-                ^^^
-                source.ks entity.name.function.ks
-                   (
-                   ^
-                   source.ks punctuation.definition.arguments.begin.bracket.round.ks
-                    )
-                    ^
-                    source.ks punctuation.definition.arguments.end.bracket.round.ks
+         qux
+         ^^^
+         source.ks meta.definition.variable.ks variable.other.ks
+             
+            ^
+            source.ks
+             =
+             ^
+             source.ks keyword.operator.assignment.ks
+               
+              ^
+              source.ks
+               foo
+               ^^^
+               source.ks variable.other.object.ks
+                  ?.
+                  ^^
+                  source.ks punctuation.accessor.optional.ks
+                    bar
+                    ^^^
+                    source.ks entity.name.function.ks
+                       (
+                       ^
+                       source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                        )
+                        ^
+                        source.ks punctuation.definition.arguments.end.bracket.round.ks

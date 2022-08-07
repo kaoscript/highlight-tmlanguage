@@ -9,7 +9,7 @@ func foobar(x) ~ Error {
     }
 }
 
-let x = try foobar(true)
+var dyn x = try foobar(true)
 -----------------------------------
 
 grammar: kaoscript.tmLanguage
@@ -162,40 +162,43 @@ grammar: kaoscript.tmLanguage
  ^
  source.ks
 >
->let x = try foobar(true)
- let
- ^^^
+>var dyn x = try foobar(true)
+ var 
+ ^^^^
  source.ks storage.type.readwrite.ks
-     
-    ^
-    source.ks
-     x
-     ^
-     source.ks meta.definition.variable.ks variable.other.readwrite.ks
-       
-      ^
-      source.ks
-       =
-       ^
-       source.ks keyword.operator.assignment.ks
+     dyn
+     ^^^
+     source.ks storage.type.readwrite.ks storage.modifier.dynamic.ks
          
         ^
         source.ks
-         try
-         ^^^
-         source.ks keyword.control.flow.try.ks
+         x
+         ^
+         source.ks meta.definition.variable.ks variable.other.ks
+           
+          ^
+          source.ks
+           =
+           ^
+           source.ks keyword.operator.assignment.ks
              
             ^
             source.ks
-             foobar
-             ^^^^^^
-             source.ks entity.name.function.ks
-                   (
-                   ^
-                   source.ks punctuation.definition.arguments.begin.bracket.round.ks
-                    true
-                    ^^^^
-                    source.ks constant.language.boolean.true.ks
-                        )
-                        ^
-                        source.ks punctuation.definition.arguments.end.bracket.round.ks
+             try
+             ^^^
+             source.ks keyword.control.flow.try.ks
+                 
+                ^
+                source.ks
+                 foobar
+                 ^^^^^^
+                 source.ks entity.name.function.ks
+                       (
+                       ^
+                       source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                        true
+                        ^^^^
+                        source.ks constant.language.boolean.true.ks
+                            )
+                            ^
+                            source.ks punctuation.definition.arguments.end.bracket.round.ks

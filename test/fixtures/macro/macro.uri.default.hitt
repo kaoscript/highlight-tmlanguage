@@ -4,7 +4,7 @@ class URI {
     macro register(@scheme: String, @meta: String = 'hier_part [ "?" query ] [ "#" fragment ]') {
         import '@zokugun/test-import'
 
-        const name = `\(scheme[0].toUpperCase())\(scheme.substr().toLowerCase())URI`
+        var name = `\(scheme[0].toUpperCase())\(scheme.substr().toLowerCase())URI`
 
         macro {
             class #w(name) extends URI {
@@ -144,100 +144,100 @@ grammar: kaoscript.tmLanguage
  ^
  source.ks meta.macro.ks
 >
->        const name = `\(scheme[0].toUpperCase())\(scheme.substr().toLowerCase())URI`
+>        var name = `\(scheme[0].toUpperCase())\(scheme.substr().toLowerCase())URI`
          
  ^^^^^^^^
  source.ks meta.macro.ks
-         const
-         ^^^^^
+         var
+         ^^^
          source.ks meta.macro.ks storage.type.constant.ks
-               
-              ^
-              source.ks meta.macro.ks
-               name
-               ^^^^
-               source.ks meta.macro.ks meta.definition.variable.ks variable.other.constant.ks
+             
+            ^
+            source.ks meta.macro.ks
+             name
+             ^^^^
+             source.ks meta.macro.ks meta.definition.variable.ks variable.other.ks
+                  
+                 ^
+                 source.ks meta.macro.ks
+                  =
+                  ^
+                  source.ks meta.macro.ks keyword.operator.assignment.ks
                     
                    ^
                    source.ks meta.macro.ks
-                    =
+                    `
                     ^
-                    source.ks meta.macro.ks keyword.operator.assignment.ks
-                      
-                     ^
-                     source.ks meta.macro.ks
-                      `
-                      ^
-                      source.ks meta.macro.ks punctuation.definition.string.template.begin.ks
-                       \(
-                       ^^
-                       source.ks meta.macro.ks punctuation.definition.template-expression.begin.ks
-                         scheme
-                         ^^^^^^
-                         source.ks meta.macro.ks variable.other.ks
-                               [
+                    source.ks meta.macro.ks punctuation.definition.string.template.begin.ks
+                     \(
+                     ^^
+                     source.ks meta.macro.ks punctuation.definition.template-expression.begin.ks
+                       scheme
+                       ^^^^^^
+                       source.ks meta.macro.ks variable.other.ks
+                             [
+                             ^
+                             source.ks meta.macro.ks punctuation.accessor.array.begin.bracket.square.ks
+                              0
+                              ^
+                              source.ks meta.macro.ks constant.numeric.decimal.ks
+                               ]
                                ^
-                               source.ks meta.macro.ks punctuation.accessor.array.begin.bracket.square.ks
-                                0
+                               source.ks meta.macro.ks punctuation.accessor.array.end.bracket.square.ks
+                                .
                                 ^
-                                source.ks meta.macro.ks constant.numeric.decimal.ks
-                                 ]
-                                 ^
-                                 source.ks meta.macro.ks punctuation.accessor.array.end.bracket.square.ks
-                                  .
-                                  ^
-                                  source.ks meta.macro.ks punctuation.accessor.object.ks
-                                   toUpperCase
-                                   ^^^^^^^^^^^
-                                   source.ks meta.macro.ks entity.name.function.ks
-                                              (
+                                source.ks meta.macro.ks punctuation.accessor.object.ks
+                                 toUpperCase
+                                 ^^^^^^^^^^^
+                                 source.ks meta.macro.ks entity.name.function.ks
+                                            (
+                                            ^
+                                            source.ks meta.macro.ks punctuation.definition.arguments.begin.bracket.round.ks
+                                             )
+                                             ^
+                                             source.ks meta.macro.ks punctuation.definition.arguments.end.bracket.round.ks
+                                              )
                                               ^
-                                              source.ks meta.macro.ks punctuation.definition.arguments.begin.bracket.round.ks
-                                               )
-                                               ^
-                                               source.ks meta.macro.ks punctuation.definition.arguments.end.bracket.round.ks
-                                                )
-                                                ^
-                                                source.ks meta.macro.ks punctuation.definition.template-expression.end.ks
-                                                 \(
-                                                 ^^
-                                                 source.ks meta.macro.ks punctuation.definition.template-expression.begin.ks
-                                                   scheme
-                                                   ^^^^^^
-                                                   source.ks meta.macro.ks variable.other.object.ks
-                                                         .
-                                                         ^
-                                                         source.ks meta.macro.ks punctuation.accessor.object.ks
-                                                          substr
-                                                          ^^^^^^
-                                                          source.ks meta.macro.ks entity.name.function.ks
-                                                                (
+                                              source.ks meta.macro.ks punctuation.definition.template-expression.end.ks
+                                               \(
+                                               ^^
+                                               source.ks meta.macro.ks punctuation.definition.template-expression.begin.ks
+                                                 scheme
+                                                 ^^^^^^
+                                                 source.ks meta.macro.ks variable.other.object.ks
+                                                       .
+                                                       ^
+                                                       source.ks meta.macro.ks punctuation.accessor.object.ks
+                                                        substr
+                                                        ^^^^^^
+                                                        source.ks meta.macro.ks entity.name.function.ks
+                                                              (
+                                                              ^
+                                                              source.ks meta.macro.ks punctuation.definition.arguments.begin.bracket.round.ks
+                                                               )
+                                                               ^
+                                                               source.ks meta.macro.ks punctuation.definition.arguments.end.bracket.round.ks
+                                                                .
                                                                 ^
-                                                                source.ks meta.macro.ks punctuation.definition.arguments.begin.bracket.round.ks
-                                                                 )
-                                                                 ^
-                                                                 source.ks meta.macro.ks punctuation.definition.arguments.end.bracket.round.ks
-                                                                  .
-                                                                  ^
-                                                                  source.ks meta.macro.ks punctuation.accessor.object.ks
-                                                                   toLowerCase
-                                                                   ^^^^^^^^^^^
-                                                                   source.ks meta.macro.ks entity.name.function.ks
-                                                                              (
+                                                                source.ks meta.macro.ks punctuation.accessor.object.ks
+                                                                 toLowerCase
+                                                                 ^^^^^^^^^^^
+                                                                 source.ks meta.macro.ks entity.name.function.ks
+                                                                            (
+                                                                            ^
+                                                                            source.ks meta.macro.ks punctuation.definition.arguments.begin.bracket.round.ks
+                                                                             )
+                                                                             ^
+                                                                             source.ks meta.macro.ks punctuation.definition.arguments.end.bracket.round.ks
+                                                                              )
                                                                               ^
-                                                                              source.ks meta.macro.ks punctuation.definition.arguments.begin.bracket.round.ks
-                                                                               )
-                                                                               ^
-                                                                               source.ks meta.macro.ks punctuation.definition.arguments.end.bracket.round.ks
-                                                                                )
-                                                                                ^
-                                                                                source.ks meta.macro.ks punctuation.definition.template-expression.end.ks
-                                                                                 URI
-                                                                                 ^^^
-                                                                                 source.ks meta.macro.ks string.template.ks
-                                                                                    `
-                                                                                    ^
-                                                                                    source.ks meta.macro.ks punctuation.definition.string.template.end.ks
+                                                                              source.ks meta.macro.ks punctuation.definition.template-expression.end.ks
+                                                                               URI
+                                                                               ^^^
+                                                                               source.ks meta.macro.ks string.template.ks
+                                                                                  `
+                                                                                  ^
+                                                                                  source.ks meta.macro.ks punctuation.definition.string.template.end.ks
 >
 >
  

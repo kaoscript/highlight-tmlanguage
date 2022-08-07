@@ -1,13 +1,13 @@
 original file
 -----------------------------------
-let person = 'Mike'
-let age = 28
+var dyn person = 'Mike'
+var dyn age = 28
 
 func myTag(strings, personExp, ageExp) {
-    const str0 = strings[0]
-    const str1 = strings[1]
+    var str0 = strings[0]
+    var str1 = strings[1]
 
-    let ageStr
+    var dyn ageStr
     if ageExp > 99 {
         ageStr = 'centenarian'
     }
@@ -18,7 +18,7 @@ func myTag(strings, personExp, ageExp) {
     return `\(str0)\(personExp)\(str1)\(ageStr)`
 }
 
-const output = myTag`That \( person ) is a \( age )`
+var output = myTag`That \( person ) is a \( age )`
 
 console.log(output + 12)
 
@@ -28,57 +28,63 @@ console.log(myTag`That \( person ) is a \( age )`)
 grammar: kaoscript.tmLanguage
 -----------------------------------
 >
->let person = 'Mike'
- let
- ^^^
+>var dyn person = 'Mike'
+ var 
+ ^^^^
  source.ks storage.type.readwrite.ks
-     
-    ^
-    source.ks
-     person
-     ^^^^^^
-     source.ks meta.definition.variable.ks variable.other.readwrite.ks
-            
-           ^
-           source.ks
-            =
-            ^
-            source.ks keyword.operator.assignment.ks
-              
-             ^
-             source.ks
-              '
-              ^
-              source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
-               Mike
-               ^^^^
-               source.ks string.quoted.single.ks
-                   '
-                   ^
-                   source.ks string.quoted.single.ks punctuation.definition.string.end.ks
->
->let age = 28
- let
- ^^^
- source.ks storage.type.readwrite.ks
-     
-    ^
-    source.ks
-     age
+     dyn
      ^^^
-     source.ks meta.definition.variable.ks variable.other.readwrite.ks
+     source.ks storage.type.readwrite.ks storage.modifier.dynamic.ks
          
         ^
         source.ks
-         =
-         ^
-         source.ks keyword.operator.assignment.ks
-           
-          ^
-          source.ks
-           28
-           ^^
-           source.ks constant.numeric.decimal.ks
+         person
+         ^^^^^^
+         source.ks meta.definition.variable.ks variable.other.ks
+                
+               ^
+               source.ks
+                =
+                ^
+                source.ks keyword.operator.assignment.ks
+                  
+                 ^
+                 source.ks
+                  '
+                  ^
+                  source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
+                   Mike
+                   ^^^^
+                   source.ks string.quoted.single.ks
+                       '
+                       ^
+                       source.ks string.quoted.single.ks punctuation.definition.string.end.ks
+>
+>var dyn age = 28
+ var 
+ ^^^^
+ source.ks storage.type.readwrite.ks
+     dyn
+     ^^^
+     source.ks storage.type.readwrite.ks storage.modifier.dynamic.ks
+         
+        ^
+        source.ks
+         age
+         ^^^
+         source.ks meta.definition.variable.ks variable.other.ks
+             
+            ^
+            source.ks
+             =
+             ^
+             source.ks keyword.operator.assignment.ks
+               
+              ^
+              source.ks
+               28
+               ^^
+               source.ks constant.numeric.decimal.ks
 >
 >
  
@@ -129,94 +135,97 @@ grammar: kaoscript.tmLanguage
                                         ^
                                         source.ks punctuation.definition.block.begin.bracket.curly.ks
 >
->    const str0 = strings[0]
+>    var str0 = strings[0]
      
  ^^^^
  source.ks
-     const
-     ^^^^^
+     var
+     ^^^
      source.ks storage.type.constant.ks
-           
-          ^
-          source.ks
-           str0
-           ^^^^
-           source.ks meta.definition.variable.ks variable.other.constant.ks
+         
+        ^
+        source.ks
+         str0
+         ^^^^
+         source.ks meta.definition.variable.ks variable.other.ks
+              
+             ^
+             source.ks
+              =
+              ^
+              source.ks keyword.operator.assignment.ks
                 
                ^
                source.ks
-                =
-                ^
-                source.ks keyword.operator.assignment.ks
-                  
-                 ^
-                 source.ks
-                  strings
-                  ^^^^^^^
-                  source.ks variable.other.ks
-                         [
+                strings
+                ^^^^^^^
+                source.ks variable.other.ks
+                       [
+                       ^
+                       source.ks punctuation.accessor.array.begin.bracket.square.ks
+                        0
+                        ^
+                        source.ks constant.numeric.decimal.ks
+                         ]
                          ^
-                         source.ks punctuation.accessor.array.begin.bracket.square.ks
-                          0
-                          ^
-                          source.ks constant.numeric.decimal.ks
-                           ]
-                           ^
-                           source.ks punctuation.accessor.array.end.bracket.square.ks
+                         source.ks punctuation.accessor.array.end.bracket.square.ks
 >
->    const str1 = strings[1]
+>    var str1 = strings[1]
      
  ^^^^
  source.ks
-     const
-     ^^^^^
+     var
+     ^^^
      source.ks storage.type.constant.ks
-           
-          ^
-          source.ks
-           str1
-           ^^^^
-           source.ks meta.definition.variable.ks variable.other.constant.ks
+         
+        ^
+        source.ks
+         str1
+         ^^^^
+         source.ks meta.definition.variable.ks variable.other.ks
+              
+             ^
+             source.ks
+              =
+              ^
+              source.ks keyword.operator.assignment.ks
                 
                ^
                source.ks
-                =
-                ^
-                source.ks keyword.operator.assignment.ks
-                  
-                 ^
-                 source.ks
-                  strings
-                  ^^^^^^^
-                  source.ks variable.other.ks
-                         [
+                strings
+                ^^^^^^^
+                source.ks variable.other.ks
+                       [
+                       ^
+                       source.ks punctuation.accessor.array.begin.bracket.square.ks
+                        1
+                        ^
+                        source.ks constant.numeric.decimal.ks
+                         ]
                          ^
-                         source.ks punctuation.accessor.array.begin.bracket.square.ks
-                          1
-                          ^
-                          source.ks constant.numeric.decimal.ks
-                           ]
-                           ^
-                           source.ks punctuation.accessor.array.end.bracket.square.ks
+                         source.ks punctuation.accessor.array.end.bracket.square.ks
 >
 >
  
  ^
  source.ks
 >
->    let ageStr
+>    var dyn ageStr
      
  ^^^^
  source.ks
-     let
-     ^^^
+     var 
+     ^^^^
      source.ks storage.type.readwrite.ks
-         
-        ^
-        source.ks
-         ageStr
-         ^^^^^^
-         source.ks meta.definition.variable.ks variable.other.readwrite.ks
+         dyn
+         ^^^
+         source.ks storage.type.readwrite.ks storage.modifier.dynamic.ks
+             
+            ^
+            source.ks
+             ageStr
+             ^^^^^^
+             source.ks meta.definition.variable.ks variable.other.ks
 >
 >    if ageExp > 99 {
      
@@ -400,70 +409,70 @@ grammar: kaoscript.tmLanguage
  ^
  source.ks
 >
->const output = myTag`That \( person ) is a \( age )`
- const
- ^^^^^
+>var output = myTag`That \( person ) is a \( age )`
+ var
+ ^^^
  source.ks storage.type.constant.ks
-       
-      ^
-      source.ks
-       output
-       ^^^^^^
-       source.ks meta.definition.variable.ks variable.other.constant.ks
+     
+    ^
+    source.ks
+     output
+     ^^^^^^
+     source.ks meta.definition.variable.ks variable.other.ks
+            
+           ^
+           source.ks
+            =
+            ^
+            source.ks keyword.operator.assignment.ks
               
              ^
              source.ks
-              =
-              ^
-              source.ks keyword.operator.assignment.ks
-                
-               ^
-               source.ks
-                myTag
-                ^^^^^
-                source.ks entity.name.function.tagged-template.ks
-                     `
-                     ^
-                     source.ks punctuation.definition.string.template.begin.ks
-                      That 
-                      ^^^^^
-                      source.ks string.template.ks
-                           \(
-                           ^^
-                           source.ks punctuation.definition.template-expression.begin.ks
-                              
-                             ^
-                             source.ks
-                              person
-                              ^^^^^^
-                              source.ks variable.other.ks
-                                     
-                                    ^
-                                    source.ks
-                                     )
-                                     ^
-                                     source.ks punctuation.definition.template-expression.end.ks
-                                       is a 
-                                      ^^^^^^
-                                      source.ks string.template.ks
-                                            \(
-                                            ^^
-                                            source.ks punctuation.definition.template-expression.begin.ks
-                                               
-                                              ^
-                                              source.ks
-                                               age
-                                               ^^^
-                                               source.ks variable.other.ks
-                                                   
+              myTag
+              ^^^^^
+              source.ks entity.name.function.tagged-template.ks
+                   `
+                   ^
+                   source.ks punctuation.definition.string.template.begin.ks
+                    That 
+                    ^^^^^
+                    source.ks string.template.ks
+                         \(
+                         ^^
+                         source.ks punctuation.definition.template-expression.begin.ks
+                            
+                           ^
+                           source.ks
+                            person
+                            ^^^^^^
+                            source.ks variable.other.ks
+                                   
+                                  ^
+                                  source.ks
+                                   )
+                                   ^
+                                   source.ks punctuation.definition.template-expression.end.ks
+                                     is a 
+                                    ^^^^^^
+                                    source.ks string.template.ks
+                                          \(
+                                          ^^
+                                          source.ks punctuation.definition.template-expression.begin.ks
+                                             
+                                            ^
+                                            source.ks
+                                             age
+                                             ^^^
+                                             source.ks variable.other.ks
+                                                 
+                                                ^
+                                                source.ks
+                                                 )
+                                                 ^
+                                                 source.ks punctuation.definition.template-expression.end.ks
+                                                  `
                                                   ^
-                                                  source.ks
-                                                   )
-                                                   ^
-                                                   source.ks punctuation.definition.template-expression.end.ks
-                                                    `
-                                                    ^
-                                                    source.ks punctuation.definition.string.template.end.ks
+                                                  source.ks punctuation.definition.string.template.end.ks
 >
 >
  

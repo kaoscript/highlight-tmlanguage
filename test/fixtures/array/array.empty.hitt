@@ -1,21 +1,21 @@
 original file
 -----------------------------------
-let foo = []
+var foo = []
 -----------------------------------
 
 grammar: kaoscript.tmLanguage
 -----------------------------------
 >
->let foo = []
- let
+>var foo = []
+ var
  ^^^
- source.ks storage.type.readwrite.ks
+ source.ks storage.type.constant.ks
      
     ^
     source.ks
      foo
      ^^^
-     source.ks meta.definition.variable.ks variable.other.readwrite.ks
+     source.ks meta.definition.variable.ks variable.other.ks
          
         ^
         source.ks

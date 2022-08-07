@@ -8,7 +8,7 @@ func min() => {
 }
 
 namespace foo {
-    const {gender, age} = min()
+    var {gender, age} = min()
 }
 
 console.log(foo.age)
@@ -130,52 +130,52 @@ grammar: kaoscript.tmLanguage
                ^
                source.ks punctuation.definition.namespace.begin.bracket.curly.ks
 >
->    const {gender, age} = min()
+>    var {gender, age} = min()
      
  ^^^^
  source.ks
-     const
-     ^^^^^
+     var
+     ^^^
      source.ks storage.type.constant.ks
-           
-          ^
-          source.ks
-           {
-           ^
-           source.ks punctuation.definition.binding-pattern.object.begin.bracket.curly.ks
-            gender
-            ^^^^^^
-            source.ks variable.other.ks
-                  ,
-                  ^
-                  source.ks punctuation.separator.comma.ks
-                    
-                   ^
-                   source.ks
-                    age
-                    ^^^
-                    source.ks variable.other.ks
-                       }
+         
+        ^
+        source.ks
+         {
+         ^
+         source.ks punctuation.definition.binding-pattern.object.begin.bracket.curly.ks
+          gender
+          ^^^^^^
+          source.ks variable.other.ks
+                ,
+                ^
+                source.ks punctuation.separator.comma.ks
+                  
+                 ^
+                 source.ks
+                  age
+                  ^^^
+                  source.ks variable.other.ks
+                     }
+                     ^
+                     source.ks punctuation.definition.binding-pattern.object.end.bracket.curly.ks
+                       
+                      ^
+                      source.ks
+                       =
                        ^
-                       source.ks punctuation.definition.binding-pattern.object.end.bracket.curly.ks
+                       source.ks keyword.operator.assignment.ks
                          
                         ^
                         source.ks
-                         =
-                         ^
-                         source.ks keyword.operator.assignment.ks
-                           
-                          ^
-                          source.ks
-                           min
-                           ^^^
-                           source.ks entity.name.function.ks
-                              (
-                              ^
-                              source.ks punctuation.definition.arguments.begin.bracket.round.ks
-                               )
-                               ^
-                               source.ks punctuation.definition.arguments.end.bracket.round.ks
+                         min
+                         ^^^
+                         source.ks entity.name.function.ks
+                            (
+                            ^
+                            source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                             )
+                             ^
+                             source.ks punctuation.definition.arguments.end.bracket.round.ks
 >
 >}
  }

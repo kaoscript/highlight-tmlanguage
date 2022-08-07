@@ -13,13 +13,13 @@ grammar: kaoscript.tmLanguage
 >const format = 42
  const
  ^^^^^
- source.ks storage.type.constant.ks
+ source.ks variable.other.ks
        
       ^
       source.ks
        format
        ^^^^^^
-       source.ks meta.definition.variable.ks variable.other.constant.ks
+       source.ks variable.other.ks
               
              ^
              source.ks
@@ -41,13 +41,13 @@ grammar: kaoscript.tmLanguage
 >const array = [
  const
  ^^^^^
- source.ks storage.type.constant.ks
+ source.ks variable.other.ks
        
       ^
       source.ks
        array
        ^^^^^
-       source.ks meta.definition.variable.ks variable.other.constant.ks
+       source.ks variable.other.ks
              
             ^
             source.ks

@@ -71,13 +71,13 @@ grammar: kaoscript.tmLanguage
 >const foo = new Foo()
  const
  ^^^^^
- source.ks storage.type.constant.ks
+ source.ks variable.other.ks
        
       ^
       source.ks
        foo
        ^^^
-       source.ks meta.definition.variable.ks variable.other.constant.ks
+       source.ks variable.other.ks
            
           ^
           source.ks

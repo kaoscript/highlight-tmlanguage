@@ -1,6 +1,6 @@
 original file
 -----------------------------------
-const struct = 42
+var struct = 42
 
 console.log(struct + 24)
 -----------------------------------
@@ -8,28 +8,28 @@ console.log(struct + 24)
 grammar: kaoscript.tmLanguage
 -----------------------------------
 >
->const struct = 42
- const
- ^^^^^
+>var struct = 42
+ var
+ ^^^
  source.ks storage.type.constant.ks
-       
-      ^
-      source.ks
-       struct
-       ^^^^^^
-       source.ks meta.definition.variable.ks variable.other.constant.ks
+     
+    ^
+    source.ks
+     struct
+     ^^^^^^
+     source.ks meta.definition.variable.ks variable.other.ks
+            
+           ^
+           source.ks
+            =
+            ^
+            source.ks keyword.operator.assignment.ks
               
              ^
              source.ks
-              =
-              ^
-              source.ks keyword.operator.assignment.ks
-                
-               ^
-               source.ks
-                42
-                ^^
-                source.ks constant.numeric.decimal.ks
+              42
+              ^^
+              source.ks constant.numeric.decimal.ks
 >
 >
  

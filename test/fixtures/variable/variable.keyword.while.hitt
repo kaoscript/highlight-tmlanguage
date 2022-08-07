@@ -1,6 +1,6 @@
 original file
 -----------------------------------
-let while = {}
+var while = {}
 
 while.foo = 42
 -----------------------------------
@@ -8,16 +8,16 @@ while.foo = 42
 grammar: kaoscript.tmLanguage
 -----------------------------------
 >
->let while = {}
- let
+>var while = {}
+ var
  ^^^
- source.ks storage.type.readwrite.ks
+ source.ks storage.type.constant.ks
      
     ^
     source.ks
      while
      ^^^^^
-     source.ks meta.definition.variable.ks variable.other.readwrite.ks
+     source.ks meta.definition.variable.ks variable.other.ks
            
           ^
           source.ks

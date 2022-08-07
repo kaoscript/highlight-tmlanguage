@@ -1,90 +1,90 @@
 original file
 -----------------------------------
-const foo = (a:Number, b:Number): Number => a - b
+var foo = (a:Number, b:Number): Number => a - b
 -----------------------------------
 
 grammar: kaoscript.tmLanguage
 -----------------------------------
 >
->const foo = (a:Number, b:Number): Number => a - b
- const
- ^^^^^
+>var foo = (a:Number, b:Number): Number => a - b
+ var
+ ^^^
  source.ks storage.type.constant.ks
-       
-      ^
-      source.ks
-       foo
-       ^^^
-       source.ks meta.definition.variable.ks variable.other.constant.ks
+     
+    ^
+    source.ks
+     foo
+     ^^^
+     source.ks meta.definition.variable.ks variable.other.ks
+         
+        ^
+        source.ks
+         =
+         ^
+         source.ks keyword.operator.assignment.ks
            
           ^
           source.ks
-           =
+           (
            ^
-           source.ks keyword.operator.assignment.ks
-             
+           source.ks punctuation.definition.parameters.begin.bracket.round.ks
+            a
             ^
-            source.ks
-             (
+            source.ks variable.parameter.ks
+             :
              ^
-             source.ks punctuation.definition.parameters.begin.bracket.round.ks
-              a
-              ^
-              source.ks variable.parameter.ks
-               :
-               ^
-               source.ks meta.type.annotation.ks keyword.operator.type.annotation.ks
-                Number
-                ^^^^^^
-                source.ks meta.type.annotation.ks support.type.primitive.ks
-                      ,
+             source.ks meta.type.annotation.ks keyword.operator.type.annotation.ks
+              Number
+              ^^^^^^
+              source.ks meta.type.annotation.ks support.type.primitive.ks
+                    ,
+                    ^
+                    source.ks punctuation.separator.comma.ks
+                      
+                     ^
+                     source.ks
+                      b
                       ^
-                      source.ks punctuation.separator.comma.ks
-                        
+                      source.ks variable.parameter.ks
+                       :
                        ^
-                       source.ks
-                        b
-                        ^
-                        source.ks variable.parameter.ks
-                         :
-                         ^
-                         source.ks meta.type.annotation.ks keyword.operator.type.annotation.ks
-                          Number
-                          ^^^^^^
-                          source.ks meta.type.annotation.ks support.type.primitive.ks
-                                )
+                       source.ks meta.type.annotation.ks keyword.operator.type.annotation.ks
+                        Number
+                        ^^^^^^
+                        source.ks meta.type.annotation.ks support.type.primitive.ks
+                              )
+                              ^
+                              source.ks punctuation.definition.parameters.end.bracket.round.ks
+                               :
+                               ^
+                               source.ks meta.function.return-type.ks keyword.operator.type.annotation.ks
+                                 
                                 ^
-                                source.ks punctuation.definition.parameters.end.bracket.round.ks
-                                 :
-                                 ^
-                                 source.ks meta.function.return-type.ks keyword.operator.type.annotation.ks
-                                   
-                                  ^
-                                  source.ks meta.function.return-type.ks
-                                   Number
-                                   ^^^^^^
-                                   source.ks meta.function.return-type.ks support.type.primitive.ks
-                                          
-                                         ^
-                                         source.ks
-                                          =>
-                                          ^^
-                                          source.ks storage.type.function.arrow.ks
+                                source.ks meta.function.return-type.ks
+                                 Number
+                                 ^^^^^^
+                                 source.ks meta.function.return-type.ks support.type.primitive.ks
+                                        
+                                       ^
+                                       source.ks
+                                        =>
+                                        ^^
+                                        source.ks storage.type.function.arrow.ks
+                                           
+                                          ^
+                                          source.ks
+                                           a
+                                           ^
+                                           source.ks variable.other.ks
                                              
                                             ^
                                             source.ks
-                                             a
+                                             -
                                              ^
-                                             source.ks variable.other.ks
+                                             source.ks keyword.operator.arithmetic.ks
                                                
                                               ^
                                               source.ks
-                                               -
+                                               b
                                                ^
-                                               source.ks keyword.operator.arithmetic.ks
-                                                 
-                                                ^
-                                                source.ks
-                                                 b
-                                                 ^
-                                                 source.ks variable.other.ks
+                                               source.ks variable.other.ks

@@ -1,6 +1,6 @@
 original file
 -----------------------------------
-let domain = {}
+var domain = {}
 
 domain.foo()
 -----------------------------------
@@ -8,16 +8,16 @@ domain.foo()
 grammar: kaoscript.tmLanguage
 -----------------------------------
 >
->let domain = {}
- let
+>var domain = {}
+ var
  ^^^
- source.ks storage.type.readwrite.ks
+ source.ks storage.type.constant.ks
      
     ^
     source.ks
      domain
      ^^^^^^
-     source.ks meta.definition.variable.ks variable.other.readwrite.ks
+     source.ks meta.definition.variable.ks variable.other.ks
             
            ^
            source.ks

@@ -1,6 +1,6 @@
 original file
 -----------------------------------
-let delete = {}
+var delete = {}
 
 delete.foo = 42
 -----------------------------------
@@ -8,16 +8,16 @@ delete.foo = 42
 grammar: kaoscript.tmLanguage
 -----------------------------------
 >
->let delete = {}
- let
+>var delete = {}
+ var
  ^^^
- source.ks storage.type.readwrite.ks
+ source.ks storage.type.constant.ks
      
     ^
     source.ks
      delete
      ^^^^^^
-     source.ks meta.definition.variable.ks variable.other.readwrite.ks
+     source.ks meta.definition.variable.ks variable.other.ks
             
            ^
            source.ks

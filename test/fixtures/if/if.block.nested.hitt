@@ -1,6 +1,6 @@
 original file
 -----------------------------------
-let x, y, z, foo, bar, qux
+var dyn x, y, z, foo, bar, qux
 
 if x {
     if foo {
@@ -37,61 +37,64 @@ else {
 grammar: kaoscript.tmLanguage
 -----------------------------------
 >
->let x, y, z, foo, bar, qux
- let
- ^^^
+>var dyn x, y, z, foo, bar, qux
+ var 
+ ^^^^
  source.ks storage.type.readwrite.ks
-     
-    ^
-    source.ks
-     x
-     ^
-     source.ks meta.definition.variable.ks variable.other.readwrite.ks
-      ,
-      ^
-      source.ks punctuation.separator.comma.ks
-        
-       ^
-       source.ks
-        y
+     dyn
+     ^^^
+     source.ks storage.type.readwrite.ks storage.modifier.dynamic.ks
+         
         ^
-        source.ks meta.definition.variable.ks variable.other.readwrite.ks
-         ,
+        source.ks
+         x
          ^
-         source.ks punctuation.separator.comma.ks
-           
+         source.ks meta.definition.variable.ks variable.other.ks
+          ,
           ^
-          source.ks
-           z
+          source.ks punctuation.separator.comma.ks
+            
            ^
-           source.ks meta.definition.variable.ks variable.other.readwrite.ks
-            ,
+           source.ks
+            y
             ^
-            source.ks punctuation.separator.comma.ks
-              
+            source.ks meta.definition.variable.ks variable.other.ks
+             ,
              ^
-             source.ks
-              foo
-              ^^^
-              source.ks meta.definition.variable.ks variable.other.readwrite.ks
-                 ,
+             source.ks punctuation.separator.comma.ks
+               
+              ^
+              source.ks
+               z
+               ^
+               source.ks meta.definition.variable.ks variable.other.ks
+                ,
+                ^
+                source.ks punctuation.separator.comma.ks
+                  
                  ^
-                 source.ks punctuation.separator.comma.ks
-                   
-                  ^
-                  source.ks
-                   bar
-                   ^^^
-                   source.ks meta.definition.variable.ks variable.other.readwrite.ks
-                      ,
+                 source.ks
+                  foo
+                  ^^^
+                  source.ks meta.definition.variable.ks variable.other.ks
+                     ,
+                     ^
+                     source.ks punctuation.separator.comma.ks
+                       
                       ^
-                      source.ks punctuation.separator.comma.ks
-                        
-                       ^
-                       source.ks
-                        qux
-                        ^^^
-                        source.ks meta.definition.variable.ks variable.other.readwrite.ks
+                      source.ks
+                       bar
+                       ^^^
+                       source.ks meta.definition.variable.ks variable.other.ks
+                          ,
+                          ^
+                          source.ks punctuation.separator.comma.ks
+                            
+                           ^
+                           source.ks
+                            qux
+                            ^^^
+                            source.ks meta.definition.variable.ks variable.other.ks
 >
 >
  

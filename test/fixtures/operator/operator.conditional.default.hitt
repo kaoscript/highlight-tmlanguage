@@ -1,66 +1,69 @@
 original file
 -----------------------------------
-let foo = lang ? 'hello' : 'bonjour'
+var dyn foo = lang ? 'hello' : 'bonjour'
 -----------------------------------
 
 grammar: kaoscript.tmLanguage
 -----------------------------------
 >
->let foo = lang ? 'hello' : 'bonjour'
- let
- ^^^
+>var dyn foo = lang ? 'hello' : 'bonjour'
+ var 
+ ^^^^
  source.ks storage.type.readwrite.ks
-     
-    ^
-    source.ks
-     foo
+     dyn
      ^^^
-     source.ks meta.definition.variable.ks variable.other.readwrite.ks
+     source.ks storage.type.readwrite.ks storage.modifier.dynamic.ks
          
         ^
         source.ks
-         =
-         ^
-         source.ks keyword.operator.assignment.ks
-           
-          ^
-          source.ks
-           lang
-           ^^^^
-           source.ks variable.other.ks
-                
-               ^
-               source.ks
-                ?
-                ^
-                source.ks keyword.operator.ternary.ks
-                  
-                 ^
-                 source.ks
-                  '
-                  ^
-                  source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
-                   hello
-                   ^^^^^
-                   source.ks string.quoted.single.ks
-                        '
-                        ^
-                        source.ks string.quoted.single.ks punctuation.definition.string.end.ks
-                          
-                         ^
-                         source.ks
-                          :
-                          ^
-                          source.ks keyword.operator.ternary.ks
-                            
-                           ^
-                           source.ks
+         foo
+         ^^^
+         source.ks meta.definition.variable.ks variable.other.ks
+             
+            ^
+            source.ks
+             =
+             ^
+             source.ks keyword.operator.assignment.ks
+               
+              ^
+              source.ks
+               lang
+               ^^^^
+               source.ks variable.other.ks
+                    
+                   ^
+                   source.ks
+                    ?
+                    ^
+                    source.ks keyword.operator.ternary.ks
+                      
+                     ^
+                     source.ks
+                      '
+                      ^
+                      source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
+                       hello
+                       ^^^^^
+                       source.ks string.quoted.single.ks
                             '
                             ^
-                            source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
-                             bonjour
-                             ^^^^^^^
-                             source.ks string.quoted.single.ks
-                                    '
-                                    ^
-                                    source.ks string.quoted.single.ks punctuation.definition.string.end.ks
+                            source.ks string.quoted.single.ks punctuation.definition.string.end.ks
+                              
+                             ^
+                             source.ks
+                              :
+                              ^
+                              source.ks keyword.operator.ternary.ks
+                                
+                               ^
+                               source.ks
+                                '
+                                ^
+                                source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
+                                 bonjour
+                                 ^^^^^^^
+                                 source.ks string.quoted.single.ks
+                                        '
+                                        ^
+                                        source.ks string.quoted.single.ks punctuation.definition.string.end.ks

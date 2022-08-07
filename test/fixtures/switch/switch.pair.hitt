@@ -1,6 +1,6 @@
 original file
 -----------------------------------
-let pair = [2, -2]
+var dyn pair = [2, -2]
 
 switch pair {
     with [x, y]    when x == y            => console.log("These are twins")
@@ -13,46 +13,49 @@ switch pair {
 grammar: kaoscript.tmLanguage
 -----------------------------------
 >
->let pair = [2, -2]
- let
- ^^^
+>var dyn pair = [2, -2]
+ var 
+ ^^^^
  source.ks storage.type.readwrite.ks
-     
-    ^
-    source.ks
-     pair
-     ^^^^
-     source.ks meta.definition.variable.ks variable.other.readwrite.ks
-          
-         ^
-         source.ks
-          =
-          ^
-          source.ks keyword.operator.assignment.ks
-            
-           ^
-           source.ks
-            [
-            ^
-            source.ks punctuation.definition.array.begin.bracket.square.ks
-             2
+     dyn
+     ^^^
+     source.ks storage.type.readwrite.ks storage.modifier.dynamic.ks
+         
+        ^
+        source.ks
+         pair
+         ^^^^
+         source.ks meta.definition.variable.ks variable.other.ks
+              
              ^
-             source.ks constant.numeric.decimal.ks
-              ,
+             source.ks
+              =
               ^
-              source.ks punctuation.separator.comma.ks
+              source.ks keyword.operator.assignment.ks
                 
                ^
                source.ks
-                -
+                [
                 ^
-                source.ks keyword.operator.arithmetic.ks
+                source.ks punctuation.definition.array.begin.bracket.square.ks
                  2
                  ^
                  source.ks constant.numeric.decimal.ks
-                  ]
+                  ,
                   ^
-                  source.ks punctuation.definition.array.end.bracket.square.ks
+                  source.ks punctuation.separator.comma.ks
+                    
+                   ^
+                   source.ks
+                    -
+                    ^
+                    source.ks keyword.operator.arithmetic.ks
+                     2
+                     ^
+                     source.ks constant.numeric.decimal.ks
+                      ]
+                      ^
+                      source.ks punctuation.definition.array.end.bracket.square.ks
 >
 >
  

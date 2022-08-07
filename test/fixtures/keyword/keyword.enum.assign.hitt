@@ -1,6 +1,6 @@
 original file
 -----------------------------------
-auto enum = 42
+var mut enum = 42
 
 enum = 24
 -----------------------------------
@@ -8,28 +8,31 @@ enum = 24
 grammar: kaoscript.tmLanguage
 -----------------------------------
 >
->auto enum = 42
- auto
+>var mut enum = 42
+ var 
  ^^^^
  source.ks storage.type.readwrite.ks
-      
-     ^
-     source.ks
-      enum
-      ^^^^
-      source.ks meta.definition.variable.ks variable.other.readwrite.ks
-           
-          ^
-          source.ks
-           =
-           ^
-           source.ks keyword.operator.assignment.ks
-             
-            ^
-            source.ks
-             42
-             ^^
-             source.ks constant.numeric.decimal.ks
+     mut
+     ^^^
+     source.ks storage.type.readwrite.ks storage.modifier.mutable.ks
+         
+        ^
+        source.ks
+         enum
+         ^^^^
+         source.ks meta.definition.variable.ks variable.other.ks
+              
+             ^
+             source.ks
+              =
+              ^
+              source.ks keyword.operator.assignment.ks
+                
+               ^
+               source.ks
+                42
+                ^^
+                source.ks constant.numeric.decimal.ks
 >
 >
  

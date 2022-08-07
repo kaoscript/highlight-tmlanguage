@@ -3,13 +3,13 @@ original file
 macro using_a(a: Identifier, e: Expression) {
     macro {
         (() => {
-            let #a = 42
+            var dyn #a = 42
             return #e
         })()
     }
 }
 
-let four = using_a!(a, a / 10)
+var dyn four = using_a!(a, a / 10)
 -----------------------------------
 
 grammar: kaoscript.tmLanguage
@@ -102,19 +102,19 @@ grammar: kaoscript.tmLanguage
                 ^
                 source.ks meta.macro.ks punctuation.bracket.curly.ks
 >
->            let #a = 42
-             let 
- ^^^^^^^^^^^^^^^^
+>            var dyn #a = 42
+             var dyn 
+ ^^^^^^^^^^^^^^^^^^^^
  source.ks meta.macro.ks
-                 #
-                 ^
-                 source.ks meta.macro.ks meta.macro.variable.ks punctuation.accessor.macro.ks
-                  a
-                  ^
-                  source.ks meta.macro.ks meta.macro.variable.ks variable.other.ks
-                    = 42
-                   ^^^^^^
-                   source.ks meta.macro.ks
+                     #
+                     ^
+                     source.ks meta.macro.ks meta.macro.variable.ks punctuation.accessor.macro.ks
+                      a
+                      ^
+                      source.ks meta.macro.ks meta.macro.variable.ks variable.other.ks
+                        = 42
+                       ^^^^^^
+                       source.ks meta.macro.ks
 >
 >            return #e
              return 
@@ -162,58 +162,61 @@ grammar: kaoscript.tmLanguage
  ^
  source.ks
 >
->let four = using_a!(a, a / 10)
- let
- ^^^
+>var dyn four = using_a!(a, a / 10)
+ var 
+ ^^^^
  source.ks storage.type.readwrite.ks
-     
-    ^
-    source.ks
-     four
-     ^^^^
-     source.ks meta.definition.variable.ks variable.other.readwrite.ks
-          
-         ^
-         source.ks
-          =
-          ^
-          source.ks keyword.operator.assignment.ks
-            
-           ^
-           source.ks
-            using_a
-            ^^^^^^^
-            source.ks entity.name.function.ks
-                   !
-                   ^
-                   source.ks keyword.operator.function.macro.ks
-                    (
-                    ^
-                    source.ks punctuation.definition.arguments.begin.bracket.round.ks
-                     a
-                     ^
-                     source.ks variable.other.ks
-                      ,
-                      ^
-                      source.ks punctuation.separator.comma.ks
-                        
+     dyn
+     ^^^
+     source.ks storage.type.readwrite.ks storage.modifier.dynamic.ks
+         
+        ^
+        source.ks
+         four
+         ^^^^
+         source.ks meta.definition.variable.ks variable.other.ks
+              
+             ^
+             source.ks
+              =
+              ^
+              source.ks keyword.operator.assignment.ks
+                
+               ^
+               source.ks
+                using_a
+                ^^^^^^^
+                source.ks entity.name.function.ks
+                       !
                        ^
-                       source.ks
-                        a
+                       source.ks keyword.operator.function.macro.ks
+                        (
                         ^
-                        source.ks variable.other.ks
-                          
+                        source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                         a
                          ^
-                         source.ks
-                          /
+                         source.ks variable.other.ks
+                          ,
                           ^
-                          source.ks keyword.operator.arithmetic.ks
+                          source.ks punctuation.separator.comma.ks
                             
                            ^
                            source.ks
-                            10
-                            ^^
-                            source.ks constant.numeric.decimal.ks
-                              )
+                            a
+                            ^
+                            source.ks variable.other.ks
+                              
+                             ^
+                             source.ks
+                              /
                               ^
-                              source.ks punctuation.definition.arguments.end.bracket.round.ks
+                              source.ks keyword.operator.arithmetic.ks
+                                
+                               ^
+                               source.ks
+                                10
+                                ^^
+                                source.ks constant.numeric.decimal.ks
+                                  )
+                                  ^
+                                  source.ks punctuation.definition.arguments.end.bracket.round.ks

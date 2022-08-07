@@ -1,269 +1,91 @@
 original file
 -----------------------------------
-let time = 10_000_ms
-let hex = 0x1234_5678
-let octal = 0o070
-let binary = 0b1010010101
-let radix = 36rNFfdH45
-let float = 123_456.789_012
-let exponent_positive = -7.2e+22
-let exponent_negative = 1.1e-10
-let exponent_time = 0.1e5_ms
-let float_exponent = 1.23456e-65
-let float_dot = .789_012
-let float_dot_exponent = .1E4
-let float_hex1 = 0x10.1p0            // 16.0625
-let float_hex2 = 0x1.2p3            // 9
-let float_hex3 = 0x3.14p0            // 3.078125
-let float_hex4 = 0xa.bp10            // 10944
+var dyn time = 10_000_ms
+var dyn hex = 0x1234_5678
+var dyn octal = 0o070
+var dyn binary = 0b1010010101
+var dyn radix = 36rNFfdH45
+var dyn float = 123_456.789_012
+var dyn exponent_positive = -7.2e+22
+var dyn exponent_negative = 1.1e-10
+var dyn exponent_time = 0.1e5_ms
+var dyn float_exponent = 1.23456e-65
+var dyn float_dot = .789_012
+var dyn float_dot_exponent = .1E4
+var dyn float_hex1 = 0x10.1p0            // 16.0625
+var dyn float_hex2 = 0x1.2p3            // 9
+var dyn float_hex3 = 0x3.14p0            // 3.078125
+var dyn float_hex4 = 0xa.bp10            // 10944
 -----------------------------------
 
 grammar: kaoscript.tmLanguage
 -----------------------------------
 >
->let time = 10_000_ms
- let
- ^^^
+>var dyn time = 10_000_ms
+ var 
+ ^^^^
  source.ks storage.type.readwrite.ks
-     
-    ^
-    source.ks
-     time
-     ^^^^
-     source.ks meta.definition.variable.ks variable.other.readwrite.ks
-          
-         ^
-         source.ks
-          =
-          ^
-          source.ks keyword.operator.assignment.ks
-            
-           ^
-           source.ks
-            10_000_ms
-            ^^^^^^^^^
-            source.ks constant.numeric.decimal.ks
->
->let hex = 0x1234_5678
- let
- ^^^
- source.ks storage.type.readwrite.ks
-     
-    ^
-    source.ks
-     hex
+     dyn
      ^^^
-     source.ks meta.definition.variable.ks variable.other.readwrite.ks
+     source.ks storage.type.readwrite.ks storage.modifier.dynamic.ks
          
         ^
         source.ks
-         =
-         ^
-         source.ks keyword.operator.assignment.ks
-           
-          ^
-          source.ks
-           0x1234_5678
-           ^^^^^^^^^^^
-           source.ks constant.numeric.hex.ks
->
->let octal = 0o070
- let
- ^^^
- source.ks storage.type.readwrite.ks
-     
-    ^
-    source.ks
-     octal
-     ^^^^^
-     source.ks meta.definition.variable.ks variable.other.readwrite.ks
-           
-          ^
-          source.ks
-           =
-           ^
-           source.ks keyword.operator.assignment.ks
-             
-            ^
-            source.ks
-             0o070
-             ^^^^^
-             source.ks constant.numeric.octal.ks
->
->let binary = 0b1010010101
- let
- ^^^
- source.ks storage.type.readwrite.ks
-     
-    ^
-    source.ks
-     binary
-     ^^^^^^
-     source.ks meta.definition.variable.ks variable.other.readwrite.ks
-            
-           ^
-           source.ks
-            =
-            ^
-            source.ks keyword.operator.assignment.ks
+         time
+         ^^^^
+         source.ks meta.definition.variable.ks variable.other.ks
               
              ^
              source.ks
-              0b1010010101
-              ^^^^^^^^^^^^
-              source.ks constant.numeric.binary.ks
+              =
+              ^
+              source.ks keyword.operator.assignment.ks
+                
+               ^
+               source.ks
+                10_000_ms
+                ^^^^^^^^^
+                source.ks constant.numeric.decimal.ks
 >
->let radix = 36rNFfdH45
- let
- ^^^
+>var dyn hex = 0x1234_5678
+ var 
+ ^^^^
  source.ks storage.type.readwrite.ks
-     
-    ^
-    source.ks
-     radix
-     ^^^^^
-     source.ks meta.definition.variable.ks variable.other.readwrite.ks
-           
-          ^
-          source.ks
-           =
-           ^
-           source.ks keyword.operator.assignment.ks
+     dyn
+     ^^^
+     source.ks storage.type.readwrite.ks storage.modifier.dynamic.ks
+         
+        ^
+        source.ks
+         hex
+         ^^^
+         source.ks meta.definition.variable.ks variable.other.ks
              
             ^
             source.ks
-             36rNFfdH45
-             ^^^^^^^^^^
-             source.ks constant.numeric.radix.ks
+             =
+             ^
+             source.ks keyword.operator.assignment.ks
+               
+              ^
+              source.ks
+               0x1234_5678
+               ^^^^^^^^^^^
+               source.ks constant.numeric.hex.ks
 >
->let float = 123_456.789_012
- let
- ^^^
+>var dyn octal = 0o070
+ var 
+ ^^^^
  source.ks storage.type.readwrite.ks
-     
-    ^
-    source.ks
-     float
-     ^^^^^
-     source.ks meta.definition.variable.ks variable.other.readwrite.ks
-           
-          ^
-          source.ks
-           =
-           ^
-           source.ks keyword.operator.assignment.ks
-             
-            ^
-            source.ks
-             123_456.789_012
-             ^^^^^^^^^^^^^^^
-             source.ks constant.numeric.decimal.ks
->
->let exponent_positive = -7.2e+22
- let
- ^^^
- source.ks storage.type.readwrite.ks
-     
-    ^
-    source.ks
-     exponent_positive
-     ^^^^^^^^^^^^^^^^^
-     source.ks meta.definition.variable.ks variable.other.readwrite.ks
-                       
-                      ^
-                      source.ks
-                       =
-                       ^
-                       source.ks keyword.operator.assignment.ks
-                         
-                        ^
-                        source.ks
-                         -
-                         ^
-                         source.ks keyword.operator.arithmetic.ks
-                          7.2e+22
-                          ^^^^^^^
-                          source.ks constant.numeric.decimal.ks
->
->let exponent_negative = 1.1e-10
- let
- ^^^
- source.ks storage.type.readwrite.ks
-     
-    ^
-    source.ks
-     exponent_negative
-     ^^^^^^^^^^^^^^^^^
-     source.ks meta.definition.variable.ks variable.other.readwrite.ks
-                       
-                      ^
-                      source.ks
-                       =
-                       ^
-                       source.ks keyword.operator.assignment.ks
-                         
-                        ^
-                        source.ks
-                         1.1e-10
-                         ^^^^^^^
-                         source.ks constant.numeric.decimal.ks
->
->let exponent_time = 0.1e5_ms
- let
- ^^^
- source.ks storage.type.readwrite.ks
-     
-    ^
-    source.ks
-     exponent_time
-     ^^^^^^^^^^^^^
-     source.ks meta.definition.variable.ks variable.other.readwrite.ks
-                   
-                  ^
-                  source.ks
-                   =
-                   ^
-                   source.ks keyword.operator.assignment.ks
-                     
-                    ^
-                    source.ks
-                     0.1e5_ms
-                     ^^^^^^^^
-                     source.ks constant.numeric.decimal.ks
->
->let float_exponent = 1.23456e-65
- let
- ^^^
- source.ks storage.type.readwrite.ks
-     
-    ^
-    source.ks
-     float_exponent
-     ^^^^^^^^^^^^^^
-     source.ks meta.definition.variable.ks variable.other.readwrite.ks
-                    
-                   ^
-                   source.ks
-                    =
-                    ^
-                    source.ks keyword.operator.assignment.ks
-                      
-                     ^
-                     source.ks
-                      1.23456e-65
-                      ^^^^^^^^^^^
-                      source.ks constant.numeric.decimal.ks
->
->let float_dot = .789_012
- let
- ^^^
- source.ks storage.type.readwrite.ks
-     
-    ^
-    source.ks
-     float_dot
-     ^^^^^^^^^
-     source.ks meta.definition.variable.ks variable.other.readwrite.ks
+     dyn
+     ^^^
+     source.ks storage.type.readwrite.ks storage.modifier.dynamic.ks
+         
+        ^
+        source.ks
+         octal
+         ^^^^^
+         source.ks meta.definition.variable.ks variable.other.ks
                
               ^
               source.ks
@@ -273,23 +95,182 @@ grammar: kaoscript.tmLanguage
                  
                 ^
                 source.ks
-                 .
-                 ^
-                 source.ks punctuation.accessor.object.ks
-                  789_012
-                  ^^^^^^^
-                  source.ks constant.numeric.decimal.ks
+                 0o070
+                 ^^^^^
+                 source.ks constant.numeric.octal.ks
 >
->let float_dot_exponent = .1E4
- let
- ^^^
+>var dyn binary = 0b1010010101
+ var 
+ ^^^^
  source.ks storage.type.readwrite.ks
-     
-    ^
-    source.ks
-     float_dot_exponent
-     ^^^^^^^^^^^^^^^^^^
-     source.ks meta.definition.variable.ks variable.other.readwrite.ks
+     dyn
+     ^^^
+     source.ks storage.type.readwrite.ks storage.modifier.dynamic.ks
+         
+        ^
+        source.ks
+         binary
+         ^^^^^^
+         source.ks meta.definition.variable.ks variable.other.ks
+                
+               ^
+               source.ks
+                =
+                ^
+                source.ks keyword.operator.assignment.ks
+                  
+                 ^
+                 source.ks
+                  0b1010010101
+                  ^^^^^^^^^^^^
+                  source.ks constant.numeric.binary.ks
+>
+>var dyn radix = 36rNFfdH45
+ var 
+ ^^^^
+ source.ks storage.type.readwrite.ks
+     dyn
+     ^^^
+     source.ks storage.type.readwrite.ks storage.modifier.dynamic.ks
+         
+        ^
+        source.ks
+         radix
+         ^^^^^
+         source.ks meta.definition.variable.ks variable.other.ks
+               
+              ^
+              source.ks
+               =
+               ^
+               source.ks keyword.operator.assignment.ks
+                 
+                ^
+                source.ks
+                 36rNFfdH45
+                 ^^^^^^^^^^
+                 source.ks constant.numeric.radix.ks
+>
+>var dyn float = 123_456.789_012
+ var 
+ ^^^^
+ source.ks storage.type.readwrite.ks
+     dyn
+     ^^^
+     source.ks storage.type.readwrite.ks storage.modifier.dynamic.ks
+         
+        ^
+        source.ks
+         float
+         ^^^^^
+         source.ks meta.definition.variable.ks variable.other.ks
+               
+              ^
+              source.ks
+               =
+               ^
+               source.ks keyword.operator.assignment.ks
+                 
+                ^
+                source.ks
+                 123_456.789_012
+                 ^^^^^^^^^^^^^^^
+                 source.ks constant.numeric.decimal.ks
+>
+>var dyn exponent_positive = -7.2e+22
+ var 
+ ^^^^
+ source.ks storage.type.readwrite.ks
+     dyn
+     ^^^
+     source.ks storage.type.readwrite.ks storage.modifier.dynamic.ks
+         
+        ^
+        source.ks
+         exponent_positive
+         ^^^^^^^^^^^^^^^^^
+         source.ks meta.definition.variable.ks variable.other.ks
+                           
+                          ^
+                          source.ks
+                           =
+                           ^
+                           source.ks keyword.operator.assignment.ks
+                             
+                            ^
+                            source.ks
+                             -
+                             ^
+                             source.ks keyword.operator.arithmetic.ks
+                              7.2e+22
+                              ^^^^^^^
+                              source.ks constant.numeric.decimal.ks
+>
+>var dyn exponent_negative = 1.1e-10
+ var 
+ ^^^^
+ source.ks storage.type.readwrite.ks
+     dyn
+     ^^^
+     source.ks storage.type.readwrite.ks storage.modifier.dynamic.ks
+         
+        ^
+        source.ks
+         exponent_negative
+         ^^^^^^^^^^^^^^^^^
+         source.ks meta.definition.variable.ks variable.other.ks
+                           
+                          ^
+                          source.ks
+                           =
+                           ^
+                           source.ks keyword.operator.assignment.ks
+                             
+                            ^
+                            source.ks
+                             1.1e-10
+                             ^^^^^^^
+                             source.ks constant.numeric.decimal.ks
+>
+>var dyn exponent_time = 0.1e5_ms
+ var 
+ ^^^^
+ source.ks storage.type.readwrite.ks
+     dyn
+     ^^^
+     source.ks storage.type.readwrite.ks storage.modifier.dynamic.ks
+         
+        ^
+        source.ks
+         exponent_time
+         ^^^^^^^^^^^^^
+         source.ks meta.definition.variable.ks variable.other.ks
+                       
+                      ^
+                      source.ks
+                       =
+                       ^
+                       source.ks keyword.operator.assignment.ks
+                         
+                        ^
+                        source.ks
+                         0.1e5_ms
+                         ^^^^^^^^
+                         source.ks constant.numeric.decimal.ks
+>
+>var dyn float_exponent = 1.23456e-65
+ var 
+ ^^^^
+ source.ks storage.type.readwrite.ks
+     dyn
+     ^^^
+     source.ks storage.type.readwrite.ks storage.modifier.dynamic.ks
+         
+        ^
+        source.ks
+         float_exponent
+         ^^^^^^^^^^^^^^
+         source.ks meta.definition.variable.ks variable.other.ks
                         
                        ^
                        source.ks
@@ -299,137 +280,204 @@ grammar: kaoscript.tmLanguage
                           
                          ^
                          source.ks
-                          .
-                          ^
-                          source.ks punctuation.accessor.object.ks
-                           1E4
-                           ^^^
-                           source.ks constant.numeric.decimal.ks
+                          1.23456e-65
+                          ^^^^^^^^^^^
+                          source.ks constant.numeric.decimal.ks
 >
->let float_hex1 = 0x10.1p0            // 16.0625
- let
- ^^^
+>var dyn float_dot = .789_012
+ var 
+ ^^^^
  source.ks storage.type.readwrite.ks
-     
-    ^
-    source.ks
-     float_hex1
-     ^^^^^^^^^^
-     source.ks meta.definition.variable.ks variable.other.readwrite.ks
-                
-               ^
-               source.ks
-                =
-                ^
-                source.ks keyword.operator.assignment.ks
-                  
-                 ^
-                 source.ks
-                  0x10.1p0
-                  ^^^^^^^^
-                  source.ks constant.numeric.hex.ks
-                                      
-                          ^^^^^^^^^^^^
-                          source.ks
-                                      //
-                                      ^^
-                                      source.ks comment.line.double-slash.ks punctuation.definition.comment.ks
-                                         16.0625
-                                        ^^^^^^^^
-                                        source.ks comment.line.double-slash.ks
+     dyn
+     ^^^
+     source.ks storage.type.readwrite.ks storage.modifier.dynamic.ks
+         
+        ^
+        source.ks
+         float_dot
+         ^^^^^^^^^
+         source.ks meta.definition.variable.ks variable.other.ks
+                   
+                  ^
+                  source.ks
+                   =
+                   ^
+                   source.ks keyword.operator.assignment.ks
+                     
+                    ^
+                    source.ks
+                     .
+                     ^
+                     source.ks punctuation.accessor.object.ks
+                      789_012
+                      ^^^^^^^
+                      source.ks constant.numeric.decimal.ks
 >
->let float_hex2 = 0x1.2p3            // 9
- let
- ^^^
+>var dyn float_dot_exponent = .1E4
+ var 
+ ^^^^
  source.ks storage.type.readwrite.ks
-     
-    ^
-    source.ks
-     float_hex2
-     ^^^^^^^^^^
-     source.ks meta.definition.variable.ks variable.other.readwrite.ks
-                
-               ^
-               source.ks
-                =
-                ^
-                source.ks keyword.operator.assignment.ks
-                  
-                 ^
-                 source.ks
-                  0x1.2p3
-                  ^^^^^^^
-                  source.ks constant.numeric.hex.ks
-                                     
-                         ^^^^^^^^^^^^
-                         source.ks
-                                     //
-                                     ^^
-                                     source.ks comment.line.double-slash.ks punctuation.definition.comment.ks
-                                        9
-                                       ^^
-                                       source.ks comment.line.double-slash.ks
+     dyn
+     ^^^
+     source.ks storage.type.readwrite.ks storage.modifier.dynamic.ks
+         
+        ^
+        source.ks
+         float_dot_exponent
+         ^^^^^^^^^^^^^^^^^^
+         source.ks meta.definition.variable.ks variable.other.ks
+                            
+                           ^
+                           source.ks
+                            =
+                            ^
+                            source.ks keyword.operator.assignment.ks
+                              
+                             ^
+                             source.ks
+                              .
+                              ^
+                              source.ks punctuation.accessor.object.ks
+                               1E4
+                               ^^^
+                               source.ks constant.numeric.decimal.ks
 >
->let float_hex3 = 0x3.14p0            // 3.078125
- let
- ^^^
+>var dyn float_hex1 = 0x10.1p0            // 16.0625
+ var 
+ ^^^^
  source.ks storage.type.readwrite.ks
-     
-    ^
-    source.ks
-     float_hex3
-     ^^^^^^^^^^
-     source.ks meta.definition.variable.ks variable.other.readwrite.ks
-                
-               ^
-               source.ks
-                =
-                ^
-                source.ks keyword.operator.assignment.ks
-                  
-                 ^
-                 source.ks
-                  0x3.14p0
-                  ^^^^^^^^
-                  source.ks constant.numeric.hex.ks
-                                      
-                          ^^^^^^^^^^^^
-                          source.ks
-                                      //
-                                      ^^
-                                      source.ks comment.line.double-slash.ks punctuation.definition.comment.ks
-                                         3.078125
-                                        ^^^^^^^^^
-                                        source.ks comment.line.double-slash.ks
+     dyn
+     ^^^
+     source.ks storage.type.readwrite.ks storage.modifier.dynamic.ks
+         
+        ^
+        source.ks
+         float_hex1
+         ^^^^^^^^^^
+         source.ks meta.definition.variable.ks variable.other.ks
+                    
+                   ^
+                   source.ks
+                    =
+                    ^
+                    source.ks keyword.operator.assignment.ks
+                      
+                     ^
+                     source.ks
+                      0x10.1p0
+                      ^^^^^^^^
+                      source.ks constant.numeric.hex.ks
+                                          
+                              ^^^^^^^^^^^^
+                              source.ks
+                                          //
+                                          ^^
+                                          source.ks comment.line.double-slash.ks punctuation.definition.comment.ks
+                                             16.0625
+                                            ^^^^^^^^
+                                            source.ks comment.line.double-slash.ks
 >
->let float_hex4 = 0xa.bp10            // 10944
- let
- ^^^
+>var dyn float_hex2 = 0x1.2p3            // 9
+ var 
+ ^^^^
  source.ks storage.type.readwrite.ks
-     
-    ^
-    source.ks
-     float_hex4
-     ^^^^^^^^^^
-     source.ks meta.definition.variable.ks variable.other.readwrite.ks
-                
-               ^
-               source.ks
-                =
-                ^
-                source.ks keyword.operator.assignment.ks
-                  
-                 ^
-                 source.ks
-                  0xa.bp10
-                  ^^^^^^^^
-                  source.ks constant.numeric.hex.ks
-                                      
-                          ^^^^^^^^^^^^
-                          source.ks
-                                      //
-                                      ^^
-                                      source.ks comment.line.double-slash.ks punctuation.definition.comment.ks
-                                         10944
-                                        ^^^^^^
-                                        source.ks comment.line.double-slash.ks
+     dyn
+     ^^^
+     source.ks storage.type.readwrite.ks storage.modifier.dynamic.ks
+         
+        ^
+        source.ks
+         float_hex2
+         ^^^^^^^^^^
+         source.ks meta.definition.variable.ks variable.other.ks
+                    
+                   ^
+                   source.ks
+                    =
+                    ^
+                    source.ks keyword.operator.assignment.ks
+                      
+                     ^
+                     source.ks
+                      0x1.2p3
+                      ^^^^^^^
+                      source.ks constant.numeric.hex.ks
+                                         
+                             ^^^^^^^^^^^^
+                             source.ks
+                                         //
+                                         ^^
+                                         source.ks comment.line.double-slash.ks punctuation.definition.comment.ks
+                                            9
+                                           ^^
+                                           source.ks comment.line.double-slash.ks
+>
+>var dyn float_hex3 = 0x3.14p0            // 3.078125
+ var 
+ ^^^^
+ source.ks storage.type.readwrite.ks
+     dyn
+     ^^^
+     source.ks storage.type.readwrite.ks storage.modifier.dynamic.ks
+         
+        ^
+        source.ks
+         float_hex3
+         ^^^^^^^^^^
+         source.ks meta.definition.variable.ks variable.other.ks
+                    
+                   ^
+                   source.ks
+                    =
+                    ^
+                    source.ks keyword.operator.assignment.ks
+                      
+                     ^
+                     source.ks
+                      0x3.14p0
+                      ^^^^^^^^
+                      source.ks constant.numeric.hex.ks
+                                          
+                              ^^^^^^^^^^^^
+                              source.ks
+                                          //
+                                          ^^
+                                          source.ks comment.line.double-slash.ks punctuation.definition.comment.ks
+                                             3.078125
+                                            ^^^^^^^^^
+                                            source.ks comment.line.double-slash.ks
+>
+>var dyn float_hex4 = 0xa.bp10            // 10944
+ var 
+ ^^^^
+ source.ks storage.type.readwrite.ks
+     dyn
+     ^^^
+     source.ks storage.type.readwrite.ks storage.modifier.dynamic.ks
+         
+        ^
+        source.ks
+         float_hex4
+         ^^^^^^^^^^
+         source.ks meta.definition.variable.ks variable.other.ks
+                    
+                   ^
+                   source.ks
+                    =
+                    ^
+                    source.ks keyword.operator.assignment.ks
+                      
+                     ^
+                     source.ks
+                      0xa.bp10
+                      ^^^^^^^^
+                      source.ks constant.numeric.hex.ks
+                                          
+                              ^^^^^^^^^^^^
+                              source.ks
+                                          //
+                                          ^^
+                                          source.ks comment.line.double-slash.ks punctuation.definition.comment.ks
+                                             10944
+                                            ^^^^^^
+                                            source.ks comment.line.double-slash.ks

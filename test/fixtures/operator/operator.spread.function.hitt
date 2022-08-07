@@ -3,7 +3,7 @@ original file
 func foo(x, y, z) {
 }
 
-let args = [0, 1, 2]
+var dyn args = [0, 1, 2]
 
 foo(...args)
 -----------------------------------
@@ -65,52 +65,55 @@ grammar: kaoscript.tmLanguage
  ^
  source.ks
 >
->let args = [0, 1, 2]
- let
- ^^^
+>var dyn args = [0, 1, 2]
+ var 
+ ^^^^
  source.ks storage.type.readwrite.ks
-     
-    ^
-    source.ks
-     args
-     ^^^^
-     source.ks meta.definition.variable.ks variable.other.readwrite.ks
-          
-         ^
-         source.ks
-          =
-          ^
-          source.ks keyword.operator.assignment.ks
-            
-           ^
-           source.ks
-            [
-            ^
-            source.ks punctuation.definition.array.begin.bracket.square.ks
-             0
+     dyn
+     ^^^
+     source.ks storage.type.readwrite.ks storage.modifier.dynamic.ks
+         
+        ^
+        source.ks
+         args
+         ^^^^
+         source.ks meta.definition.variable.ks variable.other.ks
+              
              ^
-             source.ks constant.numeric.decimal.ks
-              ,
+             source.ks
+              =
               ^
-              source.ks punctuation.separator.comma.ks
+              source.ks keyword.operator.assignment.ks
                 
                ^
                source.ks
-                1
+                [
                 ^
-                source.ks constant.numeric.decimal.ks
-                 ,
+                source.ks punctuation.definition.array.begin.bracket.square.ks
+                 0
                  ^
-                 source.ks punctuation.separator.comma.ks
-                   
+                 source.ks constant.numeric.decimal.ks
+                  ,
                   ^
-                  source.ks
-                   2
+                  source.ks punctuation.separator.comma.ks
+                    
                    ^
-                   source.ks constant.numeric.decimal.ks
-                    ]
+                   source.ks
+                    1
                     ^
-                    source.ks punctuation.definition.array.end.bracket.square.ks
+                    source.ks constant.numeric.decimal.ks
+                     ,
+                     ^
+                     source.ks punctuation.separator.comma.ks
+                       
+                      ^
+                      source.ks
+                       2
+                       ^
+                       source.ks constant.numeric.decimal.ks
+                        ]
+                        ^
+                        source.ks punctuation.definition.array.end.bracket.square.ks
 >
 >
  

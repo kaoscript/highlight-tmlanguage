@@ -141,13 +141,13 @@ grammar: kaoscript.tmLanguage
 >let xyz = 42
  let
  ^^^
- source.ks storage.type.readwrite.ks
+ source.ks variable.other.ks
      
     ^
     source.ks
      xyz
      ^^^
-     source.ks meta.definition.variable.ks variable.other.readwrite.ks
+     source.ks variable.other.ks
          
         ^
         source.ks
@@ -270,13 +270,13 @@ grammar: kaoscript.tmLanguage
 >let xyz = 42
  let
  ^^^
- source.ks storage.type.readwrite.ks
+ source.ks variable.other.ks
      
     ^
     source.ks
      xyz
      ^^^
-     source.ks meta.definition.variable.ks variable.other.readwrite.ks
+     source.ks variable.other.ks
          
         ^
         source.ks

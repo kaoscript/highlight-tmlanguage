@@ -2,9 +2,9 @@ original file
 -----------------------------------
 func foo() { // {{{
     /* foo */
-    let foo = 42
+    var foo = 42
     /* bar */
-    let bar = 24
+    var bar = 24
     /* qux */
 } // }}}
 -----------------------------------
@@ -58,19 +58,19 @@ grammar: kaoscript.tmLanguage
             ^^
             source.ks comment.block.ks punctuation.definition.comment.ks
 >
->    let foo = 42
+>    var foo = 42
      
  ^^^^
  source.ks
-     let
+     var
      ^^^
-     source.ks storage.type.readwrite.ks
+     source.ks storage.type.constant.ks
          
         ^
         source.ks
          foo
          ^^^
-         source.ks meta.definition.variable.ks variable.other.readwrite.ks
+         source.ks meta.definition.variable.ks variable.other.ks
              
             ^
             source.ks
@@ -98,19 +98,19 @@ grammar: kaoscript.tmLanguage
             ^^
             source.ks comment.block.ks punctuation.definition.comment.ks
 >
->    let bar = 24
+>    var bar = 24
      
  ^^^^
  source.ks
-     let
+     var
      ^^^
-     source.ks storage.type.readwrite.ks
+     source.ks storage.type.constant.ks
          
         ^
         source.ks
          bar
          ^^^
-         source.ks meta.definition.variable.ks variable.other.readwrite.ks
+         source.ks meta.definition.variable.ks variable.other.ks
              
             ^
             source.ks

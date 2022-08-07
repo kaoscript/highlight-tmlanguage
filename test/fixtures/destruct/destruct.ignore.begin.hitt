@@ -1,60 +1,63 @@
 original file
 -----------------------------------
-let [_, y, z] = foobar()
+var dyn [_, y, z] = foobar()
 -----------------------------------
 
 grammar: kaoscript.tmLanguage
 -----------------------------------
 >
->let [_, y, z] = foobar()
- let
- ^^^
+>var dyn [_, y, z] = foobar()
+ var 
+ ^^^^
  source.ks storage.type.readwrite.ks
-     
-    ^
-    source.ks
-     [
-     ^
-     source.ks punctuation.definition.binding-pattern.array.begin.bracket.square.ks
-      _
-      ^
-      source.ks variable.anonymous.ks
-       ,
-       ^
-       source.ks punctuation.separator.comma.ks
+     dyn
+     ^^^
+     source.ks storage.type.readwrite.ks storage.modifier.dynamic.ks
          
         ^
         source.ks
-         y
+         [
          ^
-         source.ks variable.other.ks
-          ,
+         source.ks punctuation.definition.binding-pattern.array.begin.bracket.square.ks
+          _
           ^
-          source.ks punctuation.separator.comma.ks
-            
+          source.ks variable.anonymous.ks
+           ,
            ^
-           source.ks
-            z
+           source.ks punctuation.separator.comma.ks
+             
             ^
-            source.ks variable.other.ks
-             ]
+            source.ks
+             y
              ^
-             source.ks punctuation.definition.binding-pattern.array.end.bracket.square.ks
-               
+             source.ks variable.other.ks
+              ,
               ^
-              source.ks
-               =
+              source.ks punctuation.separator.comma.ks
+                
                ^
-               source.ks keyword.operator.assignment.ks
-                 
+               source.ks
+                z
                 ^
-                source.ks
-                 foobar
-                 ^^^^^^
-                 source.ks entity.name.function.ks
-                       (
-                       ^
-                       source.ks punctuation.definition.arguments.begin.bracket.round.ks
-                        )
-                        ^
-                        source.ks punctuation.definition.arguments.end.bracket.round.ks
+                source.ks variable.other.ks
+                 ]
+                 ^
+                 source.ks punctuation.definition.binding-pattern.array.end.bracket.square.ks
+                   
+                  ^
+                  source.ks
+                   =
+                   ^
+                   source.ks keyword.operator.assignment.ks
+                     
+                    ^
+                    source.ks
+                     foobar
+                     ^^^^^^
+                     source.ks entity.name.function.ks
+                           (
+                           ^
+                           source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                            )
+                            ^
+                            source.ks punctuation.definition.arguments.end.bracket.round.ks

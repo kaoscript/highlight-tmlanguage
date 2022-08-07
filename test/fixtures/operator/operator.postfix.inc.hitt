@@ -1,6 +1,6 @@
 original file
 -----------------------------------
-let i = 3.14
+var dyn i = 3.14
 
 i++
 -----------------------------------
@@ -8,28 +8,31 @@ i++
 grammar: kaoscript.tmLanguage
 -----------------------------------
 >
->let i = 3.14
- let
- ^^^
+>var dyn i = 3.14
+ var 
+ ^^^^
  source.ks storage.type.readwrite.ks
-     
-    ^
-    source.ks
-     i
-     ^
-     source.ks meta.definition.variable.ks variable.other.readwrite.ks
-       
-      ^
-      source.ks
-       =
-       ^
-       source.ks keyword.operator.assignment.ks
+     dyn
+     ^^^
+     source.ks storage.type.readwrite.ks storage.modifier.dynamic.ks
          
         ^
         source.ks
-         3.14
-         ^^^^
-         source.ks constant.numeric.decimal.ks
+         i
+         ^
+         source.ks meta.definition.variable.ks variable.other.ks
+           
+          ^
+          source.ks
+           =
+           ^
+           source.ks keyword.operator.assignment.ks
+             
+            ^
+            source.ks
+             3.14
+             ^^^^
+             source.ks constant.numeric.decimal.ks
 >
 >
  

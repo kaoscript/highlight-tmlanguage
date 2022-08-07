@@ -1,7 +1,7 @@
 original file
 -----------------------------------
-let key = 'you'
-let value = 42
+var dyn key = 'you'
+var dyn value = 42
 
 likes = {
     leto: 'spice'
@@ -9,7 +9,7 @@ likes = {
     duncan: 'murbella'
 }
 
-for const value, key of likes {
+for var value, key of likes {
     console.log(`\(key) likes \(value)`)
 }
 -----------------------------------
@@ -17,57 +17,63 @@ for const value, key of likes {
 grammar: kaoscript.tmLanguage
 -----------------------------------
 >
->let key = 'you'
- let
- ^^^
+>var dyn key = 'you'
+ var 
+ ^^^^
  source.ks storage.type.readwrite.ks
-     
-    ^
-    source.ks
-     key
+     dyn
      ^^^
-     source.ks meta.definition.variable.ks variable.other.readwrite.ks
+     source.ks storage.type.readwrite.ks storage.modifier.dynamic.ks
          
         ^
         source.ks
-         =
-         ^
-         source.ks keyword.operator.assignment.ks
-           
-          ^
-          source.ks
-           '
-           ^
-           source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
-            you
-            ^^^
-            source.ks string.quoted.single.ks
-               '
-               ^
-               source.ks string.quoted.single.ks punctuation.definition.string.end.ks
->
->let value = 42
- let
- ^^^
- source.ks storage.type.readwrite.ks
-     
-    ^
-    source.ks
-     value
-     ^^^^^
-     source.ks meta.definition.variable.ks variable.other.readwrite.ks
-           
-          ^
-          source.ks
-           =
-           ^
-           source.ks keyword.operator.assignment.ks
+         key
+         ^^^
+         source.ks meta.definition.variable.ks variable.other.ks
              
             ^
             source.ks
-             42
-             ^^
-             source.ks constant.numeric.decimal.ks
+             =
+             ^
+             source.ks keyword.operator.assignment.ks
+               
+              ^
+              source.ks
+               '
+               ^
+               source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
+                you
+                ^^^
+                source.ks string.quoted.single.ks
+                   '
+                   ^
+                   source.ks string.quoted.single.ks punctuation.definition.string.end.ks
+>
+>var dyn value = 42
+ var 
+ ^^^^
+ source.ks storage.type.readwrite.ks
+     dyn
+     ^^^
+     source.ks storage.type.readwrite.ks storage.modifier.dynamic.ks
+         
+        ^
+        source.ks
+         value
+         ^^^^^
+         source.ks meta.definition.variable.ks variable.other.ks
+               
+              ^
+              source.ks
+               =
+               ^
+               source.ks keyword.operator.assignment.ks
+                 
+                ^
+                source.ks
+                 42
+                 ^^
+                 source.ks constant.numeric.decimal.ks
 >
 >
  
@@ -170,49 +176,49 @@ grammar: kaoscript.tmLanguage
  ^
  source.ks
 >
->for const value, key of likes {
+>for var value, key of likes {
  for
  ^^^
  source.ks keyword.control.loop.for.ks
      
     ^
     source.ks
-     const
-     ^^^^^
+     var
+     ^^^
      source.ks storage.type.constant.ks
-           
-          ^
-          source.ks
-           value
-           ^^^^^
-           source.ks meta.definition.variable.ks variable.other.constant.ks
-                ,
-                ^
-                source.ks punctuation.separator.comma.ks
-                  
-                 ^
-                 source.ks
-                  key
-                  ^^^
-                  source.ks meta.definition.variable.ks variable.other.constant.ks
-                      
-                     ^
-                     source.ks
-                      of
-                      ^^
-                      source.ks keyword.operator.loop.of.ks
-                         
-                        ^
-                        source.ks
-                         likes
-                         ^^^^^
-                         source.ks variable.other.ks
-                               
-                              ^
-                              source.ks
-                               {
-                               ^
-                               source.ks punctuation.definition.block.begin.bracket.curly.ks
+         
+        ^
+        source.ks
+         value
+         ^^^^^
+         source.ks meta.definition.variable.ks variable.other.ks
+              ,
+              ^
+              source.ks punctuation.separator.comma.ks
+                
+               ^
+               source.ks
+                key
+                ^^^
+                source.ks meta.definition.variable.ks variable.other.ks
+                    
+                   ^
+                   source.ks
+                    of
+                    ^^
+                    source.ks keyword.operator.loop.of.ks
+                       
+                      ^
+                      source.ks
+                       likes
+                       ^^^^^
+                       source.ks variable.other.ks
+                             
+                            ^
+                            source.ks
+                             {
+                             ^
+                             source.ks punctuation.definition.block.begin.bracket.curly.ks
 >
 >    console.log(`\(key) likes \(value)`)
      

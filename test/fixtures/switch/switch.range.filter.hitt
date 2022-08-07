@@ -1,6 +1,6 @@
 original file
 -----------------------------------
-let temperature = 54
+var dyn temperature = 54
 
 switch temperature {
     0..49     when temperature % 2 == 0    => console.log("Cold and even")
@@ -13,28 +13,31 @@ switch temperature {
 grammar: kaoscript.tmLanguage
 -----------------------------------
 >
->let temperature = 54
- let
- ^^^
+>var dyn temperature = 54
+ var 
+ ^^^^
  source.ks storage.type.readwrite.ks
-     
-    ^
-    source.ks
-     temperature
-     ^^^^^^^^^^^
-     source.ks meta.definition.variable.ks variable.other.readwrite.ks
-                 
-                ^
-                source.ks
-                 =
-                 ^
-                 source.ks keyword.operator.assignment.ks
-                   
-                  ^
-                  source.ks
-                   54
-                   ^^
-                   source.ks constant.numeric.decimal.ks
+     dyn
+     ^^^
+     source.ks storage.type.readwrite.ks storage.modifier.dynamic.ks
+         
+        ^
+        source.ks
+         temperature
+         ^^^^^^^^^^^
+         source.ks meta.definition.variable.ks variable.other.ks
+                     
+                    ^
+                    source.ks
+                     =
+                     ^
+                     source.ks keyword.operator.assignment.ks
+                       
+                      ^
+                      source.ks
+                       54
+                       ^^
+                       source.ks constant.numeric.decimal.ks
 >
 >
  

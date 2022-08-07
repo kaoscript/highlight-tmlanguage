@@ -3,7 +3,7 @@ original file
 #[foo]
 func foo() {
     #[bar]
-    let bar = 42
+    var bar = 42
 }
 -----------------------------------
 
@@ -64,19 +64,19 @@ grammar: kaoscript.tmLanguage
           ^
           source.ks meta.attribute.ks punctuation.definition.attribute.end.bracket.square.ks
 >
->    let bar = 42
+>    var bar = 42
      
  ^^^^
  source.ks
-     let
+     var
      ^^^
-     source.ks storage.type.readwrite.ks
+     source.ks storage.type.constant.ks
          
         ^
         source.ks
          bar
          ^^^
-         source.ks meta.definition.variable.ks variable.other.readwrite.ks
+         source.ks meta.definition.variable.ks variable.other.ks
              
             ^
             source.ks

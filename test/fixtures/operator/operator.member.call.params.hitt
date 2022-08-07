@@ -2,9 +2,9 @@ original file
 -----------------------------------
 extern foo
 
-let tt = foo?(1, 2, 3)
+var dyn tt = foo?(1, 2, 3)
 
-let uu = foo?(1)
+var dyn uu = foo?(1)
 -----------------------------------
 
 grammar: kaoscript.tmLanguage
@@ -26,95 +26,101 @@ grammar: kaoscript.tmLanguage
  ^
  source.ks
 >
->let tt = foo?(1, 2, 3)
- let
- ^^^
+>var dyn tt = foo?(1, 2, 3)
+ var 
+ ^^^^
  source.ks storage.type.readwrite.ks
-     
-    ^
-    source.ks
-     tt
-     ^^
-     source.ks meta.definition.variable.ks variable.other.readwrite.ks
-        
-       ^
-       source.ks
-        =
+     dyn
+     ^^^
+     source.ks storage.type.readwrite.ks storage.modifier.dynamic.ks
+         
         ^
-        source.ks keyword.operator.assignment.ks
-          
-         ^
-         source.ks
-          foo
-          ^^^
-          source.ks entity.name.function.ks
-             ?
+        source.ks
+         tt
+         ^^
+         source.ks meta.definition.variable.ks variable.other.ks
+            
+           ^
+           source.ks
+            =
+            ^
+            source.ks keyword.operator.assignment.ks
+              
              ^
-             source.ks keyword.operator.nullable.ks
-              (
-              ^
-              source.ks punctuation.definition.arguments.begin.bracket.round.ks
-               1
-               ^
-               source.ks constant.numeric.decimal.ks
-                ,
-                ^
-                source.ks punctuation.separator.comma.ks
-                  
+             source.ks
+              foo
+              ^^^
+              source.ks entity.name.function.ks
+                 ?
                  ^
-                 source.ks
-                  2
+                 source.ks keyword.operator.nullable.ks
+                  (
                   ^
-                  source.ks constant.numeric.decimal.ks
-                   ,
+                  source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                   1
                    ^
-                   source.ks punctuation.separator.comma.ks
-                     
+                   source.ks constant.numeric.decimal.ks
+                    ,
                     ^
-                    source.ks
-                     3
+                    source.ks punctuation.separator.comma.ks
+                      
                      ^
-                     source.ks constant.numeric.decimal.ks
-                      )
+                     source.ks
+                      2
                       ^
-                      source.ks punctuation.definition.arguments.end.bracket.round.ks
+                      source.ks constant.numeric.decimal.ks
+                       ,
+                       ^
+                       source.ks punctuation.separator.comma.ks
+                         
+                        ^
+                        source.ks
+                         3
+                         ^
+                         source.ks constant.numeric.decimal.ks
+                          )
+                          ^
+                          source.ks punctuation.definition.arguments.end.bracket.round.ks
 >
 >
  
  ^
  source.ks
 >
->let uu = foo?(1)
- let
- ^^^
+>var dyn uu = foo?(1)
+ var 
+ ^^^^
  source.ks storage.type.readwrite.ks
-     
-    ^
-    source.ks
-     uu
-     ^^
-     source.ks meta.definition.variable.ks variable.other.readwrite.ks
-        
-       ^
-       source.ks
-        =
+     dyn
+     ^^^
+     source.ks storage.type.readwrite.ks storage.modifier.dynamic.ks
+         
         ^
-        source.ks keyword.operator.assignment.ks
-          
-         ^
-         source.ks
-          foo
-          ^^^
-          source.ks entity.name.function.ks
-             ?
+        source.ks
+         uu
+         ^^
+         source.ks meta.definition.variable.ks variable.other.ks
+            
+           ^
+           source.ks
+            =
+            ^
+            source.ks keyword.operator.assignment.ks
+              
              ^
-             source.ks keyword.operator.nullable.ks
-              (
-              ^
-              source.ks punctuation.definition.arguments.begin.bracket.round.ks
-               1
-               ^
-               source.ks constant.numeric.decimal.ks
-                )
-                ^
-                source.ks punctuation.definition.arguments.end.bracket.round.ks
+             source.ks
+              foo
+              ^^^
+              source.ks entity.name.function.ks
+                 ?
+                 ^
+                 source.ks keyword.operator.nullable.ks
+                  (
+                  ^
+                  source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                   1
+                   ^
+                   source.ks constant.numeric.decimal.ks
+                    )
+                    ^
+                    source.ks punctuation.definition.arguments.end.bracket.round.ks

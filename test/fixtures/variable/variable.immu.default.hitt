@@ -1,0 +1,30 @@
+original file
+-----------------------------------
+var a = 42
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>var a = 42
+ var
+ ^^^
+ source.ks storage.type.constant.ks
+     
+    ^
+    source.ks
+     a
+     ^
+     source.ks meta.definition.variable.ks variable.other.ks
+       
+      ^
+      source.ks
+       =
+       ^
+       source.ks keyword.operator.assignment.ks
+         
+        ^
+        source.ks
+         42
+         ^^
+         source.ks constant.numeric.decimal.ks

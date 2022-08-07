@@ -1,100 +1,103 @@
 original file
 -----------------------------------
-let x = 3.14
+var dyn x = 3.14
 
-for const x from 0 to 10 by 2 {
+for var x from 0 to 10 by 2 {
 }
 -----------------------------------
 
 grammar: kaoscript.tmLanguage
 -----------------------------------
 >
->let x = 3.14
- let
- ^^^
+>var dyn x = 3.14
+ var 
+ ^^^^
  source.ks storage.type.readwrite.ks
-     
-    ^
-    source.ks
-     x
-     ^
-     source.ks meta.definition.variable.ks variable.other.readwrite.ks
-       
-      ^
-      source.ks
-       =
-       ^
-       source.ks keyword.operator.assignment.ks
+     dyn
+     ^^^
+     source.ks storage.type.readwrite.ks storage.modifier.dynamic.ks
          
         ^
         source.ks
-         3.14
-         ^^^^
-         source.ks constant.numeric.decimal.ks
+         x
+         ^
+         source.ks meta.definition.variable.ks variable.other.ks
+           
+          ^
+          source.ks
+           =
+           ^
+           source.ks keyword.operator.assignment.ks
+             
+            ^
+            source.ks
+             3.14
+             ^^^^
+             source.ks constant.numeric.decimal.ks
 >
 >
  
  ^
  source.ks
 >
->for const x from 0 to 10 by 2 {
+>for var x from 0 to 10 by 2 {
  for
  ^^^
  source.ks keyword.control.loop.for.ks
      
     ^
     source.ks
-     const
-     ^^^^^
+     var
+     ^^^
      source.ks storage.type.constant.ks
+         
+        ^
+        source.ks
+         x
+         ^
+         source.ks meta.definition.variable.ks variable.other.ks
            
           ^
           source.ks
-           x
-           ^
-           source.ks meta.definition.variable.ks variable.other.constant.ks
-             
-            ^
-            source.ks
-             from
-             ^^^^
-             source.ks keyword.operator.loop.from.ks
+           from
+           ^^^^
+           source.ks keyword.operator.loop.from.ks
+                
+               ^
+               source.ks
+                0
+                ^
+                source.ks constant.numeric.decimal.ks
                   
                  ^
                  source.ks
-                  0
-                  ^
-                  source.ks constant.numeric.decimal.ks
-                    
-                   ^
-                   source.ks
-                    to
-                    ^^
-                    source.ks keyword.operator.loop.to.ks
-                       
-                      ^
-                      source.ks
-                       10
-                       ^^
-                       source.ks constant.numeric.decimal.ks
-                          
-                         ^
-                         source.ks
-                          by
-                          ^^
-                          source.ks keyword.operator.loop.by.ks
+                  to
+                  ^^
+                  source.ks keyword.operator.loop.to.ks
+                     
+                    ^
+                    source.ks
+                     10
+                     ^^
+                     source.ks constant.numeric.decimal.ks
+                        
+                       ^
+                       source.ks
+                        by
+                        ^^
+                        source.ks keyword.operator.loop.by.ks
+                           
+                          ^
+                          source.ks
+                           2
+                           ^
+                           source.ks constant.numeric.decimal.ks
                              
                             ^
                             source.ks
-                             2
+                             {
                              ^
-                             source.ks constant.numeric.decimal.ks
-                               
-                              ^
-                              source.ks
-                               {
-                               ^
-                               source.ks punctuation.definition.block.begin.bracket.curly.ks
+                             source.ks punctuation.definition.block.begin.bracket.curly.ks
 >
 >}
  }

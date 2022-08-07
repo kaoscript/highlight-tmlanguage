@@ -1,6 +1,6 @@
 original file
 -----------------------------------
-const new = 42
+var new = 42
 
 console.log(new + 24)
 -----------------------------------
@@ -8,28 +8,28 @@ console.log(new + 24)
 grammar: kaoscript.tmLanguage
 -----------------------------------
 >
->const new = 42
- const
- ^^^^^
+>var new = 42
+ var
+ ^^^
  source.ks storage.type.constant.ks
-       
-      ^
-      source.ks
-       new
-       ^^^
-       source.ks meta.definition.variable.ks variable.other.constant.ks
+     
+    ^
+    source.ks
+     new
+     ^^^
+     source.ks meta.definition.variable.ks variable.other.ks
+         
+        ^
+        source.ks
+         =
+         ^
+         source.ks keyword.operator.assignment.ks
            
           ^
           source.ks
-           =
-           ^
-           source.ks keyword.operator.assignment.ks
-             
-            ^
-            source.ks
-             42
-             ^^
-             source.ks constant.numeric.decimal.ks
+           42
+           ^^
+           source.ks constant.numeric.decimal.ks
 >
 >
  

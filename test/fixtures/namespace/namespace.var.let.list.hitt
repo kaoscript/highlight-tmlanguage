@@ -1,7 +1,7 @@
 original file
 -----------------------------------
 namespace coord {
-    let x, y, z
+    var dyn x, y, z
 }
 -----------------------------------
 
@@ -25,37 +25,40 @@ grammar: kaoscript.tmLanguage
                  ^
                  source.ks punctuation.definition.namespace.begin.bracket.curly.ks
 >
->    let x, y, z
+>    var dyn x, y, z
      
  ^^^^
  source.ks
-     let
-     ^^^
+     var 
+     ^^^^
      source.ks storage.type.readwrite.ks
-         
-        ^
-        source.ks
-         x
-         ^
-         source.ks meta.definition.variable.ks variable.other.readwrite.ks
-          ,
-          ^
-          source.ks punctuation.separator.comma.ks
-            
-           ^
-           source.ks
-            y
+         dyn
+         ^^^
+         source.ks storage.type.readwrite.ks storage.modifier.dynamic.ks
+             
             ^
-            source.ks meta.definition.variable.ks variable.other.readwrite.ks
-             ,
+            source.ks
+             x
              ^
-             source.ks punctuation.separator.comma.ks
-               
+             source.ks meta.definition.variable.ks variable.other.ks
+              ,
               ^
-              source.ks
-               z
+              source.ks punctuation.separator.comma.ks
+                
                ^
-               source.ks meta.definition.variable.ks variable.other.readwrite.ks
+               source.ks
+                y
+                ^
+                source.ks meta.definition.variable.ks variable.other.ks
+                 ,
+                 ^
+                 source.ks punctuation.separator.comma.ks
+                   
+                  ^
+                  source.ks
+                   z
+                   ^
+                   source.ks meta.definition.variable.ks variable.other.ks
 >
 >}
  }

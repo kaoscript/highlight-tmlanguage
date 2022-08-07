@@ -1,111 +1,117 @@
 original file
 -----------------------------------
-let arr = [1, '', true]
+var dyn arr = [1, '', true]
 
-let [a, b, c] = arr
+var dyn [a, b, c] = arr
 -----------------------------------
 
 grammar: kaoscript.tmLanguage
 -----------------------------------
 >
->let arr = [1, '', true]
- let
- ^^^
+>var dyn arr = [1, '', true]
+ var 
+ ^^^^
  source.ks storage.type.readwrite.ks
-     
-    ^
-    source.ks
-     arr
+     dyn
      ^^^
-     source.ks meta.definition.variable.ks variable.other.readwrite.ks
+     source.ks storage.type.readwrite.ks storage.modifier.dynamic.ks
          
         ^
         source.ks
-         =
-         ^
-         source.ks keyword.operator.assignment.ks
-           
-          ^
-          source.ks
-           [
-           ^
-           source.ks punctuation.definition.array.begin.bracket.square.ks
-            1
+         arr
+         ^^^
+         source.ks meta.definition.variable.ks variable.other.ks
+             
             ^
-            source.ks constant.numeric.decimal.ks
-             ,
+            source.ks
+             =
              ^
-             source.ks punctuation.separator.comma.ks
+             source.ks keyword.operator.assignment.ks
                
               ^
               source.ks
-               '
+               [
                ^
-               source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
-                '
+               source.ks punctuation.definition.array.begin.bracket.square.ks
+                1
                 ^
-                source.ks string.quoted.single.ks punctuation.definition.string.end.ks
+                source.ks constant.numeric.decimal.ks
                  ,
                  ^
                  source.ks punctuation.separator.comma.ks
                    
                   ^
                   source.ks
-                   true
-                   ^^^^
-                   source.ks constant.language.boolean.true.ks
-                       ]
-                       ^
-                       source.ks punctuation.definition.array.end.bracket.square.ks
+                   '
+                   ^
+                   source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
+                    '
+                    ^
+                    source.ks string.quoted.single.ks punctuation.definition.string.end.ks
+                     ,
+                     ^
+                     source.ks punctuation.separator.comma.ks
+                       
+                      ^
+                      source.ks
+                       true
+                       ^^^^
+                       source.ks constant.language.boolean.true.ks
+                           ]
+                           ^
+                           source.ks punctuation.definition.array.end.bracket.square.ks
 >
 >
  
  ^
  source.ks
 >
->let [a, b, c] = arr
- let
- ^^^
+>var dyn [a, b, c] = arr
+ var 
+ ^^^^
  source.ks storage.type.readwrite.ks
-     
-    ^
-    source.ks
-     [
-     ^
-     source.ks punctuation.definition.binding-pattern.array.begin.bracket.square.ks
-      a
-      ^
-      source.ks variable.other.ks
-       ,
-       ^
-       source.ks punctuation.separator.comma.ks
+     dyn
+     ^^^
+     source.ks storage.type.readwrite.ks storage.modifier.dynamic.ks
          
         ^
         source.ks
-         b
+         [
          ^
-         source.ks variable.other.ks
-          ,
+         source.ks punctuation.definition.binding-pattern.array.begin.bracket.square.ks
+          a
           ^
-          source.ks punctuation.separator.comma.ks
-            
+          source.ks variable.other.ks
+           ,
            ^
-           source.ks
-            c
+           source.ks punctuation.separator.comma.ks
+             
             ^
-            source.ks variable.other.ks
-             ]
+            source.ks
+             b
              ^
-             source.ks punctuation.definition.binding-pattern.array.end.bracket.square.ks
-               
+             source.ks variable.other.ks
+              ,
               ^
-              source.ks
-               =
+              source.ks punctuation.separator.comma.ks
+                
                ^
-               source.ks keyword.operator.assignment.ks
-                 
+               source.ks
+                c
                 ^
-                source.ks
-                 arr
-                 ^^^
-                 source.ks variable.other.ks
+                source.ks variable.other.ks
+                 ]
+                 ^
+                 source.ks punctuation.definition.binding-pattern.array.end.bracket.square.ks
+                   
+                  ^
+                  source.ks
+                   =
+                   ^
+                   source.ks keyword.operator.assignment.ks
+                     
+                    ^
+                    source.ks
+                     arr
+                     ^^^
+                     source.ks variable.other.ks

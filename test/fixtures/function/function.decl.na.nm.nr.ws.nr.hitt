@@ -1,7 +1,7 @@
 original file
 -----------------------------------
 func foo() {
-    let bar = 'hello'
+    var dyn bar = 'hello'
 }
 -----------------------------------
 
@@ -31,37 +31,40 @@ grammar: kaoscript.tmLanguage
             ^
             source.ks punctuation.definition.block.begin.bracket.curly.ks
 >
->    let bar = 'hello'
+>    var dyn bar = 'hello'
      
  ^^^^
  source.ks
-     let
-     ^^^
+     var 
+     ^^^^
      source.ks storage.type.readwrite.ks
-         
-        ^
-        source.ks
-         bar
+         dyn
          ^^^
-         source.ks meta.definition.variable.ks variable.other.readwrite.ks
+         source.ks storage.type.readwrite.ks storage.modifier.dynamic.ks
              
             ^
             source.ks
-             =
-             ^
-             source.ks keyword.operator.assignment.ks
-               
-              ^
-              source.ks
-               '
-               ^
-               source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
-                hello
-                ^^^^^
-                source.ks string.quoted.single.ks
-                     '
-                     ^
-                     source.ks string.quoted.single.ks punctuation.definition.string.end.ks
+             bar
+             ^^^
+             source.ks meta.definition.variable.ks variable.other.ks
+                 
+                ^
+                source.ks
+                 =
+                 ^
+                 source.ks keyword.operator.assignment.ks
+                   
+                  ^
+                  source.ks
+                   '
+                   ^
+                   source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
+                    hello
+                    ^^^^^
+                    source.ks string.quoted.single.ks
+                         '
+                         ^
+                         source.ks string.quoted.single.ks punctuation.definition.string.end.ks
 >
 >}
  }

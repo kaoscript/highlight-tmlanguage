@@ -1,39 +1,42 @@
 original file
 -----------------------------------
-let a : Array<Number>
+var mut a : Array<Number>
 -----------------------------------
 
 grammar: kaoscript.tmLanguage
 -----------------------------------
 >
->let a : Array<Number>
- let
- ^^^
+>var mut a : Array<Number>
+ var 
+ ^^^^
  source.ks storage.type.readwrite.ks
-     
-    ^
-    source.ks
-     a
-     ^
-     source.ks meta.definition.variable.ks variable.other.readwrite.ks
-       
-      ^
-      source.ks
-       :
-       ^
-       source.ks meta.type.annotation.ks keyword.operator.type.annotation.ks
+     mut
+     ^^^
+     source.ks storage.type.readwrite.ks storage.modifier.mutable.ks
          
         ^
-        source.ks meta.type.annotation.ks
-         Array
-         ^^^^^
-         source.ks meta.type.annotation.ks support.type.primitive.ks
-              <
-              ^
-              source.ks meta.type.annotation.ks punctuation.definition.typeparameters.begin.ks
-               Number
-               ^^^^^^
-               source.ks meta.type.annotation.ks support.type.primitive.ks
-                     >
-                     ^
-                     source.ks meta.type.annotation.ks punctuation.definition.typeparameters.end.ks
+        source.ks
+         a
+         ^
+         source.ks meta.definition.variable.ks variable.other.ks
+           
+          ^
+          source.ks
+           :
+           ^
+           source.ks meta.type.annotation.ks keyword.operator.type.annotation.ks
+             
+            ^
+            source.ks meta.type.annotation.ks
+             Array
+             ^^^^^
+             source.ks meta.type.annotation.ks support.type.primitive.ks
+                  <
+                  ^
+                  source.ks meta.type.annotation.ks punctuation.definition.typeparameters.begin.ks
+                   Number
+                   ^^^^^^
+                   source.ks meta.type.annotation.ks support.type.primitive.ks
+                         >
+                         ^
+                         source.ks meta.type.annotation.ks punctuation.definition.typeparameters.end.ks

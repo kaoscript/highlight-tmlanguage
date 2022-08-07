@@ -4,21 +4,21 @@ class Greetings {
     private {
         _message: string = ''
     }
-    
-    // Greetings() {
+
+    // constructor() {
     //     this('Hello!')
     // }
-    // 
-    // Greetings(message: string) {
+
+    // constructor(message: string) {
     //     this._message = message
     // }
-    
+
     greet(name: string): string {
         return this._message + '\nIt\'s nice to meet you, ' + name + '.'
     }
 }
 
-let hello = new Greetings('Hello world!')
+var hello = new Greetings('Hello world!')
 
 expect(hello.greet('miss White')).to.equal('Hello world!\nIt\'s nice to meet you, miss White.')
 -----------------------------------
@@ -97,20 +97,20 @@ grammar: kaoscript.tmLanguage
      ^
      source.ks punctuation.definition.members.end.bracket.curly.ks
 >
->    
-     
- ^^^^^
+>
+ 
+ ^
  source.ks
 >
->    // Greetings() {
+>    // constructor() {
      
  ^^^^
  source.ks punctuation.whitespace.comment.leading.ks
      //
      ^^
      source.ks comment.line.double-slash.ks punctuation.definition.comment.ks
-        Greetings() {
-       ^^^^^^^^^^^^^^
+        constructor() {
+       ^^^^^^^^^^^^^^^^
        source.ks comment.line.double-slash.ks
 >
 >    //     this('Hello!')
@@ -135,26 +135,20 @@ grammar: kaoscript.tmLanguage
        ^^
        source.ks comment.line.double-slash.ks
 >
->    // 
-     
- ^^^^
- source.ks punctuation.whitespace.comment.leading.ks
-     //
-     ^^
-     source.ks comment.line.double-slash.ks punctuation.definition.comment.ks
-        
-       ^
-       source.ks comment.line.double-slash.ks
 >
->    // Greetings(message: string) {
+ 
+ ^
+ source.ks
+>
+>    // constructor(message: string) {
      
  ^^^^
  source.ks punctuation.whitespace.comment.leading.ks
      //
      ^^
      source.ks comment.line.double-slash.ks punctuation.definition.comment.ks
-        Greetings(message: string) {
-       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        constructor(message: string) {
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
        source.ks comment.line.double-slash.ks
 >
 >    //     this._message = message
@@ -179,9 +173,9 @@ grammar: kaoscript.tmLanguage
        ^^
        source.ks comment.line.double-slash.ks
 >
->    
-     
- ^^^^^
+>
+ 
+ ^
  source.ks
 >
 >    greet(name: string): string {
@@ -320,16 +314,16 @@ grammar: kaoscript.tmLanguage
  ^
  source.ks
 >
->let hello = new Greetings('Hello world!')
- let
+>var hello = new Greetings('Hello world!')
+ var
  ^^^
- source.ks storage.type.readwrite.ks
+ source.ks storage.type.constant.ks
      
     ^
     source.ks
      hello
      ^^^^^
-     source.ks meta.definition.variable.ks variable.other.readwrite.ks
+     source.ks meta.definition.variable.ks variable.other.ks
            
           ^
           source.ks

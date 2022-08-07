@@ -1,33 +1,36 @@
 original file
 -----------------------------------
-let a = ~~~4
+var dyn a = ~~~4
 -----------------------------------
 
 grammar: kaoscript.tmLanguage
 -----------------------------------
 >
->let a = ~~~4
- let
- ^^^
+>var dyn a = ~~~4
+ var 
+ ^^^^
  source.ks storage.type.readwrite.ks
-     
-    ^
-    source.ks
-     a
-     ^
-     source.ks meta.definition.variable.ks variable.other.readwrite.ks
-       
-      ^
-      source.ks
-       =
-       ^
-       source.ks keyword.operator.assignment.ks
+     dyn
+     ^^^
+     source.ks storage.type.readwrite.ks storage.modifier.dynamic.ks
          
         ^
         source.ks
-         ~~~
-         ^^^
-         source.ks keyword.operator.bitwise.ks
-            4
+         a
+         ^
+         source.ks meta.definition.variable.ks variable.other.ks
+           
+          ^
+          source.ks
+           =
+           ^
+           source.ks keyword.operator.assignment.ks
+             
             ^
-            source.ks constant.numeric.decimal.ks
+            source.ks
+             ~~~
+             ^^^
+             source.ks keyword.operator.bitwise.ks
+                4
+                ^
+                source.ks constant.numeric.decimal.ks

@@ -1,7 +1,7 @@
 original file
 -----------------------------------
-let foo1 = 1
-let foo2 = 2
+var dyn foo1 = 1
+var dyn foo2 = 2
 
 import 'module1'(foo1, foo2)
 -----------------------------------
@@ -9,51 +9,57 @@ import 'module1'(foo1, foo2)
 grammar: kaoscript.tmLanguage
 -----------------------------------
 >
->let foo1 = 1
- let
- ^^^
+>var dyn foo1 = 1
+ var 
+ ^^^^
  source.ks storage.type.readwrite.ks
-     
-    ^
-    source.ks
-     foo1
-     ^^^^
-     source.ks meta.definition.variable.ks variable.other.readwrite.ks
-          
-         ^
-         source.ks
-          =
-          ^
-          source.ks keyword.operator.assignment.ks
-            
-           ^
-           source.ks
-            1
-            ^
-            source.ks constant.numeric.decimal.ks
+     dyn
+     ^^^
+     source.ks storage.type.readwrite.ks storage.modifier.dynamic.ks
+         
+        ^
+        source.ks
+         foo1
+         ^^^^
+         source.ks meta.definition.variable.ks variable.other.ks
+              
+             ^
+             source.ks
+              =
+              ^
+              source.ks keyword.operator.assignment.ks
+                
+               ^
+               source.ks
+                1
+                ^
+                source.ks constant.numeric.decimal.ks
 >
->let foo2 = 2
- let
- ^^^
+>var dyn foo2 = 2
+ var 
+ ^^^^
  source.ks storage.type.readwrite.ks
-     
-    ^
-    source.ks
-     foo2
-     ^^^^
-     source.ks meta.definition.variable.ks variable.other.readwrite.ks
-          
-         ^
-         source.ks
-          =
-          ^
-          source.ks keyword.operator.assignment.ks
-            
-           ^
-           source.ks
-            2
-            ^
-            source.ks constant.numeric.decimal.ks
+     dyn
+     ^^^
+     source.ks storage.type.readwrite.ks storage.modifier.dynamic.ks
+         
+        ^
+        source.ks
+         foo2
+         ^^^^
+         source.ks meta.definition.variable.ks variable.other.ks
+              
+             ^
+             source.ks
+              =
+              ^
+              source.ks keyword.operator.assignment.ks
+                
+               ^
+               source.ks
+                2
+                ^
+                source.ks constant.numeric.decimal.ks
 >
 >
  

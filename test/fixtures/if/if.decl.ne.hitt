@@ -1,84 +1,90 @@
 original file
 -----------------------------------
-let x = 5
+var dyn x = 5
 
-let y = 10 if x == 5
+var dyn y = 10 if x == 5
 -----------------------------------
 
 grammar: kaoscript.tmLanguage
 -----------------------------------
 >
->let x = 5
- let
- ^^^
+>var dyn x = 5
+ var 
+ ^^^^
  source.ks storage.type.readwrite.ks
-     
-    ^
-    source.ks
-     x
-     ^
-     source.ks meta.definition.variable.ks variable.other.readwrite.ks
-       
-      ^
-      source.ks
-       =
-       ^
-       source.ks keyword.operator.assignment.ks
+     dyn
+     ^^^
+     source.ks storage.type.readwrite.ks storage.modifier.dynamic.ks
          
         ^
         source.ks
-         5
+         x
          ^
-         source.ks constant.numeric.decimal.ks
+         source.ks meta.definition.variable.ks variable.other.ks
+           
+          ^
+          source.ks
+           =
+           ^
+           source.ks keyword.operator.assignment.ks
+             
+            ^
+            source.ks
+             5
+             ^
+             source.ks constant.numeric.decimal.ks
 >
 >
  
  ^
  source.ks
 >
->let y = 10 if x == 5
- let
- ^^^
+>var dyn y = 10 if x == 5
+ var 
+ ^^^^
  source.ks storage.type.readwrite.ks
-     
-    ^
-    source.ks
-     y
-     ^
-     source.ks meta.definition.variable.ks variable.other.readwrite.ks
-       
-      ^
-      source.ks
-       =
-       ^
-       source.ks keyword.operator.assignment.ks
+     dyn
+     ^^^
+     source.ks storage.type.readwrite.ks storage.modifier.dynamic.ks
          
         ^
         source.ks
-         10
-         ^^
-         source.ks constant.numeric.decimal.ks
-            
+         y
+         ^
+         source.ks meta.definition.variable.ks variable.other.ks
+           
+          ^
+          source.ks
+           =
            ^
-           source.ks
-            if
-            ^^
-            source.ks keyword.control.conditional.if.ks
-               
-              ^
-              source.ks
-               x
+           source.ks keyword.operator.assignment.ks
+             
+            ^
+            source.ks
+             10
+             ^^
+             source.ks constant.numeric.decimal.ks
+                
                ^
-               source.ks variable.other.ks
-                 
-                ^
-                source.ks
-                 ==
-                 ^^
-                 source.ks keyword.operator.comparison.ks
-                    
+               source.ks
+                if
+                ^^
+                source.ks keyword.control.conditional.if.ks
+                   
+                  ^
+                  source.ks
+                   x
                    ^
-                   source.ks
-                    5
+                   source.ks variable.other.ks
+                     
                     ^
-                    source.ks constant.numeric.decimal.ks
+                    source.ks
+                     ==
+                     ^^
+                     source.ks keyword.operator.comparison.ks
+                        
+                       ^
+                       source.ks
+                        5
+                        ^
+                        source.ks constant.numeric.decimal.ks

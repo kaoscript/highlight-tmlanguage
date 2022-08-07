@@ -2,7 +2,7 @@ original file
 -----------------------------------
 // Line comments are anything after ‘//’ and extend to the end of the line.
 
-let x = 5 // this is also a line comment.
+var x = 5 // this is also a line comment.
 
 // If you have a long explanation for something, you can put line comments next
 // to each other. Put a space between the // and your comment so that it’s
@@ -25,16 +25,16 @@ grammar: kaoscript.tmLanguage
  ^
  source.ks
 >
->let x = 5 // this is also a line comment.
- let
+>var x = 5 // this is also a line comment.
+ var
  ^^^
- source.ks storage.type.readwrite.ks
+ source.ks storage.type.constant.ks
      
     ^
     source.ks
      x
      ^
-     source.ks meta.definition.variable.ks variable.other.readwrite.ks
+     source.ks meta.definition.variable.ks variable.other.ks
        
       ^
       source.ks

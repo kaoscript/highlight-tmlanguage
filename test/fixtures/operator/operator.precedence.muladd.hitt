@@ -1,54 +1,54 @@
 original file
 -----------------------------------
-const i = 15 * 2 + 6
+var i = 15 * 2 + 6
 -----------------------------------
 
 grammar: kaoscript.tmLanguage
 -----------------------------------
 >
->const i = 15 * 2 + 6
- const
- ^^^^^
+>var i = 15 * 2 + 6
+ var
+ ^^^
  source.ks storage.type.constant.ks
+     
+    ^
+    source.ks
+     i
+     ^
+     source.ks meta.definition.variable.ks variable.other.ks
        
       ^
       source.ks
-       i
+       =
        ^
-       source.ks meta.definition.variable.ks variable.other.constant.ks
+       source.ks keyword.operator.assignment.ks
          
         ^
         source.ks
-         =
-         ^
-         source.ks keyword.operator.assignment.ks
-           
-          ^
-          source.ks
-           15
-           ^^
-           source.ks constant.numeric.decimal.ks
+         15
+         ^^
+         source.ks constant.numeric.decimal.ks
+            
+           ^
+           source.ks
+            *
+            ^
+            source.ks keyword.operator.arithmetic.ks
               
              ^
              source.ks
-              *
+              2
               ^
-              source.ks keyword.operator.arithmetic.ks
+              source.ks constant.numeric.decimal.ks
                 
                ^
                source.ks
-                2
+                +
                 ^
-                source.ks constant.numeric.decimal.ks
+                source.ks keyword.operator.arithmetic.ks
                   
                  ^
                  source.ks
-                  +
+                  6
                   ^
-                  source.ks keyword.operator.arithmetic.ks
-                    
-                   ^
-                   source.ks
-                    6
-                    ^
-                    source.ks constant.numeric.decimal.ks
+                  source.ks constant.numeric.decimal.ks

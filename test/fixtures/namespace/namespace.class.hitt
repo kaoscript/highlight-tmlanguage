@@ -9,7 +9,7 @@ namespace qux {
     }
 }
 
-const x = new qux.Foobar()
+var x = new qux.Foobar()
 -----------------------------------
 
 grammar: kaoscript.tmLanguage
@@ -147,43 +147,43 @@ grammar: kaoscript.tmLanguage
  ^
  source.ks
 >
->const x = new qux.Foobar()
- const
- ^^^^^
+>var x = new qux.Foobar()
+ var
+ ^^^
  source.ks storage.type.constant.ks
+     
+    ^
+    source.ks
+     x
+     ^
+     source.ks meta.definition.variable.ks variable.other.ks
        
       ^
       source.ks
-       x
+       =
        ^
-       source.ks meta.definition.variable.ks variable.other.constant.ks
+       source.ks keyword.operator.assignment.ks
          
         ^
         source.ks
-         =
-         ^
-         source.ks keyword.operator.assignment.ks
-           
-          ^
-          source.ks
-           new
-           ^^^
-           source.ks keyword.operator.new.ks
-               
-              ^
-              source.ks
-               qux
-               ^^^
-               source.ks variable.other.object.ks
-                  .
-                  ^
-                  source.ks punctuation.accessor.object.ks
-                   Foobar
-                   ^^^^^^
-                   source.ks entity.name.function.ks
-                         (
-                         ^
-                         source.ks punctuation.definition.arguments.begin.bracket.round.ks
-                          )
-                          ^
-                          source.ks punctuation.definition.arguments.end.bracket.round.ks
+         new
+         ^^^
+         source.ks keyword.operator.new.ks
+             
+            ^
+            source.ks
+             qux
+             ^^^
+             source.ks variable.other.object.ks
+                .
+                ^
+                source.ks punctuation.accessor.object.ks
+                 Foobar
+                 ^^^^^^
+                 source.ks entity.name.function.ks
+                       (
+                       ^
+                       source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                        )
+                        ^
+                        source.ks punctuation.definition.arguments.end.bracket.round.ks

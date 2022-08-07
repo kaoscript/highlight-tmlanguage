@@ -1,6 +1,6 @@
 original file
 -----------------------------------
-let somePoint = [1, 1]
+var dyn somePoint = [1, 1]
 
 switch somePoint {
     [0, 0]            => console.log("(0, 0) is at the origin")
@@ -14,43 +14,46 @@ switch somePoint {
 grammar: kaoscript.tmLanguage
 -----------------------------------
 >
->let somePoint = [1, 1]
- let
- ^^^
+>var dyn somePoint = [1, 1]
+ var 
+ ^^^^
  source.ks storage.type.readwrite.ks
-     
-    ^
-    source.ks
-     somePoint
-     ^^^^^^^^^
-     source.ks meta.definition.variable.ks variable.other.readwrite.ks
-               
-              ^
-              source.ks
-               =
-               ^
-               source.ks keyword.operator.assignment.ks
-                 
-                ^
-                source.ks
-                 [
-                 ^
-                 source.ks punctuation.definition.array.begin.bracket.square.ks
-                  1
+     dyn
+     ^^^
+     source.ks storage.type.readwrite.ks storage.modifier.dynamic.ks
+         
+        ^
+        source.ks
+         somePoint
+         ^^^^^^^^^
+         source.ks meta.definition.variable.ks variable.other.ks
+                   
                   ^
-                  source.ks constant.numeric.decimal.ks
-                   ,
+                  source.ks
+                   =
                    ^
-                   source.ks punctuation.separator.comma.ks
+                   source.ks keyword.operator.assignment.ks
                      
                     ^
                     source.ks
-                     1
+                     [
                      ^
-                     source.ks constant.numeric.decimal.ks
-                      ]
+                     source.ks punctuation.definition.array.begin.bracket.square.ks
+                      1
                       ^
-                      source.ks punctuation.definition.array.end.bracket.square.ks
+                      source.ks constant.numeric.decimal.ks
+                       ,
+                       ^
+                       source.ks punctuation.separator.comma.ks
+                         
+                        ^
+                        source.ks
+                         1
+                         ^
+                         source.ks constant.numeric.decimal.ks
+                          ]
+                          ^
+                          source.ks punctuation.definition.array.end.bracket.square.ks
 >
 >
  

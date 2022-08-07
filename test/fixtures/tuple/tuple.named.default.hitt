@@ -5,11 +5,11 @@ tuple Pair {
     y: Number    = 0
 }
 
-let pair = Pair('x', 0.1)
+var dyn pair = Pair('x', 0.1)
 
 console.log(pair.x, pair.y)
 
-let pair2 = Pair(y: 0.1)
+var dyn pair2 = Pair(y: 0.1)
 
 console.log(pair2.x, pair2.y)
 -----------------------------------
@@ -105,52 +105,55 @@ grammar: kaoscript.tmLanguage
  ^
  source.ks
 >
->let pair = Pair('x', 0.1)
- let
- ^^^
+>var dyn pair = Pair('x', 0.1)
+ var 
+ ^^^^
  source.ks storage.type.readwrite.ks
-     
-    ^
-    source.ks
-     pair
-     ^^^^
-     source.ks meta.definition.variable.ks variable.other.readwrite.ks
-          
-         ^
-         source.ks
-          =
-          ^
-          source.ks keyword.operator.assignment.ks
-            
-           ^
-           source.ks
-            Pair
-            ^^^^
-            source.ks entity.name.function.ks
-                (
-                ^
-                source.ks punctuation.definition.arguments.begin.bracket.round.ks
-                 '
-                 ^
-                 source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
-                  x
-                  ^
-                  source.ks string.quoted.single.ks
-                   '
-                   ^
-                   source.ks string.quoted.single.ks punctuation.definition.string.end.ks
-                    ,
+     dyn
+     ^^^
+     source.ks storage.type.readwrite.ks storage.modifier.dynamic.ks
+         
+        ^
+        source.ks
+         pair
+         ^^^^
+         source.ks meta.definition.variable.ks variable.other.ks
+              
+             ^
+             source.ks
+              =
+              ^
+              source.ks keyword.operator.assignment.ks
+                
+               ^
+               source.ks
+                Pair
+                ^^^^
+                source.ks entity.name.function.ks
+                    (
                     ^
-                    source.ks punctuation.separator.comma.ks
-                      
+                    source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                     '
                      ^
-                     source.ks
-                      0.1
-                      ^^^
-                      source.ks constant.numeric.decimal.ks
-                         )
+                     source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
+                      x
+                      ^
+                      source.ks string.quoted.single.ks
+                       '
+                       ^
+                       source.ks string.quoted.single.ks punctuation.definition.string.end.ks
+                        ,
+                        ^
+                        source.ks punctuation.separator.comma.ks
+                          
                          ^
-                         source.ks punctuation.definition.arguments.end.bracket.round.ks
+                         source.ks
+                          0.1
+                          ^^^
+                          source.ks constant.numeric.decimal.ks
+                             )
+                             ^
+                             source.ks punctuation.definition.arguments.end.bracket.round.ks
 >
 >
  
@@ -203,46 +206,49 @@ grammar: kaoscript.tmLanguage
  ^
  source.ks
 >
->let pair2 = Pair(y: 0.1)
- let
- ^^^
+>var dyn pair2 = Pair(y: 0.1)
+ var 
+ ^^^^
  source.ks storage.type.readwrite.ks
-     
-    ^
-    source.ks
-     pair2
-     ^^^^^
-     source.ks meta.definition.variable.ks variable.other.readwrite.ks
-           
-          ^
-          source.ks
-           =
-           ^
-           source.ks keyword.operator.assignment.ks
-             
-            ^
-            source.ks
-             Pair
-             ^^^^
-             source.ks entity.name.function.ks
-                 (
-                 ^
-                 source.ks punctuation.definition.arguments.begin.bracket.round.ks
-                  y
-                  ^
-                  source.ks meta.argument.key.ks
-                   :
-                   ^
-                   source.ks punctuation.separator.key-value.ks
-                     
-                    ^
-                    source.ks
-                     0.1
-                     ^^^
-                     source.ks constant.numeric.decimal.ks
-                        )
+     dyn
+     ^^^
+     source.ks storage.type.readwrite.ks storage.modifier.dynamic.ks
+         
+        ^
+        source.ks
+         pair2
+         ^^^^^
+         source.ks meta.definition.variable.ks variable.other.ks
+               
+              ^
+              source.ks
+               =
+               ^
+               source.ks keyword.operator.assignment.ks
+                 
+                ^
+                source.ks
+                 Pair
+                 ^^^^
+                 source.ks entity.name.function.ks
+                     (
+                     ^
+                     source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                      y
+                      ^
+                      source.ks meta.argument.key.ks
+                       :
+                       ^
+                       source.ks punctuation.separator.key-value.ks
+                         
                         ^
-                        source.ks punctuation.definition.arguments.end.bracket.round.ks
+                        source.ks
+                         0.1
+                         ^^^
+                         source.ks constant.numeric.decimal.ks
+                            )
+                            ^
+                            source.ks punctuation.definition.arguments.end.bracket.round.ks
 >
 >
  

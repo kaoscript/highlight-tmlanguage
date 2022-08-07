@@ -33,13 +33,13 @@ grammar: kaoscript.tmLanguage
 >let foo = 24
  let
  ^^^
- source.ks storage.type.readwrite.ks
+ source.ks variable.other.ks
      
     ^
     source.ks
      foo
      ^^^
-     source.ks meta.definition.variable.ks variable.other.readwrite.ks
+     source.ks variable.other.ks
          
         ^
         source.ks

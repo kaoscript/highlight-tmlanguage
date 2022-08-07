@@ -1,6 +1,6 @@
 original file
 -----------------------------------
-let foobar = {
+var dyn foobar = {
     foo(name: string) {
         n = 0
     }
@@ -17,28 +17,31 @@ let foobar = {
 grammar: kaoscript.tmLanguage
 -----------------------------------
 >
->let foobar = {
- let
- ^^^
+>var dyn foobar = {
+ var 
+ ^^^^
  source.ks storage.type.readwrite.ks
-     
-    ^
-    source.ks
-     foobar
-     ^^^^^^
-     source.ks meta.definition.variable.ks variable.other.readwrite.ks
-            
-           ^
-           source.ks
-            =
-            ^
-            source.ks keyword.operator.assignment.ks
-              
-             ^
-             source.ks
-              {
-              ^
-              source.ks punctuation.definition.object.begin.bracket.curly.ks
+     dyn
+     ^^^
+     source.ks storage.type.readwrite.ks storage.modifier.dynamic.ks
+         
+        ^
+        source.ks
+         foobar
+         ^^^^^^
+         source.ks meta.definition.variable.ks variable.other.ks
+                
+               ^
+               source.ks
+                =
+                ^
+                source.ks keyword.operator.assignment.ks
+                  
+                 ^
+                 source.ks
+                  {
+                  ^
+                  source.ks punctuation.definition.object.begin.bracket.curly.ks
 >
 >    foo(name: string) {
      

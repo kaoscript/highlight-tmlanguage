@@ -78,13 +78,13 @@ grammar: kaoscript.tmLanguage
 >const x = new Foobar()
  const
  ^^^^^
- source.ks storage.type.constant.ks
+ source.ks variable.other.ks
        
       ^
       source.ks
        x
        ^
-       source.ks meta.definition.variable.ks variable.other.constant.ks
+       source.ks variable.other.ks
          
         ^
         source.ks

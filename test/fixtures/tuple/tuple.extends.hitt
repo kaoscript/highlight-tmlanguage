@@ -4,7 +4,7 @@ tuple Pair(String, Number)
 
 tuple Triple(Boolean) extends Pair
 
-const triple = Triple('x', 0.1, true)
+var triple = Triple('x', 0.1, true)
 
 console.log(triple.0, triple.1, triple.2)
 -----------------------------------
@@ -83,61 +83,61 @@ grammar: kaoscript.tmLanguage
  ^
  source.ks
 >
->const triple = Triple('x', 0.1, true)
- const
- ^^^^^
+>var triple = Triple('x', 0.1, true)
+ var
+ ^^^
  source.ks storage.type.constant.ks
-       
-      ^
-      source.ks
-       triple
-       ^^^^^^
-       source.ks meta.definition.variable.ks variable.other.constant.ks
+     
+    ^
+    source.ks
+     triple
+     ^^^^^^
+     source.ks meta.definition.variable.ks variable.other.ks
+            
+           ^
+           source.ks
+            =
+            ^
+            source.ks keyword.operator.assignment.ks
               
              ^
              source.ks
-              =
-              ^
-              source.ks keyword.operator.assignment.ks
-                
-               ^
-               source.ks
-                Triple
-                ^^^^^^
-                source.ks entity.name.function.ks
-                      (
+              Triple
+              ^^^^^^
+              source.ks entity.name.function.ks
+                    (
+                    ^
+                    source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                     '
+                     ^
+                     source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
+                      x
                       ^
-                      source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                      source.ks string.quoted.single.ks
                        '
                        ^
-                       source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
-                        x
+                       source.ks string.quoted.single.ks punctuation.definition.string.end.ks
+                        ,
                         ^
-                        source.ks string.quoted.single.ks
-                         '
+                        source.ks punctuation.separator.comma.ks
+                          
                          ^
-                         source.ks string.quoted.single.ks punctuation.definition.string.end.ks
-                          ,
-                          ^
-                          source.ks punctuation.separator.comma.ks
-                            
-                           ^
-                           source.ks
-                            0.1
-                            ^^^
-                            source.ks constant.numeric.decimal.ks
-                               ,
-                               ^
-                               source.ks punctuation.separator.comma.ks
-                                 
-                                ^
-                                source.ks
-                                 true
-                                 ^^^^
-                                 source.ks constant.language.boolean.true.ks
-                                     )
-                                     ^
-                                     source.ks punctuation.definition.arguments.end.bracket.round.ks
+                         source.ks
+                          0.1
+                          ^^^
+                          source.ks constant.numeric.decimal.ks
+                             ,
+                             ^
+                             source.ks punctuation.separator.comma.ks
+                               
+                              ^
+                              source.ks
+                               true
+                               ^^^^
+                               source.ks constant.language.boolean.true.ks
+                                   )
+                                   ^
+                                   source.ks punctuation.definition.arguments.end.bracket.round.ks
 >
 >
  

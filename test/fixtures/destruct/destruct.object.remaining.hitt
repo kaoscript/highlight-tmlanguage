@@ -1,6 +1,6 @@
 original file
 -----------------------------------
-let {x, y, ...remaining} = {x: 1, y: 2, a: 3, b: 4, c: 5}
+var dyn {x, y, ...remaining} = {x: 1, y: 2, a: 3, b: 4, c: 5}
 
 console.log(x, y, remaining)
 -----------------------------------
@@ -8,142 +8,145 @@ console.log(x, y, remaining)
 grammar: kaoscript.tmLanguage
 -----------------------------------
 >
->let {x, y, ...remaining} = {x: 1, y: 2, a: 3, b: 4, c: 5}
- let
- ^^^
+>var dyn {x, y, ...remaining} = {x: 1, y: 2, a: 3, b: 4, c: 5}
+ var 
+ ^^^^
  source.ks storage.type.readwrite.ks
-     
-    ^
-    source.ks
-     {
-     ^
-     source.ks punctuation.definition.binding-pattern.object.begin.bracket.curly.ks
-      x
-      ^
-      source.ks variable.other.ks
-       ,
-       ^
-       source.ks punctuation.separator.comma.ks
+     dyn
+     ^^^
+     source.ks storage.type.readwrite.ks storage.modifier.dynamic.ks
          
         ^
         source.ks
-         y
+         {
          ^
-         source.ks variable.other.ks
-          ,
+         source.ks punctuation.definition.binding-pattern.object.begin.bracket.curly.ks
+          x
           ^
-          source.ks punctuation.separator.comma.ks
-            
+          source.ks variable.other.ks
+           ,
            ^
-           source.ks
-            ...
-            ^^^
-            source.ks keyword.operator.rest.ks
-               remaining
-               ^^^^^^^^^
-               source.ks variable.other.ks
-                        }
-                        ^
-                        source.ks punctuation.definition.binding-pattern.object.end.bracket.curly.ks
-                          
-                         ^
-                         source.ks
-                          =
-                          ^
-                          source.ks keyword.operator.assignment.ks
-                            
-                           ^
-                           source.ks
-                            {
+           source.ks punctuation.separator.comma.ks
+             
+            ^
+            source.ks
+             y
+             ^
+             source.ks variable.other.ks
+              ,
+              ^
+              source.ks punctuation.separator.comma.ks
+                
+               ^
+               source.ks
+                ...
+                ^^^
+                source.ks keyword.operator.rest.ks
+                   remaining
+                   ^^^^^^^^^
+                   source.ks variable.other.ks
+                            }
                             ^
-                            source.ks punctuation.definition.object.begin.bracket.curly.ks
-                             x
+                            source.ks punctuation.definition.binding-pattern.object.end.bracket.curly.ks
+                              
                              ^
-                             source.ks meta.object.key.ks
-                              :
+                             source.ks
+                              =
                               ^
-                              source.ks punctuation.separator.key-value.ks
+                              source.ks keyword.operator.assignment.ks
                                 
                                ^
                                source.ks
-                                1
+                                {
                                 ^
-                                source.ks constant.numeric.decimal.ks
-                                 ,
+                                source.ks punctuation.definition.object.begin.bracket.curly.ks
+                                 x
                                  ^
-                                 source.ks punctuation.separator.comma.ks
-                                   
+                                 source.ks meta.object.key.ks
+                                  :
                                   ^
-                                  source.ks
-                                   y
+                                  source.ks punctuation.separator.key-value.ks
+                                    
                                    ^
-                                   source.ks meta.object.key.ks
-                                    :
+                                   source.ks
+                                    1
                                     ^
-                                    source.ks punctuation.separator.key-value.ks
-                                      
+                                    source.ks constant.numeric.decimal.ks
+                                     ,
                                      ^
-                                     source.ks
-                                      2
+                                     source.ks punctuation.separator.comma.ks
+                                       
                                       ^
-                                      source.ks constant.numeric.decimal.ks
-                                       ,
+                                      source.ks
+                                       y
                                        ^
-                                       source.ks punctuation.separator.comma.ks
-                                         
+                                       source.ks meta.object.key.ks
+                                        :
                                         ^
-                                        source.ks
-                                         a
+                                        source.ks punctuation.separator.key-value.ks
+                                          
                                          ^
-                                         source.ks meta.object.key.ks
-                                          :
+                                         source.ks
+                                          2
                                           ^
-                                          source.ks punctuation.separator.key-value.ks
-                                            
+                                          source.ks constant.numeric.decimal.ks
+                                           ,
                                            ^
-                                           source.ks
-                                            3
+                                           source.ks punctuation.separator.comma.ks
+                                             
                                             ^
-                                            source.ks constant.numeric.decimal.ks
-                                             ,
+                                            source.ks
+                                             a
                                              ^
-                                             source.ks punctuation.separator.comma.ks
-                                               
+                                             source.ks meta.object.key.ks
+                                              :
                                               ^
-                                              source.ks
-                                               b
+                                              source.ks punctuation.separator.key-value.ks
+                                                
                                                ^
-                                               source.ks meta.object.key.ks
-                                                :
+                                               source.ks
+                                                3
                                                 ^
-                                                source.ks punctuation.separator.key-value.ks
-                                                  
+                                                source.ks constant.numeric.decimal.ks
+                                                 ,
                                                  ^
-                                                 source.ks
-                                                  4
+                                                 source.ks punctuation.separator.comma.ks
+                                                   
                                                   ^
-                                                  source.ks constant.numeric.decimal.ks
-                                                   ,
+                                                  source.ks
+                                                   b
                                                    ^
-                                                   source.ks punctuation.separator.comma.ks
-                                                     
+                                                   source.ks meta.object.key.ks
+                                                    :
                                                     ^
-                                                    source.ks
-                                                     c
+                                                    source.ks punctuation.separator.key-value.ks
+                                                      
                                                      ^
-                                                     source.ks meta.object.key.ks
-                                                      :
+                                                     source.ks
+                                                      4
                                                       ^
-                                                      source.ks punctuation.separator.key-value.ks
-                                                        
+                                                      source.ks constant.numeric.decimal.ks
+                                                       ,
                                                        ^
-                                                       source.ks
-                                                        5
+                                                       source.ks punctuation.separator.comma.ks
+                                                         
                                                         ^
-                                                        source.ks constant.numeric.decimal.ks
-                                                         }
+                                                        source.ks
+                                                         c
                                                          ^
-                                                         source.ks punctuation.definition.object.end.bracket.curly.ks
+                                                         source.ks meta.object.key.ks
+                                                          :
+                                                          ^
+                                                          source.ks punctuation.separator.key-value.ks
+                                                            
+                                                           ^
+                                                           source.ks
+                                                            5
+                                                            ^
+                                                            source.ks constant.numeric.decimal.ks
+                                                             }
+                                                             ^
+                                                             source.ks punctuation.definition.object.end.bracket.curly.ks
 >
 >
  

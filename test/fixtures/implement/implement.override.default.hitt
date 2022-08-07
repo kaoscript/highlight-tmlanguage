@@ -31,7 +31,7 @@ impl Shape {
     }
 }
 
-let shape = Shape.makeRed()
+var dyn shape = Shape.makeRed()
 
 console.log(shape.draw())
 -----------------------------------
@@ -587,40 +587,43 @@ grammar: kaoscript.tmLanguage
  ^
  source.ks
 >
->let shape = Shape.makeRed()
- let
- ^^^
+>var dyn shape = Shape.makeRed()
+ var 
+ ^^^^
  source.ks storage.type.readwrite.ks
-     
-    ^
-    source.ks
-     shape
-     ^^^^^
-     source.ks meta.definition.variable.ks variable.other.readwrite.ks
-           
-          ^
-          source.ks
-           =
-           ^
-           source.ks keyword.operator.assignment.ks
-             
-            ^
-            source.ks
-             Shape
-             ^^^^^
-             source.ks variable.other.object.ks
-                  .
-                  ^
-                  source.ks punctuation.accessor.object.ks
-                   makeRed
-                   ^^^^^^^
-                   source.ks entity.name.function.ks
-                          (
-                          ^
-                          source.ks punctuation.definition.arguments.begin.bracket.round.ks
-                           )
-                           ^
-                           source.ks punctuation.definition.arguments.end.bracket.round.ks
+     dyn
+     ^^^
+     source.ks storage.type.readwrite.ks storage.modifier.dynamic.ks
+         
+        ^
+        source.ks
+         shape
+         ^^^^^
+         source.ks meta.definition.variable.ks variable.other.ks
+               
+              ^
+              source.ks
+               =
+               ^
+               source.ks keyword.operator.assignment.ks
+                 
+                ^
+                source.ks
+                 Shape
+                 ^^^^^
+                 source.ks variable.other.object.ks
+                      .
+                      ^
+                      source.ks punctuation.accessor.object.ks
+                       makeRed
+                       ^^^^^^^
+                       source.ks entity.name.function.ks
+                              (
+                              ^
+                              source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                               )
+                               ^
+                               source.ks punctuation.definition.arguments.end.bracket.round.ks
 >
 >
  

@@ -30,7 +30,7 @@
 		"vscode-textmate": "^3.0.1"
 	},
 	"scripts": {
-		"build": "npx kaoscript build.ks",
+		"build": "npx kaoscript ./scripts/build.ks",
 		"test": "mocha --colors --check-leaks --require kaoscript/register --reporter spec test/test.ks"
 	}
 }

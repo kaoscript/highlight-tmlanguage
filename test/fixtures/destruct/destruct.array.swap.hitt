@@ -1,7 +1,7 @@
 original file
 -----------------------------------
-let left = 10
-let right = 20
+var dyn left = 10
+var dyn right = 20
 
 if right > left {
     [left, right] = [right, left]
@@ -11,51 +11,57 @@ if right > left {
 grammar: kaoscript.tmLanguage
 -----------------------------------
 >
->let left = 10
- let
- ^^^
+>var dyn left = 10
+ var 
+ ^^^^
  source.ks storage.type.readwrite.ks
-     
-    ^
-    source.ks
-     left
-     ^^^^
-     source.ks meta.definition.variable.ks variable.other.readwrite.ks
-          
-         ^
-         source.ks
-          =
-          ^
-          source.ks keyword.operator.assignment.ks
-            
-           ^
-           source.ks
-            10
-            ^^
-            source.ks constant.numeric.decimal.ks
+     dyn
+     ^^^
+     source.ks storage.type.readwrite.ks storage.modifier.dynamic.ks
+         
+        ^
+        source.ks
+         left
+         ^^^^
+         source.ks meta.definition.variable.ks variable.other.ks
+              
+             ^
+             source.ks
+              =
+              ^
+              source.ks keyword.operator.assignment.ks
+                
+               ^
+               source.ks
+                10
+                ^^
+                source.ks constant.numeric.decimal.ks
 >
->let right = 20
- let
- ^^^
+>var dyn right = 20
+ var 
+ ^^^^
  source.ks storage.type.readwrite.ks
-     
-    ^
-    source.ks
-     right
-     ^^^^^
-     source.ks meta.definition.variable.ks variable.other.readwrite.ks
-           
-          ^
-          source.ks
-           =
-           ^
-           source.ks keyword.operator.assignment.ks
-             
-            ^
-            source.ks
-             20
-             ^^
-             source.ks constant.numeric.decimal.ks
+     dyn
+     ^^^
+     source.ks storage.type.readwrite.ks storage.modifier.dynamic.ks
+         
+        ^
+        source.ks
+         right
+         ^^^^^
+         source.ks meta.definition.variable.ks variable.other.ks
+               
+              ^
+              source.ks
+               =
+               ^
+               source.ks keyword.operator.assignment.ks
+                 
+                ^
+                source.ks
+                 20
+                 ^^
+                 source.ks constant.numeric.decimal.ks
 >
 >
  

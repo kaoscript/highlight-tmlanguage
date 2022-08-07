@@ -1,7 +1,7 @@
 original file
 -----------------------------------
 extern sealed namespace Math {
-    const PI: Number
+    var PI: Number
     func abs(x: Number): Number
 }
 -----------------------------------
@@ -38,28 +38,25 @@ grammar: kaoscript.tmLanguage
                               ^
                               source.ks punctuation.definition.namespace.begin.bracket.curly.ks
 >
->    const PI: Number
+>    var PI: Number
      
  ^^^^
  source.ks
-     const
-     ^^^^^
-     source.ks storage.type.constant.ks
-           
-          ^
-          source.ks
-           PI
-           ^^
-           source.ks variable.other.constant.ks
-             :
-             ^
-             source.ks meta.type.annotation.ks keyword.operator.type.annotation.ks
-               
-              ^
-              source.ks meta.type.annotation.ks
-               Number
-               ^^^^^^
-               source.ks meta.type.annotation.ks support.type.primitive.ks
+     var
+     ^^^
+     source.ks variable.other.constant.ks
+         PI
+        ^^^
+        source.ks
+           :
+           ^
+           source.ks meta.type.annotation.ks keyword.operator.type.annotation.ks
+             
+            ^
+            source.ks meta.type.annotation.ks
+             Number
+             ^^^^^^
+             source.ks meta.type.annotation.ks support.type.primitive.ks
 >
 >    func abs(x: Number): Number
      

@@ -9,7 +9,7 @@ struct Point3D extends Point {
     z: Number
 }
 
-let point = Point3D(0.3, 0.4, 0.5)
+var dyn point = Point3D(0.3, 0.4, 0.5)
 
 console.log(point.x, point.y, point.z)
 -----------------------------------
@@ -134,55 +134,58 @@ grammar: kaoscript.tmLanguage
  ^
  source.ks
 >
->let point = Point3D(0.3, 0.4, 0.5)
- let
- ^^^
+>var dyn point = Point3D(0.3, 0.4, 0.5)
+ var 
+ ^^^^
  source.ks storage.type.readwrite.ks
-     
-    ^
-    source.ks
-     point
-     ^^^^^
-     source.ks meta.definition.variable.ks variable.other.readwrite.ks
-           
-          ^
-          source.ks
-           =
-           ^
-           source.ks keyword.operator.assignment.ks
-             
-            ^
-            source.ks
-             Point3D
-             ^^^^^^^
-             source.ks entity.name.function.ks
-                    (
-                    ^
-                    source.ks punctuation.definition.arguments.begin.bracket.round.ks
-                     0.3
-                     ^^^
-                     source.ks constant.numeric.decimal.ks
-                        ,
+     dyn
+     ^^^
+     source.ks storage.type.readwrite.ks storage.modifier.dynamic.ks
+         
+        ^
+        source.ks
+         point
+         ^^^^^
+         source.ks meta.definition.variable.ks variable.other.ks
+               
+              ^
+              source.ks
+               =
+               ^
+               source.ks keyword.operator.assignment.ks
+                 
+                ^
+                source.ks
+                 Point3D
+                 ^^^^^^^
+                 source.ks entity.name.function.ks
+                        (
                         ^
-                        source.ks punctuation.separator.comma.ks
-                          
-                         ^
-                         source.ks
-                          0.4
-                          ^^^
-                          source.ks constant.numeric.decimal.ks
-                             ,
+                        source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                         0.3
+                         ^^^
+                         source.ks constant.numeric.decimal.ks
+                            ,
+                            ^
+                            source.ks punctuation.separator.comma.ks
+                              
                              ^
-                             source.ks punctuation.separator.comma.ks
-                               
-                              ^
-                              source.ks
-                               0.5
-                               ^^^
-                               source.ks constant.numeric.decimal.ks
-                                  )
+                             source.ks
+                              0.4
+                              ^^^
+                              source.ks constant.numeric.decimal.ks
+                                 ,
+                                 ^
+                                 source.ks punctuation.separator.comma.ks
+                                   
                                   ^
-                                  source.ks punctuation.definition.arguments.end.bracket.round.ks
+                                  source.ks
+                                   0.5
+                                   ^^^
+                                   source.ks constant.numeric.decimal.ks
+                                      )
+                                      ^
+                                      source.ks punctuation.definition.arguments.end.bracket.round.ks
 >
 >
  

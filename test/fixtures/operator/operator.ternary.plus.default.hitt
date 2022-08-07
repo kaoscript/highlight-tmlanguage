@@ -1,7 +1,7 @@
 original file
 -----------------------------------
-let foo = 0
-let bar = false
+var dyn foo = 0
+var dyn bar = false
 
 foo += bar ? 42 : 24
 -----------------------------------
@@ -9,51 +9,57 @@ foo += bar ? 42 : 24
 grammar: kaoscript.tmLanguage
 -----------------------------------
 >
->let foo = 0
- let
- ^^^
+>var dyn foo = 0
+ var 
+ ^^^^
  source.ks storage.type.readwrite.ks
-     
-    ^
-    source.ks
-     foo
+     dyn
      ^^^
-     source.ks meta.definition.variable.ks variable.other.readwrite.ks
+     source.ks storage.type.readwrite.ks storage.modifier.dynamic.ks
          
         ^
         source.ks
-         =
-         ^
-         source.ks keyword.operator.assignment.ks
-           
-          ^
-          source.ks
-           0
-           ^
-           source.ks constant.numeric.decimal.ks
+         foo
+         ^^^
+         source.ks meta.definition.variable.ks variable.other.ks
+             
+            ^
+            source.ks
+             =
+             ^
+             source.ks keyword.operator.assignment.ks
+               
+              ^
+              source.ks
+               0
+               ^
+               source.ks constant.numeric.decimal.ks
 >
->let bar = false
- let
- ^^^
+>var dyn bar = false
+ var 
+ ^^^^
  source.ks storage.type.readwrite.ks
-     
-    ^
-    source.ks
-     bar
+     dyn
      ^^^
-     source.ks meta.definition.variable.ks variable.other.readwrite.ks
+     source.ks storage.type.readwrite.ks storage.modifier.dynamic.ks
          
         ^
         source.ks
-         =
-         ^
-         source.ks keyword.operator.assignment.ks
-           
-          ^
-          source.ks
-           false
-           ^^^^^
-           source.ks constant.language.boolean.false.ks
+         bar
+         ^^^
+         source.ks meta.definition.variable.ks variable.other.ks
+             
+            ^
+            source.ks
+             =
+             ^
+             source.ks keyword.operator.assignment.ks
+               
+              ^
+              source.ks
+               false
+               ^^^^^
+               source.ks constant.language.boolean.false.ks
 >
 >
  

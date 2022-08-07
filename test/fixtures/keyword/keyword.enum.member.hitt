@@ -1,6 +1,6 @@
 original file
 -----------------------------------
-const enum = 0
+var enum = 0
 
 enum.toString()
 -----------------------------------
@@ -8,28 +8,28 @@ enum.toString()
 grammar: kaoscript.tmLanguage
 -----------------------------------
 >
->const enum = 0
- const
- ^^^^^
+>var enum = 0
+ var
+ ^^^
  source.ks storage.type.constant.ks
-       
-      ^
-      source.ks
-       enum
-       ^^^^
-       source.ks meta.definition.variable.ks variable.other.constant.ks
+     
+    ^
+    source.ks
+     enum
+     ^^^^
+     source.ks meta.definition.variable.ks variable.other.ks
+          
+         ^
+         source.ks
+          =
+          ^
+          source.ks keyword.operator.assignment.ks
             
            ^
            source.ks
-            =
+            0
             ^
-            source.ks keyword.operator.assignment.ks
-              
-             ^
-             source.ks
-              0
-              ^
-              source.ks constant.numeric.decimal.ks
+            source.ks constant.numeric.decimal.ks
 >
 >
  

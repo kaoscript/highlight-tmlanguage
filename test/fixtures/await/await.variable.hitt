@@ -5,8 +5,8 @@ async func foo(bar: string, qux: int): string {
 }
 
 func bar(callback) {
-    let text = await foo('foobar', 42)
-    
+    var text = await foo('foobar', 42)
+
     callback(null, text)
 }
 -----------------------------------
@@ -162,19 +162,19 @@ grammar: kaoscript.tmLanguage
                     ^
                     source.ks punctuation.definition.block.begin.bracket.curly.ks
 >
->    let text = await foo('foobar', 42)
+>    var text = await foo('foobar', 42)
      
  ^^^^
  source.ks
-     let
+     var
      ^^^
-     source.ks storage.type.readwrite.ks
+     source.ks storage.type.constant.ks
          
         ^
         source.ks
          text
          ^^^^
-         source.ks meta.definition.variable.ks variable.other.readwrite.ks
+         source.ks meta.definition.variable.ks variable.other.ks
               
              ^
              source.ks
@@ -218,9 +218,9 @@ grammar: kaoscript.tmLanguage
                                       ^
                                       source.ks punctuation.definition.arguments.end.bracket.round.ks
 >
->    
-     
- ^^^^^
+>
+ 
+ ^
  source.ks
 >
 >    callback(null, text)

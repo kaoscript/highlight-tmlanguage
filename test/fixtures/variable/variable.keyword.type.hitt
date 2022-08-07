@@ -1,6 +1,6 @@
 original file
 -----------------------------------
-let type = {}
+var type = {}
 
 type.foo = 42
 -----------------------------------
@@ -8,16 +8,16 @@ type.foo = 42
 grammar: kaoscript.tmLanguage
 -----------------------------------
 >
->let type = {}
- let
+>var type = {}
+ var
  ^^^
- source.ks storage.type.readwrite.ks
+ source.ks storage.type.constant.ks
      
     ^
     source.ks
      type
      ^^^^
-     source.ks meta.definition.variable.ks variable.other.readwrite.ks
+     source.ks meta.definition.variable.ks variable.other.ks
           
          ^
          source.ks

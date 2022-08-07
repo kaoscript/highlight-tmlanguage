@@ -14,13 +14,13 @@ grammar: kaoscript.tmLanguage
 >let x = 5
  let
  ^^^
- source.ks storage.type.readwrite.ks
+ source.ks variable.other.ks
      
     ^
     source.ks
      x
      ^
-     source.ks meta.definition.variable.ks variable.other.readwrite.ks
+     source.ks variable.other.ks
        
       ^
       source.ks

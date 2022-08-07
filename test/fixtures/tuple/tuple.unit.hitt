@@ -2,7 +2,7 @@ original file
 -----------------------------------
 tuple Unit
 
-let unit = Unit()
+var dyn unit = Unit()
 -----------------------------------
 
 grammar: kaoscript.tmLanguage
@@ -24,31 +24,34 @@ grammar: kaoscript.tmLanguage
  ^
  source.ks
 >
->let unit = Unit()
- let
- ^^^
+>var dyn unit = Unit()
+ var 
+ ^^^^
  source.ks storage.type.readwrite.ks
-     
-    ^
-    source.ks
-     unit
-     ^^^^
-     source.ks meta.definition.variable.ks variable.other.readwrite.ks
-          
-         ^
-         source.ks
-          =
-          ^
-          source.ks keyword.operator.assignment.ks
-            
-           ^
-           source.ks
-            Unit
-            ^^^^
-            source.ks entity.name.function.ks
-                (
-                ^
-                source.ks punctuation.definition.arguments.begin.bracket.round.ks
-                 )
-                 ^
-                 source.ks punctuation.definition.arguments.end.bracket.round.ks
+     dyn
+     ^^^
+     source.ks storage.type.readwrite.ks storage.modifier.dynamic.ks
+         
+        ^
+        source.ks
+         unit
+         ^^^^
+         source.ks meta.definition.variable.ks variable.other.ks
+              
+             ^
+             source.ks
+              =
+              ^
+              source.ks keyword.operator.assignment.ks
+                
+               ^
+               source.ks
+                Unit
+                ^^^^
+                source.ks entity.name.function.ks
+                    (
+                    ^
+                    source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                     )
+                     ^
+                     source.ks punctuation.definition.arguments.end.bracket.round.ks

@@ -1,7 +1,7 @@
 original file
 -----------------------------------
 func foobar(p: Point) {
-    const d3 = p as! Point3D
+    var d3 = p as! Point3D
 }
 -----------------------------------
 
@@ -43,43 +43,43 @@ grammar: kaoscript.tmLanguage
                        ^
                        source.ks punctuation.definition.block.begin.bracket.curly.ks
 >
->    const d3 = p as! Point3D
+>    var d3 = p as! Point3D
      
  ^^^^
  source.ks
-     const
-     ^^^^^
+     var
+     ^^^
      source.ks storage.type.constant.ks
-           
-          ^
-          source.ks
-           d3
-           ^^
-           source.ks meta.definition.variable.ks variable.other.constant.ks
+         
+        ^
+        source.ks
+         d3
+         ^^
+         source.ks meta.definition.variable.ks variable.other.ks
+            
+           ^
+           source.ks
+            =
+            ^
+            source.ks keyword.operator.assignment.ks
               
              ^
              source.ks
-              =
+              p
               ^
-              source.ks keyword.operator.assignment.ks
+              source.ks variable.other.ks
                 
                ^
                source.ks
-                p
-                ^
-                source.ks variable.other.ks
-                  
-                 ^
-                 source.ks
-                  as!
-                  ^^^
-                  source.ks keyword.operator.type-casting.manual.forced.long.ks
-                      
-                     ^
-                     source.ks
-                      Point3D
-                      ^^^^^^^
-                      source.ks entity.name.type.ks
+                as!
+                ^^^
+                source.ks keyword.operator.type-casting.manual.forced.long.ks
+                    
+                   ^
+                   source.ks
+                    Point3D
+                    ^^^^^^^
+                    source.ks entity.name.type.ks
 >
 >}
  }

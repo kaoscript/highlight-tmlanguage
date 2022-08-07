@@ -5,7 +5,7 @@ extern console
 func min() => ['female', 24]
 
 namespace foo {
-    let [gender, age] = min()
+    var dyn [gender, age] = min()
 }
 
 console.log(foo.age)
@@ -103,52 +103,55 @@ grammar: kaoscript.tmLanguage
                ^
                source.ks punctuation.definition.namespace.begin.bracket.curly.ks
 >
->    let [gender, age] = min()
+>    var dyn [gender, age] = min()
      
  ^^^^
  source.ks
-     let
-     ^^^
+     var 
+     ^^^^
      source.ks storage.type.readwrite.ks
-         
-        ^
-        source.ks
-         [
-         ^
-         source.ks punctuation.definition.binding-pattern.array.begin.bracket.square.ks
-          gender
-          ^^^^^^
-          source.ks variable.other.ks
-                ,
-                ^
-                source.ks punctuation.separator.comma.ks
-                  
-                 ^
-                 source.ks
-                  age
-                  ^^^
-                  source.ks variable.other.ks
-                     ]
+         dyn
+         ^^^
+         source.ks storage.type.readwrite.ks storage.modifier.dynamic.ks
+             
+            ^
+            source.ks
+             [
+             ^
+             source.ks punctuation.definition.binding-pattern.array.begin.bracket.square.ks
+              gender
+              ^^^^^^
+              source.ks variable.other.ks
+                    ,
+                    ^
+                    source.ks punctuation.separator.comma.ks
+                      
                      ^
-                     source.ks punctuation.definition.binding-pattern.array.end.bracket.square.ks
-                       
-                      ^
-                      source.ks
-                       =
-                       ^
-                       source.ks keyword.operator.assignment.ks
-                         
-                        ^
-                        source.ks
-                         min
-                         ^^^
-                         source.ks entity.name.function.ks
-                            (
+                     source.ks
+                      age
+                      ^^^
+                      source.ks variable.other.ks
+                         ]
+                         ^
+                         source.ks punctuation.definition.binding-pattern.array.end.bracket.square.ks
+                           
+                          ^
+                          source.ks
+                           =
+                           ^
+                           source.ks keyword.operator.assignment.ks
+                             
                             ^
-                            source.ks punctuation.definition.arguments.begin.bracket.round.ks
-                             )
-                             ^
-                             source.ks punctuation.definition.arguments.end.bracket.round.ks
+                            source.ks
+                             min
+                             ^^^
+                             source.ks entity.name.function.ks
+                                (
+                                ^
+                                source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                                 )
+                                 ^
+                                 source.ks punctuation.definition.arguments.end.bracket.round.ks
 >
 >}
  }

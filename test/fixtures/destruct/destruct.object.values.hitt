@@ -1,16 +1,16 @@
 original file
 -----------------------------------
-let {foo=3} = { foo: 2 }
+var dyn {foo=3} = { foo: 2 }
 
 console.log(foo)
 // <- 2
 
-let {foo=3} = { foo: undefined }
+var dyn {foo=3} = { foo: undefined }
 
 console.log(foo)
 // <- 3
 
-let {foo=3} = { bar: 2 }
+var dyn {foo=3} = { bar: 2 }
 
 console.log(foo)
 // <- 3
@@ -19,61 +19,64 @@ console.log(foo)
 grammar: kaoscript.tmLanguage
 -----------------------------------
 >
->let {foo=3} = { foo: 2 }
- let
- ^^^
+>var dyn {foo=3} = { foo: 2 }
+ var 
+ ^^^^
  source.ks storage.type.readwrite.ks
-     
-    ^
-    source.ks
-     {
-     ^
-     source.ks punctuation.definition.binding-pattern.object.begin.bracket.curly.ks
-      foo
-      ^^^
-      source.ks variable.other.ks
-         =
+     dyn
+     ^^^
+     source.ks storage.type.readwrite.ks storage.modifier.dynamic.ks
+         
+        ^
+        source.ks
+         {
          ^
-         source.ks keyword.operator.assignment.ks
-          3
-          ^
-          source.ks constant.numeric.decimal.ks
-           }
-           ^
-           source.ks punctuation.definition.binding-pattern.object.end.bracket.curly.ks
-             
-            ^
-            source.ks
+         source.ks punctuation.definition.binding-pattern.object.begin.bracket.curly.ks
+          foo
+          ^^^
+          source.ks variable.other.ks
              =
              ^
              source.ks keyword.operator.assignment.ks
-               
+              3
               ^
-              source.ks
-               {
+              source.ks constant.numeric.decimal.ks
+               }
                ^
-               source.ks punctuation.definition.object.begin.bracket.curly.ks
+               source.ks punctuation.definition.binding-pattern.object.end.bracket.curly.ks
                  
                 ^
                 source.ks
-                 foo
-                 ^^^
-                 source.ks meta.object.key.ks
-                    :
+                 =
+                 ^
+                 source.ks keyword.operator.assignment.ks
+                   
+                  ^
+                  source.ks
+                   {
+                   ^
+                   source.ks punctuation.definition.object.begin.bracket.curly.ks
+                     
                     ^
-                    source.ks punctuation.separator.key-value.ks
-                      
-                     ^
-                     source.ks
-                      2
-                      ^
-                      source.ks constant.numeric.decimal.ks
-                        
-                       ^
-                       source.ks
-                        }
+                    source.ks
+                     foo
+                     ^^^
+                     source.ks meta.object.key.ks
+                        :
                         ^
-                        source.ks punctuation.definition.object.end.bracket.curly.ks
+                        source.ks punctuation.separator.key-value.ks
+                          
+                         ^
+                         source.ks
+                          2
+                          ^
+                          source.ks constant.numeric.decimal.ks
+                            
+                           ^
+                           source.ks
+                            }
+                            ^
+                            source.ks punctuation.definition.object.end.bracket.curly.ks
 >
 >
  
@@ -113,61 +116,64 @@ grammar: kaoscript.tmLanguage
  ^
  source.ks
 >
->let {foo=3} = { foo: undefined }
- let
- ^^^
+>var dyn {foo=3} = { foo: undefined }
+ var 
+ ^^^^
  source.ks storage.type.readwrite.ks
-     
-    ^
-    source.ks
-     {
-     ^
-     source.ks punctuation.definition.binding-pattern.object.begin.bracket.curly.ks
-      foo
-      ^^^
-      source.ks variable.other.ks
-         =
+     dyn
+     ^^^
+     source.ks storage.type.readwrite.ks storage.modifier.dynamic.ks
+         
+        ^
+        source.ks
+         {
          ^
-         source.ks keyword.operator.assignment.ks
-          3
-          ^
-          source.ks constant.numeric.decimal.ks
-           }
-           ^
-           source.ks punctuation.definition.binding-pattern.object.end.bracket.curly.ks
-             
-            ^
-            source.ks
+         source.ks punctuation.definition.binding-pattern.object.begin.bracket.curly.ks
+          foo
+          ^^^
+          source.ks variable.other.ks
              =
              ^
              source.ks keyword.operator.assignment.ks
-               
+              3
               ^
-              source.ks
-               {
+              source.ks constant.numeric.decimal.ks
+               }
                ^
-               source.ks punctuation.definition.object.begin.bracket.curly.ks
+               source.ks punctuation.definition.binding-pattern.object.end.bracket.curly.ks
                  
                 ^
                 source.ks
-                 foo
-                 ^^^
-                 source.ks meta.object.key.ks
-                    :
+                 =
+                 ^
+                 source.ks keyword.operator.assignment.ks
+                   
+                  ^
+                  source.ks
+                   {
+                   ^
+                   source.ks punctuation.definition.object.begin.bracket.curly.ks
+                     
                     ^
-                    source.ks punctuation.separator.key-value.ks
-                      
-                     ^
-                     source.ks
-                      undefined
-                      ^^^^^^^^^
-                      source.ks variable.other.ks
-                                
-                               ^
-                               source.ks
-                                }
-                                ^
-                                source.ks punctuation.definition.object.end.bracket.curly.ks
+                    source.ks
+                     foo
+                     ^^^
+                     source.ks meta.object.key.ks
+                        :
+                        ^
+                        source.ks punctuation.separator.key-value.ks
+                          
+                         ^
+                         source.ks
+                          undefined
+                          ^^^^^^^^^
+                          source.ks variable.other.ks
+                                    
+                                   ^
+                                   source.ks
+                                    }
+                                    ^
+                                    source.ks punctuation.definition.object.end.bracket.curly.ks
 >
 >
  
@@ -207,61 +213,64 @@ grammar: kaoscript.tmLanguage
  ^
  source.ks
 >
->let {foo=3} = { bar: 2 }
- let
- ^^^
+>var dyn {foo=3} = { bar: 2 }
+ var 
+ ^^^^
  source.ks storage.type.readwrite.ks
-     
-    ^
-    source.ks
-     {
-     ^
-     source.ks punctuation.definition.binding-pattern.object.begin.bracket.curly.ks
-      foo
-      ^^^
-      source.ks variable.other.ks
-         =
+     dyn
+     ^^^
+     source.ks storage.type.readwrite.ks storage.modifier.dynamic.ks
+         
+        ^
+        source.ks
+         {
          ^
-         source.ks keyword.operator.assignment.ks
-          3
-          ^
-          source.ks constant.numeric.decimal.ks
-           }
-           ^
-           source.ks punctuation.definition.binding-pattern.object.end.bracket.curly.ks
-             
-            ^
-            source.ks
+         source.ks punctuation.definition.binding-pattern.object.begin.bracket.curly.ks
+          foo
+          ^^^
+          source.ks variable.other.ks
              =
              ^
              source.ks keyword.operator.assignment.ks
-               
+              3
               ^
-              source.ks
-               {
+              source.ks constant.numeric.decimal.ks
+               }
                ^
-               source.ks punctuation.definition.object.begin.bracket.curly.ks
+               source.ks punctuation.definition.binding-pattern.object.end.bracket.curly.ks
                  
                 ^
                 source.ks
-                 bar
-                 ^^^
-                 source.ks meta.object.key.ks
-                    :
+                 =
+                 ^
+                 source.ks keyword.operator.assignment.ks
+                   
+                  ^
+                  source.ks
+                   {
+                   ^
+                   source.ks punctuation.definition.object.begin.bracket.curly.ks
+                     
                     ^
-                    source.ks punctuation.separator.key-value.ks
-                      
-                     ^
-                     source.ks
-                      2
-                      ^
-                      source.ks constant.numeric.decimal.ks
-                        
-                       ^
-                       source.ks
-                        }
+                    source.ks
+                     bar
+                     ^^^
+                     source.ks meta.object.key.ks
+                        :
                         ^
-                        source.ks punctuation.definition.object.end.bracket.curly.ks
+                        source.ks punctuation.separator.key-value.ks
+                          
+                         ^
+                         source.ks
+                          2
+                          ^
+                          source.ks constant.numeric.decimal.ks
+                            
+                           ^
+                           source.ks
+                            }
+                            ^
+                            source.ks punctuation.definition.object.end.bracket.curly.ks
 >
 >
  

@@ -1,8 +1,8 @@
 original file
 -----------------------------------
-let boolean = true
+var dyn boolean = true
 
-let binary = switch boolean {
+var dyn binary = switch boolean {
     false => 0
     true => 1
 }
@@ -11,68 +11,74 @@ let binary = switch boolean {
 grammar: kaoscript.tmLanguage
 -----------------------------------
 >
->let boolean = true
- let
- ^^^
+>var dyn boolean = true
+ var 
+ ^^^^
  source.ks storage.type.readwrite.ks
-     
-    ^
-    source.ks
-     boolean
-     ^^^^^^^
-     source.ks meta.definition.variable.ks variable.other.readwrite.ks
-             
-            ^
-            source.ks
-             =
-             ^
-             source.ks keyword.operator.assignment.ks
-               
-              ^
-              source.ks
-               true
-               ^^^^
-               source.ks constant.language.boolean.true.ks
+     dyn
+     ^^^
+     source.ks storage.type.readwrite.ks storage.modifier.dynamic.ks
+         
+        ^
+        source.ks
+         boolean
+         ^^^^^^^
+         source.ks meta.definition.variable.ks variable.other.ks
+                 
+                ^
+                source.ks
+                 =
+                 ^
+                 source.ks keyword.operator.assignment.ks
+                   
+                  ^
+                  source.ks
+                   true
+                   ^^^^
+                   source.ks constant.language.boolean.true.ks
 >
 >
  
  ^
  source.ks
 >
->let binary = switch boolean {
- let
- ^^^
+>var dyn binary = switch boolean {
+ var 
+ ^^^^
  source.ks storage.type.readwrite.ks
-     
-    ^
-    source.ks
-     binary
-     ^^^^^^
-     source.ks meta.definition.variable.ks variable.other.readwrite.ks
-            
-           ^
-           source.ks
-            =
-            ^
-            source.ks keyword.operator.assignment.ks
-              
-             ^
-             source.ks
-              switch
-              ^^^^^^
-              source.ks keyword.control.switch.ks
-                     
-                    ^
-                    source.ks
-                     boolean
-                     ^^^^^^^
-                     source.ks variable.other.ks
-                             
-                            ^
-                            source.ks
-                             {
-                             ^
-                             source.ks punctuation.definition.switch.begin.bracket.curly.ks
+     dyn
+     ^^^
+     source.ks storage.type.readwrite.ks storage.modifier.dynamic.ks
+         
+        ^
+        source.ks
+         binary
+         ^^^^^^
+         source.ks meta.definition.variable.ks variable.other.ks
+                
+               ^
+               source.ks
+                =
+                ^
+                source.ks keyword.operator.assignment.ks
+                  
+                 ^
+                 source.ks
+                  switch
+                  ^^^^^^
+                  source.ks keyword.control.switch.ks
+                         
+                        ^
+                        source.ks
+                         boolean
+                         ^^^^^^^
+                         source.ks variable.other.ks
+                                 
+                                ^
+                                source.ks
+                                 {
+                                 ^
+                                 source.ks punctuation.definition.switch.begin.bracket.curly.ks
 >
 >    false => 0
      

@@ -3,8 +3,8 @@ original file
 extern console
 
 namespace Float {
-    let PI: Number = 3.14
-    let name: String = 'john'
+    var dyn PI: Number = 3.14
+    var dyn name: String = 'john'
 }
 
 console.log(Float.PI)
@@ -47,81 +47,87 @@ grammar: kaoscript.tmLanguage
                  ^
                  source.ks punctuation.definition.namespace.begin.bracket.curly.ks
 >
->    let PI: Number = 3.14
+>    var dyn PI: Number = 3.14
      
  ^^^^
  source.ks
-     let
-     ^^^
+     var 
+     ^^^^
      source.ks storage.type.readwrite.ks
-         
-        ^
-        source.ks
-         PI
-         ^^
-         source.ks meta.definition.variable.ks variable.other.readwrite.ks
-           :
-           ^
-           source.ks meta.type.annotation.ks keyword.operator.type.annotation.ks
+         dyn
+         ^^^
+         source.ks storage.type.readwrite.ks storage.modifier.dynamic.ks
              
             ^
-            source.ks meta.type.annotation.ks
-             Number
-             ^^^^^^
-             source.ks meta.type.annotation.ks support.type.primitive.ks
-                    
-                   ^
-                   source.ks
-                    =
-                    ^
-                    source.ks keyword.operator.assignment.ks
-                      
-                     ^
-                     source.ks
-                      3.14
-                      ^^^^
-                      source.ks constant.numeric.decimal.ks
->
->    let name: String = 'john'
-     
- ^^^^
- source.ks
-     let
-     ^^^
-     source.ks storage.type.readwrite.ks
-         
-        ^
-        source.ks
-         name
-         ^^^^
-         source.ks meta.definition.variable.ks variable.other.readwrite.ks
-             :
-             ^
-             source.ks meta.type.annotation.ks keyword.operator.type.annotation.ks
-               
-              ^
-              source.ks meta.type.annotation.ks
-               String
-               ^^^^^^
-               source.ks meta.type.annotation.ks support.type.primitive.ks
-                      
-                     ^
-                     source.ks
-                      =
-                      ^
-                      source.ks keyword.operator.assignment.ks
+            source.ks
+             PI
+             ^^
+             source.ks meta.definition.variable.ks variable.other.ks
+               :
+               ^
+               source.ks meta.type.annotation.ks keyword.operator.type.annotation.ks
+                 
+                ^
+                source.ks meta.type.annotation.ks
+                 Number
+                 ^^^^^^
+                 source.ks meta.type.annotation.ks support.type.primitive.ks
                         
                        ^
                        source.ks
-                        '
+                        =
                         ^
-                        source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
-                         john
-                         ^^^^
-                         source.ks string.quoted.single.ks
-                             '
-                             ^
-                             source.ks string.quoted.single.ks punctuation.definition.string.end.ks
+                        source.ks keyword.operator.assignment.ks
+                          
+                         ^
+                         source.ks
+                          3.14
+                          ^^^^
+                          source.ks constant.numeric.decimal.ks
+>
+>    var dyn name: String = 'john'
+     
+ ^^^^
+ source.ks
+     var 
+     ^^^^
+     source.ks storage.type.readwrite.ks
+         dyn
+         ^^^
+         source.ks storage.type.readwrite.ks storage.modifier.dynamic.ks
+             
+            ^
+            source.ks
+             name
+             ^^^^
+             source.ks meta.definition.variable.ks variable.other.ks
+                 :
+                 ^
+                 source.ks meta.type.annotation.ks keyword.operator.type.annotation.ks
+                   
+                  ^
+                  source.ks meta.type.annotation.ks
+                   String
+                   ^^^^^^
+                   source.ks meta.type.annotation.ks support.type.primitive.ks
+                          
+                         ^
+                         source.ks
+                          =
+                          ^
+                          source.ks keyword.operator.assignment.ks
+                            
+                           ^
+                           source.ks
+                            '
+                            ^
+                            source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
+                             john
+                             ^^^^
+                             source.ks string.quoted.single.ks
+                                 '
+                                 ^
+                                 source.ks string.quoted.single.ks punctuation.definition.string.end.ks
 >
 >}
  }

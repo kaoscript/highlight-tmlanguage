@@ -5,7 +5,7 @@ func foo() {
     #[bar]
     func bar() {
         #[qux]
-        let qux = 42
+        var qux = 42
     }
 }
 -----------------------------------
@@ -110,19 +110,19 @@ grammar: kaoscript.tmLanguage
               ^
               source.ks meta.attribute.ks punctuation.definition.attribute.end.bracket.square.ks
 >
->        let qux = 42
+>        var qux = 42
          
  ^^^^^^^^
  source.ks
-         let
+         var
          ^^^
-         source.ks storage.type.readwrite.ks
+         source.ks storage.type.constant.ks
              
             ^
             source.ks
              qux
              ^^^
-             source.ks meta.definition.variable.ks variable.other.readwrite.ks
+             source.ks meta.definition.variable.ks variable.other.ks
                  
                 ^
                 source.ks

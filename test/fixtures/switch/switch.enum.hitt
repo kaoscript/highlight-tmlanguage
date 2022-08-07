@@ -13,7 +13,7 @@ enum ANSIColor {
 }
 
 func color(fg: ANSIColor, bg: ANSIColor): String {
-    let fg_code = switch fg {
+    var dyn fg_code = switch fg {
         black => 30
         red => 31
         green => 32
@@ -24,8 +24,8 @@ func color(fg: ANSIColor, bg: ANSIColor): String {
         white => 37
         default => 39
     }
-    
-    let bg_code = switch bg {
+
+    var dyn bg_code = switch bg {
         black => 40
         red => 41
         green => 42
@@ -205,43 +205,46 @@ grammar: kaoscript.tmLanguage
                                                   ^
                                                   source.ks punctuation.definition.block.begin.bracket.curly.ks
 >
->    let fg_code = switch fg {
+>    var dyn fg_code = switch fg {
      
  ^^^^
  source.ks
-     let
-     ^^^
+     var 
+     ^^^^
      source.ks storage.type.readwrite.ks
-         
-        ^
-        source.ks
-         fg_code
-         ^^^^^^^
-         source.ks meta.definition.variable.ks variable.other.readwrite.ks
-                 
-                ^
-                source.ks
-                 =
-                 ^
-                 source.ks keyword.operator.assignment.ks
-                   
-                  ^
-                  source.ks
-                   switch
-                   ^^^^^^
-                   source.ks keyword.control.switch.ks
-                          
-                         ^
-                         source.ks
-                          fg
-                          ^^
-                          source.ks variable.other.ks
-                             
-                            ^
-                            source.ks
-                             {
+         dyn
+         ^^^
+         source.ks storage.type.readwrite.ks storage.modifier.dynamic.ks
+             
+            ^
+            source.ks
+             fg_code
+             ^^^^^^^
+             source.ks meta.definition.variable.ks variable.other.ks
+                     
+                    ^
+                    source.ks
+                     =
+                     ^
+                     source.ks keyword.operator.assignment.ks
+                       
+                      ^
+                      source.ks
+                       switch
+                       ^^^^^^
+                       source.ks keyword.control.switch.ks
+                              
                              ^
-                             source.ks punctuation.definition.switch.begin.bracket.curly.ks
+                             source.ks
+                              fg
+                              ^^
+                              source.ks variable.other.ks
+                                 
+                                ^
+                                source.ks
+                                 {
+                                 ^
+                                 source.ks punctuation.definition.switch.begin.bracket.curly.ks
 >
 >        black => 30
          
@@ -431,48 +434,51 @@ grammar: kaoscript.tmLanguage
      ^
      source.ks punctuation.definition.switch.end.bracket.curly.ks
 >
->    
-     
- ^^^^^
+>
+ 
+ ^
  source.ks
 >
->    let bg_code = switch bg {
+>    var dyn bg_code = switch bg {
      
  ^^^^
  source.ks
-     let
-     ^^^
+     var 
+     ^^^^
      source.ks storage.type.readwrite.ks
-         
-        ^
-        source.ks
-         bg_code
-         ^^^^^^^
-         source.ks meta.definition.variable.ks variable.other.readwrite.ks
-                 
-                ^
-                source.ks
-                 =
-                 ^
-                 source.ks keyword.operator.assignment.ks
-                   
-                  ^
-                  source.ks
-                   switch
-                   ^^^^^^
-                   source.ks keyword.control.switch.ks
-                          
-                         ^
-                         source.ks
-                          bg
-                          ^^
-                          source.ks variable.other.ks
-                             
-                            ^
-                            source.ks
-                             {
+         dyn
+         ^^^
+         source.ks storage.type.readwrite.ks storage.modifier.dynamic.ks
+             
+            ^
+            source.ks
+             bg_code
+             ^^^^^^^
+             source.ks meta.definition.variable.ks variable.other.ks
+                     
+                    ^
+                    source.ks
+                     =
+                     ^
+                     source.ks keyword.operator.assignment.ks
+                       
+                      ^
+                      source.ks
+                       switch
+                       ^^^^^^
+                       source.ks keyword.control.switch.ks
+                              
                              ^
-                             source.ks punctuation.definition.switch.begin.bracket.curly.ks
+                             source.ks
+                              bg
+                              ^^
+                              source.ks variable.other.ks
+                                 
+                                ^
+                                source.ks
+                                 {
+                                 ^
+                                 source.ks punctuation.definition.switch.begin.bracket.curly.ks
 >
 >        black => 40
          

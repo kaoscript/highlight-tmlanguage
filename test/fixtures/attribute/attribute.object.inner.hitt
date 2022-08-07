@@ -1,6 +1,6 @@
 original file
 -----------------------------------
-const foobar = {
+var foobar = {
     #![error(off)]
 
     foo() {
@@ -14,28 +14,28 @@ const foobar = {
 grammar: kaoscript.tmLanguage
 -----------------------------------
 >
->const foobar = {
- const
- ^^^^^
+>var foobar = {
+ var
+ ^^^
  source.ks storage.type.constant.ks
-       
-      ^
-      source.ks
-       foobar
-       ^^^^^^
-       source.ks meta.definition.variable.ks variable.other.constant.ks
+     
+    ^
+    source.ks
+     foobar
+     ^^^^^^
+     source.ks meta.definition.variable.ks variable.other.ks
+            
+           ^
+           source.ks
+            =
+            ^
+            source.ks keyword.operator.assignment.ks
               
              ^
              source.ks
-              =
+              {
               ^
-              source.ks keyword.operator.assignment.ks
-                
-               ^
-               source.ks
-                {
-                ^
-                source.ks punctuation.definition.object.begin.bracket.curly.ks
+              source.ks punctuation.definition.object.begin.bracket.curly.ks
 >
 >    #![error(off)]
      

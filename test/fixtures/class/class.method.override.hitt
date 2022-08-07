@@ -153,7 +153,7 @@ grammar: kaoscript.tmLanguage
  source.ks
      override
      ^^^^^^^^
-     source.ks storage.modifier.ks
+     source.ks storage.modifier.override.ks
               
              ^
              source.ks

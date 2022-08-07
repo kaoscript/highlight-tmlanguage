@@ -2,7 +2,7 @@ original file
 -----------------------------------
 extern foo, bar
 
-let tt = foo ?? bar
+var dyn tt = foo ?? bar
 -----------------------------------
 
 grammar: kaoscript.tmLanguage
@@ -33,37 +33,40 @@ grammar: kaoscript.tmLanguage
  ^
  source.ks
 >
->let tt = foo ?? bar
- let
- ^^^
+>var dyn tt = foo ?? bar
+ var 
+ ^^^^
  source.ks storage.type.readwrite.ks
-     
-    ^
-    source.ks
-     tt
-     ^^
-     source.ks meta.definition.variable.ks variable.other.readwrite.ks
-        
-       ^
-       source.ks
-        =
+     dyn
+     ^^^
+     source.ks storage.type.readwrite.ks storage.modifier.dynamic.ks
+         
         ^
-        source.ks keyword.operator.assignment.ks
-          
-         ^
-         source.ks
-          foo
-          ^^^
-          source.ks variable.other.ks
+        source.ks
+         tt
+         ^^
+         source.ks meta.definition.variable.ks variable.other.ks
+            
+           ^
+           source.ks
+            =
+            ^
+            source.ks keyword.operator.assignment.ks
               
              ^
              source.ks
-              ??
-              ^^
-              source.ks keyword.operator.null-coalescing.ks
-                 
-                ^
-                source.ks
-                 bar
-                 ^^^
-                 source.ks variable.other.ks
+              foo
+              ^^^
+              source.ks variable.other.ks
+                  
+                 ^
+                 source.ks
+                  ??
+                  ^^
+                  source.ks keyword.operator.null-coalescing.ks
+                     
+                    ^
+                    source.ks
+                     bar
+                     ^^^
+                     source.ks variable.other.ks

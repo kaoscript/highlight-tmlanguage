@@ -5,7 +5,7 @@ extern console
 async func min() => 'female'
 
 namespace foo {
-    const gender = await min()
+    var gender = await min()
 }
 
 console.log(`\(foo.gender)`)
@@ -93,43 +93,43 @@ grammar: kaoscript.tmLanguage
                ^
                source.ks punctuation.definition.namespace.begin.bracket.curly.ks
 >
->    const gender = await min()
+>    var gender = await min()
      
  ^^^^
  source.ks
-     const
-     ^^^^^
+     var
+     ^^^
      source.ks storage.type.constant.ks
-           
-          ^
-          source.ks
-           gender
-           ^^^^^^
-           source.ks meta.definition.variable.ks variable.other.constant.ks
+         
+        ^
+        source.ks
+         gender
+         ^^^^^^
+         source.ks meta.definition.variable.ks variable.other.ks
+                
+               ^
+               source.ks
+                =
+                ^
+                source.ks keyword.operator.assignment.ks
                   
                  ^
                  source.ks
-                  =
-                  ^
-                  source.ks keyword.operator.assignment.ks
-                    
-                   ^
-                   source.ks
-                    await
-                    ^^^^^
-                    source.ks keyword.control.flow.await.ks
-                          
-                         ^
-                         source.ks
-                          min
-                          ^^^
-                          source.ks entity.name.function.ks
-                             (
-                             ^
-                             source.ks punctuation.definition.arguments.begin.bracket.round.ks
-                              )
-                              ^
-                              source.ks punctuation.definition.arguments.end.bracket.round.ks
+                  await
+                  ^^^^^
+                  source.ks keyword.control.flow.await.ks
+                        
+                       ^
+                       source.ks
+                        min
+                        ^^^
+                        source.ks entity.name.function.ks
+                           (
+                           ^
+                           source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                            )
+                            ^
+                            source.ks punctuation.definition.arguments.end.bracket.round.ks
 >
 >}
  }

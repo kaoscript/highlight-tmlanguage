@@ -1,6 +1,6 @@
 original file
 -----------------------------------
-const return = 42
+var return = 42
 
 console.log(return + 24)
 -----------------------------------
@@ -8,28 +8,28 @@ console.log(return + 24)
 grammar: kaoscript.tmLanguage
 -----------------------------------
 >
->const return = 42
- const
- ^^^^^
+>var return = 42
+ var
+ ^^^
  source.ks storage.type.constant.ks
-       
-      ^
-      source.ks
-       return
-       ^^^^^^
-       source.ks meta.definition.variable.ks variable.other.constant.ks
+     
+    ^
+    source.ks
+     return
+     ^^^^^^
+     source.ks meta.definition.variable.ks variable.other.ks
+            
+           ^
+           source.ks
+            =
+            ^
+            source.ks keyword.operator.assignment.ks
               
              ^
              source.ks
-              =
-              ^
-              source.ks keyword.operator.assignment.ks
-                
-               ^
-               source.ks
-                42
-                ^^
-                source.ks constant.numeric.decimal.ks
+              42
+              ^^
+              source.ks constant.numeric.decimal.ks
 >
 >
  

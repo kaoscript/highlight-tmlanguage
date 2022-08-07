@@ -1,6 +1,6 @@
 original file
 -----------------------------------
-let x = 5
+var dyn x = 5
 
 if
     x == 3 ||
@@ -12,28 +12,31 @@ if
 grammar: kaoscript.tmLanguage
 -----------------------------------
 >
->let x = 5
- let
- ^^^
+>var dyn x = 5
+ var 
+ ^^^^
  source.ks storage.type.readwrite.ks
-     
-    ^
-    source.ks
-     x
-     ^
-     source.ks meta.definition.variable.ks variable.other.readwrite.ks
-       
-      ^
-      source.ks
-       =
-       ^
-       source.ks keyword.operator.assignment.ks
+     dyn
+     ^^^
+     source.ks storage.type.readwrite.ks storage.modifier.dynamic.ks
          
         ^
         source.ks
-         5
+         x
          ^
-         source.ks constant.numeric.decimal.ks
+         source.ks meta.definition.variable.ks variable.other.ks
+           
+          ^
+          source.ks
+           =
+           ^
+           source.ks keyword.operator.assignment.ks
+             
+            ^
+            source.ks
+             5
+             ^
+             source.ks constant.numeric.decimal.ks
 >
 >
  

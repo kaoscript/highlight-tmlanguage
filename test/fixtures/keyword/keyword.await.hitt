@@ -1,6 +1,6 @@
 original file
 -----------------------------------
-const await = 42
+var await = 42
 
 console.log(await + 24)
 -----------------------------------
@@ -8,28 +8,28 @@ console.log(await + 24)
 grammar: kaoscript.tmLanguage
 -----------------------------------
 >
->const await = 42
- const
- ^^^^^
+>var await = 42
+ var
+ ^^^
  source.ks storage.type.constant.ks
-       
-      ^
-      source.ks
-       await
-       ^^^^^
-       source.ks meta.definition.variable.ks variable.other.constant.ks
+     
+    ^
+    source.ks
+     await
+     ^^^^^
+     source.ks meta.definition.variable.ks variable.other.ks
+           
+          ^
+          source.ks
+           =
+           ^
+           source.ks keyword.operator.assignment.ks
              
             ^
             source.ks
-             =
-             ^
-             source.ks keyword.operator.assignment.ks
-               
-              ^
-              source.ks
-               42
-               ^^
-               source.ks constant.numeric.decimal.ks
+             42
+             ^^
+             source.ks constant.numeric.decimal.ks
 >
 >
  

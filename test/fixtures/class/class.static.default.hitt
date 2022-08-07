@@ -5,15 +5,15 @@ class Shape {
         _color: string = ''
         _type: string = ''
     }
-    
+
     static {
         makeRectangle(color: string): Shape => new Shape('rectangle', color)
     }
-    
+
     constructor(@type, @color)
 }
 
-let r = Shape.makeRectangle('black')
+var r = Shape.makeRectangle('black')
 
 expect(r.type).to.equal('rectangle')
 expect(r.color).to.equal('black')
@@ -125,9 +125,9 @@ grammar: kaoscript.tmLanguage
      ^
      source.ks punctuation.definition.members.end.bracket.curly.ks
 >
->    
-     
- ^^^^^
+>
+ 
+ ^
  source.ks
 >
 >    static {
@@ -229,9 +229,9 @@ grammar: kaoscript.tmLanguage
      ^
      source.ks punctuation.definition.members.end.bracket.curly.ks
 >
->    
-     
- ^^^^^
+>
+ 
+ ^
  source.ks
 >
 >    constructor(@type, @color)
@@ -276,16 +276,16 @@ grammar: kaoscript.tmLanguage
  ^
  source.ks
 >
->let r = Shape.makeRectangle('black')
- let
+>var r = Shape.makeRectangle('black')
+ var
  ^^^
- source.ks storage.type.readwrite.ks
+ source.ks storage.type.constant.ks
      
     ^
     source.ks
      r
      ^
-     source.ks meta.definition.variable.ks variable.other.readwrite.ks
+     source.ks meta.definition.variable.ks variable.other.ks
        
       ^
       source.ks

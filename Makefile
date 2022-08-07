@@ -14,4 +14,9 @@ copy:
 	cp lib/kaoscript.tmLanguage ../highlight-vscode/syntaxes
 	cp lib/kaoscript.tmLanguage ../website/vscode_extensions/language-kaoscript/syntaxes
 
+update:
+	rm -rf node_modules package-lock.json
+	nrm use local
+	npm i
+
 .PHONY: test build patch sync copy

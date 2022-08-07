@@ -1,12 +1,12 @@
 original file
 -----------------------------------
-let view: UIView
+var dyn view: UIView
 
 switch view {
     is UIImageView                                => console.log("It's an image view")
     is UILabel        with label as UILabel        => console.log("It's a label")
     is UITableView    with tblv as UITableView    => {
-                        let sectionCount = tblv.numberOfSections()
+                        var dyn sectionCount = tblv.numberOfSections()
                         console.log("It's a table view with \(sectionCount) sections")
                     }
                                                 => console.log("It's some other UIView or subclass")
@@ -16,25 +16,28 @@ switch view {
 grammar: kaoscript.tmLanguage
 -----------------------------------
 >
->let view: UIView
- let
- ^^^
+>var dyn view: UIView
+ var 
+ ^^^^
  source.ks storage.type.readwrite.ks
-     
-    ^
-    source.ks
-     view
-     ^^^^
-     source.ks meta.definition.variable.ks variable.other.readwrite.ks
-         :
-         ^
-         source.ks meta.type.annotation.ks keyword.operator.type.annotation.ks
-           
-          ^
-          source.ks meta.type.annotation.ks
-           UIView
-           ^^^^^^
-           source.ks meta.type.annotation.ks entity.name.type.ks
+     dyn
+     ^^^
+     source.ks storage.type.readwrite.ks storage.modifier.dynamic.ks
+         
+        ^
+        source.ks
+         view
+         ^^^^
+         source.ks meta.definition.variable.ks variable.other.ks
+             :
+             ^
+             source.ks meta.type.annotation.ks keyword.operator.type.annotation.ks
+               
+              ^
+              source.ks meta.type.annotation.ks
+               UIView
+               ^^^^^^
+               source.ks meta.type.annotation.ks entity.name.type.ks
 >
 >
  
@@ -226,43 +229,46 @@ grammar: kaoscript.tmLanguage
                                                       ^
                                                       source.ks punctuation.definition.block.begin.bracket.curly.ks
 >
->                        let sectionCount = tblv.numberOfSections()
+>                        var dyn sectionCount = tblv.numberOfSections()
                          
  ^^^^^^^^^^^^^^^^^^^^^^^^
  source.ks
-                         let
-                         ^^^
+                         var 
+                         ^^^^
                          source.ks storage.type.readwrite.ks
-                             
-                            ^
-                            source.ks
-                             sectionCount
-                             ^^^^^^^^^^^^
-                             source.ks meta.definition.variable.ks variable.other.readwrite.ks
-                                          
-                                         ^
-                                         source.ks
-                                          =
-                                          ^
-                                          source.ks keyword.operator.assignment.ks
-                                            
-                                           ^
-                                           source.ks
-                                            tblv
-                                            ^^^^
-                                            source.ks variable.other.object.ks
-                                                .
-                                                ^
-                                                source.ks punctuation.accessor.object.ks
-                                                 numberOfSections
-                                                 ^^^^^^^^^^^^^^^^
-                                                 source.ks entity.name.function.ks
-                                                                 (
-                                                                 ^
-                                                                 source.ks punctuation.definition.arguments.begin.bracket.round.ks
-                                                                  )
-                                                                  ^
-                                                                  source.ks punctuation.definition.arguments.end.bracket.round.ks
+                             dyn
+                             ^^^
+                             source.ks storage.type.readwrite.ks storage.modifier.dynamic.ks
+                                 
+                                ^
+                                source.ks
+                                 sectionCount
+                                 ^^^^^^^^^^^^
+                                 source.ks meta.definition.variable.ks variable.other.ks
+                                              
+                                             ^
+                                             source.ks
+                                              =
+                                              ^
+                                              source.ks keyword.operator.assignment.ks
+                                                
+                                               ^
+                                               source.ks
+                                                tblv
+                                                ^^^^
+                                                source.ks variable.other.object.ks
+                                                    .
+                                                    ^
+                                                    source.ks punctuation.accessor.object.ks
+                                                     numberOfSections
+                                                     ^^^^^^^^^^^^^^^^
+                                                     source.ks entity.name.function.ks
+                                                                     (
+                                                                     ^
+                                                                     source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                                                                      )
+                                                                      ^
+                                                                      source.ks punctuation.definition.arguments.end.bracket.round.ks
 >
 >                        console.log("It's a table view with \(sectionCount) sections")
                          

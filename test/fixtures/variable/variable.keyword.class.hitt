@@ -1,6 +1,6 @@
 original file
 -----------------------------------
-let class = {}
+var class = {}
 
 class.foo = 42
 -----------------------------------
@@ -8,16 +8,16 @@ class.foo = 42
 grammar: kaoscript.tmLanguage
 -----------------------------------
 >
->let class = {}
- let
+>var class = {}
+ var
  ^^^
- source.ks storage.type.readwrite.ks
+ source.ks storage.type.constant.ks
      
     ^
     source.ks
      class
      ^^^^^
-     source.ks meta.definition.variable.ks variable.other.readwrite.ks
+     source.ks meta.definition.variable.ks variable.other.ks
            
           ^
           source.ks

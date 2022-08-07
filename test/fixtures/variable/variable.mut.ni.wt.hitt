@@ -1,0 +1,30 @@
+original file
+-----------------------------------
+var mut a: Number
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>var mut a: Number
+ var 
+ ^^^^
+ source.ks storage.type.readwrite.ks
+     mut
+     ^^^
+     source.ks storage.type.readwrite.ks storage.modifier.mutable.ks
+         
+        ^
+        source.ks
+         a
+         ^
+         source.ks meta.definition.variable.ks variable.other.ks
+          :
+          ^
+          source.ks meta.type.annotation.ks keyword.operator.type.annotation.ks
+            
+           ^
+           source.ks meta.type.annotation.ks
+            Number
+            ^^^^^^
+            source.ks meta.type.annotation.ks support.type.primitive.ks

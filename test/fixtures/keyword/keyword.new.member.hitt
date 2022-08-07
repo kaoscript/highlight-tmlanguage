@@ -1,6 +1,6 @@
 original file
 -----------------------------------
-let foo = bar.new
+var dyn foo = bar.new
 
 console.log(foo)
 -----------------------------------
@@ -8,34 +8,37 @@ console.log(foo)
 grammar: kaoscript.tmLanguage
 -----------------------------------
 >
->let foo = bar.new
- let
- ^^^
+>var dyn foo = bar.new
+ var 
+ ^^^^
  source.ks storage.type.readwrite.ks
-     
-    ^
-    source.ks
-     foo
+     dyn
      ^^^
-     source.ks meta.definition.variable.ks variable.other.readwrite.ks
+     source.ks storage.type.readwrite.ks storage.modifier.dynamic.ks
          
         ^
         source.ks
-         =
-         ^
-         source.ks keyword.operator.assignment.ks
-           
-          ^
-          source.ks
-           bar
-           ^^^
-           source.ks variable.other.object.ks
-              .
+         foo
+         ^^^
+         source.ks meta.definition.variable.ks variable.other.ks
+             
+            ^
+            source.ks
+             =
+             ^
+             source.ks keyword.operator.assignment.ks
+               
               ^
-              source.ks punctuation.accessor.object.ks
-               new
+              source.ks
+               bar
                ^^^
-               source.ks variable.other.property.object.ks
+               source.ks variable.other.object.ks
+                  .
+                  ^
+                  source.ks punctuation.accessor.object.ks
+                   new
+                   ^^^
+                   source.ks variable.other.property.object.ks
 >
 >
  

@@ -1,6 +1,6 @@
 original file
 -----------------------------------
-for const {bar, baz} in foo {
+for var {bar, baz} in foo {
 
 }
 -----------------------------------
@@ -8,55 +8,55 @@ for const {bar, baz} in foo {
 grammar: kaoscript.tmLanguage
 -----------------------------------
 >
->for const {bar, baz} in foo {
+>for var {bar, baz} in foo {
  for
  ^^^
  source.ks keyword.control.loop.for.ks
      
     ^
     source.ks
-     const
-     ^^^^^
+     var
+     ^^^
      source.ks storage.type.constant.ks
-           
-          ^
-          source.ks
-           {
-           ^
-           source.ks punctuation.definition.binding-pattern.object.begin.bracket.curly.ks
-            bar
-            ^^^
-            source.ks variable.other.ks
-               ,
-               ^
-               source.ks punctuation.separator.comma.ks
-                 
-                ^
-                source.ks
-                 baz
-                 ^^^
-                 source.ks variable.other.ks
-                    }
-                    ^
-                    source.ks punctuation.definition.binding-pattern.object.end.bracket.curly.ks
-                      
-                     ^
-                     source.ks
-                      in
-                      ^^
-                      source.ks keyword.operator.loop.in.ks
-                         
-                        ^
-                        source.ks
-                         foo
-                         ^^^
-                         source.ks variable.other.ks
-                             
-                            ^
-                            source.ks
-                             {
-                             ^
-                             source.ks punctuation.definition.block.begin.bracket.curly.ks
+         
+        ^
+        source.ks
+         {
+         ^
+         source.ks punctuation.definition.binding-pattern.object.begin.bracket.curly.ks
+          bar
+          ^^^
+          source.ks variable.other.ks
+             ,
+             ^
+             source.ks punctuation.separator.comma.ks
+               
+              ^
+              source.ks
+               baz
+               ^^^
+               source.ks variable.other.ks
+                  }
+                  ^
+                  source.ks punctuation.definition.binding-pattern.object.end.bracket.curly.ks
+                    
+                   ^
+                   source.ks
+                    in
+                    ^^
+                    source.ks keyword.operator.loop.in.ks
+                       
+                      ^
+                      source.ks
+                       foo
+                       ^^^
+                       source.ks variable.other.ks
+                           
+                          ^
+                          source.ks
+                           {
+                           ^
+                           source.ks punctuation.definition.block.begin.bracket.curly.ks
 >
 >
  

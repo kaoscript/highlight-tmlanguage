@@ -2,13 +2,13 @@ original file
 -----------------------------------
 /*
     a multiline comment
-    
+
     ***
-    
+
     TODO: test
 */
 
-let x = 5
+var x = 5
 -----------------------------------
 
 grammar: kaoscript.tmLanguage
@@ -24,9 +24,9 @@ grammar: kaoscript.tmLanguage
  ^^^^^^^^^^^^^^^^^^^^^^^^
  source.ks comment.block.ks
 >
->    
-     
- ^^^^^
+>
+ 
+ ^
  source.ks comment.block.ks
 >
 >    ***
@@ -34,9 +34,9 @@ grammar: kaoscript.tmLanguage
  ^^^^^^^^
  source.ks comment.block.ks
 >
->    
-     
- ^^^^^
+>
+ 
+ ^
  source.ks comment.block.ks
 >
 >    TODO: test
@@ -54,16 +54,16 @@ grammar: kaoscript.tmLanguage
  ^
  source.ks
 >
->let x = 5
- let
+>var x = 5
+ var
  ^^^
- source.ks storage.type.readwrite.ks
+ source.ks storage.type.constant.ks
      
     ^
     source.ks
      x
      ^
-     source.ks meta.definition.variable.ks variable.other.readwrite.ks
+     source.ks meta.definition.variable.ks variable.other.ks
        
       ^
       source.ks

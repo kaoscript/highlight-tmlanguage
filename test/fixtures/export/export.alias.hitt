@@ -2,7 +2,7 @@ original file
 -----------------------------------
 export func hello() => 'Hello :)'
 
-let bar = 'I\'m bar!'
+var dyn bar = 'I\'m bar!'
 
 export bar
 
@@ -58,40 +58,43 @@ grammar: kaoscript.tmLanguage
  ^
  source.ks
 >
->let bar = 'I\'m bar!'
- let
- ^^^
+>var dyn bar = 'I\'m bar!'
+ var 
+ ^^^^
  source.ks storage.type.readwrite.ks
-     
-    ^
-    source.ks
-     bar
+     dyn
      ^^^
-     source.ks meta.definition.variable.ks variable.other.readwrite.ks
+     source.ks storage.type.readwrite.ks storage.modifier.dynamic.ks
          
         ^
         source.ks
-         =
-         ^
-         source.ks keyword.operator.assignment.ks
-           
-          ^
-          source.ks
-           '
-           ^
-           source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
-            I
+         bar
+         ^^^
+         source.ks meta.definition.variable.ks variable.other.ks
+             
             ^
-            source.ks string.quoted.single.ks
-             \'
-             ^^
-             source.ks string.quoted.single.ks constant.character.escape.ks
-               m bar!
-               ^^^^^^
-               source.ks string.quoted.single.ks
-                     '
-                     ^
-                     source.ks string.quoted.single.ks punctuation.definition.string.end.ks
+            source.ks
+             =
+             ^
+             source.ks keyword.operator.assignment.ks
+               
+              ^
+              source.ks
+               '
+               ^
+               source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
+                I
+                ^
+                source.ks string.quoted.single.ks
+                 \'
+                 ^^
+                 source.ks string.quoted.single.ks constant.character.escape.ks
+                   m bar!
+                   ^^^^^^
+                   source.ks string.quoted.single.ks
+                         '
+                         ^
+                         source.ks string.quoted.single.ks punctuation.definition.string.end.ks
 >
 >
  

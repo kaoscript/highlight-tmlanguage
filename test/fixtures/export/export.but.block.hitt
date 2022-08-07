@@ -1,8 +1,8 @@
 original file
 -----------------------------------
-let foo = 'I\'m foo!'
-const c = 3
-const b = 5
+var dyn foo = 'I\'m foo!'
+var c = 3
+var b = 5
 
 func foo() {
     return c + b
@@ -26,86 +26,89 @@ export * but {
 grammar: kaoscript.tmLanguage
 -----------------------------------
 >
->let foo = 'I\'m foo!'
- let
- ^^^
+>var dyn foo = 'I\'m foo!'
+ var 
+ ^^^^
  source.ks storage.type.readwrite.ks
+     dyn
+     ^^^
+     source.ks storage.type.readwrite.ks storage.modifier.dynamic.ks
+         
+        ^
+        source.ks
+         foo
+         ^^^
+         source.ks meta.definition.variable.ks variable.other.ks
+             
+            ^
+            source.ks
+             =
+             ^
+             source.ks keyword.operator.assignment.ks
+               
+              ^
+              source.ks
+               '
+               ^
+               source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
+                I
+                ^
+                source.ks string.quoted.single.ks
+                 \'
+                 ^^
+                 source.ks string.quoted.single.ks constant.character.escape.ks
+                   m foo!
+                   ^^^^^^
+                   source.ks string.quoted.single.ks
+                         '
+                         ^
+                         source.ks string.quoted.single.ks punctuation.definition.string.end.ks
+>
+>var c = 3
+ var
+ ^^^
+ source.ks storage.type.constant.ks
      
     ^
     source.ks
-     foo
-     ^^^
-     source.ks meta.definition.variable.ks variable.other.readwrite.ks
-         
-        ^
-        source.ks
-         =
-         ^
-         source.ks keyword.operator.assignment.ks
-           
-          ^
-          source.ks
-           '
-           ^
-           source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
-            I
-            ^
-            source.ks string.quoted.single.ks
-             \'
-             ^^
-             source.ks string.quoted.single.ks constant.character.escape.ks
-               m foo!
-               ^^^^^^
-               source.ks string.quoted.single.ks
-                     '
-                     ^
-                     source.ks string.quoted.single.ks punctuation.definition.string.end.ks
->
->const c = 3
- const
- ^^^^^
- source.ks storage.type.constant.ks
+     c
+     ^
+     source.ks meta.definition.variable.ks variable.other.ks
        
       ^
       source.ks
-       c
+       =
        ^
-       source.ks meta.definition.variable.ks variable.other.constant.ks
+       source.ks keyword.operator.assignment.ks
          
         ^
         source.ks
-         =
+         3
          ^
-         source.ks keyword.operator.assignment.ks
-           
-          ^
-          source.ks
-           3
-           ^
-           source.ks constant.numeric.decimal.ks
+         source.ks constant.numeric.decimal.ks
 >
->const b = 5
- const
- ^^^^^
+>var b = 5
+ var
+ ^^^
  source.ks storage.type.constant.ks
+     
+    ^
+    source.ks
+     b
+     ^
+     source.ks meta.definition.variable.ks variable.other.ks
        
       ^
       source.ks
-       b
+       =
        ^
-       source.ks meta.definition.variable.ks variable.other.constant.ks
+       source.ks keyword.operator.assignment.ks
          
         ^
         source.ks
-         =
+         5
          ^
-         source.ks keyword.operator.assignment.ks
-           
-          ^
-          source.ks
-           5
-           ^
-           source.ks constant.numeric.decimal.ks
+         source.ks constant.numeric.decimal.ks
 >
 >
  

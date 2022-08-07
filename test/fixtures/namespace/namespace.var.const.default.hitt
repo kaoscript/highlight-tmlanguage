@@ -3,8 +3,8 @@ original file
 extern console
 
 namespace Float {
-    const PI = 3.14
-    const name = 'john'
+    var PI = 3.14
+    var name = 'john'
 }
 
 console.log(Float.PI)
@@ -47,19 +47,45 @@ grammar: kaoscript.tmLanguage
                  ^
                  source.ks punctuation.definition.namespace.begin.bracket.curly.ks
 >
->    const PI = 3.14
+>    var PI = 3.14
      
  ^^^^
  source.ks
-     const
-     ^^^^^
+     var
+     ^^^
      source.ks storage.type.constant.ks
-           
-          ^
-          source.ks
-           PI
-           ^^
-           source.ks meta.definition.variable.ks variable.other.constant.ks
+         
+        ^
+        source.ks
+         PI
+         ^^
+         source.ks meta.definition.variable.ks variable.other.ks
+            
+           ^
+           source.ks
+            =
+            ^
+            source.ks keyword.operator.assignment.ks
+              
+             ^
+             source.ks
+              3.14
+              ^^^^
+              source.ks constant.numeric.decimal.ks
+>
+>    var name = 'john'
+     
+ ^^^^
+ source.ks
+     var
+     ^^^
+     source.ks storage.type.constant.ks
+         
+        ^
+        source.ks
+         name
+         ^^^^
+         source.ks meta.definition.variable.ks variable.other.ks
               
              ^
              source.ks
@@ -69,41 +95,15 @@ grammar: kaoscript.tmLanguage
                 
                ^
                source.ks
-                3.14
-                ^^^^
-                source.ks constant.numeric.decimal.ks
->
->    const name = 'john'
-     
- ^^^^
- source.ks
-     const
-     ^^^^^
-     source.ks storage.type.constant.ks
-           
-          ^
-          source.ks
-           name
-           ^^^^
-           source.ks meta.definition.variable.ks variable.other.constant.ks
-                
-               ^
-               source.ks
-                =
+                '
                 ^
-                source.ks keyword.operator.assignment.ks
-                  
-                 ^
-                 source.ks
-                  '
-                  ^
-                  source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
-                   john
-                   ^^^^
-                   source.ks string.quoted.single.ks
-                       '
-                       ^
-                       source.ks string.quoted.single.ks punctuation.definition.string.end.ks
+                source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
+                 john
+                 ^^^^
+                 source.ks string.quoted.single.ks
+                     '
+                     ^
+                     source.ks string.quoted.single.ks punctuation.definition.string.end.ks
 >
 >}
  }

@@ -1,12 +1,12 @@
 original file
 -----------------------------------
-a = [i for const i from 0 til 10]
+a = [i for var i from 0 til 10]
 -----------------------------------
 
 grammar: kaoscript.tmLanguage
 -----------------------------------
 >
->a = [i for const i from 0 til 10]
+>a = [i for var i from 0 til 10]
  a
  ^
  source.ks variable.other.ks
@@ -34,39 +34,39 @@ grammar: kaoscript.tmLanguage
             
            ^
            source.ks
-            const
-            ^^^^^
+            var
+            ^^^
             source.ks storage.type.constant.ks
+                
+               ^
+               source.ks
+                i
+                ^
+                source.ks meta.definition.variable.ks variable.other.ks
                   
                  ^
                  source.ks
-                  i
-                  ^
-                  source.ks meta.definition.variable.ks variable.other.constant.ks
-                    
-                   ^
-                   source.ks
-                    from
-                    ^^^^
-                    source.ks keyword.control.loop.ks
+                  from
+                  ^^^^
+                  source.ks keyword.control.loop.ks
+                       
+                      ^
+                      source.ks
+                       0
+                       ^
+                       source.ks constant.numeric.decimal.ks
                          
                         ^
                         source.ks
-                         0
-                         ^
-                         source.ks constant.numeric.decimal.ks
-                           
-                          ^
-                          source.ks
-                           til
-                           ^^^
-                           source.ks keyword.control.loop.ks
-                               
-                              ^
-                              source.ks
-                               10
-                               ^^
-                               source.ks constant.numeric.decimal.ks
-                                 ]
-                                 ^
-                                 source.ks punctuation.definition.array.end.bracket.square.ks
+                         til
+                         ^^^
+                         source.ks keyword.control.loop.ks
+                             
+                            ^
+                            source.ks
+                             10
+                             ^^
+                             source.ks constant.numeric.decimal.ks
+                               ]
+                               ^
+                               source.ks punctuation.definition.array.end.bracket.square.ks

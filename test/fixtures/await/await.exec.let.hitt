@@ -45,22 +45,19 @@ grammar: kaoscript.tmLanguage
 >let stdout: string, stderr = await exec('df -k')
  let
  ^^^
- source.ks storage.type.readwrite.ks
+ source.ks variable.other.ks
      
     ^
     source.ks
      stdout
      ^^^^^^
-     source.ks meta.definition.variable.ks variable.other.readwrite.ks
-           :
-           ^
-           source.ks meta.type.annotation.ks keyword.operator.type.annotation.ks
-             
-            ^
-            source.ks meta.type.annotation.ks
+     source.ks variable.other.ks
+           : 
+           ^^
+           source.ks
              string
              ^^^^^^
-             source.ks meta.type.annotation.ks support.type.primitive.ks
+             source.ks variable.other.ks
                    ,
                    ^
                    source.ks punctuation.separator.comma.ks
@@ -69,7 +66,7 @@ grammar: kaoscript.tmLanguage
                     source.ks
                      stderr
                      ^^^^^^
-                     source.ks meta.definition.variable.ks variable.other.readwrite.ks
+                     source.ks variable.other.ks
                             
                            ^
                            source.ks

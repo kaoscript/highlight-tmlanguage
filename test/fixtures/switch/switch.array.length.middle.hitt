@@ -1,6 +1,6 @@
 original file
 -----------------------------------
-let v = [1, 2, 3, 4, 5]
+var dyn v = [1, 2, 3, 4, 5]
 
 switch v {
     with [first, ...middle, last]    => console.log(first, middle, last) // <- 1, [2, 3, 4], 5
@@ -11,70 +11,73 @@ switch v {
 grammar: kaoscript.tmLanguage
 -----------------------------------
 >
->let v = [1, 2, 3, 4, 5]
- let
- ^^^
+>var dyn v = [1, 2, 3, 4, 5]
+ var 
+ ^^^^
  source.ks storage.type.readwrite.ks
-     
-    ^
-    source.ks
-     v
-     ^
-     source.ks meta.definition.variable.ks variable.other.readwrite.ks
-       
-      ^
-      source.ks
-       =
-       ^
-       source.ks keyword.operator.assignment.ks
+     dyn
+     ^^^
+     source.ks storage.type.readwrite.ks storage.modifier.dynamic.ks
          
         ^
         source.ks
-         [
+         v
          ^
-         source.ks punctuation.definition.array.begin.bracket.square.ks
-          1
+         source.ks meta.definition.variable.ks variable.other.ks
+           
           ^
-          source.ks constant.numeric.decimal.ks
-           ,
+          source.ks
+           =
            ^
-           source.ks punctuation.separator.comma.ks
+           source.ks keyword.operator.assignment.ks
              
             ^
             source.ks
-             2
+             [
              ^
-             source.ks constant.numeric.decimal.ks
-              ,
+             source.ks punctuation.definition.array.begin.bracket.square.ks
+              1
               ^
-              source.ks punctuation.separator.comma.ks
-                
+              source.ks constant.numeric.decimal.ks
+               ,
                ^
-               source.ks
-                3
+               source.ks punctuation.separator.comma.ks
+                 
                 ^
-                source.ks constant.numeric.decimal.ks
-                 ,
+                source.ks
+                 2
                  ^
-                 source.ks punctuation.separator.comma.ks
-                   
+                 source.ks constant.numeric.decimal.ks
+                  ,
                   ^
-                  source.ks
-                   4
+                  source.ks punctuation.separator.comma.ks
+                    
                    ^
-                   source.ks constant.numeric.decimal.ks
-                    ,
+                   source.ks
+                    3
                     ^
-                    source.ks punctuation.separator.comma.ks
-                      
+                    source.ks constant.numeric.decimal.ks
+                     ,
                      ^
-                     source.ks
-                      5
+                     source.ks punctuation.separator.comma.ks
+                       
                       ^
-                      source.ks constant.numeric.decimal.ks
-                       ]
+                      source.ks
+                       4
                        ^
-                       source.ks punctuation.definition.array.end.bracket.square.ks
+                       source.ks constant.numeric.decimal.ks
+                        ,
+                        ^
+                        source.ks punctuation.separator.comma.ks
+                          
+                         ^
+                         source.ks
+                          5
+                          ^
+                          source.ks constant.numeric.decimal.ks
+                           ]
+                           ^
+                           source.ks punctuation.definition.array.end.bracket.square.ks
 >
 >
  

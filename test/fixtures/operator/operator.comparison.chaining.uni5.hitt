@@ -1,156 +1,168 @@
 original file
 -----------------------------------
-let foo = 180
-let bar = 120
-let qux = 80
+var dyn foo = 180
+var dyn bar = 120
+var dyn qux = 80
 
-let isIt = 200 > foo > bar > qux > 60
+var dyn isIt = 200 > foo > bar > qux > 60
 -----------------------------------
 
 grammar: kaoscript.tmLanguage
 -----------------------------------
 >
->let foo = 180
- let
- ^^^
+>var dyn foo = 180
+ var 
+ ^^^^
  source.ks storage.type.readwrite.ks
-     
-    ^
-    source.ks
-     foo
+     dyn
      ^^^
-     source.ks meta.definition.variable.ks variable.other.readwrite.ks
+     source.ks storage.type.readwrite.ks storage.modifier.dynamic.ks
          
         ^
         source.ks
-         =
-         ^
-         source.ks keyword.operator.assignment.ks
-           
-          ^
-          source.ks
-           180
-           ^^^
-           source.ks constant.numeric.decimal.ks
+         foo
+         ^^^
+         source.ks meta.definition.variable.ks variable.other.ks
+             
+            ^
+            source.ks
+             =
+             ^
+             source.ks keyword.operator.assignment.ks
+               
+              ^
+              source.ks
+               180
+               ^^^
+               source.ks constant.numeric.decimal.ks
 >
->let bar = 120
- let
- ^^^
+>var dyn bar = 120
+ var 
+ ^^^^
  source.ks storage.type.readwrite.ks
-     
-    ^
-    source.ks
-     bar
+     dyn
      ^^^
-     source.ks meta.definition.variable.ks variable.other.readwrite.ks
+     source.ks storage.type.readwrite.ks storage.modifier.dynamic.ks
          
         ^
         source.ks
-         =
-         ^
-         source.ks keyword.operator.assignment.ks
-           
-          ^
-          source.ks
-           120
-           ^^^
-           source.ks constant.numeric.decimal.ks
+         bar
+         ^^^
+         source.ks meta.definition.variable.ks variable.other.ks
+             
+            ^
+            source.ks
+             =
+             ^
+             source.ks keyword.operator.assignment.ks
+               
+              ^
+              source.ks
+               120
+               ^^^
+               source.ks constant.numeric.decimal.ks
 >
->let qux = 80
- let
- ^^^
+>var dyn qux = 80
+ var 
+ ^^^^
  source.ks storage.type.readwrite.ks
-     
-    ^
-    source.ks
-     qux
+     dyn
      ^^^
-     source.ks meta.definition.variable.ks variable.other.readwrite.ks
+     source.ks storage.type.readwrite.ks storage.modifier.dynamic.ks
          
         ^
         source.ks
-         =
-         ^
-         source.ks keyword.operator.assignment.ks
-           
-          ^
-          source.ks
-           80
-           ^^
-           source.ks constant.numeric.decimal.ks
+         qux
+         ^^^
+         source.ks meta.definition.variable.ks variable.other.ks
+             
+            ^
+            source.ks
+             =
+             ^
+             source.ks keyword.operator.assignment.ks
+               
+              ^
+              source.ks
+               80
+               ^^
+               source.ks constant.numeric.decimal.ks
 >
 >
  
  ^
  source.ks
 >
->let isIt = 200 > foo > bar > qux > 60
- let
- ^^^
+>var dyn isIt = 200 > foo > bar > qux > 60
+ var 
+ ^^^^
  source.ks storage.type.readwrite.ks
-     
-    ^
-    source.ks
-     isIt
-     ^^^^
-     source.ks meta.definition.variable.ks variable.other.readwrite.ks
-          
-         ^
-         source.ks
-          =
-          ^
-          source.ks keyword.operator.assignment.ks
-            
-           ^
-           source.ks
-            200
-            ^^^
-            source.ks constant.numeric.decimal.ks
+     dyn
+     ^^^
+     source.ks storage.type.readwrite.ks storage.modifier.dynamic.ks
+         
+        ^
+        source.ks
+         isIt
+         ^^^^
+         source.ks meta.definition.variable.ks variable.other.ks
+              
+             ^
+             source.ks
+              =
+              ^
+              source.ks keyword.operator.assignment.ks
                 
                ^
                source.ks
-                >
-                ^
-                source.ks keyword.operator.comparison.ks
-                  
-                 ^
-                 source.ks
-                  foo
-                  ^^^
-                  source.ks variable.other.ks
+                200
+                ^^^
+                source.ks constant.numeric.decimal.ks
+                    
+                   ^
+                   source.ks
+                    >
+                    ^
+                    source.ks keyword.operator.comparison.ks
                       
                      ^
                      source.ks
-                      >
-                      ^
-                      source.ks keyword.operator.comparison.ks
-                        
-                       ^
-                       source.ks
-                        bar
-                        ^^^
-                        source.ks variable.other.ks
+                      foo
+                      ^^^
+                      source.ks variable.other.ks
+                          
+                         ^
+                         source.ks
+                          >
+                          ^
+                          source.ks keyword.operator.comparison.ks
                             
                            ^
                            source.ks
-                            >
-                            ^
-                            source.ks keyword.operator.comparison.ks
-                              
-                             ^
-                             source.ks
-                              qux
-                              ^^^
-                              source.ks variable.other.ks
+                            bar
+                            ^^^
+                            source.ks variable.other.ks
+                                
+                               ^
+                               source.ks
+                                >
+                                ^
+                                source.ks keyword.operator.comparison.ks
                                   
                                  ^
                                  source.ks
-                                  >
-                                  ^
-                                  source.ks keyword.operator.comparison.ks
-                                    
-                                   ^
-                                   source.ks
-                                    60
-                                    ^^
-                                    source.ks constant.numeric.decimal.ks
+                                  qux
+                                  ^^^
+                                  source.ks variable.other.ks
+                                      
+                                     ^
+                                     source.ks
+                                      >
+                                      ^
+                                      source.ks keyword.operator.comparison.ks
+                                        
+                                       ^
+                                       source.ks
+                                        60
+                                        ^^
+                                        source.ks constant.numeric.decimal.ks

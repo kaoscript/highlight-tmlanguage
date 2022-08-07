@@ -1,0 +1,69 @@
+original file
+-----------------------------------
+func test(#[preserve] done) {
+    done()
+}
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>func test(#[preserve] done) {
+ func
+ ^^^^
+ source.ks storage.type.function.ks
+      
+     ^
+     source.ks
+      test
+      ^^^^
+      source.ks entity.name.function.ks
+          (
+          ^
+          source.ks punctuation.definition.parameters.begin.bracket.round.ks
+           #
+           ^
+           source.ks meta.attribute.ks punctuation.attribute.outer.ks
+            [
+            ^
+            source.ks meta.attribute.ks punctuation.definition.attribute.begin.bracket.square.ks
+             preserve
+             ^^^^^^^^
+             source.ks meta.attribute.ks entity.name.ks
+                     ]
+                     ^
+                     source.ks meta.attribute.ks punctuation.definition.attribute.end.bracket.square.ks
+                       
+                      ^
+                      source.ks
+                       done
+                       ^^^^
+                       source.ks variable.parameter.ks
+                           )
+                           ^
+                           source.ks punctuation.definition.parameters.end.bracket.round.ks
+                             
+                            ^
+                            source.ks
+                             {
+                             ^
+                             source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>    done()
+     
+ ^^^^
+ source.ks
+     done
+     ^^^^
+     source.ks entity.name.function.ks
+         (
+         ^
+         source.ks punctuation.definition.arguments.begin.bracket.round.ks
+          )
+          ^
+          source.ks punctuation.definition.arguments.end.bracket.round.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.block.end.bracket.curly.ks

@@ -1,6 +1,6 @@
 original file
 -----------------------------------
-if const {x, y, z} = foobar() {
+if var {x, y, z} = foobar() {
 
 }
 -----------------------------------
@@ -8,70 +8,70 @@ if const {x, y, z} = foobar() {
 grammar: kaoscript.tmLanguage
 -----------------------------------
 >
->if const {x, y, z} = foobar() {
+>if var {x, y, z} = foobar() {
  if
  ^^
  source.ks keyword.control.conditional.if.ks
     
    ^
    source.ks
-    const
-    ^^^^^
+    var
+    ^^^
     source.ks storage.type.constant.ks
-          
+        
+       ^
+       source.ks
+        {
+        ^
+        source.ks punctuation.definition.binding-pattern.object.begin.bracket.curly.ks
+         x
          ^
-         source.ks
-          {
+         source.ks meta.definition.variable.ks variable.other.ks
+          ,
           ^
-          source.ks punctuation.definition.binding-pattern.object.begin.bracket.square.ks
-           x
+          source.ks punctuation.separator.comma.ks
+            
            ^
-           source.ks meta.definition.variable.ks variable.other.constant.ks
-            ,
+           source.ks
+            y
             ^
-            source.ks punctuation.separator.comma.ks
-              
+            source.ks meta.definition.variable.ks variable.other.ks
+             ,
              ^
-             source.ks
-              y
+             source.ks punctuation.separator.comma.ks
+               
               ^
-              source.ks meta.definition.variable.ks variable.other.constant.ks
-               ,
+              source.ks
+               z
                ^
-               source.ks punctuation.separator.comma.ks
-                 
+               source.ks meta.definition.variable.ks variable.other.ks
+                }
                 ^
-                source.ks
-                 z
+                source.ks punctuation.definition.binding-pattern.object.end.bracket.curly.ks
+                  
                  ^
-                 source.ks meta.definition.variable.ks variable.other.constant.ks
-                  }
+                 source.ks
+                  =
                   ^
-                  source.ks punctuation.definition.binding-pattern.object.end.bracket.square.ks
+                  source.ks keyword.operator.assignment.ks
                     
                    ^
                    source.ks
-                    =
-                    ^
-                    source.ks keyword.operator.assignment.ks
-                      
-                     ^
-                     source.ks
-                      foobar
-                      ^^^^^^
-                      source.ks entity.name.function.ks
-                            (
+                    foobar
+                    ^^^^^^
+                    source.ks entity.name.function.ks
+                          (
+                          ^
+                          source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                           )
+                           ^
+                           source.ks punctuation.definition.arguments.end.bracket.round.ks
+                             
                             ^
-                            source.ks punctuation.definition.arguments.begin.bracket.round.ks
-                             )
+                            source.ks
+                             {
                              ^
-                             source.ks punctuation.definition.arguments.end.bracket.round.ks
-                               
-                              ^
-                              source.ks
-                               {
-                               ^
-                               source.ks punctuation.definition.block.begin.bracket.curly.ks
+                             source.ks punctuation.definition.block.begin.bracket.curly.ks
 >
 >
  

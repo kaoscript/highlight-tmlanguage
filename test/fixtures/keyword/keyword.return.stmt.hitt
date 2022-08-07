@@ -1,6 +1,6 @@
 original file
 -----------------------------------
-const return = 0
+var return = 0
 
 return.toString()
 -----------------------------------
@@ -8,28 +8,28 @@ return.toString()
 grammar: kaoscript.tmLanguage
 -----------------------------------
 >
->const return = 0
- const
- ^^^^^
+>var return = 0
+ var
+ ^^^
  source.ks storage.type.constant.ks
-       
-      ^
-      source.ks
-       return
-       ^^^^^^
-       source.ks meta.definition.variable.ks variable.other.constant.ks
+     
+    ^
+    source.ks
+     return
+     ^^^^^^
+     source.ks meta.definition.variable.ks variable.other.ks
+            
+           ^
+           source.ks
+            =
+            ^
+            source.ks keyword.operator.assignment.ks
               
              ^
              source.ks
-              =
+              0
               ^
-              source.ks keyword.operator.assignment.ks
-                
-               ^
-               source.ks
-                0
-                ^
-                source.ks constant.numeric.decimal.ks
+              source.ks constant.numeric.decimal.ks
 >
 >
  

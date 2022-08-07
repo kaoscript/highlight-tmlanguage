@@ -1,8 +1,8 @@
 original file
 -----------------------------------
-let foo = { bar: 'hello', baz: 3 }
+var dyn foo = { bar: 'hello', baz: 3 }
 
-let {bar: a = 'bar', baz: b = 'baz'} = foo
+var dyn {bar: a = 'bar', baz: b = 'baz'} = foo
 
 console.log(a)
 // <- 'hello'
@@ -14,101 +14,19 @@ console.log(b)
 grammar: kaoscript.tmLanguage
 -----------------------------------
 >
->let foo = { bar: 'hello', baz: 3 }
- let
- ^^^
+>var dyn foo = { bar: 'hello', baz: 3 }
+ var 
+ ^^^^
  source.ks storage.type.readwrite.ks
-     
-    ^
-    source.ks
-     foo
+     dyn
      ^^^
-     source.ks meta.definition.variable.ks variable.other.readwrite.ks
+     source.ks storage.type.readwrite.ks storage.modifier.dynamic.ks
          
         ^
         source.ks
-         =
-         ^
-         source.ks keyword.operator.assignment.ks
-           
-          ^
-          source.ks
-           {
-           ^
-           source.ks punctuation.definition.object.begin.bracket.curly.ks
-             
-            ^
-            source.ks
-             bar
-             ^^^
-             source.ks meta.object.key.ks
-                :
-                ^
-                source.ks punctuation.separator.key-value.ks
-                  
-                 ^
-                 source.ks
-                  '
-                  ^
-                  source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
-                   hello
-                   ^^^^^
-                   source.ks string.quoted.single.ks
-                        '
-                        ^
-                        source.ks string.quoted.single.ks punctuation.definition.string.end.ks
-                         ,
-                         ^
-                         source.ks punctuation.separator.comma.ks
-                           
-                          ^
-                          source.ks
-                           baz
-                           ^^^
-                           source.ks meta.object.key.ks
-                              :
-                              ^
-                              source.ks punctuation.separator.key-value.ks
-                                
-                               ^
-                               source.ks
-                                3
-                                ^
-                                source.ks constant.numeric.decimal.ks
-                                  
-                                 ^
-                                 source.ks
-                                  }
-                                  ^
-                                  source.ks punctuation.definition.object.end.bracket.curly.ks
->
->
- 
- ^
- source.ks
->
->let {bar: a = 'bar', baz: b = 'baz'} = foo
- let
- ^^^
- source.ks storage.type.readwrite.ks
-     
-    ^
-    source.ks
-     {
-     ^
-     source.ks punctuation.definition.binding-pattern.object.begin.bracket.curly.ks
-      bar
-      ^^^
-      source.ks variable.other.ks
-         :
-         ^
-         source.ks punctuation.separator.key-value.ks
-           
-          ^
-          source.ks
-           a
-           ^
-           source.ks variable.other.ks
+         foo
+         ^^^
+         source.ks meta.definition.variable.ks variable.other.ks
              
             ^
             source.ks
@@ -118,66 +36,154 @@ grammar: kaoscript.tmLanguage
                
               ^
               source.ks
-               '
+               {
                ^
-               source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
-                bar
-                ^^^
-                source.ks string.quoted.single.ks
-                   '
-                   ^
-                   source.ks string.quoted.single.ks punctuation.definition.string.end.ks
-                    ,
+               source.ks punctuation.definition.object.begin.bracket.curly.ks
+                 
+                ^
+                source.ks
+                 bar
+                 ^^^
+                 source.ks meta.object.key.ks
+                    :
                     ^
-                    source.ks punctuation.separator.comma.ks
+                    source.ks punctuation.separator.key-value.ks
                       
                      ^
                      source.ks
-                      baz
-                      ^^^
-                      source.ks variable.other.ks
-                         :
-                         ^
-                         source.ks punctuation.separator.key-value.ks
-                           
-                          ^
-                          source.ks
-                           b
-                           ^
-                           source.ks variable.other.ks
-                             
+                      '
+                      ^
+                      source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
+                       hello
+                       ^^^^^
+                       source.ks string.quoted.single.ks
+                            '
                             ^
-                            source.ks
-                             =
+                            source.ks string.quoted.single.ks punctuation.definition.string.end.ks
+                             ,
                              ^
-                             source.ks keyword.operator.assignment.ks
+                             source.ks punctuation.separator.comma.ks
                                
                               ^
                               source.ks
-                               '
-                               ^
-                               source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
-                                baz
-                                ^^^
-                                source.ks string.quoted.single.ks
-                                   '
+                               baz
+                               ^^^
+                               source.ks meta.object.key.ks
+                                  :
+                                  ^
+                                  source.ks punctuation.separator.key-value.ks
+                                    
                                    ^
-                                   source.ks string.quoted.single.ks punctuation.definition.string.end.ks
-                                    }
+                                   source.ks
+                                    3
                                     ^
-                                    source.ks punctuation.definition.binding-pattern.object.end.bracket.curly.ks
+                                    source.ks constant.numeric.decimal.ks
                                       
                                      ^
                                      source.ks
-                                      =
+                                      }
                                       ^
-                                      source.ks keyword.operator.assignment.ks
-                                        
+                                      source.ks punctuation.definition.object.end.bracket.curly.ks
+>
+>
+ 
+ ^
+ source.ks
+>
+>var dyn {bar: a = 'bar', baz: b = 'baz'} = foo
+ var 
+ ^^^^
+ source.ks storage.type.readwrite.ks
+     dyn
+     ^^^
+     source.ks storage.type.readwrite.ks storage.modifier.dynamic.ks
+         
+        ^
+        source.ks
+         {
+         ^
+         source.ks punctuation.definition.binding-pattern.object.begin.bracket.curly.ks
+          bar
+          ^^^
+          source.ks variable.other.ks
+             :
+             ^
+             source.ks punctuation.separator.key-value.ks
+               
+              ^
+              source.ks
+               a
+               ^
+               source.ks variable.other.ks
+                 
+                ^
+                source.ks
+                 =
+                 ^
+                 source.ks keyword.operator.assignment.ks
+                   
+                  ^
+                  source.ks
+                   '
+                   ^
+                   source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
+                    bar
+                    ^^^
+                    source.ks string.quoted.single.ks
+                       '
+                       ^
+                       source.ks string.quoted.single.ks punctuation.definition.string.end.ks
+                        ,
+                        ^
+                        source.ks punctuation.separator.comma.ks
+                          
+                         ^
+                         source.ks
+                          baz
+                          ^^^
+                          source.ks variable.other.ks
+                             :
+                             ^
+                             source.ks punctuation.separator.key-value.ks
+                               
+                              ^
+                              source.ks
+                               b
+                               ^
+                               source.ks variable.other.ks
+                                 
+                                ^
+                                source.ks
+                                 =
+                                 ^
+                                 source.ks keyword.operator.assignment.ks
+                                   
+                                  ^
+                                  source.ks
+                                   '
+                                   ^
+                                   source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
+                                    baz
+                                    ^^^
+                                    source.ks string.quoted.single.ks
+                                       '
                                        ^
-                                       source.ks
-                                        foo
-                                        ^^^
-                                        source.ks variable.other.ks
+                                       source.ks string.quoted.single.ks punctuation.definition.string.end.ks
+                                        }
+                                        ^
+                                        source.ks punctuation.definition.binding-pattern.object.end.bracket.curly.ks
+                                          
+                                         ^
+                                         source.ks
+                                          =
+                                          ^
+                                          source.ks keyword.operator.assignment.ks
+                                            
+                                           ^
+                                           source.ks
+                                            foo
+                                            ^^^
+                                            source.ks variable.other.ks
 >
 >
  

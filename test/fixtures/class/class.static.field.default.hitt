@@ -1,0 +1,63 @@
+original file
+-----------------------------------
+class Math {
+    static final PI = 3.14
+}
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>class Math {
+ class
+ ^^^^^
+ source.ks storage.type.class.ks
+       
+      ^
+      source.ks
+       Math
+       ^^^^
+       source.ks entity.name.type.class.ks
+            
+           ^
+           source.ks
+            {
+            ^
+            source.ks punctuation.definition.class.begin.bracket.curly.ks
+>
+>    static final PI = 3.14
+     
+ ^^^^
+ source.ks
+     static
+     ^^^^^^
+     source.ks storage.modifier.access.ks
+            
+           ^
+           source.ks
+            final
+            ^^^^^
+            source.ks storage.type.constant.ks
+                  
+                 ^
+                 source.ks
+                  PI
+                  ^^
+                  source.ks entity.name.variable.field.ks
+                     
+                    ^
+                    source.ks
+                     =
+                     ^
+                     source.ks keyword.operator.assignment.ks
+                       
+                      ^
+                      source.ks
+                       3.14
+                       ^^^^
+                       source.ks constant.numeric.decimal.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.class.end.bracket.curly.ks

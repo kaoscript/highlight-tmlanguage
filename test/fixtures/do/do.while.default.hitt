@@ -5,7 +5,7 @@ do {
 }
 while supply > demand
 
-const price = 42
+var price = 42
 -----------------------------------
 
 grammar: kaoscript.tmLanguage
@@ -69,25 +69,25 @@ grammar: kaoscript.tmLanguage
  ^
  source.ks
 >
->const price = 42
- const
- ^^^^^
+>var price = 42
+ var
+ ^^^
  source.ks storage.type.constant.ks
-       
-      ^
-      source.ks
-       price
-       ^^^^^
-       source.ks meta.definition.variable.ks variable.other.constant.ks
+     
+    ^
+    source.ks
+     price
+     ^^^^^
+     source.ks meta.definition.variable.ks variable.other.ks
+           
+          ^
+          source.ks
+           =
+           ^
+           source.ks keyword.operator.assignment.ks
              
             ^
             source.ks
-             =
-             ^
-             source.ks keyword.operator.assignment.ks
-               
-              ^
-              source.ks
-               42
-               ^^
-               source.ks constant.numeric.decimal.ks
+             42
+             ^^
+             source.ks constant.numeric.decimal.ks

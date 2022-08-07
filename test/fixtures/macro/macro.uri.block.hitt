@@ -5,7 +5,7 @@ class URI {
         register(@scheme: String, @meta: String = 'hier_part [ "?" query ] [ "#" fragment ]') {
             import '@zokugun/test-import'
 
-            const name = `\(scheme[0].toUpperCase())\(scheme.substr().toLowerCase())URI`
+            var name = `\(scheme[0].toUpperCase())\(scheme.substr().toLowerCase())URI`
 
             macro {
                 class #w(name) extends URI {
@@ -85,55 +85,55 @@ grammar: kaoscript.tmLanguage
  ^
  source.ks
 >
->            const name = `\(scheme[0].toUpperCase())\(scheme.substr().toLowerCase())URI`
-             const name = `\
- ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+>            var name = `\(scheme[0].toUpperCase())\(scheme.substr().toLowerCase())URI`
+             var name = `\
+ ^^^^^^^^^^^^^^^^^^^^^^^^^
  source.ks
-                            (
-                            ^
-                            source.ks punctuation.bracket.round.ks
-                             scheme[0].toUpperCase
-                             ^^^^^^^^^^^^^^^^^^^^^
-                             source.ks
-                                                  (
+                          (
+                          ^
+                          source.ks punctuation.bracket.round.ks
+                           scheme[0].toUpperCase
+                           ^^^^^^^^^^^^^^^^^^^^^
+                           source.ks
+                                                (
+                                                ^
+                                                source.ks punctuation.bracket.round.ks
+                                                 )
+                                                 ^
+                                                 source.ks punctuation.bracket.round.ks
+                                                  )
                                                   ^
                                                   source.ks punctuation.bracket.round.ks
-                                                   )
+                                                   \
                                                    ^
-                                                   source.ks punctuation.bracket.round.ks
-                                                    )
+                                                   source.ks
+                                                    (
                                                     ^
                                                     source.ks punctuation.bracket.round.ks
-                                                     \
-                                                     ^
+                                                     scheme.substr
+                                                     ^^^^^^^^^^^^^
                                                      source.ks
-                                                      (
-                                                      ^
-                                                      source.ks punctuation.bracket.round.ks
-                                                       scheme.substr
-                                                       ^^^^^^^^^^^^^
-                                                       source.ks
-                                                                    (
-                                                                    ^
-                                                                    source.ks punctuation.bracket.round.ks
-                                                                     )
-                                                                     ^
-                                                                     source.ks punctuation.bracket.round.ks
-                                                                      .toLowerCase
-                                                                      ^^^^^^^^^^^^
-                                                                      source.ks
-                                                                                  (
+                                                                  (
+                                                                  ^
+                                                                  source.ks punctuation.bracket.round.ks
+                                                                   )
+                                                                   ^
+                                                                   source.ks punctuation.bracket.round.ks
+                                                                    .toLowerCase
+                                                                    ^^^^^^^^^^^^
+                                                                    source.ks
+                                                                                (
+                                                                                ^
+                                                                                source.ks punctuation.bracket.round.ks
+                                                                                 )
+                                                                                 ^
+                                                                                 source.ks punctuation.bracket.round.ks
+                                                                                  )
                                                                                   ^
                                                                                   source.ks punctuation.bracket.round.ks
-                                                                                   )
-                                                                                   ^
-                                                                                   source.ks punctuation.bracket.round.ks
-                                                                                    )
-                                                                                    ^
-                                                                                    source.ks punctuation.bracket.round.ks
-                                                                                     URI`
-                                                                                     ^^^^^
-                                                                                     source.ks
+                                                                                   URI`
+                                                                                   ^^^^^
+                                                                                   source.ks
 >
 >
  

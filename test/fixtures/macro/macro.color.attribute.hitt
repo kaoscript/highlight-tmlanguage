@@ -3,10 +3,10 @@ original file
 export class Color {
     macro registerSpace(@expression: Object) {
         if expression.components? {
-            const fields: Array = []
-            const methods: Array = []
+            var fields: Array = []
+            var methods: Array = []
 
-            let field
+            var dyn field
             for component, name of expression.components {
                 field = `_\(name)`
 
@@ -158,100 +158,103 @@ grammar: kaoscript.tmLanguage
                                    ^
                                    source.ks meta.macro.ks punctuation.definition.block.begin.bracket.curly.ks
 >
->            const fields: Array = []
+>            var fields: Array = []
              
  ^^^^^^^^^^^^
  source.ks meta.macro.ks
-             const
-             ^^^^^
+             var
+             ^^^
              source.ks meta.macro.ks storage.type.constant.ks
-                   
-                  ^
-                  source.ks meta.macro.ks
-                   fields
-                   ^^^^^^
-                   source.ks meta.macro.ks meta.definition.variable.ks variable.other.constant.ks
-                         :
-                         ^
-                         source.ks meta.macro.ks meta.type.annotation.ks keyword.operator.type.annotation.ks
-                           
-                          ^
-                          source.ks meta.macro.ks meta.type.annotation.ks
-                           Array
-                           ^^^^^
-                           source.ks meta.macro.ks meta.type.annotation.ks support.type.primitive.ks
+                 
+                ^
+                source.ks meta.macro.ks
+                 fields
+                 ^^^^^^
+                 source.ks meta.macro.ks meta.definition.variable.ks variable.other.ks
+                       :
+                       ^
+                       source.ks meta.macro.ks meta.type.annotation.ks keyword.operator.type.annotation.ks
+                         
+                        ^
+                        source.ks meta.macro.ks meta.type.annotation.ks
+                         Array
+                         ^^^^^
+                         source.ks meta.macro.ks meta.type.annotation.ks support.type.primitive.ks
+                               
+                              ^
+                              source.ks meta.macro.ks
+                               =
+                               ^
+                               source.ks meta.macro.ks keyword.operator.assignment.ks
                                  
                                 ^
                                 source.ks meta.macro.ks
-                                 =
+                                 [
                                  ^
-                                 source.ks meta.macro.ks keyword.operator.assignment.ks
-                                   
+                                 source.ks meta.macro.ks punctuation.definition.array.begin.bracket.square.ks
+                                  ]
                                   ^
-                                  source.ks meta.macro.ks
-                                   [
-                                   ^
-                                   source.ks meta.macro.ks punctuation.definition.array.begin.bracket.square.ks
-                                    ]
-                                    ^
-                                    source.ks meta.macro.ks punctuation.definition.array.end.bracket.square.ks
+                                  source.ks meta.macro.ks punctuation.definition.array.end.bracket.square.ks
 >
->            const methods: Array = []
+>            var methods: Array = []
              
  ^^^^^^^^^^^^
  source.ks meta.macro.ks
-             const
-             ^^^^^
+             var
+             ^^^
              source.ks meta.macro.ks storage.type.constant.ks
-                   
-                  ^
-                  source.ks meta.macro.ks
-                   methods
-                   ^^^^^^^
-                   source.ks meta.macro.ks meta.definition.variable.ks variable.other.constant.ks
-                          :
-                          ^
-                          source.ks meta.macro.ks meta.type.annotation.ks keyword.operator.type.annotation.ks
-                            
-                           ^
-                           source.ks meta.macro.ks meta.type.annotation.ks
-                            Array
-                            ^^^^^
-                            source.ks meta.macro.ks meta.type.annotation.ks support.type.primitive.ks
+                 
+                ^
+                source.ks meta.macro.ks
+                 methods
+                 ^^^^^^^
+                 source.ks meta.macro.ks meta.definition.variable.ks variable.other.ks
+                        :
+                        ^
+                        source.ks meta.macro.ks meta.type.annotation.ks keyword.operator.type.annotation.ks
+                          
+                         ^
+                         source.ks meta.macro.ks meta.type.annotation.ks
+                          Array
+                          ^^^^^
+                          source.ks meta.macro.ks meta.type.annotation.ks support.type.primitive.ks
+                                
+                               ^
+                               source.ks meta.macro.ks
+                                =
+                                ^
+                                source.ks meta.macro.ks keyword.operator.assignment.ks
                                   
                                  ^
                                  source.ks meta.macro.ks
-                                  =
+                                  [
                                   ^
-                                  source.ks meta.macro.ks keyword.operator.assignment.ks
-                                    
+                                  source.ks meta.macro.ks punctuation.definition.array.begin.bracket.square.ks
+                                   ]
                                    ^
-                                   source.ks meta.macro.ks
-                                    [
-                                    ^
-                                    source.ks meta.macro.ks punctuation.definition.array.begin.bracket.square.ks
-                                     ]
-                                     ^
-                                     source.ks meta.macro.ks punctuation.definition.array.end.bracket.square.ks
+                                   source.ks meta.macro.ks punctuation.definition.array.end.bracket.square.ks
 >
 >
  
  ^
  source.ks meta.macro.ks
 >
->            let field
+>            var dyn field
              
  ^^^^^^^^^^^^
  source.ks meta.macro.ks
-             let
-             ^^^
+             var 
+             ^^^^
              source.ks meta.macro.ks storage.type.readwrite.ks
-                 
-                ^
-                source.ks meta.macro.ks
-                 field
-                 ^^^^^
-                 source.ks meta.macro.ks meta.definition.variable.ks variable.other.readwrite.ks
+                 dyn
+                 ^^^
+                 source.ks meta.macro.ks storage.type.readwrite.ks storage.modifier.dynamic.ks
+                     
+                    ^
+                    source.ks meta.macro.ks
+                     field
+                     ^^^^^
+                     source.ks meta.macro.ks meta.definition.variable.ks variable.other.ks
 >
 >            for component, name of expression.components {
              

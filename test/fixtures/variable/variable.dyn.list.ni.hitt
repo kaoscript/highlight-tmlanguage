@@ -1,0 +1,39 @@
+original file
+-----------------------------------
+var dyn a, b, c
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>var dyn a, b, c
+ var 
+ ^^^^
+ source.ks storage.type.readwrite.ks
+     dyn
+     ^^^
+     source.ks storage.type.readwrite.ks storage.modifier.dynamic.ks
+         
+        ^
+        source.ks
+         a
+         ^
+         source.ks meta.definition.variable.ks variable.other.ks
+          ,
+          ^
+          source.ks punctuation.separator.comma.ks
+            
+           ^
+           source.ks
+            b
+            ^
+            source.ks meta.definition.variable.ks variable.other.ks
+             ,
+             ^
+             source.ks punctuation.separator.comma.ks
+               
+              ^
+              source.ks
+               c
+               ^
+               source.ks meta.definition.variable.ks variable.other.ks
