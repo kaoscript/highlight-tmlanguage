@@ -1,10 +1,20 @@
 #![bin]
 
 extern {
-	__dirname: String
-	console
-	describe: Function
-	it: Function
+	class Context {
+		timeout(ms: Number): Void
+	}
+
+	func describe(title: String, fn: Function): Void
+	// TODO
+	// func it(title: String, fn: (this: Context, #[retain] done: Function): Void || (this: Context): Void): Void
+	func it(title: String, fn: (#[retain] done: Function): Void || (): Void): Void
+
+	var __dirname: String
+
+	namespace console {
+		func log(...?)
+	}
 }
 
 import {
@@ -15,38 +25,49 @@ import {
 	'path'
 }
 
-import './generate'(path.resolve(__dirname, '..', 'lib', 'kaoscript.tmLanguage'))
+// TODO
+// import './generate'(path.resolve(__dirname, '..', 'lib', 'kaoscript.tmLanguage'))
+import './generate'
+
+configure(path.resolve(__dirname, '..', 'lib', 'kaoscript.tmLanguage'))
 
 describe('highlight', func() {
 	func prepare(file) {
-		const root = path.dirname(file)
-		const name = path.basename(file).slice(0, -3)
+		var root = path.dirname(file)
+		var name = path.basename(file).slice(0, -3)
 
 		it(name, func() {
-			this.timeout(1000)
+			// TODO
+			// @timeout(1000)
 
-			const source = fs.readFileSync(file, {
+			var source = fs.readFileSync(file, {
 				encoding: 'utf8'
 			})
 
-			const data = generate(source)
-			// console.log(data)
+			var data = generate(source)
 
-			const tokens: String = fs.readFileSync(path.join(root, name + '.hitt'), {
-				encoding: 'utf8'
-			})
+			try {
+				var tokens: String = fs.readFileSync(path.join(root, name + '.hitt'), {
+					encoding: 'utf8'
+				})
 
-			expect(data.lines()).to.eql(tokens.lines())
+				expect(data.lines()).to.eql(tokens.lines())
+			}
+			catch error {
+				console.log(data)
+
+				throw error
+			}
 		})
 	}
 
-	const options = {
+	var options = {
 		nodir: true
 		traverseAll: true
 		filter: item => item.path.slice(-3) == '.ks'
 	}
 
-	for file in klaw(path.join(__dirname, 'fixtures'), options) {
+	for var file in klaw(path.join(__dirname, 'fixtures'), options) {
 		prepare(file.path)
 	}
 })

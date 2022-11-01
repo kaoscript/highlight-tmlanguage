@@ -1,0 +1,42 @@
+original file
+-----------------------------------
+if x = y {
+}
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>if x = y {
+ if
+ ^^
+ source.ks keyword.control.conditional.if.ks
+    
+   ^
+   source.ks
+    x
+    ^
+    source.ks variable.other.ks
+      
+     ^
+     source.ks
+      =
+      ^
+      source.ks keyword.operator.assignment.ks
+        
+       ^
+       source.ks
+        y
+        ^
+        source.ks variable.other.ks
+          
+         ^
+         source.ks
+          {
+          ^
+          source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.block.end.bracket.curly.ks

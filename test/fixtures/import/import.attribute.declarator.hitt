@@ -59,7 +59,7 @@ grammar: kaoscript.tmLanguage
              source.ks
               {
               ^
-              source.ks punctuation.definition.import-specification.begin.bracket.curly.ks
+              source.ks punctuation.definition.import-type.begin.bracket.curly.ks
 >
 >        class Foobar {
          
@@ -100,7 +100,7 @@ grammar: kaoscript.tmLanguage
  source.ks
      }
      ^
-     source.ks punctuation.definition.import-specification.end.bracket.curly.ks
+     source.ks punctuation.definition.import-type.end.bracket.curly.ks
 >
 >}
  }

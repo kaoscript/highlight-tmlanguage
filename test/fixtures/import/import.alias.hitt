@@ -1,10 +1,10 @@
 original file
 -----------------------------------
-import 'module1' {
+import 'module1' for {
     foo
 }
 
-import 'module2' {
+import 'module2' for {
     foo => bar
 }
 -----------------------------------
@@ -12,7 +12,7 @@ import 'module2' {
 grammar: kaoscript.tmLanguage
 -----------------------------------
 >
->import 'module1' {
+>import 'module1' for {
  import
  ^^^^^^
  source.ks keyword.control.import.ks
@@ -31,9 +31,15 @@ grammar: kaoscript.tmLanguage
                   
                  ^
                  source.ks
-                  {
-                  ^
-                  source.ks punctuation.definition.import-specification.begin.bracket.curly.ks
+                  for
+                  ^^^
+                  source.ks keyword.control.dependency.for.ks
+                      
+                     ^
+                     source.ks
+                      {
+                      ^
+                      source.ks punctuation.definition.import-specification.begin.bracket.curly.ks
 >
 >    foo
      
@@ -53,7 +59,7 @@ grammar: kaoscript.tmLanguage
  ^
  source.ks
 >
->import 'module2' {
+>import 'module2' for {
  import
  ^^^^^^
  source.ks keyword.control.import.ks
@@ -72,9 +78,15 @@ grammar: kaoscript.tmLanguage
                   
                  ^
                  source.ks
-                  {
-                  ^
-                  source.ks punctuation.definition.import-specification.begin.bracket.curly.ks
+                  for
+                  ^^^
+                  source.ks keyword.control.dependency.for.ks
+                      
+                     ^
+                     source.ks
+                      {
+                      ^
+                      source.ks punctuation.definition.import-specification.begin.bracket.curly.ks
 >
 >    foo => bar
      

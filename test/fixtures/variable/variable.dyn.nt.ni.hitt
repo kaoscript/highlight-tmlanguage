@@ -1,0 +1,21 @@
+original file
+-----------------------------------
+var dyn a
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>var dyn a
+ var 
+ ^^^^
+ source.ks storage.type.readwrite.ks
+     dyn
+     ^^^
+     source.ks storage.type.readwrite.ks storage.modifier.dynamic.ks
+         
+        ^
+        source.ks
+         a
+         ^
+         source.ks meta.definition.variable.ks variable.other.ks

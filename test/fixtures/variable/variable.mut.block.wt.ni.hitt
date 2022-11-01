@@ -1,0 +1,81 @@
+original file
+-----------------------------------
+var mut {
+    a: Number
+    b: Boolean
+    c: String
+}
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>var mut {
+ var 
+ ^^^^
+ source.ks storage.type.readwrite.ks
+     mut
+     ^^^
+     source.ks storage.type.readwrite.ks storage.modifier.mutable.ks
+         
+        ^
+        source.ks
+         {
+         ^
+         source.ks punctuation.definition.binding-pattern.object.begin.bracket.curly.ks
+>
+>    a: Number
+     
+ ^^^^
+ source.ks
+     a
+     ^
+     source.ks variable.other.ks
+      :
+      ^
+      source.ks punctuation.separator.key-value.ks
+        
+       ^
+       source.ks
+        Number
+        ^^^^^^
+        source.ks variable.other.ks
+>
+>    b: Boolean
+     
+ ^^^^
+ source.ks
+     b
+     ^
+     source.ks variable.other.ks
+      :
+      ^
+      source.ks punctuation.separator.key-value.ks
+        
+       ^
+       source.ks
+        Boolean
+        ^^^^^^^
+        source.ks variable.other.ks
+>
+>    c: String
+     
+ ^^^^
+ source.ks
+     c
+     ^
+     source.ks variable.other.ks
+      :
+      ^
+      source.ks punctuation.separator.key-value.ks
+        
+       ^
+       source.ks
+        String
+        ^^^^^^
+        source.ks variable.other.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.binding-pattern.object.end.bracket.curly.ks

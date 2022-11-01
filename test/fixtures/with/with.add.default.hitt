@@ -1,0 +1,96 @@
+original file
+-----------------------------------
+var mut mode = 2
+
+with mode += 12 {
+    mode -= 4
+}
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>var mut mode = 2
+ var 
+ ^^^^
+ source.ks storage.type.readwrite.ks
+     mut
+     ^^^
+     source.ks storage.type.readwrite.ks storage.modifier.mutable.ks
+         
+        ^
+        source.ks
+         mode
+         ^^^^
+         source.ks meta.definition.variable.ks variable.other.ks
+              
+             ^
+             source.ks
+              =
+              ^
+              source.ks keyword.operator.assignment.ks
+                
+               ^
+               source.ks
+                2
+                ^
+                source.ks constant.numeric.decimal.ks
+>
+>
+ 
+ ^
+ source.ks
+>
+>with mode += 12 {
+ with
+ ^^^^
+ source.ks keyword.control.with.ks
+      
+     ^
+     source.ks
+      mode
+      ^^^^
+      source.ks variable.other.ks
+           
+          ^
+          source.ks
+           +=
+           ^^
+           source.ks keyword.operator.assignment.compound.ks
+              
+             ^
+             source.ks
+              12
+              ^^
+              source.ks constant.numeric.decimal.ks
+                 
+                ^
+                source.ks
+                 {
+                 ^
+                 source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>    mode -= 4
+     
+ ^^^^
+ source.ks
+     mode
+     ^^^^
+     source.ks variable.other.ks
+          
+         ^
+         source.ks
+          -=
+          ^^
+          source.ks keyword.operator.assignment.compound.ks
+             
+            ^
+            source.ks
+             4
+             ^
+             source.ks constant.numeric.decimal.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.block.end.bracket.curly.ks

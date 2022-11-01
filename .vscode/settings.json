@@ -1,13 +1,18 @@
 {
+	"explorer.fileNesting.patterns": {
+		"*.ks": ".${capture}.ks.*",
+	},
+	// "files.exclude": {
+	// 	"**/*.ksb": true,
+	// 	"**/*.kse": true,
+	// 	"**/*.ksh": true,
+	// 	"**/*.ksr": true
+	// },
 	"search.exclude": {
 		"node_modules": true,
 		"**/*.ksb": true,
+		"**/*.kse": true,
 		"**/*.ksh": true,
-		"**/*.ksm": true
-	},
-	"files.exclude": {
-		"**/*.ksb": true,
-		"**/*.ksh": true,
-		"**/*.ksm": true
+		"**/*.ksr": true
 	}
 }

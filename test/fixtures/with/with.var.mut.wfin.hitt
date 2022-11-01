@@ -1,0 +1,144 @@
+original file
+-----------------------------------
+with var mut file = open() {
+    var text = await file.readText()
+}
+finally {
+    file.close()
+}
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>with var mut file = open() {
+ with
+ ^^^^
+ source.ks keyword.control.with.ks
+      
+     ^
+     source.ks
+      var
+      ^^^
+      source.ks storage.type.readwrite.ks
+          
+         ^
+         source.ks
+          mut
+          ^^^
+          source.ks storage.modifier.mutable.ks
+              
+             ^
+             source.ks
+              file
+              ^^^^
+              source.ks meta.definition.variable.ks variable.other.ks
+                   
+                  ^
+                  source.ks
+                   =
+                   ^
+                   source.ks keyword.operator.assignment.ks
+                     
+                    ^
+                    source.ks
+                     open
+                     ^^^^
+                     source.ks entity.name.function.ks
+                         (
+                         ^
+                         source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                          )
+                          ^
+                          source.ks punctuation.definition.arguments.end.bracket.round.ks
+                            
+                           ^
+                           source.ks
+                            {
+                            ^
+                            source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>    var text = await file.readText()
+     
+ ^^^^
+ source.ks
+     var
+     ^^^
+     source.ks storage.type.constant.ks
+         
+        ^
+        source.ks
+         text
+         ^^^^
+         source.ks meta.definition.variable.ks variable.other.ks
+              
+             ^
+             source.ks
+              =
+              ^
+              source.ks keyword.operator.assignment.ks
+                
+               ^
+               source.ks
+                await
+                ^^^^^
+                source.ks keyword.control.flow.await.ks
+                      
+                     ^
+                     source.ks
+                      file
+                      ^^^^
+                      source.ks variable.other.object.ks
+                          .
+                          ^
+                          source.ks punctuation.accessor.object.ks
+                           readText
+                           ^^^^^^^^
+                           source.ks entity.name.function.ks
+                                   (
+                                   ^
+                                   source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                                    )
+                                    ^
+                                    source.ks punctuation.definition.arguments.end.bracket.round.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.block.end.bracket.curly.ks
+>
+>finally {
+ finally
+ ^^^^^^^
+ source.ks keyword.control.finally.ks
+         
+        ^
+        source.ks
+         {
+         ^
+         source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>    file.close()
+     
+ ^^^^
+ source.ks
+     file
+     ^^^^
+     source.ks variable.other.object.ks
+         .
+         ^
+         source.ks punctuation.accessor.object.ks
+          close
+          ^^^^^
+          source.ks entity.name.function.ks
+               (
+               ^
+               source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                )
+                ^
+                source.ks punctuation.definition.arguments.end.bracket.round.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.block.end.bracket.curly.ks

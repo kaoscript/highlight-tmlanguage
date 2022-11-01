@@ -1,0 +1,51 @@
+original file
+-----------------------------------
+func foobar(_ % _) {
+}
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>func foobar(_ % _) {
+ func
+ ^^^^
+ source.ks storage.type.function.ks
+      
+     ^
+     source.ks
+      foobar
+      ^^^^^^
+      source.ks entity.name.function.ks
+            (
+            ^
+            source.ks punctuation.definition.parameters.begin.bracket.round.ks
+             _
+             ^
+             source.ks variable.anonymous.ks
+               
+              ^
+              source.ks
+               %
+               ^
+               source.ks keyword.operator.parameter.label.ks
+                 
+                ^
+                source.ks
+                 _
+                 ^
+                 source.ks variable.anonymous.ks
+                  )
+                  ^
+                  source.ks punctuation.definition.parameters.end.bracket.round.ks
+                    
+                   ^
+                   source.ks
+                    {
+                    ^
+                    source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.block.end.bracket.curly.ks

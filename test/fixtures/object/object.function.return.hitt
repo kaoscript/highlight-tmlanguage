@@ -1,0 +1,78 @@
+original file
+-----------------------------------
+func foo() => ({
+    `\(x)`: 42
+})
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>func foo() => ({
+ func
+ ^^^^
+ source.ks storage.type.function.ks
+      
+     ^
+     source.ks
+      foo
+      ^^^
+      source.ks entity.name.function.ks
+         (
+         ^
+         source.ks punctuation.definition.parameters.begin.bracket.round.ks
+          )
+          ^
+          source.ks punctuation.definition.parameters.end.bracket.round.ks
+            
+           ^
+           source.ks
+            =>
+            ^^
+            source.ks storage.type.function.arrow.ks
+               
+              ^
+              source.ks
+               (
+               ^
+               source.ks meta.brace.round.ks
+                {
+                ^
+                source.ks punctuation.definition.object.begin.bracket.curly.ks
+>
+>    `\(x)`: 42
+     
+ ^^^^
+ source.ks
+     `
+     ^
+     source.ks meta.object-literal.key.ks punctuation.definition.string.template.begin.ks
+      \(
+      ^^
+      source.ks meta.object-literal.key.ks punctuation.definition.template-expression.begin.ks
+        x
+        ^
+        source.ks meta.object-literal.key.ks variable.other.ks
+         )
+         ^
+         source.ks meta.object-literal.key.ks punctuation.definition.template-expression.end.ks
+          `
+          ^
+          source.ks meta.object-literal.key.ks punctuation.definition.string.template.end.ks
+           :
+           ^
+           source.ks punctuation.separator.key-value.ks
+             
+            ^
+            source.ks
+             42
+             ^^
+             source.ks constant.numeric.decimal.ks
+>
+>})
+ }
+ ^
+ source.ks punctuation.definition.object.end.bracket.curly.ks
+  )
+  ^
+  source.ks meta.brace.round.ks

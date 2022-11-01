@@ -1,0 +1,36 @@
+original file
+-----------------------------------
+var mut a? = 0
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>var mut a? = 0
+ var 
+ ^^^^
+ source.ks storage.type.readwrite.ks
+     mut
+     ^^^
+     source.ks storage.type.readwrite.ks storage.modifier.mutable.ks
+         
+        ^
+        source.ks
+         a
+         ^
+         source.ks meta.definition.variable.ks variable.other.ks
+          ?
+          ^
+          source.ks storage.modifier.nullable.ks
+            
+           ^
+           source.ks
+            =
+            ^
+            source.ks keyword.operator.assignment.ks
+              
+             ^
+             source.ks
+              0
+              ^
+              source.ks constant.numeric.decimal.ks

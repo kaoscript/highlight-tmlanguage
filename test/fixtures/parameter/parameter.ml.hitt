@@ -1,0 +1,138 @@
+original file
+-----------------------------------
+func foobar(
+    x: Number    = 0
+    y: Number    = 0
+    z: Number    = 0
+): Number {
+}
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>func foobar(
+ func
+ ^^^^
+ source.ks storage.type.function.ks
+      
+     ^
+     source.ks
+      foobar
+      ^^^^^^
+      source.ks entity.name.function.ks
+            (
+            ^
+            source.ks punctuation.definition.parameters.begin.bracket.round.ks
+>
+>    x: Number    = 0
+     
+ ^^^^
+ source.ks
+     x
+     ^
+     source.ks variable.parameter.ks
+      :
+      ^
+      source.ks meta.type.annotation.ks keyword.operator.type.annotation.ks
+        
+       ^
+       source.ks meta.type.annotation.ks
+        Number
+        ^^^^^^
+        source.ks meta.type.annotation.ks support.type.primitive.ks
+                  
+              ^^^^
+              source.ks
+                  =
+                  ^
+                  source.ks keyword.operator.assignment.ks
+                    
+                   ^
+                   source.ks
+                    0
+                    ^
+                    source.ks constant.numeric.decimal.ks
+>
+>    y: Number    = 0
+     
+ ^^^^
+ source.ks
+     y
+     ^
+     source.ks variable.parameter.ks
+      :
+      ^
+      source.ks meta.type.annotation.ks keyword.operator.type.annotation.ks
+        
+       ^
+       source.ks meta.type.annotation.ks
+        Number
+        ^^^^^^
+        source.ks meta.type.annotation.ks support.type.primitive.ks
+                  
+              ^^^^
+              source.ks
+                  =
+                  ^
+                  source.ks keyword.operator.assignment.ks
+                    
+                   ^
+                   source.ks
+                    0
+                    ^
+                    source.ks constant.numeric.decimal.ks
+>
+>    z: Number    = 0
+     
+ ^^^^
+ source.ks
+     z
+     ^
+     source.ks variable.parameter.ks
+      :
+      ^
+      source.ks meta.type.annotation.ks keyword.operator.type.annotation.ks
+        
+       ^
+       source.ks meta.type.annotation.ks
+        Number
+        ^^^^^^
+        source.ks meta.type.annotation.ks support.type.primitive.ks
+                  
+              ^^^^
+              source.ks
+                  =
+                  ^
+                  source.ks keyword.operator.assignment.ks
+                    
+                   ^
+                   source.ks
+                    0
+                    ^
+                    source.ks constant.numeric.decimal.ks
+>
+>): Number {
+ )
+ ^
+ source.ks punctuation.definition.parameters.end.bracket.round.ks
+  :
+  ^
+  source.ks meta.function.return-type.ks keyword.operator.type.annotation.ks
+    
+   ^
+   source.ks meta.function.return-type.ks
+    Number
+    ^^^^^^
+    source.ks meta.function.return-type.ks support.type.primitive.ks
+           
+          ^
+          source.ks
+           {
+           ^
+           source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.block.end.bracket.curly.ks

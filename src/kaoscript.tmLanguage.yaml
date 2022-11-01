@@ -5,7 +5,7 @@ uuid: 371123EB-AE4B-471E-BB5C-1AB23093F1C9
 
 variables:
   attribute: '#\[[-\._$,()[:alnum:]]*\]'
-  expression-beginning: '[\{\[\("''`_$[:alnum:]\.\/@?!~+-]'
+  expression-beginning: '[\{\[\("''`_$[:alnum:]\.\/@#?!~+-]'
   expression-ending: '[\{\}\]\)\|\^\-\*\.~+=!<>%&]|^$'
   identifier: '[_$[:alpha:]][_$[:alnum:]]*'
   match-identifier: '\s+(?=[_$[:alpha:]])'
@@ -27,6 +27,7 @@ patterns:
 - include: '#require-statement'
 - include: '#require-extern-statement'
 - include: '#require-import-statement'
+- include: '#shebang-statement'
 - include: '#statements'
 
 repository:
@@ -193,7 +194,7 @@ repository:
     - begin: ':'
       beginCaptures:
         '0': { name: 'punctuation.separator.key-value.ks' }
-      end: '(?=[\},$])'
+      end: '(?=[\},]|$)'
       patterns:
       - name: 'variable.other.ks'
         match: '{{identifier}}'
@@ -205,6 +206,33 @@ repository:
         - include: '#expression'
       - include: '#binding-object'
     - include: '#comma'
+  # }}}
+  bitmask-statement: # {{{
+    begin: '(?=\bbitmask\s+{{identifier}}\b)'
+    end: '(?<=\}|$)'
+    patterns:
+    - include: '#bitmask-statement-body'
+  # }}}
+  bitmask-statement-body: # {{{
+    begin: '(\bbitmask)\s+({{identifier}})'
+    beginCaptures:
+      '1': { name: 'storage.type.bitmask.ks' }
+      '2': { name: 'entity.name.type.bitmask.ks' }
+    end: '(?<=\})'
+    patterns:
+    - match: '(\<)(u\d+)(\>)'
+      captures:
+        '1': { name: 'punctuation.definition.typeparameters.begin.ks' }
+        '2': { name: 'support.type.constant.ks' }
+        '3': { name: 'punctuation.definition.typeparameters.end.ks' }
+    - begin: '\{'
+      beginCaptures:
+        '0': { name: 'punctuation.definition.bitmask.begin.bracket.curly.ks' }
+      end: '\}'
+      endCaptures:
+        '0': { name: 'punctuation.definition.bitmask.end.bracket.curly.ks' }
+      patterns:
+      - include: '#enum-member'
   # }}}
   block: # {{{
     begin: '\{'
@@ -290,12 +318,47 @@ repository:
       - include: '#method-return-type'
       - include: '#function-throwables'
       - include: '#block'
+      - include: '#comment'
       - begin: '=>'
         beginCaptures:
           '0': { name: 'storage.type.function.arrow.ks' }
         end: '(?=\}|$)'
         patterns:
         - include: '#expression'
+    - begin: '(?:\b(internal|private|protected|public)\s+)?(?:\b(static)\s+)?\b(proxy)\s+(\{)'
+      beginCaptures:
+        '1': { name: 'storage.modifier.access.ks' }
+        '2': { name: 'storage.modifier.access.ks' }
+        '3': { name: 'storage.modifier.proxy.ks' }
+        '4': { name: 'punctuation.definition.members.begin.bracket.curly.ks' }
+      end: '\}'
+      endCaptures:
+        '0': { name: 'punctuation.definition.members.end.bracket.curly.ks' }
+      patterns:
+      - begin: '({{identifier}})\s*(=)\s*'
+        beginCaptures:
+          '1': { name: 'entity.name.variable.field.ks' }
+          '2': { name: 'keyword.operator.assignment.ks' }
+        end: '(?=\}|$)'
+        patterns:
+        - include: '#expression'
+    - begin: '(?:\b(internal|private|protected|public)\b\s*)?(?:\b(static)\b\s*)?(proxy)\s+(@)({{identifier}})\s+(\{)'
+      beginCaptures:
+        '1': { name: 'storage.modifier.access.ks' }
+        '2': { name: 'storage.modifier.access.ks' }
+        '3': { name: 'storage.modifier.proxy.ks' }
+        '4': { name: 'storage.modifier.instance.ks' }
+        '5': { name: 'variable.other.instance.ks' }
+        '6': { name: 'punctuation.definition.members.begin.bracket.curly.ks' }
+      end: '\}'
+      endCaptures:
+        '0': { name: 'punctuation.definition.members.end.bracket.curly.ks' }
+      patterns:
+      - match: '({{identifier}})(?:\s+(=>)\s+({{identifier}}))?'
+        captures:
+          '1': { name: 'entity.name.variable.field.ks' }
+          '2': { name: 'keyword.control.alias.arrow.ks' }
+          '3': { name: 'entity.name.variable.field.ks' }
     - begin: '(?:\b(internal|private|protected|public)\b\s*)?(?:\b(static)\b\s*)?({{identifier}})\s*(?=\{)'
       beginCaptures:
         '1': { name: 'storage.modifier.access.ks' }
@@ -319,6 +382,16 @@ repository:
         patterns:
         - include: '#type'
       - include: '#class-property'
+    - begin: '(?:\b(internal|private|protected|public)\s+)?(?:\b(static)\s+)?\b(proxy)\s+({{identifier}})\s*(=)\s*'
+      beginCaptures:
+        '1': { name: 'storage.modifier.access.ks' }
+        '2': { name: 'storage.modifier.access.ks' }
+        '3': { name: 'storage.modifier.proxy.ks' }
+        '4': { name: 'entity.name.variable.field.ks' }
+        '5': { name: 'keyword.operator.assignment.ks' }
+      end: '(?=\}|$)'
+      patterns:
+      - include: '#expression'
     - begin: '(?:\b(internal|private|protected|public)\b\s*)?(?:\b(static)\b\s*)?(?:\b(final)\b\s*)?(?:\b(late)\b\s*)?(@)?({{identifier}})'
       beginCaptures:
         '1': { name: 'storage.modifier.access.ks' }
@@ -329,6 +402,8 @@ repository:
         '6': { name: 'entity.name.variable.field.ks' }
       end: '$'
       patterns:
+      - name: 'storage.modifier.nullable.ks'
+        match: '\?'
       - name: 'meta.type.annotation.ks'
         begin: ':'
         beginCaptures:
@@ -634,17 +709,16 @@ repository:
     - include: '#comment'
   # }}}
   enum-statement: # {{{
-    begin: '(?=(?:\bflagged\s+)?\benum\s+{{identifier}}\b)'
+    begin: '(?=\benum\s+{{identifier}}\b)'
     end: '(?<=\}|$)'
     patterns:
     - include: '#enum-statement-body'
   # }}}
   enum-statement-body: # {{{
-    begin: '(?:(\bflagged)\s+)?(\benum)\s+({{identifier}})'
+    begin: '(\benum)\s+({{identifier}})'
     beginCaptures:
-      '1': { name: 'storage.modifier.ks' }
-      '2': { name: 'storage.type.enum.ks' }
-      '3': { name: 'entity.name.type.enum.ks' }
+      '1': { name: 'storage.type.enum.ks' }
+      '2': { name: 'entity.name.type.enum.ks' }
     end: '(?<=\})'
     patterns:
     - begin: '(\<)'
@@ -666,6 +740,7 @@ repository:
   # }}}
   export-declarator: # {{{
     patterns:
+    - include: '#bitmask-statement-body'
     - include: '#class-statement'
     - include: '#enum-statement-body'
     - include: '#function-statement'
@@ -851,94 +926,6 @@ repository:
       - include: '#expression-without-function'
     - include: '#comma'
   # }}}
-  extern-declarator: # {{{
-    patterns:
-    - begin: '\b(?:(sealed)\s+|(systemic)\s+)?(class)\b'
-      beginCaptures:
-        '1': { name: 'storage.modifier.sealed.ks' }
-        '2': { name: 'storage.modifier.system.ks' }
-        '3': { name: 'storage.type.class.ks' }
-      end: '(?=[,=\}]|$)'
-      patterns:
-      - name: 'storage.modifier.extends.ks'
-        match: '\bextends\b'
-      - name: 'entity.name.type.class.ks'
-        match: '{{identifier}}'
-      - begin: '\{'
-        beginCaptures:
-          '0': { name: 'punctuation.definition.class.begin.bracket.curly.ks' }
-        end: '\}'
-        endCaptures:
-          '0': { name: 'punctuation.definition.class.end.bracket.curly.ks' }
-        patterns:
-        - include: '#class-member'
-    - begin: '\b(?:(async)\s+)?(func)\b'
-      beginCaptures:
-        '1': { name: 'storage.modifier.async.ks' }
-        '2': { name: 'storage.type.function.ks' }
-      end: '(?=[,=]|$)'
-      patterns:
-      - name: 'entity.name.function.ks'
-        match: '{{identifier}}'
-      - include: '#function-parameters'
-      - include: '#function-return-type'
-      - include: '#function-throwables'
-    - begin: '\b(?:(sealed)\s+|(systemic)\s+)?(namespace)\b'
-      beginCaptures:
-        '1': { name: 'storage.modifier.sealed.ks' }
-        '2': { name: 'storage.modifier.system.ks' }
-        '3': { name: 'storage.type.namespace.ks' }
-      end: '(?=[,=\}]|$)'
-      patterns:
-      - name: 'entity.name.type.namespace.ks'
-        match: '{{identifier}}'
-      - begin: '\{'
-        beginCaptures:
-          '0': { name: 'punctuation.definition.namespace.begin.bracket.curly.ks' }
-        end: '\}'
-        endCaptures:
-          '0': { name: 'punctuation.definition.namespace.end.bracket.curly.ks' }
-        patterns:
-        - begin: '(final)\s+({{identifier}})'
-          beginCaptures:
-            '1': { name: 'storage.type.constant.ks' }
-            '2': { name: 'variable.other.constant.ks' }
-          end: '(?=\,|$)'
-          patterns:
-          - name: 'meta.type.annotation.ks'
-            begin: '(\:)'
-            beginCaptures:
-              '1': { name: 'keyword.operator.type.annotation.ks' }
-            end: '(?=\s*,|$)'
-            patterns:
-            - include: '#type'
-        - include: '#extern-declarator'
-    - begin: '(?:(\basync)\s+)?({{identifier}})\s*(?=\()'
-      beginCaptures:
-        '1': { name: 'storage.modifier.async.ks' }
-        '2': { name: 'entity.name.function.ks' }
-      end: '(?=[,=]|$)'
-      patterns:
-      - include: '#function-parameters'
-      - include: '#function-return-type'
-      - include: '#function-throwables'
-    - begin: '\b(?:(sealed)\s+|(systemic)\s+)?({{identifier}})\b'
-      beginCaptures:
-        '1': { name: 'storage.modifier.sealed.ks' }
-        '2': { name: 'storage.modifier.system.ks' }
-        '3': { name: 'variable.other.constant.ks' }
-      end: '(?=[,=]|$)'
-      patterns:
-      - name: 'meta.type.annotation.ks'
-        begin: '(\:)'
-        beginCaptures:
-          '1': { name: 'keyword.operator.type.annotation.ks' }
-        end: '(?=\s*,|$)'
-        patterns:
-        - include: '#type'
-    - include: '#attribute'
-    - include: '#comment'
-  # }}}
   extern-import-statement: # {{{
     begin: '^\s*(extern\|import)\s+(?={{expression-beginning}})'
     beginCaptures:
@@ -970,8 +957,8 @@ repository:
       endCaptures:
         '0': { name: 'punctuation.definition.extern-require.end.bracket.curly.ks' }
       patterns:
-      - include: '#extern-declarator'
-    - include: '#extern-declarator'
+      - include: '#type-descriptive'
+    - include: '#type-descriptive'
     - include: '#comma'
   # }}}
   extern-statement: # {{{
@@ -987,8 +974,8 @@ repository:
       endCaptures:
         '0': { name: 'punctuation.definition.extern.end.bracket.curly.ks' }
       patterns:
-      - include: '#extern-declarator'
-    - include: '#extern-declarator'
+      - include: '#type-descriptive'
+    - include: '#type-descriptive'
     - include: '#comma'
   # }}}
   fallthrough-statement: # {{{
@@ -996,6 +983,14 @@ repository:
     beginCaptures:
       '1': { name: 'keyword.control.switch.fallthrough.ks' }
     end: '$'
+  # }}}
+  finally-statement: # {{{
+    begin: '^\s*(finally\b)\s*(?=\{)'
+    beginCaptures:
+      '1': { name: 'keyword.control.finally.ks' }
+    end: '(?<=\})'
+    patterns:
+    - include: '#block'
   # }}}
   function-call-name: # {{{
     match: '(@)?({{identifier}})(?=(?:\?)?(?:\*[$*]|\^[$^@]|!)?\()'
@@ -1017,6 +1012,12 @@ repository:
     endCaptures:
       '0': { name: 'punctuation.definition.arguments.end.bracket.round.ks' }
     patterns:
+    - begin: '(?<=[,\(\s]):'
+      beginCaptures:
+        '0': { name: 'punctuation.separator.key-value.ks' }
+      end: '(?=$|[,\)])'
+      patterns:
+      - include: '#expression'
     - begin: '({{identifier}})\s*(:)\s+'
       beginCaptures:
         '1': { name: 'meta.argument.key.ks' }
@@ -1024,6 +1025,11 @@ repository:
       end: '(?=$|[,\)])'
       patterns:
       - include: '#expression'
+    - match: '(\\)(@)?({{identifier}})'
+      captures:
+        '1': { name: 'punctuation.positional.ks' }
+        '2': { name: 'storage.modifier.instance.ks' }
+        '3': { name: 'variable.other.ks' }
     - include: '#expression'
   # }}}
   function-expression: # {{{
@@ -1088,11 +1094,19 @@ repository:
         '4': { name: 'punctuation.separator.comma.ks' }
         '5': { name: 'constant.numeric.decimal.ks' }
         '6': { name: 'punctuation.definition.rest.end.bracket.curly' }
-    - begin: '(@)?({{identifier}})'
+    - begin: '(=)|(\?\?=|##=)'
       beginCaptures:
-        '1': { name: 'storage.modifier.at.ks' }
-        '2': { name: 'variable.parameter.ks' }
-      end: (?=[\:\=\,\)\/])
+        '1': { name: 'keyword.operator.assignment.ks' }
+        '2': { name: 'keyword.operator.assignment.compound.ks' }
+      end: (?=[,\)\/]|$)
+      patterns:
+      - include: '#expression'
+    - begin: '(\b_\b)|(@)?({{identifier}})'
+      beginCaptures:
+        '1': { name: 'variable.anonymous.ks' }
+        '2': { name: 'storage.modifier.at.ks' }
+        '3': { name: 'variable.parameter.ks' }
+      end: (?=[\:\=\,\)\/%]|\?\?=|##=)
       patterns:
       - name: 'storage.modifier.nullable.ks'
         match: '\?'
@@ -1102,17 +1116,17 @@ repository:
       begin: '\:'
       beginCaptures:
         '0': { name: 'keyword.operator.type.annotation.ks' }
-      end: '(?=\s*[\=,\)\/])'
+      end: '(?=\s*(?:[\=,\)\/]|\?\?=|##=))'
       patterns:
       - include: '#type'
-    - begin: '\='
-      beginCaptures:
-        '0': { name: 'keyword.operator.assignment.ks' }
-      end: (?=[,\)\/])
-      patterns:
-      - include: '#expression'
     - name: 'storage.modifier.required.ks'
       match: '!'
+    - name: 'keyword.operator.parameter.label.ks'
+      match: '%'
+    - name: 'keyword.operator.parameter.name-only.ks'
+      match: '\*'
+    - name: 'keyword.operator.parameter.position-only.ks'
+      match: '#'
     - include: '#function-parameter-binding-array'
     - include: '#function-parameter-binding-object'
     - include: '#comment'
@@ -1372,9 +1386,10 @@ repository:
           '0': { name: 'punctuation.definition.binding-pattern.object.end.bracket.curly.ks' }
         patterns:
           - include: '#var-statement-variable'
-      - begin: '(=)'
+      - begin: '(=)|(\?=|\#=)'
         beginCaptures:
           '1': { name: 'keyword.operator.assignment.ks' }
+          '2': { name: 'keyword.operator.assignment.compound.ks' }
         end: '(?=\{)'
         patterns:
         - include: '#expression'
@@ -1387,9 +1402,10 @@ repository:
       end: '(?=\{)'
       patterns:
       - include: '#var-statement-variable'
-      - begin: '(=)'
+      - begin: '(=)|(\?=|\#=)'
         beginCaptures:
           '1': { name: 'keyword.operator.assignment.ks' }
+          '2': { name: 'keyword.operator.assignment.compound.ks' }
         end: '(?=\{)'
         patterns:
         - include: '#expression'
@@ -1467,10 +1483,12 @@ repository:
     patterns:
     - name: 'variable.other.constant.ks'
       match: '{{identifier}}'
+    - include: '#binding-array'
+    - include: '#binding-object'
   # }}}
   import-declarator: # {{{
     begin: (?=['"])
-    end: (?<=$|\})
+    end: (?<=$)
     patterns:
     - include: '#string'
     - begin: '\('
@@ -1489,15 +1507,14 @@ repository:
           '1': { name: 'variable.other.ks' }
           '2': { name: 'punctuation.separator.alias.ks' }
       - include: '#expression'
-    - include: '#import-specifier'
-    - begin: '\bfor\b'
+    - begin: '\{'
       beginCaptures:
-        '0': { name: 'keyword.control.dependency.for.ks' }
-      end: '$'
+        '0': { name: 'punctuation.definition.import-type.begin.bracket.curly.ks' }
+      end: '\}'
+      endCaptures:
+        '0': { name: 'punctuation.definition.import-type.end.bracket.curly.ks' }
       patterns:
-      - include: '#extern-declarator'
-      - include: '#import-alias'
-      - include: '#comma'
+      - include: '#type-descriptive'
     - begin: '\bbut\b'
       beginCaptures:
         '0': { name: 'keyword.control.dependency.exclusion.ks' }
@@ -1515,32 +1532,29 @@ repository:
       - name: 'variable.other.ks'
         match: '{{identifier}}'
       - include: '#comma'
-    - begin: '=>'
+    - begin: '\bfor\b'
       beginCaptures:
-        '0': { name: 'keyword.control.dependency.arrow.ks' }
-      end: '(?<=\}|$)'
+        '0': { name: 'keyword.control.dependency.for.ks' }
+      end: '$'
       patterns:
-      - name: 'variable.other.constant.ks'
+      - name: 'constant.language.import-all.ks'
+        match: '\*'
+      - begin: '\{'
+        beginCaptures:
+          '0': { name: 'punctuation.definition.import-specification.begin.bracket.curly.ks' }
+        end: '\}'
+        endCaptures:
+          '0': { name: 'punctuation.definition.import-specification.end.bracket.curly.ks' }
+        patterns:
+        - include: '#type-descriptive'
+        - include: '#import-alias'
+        - include: '#comma'
+      - include: '#type-descriptive'
+      - name: 'variable.other.ks'
         match: '{{identifier}}'
-      - include: '#import-specifier'
-  # }}}
-  import-specifier: # {{{
-    begin: '\{'
-    beginCaptures:
-      '0': { name: 'punctuation.definition.import-specification.begin.bracket.curly.ks' }
-    end: '\}'
-    endCaptures:
-      '0': { name: 'punctuation.definition.import-specification.end.bracket.curly.ks' }
-    patterns:
-    - match: '(\*)\s*(=>)\s*({{identifier}})'
-      captures:
-        '1': { name: 'constant.language.import-all.ks' }
-        '2': { name: 'keyword.control.dependency.arrow.ks' }
-        '3': { name: 'variable.other.constant.ks' }
-    - include: '#extern-declarator'
+      - include: '#import-alias'
+      - include: '#comma'
     - include: '#import-alias'
-    - include: '#attribute'
-    - include: '#comment'
   # }}}
   import-statement: # {{{
     begin: '^\s*(import)\s+(?={{expression-beginning}})'
@@ -1642,23 +1656,17 @@ repository:
     - include: '#macro-expression'
   # }}}
   macro-variable: # {{{
+    name: 'meta.macro.variable.ks'
+    begin: '(#)([aejsw])?(\()'
+    beginCaptures:
+      '1': { name: 'punctuation.accessor.macro.ks' }
+      '2': { name: 'storage.modifier.macro.ks' }
+      '3': { name: 'punctuation.definition.macro-variable.begin.bracket.round.ks' }
+    end: '\)'
+    endCaptures:
+      '0': { name: 'punctuation.definition.macro-variable.end.bracket.round.ks' }
     patterns:
-    - name: 'meta.macro.variable.ks'
-      begin: '(#)([aejsw])?(\()'
-      beginCaptures:
-        '1': { name: 'punctuation.accessor.macro.ks' }
-        '2': { name: 'storage.modifier.macro.ks' }
-        '3': { name: 'punctuation.definition.macro-variable.begin.bracket.round.ks' }
-      end: '\)'
-      endCaptures:
-        '0': { name: 'punctuation.definition.macro-variable.end.bracket.round.ks' }
-      patterns:
-      - include: '#expression'
-    - name: 'meta.macro.variable.ks'
-      match: '(#)({{identifier}})'
-      captures:
-        '1': { name: 'punctuation.accessor.macro.ks' }
-        '2': { name: 'variable.other.ks' }
+    - include: '#expression'
   # }}}
   method-return-type: # {{{
     name: 'meta.function.return-type.ks'
@@ -1808,15 +1816,19 @@ repository:
   operator: # {{{
     patterns:
     - name: 'keyword.operator.assignment.compound.ks'
-      match: '\+=|-=|\*=|(?<!\()/\.?=|%=|\?\?=|!\?=|\?='
+      match: '\+=|-=|\*=|(?<!\()/\.?=|%=|\?\?=|##=|!\?=|\?=|!\#=|\#='
+    - name: 'keyword.operator.assignment.compound.logical.ks'
+      match: '\|\|=|&&=|\^\^='
     - name: 'keyword.operator.assignment.compound.bitwise.ks'
-      match: '<<=|>>=|>>=|&&=|\^\^=|\|\|='
+      match: '<<=|>>='
     - name: 'keyword.operator.bitwise.ks'
-      match: '\^\^\^|~~~|&&&|\|\|\||<<<|>>>'
+      match: '<<|>>'
+    - name: 'keyword.operator.assignment.ks'
+      match: '<-'
     - name: 'keyword.operator.comparison.ks'
       match: '<=|>=|==|<|>|!=|~~|!~'
     - name: 'keyword.operator.assignment.ks'
-      match: '=|:='
+      match: '='
     - name: 'keyword.operator.decrement.ks'
       match: '--'
     - name: 'keyword.operator.increment.ks'
@@ -1825,6 +1837,8 @@ repository:
       match: '\.\.\.'
     - name: 'keyword.operator.null-coalescing.ks'
       match: '\?\?'
+    - name: 'keyword.operator.empty-coalescing.ks'
+      match: '##'
     - name: 'keyword.operator.exception-coalescing.ks'
       match: '~'
     - name: 'keyword.control.flow.await.ks'
@@ -1889,6 +1903,16 @@ repository:
       match: '(?<=[_$[:alnum:]\]\)])!!'
     - name: 'keyword.operator.existential.ks'
       match: '\?'
+    - name: 'keyword.operator.emptiness.ks'
+      match: '#'
+  # }}}
+  pass-statement: # {{{
+    begin: '^\s*(pass)'
+    beginCaptures:
+      '1': { name: 'keyword.control.flow.pass.ks' }
+    end: '$'
+    patterns:
+    - include: '#comment'
   # }}}
   regex: # {{{
     name: 'string.regexp.ks'
@@ -1972,10 +1996,11 @@ repository:
   # }}}
   require-declarator: # {{{
     patterns:
+    - include: '#bitmask-statement-body'
     - include: '#enum-statement-body'
     - include: '#struct-statement-body'
     - include: '#tuple-statement-body'
-    - include: '#extern-declarator'
+    - include: '#type-descriptive'
   # }}}
   require-extern-statement: # {{{
     begin: '^\s*(require\|extern)\s+(?={{expression-beginning}})'
@@ -1990,8 +2015,8 @@ repository:
       endCaptures:
         '0': { name: 'punctuation.definition.require-extern.end.bracket.curly.ks' }
       patterns:
-      - include: '#extern-declarator'
-    - include: '#extern-declarator'
+      - include: '#type-descriptive'
+    - include: '#type-descriptive'
     - include: '#comma'
   # }}}
   require-import-statement: # {{{
@@ -2049,12 +2074,19 @@ repository:
     - include: '#unless-expression'
     - include: '#expression'
   # }}}
+  shebang-statement: # {{{
+    name: comment.line.shebang.ks
+    match: '^(#!)(?!\[).*$'
+    captures:
+      '1': { name: 'punctuation.definition.comment.ks' }
+  # }}}
   statements: # {{{
     patterns:
     - include: '#comment'
-    - begin: '^\s*(?=abstract\b|async\b|class\b|enum\b|final\b|flagged\b|func\b|macro\b|namespace\b|sealed\b|type\b|var\b)'
+    - begin: '^\s*(?=abstract\b|async\b|bitmask\b|class\b|enum\b|final\b|flagged\b|func\b|macro\b|namespace\b|sealed\b|type\b|var\b)'
       end: '(?<=\}|$)'
       patterns:
+      - include: '#bitmask-statement'
       - include: '#class-statement'
       - include: '#enum-statement'
       - include: '#function-statement'
@@ -2071,9 +2103,11 @@ repository:
     - include: '#else-statement'
     - include: '#else-if-statement'
     - include: '#fallthrough-statement'
+    - include: '#finally-statement'
     - include: '#for-statement'
     - include: '#if-statement'
     - include: '#implement-statement'
+    - include: '#pass-statement'
     - include: '#return-statement'
     - include: '#struct-statement'
     - include: '#switch-statement'
@@ -2083,6 +2117,7 @@ repository:
     - include: '#unless-statement'
     - include: '#until-statement'
     - include: '#while-statement'
+    - include: '#with-statement'
     - include: '#expression-statement'
     - include: '#block'
   # }}}
@@ -2300,12 +2335,6 @@ repository:
         end: '(?<=\})'
         patterns:
         - include: '#block'
-      - begin: '^\s*(finally\b)\s*(?=\{)'
-        beginCaptures:
-          '1': { name: 'keyword.control.try-catch.finally.ks' }
-        end: '(?<=\})'
-        patterns:
-        - include: '#block'
       - begin: '^\s*(on\b)\s+(\b{{identifier}}\b)\s*(?:(\bcatch)\s+({{identifier}}))?'
         beginCaptures:
           '1': { name: 'keyword.control.try-catch.on.ks' }
@@ -2432,8 +2461,7 @@ repository:
         endCaptures:
           '0': { name: 'punctuation.definition.array.end.bracket.square.ks' }
         patterns:
-        - include: '#type'
-        - include: '#comma'
+        - include: '#type-array'
       - begin: '\{'
         beginCaptures:
           '0': { name: 'punctuation.definition.object.begin.bracket.curly.ks' }
@@ -2443,6 +2471,131 @@ repository:
         patterns:
         - include: '#type-object'
       - include: '#comment'
+  # }}}
+  type-array: # // {{{
+    patterns:
+    - begin: '\.\.\.'
+      beginCaptures:
+        '0': { name: 'keyword.operator.rest.ks' }
+      end: '(?=$|,|\])'
+      patterns:
+      - include: '#type'
+    - include: '#type'
+    - include: '#comma'
+    - include: '#comment'
+  # }}}
+  type-descriptive: # {{{
+    patterns:
+    - include: '#bitmask-statement-body'
+    - include: '#enum-statement-body'
+    - include: '#struct-statement-body'
+    - begin: '\b(?:(sealed)\s+|(system)\s+)?(class)\b'
+      beginCaptures:
+        '1': { name: 'storage.modifier.sealed.ks' }
+        '2': { name: 'storage.modifier.system.ks' }
+        '3': { name: 'storage.type.class.ks' }
+      end: '(?=[,=\}]|$)'
+      patterns:
+      - name: 'storage.modifier.extends.ks'
+        match: '\bextends\b'
+      - name: 'entity.name.type.class.ks'
+        match: '{{identifier}}'
+      - begin: '\{'
+        beginCaptures:
+          '0': { name: 'punctuation.definition.class.begin.bracket.curly.ks' }
+        end: '\}'
+        endCaptures:
+          '0': { name: 'punctuation.definition.class.end.bracket.curly.ks' }
+        patterns:
+        - include: '#class-member'
+    - begin: '\b(?:(async)\s+)?(func)\b'
+      beginCaptures:
+        '1': { name: 'storage.modifier.async.ks' }
+        '2': { name: 'storage.type.function.ks' }
+      end: '(?=[,=]|$)'
+      patterns:
+      - name: 'entity.name.function.ks'
+        match: '{{identifier}}'
+      - include: '#function-parameters'
+      - include: '#function-return-type'
+      - include: '#function-throwables'
+    - begin: '\b(?:(sealed)\s+|(system)\s+)?(namespace)\b'
+      beginCaptures:
+        '1': { name: 'storage.modifier.sealed.ks' }
+        '2': { name: 'storage.modifier.system.ks' }
+        '3': { name: 'storage.type.namespace.ks' }
+      end: '(?=[,=\}]|$)'
+      patterns:
+      - name: 'entity.name.type.namespace.ks'
+        match: '{{identifier}}'
+      - begin: '\{'
+        beginCaptures:
+          '0': { name: 'punctuation.definition.namespace.begin.bracket.curly.ks' }
+        end: '\}'
+        endCaptures:
+          '0': { name: 'punctuation.definition.namespace.end.bracket.curly.ks' }
+        patterns:
+        - begin: '(final)\s+({{identifier}})'
+          beginCaptures:
+            '1': { name: 'storage.type.constant.ks' }
+            '2': { name: 'variable.other.constant.ks' }
+          end: '(?=\,|$)'
+          patterns:
+          - name: 'meta.type.annotation.ks'
+            begin: '(\:)'
+            beginCaptures:
+              '1': { name: 'keyword.operator.type.annotation.ks' }
+            end: '(?=\s*,|$)'
+            patterns:
+            - include: '#type'
+        - include: '#type-descriptive'
+    - begin: '\b(type)\s+({{identifier}})\s+(=)\s*'
+      beginCaptures:
+        '1': { name: 'storage.modifier.type.ks' }
+        '2': { name: 'storage.type.type.ks' }
+        '3': { name: 'keyword.operator.assignment.ks' }
+      end: '$'
+      patterns:
+      - include: '#type'
+    - begin: '(?:(\basync)\s+)?({{identifier}})\s*(?=\()'
+      beginCaptures:
+        '1': { name: 'storage.modifier.async.ks' }
+        '2': { name: 'entity.name.function.ks' }
+      end: '(?=[,=]|$)'
+      patterns:
+      - include: '#function-parameters'
+      - include: '#function-return-type'
+      - include: '#function-throwables'
+    - begin: '\b(var)\s+(?:(mut)\s+)?({{identifier}})\b'
+      beginCaptures:
+        '1': { name: 'storage.type.readwrite.ks' }
+        '2': { name: 'storage.modifier.mutable.ks' }
+        '3': { name: 'variable.other.constant.ks' }
+      end: '(?=[,=]|$)'
+      patterns:
+      - name: 'meta.type.annotation.ks'
+        begin: '(\:)'
+        beginCaptures:
+          '1': { name: 'keyword.operator.type.annotation.ks' }
+        end: '(?=\s*,|$)'
+        patterns:
+        - include: '#type'
+    - begin: '\b(?:(sealed)\s+|(system)\s+)?({{identifier}})\b'
+      beginCaptures:
+        '1': { name: 'storage.modifier.sealed.ks' }
+        '2': { name: 'storage.modifier.system.ks' }
+        '3': { name: 'variable.other.constant.ks' }
+      end: '(?=[,=]|$)'
+      patterns:
+      - name: 'meta.type.annotation.ks'
+        begin: '(\:)'
+        beginCaptures:
+          '1': { name: 'keyword.operator.type.annotation.ks' }
+        end: '(?=\s*,|$)'
+        patterns:
+        - include: '#type'
+    - include: '#attribute'
+    - include: '#comment'
   # }}}
   type-generic: # {{{
     begin: '<'
@@ -2470,6 +2623,12 @@ repository:
       beginCaptures:
         '1': { name: 'meta.object.key.ks' }
         '2': { name: 'keyword.operator.type.annotation.ks' }
+      end: '(?=$|,|\})'
+      patterns:
+      - include: '#type'
+    - begin: '\.\.\.'
+      beginCaptures:
+        '0': { name: 'keyword.operator.rest.ks' }
       end: '(?=$|,|\})'
       patterns:
       - include: '#type'
@@ -2552,13 +2711,15 @@ repository:
     - include: '#binding-object'
     - name: 'variable.anonymous.ks'
       match: '\b\_\b'
-    - name: 'meta.definition.variable.ks variable.other.ks'
-      match: '{{identifier}}'
+    - match: '({{identifier}})(\?)?'
+      captures:
+        '1': { name: 'meta.definition.variable.ks variable.other.ks' }
+        '2': { name: 'storage.modifier.nullable.ks' }
     - name: 'meta.type.annotation.ks'
       begin: '(:)'
       beginCaptures:
         '1': { name: 'keyword.operator.type.annotation.ks' }
-      end: '$|(?=\s*(?:=|,|in|of))'
+      end: '$|(?=\s*(?:=|,|in|of|\?=|#=))'
       patterns:
       - include: '#type'
     - include: '#comma'
@@ -2601,9 +2762,10 @@ repository:
           '0': { name: 'punctuation.definition.binding-pattern.object.end.bracket.square.ks' }
         patterns:
           - include: '#var-statement-variable'
-      - begin: '(\=)'
+      - begin: '(=)|(\?=|\#=)'
         beginCaptures:
           '1': { name: 'keyword.operator.assignment.ks' }
+          '2': { name: 'keyword.operator.assignment.compound.ks' }
         end: '(?=\{)'
         patterns:
         - include: '#expression'
@@ -2616,9 +2778,10 @@ repository:
       end: '(?=\{)'
       patterns:
       - include: '#var-statement-variable'
-      - begin: '(\=)'
+      - begin: '(=)|(\?=|\#=)'
         beginCaptures:
           '1': { name: 'keyword.operator.assignment.ks' }
+          '2': { name: 'keyword.operator.assignment.compound.ks' }
         end: '(?=\{)'
         patterns:
         - include: '#expression'
@@ -2651,4 +2814,56 @@ repository:
       - include: '#block'
       - include: '#expression'
     - include: '#block'
+  # }}}
+  with-statement: # {{{
+    patterns:
+    - begin: '^\s*(with)\s+(\{)'
+      beginCaptures:
+        '1': { name: 'keyword.control.with.ks' }
+        '2': { name: 'punctuation.definition.block.begin.bracket.curly.ks' }
+      end: '\}'
+      endCaptures:
+        '0': { name: 'punctuation.definition.block.end.bracket.curly.ks' }
+      patterns:
+      - begin: '^\s*(?:(?:(var)\s+(mut))|(var))\s+(?={{expression-beginning}})'
+        beginCaptures:
+          '1': { name: 'storage.type.readwrite.ks' }
+          '2': { name: 'storage.modifier.mutable.ks' }
+          '3': { name: 'storage.type.constant.ks' }
+        end: '$'
+        patterns:
+        - begin: '(=)'
+          beginCaptures:
+            '1': { name: 'keyword.operator.assignment.ks' }
+          end: '$'
+          patterns:
+          - include: '#expression'
+        - include: '#var-statement-variable'
+    - begin: '^\s*(then)\s+(?=\{)'
+      beginCaptures:
+        '1': { name: 'keyword.control.then.ks' }
+      end: '(?<=\})'
+      patterns:
+      - include: '#block'
+    - begin: '^\s*(with)\s+(?={{expression-beginning}})'
+      beginCaptures:
+        '1': { name: 'keyword.control.with.ks' }
+      end: '(?<=\})'
+      patterns:
+      - begin: '\b(?:(?:(var)\s+(mut))|(var))\s+(?={{expression-beginning}})'
+        beginCaptures:
+          '1': { name: 'storage.type.readwrite.ks' }
+          '2': { name: 'storage.modifier.mutable.ks' }
+          '3': { name: 'storage.type.constant.ks' }
+        end: '(?=\{)'
+        patterns:
+        - begin: '(=)'
+          beginCaptures:
+            '1': { name: 'keyword.operator.assignment.ks' }
+          end: '(?=\{)'
+          patterns:
+          - include: '#expression'
+        - include: '#var-statement-variable'
+      - include: '#block'
+      - include: '#expression'
   # }}}

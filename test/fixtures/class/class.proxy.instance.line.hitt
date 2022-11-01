@@ -1,0 +1,66 @@
+original file
+-----------------------------------
+class Proxy {
+    proxy hello = @component.hello
+}
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>class Proxy {
+ class
+ ^^^^^
+ source.ks storage.type.class.ks
+       
+      ^
+      source.ks
+       Proxy
+       ^^^^^
+       source.ks entity.name.type.class.ks
+             
+            ^
+            source.ks
+             {
+             ^
+             source.ks punctuation.definition.class.begin.bracket.curly.ks
+>
+>    proxy hello = @component.hello
+     
+ ^^^^
+ source.ks
+     proxy
+     ^^^^^
+     source.ks storage.modifier.proxy.ks
+           
+          ^
+          source.ks
+           hello
+           ^^^^^
+           source.ks entity.name.variable.field.ks
+                 
+                ^
+                source.ks
+                 =
+                 ^
+                 source.ks keyword.operator.assignment.ks
+                   
+                  ^
+                  source.ks
+                   @
+                   ^
+                   source.ks storage.modifier.instance.ks
+                    component
+                    ^^^^^^^^^
+                    source.ks variable.other.instance.ks
+                             .
+                             ^
+                             source.ks punctuation.accessor.object.ks
+                              hello
+                              ^^^^^
+                              source.ks variable.other.property.object.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.class.end.bracket.curly.ks

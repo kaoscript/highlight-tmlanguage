@@ -1,0 +1,39 @@
+original file
+-----------------------------------
+if test {
+    pass
+}
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>if test {
+ if
+ ^^
+ source.ks keyword.control.conditional.if.ks
+    
+   ^
+   source.ks
+    test
+    ^^^^
+    source.ks variable.other.ks
+         
+        ^
+        source.ks
+         {
+         ^
+         source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>    pass
+     
+ ^^^^
+ source.ks
+     pass
+     ^^^^
+     source.ks keyword.control.flow.pass.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.block.end.bracket.curly.ks

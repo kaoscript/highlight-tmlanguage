@@ -5,6 +5,7 @@ await.exec.let
 class.abstract.method.throws
 class.method.lambda.ends
 class.method.lambda.starts
+comment.ml.class.imth.ret
 delete.class.default
 destruct.array.for.const
 destruct.array.for.default
@@ -35,7 +36,7 @@ keyword.this.ternary
 macro.number
 macro.quirk
 namespace.enum.default
-namespace.enum.flags
+namespace.bitmask.default
 number.not
 object.comment.template
 object.key.constant

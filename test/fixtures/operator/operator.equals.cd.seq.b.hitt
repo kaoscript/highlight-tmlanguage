@@ -1,0 +1,57 @@
+original file
+-----------------------------------
+if (x = y, true) {
+}
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>if (x = y, true) {
+ if
+ ^^
+ source.ks keyword.control.conditional.if.ks
+    
+   ^
+   source.ks
+    (
+    ^
+    source.ks meta.brace.round.ks
+     x
+     ^
+     source.ks variable.other.ks
+       
+      ^
+      source.ks
+       =
+       ^
+       source.ks keyword.operator.assignment.ks
+         
+        ^
+        source.ks
+         y
+         ^
+         source.ks variable.other.ks
+          ,
+          ^
+          source.ks punctuation.separator.comma.ks
+            
+           ^
+           source.ks
+            true
+            ^^^^
+            source.ks constant.language.boolean.true.ks
+                )
+                ^
+                source.ks meta.brace.round.ks
+                  
+                 ^
+                 source.ks
+                  {
+                  ^
+                  source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.block.end.bracket.curly.ks

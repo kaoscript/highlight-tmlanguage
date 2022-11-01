@@ -1,0 +1,39 @@
+original file
+-----------------------------------
+var late a, b, c
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>var late a, b, c
+ var 
+ ^^^^
+ source.ks storage.type.readwrite.ks
+     late
+     ^^^^
+     source.ks storage.type.readwrite.ks storage.modifier.lateinit.ks
+          
+         ^
+         source.ks
+          a
+          ^
+          source.ks meta.definition.variable.ks variable.other.ks
+           ,
+           ^
+           source.ks punctuation.separator.comma.ks
+             
+            ^
+            source.ks
+             b
+             ^
+             source.ks meta.definition.variable.ks variable.other.ks
+              ,
+              ^
+              source.ks punctuation.separator.comma.ks
+                
+               ^
+               source.ks
+                c
+                ^
+                source.ks meta.definition.variable.ks variable.other.ks

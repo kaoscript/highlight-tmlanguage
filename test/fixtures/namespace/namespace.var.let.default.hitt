@@ -3,8 +3,8 @@ original file
 extern console
 
 namespace Float {
-    var dyn PI: Number = 3.14
-    var dyn name: String = 'john'
+    var mut PI: Number = 3.14
+    var mut name: String = 'john'
 }
 
 console.log(Float.PI)
@@ -47,16 +47,16 @@ grammar: kaoscript.tmLanguage
                  ^
                  source.ks punctuation.definition.namespace.begin.bracket.curly.ks
 >
->    var dyn PI: Number = 3.14
+>    var mut PI: Number = 3.14
      
  ^^^^
  source.ks
      var 
      ^^^^
      source.ks storage.type.readwrite.ks
-         dyn
+         mut
          ^^^
-         source.ks storage.type.readwrite.ks storage.modifier.dynamic.ks
+         source.ks storage.type.readwrite.ks storage.modifier.mutable.ks
              
             ^
             source.ks
@@ -85,16 +85,16 @@ grammar: kaoscript.tmLanguage
                           ^^^^
                           source.ks constant.numeric.decimal.ks
 >
->    var dyn name: String = 'john'
+>    var mut name: String = 'john'
      
  ^^^^
  source.ks
      var 
      ^^^^
      source.ks storage.type.readwrite.ks
-         dyn
+         mut
          ^^^
-         source.ks storage.type.readwrite.ks storage.modifier.dynamic.ks
+         source.ks storage.type.readwrite.ks storage.modifier.mutable.ks
              
             ^
             source.ks

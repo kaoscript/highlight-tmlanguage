@@ -1,0 +1,66 @@
+original file
+-----------------------------------
+bitmask CardSuit {
+    Clubs
+    Diamonds
+    Hearts
+    Spades
+}
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>bitmask CardSuit {
+ bitmask
+ ^^^^^^^
+ source.ks storage.type.bitmask.ks
+         
+        ^
+        source.ks
+         CardSuit
+         ^^^^^^^^
+         source.ks entity.name.type.bitmask.ks
+                  
+                 ^
+                 source.ks
+                  {
+                  ^
+                  source.ks punctuation.definition.bitmask.begin.bracket.curly.ks
+>
+>    Clubs
+     
+ ^^^^
+ source.ks
+     Clubs
+     ^^^^^
+     source.ks entity.name.variable.field.ks
+>
+>    Diamonds
+     
+ ^^^^
+ source.ks
+     Diamonds
+     ^^^^^^^^
+     source.ks entity.name.variable.field.ks
+>
+>    Hearts
+     
+ ^^^^
+ source.ks
+     Hearts
+     ^^^^^^
+     source.ks entity.name.variable.field.ks
+>
+>    Spades
+     
+ ^^^^
+ source.ks
+     Spades
+     ^^^^^^
+     source.ks entity.name.variable.field.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.bitmask.end.bracket.curly.ks

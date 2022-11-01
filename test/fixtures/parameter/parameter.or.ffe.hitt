@@ -1,0 +1,114 @@
+original file
+-----------------------------------
+func it(title: String, fn: (done: Function): Void || (): Void) {
+}
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>func it(title: String, fn: (done: Function): Void || (): Void) {
+ func
+ ^^^^
+ source.ks storage.type.function.ks
+      
+     ^
+     source.ks
+      it
+      ^^
+      source.ks entity.name.function.ks
+        (
+        ^
+        source.ks punctuation.definition.parameters.begin.bracket.round.ks
+         title
+         ^^^^^
+         source.ks variable.parameter.ks
+              :
+              ^
+              source.ks meta.type.annotation.ks keyword.operator.type.annotation.ks
+                
+               ^
+               source.ks meta.type.annotation.ks
+                String
+                ^^^^^^
+                source.ks meta.type.annotation.ks support.type.primitive.ks
+                      ,
+                      ^
+                      source.ks punctuation.separator.comma.ks
+                        
+                       ^
+                       source.ks
+                        fn
+                        ^^
+                        source.ks variable.parameter.ks
+                          :
+                          ^
+                          source.ks meta.type.annotation.ks keyword.operator.type.annotation.ks
+                            
+                           ^
+                           source.ks meta.type.annotation.ks
+                            (
+                            ^
+                            source.ks meta.type.annotation.ks punctuation.definition.parameters.begin.bracket.round.ks
+                             done
+                             ^^^^
+                             source.ks meta.type.annotation.ks variable.parameter.ks
+                                 :
+                                 ^
+                                 source.ks meta.type.annotation.ks meta.type.annotation.ks keyword.operator.type.annotation.ks
+                                   
+                                  ^
+                                  source.ks meta.type.annotation.ks meta.type.annotation.ks
+                                   Function
+                                   ^^^^^^^^
+                                   source.ks meta.type.annotation.ks meta.type.annotation.ks support.type.primitive.ks
+                                           )
+                                           ^
+                                           source.ks meta.type.annotation.ks punctuation.definition.parameters.end.bracket.round.ks
+                                            :
+                                            ^
+                                            source.ks meta.type.annotation.ks meta.function.return-type.ks keyword.operator.type.annotation.ks
+                                              
+                                             ^
+                                             source.ks meta.type.annotation.ks meta.function.return-type.ks
+                                              Void
+                                              ^^^^
+                                              source.ks meta.type.annotation.ks meta.function.return-type.ks support.type.primitive.ks
+                                                   
+                                                  ^
+                                                  source.ks meta.type.annotation.ks
+                                                   ||
+                                                   ^^
+                                                   source.ks meta.type.annotation.ks keyword.operator.type.union.ks
+                                                      
+                                                     ^
+                                                     source.ks meta.type.annotation.ks
+                                                      (
+                                                      ^
+                                                      source.ks meta.type.annotation.ks punctuation.definition.parameters.begin.bracket.round.ks
+                                                       )
+                                                       ^
+                                                       source.ks meta.type.annotation.ks punctuation.definition.parameters.end.bracket.round.ks
+                                                        :
+                                                        ^
+                                                        source.ks meta.type.annotation.ks meta.function.return-type.ks keyword.operator.type.annotation.ks
+                                                          
+                                                         ^
+                                                         source.ks meta.type.annotation.ks meta.function.return-type.ks
+                                                          Void
+                                                          ^^^^
+                                                          source.ks meta.type.annotation.ks meta.function.return-type.ks support.type.primitive.ks
+                                                              )
+                                                              ^
+                                                              source.ks punctuation.definition.parameters.end.bracket.round.ks
+                                                                
+                                                               ^
+                                                               source.ks
+                                                                {
+                                                                ^
+                                                                source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.block.end.bracket.curly.ks

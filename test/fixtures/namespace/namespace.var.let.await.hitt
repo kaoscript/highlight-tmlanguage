@@ -5,7 +5,7 @@ extern console
 async func min() => 'female'
 
 namespace foo {
-    var dyn gender: String = await min()
+    var mut gender: String = await min()
 }
 
 console.log(`\(foo.gender)`)
@@ -93,16 +93,16 @@ grammar: kaoscript.tmLanguage
                ^
                source.ks punctuation.definition.namespace.begin.bracket.curly.ks
 >
->    var dyn gender: String = await min()
+>    var mut gender: String = await min()
      
  ^^^^
  source.ks
      var 
      ^^^^
      source.ks storage.type.readwrite.ks
-         dyn
+         mut
          ^^^
-         source.ks storage.type.readwrite.ks storage.modifier.dynamic.ks
+         source.ks storage.type.readwrite.ks storage.modifier.mutable.ks
              
             ^
             source.ks

@@ -1,0 +1,117 @@
+original file
+-----------------------------------
+class Foobar {
+    foobar() {
+        return @foobar ?? (@foobar <- foobar())
+    }
+}
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>class Foobar {
+ class
+ ^^^^^
+ source.ks storage.type.class.ks
+       
+      ^
+      source.ks
+       Foobar
+       ^^^^^^
+       source.ks entity.name.type.class.ks
+              
+             ^
+             source.ks
+              {
+              ^
+              source.ks punctuation.definition.class.begin.bracket.curly.ks
+>
+>    foobar() {
+     
+ ^^^^
+ source.ks
+     foobar
+     ^^^^^^
+     source.ks entity.name.function.ks
+           (
+           ^
+           source.ks punctuation.definition.parameters.begin.bracket.round.ks
+            )
+            ^
+            source.ks punctuation.definition.parameters.end.bracket.round.ks
+              
+             ^
+             source.ks
+              {
+              ^
+              source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>        return @foobar ?? (@foobar <- foobar())
+         
+ ^^^^^^^^
+ source.ks
+         return
+         ^^^^^^
+         source.ks keyword.control.flow.return.ks
+                
+               ^
+               source.ks
+                @
+                ^
+                source.ks storage.modifier.instance.ks
+                 foobar
+                 ^^^^^^
+                 source.ks variable.other.instance.ks
+                        
+                       ^
+                       source.ks
+                        ??
+                        ^^
+                        source.ks keyword.operator.null-coalescing.ks
+                           
+                          ^
+                          source.ks
+                           (
+                           ^
+                           source.ks meta.brace.round.ks
+                            @
+                            ^
+                            source.ks storage.modifier.instance.ks
+                             foobar
+                             ^^^^^^
+                             source.ks variable.other.instance.ks
+                                    
+                                   ^
+                                   source.ks
+                                    <-
+                                    ^^
+                                    source.ks keyword.operator.assignment.ks
+                                       
+                                      ^
+                                      source.ks
+                                       foobar
+                                       ^^^^^^
+                                       source.ks entity.name.function.ks
+                                             (
+                                             ^
+                                             source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                                              )
+                                              ^
+                                              source.ks punctuation.definition.arguments.end.bracket.round.ks
+                                               )
+                                               ^
+                                               source.ks meta.brace.round.ks
+>
+>    }
+     
+ ^^^^
+ source.ks
+     }
+     ^
+     source.ks punctuation.definition.block.end.bracket.curly.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.class.end.bracket.curly.ks

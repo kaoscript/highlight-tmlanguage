@@ -1,6 +1,14 @@
 extern console
 
-require grammarFilePath
+// TODO
+// require var grammarFilePath: String
+
+var mut grammarFilePath: String = ''
+export func configure(file: String) {
+	grammarFilePath = file
+	
+	grammar = register.loadGrammarFromPathSync(grammarFilePath)
+}
 
 import {
 	'@zokugun/lang'
@@ -8,23 +16,23 @@ import {
 	'vscode-textmate' => vt
 }
 
-const register = new vt.Registry()
+var register = new vt.Registry()
 
-const grammar = register.loadGrammarFromPathSync(grammarFilePath)
+var mut grammar? = null
 
-func writeTokenLine(line, token, preTextForToken, output) { // {{{
-	const startingSpaces = ' '.repeat(token.startIndex + 1)
-	const locatingString = '^'.repeat(token.endIndex - token.startIndex)
+func writeTokenLine(line, token, preTextForToken, output) { # {{{
+	var startingSpaces = ' '.repeat(token.startIndex:Number + 1)
+	var locatingString = '^'.repeat(token.endIndex:Number - token.startIndex:Number)
 
 	output.push(startingSpaces + line.substring(token.startIndex, token.endIndex))
     output.push(startingSpaces + locatingString)
     output.push(startingSpaces + preTextForToken + token.scopes.join(' '))
-} // }}}
+} # }}}
 
-export func generate(content: String, indentSize: Number = 4): String { // {{{
-	const lines = content.replace(/\t/g, ' '.repeat(indentSize)).lines(true)
+export func generate(content: String, indentSize: Number = 4): String { # {{{
+	var lines = content.replace(/\t/g, ' '.repeat(indentSize)).lines(true)
 
-	const output = [
+	var output = [
 		'original file'
 		'-----------------------------------'
 		...lines
@@ -34,18 +42,18 @@ export func generate(content: String, indentSize: Number = 4): String { // {{{
 		'-----------------------------------'
 	]
 
-	let tokens: Array = null
-	let ruleStack = null
+	var mut tokens: Array? = null
+	var mut ruleStack = null
 
-	for const line, index in lines {
-		{tokens, ruleStack} = grammar.tokenizeLine(line, ruleStack)
+	for var line, index in lines {
+		{tokens, ruleStack} = grammar?.tokenizeLine(line, ruleStack)
 
 		output.push(`>`, `>\(line)`)
 
-		for const token in tokens {
+		for var token in tokens {
 			writeTokenLine(line, token, '', output)
 		}
 	}
 
 	return output.join('\n')
-} // }}}
+} # }}}

@@ -9,17 +9,27 @@ type U =
     async func(value: String): String
 
 import 'foobar' {
-    foo(...) => f1
-    async bar()    => b1
-    baz(...): T => b2
-    qux(): U => q1
+    foo(...)
+    async bar()
+    baz(...): T
+    qux(): U
+} => {
+    foo: f1
+    bar: b1
+    baz: b2
+    qux: q1
 }
 
 import 'barfoo' {
-    func foo(...) => f1
-    async func bar()    => b1
-    func baz: T => b2
-    func qux(): U => q1
+    func foo(...)
+    async func bar()
+    func baz: T
+    func qux(): U
+} => {
+    foo: f1
+    bar: b1
+    baz: b2
+    qux: q1
 }
 -----------------------------------
 
@@ -255,9 +265,9 @@ grammar: kaoscript.tmLanguage
                 source.ks
                  {
                  ^
-                 source.ks punctuation.definition.import-specification.begin.bracket.curly.ks
+                 source.ks punctuation.definition.import-type.begin.bracket.curly.ks
 >
->    foo(...) => f1
+>    foo(...)
      
  ^^^^
  source.ks
@@ -273,20 +283,8 @@ grammar: kaoscript.tmLanguage
             )
             ^
             source.ks punctuation.definition.parameters.end.bracket.round.ks
-              
-             ^
-             source.ks
-              =>
-              ^^
-              source.ks keyword.control.dependency.arrow.ks
-                 
-                ^
-                source.ks
-                 f1
-                 ^^
-                 source.ks variable.other.constant.ks
 >
->    async bar()    => b1
+>    async bar()
      
  ^^^^
  source.ks
@@ -305,20 +303,8 @@ grammar: kaoscript.tmLanguage
                )
                ^
                source.ks punctuation.definition.parameters.end.bracket.round.ks
-                    
-                ^^^^
-                source.ks
-                    =>
-                    ^^
-                    source.ks keyword.control.dependency.arrow.ks
-                       
-                      ^
-                      source.ks
-                       b1
-                       ^^
-                       source.ks variable.other.constant.ks
 >
->    baz(...): T => b2
+>    baz(...): T
      
  ^^^^
  source.ks
@@ -343,20 +329,8 @@ grammar: kaoscript.tmLanguage
                T
                ^
                source.ks meta.function.return-type.ks entity.name.type.ks
-                 
-                ^
-                source.ks
-                 =>
-                 ^^
-                 source.ks keyword.control.dependency.arrow.ks
-                    
-                   ^
-                   source.ks
-                    b2
-                    ^^
-                    source.ks variable.other.constant.ks
 >
->    qux(): U => q1
+>    qux(): U
      
  ^^^^
  source.ks
@@ -378,23 +352,96 @@ grammar: kaoscript.tmLanguage
             U
             ^
             source.ks meta.function.return-type.ks entity.name.type.ks
-              
-             ^
-             source.ks
-              =>
-              ^^
-              source.ks keyword.control.dependency.arrow.ks
-                 
-                ^
-                source.ks
-                 q1
-                 ^^
-                 source.ks variable.other.constant.ks
+>
+>} => {
+ }
+ ^
+ source.ks punctuation.definition.import-type.end.bracket.curly.ks
+   
+  ^
+  source.ks
+   =>
+   ^^
+   source.ks keyword.control.dependency.arrow.ks
+      
+     ^
+     source.ks
+      {
+      ^
+      source.ks punctuation.definition.binding-pattern.object.begin.bracket.curly.ks
+>
+>    foo: f1
+     
+ ^^^^
+ source.ks
+     foo
+     ^^^
+     source.ks variable.other.ks
+        :
+        ^
+        source.ks punctuation.separator.key-value.ks
+          
+         ^
+         source.ks
+          f1
+          ^^
+          source.ks variable.other.ks
+>
+>    bar: b1
+     
+ ^^^^
+ source.ks
+     bar
+     ^^^
+     source.ks variable.other.ks
+        :
+        ^
+        source.ks punctuation.separator.key-value.ks
+          
+         ^
+         source.ks
+          b1
+          ^^
+          source.ks variable.other.ks
+>
+>    baz: b2
+     
+ ^^^^
+ source.ks
+     baz
+     ^^^
+     source.ks variable.other.ks
+        :
+        ^
+        source.ks punctuation.separator.key-value.ks
+          
+         ^
+         source.ks
+          b2
+          ^^
+          source.ks variable.other.ks
+>
+>    qux: q1
+     
+ ^^^^
+ source.ks
+     qux
+     ^^^
+     source.ks variable.other.ks
+        :
+        ^
+        source.ks punctuation.separator.key-value.ks
+          
+         ^
+         source.ks
+          q1
+          ^^
+          source.ks variable.other.ks
 >
 >}
  }
  ^
- source.ks punctuation.definition.import-specification.end.bracket.curly.ks
+ source.ks punctuation.definition.binding-pattern.object.end.bracket.curly.ks
 >
 >
  
@@ -422,9 +469,9 @@ grammar: kaoscript.tmLanguage
                 source.ks
                  {
                  ^
-                 source.ks punctuation.definition.import-specification.begin.bracket.curly.ks
+                 source.ks punctuation.definition.import-type.begin.bracket.curly.ks
 >
->    func foo(...) => f1
+>    func foo(...)
      
  ^^^^
  source.ks
@@ -446,20 +493,8 @@ grammar: kaoscript.tmLanguage
                  )
                  ^
                  source.ks punctuation.definition.parameters.end.bracket.round.ks
-                   
-                  ^
-                  source.ks
-                   =>
-                   ^^
-                   source.ks keyword.control.dependency.arrow.ks
-                      
-                     ^
-                     source.ks
-                      f1
-                      ^^
-                      source.ks variable.other.constant.ks
 >
->    async func bar()    => b1
+>    async func bar()
      
  ^^^^
  source.ks
@@ -484,20 +519,8 @@ grammar: kaoscript.tmLanguage
                     )
                     ^
                     source.ks punctuation.definition.parameters.end.bracket.round.ks
-                         
-                     ^^^^
-                     source.ks
-                         =>
-                         ^^
-                         source.ks keyword.control.dependency.arrow.ks
-                            
-                           ^
-                           source.ks
-                            b1
-                            ^^
-                            source.ks variable.other.constant.ks
 >
->    func baz: T => b2
+>    func baz: T
      
  ^^^^
  source.ks
@@ -519,20 +542,8 @@ grammar: kaoscript.tmLanguage
                T
                ^
                source.ks meta.function.return-type.ks entity.name.type.ks
-                 
-                ^
-                source.ks
-                 =>
-                 ^^
-                 source.ks keyword.control.dependency.arrow.ks
-                    
-                   ^
-                   source.ks
-                    b2
-                    ^^
-                    source.ks variable.other.constant.ks
 >
->    func qux(): U => q1
+>    func qux(): U
      
  ^^^^
  source.ks
@@ -560,20 +571,93 @@ grammar: kaoscript.tmLanguage
                  U
                  ^
                  source.ks meta.function.return-type.ks entity.name.type.ks
-                   
-                  ^
-                  source.ks
-                   =>
-                   ^^
-                   source.ks keyword.control.dependency.arrow.ks
-                      
-                     ^
-                     source.ks
-                      q1
-                      ^^
-                      source.ks variable.other.constant.ks
+>
+>} => {
+ }
+ ^
+ source.ks punctuation.definition.import-type.end.bracket.curly.ks
+   
+  ^
+  source.ks
+   =>
+   ^^
+   source.ks keyword.control.dependency.arrow.ks
+      
+     ^
+     source.ks
+      {
+      ^
+      source.ks punctuation.definition.binding-pattern.object.begin.bracket.curly.ks
+>
+>    foo: f1
+     
+ ^^^^
+ source.ks
+     foo
+     ^^^
+     source.ks variable.other.ks
+        :
+        ^
+        source.ks punctuation.separator.key-value.ks
+          
+         ^
+         source.ks
+          f1
+          ^^
+          source.ks variable.other.ks
+>
+>    bar: b1
+     
+ ^^^^
+ source.ks
+     bar
+     ^^^
+     source.ks variable.other.ks
+        :
+        ^
+        source.ks punctuation.separator.key-value.ks
+          
+         ^
+         source.ks
+          b1
+          ^^
+          source.ks variable.other.ks
+>
+>    baz: b2
+     
+ ^^^^
+ source.ks
+     baz
+     ^^^
+     source.ks variable.other.ks
+        :
+        ^
+        source.ks punctuation.separator.key-value.ks
+          
+         ^
+         source.ks
+          b2
+          ^^
+          source.ks variable.other.ks
+>
+>    qux: q1
+     
+ ^^^^
+ source.ks
+     qux
+     ^^^
+     source.ks variable.other.ks
+        :
+        ^
+        source.ks punctuation.separator.key-value.ks
+          
+         ^
+         source.ks
+          q1
+          ^^
+          source.ks variable.other.ks
 >
 >}
  }
  ^
- source.ks punctuation.definition.import-specification.end.bracket.curly.ks
+ source.ks punctuation.definition.binding-pattern.object.end.bracket.curly.ks

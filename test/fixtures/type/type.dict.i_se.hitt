@@ -1,0 +1,81 @@
+original file
+-----------------------------------
+func foobar(x: {foo: Number, bar: String}) {
+}
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>func foobar(x: {foo: Number, bar: String}) {
+ func
+ ^^^^
+ source.ks storage.type.function.ks
+      
+     ^
+     source.ks
+      foobar
+      ^^^^^^
+      source.ks entity.name.function.ks
+            (
+            ^
+            source.ks punctuation.definition.parameters.begin.bracket.round.ks
+             x
+             ^
+             source.ks variable.parameter.ks
+              :
+              ^
+              source.ks meta.type.annotation.ks keyword.operator.type.annotation.ks
+                
+               ^
+               source.ks meta.type.annotation.ks
+                {
+                ^
+                source.ks meta.type.annotation.ks punctuation.definition.object.begin.bracket.curly.ks
+                 foo
+                 ^^^
+                 source.ks meta.type.annotation.ks meta.object.key.ks
+                    :
+                    ^
+                    source.ks meta.type.annotation.ks keyword.operator.type.annotation.ks
+                      
+                     ^
+                     source.ks meta.type.annotation.ks
+                      Number
+                      ^^^^^^
+                      source.ks meta.type.annotation.ks support.type.primitive.ks
+                            ,
+                            ^
+                            source.ks meta.type.annotation.ks punctuation.separator.comma.ks
+                              
+                             ^
+                             source.ks meta.type.annotation.ks
+                              bar
+                              ^^^
+                              source.ks meta.type.annotation.ks meta.object.key.ks
+                                 :
+                                 ^
+                                 source.ks meta.type.annotation.ks keyword.operator.type.annotation.ks
+                                   
+                                  ^
+                                  source.ks meta.type.annotation.ks
+                                   String
+                                   ^^^^^^
+                                   source.ks meta.type.annotation.ks support.type.primitive.ks
+                                         }
+                                         ^
+                                         source.ks meta.type.annotation.ks punctuation.definition.object.end.bracket.curly.ks
+                                          )
+                                          ^
+                                          source.ks punctuation.definition.parameters.end.bracket.round.ks
+                                            
+                                           ^
+                                           source.ks
+                                            {
+                                            ^
+                                            source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.block.end.bracket.curly.ks

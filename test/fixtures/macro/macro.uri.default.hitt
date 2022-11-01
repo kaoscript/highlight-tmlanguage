@@ -9,7 +9,7 @@ class URI {
         macro {
             class #w(name) extends URI {
                 private {
-                    _e: Number    = #PI
+                    _e: Number    = #(PI)
                 }
             }
         }
@@ -292,16 +292,22 @@ grammar: kaoscript.tmLanguage
                          ^
                          source.ks meta.macro.ks punctuation.bracket.curly.ks
 >
->                    _e: Number    = #PI
+>                    _e: Number    = #(PI)
                      _e: Number    = 
  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
  source.ks meta.macro.ks
                                      #
                                      ^
                                      source.ks meta.macro.ks meta.macro.variable.ks punctuation.accessor.macro.ks
-                                      PI
-                                      ^^
-                                      source.ks meta.macro.ks meta.macro.variable.ks variable.other.ks
+                                      (
+                                      ^
+                                      source.ks meta.macro.ks meta.macro.variable.ks punctuation.definition.macro-variable.begin.bracket.round.ks
+                                       PI
+                                       ^^
+                                       source.ks meta.macro.ks meta.macro.variable.ks variable.other.ks
+                                         )
+                                         ^
+                                         source.ks meta.macro.ks meta.macro.variable.ks punctuation.definition.macro-variable.end.bracket.round.ks
 >
 >                }
                  

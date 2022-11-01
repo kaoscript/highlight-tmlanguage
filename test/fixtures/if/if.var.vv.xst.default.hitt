@@ -1,0 +1,60 @@
+original file
+-----------------------------------
+if var x ?= foobar() {
+
+}
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>if var x ?= foobar() {
+ if
+ ^^
+ source.ks keyword.control.conditional.if.ks
+    
+   ^
+   source.ks
+    var
+    ^^^
+    source.ks storage.type.constant.ks
+        
+       ^
+       source.ks
+        x
+        ^
+        source.ks meta.definition.variable.ks variable.other.ks
+          
+         ^
+         source.ks
+          ?=
+          ^^
+          source.ks keyword.operator.assignment.compound.ks
+             
+            ^
+            source.ks
+             foobar
+             ^^^^^^
+             source.ks entity.name.function.ks
+                   (
+                   ^
+                   source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                    )
+                    ^
+                    source.ks punctuation.definition.arguments.end.bracket.round.ks
+                      
+                     ^
+                     source.ks
+                      {
+                      ^
+                      source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>
+ 
+ ^
+ source.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.block.end.bracket.curly.ks

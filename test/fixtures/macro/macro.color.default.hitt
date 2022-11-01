@@ -2,7 +2,7 @@ original file
 -----------------------------------
 class Color {
     macro registerSpace(@data: Object) {
-        if data.components? {
+        if ?data.components {
             var fields: Array<Expr> = []
             var methods: Array<Expr> = []
 
@@ -113,7 +113,7 @@ grammar: kaoscript.tmLanguage
                                         ^
                                         source.ks meta.macro.ks punctuation.definition.block.begin.bracket.curly.ks
 >
->        if data.components? {
+>        if ?data.components {
          
  ^^^^^^^^
  source.ks meta.macro.ks
@@ -123,18 +123,18 @@ grammar: kaoscript.tmLanguage
             
            ^
            source.ks meta.macro.ks
-            data
-            ^^^^
-            source.ks meta.macro.ks variable.other.object.ks
-                .
-                ^
-                source.ks meta.macro.ks punctuation.accessor.object.ks
-                 components
-                 ^^^^^^^^^^
-                 source.ks meta.macro.ks variable.other.property.object.ks
-                           ?
-                           ^
-                           source.ks meta.macro.ks keyword.operator.existential.ks
+            ?
+            ^
+            source.ks meta.macro.ks keyword.operator.existential.ks
+             data
+             ^^^^
+             source.ks meta.macro.ks variable.other.object.ks
+                 .
+                 ^
+                 source.ks meta.macro.ks punctuation.accessor.object.ks
+                  components
+                  ^^^^^^^^^^
+                  source.ks meta.macro.ks variable.other.property.object.ks
                              
                             ^
                             source.ks meta.macro.ks

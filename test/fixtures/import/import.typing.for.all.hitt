@@ -1,0 +1,126 @@
+original file
+-----------------------------------
+import 'chevrotain' {
+    func createToken
+    sealed class Lexer
+    sealed class Parser
+    sealed class Token
+} for *
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>import 'chevrotain' {
+ import
+ ^^^^^^
+ source.ks keyword.control.import.ks
+        
+       ^
+       source.ks
+        '
+        ^
+        source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
+         chevrotain
+         ^^^^^^^^^^
+         source.ks string.quoted.single.ks
+                   '
+                   ^
+                   source.ks string.quoted.single.ks punctuation.definition.string.end.ks
+                     
+                    ^
+                    source.ks
+                     {
+                     ^
+                     source.ks punctuation.definition.import-type.begin.bracket.curly.ks
+>
+>    func createToken
+     
+ ^^^^
+ source.ks
+     func
+     ^^^^
+     source.ks storage.type.function.ks
+          
+         ^
+         source.ks
+          createToken
+          ^^^^^^^^^^^
+          source.ks entity.name.function.ks
+>
+>    sealed class Lexer
+     
+ ^^^^
+ source.ks
+     sealed
+     ^^^^^^
+     source.ks storage.modifier.sealed.ks
+            
+           ^
+           source.ks
+            class
+            ^^^^^
+            source.ks storage.type.class.ks
+                  
+                 ^
+                 source.ks
+                  Lexer
+                  ^^^^^
+                  source.ks entity.name.type.class.ks
+>
+>    sealed class Parser
+     
+ ^^^^
+ source.ks
+     sealed
+     ^^^^^^
+     source.ks storage.modifier.sealed.ks
+            
+           ^
+           source.ks
+            class
+            ^^^^^
+            source.ks storage.type.class.ks
+                  
+                 ^
+                 source.ks
+                  Parser
+                  ^^^^^^
+                  source.ks entity.name.type.class.ks
+>
+>    sealed class Token
+     
+ ^^^^
+ source.ks
+     sealed
+     ^^^^^^
+     source.ks storage.modifier.sealed.ks
+            
+           ^
+           source.ks
+            class
+            ^^^^^
+            source.ks storage.type.class.ks
+                  
+                 ^
+                 source.ks
+                  Token
+                  ^^^^^
+                  source.ks entity.name.type.class.ks
+>
+>} for *
+ }
+ ^
+ source.ks punctuation.definition.import-type.end.bracket.curly.ks
+   
+  ^
+  source.ks
+   for
+   ^^^
+   source.ks keyword.control.dependency.for.ks
+       
+      ^
+      source.ks
+       *
+       ^
+       source.ks constant.language.import-all.ks

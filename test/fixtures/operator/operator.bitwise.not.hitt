@@ -1,12 +1,12 @@
 original file
 -----------------------------------
-var dyn a = ~~~4
+var dyn a = !4
 -----------------------------------
 
 grammar: kaoscript.tmLanguage
 -----------------------------------
 >
->var dyn a = ~~~4
+>var dyn a = !4
  var 
  ^^^^
  source.ks storage.type.readwrite.ks
@@ -28,9 +28,9 @@ grammar: kaoscript.tmLanguage
              
             ^
             source.ks
-             ~~~
-             ^^^
-             source.ks keyword.operator.bitwise.ks
-                4
-                ^
-                source.ks constant.numeric.decimal.ks
+             !
+             ^
+             source.ks keyword.operator.logical.ks
+              4
+              ^
+              source.ks constant.numeric.decimal.ks

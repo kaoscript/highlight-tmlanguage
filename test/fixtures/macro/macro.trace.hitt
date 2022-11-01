@@ -5,7 +5,7 @@ macro trace_build_age_with_reification() {
 
     macro {
         var runTime = Math.floor(Date.now().getTime() / 1000)
-        var age = runTime - #buildTime
+        var age = runTime - #(buildTime)
 
         console.log(`Right now it's \(runTime), and this build is \(age) seconds old`)
     }
@@ -166,16 +166,22 @@ grammar: kaoscript.tmLanguage
                                                              ^
                                                              source.ks meta.macro.ks punctuation.bracket.round.ks
 >
->        var age = runTime - #buildTime
+>        var age = runTime - #(buildTime)
          var age = runTime - 
  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
  source.ks meta.macro.ks
                              #
                              ^
                              source.ks meta.macro.ks meta.macro.variable.ks punctuation.accessor.macro.ks
-                              buildTime
-                              ^^^^^^^^^
-                              source.ks meta.macro.ks meta.macro.variable.ks variable.other.ks
+                              (
+                              ^
+                              source.ks meta.macro.ks meta.macro.variable.ks punctuation.definition.macro-variable.begin.bracket.round.ks
+                               buildTime
+                               ^^^^^^^^^
+                               source.ks meta.macro.ks meta.macro.variable.ks variable.other.ks
+                                        )
+                                        ^
+                                        source.ks meta.macro.ks meta.macro.variable.ks punctuation.definition.macro-variable.end.bracket.round.ks
 >
 >
  

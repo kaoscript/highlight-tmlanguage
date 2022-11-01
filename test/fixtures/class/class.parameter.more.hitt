@@ -50,7 +50,7 @@ grammar: kaoscript.tmLanguage
         source.ks punctuation.definition.parameters.begin.bracket.round.ks
          _
          ^
-         source.ks variable.parameter.ks
+         source.ks variable.anonymous.ks
           ,
           ^
           source.ks punctuation.separator.comma.ks
@@ -107,7 +107,7 @@ grammar: kaoscript.tmLanguage
             source.ks
              _
              ^
-             source.ks variable.parameter.ks
+             source.ks variable.anonymous.ks
               ,
               ^
               source.ks punctuation.separator.comma.ks
@@ -167,7 +167,7 @@ grammar: kaoscript.tmLanguage
             source.ks
              _
              ^
-             source.ks variable.parameter.ks
+             source.ks variable.anonymous.ks
               ?
               ^
               source.ks storage.modifier.nullable.ks

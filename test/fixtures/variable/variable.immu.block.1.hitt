@@ -1,0 +1,45 @@
+original file
+-----------------------------------
+var {
+    a = 42
+}
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>var {
+ var
+ ^^^
+ source.ks storage.type.constant.ks
+     
+    ^
+    source.ks
+     {
+     ^
+     source.ks punctuation.definition.binding-pattern.object.begin.bracket.curly.ks
+>
+>    a = 42
+     
+ ^^^^
+ source.ks
+     a
+     ^
+     source.ks variable.other.ks
+       
+      ^
+      source.ks
+       =
+       ^
+       source.ks keyword.operator.assignment.ks
+         
+        ^
+        source.ks
+         42
+         ^^
+         source.ks constant.numeric.decimal.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.binding-pattern.object.end.bracket.curly.ks

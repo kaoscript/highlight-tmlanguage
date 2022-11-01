@@ -1,4 +1,5 @@
 node_modules
 *.ksb
+*.kse
 *.ksh
-*.ksm
+*.ksr

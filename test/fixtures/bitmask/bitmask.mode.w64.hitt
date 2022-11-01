@@ -1,0 +1,39 @@
+original file
+-----------------------------------
+bitmask Mode<u64> {
+}
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>bitmask Mode<u64> {
+ bitmask
+ ^^^^^^^
+ source.ks storage.type.bitmask.ks
+         
+        ^
+        source.ks
+         Mode
+         ^^^^
+         source.ks entity.name.type.bitmask.ks
+             <
+             ^
+             source.ks punctuation.definition.typeparameters.begin.ks
+              u64
+              ^^^
+              source.ks support.type.constant.ks
+                 >
+                 ^
+                 source.ks punctuation.definition.typeparameters.end.ks
+                   
+                  ^
+                  source.ks
+                   {
+                   ^
+                   source.ks punctuation.definition.bitmask.begin.bracket.curly.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.bitmask.end.bracket.curly.ks

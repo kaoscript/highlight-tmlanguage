@@ -1,7 +1,7 @@
 original file
 -----------------------------------
 macro times_five_bl(e) {
-    macro 5 * #e
+    macro 5 * #(e)
 }
 -----------------------------------
 
@@ -34,7 +34,7 @@ grammar: kaoscript.tmLanguage
                         ^
                         source.ks meta.macro.ks punctuation.definition.block.begin.bracket.curly.ks
 >
->    macro 5 * #e
+>    macro 5 * #(e)
      
  ^^^^
  source.ks meta.macro.ks
@@ -50,9 +50,15 @@ grammar: kaoscript.tmLanguage
                #
                ^
                source.ks meta.macro.ks meta.macro.variable.ks punctuation.accessor.macro.ks
-                e
+                (
                 ^
-                source.ks meta.macro.ks meta.macro.variable.ks variable.other.ks
+                source.ks meta.macro.ks meta.macro.variable.ks punctuation.definition.macro-variable.begin.bracket.round.ks
+                 e
+                 ^
+                 source.ks meta.macro.ks meta.macro.variable.ks variable.other.ks
+                  )
+                  ^
+                  source.ks meta.macro.ks meta.macro.variable.ks punctuation.definition.macro-variable.end.bracket.round.ks
 >
 >}
  }

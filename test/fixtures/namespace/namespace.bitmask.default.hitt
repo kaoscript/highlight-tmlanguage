@@ -1,0 +1,87 @@
+original file
+-----------------------------------
+namespace NS {
+    bitmask Bits {
+        ONE
+        TWO
+        THREE
+    }
+}
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>namespace NS {
+ namespace
+ ^^^^^^^^^
+ source.ks storage.type.namespace.ks
+           
+          ^
+          source.ks
+           NS
+           ^^
+           source.ks entity.name.type.namespace.ks
+              
+             ^
+             source.ks
+              {
+              ^
+              source.ks punctuation.definition.namespace.begin.bracket.curly.ks
+>
+>    bitmask Bits {
+     
+ ^^^^
+ source.ks
+     bitmask
+     ^^^^^^^
+     source.ks storage.type.bitmask.ks
+             
+            ^
+            source.ks
+             Bits
+             ^^^^
+             source.ks entity.name.type.bitmask.ks
+                  
+                 ^
+                 source.ks
+                  {
+                  ^
+                  source.ks punctuation.definition.bitmask.begin.bracket.curly.ks
+>
+>        ONE
+         
+ ^^^^^^^^
+ source.ks
+         ONE
+         ^^^
+         source.ks entity.name.variable.field.ks
+>
+>        TWO
+         
+ ^^^^^^^^
+ source.ks
+         TWO
+         ^^^
+         source.ks entity.name.variable.field.ks
+>
+>        THREE
+         
+ ^^^^^^^^
+ source.ks
+         THREE
+         ^^^^^
+         source.ks entity.name.variable.field.ks
+>
+>    }
+     
+ ^^^^
+ source.ks
+     }
+     ^
+     source.ks punctuation.definition.bitmask.end.bracket.curly.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.namespace.end.bracket.curly.ks

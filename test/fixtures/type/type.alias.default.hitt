@@ -2,7 +2,7 @@ original file
 -----------------------------------
 type T = number | string
 
-var dyn x: T = 0
+var mut x: T = 0
 -----------------------------------
 
 grammar: kaoscript.tmLanguage
@@ -48,13 +48,13 @@ grammar: kaoscript.tmLanguage
  ^
  source.ks
 >
->var dyn x: T = 0
+>var mut x: T = 0
  var 
  ^^^^
  source.ks storage.type.readwrite.ks
-     dyn
+     mut
      ^^^
-     source.ks storage.type.readwrite.ks storage.modifier.dynamic.ks
+     source.ks storage.type.readwrite.ks storage.modifier.mutable.ks
          
         ^
         source.ks

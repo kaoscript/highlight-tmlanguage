@@ -3,7 +3,7 @@ original file
 import '@kaoscript/runtime' for Helper => H, Type => T
 
 
-import '@kaoscript/runtime' {
+import '@kaoscript/runtime' for {
     Helper    => H
     Type    => T
 }
@@ -84,7 +84,7 @@ grammar: kaoscript.tmLanguage
  ^
  source.ks
 >
->import '@kaoscript/runtime' {
+>import '@kaoscript/runtime' for {
  import
  ^^^^^^
  source.ks keyword.control.import.ks
@@ -103,9 +103,15 @@ grammar: kaoscript.tmLanguage
                              
                             ^
                             source.ks
-                             {
-                             ^
-                             source.ks punctuation.definition.import-specification.begin.bracket.curly.ks
+                             for
+                             ^^^
+                             source.ks keyword.control.dependency.for.ks
+                                 
+                                ^
+                                source.ks
+                                 {
+                                 ^
+                                 source.ks punctuation.definition.import-specification.begin.bracket.curly.ks
 >
 >    Helper    => H
      

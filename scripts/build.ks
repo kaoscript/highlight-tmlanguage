@@ -1,4 +1,4 @@
-#![bin]
+#!/usr/bin/env kaoscript
 
 extern console
 
@@ -8,11 +8,11 @@ import 'output-file-sync'
 import 'plist'
 import 'js-yaml' => yaml
 
-const YAML_FILE = './src/kaoscript.tmLanguage.yaml'
-const PLIST_FILE = './lib/kaoscript.tmLanguage'
+var YAML_FILE = './src/kaoscript.tmLanguage.yaml'
+var PLIST_FILE = './lib/kaoscript.tmLanguage'
 
-func replacePatternVariables(value, variables) {
-	for const [regex, replacement] in variables {
+func replacePatternVariables(mut value, variables) {
+	for var [regex, replacement] in variables {
 		value = value.replace(regex, replacement)
 	}
 
@@ -20,15 +20,15 @@ func replacePatternVariables(value, variables) {
 }
 
 func transformGrammar(grammar) {
-	if grammar.variables? {
-		for const value, name of grammar.variables {
-			for const :key of grammar.variables {
+	if ?grammar.variables {
+		for var value, name of grammar.variables {
+			for var _, key of grammar.variables {
 				grammar.variables[key] = grammar.variables[key].replace(new RegExp(`{{\(name)}}`, 'gim'), value)
 			}
 		}
 
-		const variables = []
-		for const value, name of grammar.variables {
+		var variables = []
+		for var value, name of grammar.variables {
 			variables.push([new RegExp(`{{\(name)}}`, 'gim'), value])
 		}
 
@@ -44,31 +44,31 @@ func transformGrammar(grammar) {
 }
 
 func transformGrammarRepository(grammar, transformProperty) {
-	for const value of grammar.repository {
+	for var value of grammar.repository {
 		transformGrammarRule(value, transformProperty)
 	}
 }
 
 func transformGrammarRule(rule, transformProperty) {
-	for const name in ['begin', 'end', 'match'] {
+	for var name in ['begin', 'end', 'match'] {
 		if rule[name] is String {
 			rule[name] = transformProperty(rule[name])
 		}
 	}
 
-	for const rules of rule when rules is Array {
-		for const rule in rules {
+	for var rules of rule when rules is Array {
+		for var rule in rules {
 			transformGrammarRule(rule, transformProperty)
 		}
 	}
 
-	if rule.captures? {
-		for const rule of rule.captures {
+	if ?rule.captures {
+		for var rule of rule.captures {
 			transformGrammarRule(rule, transformProperty)
 		}
 	}
 }
 
-const grammar = transformGrammar(yaml.safeLoad(fs.readFileSync(YAML_FILE, 'utf8')))
+var grammar = transformGrammar(yaml.safeLoad(fs.readFileSync(YAML_FILE, 'utf8')))
 
 outputFileSync(PLIST_FILE, plist.build(grammar))

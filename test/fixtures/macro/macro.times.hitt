@@ -1,12 +1,12 @@
 original file
 -----------------------------------
-macro times_five(e) => 5 * #e
+macro times_five(e) => 5 * #(e)
 -----------------------------------
 
 grammar: kaoscript.tmLanguage
 -----------------------------------
 >
->macro times_five(e) => 5 * #e
+>macro times_five(e) => 5 * #(e)
  macro
  ^^^^^
  source.ks meta.macro.ks storage.type.macro.ks
@@ -40,6 +40,12 @@ grammar: kaoscript.tmLanguage
                             #
                             ^
                             source.ks meta.macro.ks meta.macro.variable.ks punctuation.accessor.macro.ks
-                             e
+                             (
                              ^
-                             source.ks meta.macro.ks meta.macro.variable.ks variable.other.ks
+                             source.ks meta.macro.ks meta.macro.variable.ks punctuation.definition.macro-variable.begin.bracket.round.ks
+                              e
+                              ^
+                              source.ks meta.macro.ks meta.macro.variable.ks variable.other.ks
+                               )
+                               ^
+                               source.ks meta.macro.ks meta.macro.variable.ks punctuation.definition.macro-variable.end.bracket.round.ks

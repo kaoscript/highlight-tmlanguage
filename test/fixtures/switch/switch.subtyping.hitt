@@ -1,6 +1,6 @@
 original file
 -----------------------------------
-var dyn view: UIView
+var mut view: UIView
 
 switch view {
     is UIImageView                                => console.log("It's an image view")
@@ -16,13 +16,13 @@ switch view {
 grammar: kaoscript.tmLanguage
 -----------------------------------
 >
->var dyn view: UIView
+>var mut view: UIView
  var 
  ^^^^
  source.ks storage.type.readwrite.ks
-     dyn
+     mut
      ^^^
-     source.ks storage.type.readwrite.ks storage.modifier.dynamic.ks
+     source.ks storage.type.readwrite.ks storage.modifier.mutable.ks
          
         ^
         source.ks

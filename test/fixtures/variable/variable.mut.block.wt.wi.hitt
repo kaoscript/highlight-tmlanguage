@@ -1,0 +1,114 @@
+original file
+-----------------------------------
+var mut {
+    a: Number = 0
+    b: Boolean = true
+    c: String = ''
+}
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>var mut {
+ var 
+ ^^^^
+ source.ks storage.type.readwrite.ks
+     mut
+     ^^^
+     source.ks storage.type.readwrite.ks storage.modifier.mutable.ks
+         
+        ^
+        source.ks
+         {
+         ^
+         source.ks punctuation.definition.binding-pattern.object.begin.bracket.curly.ks
+>
+>    a: Number = 0
+     
+ ^^^^
+ source.ks
+     a
+     ^
+     source.ks variable.other.ks
+      :
+      ^
+      source.ks punctuation.separator.key-value.ks
+        
+       ^
+       source.ks
+        Number
+        ^^^^^^
+        source.ks variable.other.ks
+               
+              ^
+              source.ks
+               =
+               ^
+               source.ks keyword.operator.assignment.ks
+                 
+                ^
+                source.ks
+                 0
+                 ^
+                 source.ks constant.numeric.decimal.ks
+>
+>    b: Boolean = true
+     
+ ^^^^
+ source.ks
+     b
+     ^
+     source.ks variable.other.ks
+      : 
+      ^^
+      source.ks
+        Boolean
+        ^^^^^^^
+        source.ks variable.other.ks
+                
+               ^
+               source.ks
+                =
+                ^
+                source.ks keyword.operator.assignment.ks
+                  
+                 ^
+                 source.ks
+                  true
+                  ^^^^
+                  source.ks constant.language.boolean.true.ks
+>
+>    c: String = ''
+     
+ ^^^^
+ source.ks
+     c
+     ^
+     source.ks variable.other.ks
+      : 
+      ^^
+      source.ks
+        String
+        ^^^^^^
+        source.ks variable.other.ks
+               
+              ^
+              source.ks
+               =
+               ^
+               source.ks keyword.operator.assignment.ks
+                 
+                ^
+                source.ks
+                 '
+                 ^
+                 source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
+                  '
+                  ^
+                  source.ks string.quoted.single.ks punctuation.definition.string.end.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.binding-pattern.object.end.bracket.curly.ks

@@ -59,7 +59,7 @@ grammar: kaoscript.tmLanguage
 >finally {
  finally
  ^^^^^^^
- source.ks keyword.control.try-catch.finally.ks
+ source.ks keyword.control.finally.ks
          
         ^
         source.ks

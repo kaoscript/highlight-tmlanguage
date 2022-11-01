@@ -1,0 +1,249 @@
+original file
+-----------------------------------
+import 'path' {
+    var sep: String
+    func basename(path: String): String
+    func dirname(path: String): String
+    func join(...paths: String): String
+    func relative(from: String, to: String): String
+}
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>import 'path' {
+ import
+ ^^^^^^
+ source.ks keyword.control.import.ks
+        
+       ^
+       source.ks
+        '
+        ^
+        source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
+         path
+         ^^^^
+         source.ks string.quoted.single.ks
+             '
+             ^
+             source.ks string.quoted.single.ks punctuation.definition.string.end.ks
+               
+              ^
+              source.ks
+               {
+               ^
+               source.ks punctuation.definition.import-type.begin.bracket.curly.ks
+>
+>    var sep: String
+     
+ ^^^^
+ source.ks
+     var
+     ^^^
+     source.ks storage.type.readwrite.ks
+         
+        ^
+        source.ks
+         sep
+         ^^^
+         source.ks variable.other.constant.ks
+            :
+            ^
+            source.ks meta.type.annotation.ks keyword.operator.type.annotation.ks
+              
+             ^
+             source.ks meta.type.annotation.ks
+              String
+              ^^^^^^
+              source.ks meta.type.annotation.ks support.type.primitive.ks
+>
+>    func basename(path: String): String
+     
+ ^^^^
+ source.ks
+     func
+     ^^^^
+     source.ks storage.type.function.ks
+          
+         ^
+         source.ks
+          basename
+          ^^^^^^^^
+          source.ks entity.name.function.ks
+                  (
+                  ^
+                  source.ks punctuation.definition.parameters.begin.bracket.round.ks
+                   path
+                   ^^^^
+                   source.ks variable.parameter.ks
+                       :
+                       ^
+                       source.ks meta.type.annotation.ks keyword.operator.type.annotation.ks
+                         
+                        ^
+                        source.ks meta.type.annotation.ks
+                         String
+                         ^^^^^^
+                         source.ks meta.type.annotation.ks support.type.primitive.ks
+                               )
+                               ^
+                               source.ks punctuation.definition.parameters.end.bracket.round.ks
+                                :
+                                ^
+                                source.ks meta.function.return-type.ks keyword.operator.type.annotation.ks
+                                  
+                                 ^
+                                 source.ks meta.function.return-type.ks
+                                  String
+                                  ^^^^^^
+                                  source.ks meta.function.return-type.ks support.type.primitive.ks
+>
+>    func dirname(path: String): String
+     
+ ^^^^
+ source.ks
+     func
+     ^^^^
+     source.ks storage.type.function.ks
+          
+         ^
+         source.ks
+          dirname
+          ^^^^^^^
+          source.ks entity.name.function.ks
+                 (
+                 ^
+                 source.ks punctuation.definition.parameters.begin.bracket.round.ks
+                  path
+                  ^^^^
+                  source.ks variable.parameter.ks
+                      :
+                      ^
+                      source.ks meta.type.annotation.ks keyword.operator.type.annotation.ks
+                        
+                       ^
+                       source.ks meta.type.annotation.ks
+                        String
+                        ^^^^^^
+                        source.ks meta.type.annotation.ks support.type.primitive.ks
+                              )
+                              ^
+                              source.ks punctuation.definition.parameters.end.bracket.round.ks
+                               :
+                               ^
+                               source.ks meta.function.return-type.ks keyword.operator.type.annotation.ks
+                                 
+                                ^
+                                source.ks meta.function.return-type.ks
+                                 String
+                                 ^^^^^^
+                                 source.ks meta.function.return-type.ks support.type.primitive.ks
+>
+>    func join(...paths: String): String
+     
+ ^^^^
+ source.ks
+     func
+     ^^^^
+     source.ks storage.type.function.ks
+          
+         ^
+         source.ks
+          join
+          ^^^^
+          source.ks entity.name.function.ks
+              (
+              ^
+              source.ks punctuation.definition.parameters.begin.bracket.round.ks
+               ...
+               ^^^
+               source.ks keyword.operator.rest.ks
+                  paths
+                  ^^^^^
+                  source.ks variable.parameter.ks
+                       :
+                       ^
+                       source.ks meta.type.annotation.ks keyword.operator.type.annotation.ks
+                         
+                        ^
+                        source.ks meta.type.annotation.ks
+                         String
+                         ^^^^^^
+                         source.ks meta.type.annotation.ks support.type.primitive.ks
+                               )
+                               ^
+                               source.ks punctuation.definition.parameters.end.bracket.round.ks
+                                :
+                                ^
+                                source.ks meta.function.return-type.ks keyword.operator.type.annotation.ks
+                                  
+                                 ^
+                                 source.ks meta.function.return-type.ks
+                                  String
+                                  ^^^^^^
+                                  source.ks meta.function.return-type.ks support.type.primitive.ks
+>
+>    func relative(from: String, to: String): String
+     
+ ^^^^
+ source.ks
+     func
+     ^^^^
+     source.ks storage.type.function.ks
+          
+         ^
+         source.ks
+          relative
+          ^^^^^^^^
+          source.ks entity.name.function.ks
+                  (
+                  ^
+                  source.ks punctuation.definition.parameters.begin.bracket.round.ks
+                   from
+                   ^^^^
+                   source.ks variable.parameter.ks
+                       :
+                       ^
+                       source.ks meta.type.annotation.ks keyword.operator.type.annotation.ks
+                         
+                        ^
+                        source.ks meta.type.annotation.ks
+                         String
+                         ^^^^^^
+                         source.ks meta.type.annotation.ks support.type.primitive.ks
+                               ,
+                               ^
+                               source.ks punctuation.separator.comma.ks
+                                 
+                                ^
+                                source.ks
+                                 to
+                                 ^^
+                                 source.ks variable.parameter.ks
+                                   :
+                                   ^
+                                   source.ks meta.type.annotation.ks keyword.operator.type.annotation.ks
+                                     
+                                    ^
+                                    source.ks meta.type.annotation.ks
+                                     String
+                                     ^^^^^^
+                                     source.ks meta.type.annotation.ks support.type.primitive.ks
+                                           )
+                                           ^
+                                           source.ks punctuation.definition.parameters.end.bracket.round.ks
+                                            :
+                                            ^
+                                            source.ks meta.function.return-type.ks keyword.operator.type.annotation.ks
+                                              
+                                             ^
+                                             source.ks meta.function.return-type.ks
+                                              String
+                                              ^^^^^^
+                                              source.ks meta.function.return-type.ks support.type.primitive.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.import-type.end.bracket.curly.ks

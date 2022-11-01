@@ -1,0 +1,60 @@
+original file
+-----------------------------------
+foo <- foo + bar ? 42 : 24
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>foo <- foo + bar ? 42 : 24
+ foo
+ ^^^
+ source.ks variable.other.ks
+     
+    ^
+    source.ks
+     <-
+     ^^
+     source.ks keyword.operator.assignment.ks
+        
+       ^
+       source.ks
+        foo
+        ^^^
+        source.ks variable.other.ks
+            
+           ^
+           source.ks
+            +
+            ^
+            source.ks keyword.operator.arithmetic.ks
+              
+             ^
+             source.ks
+              bar
+              ^^^
+              source.ks variable.other.ks
+                  
+                 ^
+                 source.ks
+                  ?
+                  ^
+                  source.ks keyword.operator.ternary.ks
+                    
+                   ^
+                   source.ks
+                    42
+                    ^^
+                    source.ks constant.numeric.decimal.ks
+                       
+                      ^
+                      source.ks
+                       :
+                       ^
+                       source.ks keyword.operator.ternary.ks
+                         
+                        ^
+                        source.ks
+                         24
+                         ^^
+                         source.ks constant.numeric.decimal.ks

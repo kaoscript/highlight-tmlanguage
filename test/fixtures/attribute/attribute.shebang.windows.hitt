@@ -1,0 +1,66 @@
+original file
+-----------------------------------
+#!c:/kaoscript/bin/kaoscript.exe
+
+extern console
+
+console.log('Hello World!')
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>#!c:/kaoscript/bin/kaoscript.exe
+ #!
+ ^^
+ source.ks comment.line.shebang.ks punctuation.definition.comment.ks
+   c:/kaoscript/bin/kaoscript.exe
+   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   source.ks comment.line.shebang.ks
+>
+>
+ 
+ ^
+ source.ks
+>
+>extern console
+ extern
+ ^^^^^^
+ source.ks keyword.control.dependency.extern.ks
+        
+       ^
+       source.ks
+        console
+        ^^^^^^^
+        source.ks variable.other.constant.ks
+>
+>
+ 
+ ^
+ source.ks
+>
+>console.log('Hello World!')
+ console
+ ^^^^^^^
+ source.ks variable.other.object.ks
+        .
+        ^
+        source.ks punctuation.accessor.object.ks
+         log
+         ^^^
+         source.ks entity.name.function.ks
+            (
+            ^
+            source.ks punctuation.definition.arguments.begin.bracket.round.ks
+             '
+             ^
+             source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
+              Hello World!
+              ^^^^^^^^^^^^
+              source.ks string.quoted.single.ks
+                          '
+                          ^
+                          source.ks string.quoted.single.ks punctuation.definition.string.end.ks
+                           )
+                           ^
+                           source.ks punctuation.definition.arguments.end.bracket.round.ks

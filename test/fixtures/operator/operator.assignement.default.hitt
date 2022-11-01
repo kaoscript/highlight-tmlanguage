@@ -29,6 +29,12 @@ x ?= y
 x !?= y
 
 x ??= y
+
+x #= y
+
+x !#= y
+
+x ##= y
 -----------------------------------
 
 grammar: kaoscript.tmLanguage
@@ -197,7 +203,7 @@ grammar: kaoscript.tmLanguage
   source.ks
    &&=
    ^^^
-   source.ks keyword.operator.assignment.compound.bitwise.ks
+   source.ks keyword.operator.assignment.compound.logical.ks
        
       ^
       source.ks
@@ -219,7 +225,7 @@ grammar: kaoscript.tmLanguage
   source.ks
    ||=
    ^^^
-   source.ks keyword.operator.assignment.compound.bitwise.ks
+   source.ks keyword.operator.assignment.compound.logical.ks
        
       ^
       source.ks
@@ -241,7 +247,7 @@ grammar: kaoscript.tmLanguage
   source.ks
    ^^=
    ^^^
-   source.ks keyword.operator.assignment.compound.bitwise.ks
+   source.ks keyword.operator.assignment.compound.logical.ks
        
       ^
       source.ks
@@ -350,6 +356,72 @@ grammar: kaoscript.tmLanguage
   ^
   source.ks
    ??=
+   ^^^
+   source.ks keyword.operator.assignment.compound.ks
+       
+      ^
+      source.ks
+       y
+       ^
+       source.ks variable.other.ks
+>
+>
+ 
+ ^
+ source.ks
+>
+>x #= y
+ x
+ ^
+ source.ks variable.other.ks
+   
+  ^
+  source.ks
+   #=
+   ^^
+   source.ks keyword.operator.assignment.compound.ks
+      
+     ^
+     source.ks
+      y
+      ^
+      source.ks variable.other.ks
+>
+>
+ 
+ ^
+ source.ks
+>
+>x !#= y
+ x
+ ^
+ source.ks variable.other.ks
+   
+  ^
+  source.ks
+   !#=
+   ^^^
+   source.ks keyword.operator.assignment.compound.ks
+       
+      ^
+      source.ks
+       y
+       ^
+       source.ks variable.other.ks
+>
+>
+ 
+ ^
+ source.ks
+>
+>x ##= y
+ x
+ ^
+ source.ks variable.other.ks
+   
+  ^
+  source.ks
+   ##=
    ^^^
    source.ks keyword.operator.assignment.compound.ks
        

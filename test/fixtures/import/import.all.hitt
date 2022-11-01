@@ -3,10 +3,6 @@ original file
 import 'module1'
 
 import 'module2' => m2
-
-import 'module3' {
-    * => m3
-}
 -----------------------------------
 
 grammar: kaoscript.tmLanguage
@@ -62,56 +58,3 @@ grammar: kaoscript.tmLanguage
                      m2
                      ^^
                      source.ks variable.other.constant.ks
->
->
- 
- ^
- source.ks
->
->import 'module3' {
- import
- ^^^^^^
- source.ks keyword.control.import.ks
-        
-       ^
-       source.ks
-        '
-        ^
-        source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
-         module3
-         ^^^^^^^
-         source.ks string.quoted.single.ks
-                '
-                ^
-                source.ks string.quoted.single.ks punctuation.definition.string.end.ks
-                  
-                 ^
-                 source.ks
-                  {
-                  ^
-                  source.ks punctuation.definition.import-specification.begin.bracket.curly.ks
->
->    * => m3
-     
- ^^^^
- source.ks
-     *
-     ^
-     source.ks constant.language.import-all.ks
-       
-      ^
-      source.ks
-       =>
-       ^^
-       source.ks keyword.control.dependency.arrow.ks
-          
-         ^
-         source.ks
-          m3
-          ^^
-          source.ks variable.other.constant.ks
->
->}
- }
- ^
- source.ks punctuation.definition.import-specification.end.bracket.curly.ks

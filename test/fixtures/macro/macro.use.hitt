@@ -3,8 +3,8 @@ original file
 macro using_a(a: Identifier, e: Expression) {
     macro {
         (() => {
-            var dyn #a = 42
-            return #e
+            var dyn #(a) = 42
+            return #(e)
         })()
     }
 }
@@ -102,30 +102,42 @@ grammar: kaoscript.tmLanguage
                 ^
                 source.ks meta.macro.ks punctuation.bracket.curly.ks
 >
->            var dyn #a = 42
+>            var dyn #(a) = 42
              var dyn 
  ^^^^^^^^^^^^^^^^^^^^
  source.ks meta.macro.ks
                      #
                      ^
                      source.ks meta.macro.ks meta.macro.variable.ks punctuation.accessor.macro.ks
-                      a
+                      (
                       ^
-                      source.ks meta.macro.ks meta.macro.variable.ks variable.other.ks
-                        = 42
-                       ^^^^^^
-                       source.ks meta.macro.ks
+                      source.ks meta.macro.ks meta.macro.variable.ks punctuation.definition.macro-variable.begin.bracket.round.ks
+                       a
+                       ^
+                       source.ks meta.macro.ks meta.macro.variable.ks variable.other.ks
+                        )
+                        ^
+                        source.ks meta.macro.ks meta.macro.variable.ks punctuation.definition.macro-variable.end.bracket.round.ks
+                          = 42
+                         ^^^^^^
+                         source.ks meta.macro.ks
 >
->            return #e
+>            return #(e)
              return 
  ^^^^^^^^^^^^^^^^^^^
  source.ks meta.macro.ks
                     #
                     ^
                     source.ks meta.macro.ks meta.macro.variable.ks punctuation.accessor.macro.ks
-                     e
+                     (
                      ^
-                     source.ks meta.macro.ks meta.macro.variable.ks variable.other.ks
+                     source.ks meta.macro.ks meta.macro.variable.ks punctuation.definition.macro-variable.begin.bracket.round.ks
+                      e
+                      ^
+                      source.ks meta.macro.ks meta.macro.variable.ks variable.other.ks
+                       )
+                       ^
+                       source.ks meta.macro.ks meta.macro.variable.ks punctuation.definition.macro-variable.end.bracket.round.ks
 >
 >        })()
          

@@ -1,0 +1,93 @@
+original file
+-----------------------------------
+var dyn {
+    a = 0
+    b = true
+    c = ''
+}
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>var dyn {
+ var 
+ ^^^^
+ source.ks storage.type.readwrite.ks
+     dyn
+     ^^^
+     source.ks storage.type.readwrite.ks storage.modifier.dynamic.ks
+         
+        ^
+        source.ks
+         {
+         ^
+         source.ks punctuation.definition.binding-pattern.object.begin.bracket.curly.ks
+>
+>    a = 0
+     
+ ^^^^
+ source.ks
+     a
+     ^
+     source.ks variable.other.ks
+       
+      ^
+      source.ks
+       =
+       ^
+       source.ks keyword.operator.assignment.ks
+         
+        ^
+        source.ks
+         0
+         ^
+         source.ks constant.numeric.decimal.ks
+>
+>    b = true
+     
+ ^^^^
+ source.ks
+     b
+     ^
+     source.ks variable.other.ks
+       
+      ^
+      source.ks
+       =
+       ^
+       source.ks keyword.operator.assignment.ks
+         
+        ^
+        source.ks
+         true
+         ^^^^
+         source.ks constant.language.boolean.true.ks
+>
+>    c = ''
+     
+ ^^^^
+ source.ks
+     c
+     ^
+     source.ks variable.other.ks
+       
+      ^
+      source.ks
+       =
+       ^
+       source.ks keyword.operator.assignment.ks
+         
+        ^
+        source.ks
+         '
+         ^
+         source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
+          '
+          ^
+          source.ks string.quoted.single.ks punctuation.definition.string.end.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.binding-pattern.object.end.bracket.curly.ks

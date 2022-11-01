@@ -1,17 +1,17 @@
 original file
 -----------------------------------
-import 'chevrotain' => chevrotain {
+import 'chevrotain' {
     func createToken
     sealed class Lexer
     sealed class Parser
     sealed class Token
-}
+} => chevrotain
 -----------------------------------
 
 grammar: kaoscript.tmLanguage
 -----------------------------------
 >
->import 'chevrotain' => chevrotain {
+>import 'chevrotain' {
  import
  ^^^^^^
  source.ks keyword.control.import.ks
@@ -30,21 +30,9 @@ grammar: kaoscript.tmLanguage
                      
                     ^
                     source.ks
-                     =>
-                     ^^
-                     source.ks keyword.control.dependency.arrow.ks
-                        
-                       ^
-                       source.ks
-                        chevrotain
-                        ^^^^^^^^^^
-                        source.ks variable.other.constant.ks
-                                   
-                                  ^
-                                  source.ks
-                                   {
-                                   ^
-                                   source.ks punctuation.definition.import-specification.begin.bracket.curly.ks
+                     {
+                     ^
+                     source.ks punctuation.definition.import-type.begin.bracket.curly.ks
 >
 >    func createToken
      
@@ -120,7 +108,19 @@ grammar: kaoscript.tmLanguage
                   ^^^^^
                   source.ks entity.name.type.class.ks
 >
->}
+>} => chevrotain
  }
  ^
- source.ks punctuation.definition.import-specification.end.bracket.curly.ks
+ source.ks punctuation.definition.import-type.end.bracket.curly.ks
+   
+  ^
+  source.ks
+   =>
+   ^^
+   source.ks keyword.control.dependency.arrow.ks
+      
+     ^
+     source.ks
+      chevrotain
+      ^^^^^^^^^^
+      source.ks variable.other.constant.ks

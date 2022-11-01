@@ -1,0 +1,30 @@
+original file
+-----------------------------------
+foobar(value: x)
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>foobar(value: x)
+ foobar
+ ^^^^^^
+ source.ks entity.name.function.ks
+       (
+       ^
+       source.ks punctuation.definition.arguments.begin.bracket.round.ks
+        value
+        ^^^^^
+        source.ks meta.argument.key.ks
+             :
+             ^
+             source.ks punctuation.separator.key-value.ks
+               
+              ^
+              source.ks
+               x
+               ^
+               source.ks variable.other.ks
+                )
+                ^
+                source.ks punctuation.definition.arguments.end.bracket.round.ks
