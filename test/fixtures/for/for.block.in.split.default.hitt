@@ -1,0 +1,210 @@
+original file
+-----------------------------------
+heroes = [0, 'leto', 1, 'duncan', 2, 'goku']
+
+for var [index, name], i in heroes split 2 {
+    console.log(name, index)
+}
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>heroes = [0, 'leto', 1, 'duncan', 2, 'goku']
+ heroes
+ ^^^^^^
+ source.ks variable.other.ks
+        
+       ^
+       source.ks
+        =
+        ^
+        source.ks keyword.operator.assignment.ks
+          
+         ^
+         source.ks
+          [
+          ^
+          source.ks punctuation.definition.array.begin.bracket.square.ks
+           0
+           ^
+           source.ks constant.numeric.decimal.ks
+            ,
+            ^
+            source.ks punctuation.separator.comma.ks
+              
+             ^
+             source.ks
+              '
+              ^
+              source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
+               leto
+               ^^^^
+               source.ks string.quoted.single.ks
+                   '
+                   ^
+                   source.ks string.quoted.single.ks punctuation.definition.string.end.ks
+                    ,
+                    ^
+                    source.ks punctuation.separator.comma.ks
+                      
+                     ^
+                     source.ks
+                      1
+                      ^
+                      source.ks constant.numeric.decimal.ks
+                       ,
+                       ^
+                       source.ks punctuation.separator.comma.ks
+                         
+                        ^
+                        source.ks
+                         '
+                         ^
+                         source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
+                          duncan
+                          ^^^^^^
+                          source.ks string.quoted.single.ks
+                                '
+                                ^
+                                source.ks string.quoted.single.ks punctuation.definition.string.end.ks
+                                 ,
+                                 ^
+                                 source.ks punctuation.separator.comma.ks
+                                   
+                                  ^
+                                  source.ks
+                                   2
+                                   ^
+                                   source.ks constant.numeric.decimal.ks
+                                    ,
+                                    ^
+                                    source.ks punctuation.separator.comma.ks
+                                      
+                                     ^
+                                     source.ks
+                                      '
+                                      ^
+                                      source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
+                                       goku
+                                       ^^^^
+                                       source.ks string.quoted.single.ks
+                                           '
+                                           ^
+                                           source.ks string.quoted.single.ks punctuation.definition.string.end.ks
+                                            ]
+                                            ^
+                                            source.ks punctuation.definition.array.end.bracket.square.ks
+>
+>
+ 
+ ^
+ source.ks
+>
+>for var [index, name], i in heroes split 2 {
+ for
+ ^^^
+ source.ks keyword.control.loop.for.ks
+     
+    ^
+    source.ks
+     var
+     ^^^
+     source.ks storage.type.constant.ks
+         
+        ^
+        source.ks
+         [
+         ^
+         source.ks punctuation.definition.binding-pattern.array.begin.bracket.square.ks
+          index
+          ^^^^^
+          source.ks variable.other.ks
+               ,
+               ^
+               source.ks punctuation.separator.comma.ks
+                 
+                ^
+                source.ks
+                 name
+                 ^^^^
+                 source.ks variable.other.ks
+                     ]
+                     ^
+                     source.ks punctuation.definition.binding-pattern.array.end.bracket.square.ks
+                      ,
+                      ^
+                      source.ks punctuation.separator.comma.ks
+                        
+                       ^
+                       source.ks
+                        i
+                        ^
+                        source.ks meta.definition.variable.ks variable.other.ks
+                          
+                         ^
+                         source.ks
+                          in
+                          ^^
+                          source.ks keyword.operator.loop.in.ks
+                             
+                            ^
+                            source.ks
+                             heroes
+                             ^^^^^^
+                             source.ks variable.other.ks
+                                    
+                                   ^
+                                   source.ks
+                                    split
+                                    ^^^^^
+                                    source.ks keyword.operator.loop.split.ks
+                                          
+                                         ^
+                                         source.ks
+                                          2
+                                          ^
+                                          source.ks constant.numeric.decimal.ks
+                                            
+                                           ^
+                                           source.ks
+                                            {
+                                            ^
+                                            source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>    console.log(name, index)
+     
+ ^^^^
+ source.ks
+     console
+     ^^^^^^^
+     source.ks variable.other.object.ks
+            .
+            ^
+            source.ks punctuation.accessor.object.ks
+             log
+             ^^^
+             source.ks entity.name.function.ks
+                (
+                ^
+                source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                 name
+                 ^^^^
+                 source.ks variable.other.ks
+                     ,
+                     ^
+                     source.ks punctuation.separator.comma.ks
+                       
+                      ^
+                      source.ks
+                       index
+                       ^^^^^
+                       source.ks variable.other.ks
+                            )
+                            ^
+                            source.ks punctuation.definition.arguments.end.bracket.round.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.block.end.bracket.curly.ks

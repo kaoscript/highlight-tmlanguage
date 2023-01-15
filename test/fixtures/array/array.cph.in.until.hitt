@@ -2,7 +2,7 @@ original file
 -----------------------------------
 heroes = ['leto', 'duncan', 'goku']
 
-evenHeroes = [hero for hero, index in heroes desc to 2 until foo(hero, index)]
+evenHeroes = [hero for hero, index in heroes down to 2 until foo(hero, index)]
 -----------------------------------
 
 grammar: kaoscript.tmLanguage
@@ -72,7 +72,7 @@ grammar: kaoscript.tmLanguage
  ^
  source.ks
 >
->evenHeroes = [hero for hero, index in heroes desc to 2 until foo(hero, index)]
+>evenHeroes = [hero for hero, index in heroes down to 2 until foo(hero, index)]
  evenHeroes
  ^^^^^^^^^^
  source.ks variable.other.ks
@@ -127,7 +127,7 @@ grammar: kaoscript.tmLanguage
                                               
                                              ^
                                              source.ks
-                                              desc
+                                              down
                                               ^^^^
                                               source.ks keyword.control.loop.ks
                                                    

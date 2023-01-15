@@ -6,7 +6,7 @@ extern console: {
 
 heroes = ['leto', 'duncan', 'goku']
 
-for hero, index in heroes til 2 {
+for hero, index in heroes to~ 2 {
     console.log('The hero at index %d is %s', index, hero)
 }
 -----------------------------------
@@ -128,7 +128,7 @@ grammar: kaoscript.tmLanguage
  ^
  source.ks
 >
->for hero, index in heroes til 2 {
+>for hero, index in heroes to~ 2 {
  for
  ^^^
  source.ks keyword.control.loop.for.ks
@@ -162,9 +162,12 @@ grammar: kaoscript.tmLanguage
                            
                           ^
                           source.ks
-                           til
-                           ^^^
-                           source.ks keyword.operator.loop.til.ks
+                           to
+                           ^^
+                           source.ks keyword.operator.loop.to.ks
+                             ~
+                             ^
+                             source.ks storage.modifier.ballpark.ks
                                
                               ^
                               source.ks

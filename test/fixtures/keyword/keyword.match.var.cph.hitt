@@ -1,0 +1,48 @@
+original file
+-----------------------------------
+[match for var match of matches]
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>[match for var match of matches]
+ [
+ ^
+ source.ks punctuation.definition.array.begin.bracket.square.ks
+  match
+  ^^^^^
+  source.ks variable.other.ks
+        
+       ^
+       source.ks
+        for
+        ^^^
+        source.ks keyword.control.loop.for.ks
+            
+           ^
+           source.ks
+            var
+            ^^^
+            source.ks storage.type.constant.ks
+                
+               ^
+               source.ks
+                match
+                ^^^^^
+                source.ks meta.definition.variable.ks variable.other.ks
+                      
+                     ^
+                     source.ks
+                      of
+                      ^^
+                      source.ks keyword.control.loop.ks
+                         
+                        ^
+                        source.ks
+                         matches
+                         ^^^^^^^
+                         source.ks variable.other.ks
+                                ]
+                                ^
+                                source.ks punctuation.definition.array.end.bracket.square.ks

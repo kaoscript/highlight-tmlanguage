@@ -1,12 +1,12 @@
 original file
 -----------------------------------
-a = [i for var i from 0 til 10]
+a = [i for var i from 0 to~ 10]
 -----------------------------------
 
 grammar: kaoscript.tmLanguage
 -----------------------------------
 >
->a = [i for var i from 0 til 10]
+>a = [i for var i from 0 to~ 10]
  a
  ^
  source.ks variable.other.ks
@@ -58,9 +58,12 @@ grammar: kaoscript.tmLanguage
                          
                         ^
                         source.ks
-                         til
-                         ^^^
+                         to
+                         ^^
                          source.ks keyword.control.loop.ks
+                           ~
+                           ^
+                           source.ks storage.modifier.ballpark.ks
                              
                             ^
                             source.ks

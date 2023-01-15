@@ -1,0 +1,36 @@
+original file
+-----------------------------------
+if var.test {
+}
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>if var.test {
+ if
+ ^^
+ source.ks keyword.control.conditional.if.ks
+    
+   ^
+   source.ks
+    var
+    ^^^
+    source.ks variable.other.object.ks
+       .
+       ^
+       source.ks punctuation.accessor.object.ks
+        test
+        ^^^^
+        source.ks variable.other.property.object.ks
+             
+            ^
+            source.ks
+             {
+             ^
+             source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.block.end.bracket.curly.ks

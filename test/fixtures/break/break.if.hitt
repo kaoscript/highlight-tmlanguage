@@ -1,0 +1,51 @@
+original file
+-----------------------------------
+while true {
+    break if foobar
+}
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>while true {
+ while
+ ^^^^^
+ source.ks keyword.control.loop.while.ks
+       
+      ^
+      source.ks
+       true
+       ^^^^
+       source.ks constant.language.boolean.true.ks
+            
+           ^
+           source.ks
+            {
+            ^
+            source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>    break if foobar
+     
+ ^^^^
+ source.ks
+     break
+     ^^^^^
+     source.ks keyword.control.loop.break.ks
+           
+          ^
+          source.ks
+           if
+           ^^
+           source.ks keyword.control.conditional.if.ks
+              
+             ^
+             source.ks
+              foobar
+              ^^^^^^
+              source.ks variable.other.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.block.end.bracket.curly.ks

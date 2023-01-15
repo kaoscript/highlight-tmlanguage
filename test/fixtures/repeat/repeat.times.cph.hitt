@@ -1,0 +1,60 @@
+original file
+-----------------------------------
+var values = ['Hello world!' repeat 10 times]
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>var values = ['Hello world!' repeat 10 times]
+ var
+ ^^^
+ source.ks storage.type.constant.ks
+     
+    ^
+    source.ks
+     values
+     ^^^^^^
+     source.ks meta.definition.variable.ks variable.other.ks
+            
+           ^
+           source.ks
+            =
+            ^
+            source.ks keyword.operator.assignment.ks
+              
+             ^
+             source.ks
+              [
+              ^
+              source.ks punctuation.definition.array.begin.bracket.square.ks
+               '
+               ^
+               source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
+                Hello world!
+                ^^^^^^^^^^^^
+                source.ks string.quoted.single.ks
+                            '
+                            ^
+                            source.ks string.quoted.single.ks punctuation.definition.string.end.ks
+                              
+                             ^
+                             source.ks
+                              repeat
+                              ^^^^^^
+                              source.ks keyword.control.loop.repeat.ks
+                                     
+                                    ^
+                                    source.ks
+                                     10
+                                     ^^
+                                     source.ks constant.numeric.decimal.ks
+                                        
+                                       ^
+                                       source.ks
+                                        times
+                                        ^^^^^
+                                        source.ks keyword.control.loop.ks
+                                             ]
+                                             ^
+                                             source.ks punctuation.definition.array.end.bracket.square.ks

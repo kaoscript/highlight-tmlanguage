@@ -41,28 +41,40 @@ repository:
     patterns:
     - name: 'keyword.operator.range.ks'
       match: '(?<!\.)\<?\.\.\<?(?!\.)'
-    - begin: '\bfor\b'
+    - begin: '(?<![$\.])\bfor\b'
       beginCaptures:
         '0': { name: 'keyword.control.loop.for.ks' }
       end: (?=\])
       patterns:
-      - begin: '\bvar\s+(mut)\b'
+      - begin: '(?<![$\.])\bvar\s+(mut)\b'
         beginCaptures:
           '0': { name: 'storage.type.readwrite.ks' }
           '1': { name: 'storage.modifier.mutable.ks' }
         end: '(?=\bfrom\b|\bin\b|\bof\b)'
         patterns:
         - include: '#var-statement-variable'
-      - begin: '\bvar\b'
+      - begin: '(?<![$\.])\bvar\b'
         beginCaptures:
           '0': { name: 'storage.type.constant.ks' }
         end: '(?=\bfrom\b|\bin\b|\bof\b)'
         patterns:
         - include: '#var-statement-variable'
       - name: 'keyword.control.loop.ks'
-        match: '\b(by|desc|from|in|of|til|to|until|when|while)\b'
+        match: '(?<![$\.])\b(down|in|of|split|step|until|up|when|while)\b'
+      - match: '(?<![$\.])\b(from|to)(~|\b)'
+        captures:
+          '1': { name: 'keyword.control.loop.ks' }
+          '2': { name: 'storage.modifier.ballpark.ks' }
       - name: 'keyword.operator.range.ks'
         match: '(?<!\.)\<?\.\.\<?(?!\.)'
+      - include: '#expression'
+    - begin: '(?<![$\.])\brepeat\b'
+      beginCaptures:
+        '0': { name: 'keyword.control.loop.repeat.ks' }
+      end: (?=\])
+      patterns:
+      - name: 'keyword.control.loop.ks'
+        match: '(?<![$\.])\b(times)\b'
       - include: '#expression'
     - include: '#expression'
   # }}}
@@ -249,6 +261,9 @@ repository:
     beginCaptures:
       '1': { name: 'keyword.control.loop.break.ks' }
     end: '$'
+    patterns:
+    - include: '#if-expression'
+    - include: '#unless-expression'
   # }}}
   class-member: # {{{
     patterns:
@@ -575,6 +590,9 @@ repository:
     beginCaptures:
       '1': { name: 'keyword.control.loop.continue.ks' }
     end: '$'
+    patterns:
+    - include: '#if-expression'
+    - include: '#unless-expression'
   # }}}
   create-expression: # {{{
     patterns:
@@ -860,7 +878,7 @@ repository:
     - include: '#object-accessor'
     - include: '#tagged-template'
     - include: '#this-expression'
-    - include: '#switch-expression'
+    - include: '#match-expression'
     #
     - include: '#macro-expression'
     - include: '#macro-variable'
@@ -886,6 +904,7 @@ repository:
     patterns:
     - include: '#for-expression'
     - include: '#if-else-expression'
+    - include: '#repeat-expression'
     - include: '#unless-expression'
     - include: '#expression'
   # }}}
@@ -981,7 +1000,7 @@ repository:
   fallthrough-statement: # {{{
     begin: '^\s*(fallthrough\b)'
     beginCaptures:
-      '1': { name: 'keyword.control.switch.fallthrough.ks' }
+      '1': { name: 'keyword.control.match.fallthrough.ks' }
     end: '$'
   # }}}
   finally-statement: # {{{
@@ -1302,20 +1321,26 @@ repository:
         - name: 'punctuation.definition.binding-pattern.object.end.bracket.curly.ks'
           match: '\}'
         - include: '#expression'
-      - name: 'keyword.operator.loop.from.ks'
-        match: '\bfrom\b(?![\[\]\(\)\.])'
-      - name: 'keyword.operator.loop.til.ks'
-        match: '\btil\b(?![\[\]\(\)\.])'
-      - name: 'keyword.operator.loop.to.ks'
-        match: '\bto\b(?![\[\]\(\)\.])'
-      - name: 'keyword.operator.loop.by.ks'
-        match: '\bby\b(?![\[\]\(\)\.])'
+      - match: '\b(from)(~|\b)(?![\[\]\(\)\.])'
+        captures:
+          '1': { name: 'keyword.operator.loop.from.ks' }
+          '2': { name: 'storage.modifier.ballpark.ks' }
+      - match: '\b(to)(~|\b)(?![\[\]\(\)\.])'
+        captures:
+          '1': { name: 'keyword.operator.loop.to.ks' }
+          '2': { name: 'storage.modifier.ballpark.ks' }
       - name: 'keyword.operator.loop.in.ks'
         match: '\bin\b(?![\[\]\(\)\.])'
-      - name: 'keyword.operator.loop.desc.ks'
-        match: '\bdesc\b(?![\[\]\(\)\.])'
       - name: 'keyword.operator.loop.of.ks'
         match: '\bof\b(?![\[\]\(\)\.])'
+      - name: 'keyword.operator.loop.down.ks'
+        match: '\bdown\b(?![\[\]\(\)\.])'
+      - name: 'keyword.operator.loop.up.ks'
+        match: '\bup\b(?![\[\]\(\)\.])'
+      - name: 'keyword.operator.loop.step.ks'
+        match: '\bstep\b(?![\[\]\(\)\.])'
+      - name: 'keyword.operator.loop.split.ks'
+        match: '\bsplit\b(?![\[\]\(\)\.])'
       - name: 'keyword.operator.loop.while.ks'
         match: '\bwhile\b(?![\[\]\(\)\.])'
       - name: 'keyword.operator.loop.until.ks'
@@ -1392,6 +1417,8 @@ repository:
           '2': { name: 'keyword.operator.assignment.compound.ks' }
         end: '(?=\{)'
         patterns:
+        - name: 'punctuation.separator.statement.ks'
+          match: ';'
         - include: '#expression'
     - begin: '\b(if)\s+(?:(var\s+(mut))|(var))\s+(?=[_$[:alpha:]\[])'
       beginCaptures:
@@ -1408,6 +1435,8 @@ repository:
           '2': { name: 'keyword.operator.assignment.compound.ks' }
         end: '(?=\{)'
         patterns:
+        - name: 'punctuation.separator.statement.ks'
+          match: ';'
         - include: '#expression'
     - begin: '\b(if)\s+(?=\[)'
       beginCaptures:
@@ -1666,6 +1695,68 @@ repository:
     endCaptures:
       '0': { name: 'punctuation.definition.macro-variable.end.bracket.round.ks' }
     patterns:
+    - include: '#expression'
+  # }}}
+  match-clause: # {{{
+    patterns:
+    - begin: 'with'
+      beginCaptures:
+        '0': { name: 'keyword.control.match.binding.ks' }
+      end: (?=\bwhen\b|=>|\{)
+      patterns:
+      - include: '#expression-without-function'
+    - begin: 'when'
+      beginCaptures:
+        '0': { name: 'keyword.control.match.binding-condition.ks' }
+      end: (?==>|\{)
+      patterns:
+      - include: '#expression-without-function'
+    - begin: '=>'
+      beginCaptures:
+        '0': { name: 'keyword.control.match.arrow.ks' }
+      end: (?<=$|\})
+      patterns:
+      - include: '#block'
+      - include: '#return-expression'
+      - include: '#throw-expression'
+      - include: '#expression'
+    - name: keyword.control.match.else.ks
+      match: (?<![$\.])\b(else)\b
+    - name: 'keyword.operator.range.ks'
+      match: '(?<!\.)\<?\.\.\<?(?!\.)'
+    - include: '#block'
+    - include: '#expression-without-function'
+  # }}}
+  match-expression: # {{{
+    begin: '(?<![$\.])\b(match)\s+(?!=\.|\[|.?=|\w+\s+\w+)'
+    beginCaptures:
+      '1': { name: 'keyword.control.match.ks' }
+    end: '(?<=\})'
+    patterns:
+    - begin: '\{'
+      beginCaptures:
+        '0': { name: 'punctuation.definition.match.begin.bracket.curly.ks' }
+      end: '\}'
+      endCaptures:
+        '0': { name: 'punctuation.definition.match.end.bracket.curly.ks' }
+      patterns:
+      - include: '#match-clause'
+    - include: '#expression'
+  # }}}
+  match-statement: # {{{
+    begin: '^\s*(match)\s+(?={{expression-beginning}})'
+    beginCaptures:
+      '1': { name: 'keyword.control.match.ks' }
+    end: '(?<=\})'
+    patterns:
+    - begin: '\{'
+      beginCaptures:
+        '0': { name: 'punctuation.definition.match.begin.bracket.curly.ks' }
+      end: '\}'
+      endCaptures:
+        '0': { name: 'punctuation.definition.match.end.bracket.curly.ks' }
+      patterns:
+      - include: '#match-clause'
     - include: '#expression'
   # }}}
   method-return-type: # {{{
@@ -1994,6 +2085,23 @@ repository:
     - name: constant.character.escape.backslash.regexp
       match: \\.
   # }}}
+  repeat-expression: # {{{
+    begin: '\b(repeat)\s+'
+    beginCaptures:
+      '1': { name: 'keyword.control.loop.repeat.ks' }
+    end: '(?=$|\{)'
+    patterns:
+    - name: variable.control.loop.ks
+      match: (?<![$\.])\b(times)\b
+    - include: '#expression'
+  # }}}
+  repeat-statement: # {{{
+    begin: '^\s*(?=repeat\s+)'
+    end: '(?<=\})'
+    patterns:
+    - include: '#repeat-expression'
+    - include: '#block'
+  # }}}
   require-declarator: # {{{
     patterns:
     - include: '#bitmask-statement-body'
@@ -2107,10 +2215,11 @@ repository:
     - include: '#for-statement'
     - include: '#if-statement'
     - include: '#implement-statement'
+    - include: '#match-statement'
     - include: '#pass-statement'
+    - include: '#repeat-statement'
     - include: '#return-statement'
     - include: '#struct-statement'
-    - include: '#switch-statement'
     - include: '#throw-statement'
     - include: '#try-catch-statement'
     - include: '#tuple-statement'
@@ -2220,65 +2329,6 @@ repository:
         '2': { name: 'entity.name.type.struct.ks' }
         '3': { name: 'storage.modifier.extends.ks' }
         '4': { name: 'entity.name.type.struct.ks' }
-  # }}}
-  switch-clause: # {{{
-    patterns:
-    - begin: 'with'
-      beginCaptures:
-        '0': { name: 'keyword.control.switch.binding.ks' }
-      end: (?=\bwhen\b|=>)
-      patterns:
-      - include: '#expression-without-function'
-    - begin: 'when'
-      beginCaptures:
-        '0': { name: 'keyword.control.switch.binding-condition.ks' }
-      end: (?==>)
-      patterns:
-      - include: '#expression-without-function'
-    - begin: '=>'
-      beginCaptures:
-        '0': { name: 'keyword.control.switch.body.ks' }
-      end: (?<=$|\})
-      patterns:
-      - include: '#block'
-      - include: '#return-expression'
-      - include: '#throw-expression'
-      - include: '#expression'
-    - name: 'keyword.operator.range.ks'
-      match: '(?<!\.)\<?\.\.\<?(?!\.)'
-    - include: '#expression-without-function'
-  # }}}
-  switch-expression: # {{{
-    begin: '(\bswitch\b)'
-    beginCaptures:
-      '1': { name: 'keyword.control.switch.ks' }
-    end: '(?<=\})'
-    patterns:
-    - begin: '\{'
-      beginCaptures:
-        '0': { name: 'punctuation.definition.switch.begin.bracket.curly.ks' }
-      end: '\}'
-      endCaptures:
-        '0': { name: 'punctuation.definition.switch.end.bracket.curly.ks' }
-      patterns:
-      - include: '#switch-clause'
-    - include: '#expression'
-  # }}}
-  switch-statement: # {{{
-    begin: '^\s*(switch)\s+(?={{expression-beginning}})'
-    beginCaptures:
-      '1': { name: 'keyword.control.switch.ks' }
-    end: '(?<=\})'
-    patterns:
-    - begin: '\{'
-      beginCaptures:
-        '0': { name: 'punctuation.definition.switch.begin.bracket.curly.ks' }
-      end: '\}'
-      endCaptures:
-        '0': { name: 'punctuation.definition.switch.end.bracket.curly.ks' }
-      patterns:
-      - include: '#switch-clause'
-    - include: '#expression'
   # }}}
   tagged-template: # {{{
     match: '({{identifier}})(?=`)'

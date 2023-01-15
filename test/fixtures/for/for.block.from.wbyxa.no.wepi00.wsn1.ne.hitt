@@ -1,0 +1,84 @@
+original file
+-----------------------------------
+for var i from~ values.length to 0 step -1 {
+}
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>for var i from~ values.length to 0 step -1 {
+ for
+ ^^^
+ source.ks keyword.control.loop.for.ks
+     
+    ^
+    source.ks
+     var
+     ^^^
+     source.ks storage.type.constant.ks
+         
+        ^
+        source.ks
+         i
+         ^
+         source.ks meta.definition.variable.ks variable.other.ks
+           
+          ^
+          source.ks
+           from
+           ^^^^
+           source.ks keyword.operator.loop.from.ks
+               ~
+               ^
+               source.ks storage.modifier.ballpark.ks
+                 
+                ^
+                source.ks
+                 values
+                 ^^^^^^
+                 source.ks variable.other.object.ks
+                       .
+                       ^
+                       source.ks punctuation.accessor.object.ks
+                        length
+                        ^^^^^^
+                        source.ks variable.other.property.object.ks
+                               
+                              ^
+                              source.ks
+                               to
+                               ^^
+                               source.ks keyword.operator.loop.to.ks
+                                  
+                                 ^
+                                 source.ks
+                                  0
+                                  ^
+                                  source.ks constant.numeric.decimal.ks
+                                    
+                                   ^
+                                   source.ks
+                                    step
+                                    ^^^^
+                                    source.ks keyword.operator.loop.step.ks
+                                         
+                                        ^
+                                        source.ks
+                                         -
+                                         ^
+                                         source.ks keyword.operator.arithmetic.ks
+                                          1
+                                          ^
+                                          source.ks constant.numeric.decimal.ks
+                                            
+                                           ^
+                                           source.ks
+                                            {
+                                            ^
+                                            source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.block.end.bracket.curly.ks

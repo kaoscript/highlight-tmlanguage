@@ -1,0 +1,81 @@
+original file
+-----------------------------------
+if var x ?= foobar(); x.test() {
+
+}
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>if var x ?= foobar(); x.test() {
+ if
+ ^^
+ source.ks keyword.control.conditional.if.ks
+    
+   ^
+   source.ks
+    var
+    ^^^
+    source.ks storage.type.constant.ks
+        
+       ^
+       source.ks
+        x
+        ^
+        source.ks meta.definition.variable.ks variable.other.ks
+          
+         ^
+         source.ks
+          ?=
+          ^^
+          source.ks keyword.operator.assignment.compound.ks
+             
+            ^
+            source.ks
+             foobar
+             ^^^^^^
+             source.ks entity.name.function.ks
+                   (
+                   ^
+                   source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                    )
+                    ^
+                    source.ks punctuation.definition.arguments.end.bracket.round.ks
+                     ;
+                     ^
+                     source.ks punctuation.separator.statement.ks
+                       
+                      ^
+                      source.ks
+                       x
+                       ^
+                       source.ks variable.other.object.ks
+                        .
+                        ^
+                        source.ks punctuation.accessor.object.ks
+                         test
+                         ^^^^
+                         source.ks entity.name.function.ks
+                             (
+                             ^
+                             source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                              )
+                              ^
+                              source.ks punctuation.definition.arguments.end.bracket.round.ks
+                                
+                               ^
+                               source.ks
+                                {
+                                ^
+                                source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>
+ 
+ ^
+ source.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.block.end.bracket.curly.ks

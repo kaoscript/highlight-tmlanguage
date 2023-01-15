@@ -1,0 +1,402 @@
+original file
+-----------------------------------
+var dyn somePoint = [1, 1]
+
+match somePoint {
+    [0, 0]            => console.log("(0, 0) is at the origin")
+    [_, 0]            => console.log("(\(somePoint[0]), 0) is on the x-axis")
+    [0, _]            => console.log("(0, \(somePoint[1])) is on the y-axis")
+    [-2..2, -2..2]    => console.log("(\(somePoint[0]), \(somePoint[1])) is inside the box")
+    else            => console.log("(\(somePoint[0]), \(somePoint[1])) is outside of the box")
+}
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>var dyn somePoint = [1, 1]
+ var 
+ ^^^^
+ source.ks storage.type.readwrite.ks
+     dyn
+     ^^^
+     source.ks storage.type.readwrite.ks storage.modifier.dynamic.ks
+         
+        ^
+        source.ks
+         somePoint
+         ^^^^^^^^^
+         source.ks meta.definition.variable.ks variable.other.ks
+                   
+                  ^
+                  source.ks
+                   =
+                   ^
+                   source.ks keyword.operator.assignment.ks
+                     
+                    ^
+                    source.ks
+                     [
+                     ^
+                     source.ks punctuation.definition.array.begin.bracket.square.ks
+                      1
+                      ^
+                      source.ks constant.numeric.decimal.ks
+                       ,
+                       ^
+                       source.ks punctuation.separator.comma.ks
+                         
+                        ^
+                        source.ks
+                         1
+                         ^
+                         source.ks constant.numeric.decimal.ks
+                          ]
+                          ^
+                          source.ks punctuation.definition.array.end.bracket.square.ks
+>
+>
+ 
+ ^
+ source.ks
+>
+>match somePoint {
+ match
+ ^^^^^
+ source.ks keyword.control.match.ks
+       
+      ^
+      source.ks
+       somePoint
+       ^^^^^^^^^
+       source.ks variable.other.ks
+                 
+                ^
+                source.ks
+                 {
+                 ^
+                 source.ks punctuation.definition.match.begin.bracket.curly.ks
+>
+>    [0, 0]            => console.log("(0, 0) is at the origin")
+     
+ ^^^^
+ source.ks
+     [
+     ^
+     source.ks punctuation.definition.array.begin.bracket.square.ks
+      0
+      ^
+      source.ks constant.numeric.decimal.ks
+       ,
+       ^
+       source.ks punctuation.separator.comma.ks
+         
+        ^
+        source.ks
+         0
+         ^
+         source.ks constant.numeric.decimal.ks
+          ]
+          ^
+          source.ks punctuation.definition.array.end.bracket.square.ks
+                       
+           ^^^^^^^^^^^^
+           source.ks
+                       =>
+                       ^^
+                       source.ks keyword.control.match.arrow.ks
+                          
+                         ^
+                         source.ks
+                          console
+                          ^^^^^^^
+                          source.ks variable.other.object.ks
+                                 .
+                                 ^
+                                 source.ks punctuation.accessor.object.ks
+                                  log
+                                  ^^^
+                                  source.ks entity.name.function.ks
+                                     (
+                                     ^
+                                     source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                                      "
+                                      ^
+                                      source.ks string.quoted.double.ks punctuation.definition.string.begin.ks
+                                       (0, 0) is at the origin
+                                       ^^^^^^^^^^^^^^^^^^^^^^^
+                                       source.ks string.quoted.double.ks
+                                                              "
+                                                              ^
+                                                              source.ks string.quoted.double.ks punctuation.definition.string.end.ks
+                                                               )
+                                                               ^
+                                                               source.ks punctuation.definition.arguments.end.bracket.round.ks
+>
+>    [_, 0]            => console.log("(\(somePoint[0]), 0) is on the x-axis")
+     
+ ^^^^
+ source.ks
+     [
+     ^
+     source.ks punctuation.definition.array.begin.bracket.square.ks
+      _
+      ^
+      source.ks variable.anonymous.ks
+       ,
+       ^
+       source.ks punctuation.separator.comma.ks
+         
+        ^
+        source.ks
+         0
+         ^
+         source.ks constant.numeric.decimal.ks
+          ]
+          ^
+          source.ks punctuation.definition.array.end.bracket.square.ks
+                       
+           ^^^^^^^^^^^^
+           source.ks
+                       =>
+                       ^^
+                       source.ks keyword.control.match.arrow.ks
+                          
+                         ^
+                         source.ks
+                          console
+                          ^^^^^^^
+                          source.ks variable.other.object.ks
+                                 .
+                                 ^
+                                 source.ks punctuation.accessor.object.ks
+                                  log
+                                  ^^^
+                                  source.ks entity.name.function.ks
+                                     (
+                                     ^
+                                     source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                                      "
+                                      ^
+                                      source.ks string.quoted.double.ks punctuation.definition.string.begin.ks
+                                       (
+                                       ^
+                                       source.ks string.quoted.double.ks
+                                        \(
+                                        ^^
+                                        source.ks string.quoted.double.ks constant.character.escape.ks
+                                          somePoint[0]), 0) is on the x-axis
+                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                                          source.ks string.quoted.double.ks
+                                                                            "
+                                                                            ^
+                                                                            source.ks string.quoted.double.ks punctuation.definition.string.end.ks
+                                                                             )
+                                                                             ^
+                                                                             source.ks punctuation.definition.arguments.end.bracket.round.ks
+>
+>    [0, _]            => console.log("(0, \(somePoint[1])) is on the y-axis")
+     
+ ^^^^
+ source.ks
+     [
+     ^
+     source.ks punctuation.definition.array.begin.bracket.square.ks
+      0
+      ^
+      source.ks constant.numeric.decimal.ks
+       ,
+       ^
+       source.ks punctuation.separator.comma.ks
+         
+        ^
+        source.ks
+         _
+         ^
+         source.ks variable.anonymous.ks
+          ]
+          ^
+          source.ks punctuation.definition.array.end.bracket.square.ks
+                       
+           ^^^^^^^^^^^^
+           source.ks
+                       =>
+                       ^^
+                       source.ks keyword.control.match.arrow.ks
+                          
+                         ^
+                         source.ks
+                          console
+                          ^^^^^^^
+                          source.ks variable.other.object.ks
+                                 .
+                                 ^
+                                 source.ks punctuation.accessor.object.ks
+                                  log
+                                  ^^^
+                                  source.ks entity.name.function.ks
+                                     (
+                                     ^
+                                     source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                                      "
+                                      ^
+                                      source.ks string.quoted.double.ks punctuation.definition.string.begin.ks
+                                       (0, 
+                                       ^^^^
+                                       source.ks string.quoted.double.ks
+                                           \(
+                                           ^^
+                                           source.ks string.quoted.double.ks constant.character.escape.ks
+                                             somePoint[1])) is on the y-axis
+                                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                                             source.ks string.quoted.double.ks
+                                                                            "
+                                                                            ^
+                                                                            source.ks string.quoted.double.ks punctuation.definition.string.end.ks
+                                                                             )
+                                                                             ^
+                                                                             source.ks punctuation.definition.arguments.end.bracket.round.ks
+>
+>    [-2..2, -2..2]    => console.log("(\(somePoint[0]), \(somePoint[1])) is inside the box")
+     
+ ^^^^
+ source.ks
+     [
+     ^
+     source.ks punctuation.definition.array.begin.bracket.square.ks
+      -
+      ^
+      source.ks keyword.operator.arithmetic.ks
+       2
+       ^
+       source.ks constant.numeric.decimal.ks
+        ..
+        ^^
+        source.ks keyword.operator.range.ks
+          2
+          ^
+          source.ks constant.numeric.decimal.ks
+           ,
+           ^
+           source.ks punctuation.separator.comma.ks
+             
+            ^
+            source.ks
+             -
+             ^
+             source.ks keyword.operator.arithmetic.ks
+              2
+              ^
+              source.ks constant.numeric.decimal.ks
+               ..
+               ^^
+               source.ks keyword.operator.range.ks
+                 2
+                 ^
+                 source.ks constant.numeric.decimal.ks
+                  ]
+                  ^
+                  source.ks punctuation.definition.array.end.bracket.square.ks
+                       
+                   ^^^^
+                   source.ks
+                       =>
+                       ^^
+                       source.ks keyword.control.match.arrow.ks
+                          
+                         ^
+                         source.ks
+                          console
+                          ^^^^^^^
+                          source.ks variable.other.object.ks
+                                 .
+                                 ^
+                                 source.ks punctuation.accessor.object.ks
+                                  log
+                                  ^^^
+                                  source.ks entity.name.function.ks
+                                     (
+                                     ^
+                                     source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                                      "
+                                      ^
+                                      source.ks string.quoted.double.ks punctuation.definition.string.begin.ks
+                                       (
+                                       ^
+                                       source.ks string.quoted.double.ks
+                                        \(
+                                        ^^
+                                        source.ks string.quoted.double.ks constant.character.escape.ks
+                                          somePoint[0]), 
+                                          ^^^^^^^^^^^^^^^
+                                          source.ks string.quoted.double.ks
+                                                         \(
+                                                         ^^
+                                                         source.ks string.quoted.double.ks constant.character.escape.ks
+                                                           somePoint[1])) is inside the box
+                                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                                                           source.ks string.quoted.double.ks
+                                                                                           "
+                                                                                           ^
+                                                                                           source.ks string.quoted.double.ks punctuation.definition.string.end.ks
+                                                                                            )
+                                                                                            ^
+                                                                                            source.ks punctuation.definition.arguments.end.bracket.round.ks
+>
+>    else            => console.log("(\(somePoint[0]), \(somePoint[1])) is outside of the box")
+     
+ ^^^^
+ source.ks
+     else
+     ^^^^
+     source.ks keyword.control.match.else.ks
+                     
+         ^^^^^^^^^^^^
+         source.ks
+                     =>
+                     ^^
+                     source.ks keyword.control.match.arrow.ks
+                        
+                       ^
+                       source.ks
+                        console
+                        ^^^^^^^
+                        source.ks variable.other.object.ks
+                               .
+                               ^
+                               source.ks punctuation.accessor.object.ks
+                                log
+                                ^^^
+                                source.ks entity.name.function.ks
+                                   (
+                                   ^
+                                   source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                                    "
+                                    ^
+                                    source.ks string.quoted.double.ks punctuation.definition.string.begin.ks
+                                     (
+                                     ^
+                                     source.ks string.quoted.double.ks
+                                      \(
+                                      ^^
+                                      source.ks string.quoted.double.ks constant.character.escape.ks
+                                        somePoint[0]), 
+                                        ^^^^^^^^^^^^^^^
+                                        source.ks string.quoted.double.ks
+                                                       \(
+                                                       ^^
+                                                       source.ks string.quoted.double.ks constant.character.escape.ks
+                                                         somePoint[1])) is outside of the box
+                                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                                                         source.ks string.quoted.double.ks
+                                                                                             "
+                                                                                             ^
+                                                                                             source.ks string.quoted.double.ks punctuation.definition.string.end.ks
+                                                                                              )
+                                                                                              ^
+                                                                                              source.ks punctuation.definition.arguments.end.bracket.round.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.match.end.bracket.curly.ks

@@ -1,0 +1,147 @@
+original file
+-----------------------------------
+for value, key of likes {
+    console.log(`\(key): \(value)`)
+}
+else {
+    console.log('no likes')
+}
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>for value, key of likes {
+ for
+ ^^^
+ source.ks keyword.control.loop.for.ks
+     
+    ^
+    source.ks
+     value
+     ^^^^^
+     source.ks variable.other.ks
+          ,
+          ^
+          source.ks punctuation.separator.comma.ks
+            
+           ^
+           source.ks
+            key
+            ^^^
+            source.ks variable.other.ks
+                
+               ^
+               source.ks
+                of
+                ^^
+                source.ks keyword.operator.loop.of.ks
+                   
+                  ^
+                  source.ks
+                   likes
+                   ^^^^^
+                   source.ks variable.other.ks
+                         
+                        ^
+                        source.ks
+                         {
+                         ^
+                         source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>    console.log(`\(key): \(value)`)
+     
+ ^^^^
+ source.ks
+     console
+     ^^^^^^^
+     source.ks variable.other.object.ks
+            .
+            ^
+            source.ks punctuation.accessor.object.ks
+             log
+             ^^^
+             source.ks entity.name.function.ks
+                (
+                ^
+                source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                 `
+                 ^
+                 source.ks punctuation.definition.string.template.begin.ks
+                  \(
+                  ^^
+                  source.ks punctuation.definition.template-expression.begin.ks
+                    key
+                    ^^^
+                    source.ks variable.other.ks
+                       )
+                       ^
+                       source.ks punctuation.definition.template-expression.end.ks
+                        : 
+                        ^^
+                        source.ks string.template.ks
+                          \(
+                          ^^
+                          source.ks punctuation.definition.template-expression.begin.ks
+                            value
+                            ^^^^^
+                            source.ks variable.other.ks
+                                 )
+                                 ^
+                                 source.ks punctuation.definition.template-expression.end.ks
+                                  `
+                                  ^
+                                  source.ks punctuation.definition.string.template.end.ks
+                                   )
+                                   ^
+                                   source.ks punctuation.definition.arguments.end.bracket.round.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.block.end.bracket.curly.ks
+>
+>else {
+ else
+ ^^^^
+ source.ks keyword.control.conditional.else.ks
+      
+     ^
+     source.ks
+      {
+      ^
+      source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>    console.log('no likes')
+     
+ ^^^^
+ source.ks
+     console
+     ^^^^^^^
+     source.ks variable.other.object.ks
+            .
+            ^
+            source.ks punctuation.accessor.object.ks
+             log
+             ^^^
+             source.ks entity.name.function.ks
+                (
+                ^
+                source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                 '
+                 ^
+                 source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
+                  no likes
+                  ^^^^^^^^
+                  source.ks string.quoted.single.ks
+                          '
+                          ^
+                          source.ks string.quoted.single.ks punctuation.definition.string.end.ks
+                           )
+                           ^
+                           source.ks punctuation.definition.arguments.end.bracket.round.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.block.end.bracket.curly.ks

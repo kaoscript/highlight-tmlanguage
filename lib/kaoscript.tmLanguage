@@ -97,7 +97,7 @@
           </dict>
           <dict>
             <key>begin</key>
-            <string>\bfor\b</string>
+            <string>(?&lt;![$\.])\bfor\b</string>
             <key>beginCaptures</key>
             <dict>
               <key>0</key>
@@ -112,7 +112,7 @@
             <array>
               <dict>
                 <key>begin</key>
-                <string>\bvar\s+(mut)\b</string>
+                <string>(?&lt;![$\.])\bvar\s+(mut)\b</string>
                 <key>beginCaptures</key>
                 <dict>
                   <key>0</key>
@@ -138,7 +138,7 @@
               </dict>
               <dict>
                 <key>begin</key>
-                <string>\bvar\b</string>
+                <string>(?&lt;![$\.])\bvar\b</string>
                 <key>beginCaptures</key>
                 <dict>
                   <key>0</key>
@@ -161,13 +161,57 @@
                 <key>name</key>
                 <string>keyword.control.loop.ks</string>
                 <key>match</key>
-                <string>\b(by|desc|from|in|of|til|to|until|when|while)\b</string>
+                <string>(?&lt;![$\.])\b(down|in|of|split|step|until|up|when|while)\b</string>
+              </dict>
+              <dict>
+                <key>match</key>
+                <string>(?&lt;![$\.])\b(from|to)(~|\b)</string>
+                <key>captures</key>
+                <dict>
+                  <key>1</key>
+                  <dict>
+                    <key>name</key>
+                    <string>keyword.control.loop.ks</string>
+                  </dict>
+                  <key>2</key>
+                  <dict>
+                    <key>name</key>
+                    <string>storage.modifier.ballpark.ks</string>
+                  </dict>
+                </dict>
               </dict>
               <dict>
                 <key>name</key>
                 <string>keyword.operator.range.ks</string>
                 <key>match</key>
                 <string>(?&lt;!\.)\&lt;?\.\.\&lt;?(?!\.)</string>
+              </dict>
+              <dict>
+                <key>include</key>
+                <string>#expression</string>
+              </dict>
+            </array>
+          </dict>
+          <dict>
+            <key>begin</key>
+            <string>(?&lt;![$\.])\brepeat\b</string>
+            <key>beginCaptures</key>
+            <dict>
+              <key>0</key>
+              <dict>
+                <key>name</key>
+                <string>keyword.control.loop.repeat.ks</string>
+              </dict>
+            </dict>
+            <key>end</key>
+            <string>(?=\])</string>
+            <key>patterns</key>
+            <array>
+              <dict>
+                <key>name</key>
+                <string>keyword.control.loop.ks</string>
+                <key>match</key>
+                <string>(?&lt;![$\.])\b(times)\b</string>
               </dict>
               <dict>
                 <key>include</key>
@@ -779,6 +823,17 @@
         </dict>
         <key>end</key>
         <string>$</string>
+        <key>patterns</key>
+        <array>
+          <dict>
+            <key>include</key>
+            <string>#if-expression</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#unless-expression</string>
+          </dict>
+        </array>
       </dict>
       <key>class-member</key>
       <dict>
@@ -1942,6 +1997,17 @@
         </dict>
         <key>end</key>
         <string>$</string>
+        <key>patterns</key>
+        <array>
+          <dict>
+            <key>include</key>
+            <string>#if-expression</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#unless-expression</string>
+          </dict>
+        </array>
       </dict>
       <key>create-expression</key>
       <dict>
@@ -2913,7 +2979,7 @@
           </dict>
           <dict>
             <key>include</key>
-            <string>#switch-expression</string>
+            <string>#match-expression</string>
           </dict>
           <dict>
             <key>include</key>
@@ -2993,6 +3059,10 @@
           <dict>
             <key>include</key>
             <string>#if-else-expression</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#repeat-expression</string>
           </dict>
           <dict>
             <key>include</key>
@@ -3309,7 +3379,7 @@
           <key>1</key>
           <dict>
             <key>name</key>
-            <string>keyword.control.switch.fallthrough.ks</string>
+            <string>keyword.control.match.fallthrough.ks</string>
           </dict>
         </dict>
         <key>end</key>
@@ -4395,28 +4465,38 @@
             </array>
           </dict>
           <dict>
-            <key>name</key>
-            <string>keyword.operator.loop.from.ks</string>
             <key>match</key>
-            <string>\bfrom\b(?![\[\]\(\)\.])</string>
+            <string>\b(from)(~|\b)(?![\[\]\(\)\.])</string>
+            <key>captures</key>
+            <dict>
+              <key>1</key>
+              <dict>
+                <key>name</key>
+                <string>keyword.operator.loop.from.ks</string>
+              </dict>
+              <key>2</key>
+              <dict>
+                <key>name</key>
+                <string>storage.modifier.ballpark.ks</string>
+              </dict>
+            </dict>
           </dict>
           <dict>
-            <key>name</key>
-            <string>keyword.operator.loop.til.ks</string>
             <key>match</key>
-            <string>\btil\b(?![\[\]\(\)\.])</string>
-          </dict>
-          <dict>
-            <key>name</key>
-            <string>keyword.operator.loop.to.ks</string>
-            <key>match</key>
-            <string>\bto\b(?![\[\]\(\)\.])</string>
-          </dict>
-          <dict>
-            <key>name</key>
-            <string>keyword.operator.loop.by.ks</string>
-            <key>match</key>
-            <string>\bby\b(?![\[\]\(\)\.])</string>
+            <string>\b(to)(~|\b)(?![\[\]\(\)\.])</string>
+            <key>captures</key>
+            <dict>
+              <key>1</key>
+              <dict>
+                <key>name</key>
+                <string>keyword.operator.loop.to.ks</string>
+              </dict>
+              <key>2</key>
+              <dict>
+                <key>name</key>
+                <string>storage.modifier.ballpark.ks</string>
+              </dict>
+            </dict>
           </dict>
           <dict>
             <key>name</key>
@@ -4426,15 +4506,33 @@
           </dict>
           <dict>
             <key>name</key>
-            <string>keyword.operator.loop.desc.ks</string>
-            <key>match</key>
-            <string>\bdesc\b(?![\[\]\(\)\.])</string>
-          </dict>
-          <dict>
-            <key>name</key>
             <string>keyword.operator.loop.of.ks</string>
             <key>match</key>
             <string>\bof\b(?![\[\]\(\)\.])</string>
+          </dict>
+          <dict>
+            <key>name</key>
+            <string>keyword.operator.loop.down.ks</string>
+            <key>match</key>
+            <string>\bdown\b(?![\[\]\(\)\.])</string>
+          </dict>
+          <dict>
+            <key>name</key>
+            <string>keyword.operator.loop.up.ks</string>
+            <key>match</key>
+            <string>\bup\b(?![\[\]\(\)\.])</string>
+          </dict>
+          <dict>
+            <key>name</key>
+            <string>keyword.operator.loop.step.ks</string>
+            <key>match</key>
+            <string>\bstep\b(?![\[\]\(\)\.])</string>
+          </dict>
+          <dict>
+            <key>name</key>
+            <string>keyword.operator.loop.split.ks</string>
+            <key>match</key>
+            <string>\bsplit\b(?![\[\]\(\)\.])</string>
           </dict>
           <dict>
             <key>name</key>
@@ -4671,6 +4769,12 @@
                 <key>patterns</key>
                 <array>
                   <dict>
+                    <key>name</key>
+                    <string>punctuation.separator.statement.ks</string>
+                    <key>match</key>
+                    <string>;</string>
+                  </dict>
+                  <dict>
                     <key>include</key>
                     <string>#expression</string>
                   </dict>
@@ -4732,6 +4836,12 @@
                 <string>(?=\{)</string>
                 <key>patterns</key>
                 <array>
+                  <dict>
+                    <key>name</key>
+                    <string>punctuation.separator.statement.ks</string>
+                    <key>match</key>
+                    <string>;</string>
+                  </dict>
                   <dict>
                     <key>include</key>
                     <string>#expression</string>
@@ -5610,6 +5720,209 @@
         </dict>
         <key>patterns</key>
         <array>
+          <dict>
+            <key>include</key>
+            <string>#expression</string>
+          </dict>
+        </array>
+      </dict>
+      <key>match-clause</key>
+      <dict>
+        <key>patterns</key>
+        <array>
+          <dict>
+            <key>begin</key>
+            <string>with</string>
+            <key>beginCaptures</key>
+            <dict>
+              <key>0</key>
+              <dict>
+                <key>name</key>
+                <string>keyword.control.match.binding.ks</string>
+              </dict>
+            </dict>
+            <key>end</key>
+            <string>(?=\bwhen\b|=&gt;|\{)</string>
+            <key>patterns</key>
+            <array>
+              <dict>
+                <key>include</key>
+                <string>#expression-without-function</string>
+              </dict>
+            </array>
+          </dict>
+          <dict>
+            <key>begin</key>
+            <string>when</string>
+            <key>beginCaptures</key>
+            <dict>
+              <key>0</key>
+              <dict>
+                <key>name</key>
+                <string>keyword.control.match.binding-condition.ks</string>
+              </dict>
+            </dict>
+            <key>end</key>
+            <string>(?==&gt;|\{)</string>
+            <key>patterns</key>
+            <array>
+              <dict>
+                <key>include</key>
+                <string>#expression-without-function</string>
+              </dict>
+            </array>
+          </dict>
+          <dict>
+            <key>begin</key>
+            <string>=&gt;</string>
+            <key>beginCaptures</key>
+            <dict>
+              <key>0</key>
+              <dict>
+                <key>name</key>
+                <string>keyword.control.match.arrow.ks</string>
+              </dict>
+            </dict>
+            <key>end</key>
+            <string>(?&lt;=$|\})</string>
+            <key>patterns</key>
+            <array>
+              <dict>
+                <key>include</key>
+                <string>#block</string>
+              </dict>
+              <dict>
+                <key>include</key>
+                <string>#return-expression</string>
+              </dict>
+              <dict>
+                <key>include</key>
+                <string>#throw-expression</string>
+              </dict>
+              <dict>
+                <key>include</key>
+                <string>#expression</string>
+              </dict>
+            </array>
+          </dict>
+          <dict>
+            <key>name</key>
+            <string>keyword.control.match.else.ks</string>
+            <key>match</key>
+            <string>(?&lt;![$\.])\b(else)\b</string>
+          </dict>
+          <dict>
+            <key>name</key>
+            <string>keyword.operator.range.ks</string>
+            <key>match</key>
+            <string>(?&lt;!\.)\&lt;?\.\.\&lt;?(?!\.)</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#block</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#expression-without-function</string>
+          </dict>
+        </array>
+      </dict>
+      <key>match-expression</key>
+      <dict>
+        <key>begin</key>
+        <string>(?&lt;![$\.])\b(match)\s+(?!=\.|\[|.?=|\w+\s+\w+)</string>
+        <key>beginCaptures</key>
+        <dict>
+          <key>1</key>
+          <dict>
+            <key>name</key>
+            <string>keyword.control.match.ks</string>
+          </dict>
+        </dict>
+        <key>end</key>
+        <string>(?&lt;=\})</string>
+        <key>patterns</key>
+        <array>
+          <dict>
+            <key>begin</key>
+            <string>\{</string>
+            <key>beginCaptures</key>
+            <dict>
+              <key>0</key>
+              <dict>
+                <key>name</key>
+                <string>punctuation.definition.match.begin.bracket.curly.ks</string>
+              </dict>
+            </dict>
+            <key>end</key>
+            <string>\}</string>
+            <key>endCaptures</key>
+            <dict>
+              <key>0</key>
+              <dict>
+                <key>name</key>
+                <string>punctuation.definition.match.end.bracket.curly.ks</string>
+              </dict>
+            </dict>
+            <key>patterns</key>
+            <array>
+              <dict>
+                <key>include</key>
+                <string>#match-clause</string>
+              </dict>
+            </array>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#expression</string>
+          </dict>
+        </array>
+      </dict>
+      <key>match-statement</key>
+      <dict>
+        <key>begin</key>
+        <string>^\s*(match)\s+(?=[\{\[\("'`_$[:alnum:]\.\/@#?!~+-])</string>
+        <key>beginCaptures</key>
+        <dict>
+          <key>1</key>
+          <dict>
+            <key>name</key>
+            <string>keyword.control.match.ks</string>
+          </dict>
+        </dict>
+        <key>end</key>
+        <string>(?&lt;=\})</string>
+        <key>patterns</key>
+        <array>
+          <dict>
+            <key>begin</key>
+            <string>\{</string>
+            <key>beginCaptures</key>
+            <dict>
+              <key>0</key>
+              <dict>
+                <key>name</key>
+                <string>punctuation.definition.match.begin.bracket.curly.ks</string>
+              </dict>
+            </dict>
+            <key>end</key>
+            <string>\}</string>
+            <key>endCaptures</key>
+            <dict>
+              <key>0</key>
+              <dict>
+                <key>name</key>
+                <string>punctuation.definition.match.end.bracket.curly.ks</string>
+              </dict>
+            </dict>
+            <key>patterns</key>
+            <array>
+              <dict>
+                <key>include</key>
+                <string>#match-clause</string>
+              </dict>
+            </array>
+          </dict>
           <dict>
             <key>include</key>
             <string>#expression</string>
@@ -6703,6 +7016,52 @@
           </dict>
         </array>
       </dict>
+      <key>repeat-expression</key>
+      <dict>
+        <key>begin</key>
+        <string>\b(repeat)\s+</string>
+        <key>beginCaptures</key>
+        <dict>
+          <key>1</key>
+          <dict>
+            <key>name</key>
+            <string>keyword.control.loop.repeat.ks</string>
+          </dict>
+        </dict>
+        <key>end</key>
+        <string>(?=$|\{)</string>
+        <key>patterns</key>
+        <array>
+          <dict>
+            <key>name</key>
+            <string>variable.control.loop.ks</string>
+            <key>match</key>
+            <string>(?&lt;![$\.])\b(times)\b</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#expression</string>
+          </dict>
+        </array>
+      </dict>
+      <key>repeat-statement</key>
+      <dict>
+        <key>begin</key>
+        <string>^\s*(?=repeat\s+)</string>
+        <key>end</key>
+        <string>(?&lt;=\})</string>
+        <key>patterns</key>
+        <array>
+          <dict>
+            <key>include</key>
+            <string>#repeat-expression</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#block</string>
+          </dict>
+        </array>
+      </dict>
       <key>require-declarator</key>
       <dict>
         <key>patterns</key>
@@ -7076,7 +7435,15 @@
           </dict>
           <dict>
             <key>include</key>
+            <string>#match-statement</string>
+          </dict>
+          <dict>
+            <key>include</key>
             <string>#pass-statement</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#repeat-statement</string>
           </dict>
           <dict>
             <key>include</key>
@@ -7085,10 +7452,6 @@
           <dict>
             <key>include</key>
             <string>#struct-statement</string>
-          </dict>
-          <dict>
-            <key>include</key>
-            <string>#switch-statement</string>
           </dict>
           <dict>
             <key>include</key>
@@ -7460,199 +7823,6 @@
                 <string>entity.name.type.struct.ks</string>
               </dict>
             </dict>
-          </dict>
-        </array>
-      </dict>
-      <key>switch-clause</key>
-      <dict>
-        <key>patterns</key>
-        <array>
-          <dict>
-            <key>begin</key>
-            <string>with</string>
-            <key>beginCaptures</key>
-            <dict>
-              <key>0</key>
-              <dict>
-                <key>name</key>
-                <string>keyword.control.switch.binding.ks</string>
-              </dict>
-            </dict>
-            <key>end</key>
-            <string>(?=\bwhen\b|=&gt;)</string>
-            <key>patterns</key>
-            <array>
-              <dict>
-                <key>include</key>
-                <string>#expression-without-function</string>
-              </dict>
-            </array>
-          </dict>
-          <dict>
-            <key>begin</key>
-            <string>when</string>
-            <key>beginCaptures</key>
-            <dict>
-              <key>0</key>
-              <dict>
-                <key>name</key>
-                <string>keyword.control.switch.binding-condition.ks</string>
-              </dict>
-            </dict>
-            <key>end</key>
-            <string>(?==&gt;)</string>
-            <key>patterns</key>
-            <array>
-              <dict>
-                <key>include</key>
-                <string>#expression-without-function</string>
-              </dict>
-            </array>
-          </dict>
-          <dict>
-            <key>begin</key>
-            <string>=&gt;</string>
-            <key>beginCaptures</key>
-            <dict>
-              <key>0</key>
-              <dict>
-                <key>name</key>
-                <string>keyword.control.switch.body.ks</string>
-              </dict>
-            </dict>
-            <key>end</key>
-            <string>(?&lt;=$|\})</string>
-            <key>patterns</key>
-            <array>
-              <dict>
-                <key>include</key>
-                <string>#block</string>
-              </dict>
-              <dict>
-                <key>include</key>
-                <string>#return-expression</string>
-              </dict>
-              <dict>
-                <key>include</key>
-                <string>#throw-expression</string>
-              </dict>
-              <dict>
-                <key>include</key>
-                <string>#expression</string>
-              </dict>
-            </array>
-          </dict>
-          <dict>
-            <key>name</key>
-            <string>keyword.operator.range.ks</string>
-            <key>match</key>
-            <string>(?&lt;!\.)\&lt;?\.\.\&lt;?(?!\.)</string>
-          </dict>
-          <dict>
-            <key>include</key>
-            <string>#expression-without-function</string>
-          </dict>
-        </array>
-      </dict>
-      <key>switch-expression</key>
-      <dict>
-        <key>begin</key>
-        <string>(\bswitch\b)</string>
-        <key>beginCaptures</key>
-        <dict>
-          <key>1</key>
-          <dict>
-            <key>name</key>
-            <string>keyword.control.switch.ks</string>
-          </dict>
-        </dict>
-        <key>end</key>
-        <string>(?&lt;=\})</string>
-        <key>patterns</key>
-        <array>
-          <dict>
-            <key>begin</key>
-            <string>\{</string>
-            <key>beginCaptures</key>
-            <dict>
-              <key>0</key>
-              <dict>
-                <key>name</key>
-                <string>punctuation.definition.switch.begin.bracket.curly.ks</string>
-              </dict>
-            </dict>
-            <key>end</key>
-            <string>\}</string>
-            <key>endCaptures</key>
-            <dict>
-              <key>0</key>
-              <dict>
-                <key>name</key>
-                <string>punctuation.definition.switch.end.bracket.curly.ks</string>
-              </dict>
-            </dict>
-            <key>patterns</key>
-            <array>
-              <dict>
-                <key>include</key>
-                <string>#switch-clause</string>
-              </dict>
-            </array>
-          </dict>
-          <dict>
-            <key>include</key>
-            <string>#expression</string>
-          </dict>
-        </array>
-      </dict>
-      <key>switch-statement</key>
-      <dict>
-        <key>begin</key>
-        <string>^\s*(switch)\s+(?=[\{\[\("'`_$[:alnum:]\.\/@#?!~+-])</string>
-        <key>beginCaptures</key>
-        <dict>
-          <key>1</key>
-          <dict>
-            <key>name</key>
-            <string>keyword.control.switch.ks</string>
-          </dict>
-        </dict>
-        <key>end</key>
-        <string>(?&lt;=\})</string>
-        <key>patterns</key>
-        <array>
-          <dict>
-            <key>begin</key>
-            <string>\{</string>
-            <key>beginCaptures</key>
-            <dict>
-              <key>0</key>
-              <dict>
-                <key>name</key>
-                <string>punctuation.definition.switch.begin.bracket.curly.ks</string>
-              </dict>
-            </dict>
-            <key>end</key>
-            <string>\}</string>
-            <key>endCaptures</key>
-            <dict>
-              <key>0</key>
-              <dict>
-                <key>name</key>
-                <string>punctuation.definition.switch.end.bracket.curly.ks</string>
-              </dict>
-            </dict>
-            <key>patterns</key>
-            <array>
-              <dict>
-                <key>include</key>
-                <string>#switch-clause</string>
-              </dict>
-            </array>
-          </dict>
-          <dict>
-            <key>include</key>
-            <string>#expression</string>
           </dict>
         </array>
       </dict>

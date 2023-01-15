@@ -1,0 +1,408 @@
+original file
+-----------------------------------
+var dyn pair = [2, -2]
+
+match pair {
+    with [x, y]    when x == y            => console.log("These are twins")
+    with [x, y]    when x + y == 0        => console.log("Antimatter, kaboom!")
+    with [x, _]    when x % 2 == 1        => console.log("The first one is odd")
+    else                            => console.log("No correlation...")
+}
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>var dyn pair = [2, -2]
+ var 
+ ^^^^
+ source.ks storage.type.readwrite.ks
+     dyn
+     ^^^
+     source.ks storage.type.readwrite.ks storage.modifier.dynamic.ks
+         
+        ^
+        source.ks
+         pair
+         ^^^^
+         source.ks meta.definition.variable.ks variable.other.ks
+              
+             ^
+             source.ks
+              =
+              ^
+              source.ks keyword.operator.assignment.ks
+                
+               ^
+               source.ks
+                [
+                ^
+                source.ks punctuation.definition.array.begin.bracket.square.ks
+                 2
+                 ^
+                 source.ks constant.numeric.decimal.ks
+                  ,
+                  ^
+                  source.ks punctuation.separator.comma.ks
+                    
+                   ^
+                   source.ks
+                    -
+                    ^
+                    source.ks keyword.operator.arithmetic.ks
+                     2
+                     ^
+                     source.ks constant.numeric.decimal.ks
+                      ]
+                      ^
+                      source.ks punctuation.definition.array.end.bracket.square.ks
+>
+>
+ 
+ ^
+ source.ks
+>
+>match pair {
+ match
+ ^^^^^
+ source.ks keyword.control.match.ks
+       
+      ^
+      source.ks
+       pair
+       ^^^^
+       source.ks variable.other.ks
+            
+           ^
+           source.ks
+            {
+            ^
+            source.ks punctuation.definition.match.begin.bracket.curly.ks
+>
+>    with [x, y]    when x == y            => console.log("These are twins")
+     
+ ^^^^
+ source.ks
+     with
+     ^^^^
+     source.ks keyword.control.match.binding.ks
+          
+         ^
+         source.ks
+          [
+          ^
+          source.ks punctuation.definition.array.begin.bracket.square.ks
+           x
+           ^
+           source.ks variable.other.ks
+            ,
+            ^
+            source.ks punctuation.separator.comma.ks
+              
+             ^
+             source.ks
+              y
+              ^
+              source.ks variable.other.ks
+               ]
+               ^
+               source.ks punctuation.definition.array.end.bracket.square.ks
+                    
+                ^^^^
+                source.ks
+                    when
+                    ^^^^
+                    source.ks keyword.control.match.binding-condition.ks
+                         
+                        ^
+                        source.ks
+                         x
+                         ^
+                         source.ks variable.other.ks
+                           
+                          ^
+                          source.ks
+                           ==
+                           ^^
+                           source.ks keyword.operator.comparison.ks
+                              
+                             ^
+                             source.ks
+                              y
+                              ^
+                              source.ks variable.other.ks
+                                           
+                               ^^^^^^^^^^^^
+                               source.ks
+                                           =>
+                                           ^^
+                                           source.ks keyword.control.match.arrow.ks
+                                              
+                                             ^
+                                             source.ks
+                                              console
+                                              ^^^^^^^
+                                              source.ks variable.other.object.ks
+                                                     .
+                                                     ^
+                                                     source.ks punctuation.accessor.object.ks
+                                                      log
+                                                      ^^^
+                                                      source.ks entity.name.function.ks
+                                                         (
+                                                         ^
+                                                         source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                                                          "
+                                                          ^
+                                                          source.ks string.quoted.double.ks punctuation.definition.string.begin.ks
+                                                           These are twins
+                                                           ^^^^^^^^^^^^^^^
+                                                           source.ks string.quoted.double.ks
+                                                                          "
+                                                                          ^
+                                                                          source.ks string.quoted.double.ks punctuation.definition.string.end.ks
+                                                                           )
+                                                                           ^
+                                                                           source.ks punctuation.definition.arguments.end.bracket.round.ks
+>
+>    with [x, y]    when x + y == 0        => console.log("Antimatter, kaboom!")
+     
+ ^^^^
+ source.ks
+     with
+     ^^^^
+     source.ks keyword.control.match.binding.ks
+          
+         ^
+         source.ks
+          [
+          ^
+          source.ks punctuation.definition.array.begin.bracket.square.ks
+           x
+           ^
+           source.ks variable.other.ks
+            ,
+            ^
+            source.ks punctuation.separator.comma.ks
+              
+             ^
+             source.ks
+              y
+              ^
+              source.ks variable.other.ks
+               ]
+               ^
+               source.ks punctuation.definition.array.end.bracket.square.ks
+                    
+                ^^^^
+                source.ks
+                    when
+                    ^^^^
+                    source.ks keyword.control.match.binding-condition.ks
+                         
+                        ^
+                        source.ks
+                         x
+                         ^
+                         source.ks variable.other.ks
+                           
+                          ^
+                          source.ks
+                           +
+                           ^
+                           source.ks keyword.operator.arithmetic.ks
+                             
+                            ^
+                            source.ks
+                             y
+                             ^
+                             source.ks variable.other.ks
+                               
+                              ^
+                              source.ks
+                               ==
+                               ^^
+                               source.ks keyword.operator.comparison.ks
+                                  
+                                 ^
+                                 source.ks
+                                  0
+                                  ^
+                                  source.ks constant.numeric.decimal.ks
+                                           
+                                   ^^^^^^^^
+                                   source.ks
+                                           =>
+                                           ^^
+                                           source.ks keyword.control.match.arrow.ks
+                                              
+                                             ^
+                                             source.ks
+                                              console
+                                              ^^^^^^^
+                                              source.ks variable.other.object.ks
+                                                     .
+                                                     ^
+                                                     source.ks punctuation.accessor.object.ks
+                                                      log
+                                                      ^^^
+                                                      source.ks entity.name.function.ks
+                                                         (
+                                                         ^
+                                                         source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                                                          "
+                                                          ^
+                                                          source.ks string.quoted.double.ks punctuation.definition.string.begin.ks
+                                                           Antimatter, kaboom!
+                                                           ^^^^^^^^^^^^^^^^^^^
+                                                           source.ks string.quoted.double.ks
+                                                                              "
+                                                                              ^
+                                                                              source.ks string.quoted.double.ks punctuation.definition.string.end.ks
+                                                                               )
+                                                                               ^
+                                                                               source.ks punctuation.definition.arguments.end.bracket.round.ks
+>
+>    with [x, _]    when x % 2 == 1        => console.log("The first one is odd")
+     
+ ^^^^
+ source.ks
+     with
+     ^^^^
+     source.ks keyword.control.match.binding.ks
+          
+         ^
+         source.ks
+          [
+          ^
+          source.ks punctuation.definition.array.begin.bracket.square.ks
+           x
+           ^
+           source.ks variable.other.ks
+            ,
+            ^
+            source.ks punctuation.separator.comma.ks
+              
+             ^
+             source.ks
+              _
+              ^
+              source.ks variable.anonymous.ks
+               ]
+               ^
+               source.ks punctuation.definition.array.end.bracket.square.ks
+                    
+                ^^^^
+                source.ks
+                    when
+                    ^^^^
+                    source.ks keyword.control.match.binding-condition.ks
+                         
+                        ^
+                        source.ks
+                         x
+                         ^
+                         source.ks variable.other.ks
+                           
+                          ^
+                          source.ks
+                           %
+                           ^
+                           source.ks keyword.operator.arithmetic.ks
+                             
+                            ^
+                            source.ks
+                             2
+                             ^
+                             source.ks constant.numeric.decimal.ks
+                               
+                              ^
+                              source.ks
+                               ==
+                               ^^
+                               source.ks keyword.operator.comparison.ks
+                                  
+                                 ^
+                                 source.ks
+                                  1
+                                  ^
+                                  source.ks constant.numeric.decimal.ks
+                                           
+                                   ^^^^^^^^
+                                   source.ks
+                                           =>
+                                           ^^
+                                           source.ks keyword.control.match.arrow.ks
+                                              
+                                             ^
+                                             source.ks
+                                              console
+                                              ^^^^^^^
+                                              source.ks variable.other.object.ks
+                                                     .
+                                                     ^
+                                                     source.ks punctuation.accessor.object.ks
+                                                      log
+                                                      ^^^
+                                                      source.ks entity.name.function.ks
+                                                         (
+                                                         ^
+                                                         source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                                                          "
+                                                          ^
+                                                          source.ks string.quoted.double.ks punctuation.definition.string.begin.ks
+                                                           The first one is odd
+                                                           ^^^^^^^^^^^^^^^^^^^^
+                                                           source.ks string.quoted.double.ks
+                                                                               "
+                                                                               ^
+                                                                               source.ks string.quoted.double.ks punctuation.definition.string.end.ks
+                                                                                )
+                                                                                ^
+                                                                                source.ks punctuation.definition.arguments.end.bracket.round.ks
+>
+>    else                            => console.log("No correlation...")
+     
+ ^^^^
+ source.ks
+     else
+     ^^^^
+     source.ks keyword.control.match.else.ks
+                                     
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+         source.ks
+                                     =>
+                                     ^^
+                                     source.ks keyword.control.match.arrow.ks
+                                        
+                                       ^
+                                       source.ks
+                                        console
+                                        ^^^^^^^
+                                        source.ks variable.other.object.ks
+                                               .
+                                               ^
+                                               source.ks punctuation.accessor.object.ks
+                                                log
+                                                ^^^
+                                                source.ks entity.name.function.ks
+                                                   (
+                                                   ^
+                                                   source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                                                    "
+                                                    ^
+                                                    source.ks string.quoted.double.ks punctuation.definition.string.begin.ks
+                                                     No correlation...
+                                                     ^^^^^^^^^^^^^^^^^
+                                                     source.ks string.quoted.double.ks
+                                                                      "
+                                                                      ^
+                                                                      source.ks string.quoted.double.ks punctuation.definition.string.end.ks
+                                                                       )
+                                                                       ^
+                                                                       source.ks punctuation.definition.arguments.end.bracket.round.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.match.end.bracket.curly.ks

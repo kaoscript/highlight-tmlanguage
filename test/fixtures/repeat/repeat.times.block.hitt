@@ -1,0 +1,66 @@
+original file
+-----------------------------------
+repeat 10 times {
+    console.log('Hello world!')
+}
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>repeat 10 times {
+ repeat
+ ^^^^^^
+ source.ks keyword.control.loop.repeat.ks
+        
+       ^
+       source.ks
+        10
+        ^^
+        source.ks constant.numeric.decimal.ks
+           
+          ^
+          source.ks
+           times
+           ^^^^^
+           source.ks variable.control.loop.ks
+                 
+                ^
+                source.ks
+                 {
+                 ^
+                 source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>    console.log('Hello world!')
+     
+ ^^^^
+ source.ks
+     console
+     ^^^^^^^
+     source.ks variable.other.object.ks
+            .
+            ^
+            source.ks punctuation.accessor.object.ks
+             log
+             ^^^
+             source.ks entity.name.function.ks
+                (
+                ^
+                source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                 '
+                 ^
+                 source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
+                  Hello world!
+                  ^^^^^^^^^^^^
+                  source.ks string.quoted.single.ks
+                              '
+                              ^
+                              source.ks string.quoted.single.ks punctuation.definition.string.end.ks
+                               )
+                               ^
+                               source.ks punctuation.definition.arguments.end.bracket.round.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.block.end.bracket.curly.ks

@@ -10,7 +10,7 @@ enum Weekday {
     SUNDAY
 
     internal static fromString(value: String): Weekday? {
-            switch value {
+            match value {
                 'monday' => return MONDAY
             }
 
@@ -156,25 +156,25 @@ grammar: kaoscript.tmLanguage
                                                          ^
                                                          source.ks punctuation.definition.block.begin.bracket.curly.ks
 >
->            switch value {
+>            match value {
              
  ^^^^^^^^^^^^
  source.ks
-             switch
-             ^^^^^^
-             source.ks keyword.control.switch.ks
-                    
-                   ^
-                   source.ks
-                    value
-                    ^^^^^
-                    source.ks variable.other.ks
-                          
+             match
+             ^^^^^
+             source.ks keyword.control.match.ks
+                   
+                  ^
+                  source.ks
+                   value
+                   ^^^^^
+                   source.ks variable.other.ks
+                         
+                        ^
+                        source.ks
+                         {
                          ^
-                         source.ks
-                          {
-                          ^
-                          source.ks punctuation.definition.switch.begin.bracket.curly.ks
+                         source.ks punctuation.definition.match.begin.bracket.curly.ks
 >
 >                'monday' => return MONDAY
                  
@@ -194,7 +194,7 @@ grammar: kaoscript.tmLanguage
                          source.ks
                           =>
                           ^^
-                          source.ks keyword.control.switch.body.ks
+                          source.ks keyword.control.match.arrow.ks
                              
                             ^
                             source.ks
@@ -214,7 +214,7 @@ grammar: kaoscript.tmLanguage
  source.ks
              }
              ^
-             source.ks punctuation.definition.switch.end.bracket.curly.ks
+             source.ks punctuation.definition.match.end.bracket.curly.ks
 >
 >
  

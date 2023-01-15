@@ -1,0 +1,60 @@
+original file
+-----------------------------------
+for x from 0 down to 10 {
+}
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>for x from 0 down to 10 {
+ for
+ ^^^
+ source.ks keyword.control.loop.for.ks
+     
+    ^
+    source.ks
+     x
+     ^
+     source.ks variable.other.ks
+       
+      ^
+      source.ks
+       from
+       ^^^^
+       source.ks keyword.operator.loop.from.ks
+            
+           ^
+           source.ks
+            0
+            ^
+            source.ks constant.numeric.decimal.ks
+              
+             ^
+             source.ks
+              down
+              ^^^^
+              source.ks keyword.operator.loop.down.ks
+                   
+                  ^
+                  source.ks
+                   to
+                   ^^
+                   source.ks keyword.operator.loop.to.ks
+                      
+                     ^
+                     source.ks
+                      10
+                      ^^
+                      source.ks constant.numeric.decimal.ks
+                         
+                        ^
+                        source.ks
+                         {
+                         ^
+                         source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.block.end.bracket.curly.ks

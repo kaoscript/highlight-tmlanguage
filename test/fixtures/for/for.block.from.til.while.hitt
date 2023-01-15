@@ -1,13 +1,13 @@
 original file
 -----------------------------------
-for x from 0 til 10 while x <= y {
+for x from 0 to~ 10 while x <= y {
 }
 -----------------------------------
 
 grammar: kaoscript.tmLanguage
 -----------------------------------
 >
->for x from 0 til 10 while x <= y {
+>for x from 0 to~ 10 while x <= y {
  for
  ^^^
  source.ks keyword.control.loop.for.ks
@@ -32,9 +32,12 @@ grammar: kaoscript.tmLanguage
               
              ^
              source.ks
-              til
-              ^^^
-              source.ks keyword.operator.loop.til.ks
+              to
+              ^^
+              source.ks keyword.operator.loop.to.ks
+                ~
+                ^
+                source.ks storage.modifier.ballpark.ks
                   
                  ^
                  source.ks

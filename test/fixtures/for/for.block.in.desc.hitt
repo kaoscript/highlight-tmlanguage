@@ -2,7 +2,7 @@ original file
 -----------------------------------
 heroes = ['leto', 'duncan', 'goku']
 
-for hero in heroes desc {
+for hero in heroes down {
     console.log(hero)
 }
 -----------------------------------
@@ -74,7 +74,7 @@ grammar: kaoscript.tmLanguage
  ^
  source.ks
 >
->for hero in heroes desc {
+>for hero in heroes down {
  for
  ^^^
  source.ks keyword.control.loop.for.ks
@@ -99,9 +99,9 @@ grammar: kaoscript.tmLanguage
                     
                    ^
                    source.ks
-                    desc
+                    down
                     ^^^^
-                    source.ks keyword.operator.loop.desc.ks
+                    source.ks keyword.operator.loop.down.ks
                          
                         ^
                         source.ks

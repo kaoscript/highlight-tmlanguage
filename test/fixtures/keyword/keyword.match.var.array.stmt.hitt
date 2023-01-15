@@ -1,0 +1,21 @@
+original file
+-----------------------------------
+match[0]
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>match[0]
+ match
+ ^^^^^
+ source.ks variable.other.ks
+      [
+      ^
+      source.ks punctuation.accessor.array.begin.bracket.square.ks
+       0
+       ^
+       source.ks constant.numeric.decimal.ks
+        ]
+        ^
+        source.ks punctuation.accessor.array.end.bracket.square.ks

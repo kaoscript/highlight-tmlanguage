@@ -1,0 +1,126 @@
+original file
+-----------------------------------
+var dyn boolean = true
+
+var dyn binary = match boolean {
+    false => 0
+    true => 1
+}
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>var dyn boolean = true
+ var 
+ ^^^^
+ source.ks storage.type.readwrite.ks
+     dyn
+     ^^^
+     source.ks storage.type.readwrite.ks storage.modifier.dynamic.ks
+         
+        ^
+        source.ks
+         boolean
+         ^^^^^^^
+         source.ks meta.definition.variable.ks variable.other.ks
+                 
+                ^
+                source.ks
+                 =
+                 ^
+                 source.ks keyword.operator.assignment.ks
+                   
+                  ^
+                  source.ks
+                   true
+                   ^^^^
+                   source.ks constant.language.boolean.true.ks
+>
+>
+ 
+ ^
+ source.ks
+>
+>var dyn binary = match boolean {
+ var 
+ ^^^^
+ source.ks storage.type.readwrite.ks
+     dyn
+     ^^^
+     source.ks storage.type.readwrite.ks storage.modifier.dynamic.ks
+         
+        ^
+        source.ks
+         binary
+         ^^^^^^
+         source.ks meta.definition.variable.ks variable.other.ks
+                
+               ^
+               source.ks
+                =
+                ^
+                source.ks keyword.operator.assignment.ks
+                  
+                 ^
+                 source.ks
+                  match
+                  ^^^^^
+                  source.ks keyword.control.match.ks
+                        
+                       ^
+                       source.ks
+                        boolean
+                        ^^^^^^^
+                        source.ks variable.other.ks
+                                
+                               ^
+                               source.ks
+                                {
+                                ^
+                                source.ks punctuation.definition.match.begin.bracket.curly.ks
+>
+>    false => 0
+     
+ ^^^^
+ source.ks
+     false
+     ^^^^^
+     source.ks constant.language.boolean.false.ks
+           
+          ^
+          source.ks
+           =>
+           ^^
+           source.ks keyword.control.match.arrow.ks
+              
+             ^
+             source.ks
+              0
+              ^
+              source.ks constant.numeric.decimal.ks
+>
+>    true => 1
+     
+ ^^^^
+ source.ks
+     true
+     ^^^^
+     source.ks constant.language.boolean.true.ks
+          
+         ^
+         source.ks
+          =>
+          ^^
+          source.ks keyword.control.match.arrow.ks
+             
+            ^
+            source.ks
+             1
+             ^
+             source.ks constant.numeric.decimal.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.match.end.bracket.curly.ks

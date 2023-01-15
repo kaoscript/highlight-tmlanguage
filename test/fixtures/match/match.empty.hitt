@@ -1,0 +1,81 @@
+original file
+-----------------------------------
+var dyn pair = [2, -2]
+
+match pair {
+}
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>var dyn pair = [2, -2]
+ var 
+ ^^^^
+ source.ks storage.type.readwrite.ks
+     dyn
+     ^^^
+     source.ks storage.type.readwrite.ks storage.modifier.dynamic.ks
+         
+        ^
+        source.ks
+         pair
+         ^^^^
+         source.ks meta.definition.variable.ks variable.other.ks
+              
+             ^
+             source.ks
+              =
+              ^
+              source.ks keyword.operator.assignment.ks
+                
+               ^
+               source.ks
+                [
+                ^
+                source.ks punctuation.definition.array.begin.bracket.square.ks
+                 2
+                 ^
+                 source.ks constant.numeric.decimal.ks
+                  ,
+                  ^
+                  source.ks punctuation.separator.comma.ks
+                    
+                   ^
+                   source.ks
+                    -
+                    ^
+                    source.ks keyword.operator.arithmetic.ks
+                     2
+                     ^
+                     source.ks constant.numeric.decimal.ks
+                      ]
+                      ^
+                      source.ks punctuation.definition.array.end.bracket.square.ks
+>
+>
+ 
+ ^
+ source.ks
+>
+>match pair {
+ match
+ ^^^^^
+ source.ks keyword.control.match.ks
+       
+      ^
+      source.ks
+       pair
+       ^^^^
+       source.ks variable.other.ks
+            
+           ^
+           source.ks
+            {
+            ^
+            source.ks punctuation.definition.match.begin.bracket.curly.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.match.end.bracket.curly.ks

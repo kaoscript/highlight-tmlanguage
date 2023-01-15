@@ -1,0 +1,192 @@
+original file
+-----------------------------------
+func foo(x, y) {
+    match x {
+        -1 => 0
+        42 => return y if y == 0
+        else => return x * y
+    }
+}
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>func foo(x, y) {
+ func
+ ^^^^
+ source.ks storage.type.function.ks
+      
+     ^
+     source.ks
+      foo
+      ^^^
+      source.ks entity.name.function.ks
+         (
+         ^
+         source.ks punctuation.definition.parameters.begin.bracket.round.ks
+          x
+          ^
+          source.ks variable.parameter.ks
+           ,
+           ^
+           source.ks punctuation.separator.comma.ks
+             
+            ^
+            source.ks
+             y
+             ^
+             source.ks variable.parameter.ks
+              )
+              ^
+              source.ks punctuation.definition.parameters.end.bracket.round.ks
+                
+               ^
+               source.ks
+                {
+                ^
+                source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>    match x {
+     
+ ^^^^
+ source.ks
+     match
+     ^^^^^
+     source.ks keyword.control.match.ks
+           
+          ^
+          source.ks
+           x
+           ^
+           source.ks variable.other.ks
+             
+            ^
+            source.ks
+             {
+             ^
+             source.ks punctuation.definition.match.begin.bracket.curly.ks
+>
+>        -1 => 0
+         
+ ^^^^^^^^
+ source.ks
+         -
+         ^
+         source.ks keyword.operator.arithmetic.ks
+          1
+          ^
+          source.ks constant.numeric.decimal.ks
+            
+           ^
+           source.ks
+            =>
+            ^^
+            source.ks keyword.control.match.arrow.ks
+               
+              ^
+              source.ks
+               0
+               ^
+               source.ks constant.numeric.decimal.ks
+>
+>        42 => return y if y == 0
+         
+ ^^^^^^^^
+ source.ks
+         42
+         ^^
+         source.ks constant.numeric.decimal.ks
+            
+           ^
+           source.ks
+            =>
+            ^^
+            source.ks keyword.control.match.arrow.ks
+               
+              ^
+              source.ks
+               return
+               ^^^^^^
+               source.ks keyword.control.flow.return.ks
+                      
+                     ^
+                     source.ks
+                      y
+                      ^
+                      source.ks variable.other.ks
+                        
+                       ^
+                       source.ks
+                        if
+                        ^^
+                        source.ks keyword.control.conditional.if.ks
+                           
+                          ^
+                          source.ks
+                           y
+                           ^
+                           source.ks variable.other.ks
+                             
+                            ^
+                            source.ks
+                             ==
+                             ^^
+                             source.ks keyword.operator.comparison.ks
+                                
+                               ^
+                               source.ks
+                                0
+                                ^
+                                source.ks constant.numeric.decimal.ks
+>
+>        else => return x * y
+         
+ ^^^^^^^^
+ source.ks
+         else
+         ^^^^
+         source.ks keyword.control.match.else.ks
+              
+             ^
+             source.ks
+              =>
+              ^^
+              source.ks keyword.control.match.arrow.ks
+                 
+                ^
+                source.ks
+                 return
+                 ^^^^^^
+                 source.ks keyword.control.flow.return.ks
+                        
+                       ^
+                       source.ks
+                        x
+                        ^
+                        source.ks variable.other.ks
+                          
+                         ^
+                         source.ks
+                          *
+                          ^
+                          source.ks keyword.operator.arithmetic.ks
+                            
+                           ^
+                           source.ks
+                            y
+                            ^
+                            source.ks variable.other.ks
+>
+>    }
+     
+ ^^^^
+ source.ks
+     }
+     ^
+     source.ks punctuation.definition.match.end.bracket.curly.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.block.end.bracket.curly.ks

@@ -1,12 +1,12 @@
 original file
 -----------------------------------
-a = [i for i from 0 to 10 by 2 until foo(i)]
+a = [i for i from 0 to 10 step 2 until foo(i)]
 -----------------------------------
 
 grammar: kaoscript.tmLanguage
 -----------------------------------
 >
->a = [i for i from 0 to 10 by 2 until foo(i)]
+>a = [i for i from 0 to 10 step 2 until foo(i)]
  a
  ^
  source.ks variable.other.ks
@@ -64,36 +64,36 @@ grammar: kaoscript.tmLanguage
                            
                           ^
                           source.ks
-                           by
-                           ^^
+                           step
+                           ^^^^
                            source.ks keyword.control.loop.ks
-                              
-                             ^
-                             source.ks
-                              2
-                              ^
-                              source.ks constant.numeric.decimal.ks
                                 
                                ^
                                source.ks
-                                until
-                                ^^^^^
-                                source.ks keyword.control.loop.ks
-                                      
-                                     ^
-                                     source.ks
-                                      foo
-                                      ^^^
-                                      source.ks entity.name.function.ks
-                                         (
-                                         ^
-                                         source.ks punctuation.definition.arguments.begin.bracket.round.ks
-                                          i
-                                          ^
-                                          source.ks variable.other.ks
-                                           )
+                                2
+                                ^
+                                source.ks constant.numeric.decimal.ks
+                                  
+                                 ^
+                                 source.ks
+                                  until
+                                  ^^^^^
+                                  source.ks keyword.control.loop.ks
+                                        
+                                       ^
+                                       source.ks
+                                        foo
+                                        ^^^
+                                        source.ks entity.name.function.ks
+                                           (
                                            ^
-                                           source.ks punctuation.definition.arguments.end.bracket.round.ks
-                                            ]
+                                           source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                                            i
                                             ^
-                                            source.ks punctuation.definition.array.end.bracket.square.ks
+                                            source.ks variable.other.ks
+                                             )
+                                             ^
+                                             source.ks punctuation.definition.arguments.end.bracket.round.ks
+                                              ]
+                                              ^
+                                              source.ks punctuation.definition.array.end.bracket.square.ks

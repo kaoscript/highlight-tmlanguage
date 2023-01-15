@@ -1,0 +1,75 @@
+original file
+-----------------------------------
+for var index from values to~ n + l {
+}
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>for var index from values to~ n + l {
+ for
+ ^^^
+ source.ks keyword.control.loop.for.ks
+     
+    ^
+    source.ks
+     var
+     ^^^
+     source.ks storage.type.constant.ks
+         
+        ^
+        source.ks
+         index
+         ^^^^^
+         source.ks meta.definition.variable.ks variable.other.ks
+               
+              ^
+              source.ks
+               from
+               ^^^^
+               source.ks keyword.operator.loop.from.ks
+                    
+                   ^
+                   source.ks
+                    values
+                    ^^^^^^
+                    source.ks variable.other.ks
+                           
+                          ^
+                          source.ks
+                           to
+                           ^^
+                           source.ks keyword.operator.loop.to.ks
+                             ~
+                             ^
+                             source.ks storage.modifier.ballpark.ks
+                               
+                              ^
+                              source.ks
+                               n
+                               ^
+                               source.ks variable.other.ks
+                                 
+                                ^
+                                source.ks
+                                 +
+                                 ^
+                                 source.ks keyword.operator.arithmetic.ks
+                                   
+                                  ^
+                                  source.ks
+                                   l
+                                   ^
+                                   source.ks variable.other.ks
+                                     
+                                    ^
+                                    source.ks
+                                     {
+                                     ^
+                                     source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.block.end.bracket.curly.ks

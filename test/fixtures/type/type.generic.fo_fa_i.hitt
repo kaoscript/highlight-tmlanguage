@@ -1,13 +1,13 @@
 original file
 -----------------------------------
-func foobar(x: Dictionary<Array<Number>>) {
+func foobar(x: Object<Array<Number>>) {
 }
 -----------------------------------
 
 grammar: kaoscript.tmLanguage
 -----------------------------------
 >
->func foobar(x: Dictionary<Array<Number>>) {
+>func foobar(x: Object<Array<Number>>) {
  func
  ^^^^
  source.ks storage.type.function.ks
@@ -29,36 +29,36 @@ grammar: kaoscript.tmLanguage
                 
                ^
                source.ks meta.type.annotation.ks
-                Dictionary
-                ^^^^^^^^^^
-                source.ks meta.type.annotation.ks entity.name.type.ks
-                          <
-                          ^
-                          source.ks meta.type.annotation.ks punctuation.definition.typeparameters.begin.ks
-                           Array
-                           ^^^^^
-                           source.ks meta.type.annotation.ks support.type.primitive.ks
-                                <
-                                ^
-                                source.ks meta.type.annotation.ks punctuation.definition.typeparameters.begin.ks
-                                 Number
-                                 ^^^^^^
-                                 source.ks meta.type.annotation.ks support.type.primitive.ks
-                                       >
+                Object
+                ^^^^^^
+                source.ks meta.type.annotation.ks support.type.primitive.ks
+                      <
+                      ^
+                      source.ks meta.type.annotation.ks punctuation.definition.typeparameters.begin.ks
+                       Array
+                       ^^^^^
+                       source.ks meta.type.annotation.ks support.type.primitive.ks
+                            <
+                            ^
+                            source.ks meta.type.annotation.ks punctuation.definition.typeparameters.begin.ks
+                             Number
+                             ^^^^^^
+                             source.ks meta.type.annotation.ks support.type.primitive.ks
+                                   >
+                                   ^
+                                   source.ks meta.type.annotation.ks punctuation.definition.typeparameters.end.ks
+                                    >
+                                    ^
+                                    source.ks meta.type.annotation.ks punctuation.definition.typeparameters.end.ks
+                                     )
+                                     ^
+                                     source.ks punctuation.definition.parameters.end.bracket.round.ks
+                                       
+                                      ^
+                                      source.ks
+                                       {
                                        ^
-                                       source.ks meta.type.annotation.ks punctuation.definition.typeparameters.end.ks
-                                        >
-                                        ^
-                                        source.ks meta.type.annotation.ks punctuation.definition.typeparameters.end.ks
-                                         )
-                                         ^
-                                         source.ks punctuation.definition.parameters.end.bracket.round.ks
-                                           
-                                          ^
-                                          source.ks
-                                           {
-                                           ^
-                                           source.ks punctuation.definition.block.begin.bracket.curly.ks
+                                       source.ks punctuation.definition.block.begin.bracket.curly.ks
 >
 >}
  }

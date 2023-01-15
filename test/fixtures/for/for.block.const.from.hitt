@@ -2,7 +2,7 @@ original file
 -----------------------------------
 var dyn x = 3.14
 
-for var x from 0 to 10 by 2 {
+for var x from 0 to 10 step 2 {
 }
 -----------------------------------
 
@@ -40,7 +40,7 @@ grammar: kaoscript.tmLanguage
  ^
  source.ks
 >
->for var x from 0 to 10 by 2 {
+>for var x from 0 to 10 step 2 {
  for
  ^^^
  source.ks keyword.control.loop.for.ks
@@ -83,21 +83,21 @@ grammar: kaoscript.tmLanguage
                         
                        ^
                        source.ks
-                        by
-                        ^^
-                        source.ks keyword.operator.loop.by.ks
-                           
-                          ^
-                          source.ks
-                           2
-                           ^
-                           source.ks constant.numeric.decimal.ks
+                        step
+                        ^^^^
+                        source.ks keyword.operator.loop.step.ks
                              
                             ^
                             source.ks
-                             {
+                             2
                              ^
-                             source.ks punctuation.definition.block.begin.bracket.curly.ks
+                             source.ks constant.numeric.decimal.ks
+                               
+                              ^
+                              source.ks
+                               {
+                               ^
+                               source.ks punctuation.definition.block.begin.bracket.curly.ks
 >
 >}
  }

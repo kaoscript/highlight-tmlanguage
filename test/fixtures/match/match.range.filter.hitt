@@ -1,0 +1,357 @@
+original file
+-----------------------------------
+var dyn temperature = 54
+
+match temperature {
+    0..49     when temperature % 2 == 0    => console.log("Cold and even")
+    50..79    when temperature % 2 == 0    => console.log("Warm and even")
+    80..110    when temperature % 2 == 0    => console.log("Hot and even")
+    else                                => console.log("Temperature out of range or odd")
+}
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>var dyn temperature = 54
+ var 
+ ^^^^
+ source.ks storage.type.readwrite.ks
+     dyn
+     ^^^
+     source.ks storage.type.readwrite.ks storage.modifier.dynamic.ks
+         
+        ^
+        source.ks
+         temperature
+         ^^^^^^^^^^^
+         source.ks meta.definition.variable.ks variable.other.ks
+                     
+                    ^
+                    source.ks
+                     =
+                     ^
+                     source.ks keyword.operator.assignment.ks
+                       
+                      ^
+                      source.ks
+                       54
+                       ^^
+                       source.ks constant.numeric.decimal.ks
+>
+>
+ 
+ ^
+ source.ks
+>
+>match temperature {
+ match
+ ^^^^^
+ source.ks keyword.control.match.ks
+       
+      ^
+      source.ks
+       temperature
+       ^^^^^^^^^^^
+       source.ks variable.other.ks
+                   
+                  ^
+                  source.ks
+                   {
+                   ^
+                   source.ks punctuation.definition.match.begin.bracket.curly.ks
+>
+>    0..49     when temperature % 2 == 0    => console.log("Cold and even")
+     
+ ^^^^
+ source.ks
+     0
+     ^
+     source.ks constant.numeric.decimal.ks
+      ..
+      ^^
+      source.ks keyword.operator.range.ks
+        49
+        ^^
+        source.ks constant.numeric.decimal.ks
+               
+          ^^^^^
+          source.ks
+               when
+               ^^^^
+               source.ks keyword.control.match.binding-condition.ks
+                    
+                   ^
+                   source.ks
+                    temperature
+                    ^^^^^^^^^^^
+                    source.ks variable.other.ks
+                                
+                               ^
+                               source.ks
+                                %
+                                ^
+                                source.ks keyword.operator.arithmetic.ks
+                                  
+                                 ^
+                                 source.ks
+                                  2
+                                  ^
+                                  source.ks constant.numeric.decimal.ks
+                                    
+                                   ^
+                                   source.ks
+                                    ==
+                                    ^^
+                                    source.ks keyword.operator.comparison.ks
+                                       
+                                      ^
+                                      source.ks
+                                       0
+                                       ^
+                                       source.ks constant.numeric.decimal.ks
+                                            
+                                        ^^^^
+                                        source.ks
+                                            =>
+                                            ^^
+                                            source.ks keyword.control.match.arrow.ks
+                                               
+                                              ^
+                                              source.ks
+                                               console
+                                               ^^^^^^^
+                                               source.ks variable.other.object.ks
+                                                      .
+                                                      ^
+                                                      source.ks punctuation.accessor.object.ks
+                                                       log
+                                                       ^^^
+                                                       source.ks entity.name.function.ks
+                                                          (
+                                                          ^
+                                                          source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                                                           "
+                                                           ^
+                                                           source.ks string.quoted.double.ks punctuation.definition.string.begin.ks
+                                                            Cold and even
+                                                            ^^^^^^^^^^^^^
+                                                            source.ks string.quoted.double.ks
+                                                                         "
+                                                                         ^
+                                                                         source.ks string.quoted.double.ks punctuation.definition.string.end.ks
+                                                                          )
+                                                                          ^
+                                                                          source.ks punctuation.definition.arguments.end.bracket.round.ks
+>
+>    50..79    when temperature % 2 == 0    => console.log("Warm and even")
+     
+ ^^^^
+ source.ks
+     50
+     ^^
+     source.ks constant.numeric.decimal.ks
+       ..
+       ^^
+       source.ks keyword.operator.range.ks
+         79
+         ^^
+         source.ks constant.numeric.decimal.ks
+               
+           ^^^^
+           source.ks
+               when
+               ^^^^
+               source.ks keyword.control.match.binding-condition.ks
+                    
+                   ^
+                   source.ks
+                    temperature
+                    ^^^^^^^^^^^
+                    source.ks variable.other.ks
+                                
+                               ^
+                               source.ks
+                                %
+                                ^
+                                source.ks keyword.operator.arithmetic.ks
+                                  
+                                 ^
+                                 source.ks
+                                  2
+                                  ^
+                                  source.ks constant.numeric.decimal.ks
+                                    
+                                   ^
+                                   source.ks
+                                    ==
+                                    ^^
+                                    source.ks keyword.operator.comparison.ks
+                                       
+                                      ^
+                                      source.ks
+                                       0
+                                       ^
+                                       source.ks constant.numeric.decimal.ks
+                                            
+                                        ^^^^
+                                        source.ks
+                                            =>
+                                            ^^
+                                            source.ks keyword.control.match.arrow.ks
+                                               
+                                              ^
+                                              source.ks
+                                               console
+                                               ^^^^^^^
+                                               source.ks variable.other.object.ks
+                                                      .
+                                                      ^
+                                                      source.ks punctuation.accessor.object.ks
+                                                       log
+                                                       ^^^
+                                                       source.ks entity.name.function.ks
+                                                          (
+                                                          ^
+                                                          source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                                                           "
+                                                           ^
+                                                           source.ks string.quoted.double.ks punctuation.definition.string.begin.ks
+                                                            Warm and even
+                                                            ^^^^^^^^^^^^^
+                                                            source.ks string.quoted.double.ks
+                                                                         "
+                                                                         ^
+                                                                         source.ks string.quoted.double.ks punctuation.definition.string.end.ks
+                                                                          )
+                                                                          ^
+                                                                          source.ks punctuation.definition.arguments.end.bracket.round.ks
+>
+>    80..110    when temperature % 2 == 0    => console.log("Hot and even")
+     
+ ^^^^
+ source.ks
+     80
+     ^^
+     source.ks constant.numeric.decimal.ks
+       ..
+       ^^
+       source.ks keyword.operator.range.ks
+         110
+         ^^^
+         source.ks constant.numeric.decimal.ks
+                
+            ^^^^
+            source.ks
+                when
+                ^^^^
+                source.ks keyword.control.match.binding-condition.ks
+                     
+                    ^
+                    source.ks
+                     temperature
+                     ^^^^^^^^^^^
+                     source.ks variable.other.ks
+                                 
+                                ^
+                                source.ks
+                                 %
+                                 ^
+                                 source.ks keyword.operator.arithmetic.ks
+                                   
+                                  ^
+                                  source.ks
+                                   2
+                                   ^
+                                   source.ks constant.numeric.decimal.ks
+                                     
+                                    ^
+                                    source.ks
+                                     ==
+                                     ^^
+                                     source.ks keyword.operator.comparison.ks
+                                        
+                                       ^
+                                       source.ks
+                                        0
+                                        ^
+                                        source.ks constant.numeric.decimal.ks
+                                             
+                                         ^^^^
+                                         source.ks
+                                             =>
+                                             ^^
+                                             source.ks keyword.control.match.arrow.ks
+                                                
+                                               ^
+                                               source.ks
+                                                console
+                                                ^^^^^^^
+                                                source.ks variable.other.object.ks
+                                                       .
+                                                       ^
+                                                       source.ks punctuation.accessor.object.ks
+                                                        log
+                                                        ^^^
+                                                        source.ks entity.name.function.ks
+                                                           (
+                                                           ^
+                                                           source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                                                            "
+                                                            ^
+                                                            source.ks string.quoted.double.ks punctuation.definition.string.begin.ks
+                                                             Hot and even
+                                                             ^^^^^^^^^^^^
+                                                             source.ks string.quoted.double.ks
+                                                                         "
+                                                                         ^
+                                                                         source.ks string.quoted.double.ks punctuation.definition.string.end.ks
+                                                                          )
+                                                                          ^
+                                                                          source.ks punctuation.definition.arguments.end.bracket.round.ks
+>
+>    else                                => console.log("Temperature out of range or odd")
+     
+ ^^^^
+ source.ks
+     else
+     ^^^^
+     source.ks keyword.control.match.else.ks
+                                         
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+         source.ks
+                                         =>
+                                         ^^
+                                         source.ks keyword.control.match.arrow.ks
+                                            
+                                           ^
+                                           source.ks
+                                            console
+                                            ^^^^^^^
+                                            source.ks variable.other.object.ks
+                                                   .
+                                                   ^
+                                                   source.ks punctuation.accessor.object.ks
+                                                    log
+                                                    ^^^
+                                                    source.ks entity.name.function.ks
+                                                       (
+                                                       ^
+                                                       source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                                                        "
+                                                        ^
+                                                        source.ks string.quoted.double.ks punctuation.definition.string.begin.ks
+                                                         Temperature out of range or odd
+                                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                                                         source.ks string.quoted.double.ks
+                                                                                        "
+                                                                                        ^
+                                                                                        source.ks string.quoted.double.ks punctuation.definition.string.end.ks
+                                                                                         )
+                                                                                         ^
+                                                                                         source.ks punctuation.definition.arguments.end.bracket.round.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.match.end.bracket.curly.ks
