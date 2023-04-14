@@ -1,0 +1,45 @@
+original file
+-----------------------------------
+if color == .BLACK {
+}
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>if color == .BLACK {
+ if
+ ^^
+ source.ks keyword.control.conditional.if.ks
+    
+   ^
+   source.ks
+    color
+    ^^^^^
+    source.ks variable.other.ks
+          
+         ^
+         source.ks
+          ==
+          ^^
+          source.ks keyword.operator.comparison.ks
+             
+            ^
+            source.ks
+             .
+             ^
+             source.ks punctuation.accessor.object.ks
+              BLACK
+              ^^^^^
+              source.ks variable.other.ks
+                    
+                   ^
+                   source.ks
+                    {
+                    ^
+                    source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.block.end.bracket.curly.ks

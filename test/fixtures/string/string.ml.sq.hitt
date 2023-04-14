@@ -1,0 +1,54 @@
+original file
+-----------------------------------
+var quote = '''
+The jury all wrote down on their slates, "SHE doesn't
+believe there's an atom of meaning in it," but none of them
+attempted to explain the paper.
+'''
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>var quote = '''
+ var
+ ^^^
+ source.ks storage.type.constant.ks
+     
+    ^
+    source.ks
+     quote
+     ^^^^^
+     source.ks meta.definition.variable.ks variable.other.ks
+           
+          ^
+          source.ks
+           =
+           ^
+           source.ks keyword.operator.assignment.ks
+             
+            ^
+            source.ks
+             '''
+             ^^^
+             source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
+>
+>The jury all wrote down on their slates, "SHE doesn't
+ The jury all wrote down on their slates, "SHE doesn't
+ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ source.ks string.quoted.single.ks
+>
+>believe there's an atom of meaning in it," but none of them
+ believe there's an atom of meaning in it," but none of them
+ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ source.ks string.quoted.single.ks
+>
+>attempted to explain the paper.
+ attempted to explain the paper.
+ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ source.ks string.quoted.single.ks
+>
+>'''
+ '''
+ ^^^
+ source.ks string.quoted.single.ks punctuation.definition.string.end.ks

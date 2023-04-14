@@ -33,13 +33,13 @@ grammar: kaoscript.tmLanguage
      source.ks variable.other.ks
       :
       ^
-      source.ks punctuation.separator.key-value.ks
+      source.ks meta.type.annotation.ks keyword.operator.type.annotation.ks
         
        ^
-       source.ks
+       source.ks meta.type.annotation.ks
         Number
         ^^^^^^
-        source.ks variable.other.ks
+        source.ks meta.type.annotation.ks support.type.primitive.ks
 >
 >    b: Boolean
      
@@ -50,13 +50,13 @@ grammar: kaoscript.tmLanguage
      source.ks variable.other.ks
       :
       ^
-      source.ks punctuation.separator.key-value.ks
+      source.ks meta.type.annotation.ks keyword.operator.type.annotation.ks
         
        ^
-       source.ks
+       source.ks meta.type.annotation.ks
         Boolean
         ^^^^^^^
-        source.ks variable.other.ks
+        source.ks meta.type.annotation.ks support.type.primitive.ks
 >
 >    c: String
      
@@ -67,13 +67,13 @@ grammar: kaoscript.tmLanguage
      source.ks variable.other.ks
       :
       ^
-      source.ks punctuation.separator.key-value.ks
+      source.ks meta.type.annotation.ks keyword.operator.type.annotation.ks
         
        ^
-       source.ks
+       source.ks meta.type.annotation.ks
         String
         ^^^^^^
-        source.ks variable.other.ks
+        source.ks meta.type.annotation.ks support.type.primitive.ks
 >
 >}
  }

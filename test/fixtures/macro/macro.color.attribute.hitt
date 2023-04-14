@@ -37,15 +37,15 @@ export class Color {
     }
 
     getField(name) ~ Error {
-        throw new Error('Not Implemented')
+        throw Error.new('Not Implemented')
     }
 
     setField(name, value) ~ Error {
-        throw new Error('Not Implemented')
+        throw Error.new('Not Implemented')
     }
 }
 
-Color.registerSpace!({
+Color.registerSpace({
     name: 'srgb'
     alias: ['rgb']
     components: {
@@ -862,7 +862,7 @@ grammar: kaoscript.tmLanguage
                             ^
                             source.ks punctuation.definition.block.begin.bracket.curly.ks
 >
->        throw new Error('Not Implemented')
+>        throw Error.new('Not Implemented')
          
  ^^^^^^^^
  source.ks
@@ -872,15 +872,15 @@ grammar: kaoscript.tmLanguage
                
               ^
               source.ks
-               new
-               ^^^
-               source.ks keyword.operator.new.ks
-                   
-                  ^
-                  source.ks
-                   Error
-                   ^^^^^
-                   source.ks entity.name.type.ks
+               Error
+               ^^^^^
+               source.ks variable.other.object.ks
+                    .
+                    ^
+                    source.ks punctuation.accessor.object.ks
+                     new
+                     ^^^
+                     source.ks entity.name.function.ks
                         (
                         ^
                         source.ks punctuation.definition.arguments.begin.bracket.round.ks
@@ -954,7 +954,7 @@ grammar: kaoscript.tmLanguage
                                    ^
                                    source.ks punctuation.definition.block.begin.bracket.curly.ks
 >
->        throw new Error('Not Implemented')
+>        throw Error.new('Not Implemented')
          
  ^^^^^^^^
  source.ks
@@ -964,15 +964,15 @@ grammar: kaoscript.tmLanguage
                
               ^
               source.ks
-               new
-               ^^^
-               source.ks keyword.operator.new.ks
-                   
-                  ^
-                  source.ks
-                   Error
-                   ^^^^^
-                   source.ks entity.name.type.ks
+               Error
+               ^^^^^
+               source.ks variable.other.object.ks
+                    .
+                    ^
+                    source.ks punctuation.accessor.object.ks
+                     new
+                     ^^^
+                     source.ks entity.name.function.ks
                         (
                         ^
                         source.ks punctuation.definition.arguments.begin.bracket.round.ks
@@ -1007,7 +1007,7 @@ grammar: kaoscript.tmLanguage
  ^
  source.ks
 >
->Color.registerSpace!({
+>Color.registerSpace({
  Color
  ^^^^^
  source.ks variable.other.object.ks
@@ -1017,15 +1017,12 @@ grammar: kaoscript.tmLanguage
        registerSpace
        ^^^^^^^^^^^^^
        source.ks entity.name.function.ks
-                    !
+                    (
                     ^
-                    source.ks keyword.operator.function.macro.ks
-                     (
+                    source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                     {
                      ^
-                     source.ks punctuation.definition.arguments.begin.bracket.round.ks
-                      {
-                      ^
-                      source.ks punctuation.definition.object.begin.bracket.curly.ks
+                     source.ks punctuation.definition.object.begin.bracket.curly.ks
 >
 >    name: 'srgb'
      

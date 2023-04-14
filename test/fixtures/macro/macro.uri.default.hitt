@@ -16,7 +16,7 @@ class URI {
     }
 }
 
-URI.register!('file', '[ "//" [ host ] ] path_absolute')
+URI.register('file', '[ "//" [ host ] ] path_absolute')
 -----------------------------------
 
 grammar: kaoscript.tmLanguage
@@ -351,7 +351,7 @@ grammar: kaoscript.tmLanguage
  ^
  source.ks
 >
->URI.register!('file', '[ "//" [ host ] ] path_absolute')
+>URI.register('file', '[ "//" [ host ] ] path_absolute')
  URI
  ^^^
  source.ks variable.other.object.ks
@@ -361,36 +361,33 @@ grammar: kaoscript.tmLanguage
      register
      ^^^^^^^^
      source.ks entity.name.function.ks
-             !
+             (
              ^
-             source.ks keyword.operator.function.macro.ks
-              (
+             source.ks punctuation.definition.arguments.begin.bracket.round.ks
+              '
               ^
-              source.ks punctuation.definition.arguments.begin.bracket.round.ks
-               '
-               ^
-               source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
-                file
-                ^^^^
-                source.ks string.quoted.single.ks
-                    '
+              source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
+               file
+               ^^^^
+               source.ks string.quoted.single.ks
+                   '
+                   ^
+                   source.ks string.quoted.single.ks punctuation.definition.string.end.ks
+                    ,
                     ^
-                    source.ks string.quoted.single.ks punctuation.definition.string.end.ks
-                     ,
+                    source.ks punctuation.separator.comma.ks
+                      
                      ^
-                     source.ks punctuation.separator.comma.ks
-                       
+                     source.ks
+                      '
                       ^
-                      source.ks
-                       '
-                       ^
-                       source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
-                        [ "//" [ host ] ] path_absolute
-                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-                        source.ks string.quoted.single.ks
-                                                       '
+                      source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
+                       [ "//" [ host ] ] path_absolute
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                       source.ks string.quoted.single.ks
+                                                      '
+                                                      ^
+                                                      source.ks string.quoted.single.ks punctuation.definition.string.end.ks
+                                                       )
                                                        ^
-                                                       source.ks string.quoted.single.ks punctuation.definition.string.end.ks
-                                                        )
-                                                        ^
-                                                        source.ks punctuation.definition.arguments.end.bracket.round.ks
+                                                       source.ks punctuation.definition.arguments.end.bracket.round.ks

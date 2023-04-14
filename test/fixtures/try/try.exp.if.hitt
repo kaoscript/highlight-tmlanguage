@@ -5,7 +5,7 @@ func foobar(x) ~ Error {
         return 42
     }
     else {
-        throw new Error('foobar')
+        throw Error.new('foobar')
     }
 }
 
@@ -112,7 +112,7 @@ grammar: kaoscript.tmLanguage
           ^
           source.ks punctuation.definition.block.begin.bracket.curly.ks
 >
->        throw new Error('foobar')
+>        throw Error.new('foobar')
          
  ^^^^^^^^
  source.ks
@@ -122,15 +122,15 @@ grammar: kaoscript.tmLanguage
                
               ^
               source.ks
-               new
-               ^^^
-               source.ks keyword.operator.new.ks
-                   
-                  ^
-                  source.ks
-                   Error
-                   ^^^^^
-                   source.ks entity.name.type.ks
+               Error
+               ^^^^^
+               source.ks variable.other.object.ks
+                    .
+                    ^
+                    source.ks punctuation.accessor.object.ks
+                     new
+                     ^^^
+                     source.ks entity.name.function.ks
                         (
                         ^
                         source.ks punctuation.definition.arguments.begin.bracket.round.ks

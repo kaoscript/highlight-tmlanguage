@@ -1,0 +1,60 @@
+original file
+-----------------------------------
+var writeAppLogWithBreak = writeAppLog^^(..., '\n---')
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>var writeAppLogWithBreak = writeAppLog^^(..., '\n---')
+ var
+ ^^^
+ source.ks storage.type.constant.ks
+     
+    ^
+    source.ks
+     writeAppLogWithBreak
+     ^^^^^^^^^^^^^^^^^^^^
+     source.ks meta.definition.variable.ks variable.other.ks
+                          
+                         ^
+                         source.ks
+                          =
+                          ^
+                          source.ks keyword.operator.assignment.ks
+                            
+                           ^
+                           source.ks
+                            writeAppLog
+                            ^^^^^^^^^^^
+                            source.ks entity.name.function.ks
+                                       ^^
+                                       ^^
+                                       source.ks keyword.operator.function.scope.ks
+                                         (
+                                         ^
+                                         source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                                          ...
+                                          ^^^
+                                          source.ks keyword.operator.spread.ks
+                                             ,
+                                             ^
+                                             source.ks punctuation.separator.comma.ks
+                                               
+                                              ^
+                                              source.ks
+                                               '
+                                               ^
+                                               source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
+                                                \n
+                                                ^^
+                                                source.ks string.quoted.single.ks constant.character.escape.ks
+                                                  ---
+                                                  ^^^
+                                                  source.ks string.quoted.single.ks
+                                                     '
+                                                     ^
+                                                     source.ks string.quoted.single.ks punctuation.definition.string.end.ks
+                                                      )
+                                                      ^
+                                                      source.ks punctuation.definition.arguments.end.bracket.round.ks

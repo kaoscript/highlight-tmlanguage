@@ -1,0 +1,39 @@
+original file
+-----------------------------------
+throw error() unless ?x
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>throw error() unless ?x
+ throw
+ ^^^^^
+ source.ks keyword.control.try-catch.throw.ks
+       
+      ^
+      source.ks
+       error
+       ^^^^^
+       source.ks entity.name.function.ks
+            (
+            ^
+            source.ks punctuation.definition.arguments.begin.bracket.round.ks
+             )
+             ^
+             source.ks punctuation.definition.arguments.end.bracket.round.ks
+               
+              ^
+              source.ks
+               unless
+               ^^^^^^
+               source.ks keyword.control.conditional.unless.ks
+                      
+                     ^
+                     source.ks
+                      ?
+                      ^
+                      source.ks keyword.operator.existential.ks
+                       x
+                       ^
+                       source.ks variable.other.ks

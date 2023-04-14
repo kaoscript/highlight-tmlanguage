@@ -1,0 +1,171 @@
+original file
+-----------------------------------
+func foobar(value?) {
+    match value {
+        Number {
+        }
+        Array with [argument: Number] when argument > 0 {
+        }
+    }
+}
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>func foobar(value?) {
+ func
+ ^^^^
+ source.ks storage.type.function.ks
+      
+     ^
+     source.ks
+      foobar
+      ^^^^^^
+      source.ks entity.name.function.ks
+            (
+            ^
+            source.ks punctuation.definition.parameters.begin.bracket.round.ks
+             value
+             ^^^^^
+             source.ks variable.parameter.ks
+                  ?
+                  ^
+                  source.ks storage.modifier.nullable.ks
+                   )
+                   ^
+                   source.ks punctuation.definition.parameters.end.bracket.round.ks
+                     
+                    ^
+                    source.ks
+                     {
+                     ^
+                     source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>    match value {
+     
+ ^^^^
+ source.ks
+     match
+     ^^^^^
+     source.ks keyword.control.match.ks
+           
+          ^
+          source.ks
+           value
+           ^^^^^
+           source.ks variable.other.ks
+                 
+                ^
+                source.ks
+                 {
+                 ^
+                 source.ks punctuation.definition.match.begin.bracket.curly.ks
+>
+>        Number {
+         
+ ^^^^^^^^
+ source.ks
+         Number
+         ^^^^^^
+         source.ks variable.other.ks
+                
+               ^
+               source.ks
+                {
+                ^
+                source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>        }
+         
+ ^^^^^^^^
+ source.ks
+         }
+         ^
+         source.ks punctuation.definition.block.end.bracket.curly.ks
+>
+>        Array with [argument: Number] when argument > 0 {
+         
+ ^^^^^^^^
+ source.ks
+         Array
+         ^^^^^
+         source.ks variable.other.ks
+               
+              ^
+              source.ks
+               with
+               ^^^^
+               source.ks keyword.control.match.binding.ks
+                    
+                   ^
+                   source.ks
+                    [
+                    ^
+                    source.ks punctuation.definition.binding-pattern.array.begin.bracket.square.ks
+                     argument
+                     ^^^^^^^^
+                     source.ks variable.other.ks
+                             :
+                             ^
+                             source.ks meta.type.annotation.ks keyword.operator.type.annotation.ks
+                               
+                              ^
+                              source.ks meta.type.annotation.ks
+                               Number
+                               ^^^^^^
+                               source.ks meta.type.annotation.ks support.type.primitive.ks
+                                     ]
+                                     ^
+                                     source.ks punctuation.definition.binding-pattern.array.end.bracket.square.ks
+                                       
+                                      ^
+                                      source.ks
+                                       when
+                                       ^^^^
+                                       source.ks keyword.control.match.binding-condition.ks
+                                            
+                                           ^
+                                           source.ks
+                                            argument
+                                            ^^^^^^^^
+                                            source.ks variable.other.ks
+                                                     
+                                                    ^
+                                                    source.ks
+                                                     >
+                                                     ^
+                                                     source.ks keyword.operator.comparison.ks
+                                                       
+                                                      ^
+                                                      source.ks
+                                                       0
+                                                       ^
+                                                       source.ks constant.numeric.decimal.ks
+                                                         
+                                                        ^
+                                                        source.ks
+                                                         {
+                                                         ^
+                                                         source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>        }
+         
+ ^^^^^^^^
+ source.ks
+         }
+         ^
+         source.ks punctuation.definition.block.end.bracket.curly.ks
+>
+>    }
+     
+ ^^^^
+ source.ks
+     }
+     ^
+     source.ks punctuation.definition.match.end.bracket.curly.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.block.end.bracket.curly.ks

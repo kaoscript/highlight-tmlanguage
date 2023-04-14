@@ -1,0 +1,69 @@
+original file
+-----------------------------------
+var [x!? = 0, y] = foo()
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>var [x!? = 0, y] = foo()
+ var
+ ^^^
+ source.ks storage.type.constant.ks
+     
+    ^
+    source.ks
+     [
+     ^
+     source.ks punctuation.definition.binding-pattern.array.begin.bracket.square.ks
+      x
+      ^
+      source.ks variable.other.ks
+       !
+       ^
+       source.ks storage.modifier.required.ks
+        ?
+        ^
+        source.ks storage.modifier.nullable.ks
+          
+         ^
+         source.ks
+          =
+          ^
+          source.ks keyword.operator.assignment.ks
+            
+           ^
+           source.ks
+            0
+            ^
+            source.ks constant.numeric.decimal.ks
+             ,
+             ^
+             source.ks punctuation.separator.comma.ks
+               
+              ^
+              source.ks
+               y
+               ^
+               source.ks variable.other.ks
+                ]
+                ^
+                source.ks punctuation.definition.binding-pattern.array.end.bracket.square.ks
+                  
+                 ^
+                 source.ks
+                  =
+                  ^
+                  source.ks keyword.operator.assignment.ks
+                    
+                   ^
+                   source.ks
+                    foo
+                    ^^^
+                    source.ks entity.name.function.ks
+                       (
+                       ^
+                       source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                        )
+                        ^
+                        source.ks punctuation.definition.arguments.end.bracket.round.ks

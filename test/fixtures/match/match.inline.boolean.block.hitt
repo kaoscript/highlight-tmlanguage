@@ -1,0 +1,156 @@
+original file
+-----------------------------------
+var boolean = true
+
+var binary = match boolean {
+    false {
+        pick 0
+    }
+    true {
+        pick 1
+    }
+}
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>var boolean = true
+ var
+ ^^^
+ source.ks storage.type.constant.ks
+     
+    ^
+    source.ks
+     boolean
+     ^^^^^^^
+     source.ks meta.definition.variable.ks variable.other.ks
+             
+            ^
+            source.ks
+             =
+             ^
+             source.ks keyword.operator.assignment.ks
+               
+              ^
+              source.ks
+               true
+               ^^^^
+               source.ks constant.language.boolean.true.ks
+>
+>
+ 
+ ^
+ source.ks
+>
+>var binary = match boolean {
+ var
+ ^^^
+ source.ks storage.type.constant.ks
+     
+    ^
+    source.ks
+     binary
+     ^^^^^^
+     source.ks meta.definition.variable.ks variable.other.ks
+            
+           ^
+           source.ks
+            =
+            ^
+            source.ks keyword.operator.assignment.ks
+              
+             ^
+             source.ks
+              match
+              ^^^^^
+              source.ks keyword.control.match.ks
+                    
+                   ^
+                   source.ks
+                    boolean
+                    ^^^^^^^
+                    source.ks variable.other.ks
+                            
+                           ^
+                           source.ks
+                            {
+                            ^
+                            source.ks punctuation.definition.match.begin.bracket.curly.ks
+>
+>    false {
+     
+ ^^^^
+ source.ks
+     false
+     ^^^^^
+     source.ks constant.language.boolean.false.ks
+           
+          ^
+          source.ks
+           {
+           ^
+           source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>        pick 0
+         
+ ^^^^^^^^
+ source.ks
+         pick
+         ^^^^
+         source.ks keyword.control.flow.pick.ks
+              
+             ^
+             source.ks
+              0
+              ^
+              source.ks constant.numeric.decimal.ks
+>
+>    }
+     
+ ^^^^
+ source.ks
+     }
+     ^
+     source.ks punctuation.definition.block.end.bracket.curly.ks
+>
+>    true {
+     
+ ^^^^
+ source.ks
+     true
+     ^^^^
+     source.ks constant.language.boolean.true.ks
+          
+         ^
+         source.ks
+          {
+          ^
+          source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>        pick 1
+         
+ ^^^^^^^^
+ source.ks
+         pick
+         ^^^^
+         source.ks keyword.control.flow.pick.ks
+              
+             ^
+             source.ks
+              1
+              ^
+              source.ks constant.numeric.decimal.ks
+>
+>    }
+     
+ ^^^^
+ source.ks
+     }
+     ^
+     source.ks punctuation.definition.block.end.bracket.curly.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.match.end.bracket.curly.ks

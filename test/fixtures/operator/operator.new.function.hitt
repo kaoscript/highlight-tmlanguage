@@ -1,36 +1,30 @@
 original file
 -----------------------------------
-new (foo())()
+foo().new()
 -----------------------------------
 
 grammar: kaoscript.tmLanguage
 -----------------------------------
 >
->new (foo())()
- new
+>foo().new()
+ foo
  ^^^
- source.ks keyword.operator.new.ks
-     
+ source.ks entity.name.function.ks
+    (
     ^
-    source.ks
-     (
+    source.ks punctuation.definition.arguments.begin.bracket.round.ks
+     )
      ^
-     source.ks meta.brace.round.ks
-      foo
-      ^^^
-      source.ks entity.name.function.ks
-         (
-         ^
-         source.ks punctuation.definition.arguments.begin.bracket.round.ks
-          )
+     source.ks punctuation.definition.arguments.end.bracket.round.ks
+      .
+      ^
+      source.ks punctuation.accessor.object.ks
+       new
+       ^^^
+       source.ks entity.name.function.ks
+          (
           ^
-          source.ks punctuation.definition.arguments.end.bracket.round.ks
+          source.ks punctuation.definition.arguments.begin.bracket.round.ks
            )
            ^
-           source.ks meta.brace.round.ks
-            (
-            ^
-            source.ks punctuation.definition.arguments.begin.bracket.round.ks
-             )
-             ^
-             source.ks punctuation.definition.arguments.end.bracket.round.ks
+           source.ks punctuation.definition.arguments.end.bracket.round.ks

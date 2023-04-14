@@ -1,0 +1,138 @@
+original file
+-----------------------------------
+block top {
+    echo('entering block')
+
+    for var i from 1 to 10 {
+        echo(i)
+    }
+}
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>block top {
+ block
+ ^^^^^
+ source.ks keyword.control.block.ks
+       
+      ^
+      source.ks
+       top
+       ^^^
+       source.ks entity.name.label.ks
+           
+          ^
+          source.ks
+           {
+           ^
+           source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>    echo('entering block')
+     
+ ^^^^
+ source.ks
+     echo
+     ^^^^
+     source.ks entity.name.function.ks
+         (
+         ^
+         source.ks punctuation.definition.arguments.begin.bracket.round.ks
+          '
+          ^
+          source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
+           entering block
+           ^^^^^^^^^^^^^^
+           source.ks string.quoted.single.ks
+                         '
+                         ^
+                         source.ks string.quoted.single.ks punctuation.definition.string.end.ks
+                          )
+                          ^
+                          source.ks punctuation.definition.arguments.end.bracket.round.ks
+>
+>
+ 
+ ^
+ source.ks
+>
+>    for var i from 1 to 10 {
+     
+ ^^^^
+ source.ks
+     for
+     ^^^
+     source.ks keyword.control.loop.for.ks
+         
+        ^
+        source.ks
+         var
+         ^^^
+         source.ks storage.type.constant.ks
+             
+            ^
+            source.ks
+             i
+             ^
+             source.ks meta.definition.variable.ks variable.other.ks
+               
+              ^
+              source.ks
+               from
+               ^^^^
+               source.ks keyword.operator.loop.from.ks
+                    
+                   ^
+                   source.ks
+                    1
+                    ^
+                    source.ks constant.numeric.decimal.ks
+                      
+                     ^
+                     source.ks
+                      to
+                      ^^
+                      source.ks keyword.operator.loop.to.ks
+                         
+                        ^
+                        source.ks
+                         10
+                         ^^
+                         source.ks constant.numeric.decimal.ks
+                            
+                           ^
+                           source.ks
+                            {
+                            ^
+                            source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>        echo(i)
+         
+ ^^^^^^^^
+ source.ks
+         echo
+         ^^^^
+         source.ks entity.name.function.ks
+             (
+             ^
+             source.ks punctuation.definition.arguments.begin.bracket.round.ks
+              i
+              ^
+              source.ks variable.other.ks
+               )
+               ^
+               source.ks punctuation.definition.arguments.end.bracket.round.ks
+>
+>    }
+     
+ ^^^^
+ source.ks
+     }
+     ^
+     source.ks punctuation.definition.block.end.bracket.curly.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.block.end.bracket.curly.ks

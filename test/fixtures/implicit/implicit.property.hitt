@@ -1,0 +1,108 @@
+original file
+-----------------------------------
+var node = {
+    text: 'some text'
+    style: {
+        fontWeight: .Bold
+    }
+}
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>var node = {
+ var
+ ^^^
+ source.ks storage.type.constant.ks
+     
+    ^
+    source.ks
+     node
+     ^^^^
+     source.ks meta.definition.variable.ks variable.other.ks
+          
+         ^
+         source.ks
+          =
+          ^
+          source.ks keyword.operator.assignment.ks
+            
+           ^
+           source.ks
+            {
+            ^
+            source.ks punctuation.definition.object.begin.bracket.curly.ks
+>
+>    text: 'some text'
+     
+ ^^^^
+ source.ks
+     text
+     ^^^^
+     source.ks meta.object.key.ks
+         :
+         ^
+         source.ks punctuation.separator.key-value.ks
+           
+          ^
+          source.ks
+           '
+           ^
+           source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
+            some text
+            ^^^^^^^^^
+            source.ks string.quoted.single.ks
+                     '
+                     ^
+                     source.ks string.quoted.single.ks punctuation.definition.string.end.ks
+>
+>    style: {
+     
+ ^^^^
+ source.ks
+     style
+     ^^^^^
+     source.ks meta.object.key.ks
+          :
+          ^
+          source.ks punctuation.separator.key-value.ks
+            
+           ^
+           source.ks
+            {
+            ^
+            source.ks punctuation.definition.object.begin.bracket.curly.ks
+>
+>        fontWeight: .Bold
+         
+ ^^^^^^^^
+ source.ks
+         fontWeight
+         ^^^^^^^^^^
+         source.ks meta.object.key.ks
+                   :
+                   ^
+                   source.ks punctuation.separator.key-value.ks
+                     
+                    ^
+                    source.ks
+                     .
+                     ^
+                     source.ks punctuation.accessor.object.ks
+                      Bold
+                      ^^^^
+                      source.ks variable.other.ks
+>
+>    }
+     
+ ^^^^
+ source.ks
+     }
+     ^
+     source.ks punctuation.definition.object.end.bracket.curly.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.object.end.bracket.curly.ks

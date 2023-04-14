@@ -3,10 +3,10 @@ array.cph.in.typed
 await.exec.const
 await.exec.let
 class.abstract.method.throws
+class.destructor.default
 class.method.lambda.ends
 class.method.lambda.starts
 comment.ml.class.imth.ret
-delete.class.default
 destruct.array.for.const
 destruct.array.for.default
 destruct.object.if.existential.func
@@ -35,6 +35,7 @@ keyword.var.while
 keyword.this.ternary
 macro.number
 macro.quirk
+match.object.binding
 namespace.enum.default
 namespace.bitmask.default
 number.not

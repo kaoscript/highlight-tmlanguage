@@ -1,0 +1,87 @@
+original file
+-----------------------------------
+type Foobar = Number | String | Array<Number | String> | Null
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>type Foobar = Number | String | Array<Number | String> | Null
+ type
+ ^^^^
+ source.ks storage.type.type.ks
+      
+     ^
+     source.ks
+      Foobar
+      ^^^^^^
+      source.ks entity.name.type.alias.ks
+             
+            ^
+            source.ks
+             =
+             ^
+             source.ks keyword.operator.assignment.ks
+               
+              ^
+              source.ks
+               Number
+               ^^^^^^
+               source.ks support.type.primitive.ks
+                      
+                     ^
+                     source.ks
+                      |
+                      ^
+                      source.ks keyword.operator.type.union.ks
+                        
+                       ^
+                       source.ks
+                        String
+                        ^^^^^^
+                        source.ks support.type.primitive.ks
+                               
+                              ^
+                              source.ks
+                               |
+                               ^
+                               source.ks keyword.operator.type.union.ks
+                                 
+                                ^
+                                source.ks
+                                 Array
+                                 ^^^^^
+                                 source.ks support.type.primitive.ks
+                                      <
+                                      ^
+                                      source.ks punctuation.definition.typeparameters.begin.ks
+                                       Number
+                                       ^^^^^^
+                                       source.ks support.type.primitive.ks
+                                              
+                                             ^
+                                             source.ks
+                                              |
+                                              ^
+                                              source.ks keyword.operator.type.union.ks
+                                                
+                                               ^
+                                               source.ks
+                                                String
+                                                ^^^^^^
+                                                source.ks support.type.primitive.ks
+                                                      >
+                                                      ^
+                                                      source.ks punctuation.definition.typeparameters.end.ks
+                                                        
+                                                       ^
+                                                       source.ks
+                                                        |
+                                                        ^
+                                                        source.ks keyword.operator.type.union.ks
+                                                          
+                                                         ^
+                                                         source.ks
+                                                          Null
+                                                          ^^^^
+                                                          source.ks support.type.primitive.ks

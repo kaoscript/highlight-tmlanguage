@@ -1,0 +1,57 @@
+original file
+-----------------------------------
+var writeAppLog = writeLog^^('[app]', ...)
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>var writeAppLog = writeLog^^('[app]', ...)
+ var
+ ^^^
+ source.ks storage.type.constant.ks
+     
+    ^
+    source.ks
+     writeAppLog
+     ^^^^^^^^^^^
+     source.ks meta.definition.variable.ks variable.other.ks
+                 
+                ^
+                source.ks
+                 =
+                 ^
+                 source.ks keyword.operator.assignment.ks
+                   
+                  ^
+                  source.ks
+                   writeLog
+                   ^^^^^^^^
+                   source.ks entity.name.function.ks
+                           ^^
+                           ^^
+                           source.ks keyword.operator.function.scope.ks
+                             (
+                             ^
+                             source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                              '
+                              ^
+                              source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
+                               [app]
+                               ^^^^^
+                               source.ks string.quoted.single.ks
+                                    '
+                                    ^
+                                    source.ks string.quoted.single.ks punctuation.definition.string.end.ks
+                                     ,
+                                     ^
+                                     source.ks punctuation.separator.comma.ks
+                                       
+                                      ^
+                                      source.ks
+                                       ...
+                                       ^^^
+                                       source.ks keyword.operator.spread.ks
+                                          )
+                                          ^
+                                          source.ks punctuation.definition.arguments.end.bracket.round.ks

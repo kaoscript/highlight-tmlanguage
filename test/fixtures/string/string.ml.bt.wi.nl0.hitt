@@ -1,0 +1,138 @@
+original file
+-----------------------------------
+var xml = ```
+    <book id="bk\(id)">
+        <author>\(author)</author>
+        <title>\(title)</title>
+        <genre>\(genre)</genre>
+        <price>\(price)</price>
+    </book>
+    ```
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>var xml = ```
+ var
+ ^^^
+ source.ks storage.type.constant.ks
+     
+    ^
+    source.ks
+     xml
+     ^^^
+     source.ks meta.definition.variable.ks variable.other.ks
+         
+        ^
+        source.ks
+         =
+         ^
+         source.ks keyword.operator.assignment.ks
+           
+          ^
+          source.ks
+           ```
+           ^^^
+           source.ks punctuation.definition.string.template.begin.ks
+>
+>    <book id="bk\(id)">
+     <book id="bk
+ ^^^^^^^^^^^^^^^^
+ source.ks string.template.ks
+                 \(
+                 ^^
+                 source.ks punctuation.definition.template-expression.begin.ks
+                   id
+                   ^^
+                   source.ks variable.other.ks
+                     )
+                     ^
+                     source.ks punctuation.definition.template-expression.end.ks
+                      ">
+                      ^^^
+                      source.ks string.template.ks
+>
+>        <author>\(author)</author>
+         <author>
+ ^^^^^^^^^^^^^^^^
+ source.ks string.template.ks
+                 \(
+                 ^^
+                 source.ks punctuation.definition.template-expression.begin.ks
+                   author
+                   ^^^^^^
+                   source.ks variable.other.ks
+                         )
+                         ^
+                         source.ks punctuation.definition.template-expression.end.ks
+                          </author>
+                          ^^^^^^^^^^
+                          source.ks string.template.ks
+>
+>        <title>\(title)</title>
+         <title>
+ ^^^^^^^^^^^^^^^
+ source.ks string.template.ks
+                \(
+                ^^
+                source.ks punctuation.definition.template-expression.begin.ks
+                  title
+                  ^^^^^
+                  source.ks variable.other.ks
+                       )
+                       ^
+                       source.ks punctuation.definition.template-expression.end.ks
+                        </title>
+                        ^^^^^^^^^
+                        source.ks string.template.ks
+>
+>        <genre>\(genre)</genre>
+         <genre>
+ ^^^^^^^^^^^^^^^
+ source.ks string.template.ks
+                \(
+                ^^
+                source.ks punctuation.definition.template-expression.begin.ks
+                  genre
+                  ^^^^^
+                  source.ks variable.other.ks
+                       )
+                       ^
+                       source.ks punctuation.definition.template-expression.end.ks
+                        </genre>
+                        ^^^^^^^^^
+                        source.ks string.template.ks
+>
+>        <price>\(price)</price>
+         <price>
+ ^^^^^^^^^^^^^^^
+ source.ks string.template.ks
+                \(
+                ^^
+                source.ks punctuation.definition.template-expression.begin.ks
+                  price
+                  ^^^^^
+                  source.ks variable.other.ks
+                       )
+                       ^
+                       source.ks punctuation.definition.template-expression.end.ks
+                        </price>
+                        ^^^^^^^^^
+                        source.ks string.template.ks
+>
+>    </book>
+     </book>
+ ^^^^^^^^^^^^
+ source.ks string.template.ks
+>
+>    ```
+    
+ ^^^
+ source.ks string.template.ks
+     
+    ^
+    source.ks
+     ```
+     ^^^
+     source.ks punctuation.definition.string.template.end.ks

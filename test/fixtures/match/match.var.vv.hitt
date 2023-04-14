@@ -1,0 +1,54 @@
+original file
+-----------------------------------
+match var value = foobar() {
+}
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>match var value = foobar() {
+ match
+ ^^^^^
+ source.ks keyword.control.match.ks
+       
+      ^
+      source.ks
+       var
+       ^^^
+       source.ks storage.type.constant.ks
+           
+          ^
+          source.ks
+           value
+           ^^^^^
+           source.ks meta.definition.variable.ks variable.other.ks
+                 
+                ^
+                source.ks
+                 =
+                 ^
+                 source.ks keyword.operator.assignment.ks
+                   
+                  ^
+                  source.ks
+                   foobar
+                   ^^^^^^
+                   source.ks entity.name.function.ks
+                         (
+                         ^
+                         source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                          )
+                          ^
+                          source.ks punctuation.definition.arguments.end.bracket.round.ks
+                            
+                           ^
+                           source.ks
+                            {
+                            ^
+                            source.ks punctuation.definition.match.begin.bracket.curly.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.match.end.bracket.curly.ks

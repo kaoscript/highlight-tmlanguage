@@ -6,7 +6,7 @@ var dyn value = {
 }
 
 match value {
-    {foo: 1}    with {qux: n}             => console.log(`qux: \(n)`)
+    {foo: 1}    with {qux % n}             => console.log(`qux: \(n)`)
     {foo: 1}                             => console.log('foo: 1')
     {foo}                                => console.log('has foo')
     {qux}                                => console.log('has qux')
@@ -117,7 +117,7 @@ grammar: kaoscript.tmLanguage
              ^
              source.ks punctuation.definition.match.begin.bracket.curly.ks
 >
->    {foo: 1}    with {qux: n}             => console.log(`qux: \(n)`)
+>    {foo: 1}    with {qux % n}             => console.log(`qux: \(n)`)
      
  ^^^^
  source.ks
@@ -151,57 +151,63 @@ grammar: kaoscript.tmLanguage
                        qux
                        ^^^
                        source.ks variable.other.ks
-                          : 
-                          ^^
+                           
+                          ^
                           source.ks
-                            n
+                           %
+                           ^
+                           source.ks keyword.operator.arithmetic.ks
+                             
                             ^
-                            source.ks variable.other.ks
-                             }
+                            source.ks
+                             n
                              ^
-                             source.ks punctuation.definition.block.end.bracket.curly.ks
-                                           
-                              ^^^^^^^^^^^^^
-                              source.ks
-                                           =>
-                                           ^^
-                                           source.ks keyword.control.match.arrow.ks
-                                              
-                                             ^
-                                             source.ks
-                                              console
-                                              ^^^^^^^
-                                              source.ks variable.other.object.ks
-                                                     .
-                                                     ^
-                                                     source.ks punctuation.accessor.object.ks
-                                                      log
-                                                      ^^^
-                                                      source.ks entity.name.function.ks
-                                                         (
-                                                         ^
-                                                         source.ks punctuation.definition.arguments.begin.bracket.round.ks
-                                                          `
+                             source.ks variable.other.ks
+                              }
+                              ^
+                              source.ks punctuation.definition.block.end.bracket.curly.ks
+                                            
+                               ^^^^^^^^^^^^^
+                               source.ks
+                                            =>
+                                            ^^
+                                            source.ks keyword.control.match.arrow.ks
+                                               
+                                              ^
+                                              source.ks
+                                               console
+                                               ^^^^^^^
+                                               source.ks variable.other.object.ks
+                                                      .
+                                                      ^
+                                                      source.ks punctuation.accessor.object.ks
+                                                       log
+                                                       ^^^
+                                                       source.ks entity.name.function.ks
+                                                          (
                                                           ^
-                                                          source.ks punctuation.definition.string.template.begin.ks
-                                                           qux: 
-                                                           ^^^^^
-                                                           source.ks string.template.ks
-                                                                \(
-                                                                ^^
-                                                                source.ks punctuation.definition.template-expression.begin.ks
-                                                                  n
-                                                                  ^
-                                                                  source.ks variable.other.ks
-                                                                   )
+                                                          source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                                                           `
+                                                           ^
+                                                           source.ks punctuation.definition.string.template.begin.ks
+                                                            qux: 
+                                                            ^^^^^
+                                                            source.ks string.template.ks
+                                                                 \(
+                                                                 ^^
+                                                                 source.ks punctuation.definition.template-expression.begin.ks
+                                                                   n
                                                                    ^
-                                                                   source.ks punctuation.definition.template-expression.end.ks
-                                                                    `
+                                                                   source.ks variable.other.ks
+                                                                    )
                                                                     ^
-                                                                    source.ks punctuation.definition.string.template.end.ks
-                                                                     )
+                                                                    source.ks punctuation.definition.template-expression.end.ks
+                                                                     `
                                                                      ^
-                                                                     source.ks punctuation.definition.arguments.end.bracket.round.ks
+                                                                     source.ks punctuation.definition.string.template.end.ks
+                                                                      )
+                                                                      ^
+                                                                      source.ks punctuation.definition.arguments.end.bracket.round.ks
 >
 >    {foo: 1}                             => console.log('foo: 1')
      

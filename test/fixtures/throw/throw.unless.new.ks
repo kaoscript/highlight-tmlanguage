@@ -1,0 +1,1 @@
+throw Error.new('Not Defined') unless ?x

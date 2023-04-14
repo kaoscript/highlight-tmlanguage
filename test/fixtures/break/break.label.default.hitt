@@ -1,0 +1,18 @@
+original file
+-----------------------------------
+break top
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>break top
+ break
+ ^^^^^
+ source.ks keyword.control.loop.break.ks
+       
+      ^
+      source.ks
+       top
+       ^^^
+       source.ks entity.name.label.ks

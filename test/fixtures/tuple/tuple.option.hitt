@@ -1,9 +1,9 @@
 original file
 -----------------------------------
-tuple Pair(
-    String    = ''
-    Number    = 0
-)
+tuple Pair [
+    :String    = ''
+    :Number    = 0
+]
 
 var dyn pair = Pair('x', 0.1)
 
@@ -13,7 +13,7 @@ console.log(pair.0, pair.1)
 grammar: kaoscript.tmLanguage
 -----------------------------------
 >
->tuple Pair(
+>tuple Pair [
  tuple
  ^^^^^
  source.ks storage.type.tuple.ks
@@ -23,57 +23,66 @@ grammar: kaoscript.tmLanguage
        Pair
        ^^^^
        source.ks entity.name.type.tuple.ks
-           (
+            
            ^
-           source.ks punctuation.definition.tuple.begin.bracket.round.ks
+           source.ks
+            [
+            ^
+            source.ks punctuation.definition.tuple.begin.bracket.square.ks
 >
->    String    = ''
+>    :String    = ''
      
  ^^^^
  source.ks
-     String
-     ^^^^^^
-     source.ks support.type.primitive.ks
-               
-           ^^^^
-           source.ks
-               =
-               ^
-               source.ks keyword.operator.assignment.ks
-                 
+     :
+     ^
+     source.ks meta.type.annotation.ks keyword.operator.type.annotation.ks
+      String
+      ^^^^^^
+      source.ks meta.type.annotation.ks support.type.primitive.ks
+                
+            ^^^^
+            source.ks meta.type.annotation.ks
+                =
                 ^
-                source.ks
-                 '
+                source.ks keyword.operator.assignment.ks
+                  
                  ^
-                 source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
+                 source.ks
                   '
                   ^
-                  source.ks string.quoted.single.ks punctuation.definition.string.end.ks
+                  source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
+                   '
+                   ^
+                   source.ks string.quoted.single.ks punctuation.definition.string.end.ks
 >
->    Number    = 0
+>    :Number    = 0
      
  ^^^^
  source.ks
-     Number
-     ^^^^^^
-     source.ks support.type.primitive.ks
-               
-           ^^^^
-           source.ks
-               =
-               ^
-               source.ks keyword.operator.assignment.ks
-                 
+     :
+     ^
+     source.ks meta.type.annotation.ks keyword.operator.type.annotation.ks
+      Number
+      ^^^^^^
+      source.ks meta.type.annotation.ks support.type.primitive.ks
+                
+            ^^^^
+            source.ks meta.type.annotation.ks
+                =
                 ^
-                source.ks
-                 0
+                source.ks keyword.operator.assignment.ks
+                  
                  ^
-                 source.ks constant.numeric.decimal.ks
+                 source.ks
+                  0
+                  ^
+                  source.ks constant.numeric.decimal.ks
 >
->)
- )
+>]
+ ]
  ^
- source.ks punctuation.definition.tuple.end.bracket.round.ks
+ source.ks punctuation.definition.tuple.end.bracket.square.ks
 >
 >
  

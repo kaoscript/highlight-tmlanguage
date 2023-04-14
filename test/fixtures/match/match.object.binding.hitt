@@ -1,0 +1,213 @@
+original file
+-----------------------------------
+match Router.matchArguments(@assessment, @thisType, @arguments, @matchingMode, this) {
+    is LenientCallMatchResult with result {
+    }
+    is PreciseCallMatchResult with { matches } {
+    }
+    else {
+    }
+}
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>match Router.matchArguments(@assessment, @thisType, @arguments, @matchingMode, this) {
+ match
+ ^^^^^
+ source.ks keyword.control.match.ks
+       
+      ^
+      source.ks
+       Router
+       ^^^^^^
+       source.ks variable.other.object.ks
+             .
+             ^
+             source.ks punctuation.accessor.object.ks
+              matchArguments
+              ^^^^^^^^^^^^^^
+              source.ks entity.name.function.ks
+                            (
+                            ^
+                            source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                             @
+                             ^
+                             source.ks storage.modifier.instance.ks
+                              assessment
+                              ^^^^^^^^^^
+                              source.ks variable.other.instance.ks
+                                        ,
+                                        ^
+                                        source.ks punctuation.separator.comma.ks
+                                          
+                                         ^
+                                         source.ks
+                                          @
+                                          ^
+                                          source.ks storage.modifier.instance.ks
+                                           thisType
+                                           ^^^^^^^^
+                                           source.ks variable.other.instance.ks
+                                                   ,
+                                                   ^
+                                                   source.ks punctuation.separator.comma.ks
+                                                     
+                                                    ^
+                                                    source.ks
+                                                     @
+                                                     ^
+                                                     source.ks storage.modifier.instance.ks
+                                                      arguments
+                                                      ^^^^^^^^^
+                                                      source.ks variable.other.instance.ks
+                                                               ,
+                                                               ^
+                                                               source.ks punctuation.separator.comma.ks
+                                                                 
+                                                                ^
+                                                                source.ks
+                                                                 @
+                                                                 ^
+                                                                 source.ks storage.modifier.instance.ks
+                                                                  matchingMode
+                                                                  ^^^^^^^^^^^^
+                                                                  source.ks variable.other.instance.ks
+                                                                              ,
+                                                                              ^
+                                                                              source.ks punctuation.separator.comma.ks
+                                                                                
+                                                                               ^
+                                                                               source.ks
+                                                                                this
+                                                                                ^^^^
+                                                                                source.ks variable.language.this.ks
+                                                                                    )
+                                                                                    ^
+                                                                                    source.ks punctuation.definition.arguments.end.bracket.round.ks
+                                                                                      
+                                                                                     ^
+                                                                                     source.ks
+                                                                                      {
+                                                                                      ^
+                                                                                      source.ks punctuation.definition.match.begin.bracket.curly.ks
+>
+>    is LenientCallMatchResult with result {
+     
+ ^^^^
+ source.ks
+     is
+     ^^
+     source.ks keyword.operator.type-checking.ks
+        
+       ^
+       source.ks
+        LenientCallMatchResult
+        ^^^^^^^^^^^^^^^^^^^^^^
+        source.ks entity.name.type.ks
+                               
+                              ^
+                              source.ks
+                               with
+                               ^^^^
+                               source.ks keyword.control.match.binding.ks
+                                    
+                                   ^
+                                   source.ks
+                                    result
+                                    ^^^^^^
+                                    source.ks meta.definition.variable.ks variable.other.ks
+                                           
+                                          ^
+                                          source.ks
+                                           {
+                                           ^
+                                           source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>    }
+     
+ ^^^^
+ source.ks
+     }
+     ^
+     source.ks punctuation.definition.block.end.bracket.curly.ks
+>
+>    is PreciseCallMatchResult with { matches } {
+     
+ ^^^^
+ source.ks
+     is
+     ^^
+     source.ks keyword.operator.type-checking.ks
+        
+       ^
+       source.ks
+        PreciseCallMatchResult
+        ^^^^^^^^^^^^^^^^^^^^^^
+        source.ks entity.name.type.ks
+                               
+                              ^
+                              source.ks
+                               with
+                               ^^^^
+                               source.ks keyword.control.match.binding.ks
+                                    
+                                   ^
+                                   source.ks
+                                    {
+                                    ^
+                                    source.ks punctuation.definition.block.begin.bracket.curly.ks
+                                      
+                                     ^
+                                     source.ks
+                                      matches
+                                      ^^^^^^^
+                                      source.ks variable.other.ks
+                                              
+                                             ^
+                                             source.ks
+                                              }
+                                              ^
+                                              source.ks punctuation.definition.block.end.bracket.curly.ks
+                                                
+                                               ^
+                                               source.ks
+                                                {
+                                                ^
+                                                source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>    }
+     
+ ^^^^
+ source.ks
+     }
+     ^
+     source.ks punctuation.definition.block.end.bracket.curly.ks
+>
+>    else {
+     
+ ^^^^
+ source.ks
+     else
+     ^^^^
+     source.ks keyword.control.match.else.ks
+          
+         ^
+         source.ks
+          {
+          ^
+          source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>    }
+     
+ ^^^^
+ source.ks
+     }
+     ^
+     source.ks punctuation.definition.block.end.bracket.curly.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.match.end.bracket.curly.ks

@@ -1,0 +1,159 @@
+original file
+-----------------------------------
+getAddress()
+  ..setStreet('Elm', '13a')
+  ..city = 'Carthage'
+  ..state = 'Eurasia'
+  ..zip(66666, extended: 6666)
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>getAddress()
+ getAddress
+ ^^^^^^^^^^
+ source.ks entity.name.function.ks
+           (
+           ^
+           source.ks punctuation.definition.arguments.begin.bracket.round.ks
+            )
+            ^
+            source.ks punctuation.definition.arguments.end.bracket.round.ks
+>
+>  ..setStreet('Elm', '13a')
+   
+ ^^
+ source.ks
+   ..
+   ^^
+   source.ks punctuation.accessor.cascade.ks
+     setStreet
+     ^^^^^^^^^
+     source.ks entity.name.function.ks
+              (
+              ^
+              source.ks punctuation.definition.arguments.begin.bracket.round.ks
+               '
+               ^
+               source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
+                Elm
+                ^^^
+                source.ks string.quoted.single.ks
+                   '
+                   ^
+                   source.ks string.quoted.single.ks punctuation.definition.string.end.ks
+                    ,
+                    ^
+                    source.ks punctuation.separator.comma.ks
+                      
+                     ^
+                     source.ks
+                      '
+                      ^
+                      source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
+                       13a
+                       ^^^
+                       source.ks string.quoted.single.ks
+                          '
+                          ^
+                          source.ks string.quoted.single.ks punctuation.definition.string.end.ks
+                           )
+                           ^
+                           source.ks punctuation.definition.arguments.end.bracket.round.ks
+>
+>  ..city = 'Carthage'
+   
+ ^^
+ source.ks
+   ..
+   ^^
+   source.ks punctuation.accessor.cascade.ks
+     city
+     ^^^^
+     source.ks variable.other.property.object.ks
+          
+         ^
+         source.ks
+          =
+          ^
+          source.ks keyword.operator.assignment.ks
+            
+           ^
+           source.ks
+            '
+            ^
+            source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
+             Carthage
+             ^^^^^^^^
+             source.ks string.quoted.single.ks
+                     '
+                     ^
+                     source.ks string.quoted.single.ks punctuation.definition.string.end.ks
+>
+>  ..state = 'Eurasia'
+   
+ ^^
+ source.ks
+   ..
+   ^^
+   source.ks punctuation.accessor.cascade.ks
+     state
+     ^^^^^
+     source.ks variable.other.property.object.ks
+           
+          ^
+          source.ks
+           =
+           ^
+           source.ks keyword.operator.assignment.ks
+             
+            ^
+            source.ks
+             '
+             ^
+             source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
+              Eurasia
+              ^^^^^^^
+              source.ks string.quoted.single.ks
+                     '
+                     ^
+                     source.ks string.quoted.single.ks punctuation.definition.string.end.ks
+>
+>  ..zip(66666, extended: 6666)
+   
+ ^^
+ source.ks
+   ..
+   ^^
+   source.ks punctuation.accessor.cascade.ks
+     zip
+     ^^^
+     source.ks entity.name.function.ks
+        (
+        ^
+        source.ks punctuation.definition.arguments.begin.bracket.round.ks
+         66666
+         ^^^^^
+         source.ks constant.numeric.decimal.ks
+              ,
+              ^
+              source.ks punctuation.separator.comma.ks
+                
+               ^
+               source.ks
+                extended
+                ^^^^^^^^
+                source.ks meta.argument.key.ks
+                        :
+                        ^
+                        source.ks punctuation.separator.key-value.ks
+                          
+                         ^
+                         source.ks
+                          6666
+                          ^^^^
+                          source.ks constant.numeric.decimal.ks
+                              )
+                              ^
+                              source.ks punctuation.definition.arguments.end.bracket.round.ks

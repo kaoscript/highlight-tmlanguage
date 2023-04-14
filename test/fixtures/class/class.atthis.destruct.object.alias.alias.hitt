@@ -4,7 +4,7 @@ class Greetings {
     private {
         @message: String
     }
-    constructor({msg: @message})
+    constructor({msg % @message})
 }
 -----------------------------------
 
@@ -70,7 +70,7 @@ grammar: kaoscript.tmLanguage
      ^
      source.ks punctuation.definition.members.end.bracket.curly.ks
 >
->    constructor({msg: @message})
+>    constructor({msg % @message})
      
  ^^^^
  source.ks
@@ -86,24 +86,27 @@ grammar: kaoscript.tmLanguage
                   msg
                   ^^^
                   source.ks meta.object.key.ks
-                     :
+                      
                      ^
-                     source.ks punctuation.separator.key-value.ks
-                       
+                     source.ks
+                      %
                       ^
-                      source.ks
-                       @
+                      source.ks keyword.operator.binding.label.ks
+                        
                        ^
-                       source.ks storage.modifier.at.ks
-                        message
-                        ^^^^^^^
-                        source.ks variable.parameter.ks
-                               }
-                               ^
-                               source.ks punctuation.definition.binding-pattern.object.end.bracket.curly.ks
-                                )
+                       source.ks
+                        @
+                        ^
+                        source.ks storage.modifier.at.ks
+                         message
+                         ^^^^^^^
+                         source.ks variable.parameter.ks
+                                }
                                 ^
-                                source.ks punctuation.definition.parameters.end.bracket.round.ks
+                                source.ks punctuation.definition.binding-pattern.object.end.bracket.curly.ks
+                                 )
+                                 ^
+                                 source.ks punctuation.definition.parameters.end.bracket.round.ks
 >
 >}
  }

@@ -1,0 +1,156 @@
+original file
+-----------------------------------
+func pair(x?, y?) {
+    return {
+        x: x.value if ?x
+        y: y.value if ?y
+    }
+}
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>func pair(x?, y?) {
+ func
+ ^^^^
+ source.ks storage.type.function.ks
+      
+     ^
+     source.ks
+      pair
+      ^^^^
+      source.ks entity.name.function.ks
+          (
+          ^
+          source.ks punctuation.definition.parameters.begin.bracket.round.ks
+           x
+           ^
+           source.ks variable.parameter.ks
+            ?
+            ^
+            source.ks storage.modifier.nullable.ks
+             ,
+             ^
+             source.ks punctuation.separator.comma.ks
+               
+              ^
+              source.ks
+               y
+               ^
+               source.ks variable.parameter.ks
+                ?
+                ^
+                source.ks storage.modifier.nullable.ks
+                 )
+                 ^
+                 source.ks punctuation.definition.parameters.end.bracket.round.ks
+                   
+                  ^
+                  source.ks
+                   {
+                   ^
+                   source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>    return {
+     
+ ^^^^
+ source.ks
+     return
+     ^^^^^^
+     source.ks keyword.control.flow.return.ks
+            
+           ^
+           source.ks
+            {
+            ^
+            source.ks punctuation.definition.object.begin.bracket.curly.ks
+>
+>        x: x.value if ?x
+         
+ ^^^^^^^^
+ source.ks
+         x
+         ^
+         source.ks meta.object.key.ks
+          :
+          ^
+          source.ks punctuation.separator.key-value.ks
+            
+           ^
+           source.ks
+            x
+            ^
+            source.ks variable.other.object.ks
+             .
+             ^
+             source.ks punctuation.accessor.object.ks
+              value
+              ^^^^^
+              source.ks variable.other.property.object.ks
+                    
+                   ^
+                   source.ks
+                    if
+                    ^^
+                    source.ks keyword.control.conditional.if.ks
+                       
+                      ^
+                      source.ks
+                       ?
+                       ^
+                       source.ks keyword.operator.existential.ks
+                        x
+                        ^
+                        source.ks variable.other.ks
+>
+>        y: y.value if ?y
+         
+ ^^^^^^^^
+ source.ks
+         y
+         ^
+         source.ks meta.object.key.ks
+          :
+          ^
+          source.ks punctuation.separator.key-value.ks
+            
+           ^
+           source.ks
+            y
+            ^
+            source.ks variable.other.object.ks
+             .
+             ^
+             source.ks punctuation.accessor.object.ks
+              value
+              ^^^^^
+              source.ks variable.other.property.object.ks
+                    
+                   ^
+                   source.ks
+                    if
+                    ^^
+                    source.ks keyword.control.conditional.if.ks
+                       
+                      ^
+                      source.ks
+                       ?
+                       ^
+                       source.ks keyword.operator.existential.ks
+                        y
+                        ^
+                        source.ks variable.other.ks
+>
+>    }
+     
+ ^^^^
+ source.ks
+     }
+     ^
+     source.ks punctuation.definition.object.end.bracket.curly.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.block.end.bracket.curly.ks

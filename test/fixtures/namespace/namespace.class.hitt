@@ -9,7 +9,7 @@ namespace qux {
     }
 }
 
-var x = new qux.Foobar()
+var x = qux.Foobar.new()
 -----------------------------------
 
 grammar: kaoscript.tmLanguage
@@ -147,7 +147,7 @@ grammar: kaoscript.tmLanguage
  ^
  source.ks
 >
->var x = new qux.Foobar()
+>var x = qux.Foobar.new()
  var
  ^^^
  source.ks storage.type.constant.ks
@@ -166,21 +166,21 @@ grammar: kaoscript.tmLanguage
          
         ^
         source.ks
-         new
+         qux
          ^^^
-         source.ks keyword.operator.new.ks
-             
+         source.ks variable.other.object.ks
+            .
             ^
-            source.ks
-             qux
-             ^^^
+            source.ks punctuation.accessor.object.ks
+             Foobar
+             ^^^^^^
              source.ks variable.other.object.ks
-                .
-                ^
-                source.ks punctuation.accessor.object.ks
-                 Foobar
-                 ^^^^^^
-                 source.ks entity.name.function.ks
+                   .
+                   ^
+                   source.ks punctuation.accessor.object.ks
+                    new
+                    ^^^
+                    source.ks entity.name.function.ks
                        (
                        ^
                        source.ks punctuation.definition.arguments.begin.bracket.round.ks

@@ -1,0 +1,144 @@
+original file
+-----------------------------------
+writer
+    .newLine()
+    .code('break')
+    .code(' ').expression(data.label) if ?data.label
+    .done()
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>writer
+ writer
+ ^^^^^^
+ source.ks variable.other.ks
+>
+>    .newLine()
+     
+ ^^^^
+ source.ks
+     .
+     ^
+     source.ks punctuation.accessor.object.ks
+      newLine
+      ^^^^^^^
+      source.ks entity.name.function.ks
+             (
+             ^
+             source.ks punctuation.definition.arguments.begin.bracket.round.ks
+              )
+              ^
+              source.ks punctuation.definition.arguments.end.bracket.round.ks
+>
+>    .code('break')
+     
+ ^^^^
+ source.ks
+     .
+     ^
+     source.ks punctuation.accessor.object.ks
+      code
+      ^^^^
+      source.ks entity.name.function.ks
+          (
+          ^
+          source.ks punctuation.definition.arguments.begin.bracket.round.ks
+           '
+           ^
+           source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
+            break
+            ^^^^^
+            source.ks string.quoted.single.ks
+                 '
+                 ^
+                 source.ks string.quoted.single.ks punctuation.definition.string.end.ks
+                  )
+                  ^
+                  source.ks punctuation.definition.arguments.end.bracket.round.ks
+>
+>    .code(' ').expression(data.label) if ?data.label
+     
+ ^^^^
+ source.ks
+     .
+     ^
+     source.ks punctuation.accessor.object.ks
+      code
+      ^^^^
+      source.ks entity.name.function.ks
+          (
+          ^
+          source.ks punctuation.definition.arguments.begin.bracket.round.ks
+           '
+           ^
+           source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
+             
+            ^
+            source.ks string.quoted.single.ks
+             '
+             ^
+             source.ks string.quoted.single.ks punctuation.definition.string.end.ks
+              )
+              ^
+              source.ks punctuation.definition.arguments.end.bracket.round.ks
+               .
+               ^
+               source.ks punctuation.accessor.object.ks
+                expression
+                ^^^^^^^^^^
+                source.ks entity.name.function.ks
+                          (
+                          ^
+                          source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                           data
+                           ^^^^
+                           source.ks variable.other.object.ks
+                               .
+                               ^
+                               source.ks punctuation.accessor.object.ks
+                                label
+                                ^^^^^
+                                source.ks variable.other.property.object.ks
+                                     )
+                                     ^
+                                     source.ks punctuation.definition.arguments.end.bracket.round.ks
+                                       
+                                      ^
+                                      source.ks
+                                       if
+                                       ^^
+                                       source.ks keyword.control.conditional.if.ks
+                                          
+                                         ^
+                                         source.ks
+                                          ?
+                                          ^
+                                          source.ks keyword.operator.existential.ks
+                                           data
+                                           ^^^^
+                                           source.ks variable.other.object.ks
+                                               .
+                                               ^
+                                               source.ks punctuation.accessor.object.ks
+                                                label
+                                                ^^^^^
+                                                source.ks variable.other.property.object.ks
+>
+>    .done()
+     
+ ^^^^
+ source.ks
+     .
+     ^
+     source.ks punctuation.accessor.object.ks
+      done
+      ^^^^
+      source.ks entity.name.function.ks
+          (
+          ^
+          source.ks punctuation.definition.arguments.begin.bracket.round.ks
+           )
+           ^
+           source.ks punctuation.definition.arguments.end.bracket.round.ks

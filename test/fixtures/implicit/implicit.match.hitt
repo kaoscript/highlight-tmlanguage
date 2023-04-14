@@ -1,0 +1,351 @@
+original file
+-----------------------------------
+match fg {
+    .BLACK        => fg_code = 30
+    .RED        => fg_code = 31
+    .GREEN        => fg_code = 32
+    .YELLOW        => fg_code = 33
+    .BLUE        => fg_code = 34
+    .MAGENTA    => fg_code = 35
+    .CYAN        => fg_code = 36
+    .WHITE        => fg_code = 37
+    else        => fg_code = 39
+}
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>match fg {
+ match
+ ^^^^^
+ source.ks keyword.control.match.ks
+       
+      ^
+      source.ks
+       fg
+       ^^
+       source.ks variable.other.ks
+          
+         ^
+         source.ks
+          {
+          ^
+          source.ks punctuation.definition.match.begin.bracket.curly.ks
+>
+>    .BLACK        => fg_code = 30
+     
+ ^^^^
+ source.ks
+     .
+     ^
+     source.ks punctuation.accessor.object.ks
+      BLACK
+      ^^^^^
+      source.ks variable.other.ks
+                   
+           ^^^^^^^^
+           source.ks
+                   =>
+                   ^^
+                   source.ks keyword.control.match.arrow.ks
+                      
+                     ^
+                     source.ks
+                      fg_code
+                      ^^^^^^^
+                      source.ks variable.other.ks
+                              
+                             ^
+                             source.ks
+                              =
+                              ^
+                              source.ks keyword.operator.assignment.ks
+                                
+                               ^
+                               source.ks
+                                30
+                                ^^
+                                source.ks constant.numeric.decimal.ks
+>
+>    .RED        => fg_code = 31
+     
+ ^^^^
+ source.ks
+     .
+     ^
+     source.ks punctuation.accessor.object.ks
+      RED
+      ^^^
+      source.ks variable.other.ks
+                 
+         ^^^^^^^^
+         source.ks
+                 =>
+                 ^^
+                 source.ks keyword.control.match.arrow.ks
+                    
+                   ^
+                   source.ks
+                    fg_code
+                    ^^^^^^^
+                    source.ks variable.other.ks
+                            
+                           ^
+                           source.ks
+                            =
+                            ^
+                            source.ks keyword.operator.assignment.ks
+                              
+                             ^
+                             source.ks
+                              31
+                              ^^
+                              source.ks constant.numeric.decimal.ks
+>
+>    .GREEN        => fg_code = 32
+     
+ ^^^^
+ source.ks
+     .
+     ^
+     source.ks punctuation.accessor.object.ks
+      GREEN
+      ^^^^^
+      source.ks variable.other.ks
+                   
+           ^^^^^^^^
+           source.ks
+                   =>
+                   ^^
+                   source.ks keyword.control.match.arrow.ks
+                      
+                     ^
+                     source.ks
+                      fg_code
+                      ^^^^^^^
+                      source.ks variable.other.ks
+                              
+                             ^
+                             source.ks
+                              =
+                              ^
+                              source.ks keyword.operator.assignment.ks
+                                
+                               ^
+                               source.ks
+                                32
+                                ^^
+                                source.ks constant.numeric.decimal.ks
+>
+>    .YELLOW        => fg_code = 33
+     
+ ^^^^
+ source.ks
+     .
+     ^
+     source.ks punctuation.accessor.object.ks
+      YELLOW
+      ^^^^^^
+      source.ks variable.other.ks
+                    
+            ^^^^^^^^
+            source.ks
+                    =>
+                    ^^
+                    source.ks keyword.control.match.arrow.ks
+                       
+                      ^
+                      source.ks
+                       fg_code
+                       ^^^^^^^
+                       source.ks variable.other.ks
+                               
+                              ^
+                              source.ks
+                               =
+                               ^
+                               source.ks keyword.operator.assignment.ks
+                                 
+                                ^
+                                source.ks
+                                 33
+                                 ^^
+                                 source.ks constant.numeric.decimal.ks
+>
+>    .BLUE        => fg_code = 34
+     
+ ^^^^
+ source.ks
+     .
+     ^
+     source.ks punctuation.accessor.object.ks
+      BLUE
+      ^^^^
+      source.ks variable.other.ks
+                  
+          ^^^^^^^^
+          source.ks
+                  =>
+                  ^^
+                  source.ks keyword.control.match.arrow.ks
+                     
+                    ^
+                    source.ks
+                     fg_code
+                     ^^^^^^^
+                     source.ks variable.other.ks
+                             
+                            ^
+                            source.ks
+                             =
+                             ^
+                             source.ks keyword.operator.assignment.ks
+                               
+                              ^
+                              source.ks
+                               34
+                               ^^
+                               source.ks constant.numeric.decimal.ks
+>
+>    .MAGENTA    => fg_code = 35
+     
+ ^^^^
+ source.ks
+     .
+     ^
+     source.ks punctuation.accessor.object.ks
+      MAGENTA
+      ^^^^^^^
+      source.ks variable.other.ks
+                 
+             ^^^^
+             source.ks
+                 =>
+                 ^^
+                 source.ks keyword.control.match.arrow.ks
+                    
+                   ^
+                   source.ks
+                    fg_code
+                    ^^^^^^^
+                    source.ks variable.other.ks
+                            
+                           ^
+                           source.ks
+                            =
+                            ^
+                            source.ks keyword.operator.assignment.ks
+                              
+                             ^
+                             source.ks
+                              35
+                              ^^
+                              source.ks constant.numeric.decimal.ks
+>
+>    .CYAN        => fg_code = 36
+     
+ ^^^^
+ source.ks
+     .
+     ^
+     source.ks punctuation.accessor.object.ks
+      CYAN
+      ^^^^
+      source.ks variable.other.ks
+                  
+          ^^^^^^^^
+          source.ks
+                  =>
+                  ^^
+                  source.ks keyword.control.match.arrow.ks
+                     
+                    ^
+                    source.ks
+                     fg_code
+                     ^^^^^^^
+                     source.ks variable.other.ks
+                             
+                            ^
+                            source.ks
+                             =
+                             ^
+                             source.ks keyword.operator.assignment.ks
+                               
+                              ^
+                              source.ks
+                               36
+                               ^^
+                               source.ks constant.numeric.decimal.ks
+>
+>    .WHITE        => fg_code = 37
+     
+ ^^^^
+ source.ks
+     .
+     ^
+     source.ks punctuation.accessor.object.ks
+      WHITE
+      ^^^^^
+      source.ks variable.other.ks
+                   
+           ^^^^^^^^
+           source.ks
+                   =>
+                   ^^
+                   source.ks keyword.control.match.arrow.ks
+                      
+                     ^
+                     source.ks
+                      fg_code
+                      ^^^^^^^
+                      source.ks variable.other.ks
+                              
+                             ^
+                             source.ks
+                              =
+                              ^
+                              source.ks keyword.operator.assignment.ks
+                                
+                               ^
+                               source.ks
+                                37
+                                ^^
+                                source.ks constant.numeric.decimal.ks
+>
+>    else        => fg_code = 39
+     
+ ^^^^
+ source.ks
+     else
+     ^^^^
+     source.ks keyword.control.match.else.ks
+                 
+         ^^^^^^^^
+         source.ks
+                 =>
+                 ^^
+                 source.ks keyword.control.match.arrow.ks
+                    
+                   ^
+                   source.ks
+                    fg_code
+                    ^^^^^^^
+                    source.ks variable.other.ks
+                            
+                           ^
+                           source.ks
+                            =
+                            ^
+                            source.ks keyword.operator.assignment.ks
+                              
+                             ^
+                             source.ks
+                              39
+                              ^^
+                              source.ks constant.numeric.decimal.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.match.end.bracket.curly.ks

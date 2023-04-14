@@ -1,0 +1,180 @@
+original file
+-----------------------------------
+var shape = Ellipse.new(10, 20)
+    ..rotation = 45 * Math.PI / 180
+    ..color = 'rgb(0,129,198)' if test()
+    ..outlineWidth = 0
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>var shape = Ellipse.new(10, 20)
+ var
+ ^^^
+ source.ks storage.type.constant.ks
+     
+    ^
+    source.ks
+     shape
+     ^^^^^
+     source.ks meta.definition.variable.ks variable.other.ks
+           
+          ^
+          source.ks
+           =
+           ^
+           source.ks keyword.operator.assignment.ks
+             
+            ^
+            source.ks
+             Ellipse
+             ^^^^^^^
+             source.ks variable.other.object.ks
+                    .
+                    ^
+                    source.ks punctuation.accessor.object.ks
+                     new
+                     ^^^
+                     source.ks entity.name.function.ks
+                        (
+                        ^
+                        source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                         10
+                         ^^
+                         source.ks constant.numeric.decimal.ks
+                           ,
+                           ^
+                           source.ks punctuation.separator.comma.ks
+                             
+                            ^
+                            source.ks
+                             20
+                             ^^
+                             source.ks constant.numeric.decimal.ks
+                               )
+                               ^
+                               source.ks punctuation.definition.arguments.end.bracket.round.ks
+>
+>    ..rotation = 45 * Math.PI / 180
+     
+ ^^^^
+ source.ks
+     ..
+     ^^
+     source.ks punctuation.accessor.cascade.ks
+       rotation
+       ^^^^^^^^
+       source.ks variable.other.property.object.ks
+                
+               ^
+               source.ks
+                =
+                ^
+                source.ks keyword.operator.assignment.ks
+                  
+                 ^
+                 source.ks
+                  45
+                  ^^
+                  source.ks constant.numeric.decimal.ks
+                     
+                    ^
+                    source.ks
+                     *
+                     ^
+                     source.ks keyword.operator.arithmetic.ks
+                       
+                      ^
+                      source.ks
+                       Math
+                       ^^^^
+                       source.ks variable.other.object.ks
+                           .
+                           ^
+                           source.ks punctuation.accessor.object.ks
+                            PI
+                            ^^
+                            source.ks variable.other.property.object.ks
+                               
+                              ^
+                              source.ks
+                               /
+                               ^
+                               source.ks keyword.operator.arithmetic.ks
+                                 
+                                ^
+                                source.ks
+                                 180
+                                 ^^^
+                                 source.ks constant.numeric.decimal.ks
+>
+>    ..color = 'rgb(0,129,198)' if test()
+     
+ ^^^^
+ source.ks
+     ..
+     ^^
+     source.ks punctuation.accessor.cascade.ks
+       color
+       ^^^^^
+       source.ks variable.other.property.object.ks
+             
+            ^
+            source.ks
+             =
+             ^
+             source.ks keyword.operator.assignment.ks
+               
+              ^
+              source.ks
+               '
+               ^
+               source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
+                rgb(0,129,198)
+                ^^^^^^^^^^^^^^
+                source.ks string.quoted.single.ks
+                              '
+                              ^
+                              source.ks string.quoted.single.ks punctuation.definition.string.end.ks
+                                
+                               ^
+                               source.ks
+                                if
+                                ^^
+                                source.ks keyword.control.conditional.if.ks
+                                   
+                                  ^
+                                  source.ks
+                                   test
+                                   ^^^^
+                                   source.ks entity.name.function.ks
+                                       (
+                                       ^
+                                       source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                                        )
+                                        ^
+                                        source.ks punctuation.definition.arguments.end.bracket.round.ks
+>
+>    ..outlineWidth = 0
+     
+ ^^^^
+ source.ks
+     ..
+     ^^
+     source.ks punctuation.accessor.cascade.ks
+       outlineWidth
+       ^^^^^^^^^^^^
+       source.ks variable.other.property.object.ks
+                    
+                   ^
+                   source.ks
+                    =
+                    ^
+                    source.ks keyword.operator.assignment.ks
+                      
+                     ^
+                     source.ks
+                      0
+                      ^
+                      source.ks constant.numeric.decimal.ks

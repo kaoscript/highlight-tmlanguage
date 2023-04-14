@@ -4,7 +4,7 @@ abstract class Foobar {
     abstract foobar() ~ Error
 }
 
-const x = new Foobar()
+var x = Foobar.new()
 -----------------------------------
 
 grammar: kaoscript.tmLanguage
@@ -75,37 +75,37 @@ grammar: kaoscript.tmLanguage
  ^
  source.ks
 >
->const x = new Foobar()
- const
- ^^^^^
- source.ks variable.other.ks
+>var x = Foobar.new()
+ var
+ ^^^
+ source.ks storage.type.constant.ks
+     
+    ^
+    source.ks
+     x
+     ^
+     source.ks meta.definition.variable.ks variable.other.ks
        
       ^
       source.ks
-       x
+       =
        ^
-       source.ks variable.other.ks
+       source.ks keyword.operator.assignment.ks
          
         ^
         source.ks
-         =
-         ^
-         source.ks keyword.operator.assignment.ks
-           
-          ^
-          source.ks
-           new
-           ^^^
-           source.ks keyword.operator.new.ks
-               
-              ^
-              source.ks
-               Foobar
-               ^^^^^^
-               source.ks entity.name.type.ks
-                     (
-                     ^
-                     source.ks punctuation.definition.arguments.begin.bracket.round.ks
-                      )
-                      ^
-                      source.ks punctuation.definition.arguments.end.bracket.round.ks
+         Foobar
+         ^^^^^^
+         source.ks variable.other.object.ks
+               .
+               ^
+               source.ks punctuation.accessor.object.ks
+                new
+                ^^^
+                source.ks entity.name.function.ks
+                   (
+                   ^
+                   source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                    )
+                    ^
+                    source.ks punctuation.definition.arguments.end.bracket.round.ks

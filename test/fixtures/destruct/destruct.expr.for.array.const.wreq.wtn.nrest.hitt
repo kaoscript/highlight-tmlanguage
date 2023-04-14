@@ -1,0 +1,96 @@
+original file
+-----------------------------------
+for [indent, first!? = null], index in lines from 1 {
+}
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>for [indent, first!? = null], index in lines from 1 {
+ for
+ ^^^
+ source.ks keyword.control.loop.for.ks
+     
+    ^
+    source.ks
+     [
+     ^
+     source.ks punctuation.definition.binding-pattern.array.begin.bracket.square.ks
+      indent
+      ^^^^^^
+      source.ks variable.other.ks
+            ,
+            ^
+            source.ks punctuation.separator.comma.ks
+              
+             ^
+             source.ks
+              first
+              ^^^^^
+              source.ks variable.other.ks
+                   !
+                   ^
+                   source.ks storage.modifier.required.ks
+                    ?
+                    ^
+                    source.ks storage.modifier.nullable.ks
+                      
+                     ^
+                     source.ks
+                      =
+                      ^
+                      source.ks keyword.operator.assignment.ks
+                        
+                       ^
+                       source.ks
+                        null
+                        ^^^^
+                        source.ks constant.language.null.ks
+                            ]
+                            ^
+                            source.ks punctuation.definition.binding-pattern.array.end.bracket.square.ks
+                             ,
+                             ^
+                             source.ks punctuation.separator.comma.ks
+                               
+                              ^
+                              source.ks
+                               index
+                               ^^^^^
+                               source.ks variable.other.ks
+                                     
+                                    ^
+                                    source.ks
+                                     in
+                                     ^^
+                                     source.ks keyword.operator.loop.in.ks
+                                        
+                                       ^
+                                       source.ks
+                                        lines
+                                        ^^^^^
+                                        source.ks variable.other.ks
+                                              
+                                             ^
+                                             source.ks
+                                              from
+                                              ^^^^
+                                              source.ks keyword.operator.loop.from.ks
+                                                   
+                                                  ^
+                                                  source.ks
+                                                   1
+                                                   ^
+                                                   source.ks constant.numeric.decimal.ks
+                                                     
+                                                    ^
+                                                    source.ks
+                                                     {
+                                                     ^
+                                                     source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.block.end.bracket.curly.ks

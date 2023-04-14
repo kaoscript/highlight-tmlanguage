@@ -1,0 +1,75 @@
+original file
+-----------------------------------
+var lineBreaks = """
+
+    This string :
+        - starts with a line break;
+        - ends with a line break;
+        - contains no leading withspaces.
+
+    """
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>var lineBreaks = """
+ var
+ ^^^
+ source.ks storage.type.constant.ks
+     
+    ^
+    source.ks
+     lineBreaks
+     ^^^^^^^^^^
+     source.ks meta.definition.variable.ks variable.other.ks
+                
+               ^
+               source.ks
+                =
+                ^
+                source.ks keyword.operator.assignment.ks
+                  
+                 ^
+                 source.ks
+                  """
+                  ^^^
+                  source.ks string.quoted.double.ks punctuation.definition.string.begin.ks
+>
+>
+ 
+ ^
+ source.ks string.quoted.double.ks
+>
+>    This string :
+     This string :
+ ^^^^^^^^^^^^^^^^^^
+ source.ks string.quoted.double.ks
+>
+>        - starts with a line break;
+         - starts with a line break;
+ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ source.ks string.quoted.double.ks
+>
+>        - ends with a line break;
+         - ends with a line break;
+ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ source.ks string.quoted.double.ks
+>
+>        - contains no leading withspaces.
+         - contains no leading withspaces.
+ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ source.ks string.quoted.double.ks
+>
+>
+ 
+ ^
+ source.ks string.quoted.double.ks
+>
+>    """
+     
+ ^^^^
+ source.ks string.quoted.double.ks
+     """
+     ^^^
+     source.ks string.quoted.double.ks punctuation.definition.string.end.ks

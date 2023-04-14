@@ -1,0 +1,84 @@
+original file
+-----------------------------------
+var lineBreaks = ```
+    1
+    2
+
+    3
+    4
+
+    5
+    ```
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>var lineBreaks = ```
+ var
+ ^^^
+ source.ks storage.type.constant.ks
+     
+    ^
+    source.ks
+     lineBreaks
+     ^^^^^^^^^^
+     source.ks meta.definition.variable.ks variable.other.ks
+                
+               ^
+               source.ks
+                =
+                ^
+                source.ks keyword.operator.assignment.ks
+                  
+                 ^
+                 source.ks
+                  ```
+                  ^^^
+                  source.ks punctuation.definition.string.template.begin.ks
+>
+>    1
+     1
+ ^^^^^^
+ source.ks string.template.ks
+>
+>    2
+     2
+ ^^^^^^
+ source.ks string.template.ks
+>
+>
+ 
+ ^
+ source.ks
+>
+>    3
+     3
+ ^^^^^^
+ source.ks string.template.ks
+>
+>    4
+     4
+ ^^^^^^
+ source.ks string.template.ks
+>
+>
+ 
+ ^
+ source.ks
+>
+>    5
+     5
+ ^^^^^^
+ source.ks string.template.ks
+>
+>    ```
+    
+ ^^^
+ source.ks string.template.ks
+     
+    ^
+    source.ks
+     ```
+     ^^^
+     source.ks punctuation.definition.string.template.end.ks

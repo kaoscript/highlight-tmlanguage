@@ -1,8 +1,8 @@
 original file
 -----------------------------------
-tuple Pair(String, Number)
+tuple Pair [ :String, :Number ]
 
-tuple Triple(Boolean) extends Pair
+tuple Triple extends Pair [ :Boolean ]
 
 var triple = Triple('x', 0.1, true)
 
@@ -12,7 +12,7 @@ console.log(triple.0, triple.1, triple.2)
 grammar: kaoscript.tmLanguage
 -----------------------------------
 >
->tuple Pair(String, Number)
+>tuple Pair [ :String, :Number ]
  tuple
  ^^^^^
  source.ks storage.type.tuple.ks
@@ -22,31 +22,46 @@ grammar: kaoscript.tmLanguage
        Pair
        ^^^^
        source.ks entity.name.type.tuple.ks
-           (
+            
            ^
-           source.ks punctuation.definition.tuple.begin.bracket.round.ks
-            String
-            ^^^^^^
-            source.ks support.type.primitive.ks
-                  ,
-                  ^
-                  source.ks punctuation.separator.comma.ks
-                    
-                   ^
-                   source.ks
-                    Number
-                    ^^^^^^
-                    source.ks support.type.primitive.ks
-                          )
-                          ^
-                          source.ks punctuation.definition.tuple.end.bracket.round.ks
+           source.ks
+            [
+            ^
+            source.ks punctuation.definition.tuple.begin.bracket.square.ks
+              
+             ^
+             source.ks
+              :
+              ^
+              source.ks meta.type.annotation.ks keyword.operator.type.annotation.ks
+               String
+               ^^^^^^
+               source.ks meta.type.annotation.ks support.type.primitive.ks
+                     ,
+                     ^
+                     source.ks punctuation.separator.comma.ks
+                       
+                      ^
+                      source.ks
+                       :
+                       ^
+                       source.ks meta.type.annotation.ks keyword.operator.type.annotation.ks
+                        Number
+                        ^^^^^^
+                        source.ks meta.type.annotation.ks support.type.primitive.ks
+                               
+                              ^
+                              source.ks meta.type.annotation.ks
+                               ]
+                               ^
+                               source.ks punctuation.definition.tuple.end.bracket.square.ks
 >
 >
  
  ^
  source.ks
 >
->tuple Triple(Boolean) extends Pair
+>tuple Triple extends Pair [ :Boolean ]
  tuple
  ^^^^^
  source.ks storage.type.tuple.ks
@@ -56,27 +71,39 @@ grammar: kaoscript.tmLanguage
        Triple
        ^^^^^^
        source.ks entity.name.type.tuple.ks
-             (
+              
              ^
-             source.ks punctuation.definition.tuple.begin.bracket.round.ks
-              Boolean
+             source.ks
+              extends
               ^^^^^^^
-              source.ks support.type.primitive.ks
-                     )
+              source.ks storage.modifier.extends.ks
+                      
                      ^
-                     source.ks punctuation.definition.tuple.end.bracket.round.ks
-                       
-                      ^
-                      source.ks
-                       extends
-                       ^^^^^^^
-                       source.ks storage.modifier.extends.ks
-                               
-                              ^
-                              source.ks
-                               Pair
-                               ^^^^
-                               source.ks entity.name.type.tuple.ks
+                     source.ks
+                      Pair
+                      ^^^^
+                      source.ks entity.name.type.tuple.ks
+                           
+                          ^
+                          source.ks
+                           [
+                           ^
+                           source.ks punctuation.definition.tuple.begin.bracket.square.ks
+                             
+                            ^
+                            source.ks
+                             :
+                             ^
+                             source.ks meta.type.annotation.ks keyword.operator.type.annotation.ks
+                              Boolean
+                              ^^^^^^^
+                              source.ks meta.type.annotation.ks support.type.primitive.ks
+                                      
+                                     ^
+                                     source.ks meta.type.annotation.ks
+                                      ]
+                                      ^
+                                      source.ks punctuation.definition.tuple.end.bracket.square.ks
 >
 >
  

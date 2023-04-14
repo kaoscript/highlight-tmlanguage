@@ -1,9 +1,9 @@
 original file
 -----------------------------------
-tuple Pair {
+tuple Pair [
     x: String    = ''
     y: Number    = 0
-}
+]
 
 var dyn pair = Pair('x', 0.1)
 
@@ -17,7 +17,7 @@ console.log(pair2.x, pair2.y)
 grammar: kaoscript.tmLanguage
 -----------------------------------
 >
->tuple Pair {
+>tuple Pair [
  tuple
  ^^^^^
  source.ks storage.type.tuple.ks
@@ -30,9 +30,9 @@ grammar: kaoscript.tmLanguage
             
            ^
            source.ks
-            {
+            [
             ^
-            source.ks punctuation.definition.tuple.begin.bracket.curly.ks
+            source.ks punctuation.definition.tuple.begin.bracket.square.ks
 >
 >    x: String    = ''
      
@@ -95,10 +95,10 @@ grammar: kaoscript.tmLanguage
                     ^
                     source.ks constant.numeric.decimal.ks
 >
->}
- }
+>]
+ ]
  ^
- source.ks punctuation.definition.tuple.end.bracket.curly.ks
+ source.ks punctuation.definition.tuple.end.bracket.square.ks
 >
 >
  

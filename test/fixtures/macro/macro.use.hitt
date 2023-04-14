@@ -9,7 +9,7 @@ macro using_a(a: Identifier, e: Expression) {
     }
 }
 
-var dyn four = using_a!(a, a / 10)
+var dyn four = using_a(a, a / 10)
 -----------------------------------
 
 grammar: kaoscript.tmLanguage
@@ -174,7 +174,7 @@ grammar: kaoscript.tmLanguage
  ^
  source.ks
 >
->var dyn four = using_a!(a, a / 10)
+>var dyn four = using_a(a, a / 10)
  var 
  ^^^^
  source.ks storage.type.readwrite.ks
@@ -199,36 +199,33 @@ grammar: kaoscript.tmLanguage
                 using_a
                 ^^^^^^^
                 source.ks entity.name.function.ks
-                       !
+                       (
                        ^
-                       source.ks keyword.operator.function.macro.ks
-                        (
+                       source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                        a
                         ^
-                        source.ks punctuation.definition.arguments.begin.bracket.round.ks
-                         a
+                        source.ks variable.other.ks
+                         ,
                          ^
-                         source.ks variable.other.ks
-                          ,
+                         source.ks punctuation.separator.comma.ks
+                           
                           ^
-                          source.ks punctuation.separator.comma.ks
-                            
+                          source.ks
+                           a
                            ^
-                           source.ks
-                            a
+                           source.ks variable.other.ks
+                             
                             ^
-                            source.ks variable.other.ks
-                              
+                            source.ks
+                             /
                              ^
-                             source.ks
-                              /
+                             source.ks keyword.operator.arithmetic.ks
+                               
                               ^
-                              source.ks keyword.operator.arithmetic.ks
-                                
-                               ^
-                               source.ks
-                                10
-                                ^^
-                                source.ks constant.numeric.decimal.ks
-                                  )
-                                  ^
-                                  source.ks punctuation.definition.arguments.end.bracket.round.ks
+                              source.ks
+                               10
+                               ^^
+                               source.ks constant.numeric.decimal.ks
+                                 )
+                                 ^
+                                 source.ks punctuation.definition.arguments.end.bracket.round.ks

@@ -1,21 +1,21 @@
 original file
 -----------------------------------
-new Shape()
+Shape.new()
 -----------------------------------
 
 grammar: kaoscript.tmLanguage
 -----------------------------------
 >
->new Shape()
- new
- ^^^
- source.ks keyword.operator.new.ks
-     
-    ^
-    source.ks
-     Shape
-     ^^^^^
-     source.ks entity.name.type.ks
+>Shape.new()
+ Shape
+ ^^^^^
+ source.ks variable.other.object.ks
+      .
+      ^
+      source.ks punctuation.accessor.object.ks
+       new
+       ^^^
+       source.ks entity.name.function.ks
           (
           ^
           source.ks punctuation.definition.arguments.begin.bracket.round.ks

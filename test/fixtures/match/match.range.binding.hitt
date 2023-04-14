@@ -178,7 +178,7 @@ grammar: kaoscript.tmLanguage
                           source.ks
                            n
                            ^
-                           source.ks variable.other.ks
+                           source.ks meta.definition.variable.ks variable.other.ks
                                 
                             ^^^^
                             source.ks
@@ -252,7 +252,7 @@ grammar: kaoscript.tmLanguage
                           source.ks
                            n
                            ^
-                           source.ks variable.other.ks
+                           source.ks meta.definition.variable.ks variable.other.ks
                                 
                             ^^^^
                             source.ks
@@ -308,7 +308,7 @@ grammar: kaoscript.tmLanguage
                          source.ks
                           n
                           ^
-                          source.ks variable.other.ks
+                          source.ks meta.definition.variable.ks variable.other.ks
                                
                            ^^^^
                            source.ks

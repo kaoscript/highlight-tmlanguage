@@ -1,0 +1,51 @@
+original file
+-----------------------------------
+var addOne = add^^(1, ^)
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>var addOne = add^^(1, ^)
+ var
+ ^^^
+ source.ks storage.type.constant.ks
+     
+    ^
+    source.ks
+     addOne
+     ^^^^^^
+     source.ks meta.definition.variable.ks variable.other.ks
+            
+           ^
+           source.ks
+            =
+            ^
+            source.ks keyword.operator.assignment.ks
+              
+             ^
+             source.ks
+              add
+              ^^^
+              source.ks entity.name.function.ks
+                 ^^
+                 ^^
+                 source.ks keyword.operator.function.scope.ks
+                   (
+                   ^
+                   source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                    1
+                    ^
+                    source.ks constant.numeric.decimal.ks
+                     ,
+                     ^
+                     source.ks punctuation.separator.comma.ks
+                       
+                      ^
+                      source.ks
+                       ^
+                       ^
+                       source.ks keyword.operator.function.partial.ks
+                        )
+                        ^
+                        source.ks punctuation.definition.arguments.end.bracket.round.ks

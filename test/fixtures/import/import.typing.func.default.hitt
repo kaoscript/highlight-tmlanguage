@@ -8,10 +8,10 @@ import 'foobar' {
     async qux(value: Number): Number
     async qux(value: String): String
 } => {
-    foo: f1
-    bar: b1
-    baz: b2
-    qux: q1
+    foo % f1
+    bar % b1
+    baz % b2
+    qux % q1
 }
 
 import 'barfoo' {
@@ -22,10 +22,10 @@ import 'barfoo' {
     async func qux(value: Number): Number
     async func qux(value: String): String
 } => {
-    foo: f1
-    bar: b1
-    baz: b2
-    qux: q1
+    foo % f1
+    bar % b1
+    baz % b2
+    qux % q1
 }
 
 -----------------------------------
@@ -262,73 +262,85 @@ grammar: kaoscript.tmLanguage
       ^
       source.ks punctuation.definition.binding-pattern.object.begin.bracket.curly.ks
 >
->    foo: f1
+>    foo % f1
      
  ^^^^
  source.ks
      foo
      ^^^
      source.ks variable.other.ks
-        :
+         
         ^
-        source.ks punctuation.separator.key-value.ks
-          
+        source.ks
+         %
          ^
-         source.ks
-          f1
-          ^^
-          source.ks variable.other.ks
+         source.ks keyword.operator.binding.label.ks
+           
+          ^
+          source.ks
+           f1
+           ^^
+           source.ks variable.other.ks
 >
->    bar: b1
+>    bar % b1
      
  ^^^^
  source.ks
      bar
      ^^^
      source.ks variable.other.ks
-        :
+         
         ^
-        source.ks punctuation.separator.key-value.ks
-          
+        source.ks
+         %
          ^
-         source.ks
-          b1
-          ^^
-          source.ks variable.other.ks
+         source.ks keyword.operator.binding.label.ks
+           
+          ^
+          source.ks
+           b1
+           ^^
+           source.ks variable.other.ks
 >
->    baz: b2
+>    baz % b2
      
  ^^^^
  source.ks
      baz
      ^^^
      source.ks variable.other.ks
-        :
+         
         ^
-        source.ks punctuation.separator.key-value.ks
-          
+        source.ks
+         %
          ^
-         source.ks
-          b2
-          ^^
-          source.ks variable.other.ks
+         source.ks keyword.operator.binding.label.ks
+           
+          ^
+          source.ks
+           b2
+           ^^
+           source.ks variable.other.ks
 >
->    qux: q1
+>    qux % q1
      
  ^^^^
  source.ks
      qux
      ^^^
      source.ks variable.other.ks
-        :
+         
         ^
-        source.ks punctuation.separator.key-value.ks
-          
+        source.ks
+         %
          ^
-         source.ks
-          q1
-          ^^
-          source.ks variable.other.ks
+         source.ks keyword.operator.binding.label.ks
+           
+          ^
+          source.ks
+           q1
+           ^^
+           source.ks variable.other.ks
 >
 >}
  }
@@ -605,73 +617,85 @@ grammar: kaoscript.tmLanguage
       ^
       source.ks punctuation.definition.binding-pattern.object.begin.bracket.curly.ks
 >
->    foo: f1
+>    foo % f1
      
  ^^^^
  source.ks
      foo
      ^^^
      source.ks variable.other.ks
-        :
+         
         ^
-        source.ks punctuation.separator.key-value.ks
-          
+        source.ks
+         %
          ^
-         source.ks
-          f1
-          ^^
-          source.ks variable.other.ks
+         source.ks keyword.operator.binding.label.ks
+           
+          ^
+          source.ks
+           f1
+           ^^
+           source.ks variable.other.ks
 >
->    bar: b1
+>    bar % b1
      
  ^^^^
  source.ks
      bar
      ^^^
      source.ks variable.other.ks
-        :
+         
         ^
-        source.ks punctuation.separator.key-value.ks
-          
+        source.ks
+         %
          ^
-         source.ks
-          b1
-          ^^
-          source.ks variable.other.ks
+         source.ks keyword.operator.binding.label.ks
+           
+          ^
+          source.ks
+           b1
+           ^^
+           source.ks variable.other.ks
 >
->    baz: b2
+>    baz % b2
      
  ^^^^
  source.ks
      baz
      ^^^
      source.ks variable.other.ks
-        :
+         
         ^
-        source.ks punctuation.separator.key-value.ks
-          
+        source.ks
+         %
          ^
-         source.ks
-          b2
-          ^^
-          source.ks variable.other.ks
+         source.ks keyword.operator.binding.label.ks
+           
+          ^
+          source.ks
+           b2
+           ^^
+           source.ks variable.other.ks
 >
->    qux: q1
+>    qux % q1
      
  ^^^^
  source.ks
      qux
      ^^^
      source.ks variable.other.ks
-        :
+         
         ^
-        source.ks punctuation.separator.key-value.ks
-          
+        source.ks
+         %
          ^
-         source.ks
-          q1
-          ^^
-          source.ks variable.other.ks
+         source.ks keyword.operator.binding.label.ks
+           
+          ^
+          source.ks
+           q1
+           ^^
+           source.ks variable.other.ks
 >
 >}
  }

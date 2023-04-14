@@ -1,0 +1,30 @@
+original file
+-----------------------------------
+continue top if value
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>continue top if value
+ continue
+ ^^^^^^^^
+ source.ks keyword.control.loop.continue.ks
+          
+         ^
+         source.ks
+          top
+          ^^^
+          source.ks entity.name.label.ks
+              
+             ^
+             source.ks
+              if
+              ^^
+              source.ks keyword.control.conditional.if.ks
+                 
+                ^
+                source.ks
+                 value
+                 ^^^^^
+                 source.ks variable.other.ks

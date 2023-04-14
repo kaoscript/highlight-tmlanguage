@@ -1,5 +1,5 @@
 test:
-	node_modules/.bin/mocha --colors --check-leaks --require kaoscript/register --reporter spec$(if $(value g), -g "$(g)") "test/test.ks"
+	node_modules/.bin/mocha --colors --check-leaks --require kaoscript/register --reporter spec --no-diff$(if $(value g), -g "$(g)") "test/test.ks"
 
 build:
 	./scripts/build.ks

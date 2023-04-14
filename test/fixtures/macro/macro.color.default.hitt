@@ -35,9 +35,9 @@ class Color {
     }
 }
 
-Color.registerSpace!({
-    name: Space::SRGB
-    alias: [Space::RGB]
+Color.registerSpace({
+    name: Space.SRGB
+    alias: [Space.RGB]
     components: {
         red: {
             max: 255
@@ -800,7 +800,7 @@ grammar: kaoscript.tmLanguage
  ^
  source.ks
 >
->Color.registerSpace!({
+>Color.registerSpace({
  Color
  ^^^^^
  source.ks variable.other.object.ks
@@ -810,17 +810,14 @@ grammar: kaoscript.tmLanguage
        registerSpace
        ^^^^^^^^^^^^^
        source.ks entity.name.function.ks
-                    !
+                    (
                     ^
-                    source.ks keyword.operator.function.macro.ks
-                     (
+                    source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                     {
                      ^
-                     source.ks punctuation.definition.arguments.begin.bracket.round.ks
-                      {
-                      ^
-                      source.ks punctuation.definition.object.begin.bracket.curly.ks
+                     source.ks punctuation.definition.object.begin.bracket.curly.ks
 >
->    name: Space::SRGB
+>    name: Space.SRGB
      
  ^^^^
  source.ks
@@ -835,15 +832,15 @@ grammar: kaoscript.tmLanguage
           source.ks
            Space
            ^^^^^
-           source.ks variable.other.enum.ks
-                ::
-                ^^
-                source.ks punctuation.accessor.enum.ks
-                  SRGB
-                  ^^^^
-                  source.ks variable.other.property.enum.ks
+           source.ks variable.other.object.ks
+                .
+                ^
+                source.ks punctuation.accessor.object.ks
+                 SRGB
+                 ^^^^
+                 source.ks variable.other.property.object.ks
 >
->    alias: [Space::RGB]
+>    alias: [Space.RGB]
      
  ^^^^
  source.ks
@@ -861,16 +858,16 @@ grammar: kaoscript.tmLanguage
             source.ks punctuation.definition.array.begin.bracket.square.ks
              Space
              ^^^^^
-             source.ks variable.other.enum.ks
-                  ::
-                  ^^
-                  source.ks punctuation.accessor.enum.ks
-                    RGB
-                    ^^^
-                    source.ks variable.other.property.enum.ks
-                       ]
-                       ^
-                       source.ks punctuation.definition.array.end.bracket.square.ks
+             source.ks variable.other.object.ks
+                  .
+                  ^
+                  source.ks punctuation.accessor.object.ks
+                   RGB
+                   ^^^
+                   source.ks variable.other.property.object.ks
+                      ]
+                      ^
+                      source.ks punctuation.definition.array.end.bracket.square.ks
 >
 >    components: {
      

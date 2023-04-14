@@ -1,0 +1,18 @@
+original file
+-----------------------------------
+continue top
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>continue top
+ continue
+ ^^^^^^^^
+ source.ks keyword.control.loop.continue.ks
+          
+         ^
+         source.ks
+          top
+          ^^^
+          source.ks entity.name.label.ks

@@ -1,0 +1,231 @@
+original file
+-----------------------------------
+var p = Point.new()
+
+p..log('start')
+    ..x = x
+    ..scale(10)
+    ..log('scaled')
+    ..x += 1
+    ..y = x + p.x + p.y
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>var p = Point.new()
+ var
+ ^^^
+ source.ks storage.type.constant.ks
+     
+    ^
+    source.ks
+     p
+     ^
+     source.ks meta.definition.variable.ks variable.other.ks
+       
+      ^
+      source.ks
+       =
+       ^
+       source.ks keyword.operator.assignment.ks
+         
+        ^
+        source.ks
+         Point
+         ^^^^^
+         source.ks variable.other.object.ks
+              .
+              ^
+              source.ks punctuation.accessor.object.ks
+               new
+               ^^^
+               source.ks entity.name.function.ks
+                  (
+                  ^
+                  source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                   )
+                   ^
+                   source.ks punctuation.definition.arguments.end.bracket.round.ks
+>
+>
+ 
+ ^
+ source.ks
+>
+>p..log('start')
+ p
+ ^
+ source.ks variable.other.ks
+  ..
+  ^^
+  source.ks punctuation.accessor.cascade.ks
+    log
+    ^^^
+    source.ks entity.name.function.ks
+       (
+       ^
+       source.ks punctuation.definition.arguments.begin.bracket.round.ks
+        '
+        ^
+        source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
+         start
+         ^^^^^
+         source.ks string.quoted.single.ks
+              '
+              ^
+              source.ks string.quoted.single.ks punctuation.definition.string.end.ks
+               )
+               ^
+               source.ks punctuation.definition.arguments.end.bracket.round.ks
+>
+>    ..x = x
+     
+ ^^^^
+ source.ks
+     ..
+     ^^
+     source.ks punctuation.accessor.cascade.ks
+       x
+       ^
+       source.ks variable.other.property.object.ks
+         
+        ^
+        source.ks
+         =
+         ^
+         source.ks keyword.operator.assignment.ks
+           
+          ^
+          source.ks
+           x
+           ^
+           source.ks variable.other.ks
+>
+>    ..scale(10)
+     
+ ^^^^
+ source.ks
+     ..
+     ^^
+     source.ks punctuation.accessor.cascade.ks
+       scale
+       ^^^^^
+       source.ks entity.name.function.ks
+            (
+            ^
+            source.ks punctuation.definition.arguments.begin.bracket.round.ks
+             10
+             ^^
+             source.ks constant.numeric.decimal.ks
+               )
+               ^
+               source.ks punctuation.definition.arguments.end.bracket.round.ks
+>
+>    ..log('scaled')
+     
+ ^^^^
+ source.ks
+     ..
+     ^^
+     source.ks punctuation.accessor.cascade.ks
+       log
+       ^^^
+       source.ks entity.name.function.ks
+          (
+          ^
+          source.ks punctuation.definition.arguments.begin.bracket.round.ks
+           '
+           ^
+           source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
+            scaled
+            ^^^^^^
+            source.ks string.quoted.single.ks
+                  '
+                  ^
+                  source.ks string.quoted.single.ks punctuation.definition.string.end.ks
+                   )
+                   ^
+                   source.ks punctuation.definition.arguments.end.bracket.round.ks
+>
+>    ..x += 1
+     
+ ^^^^
+ source.ks
+     ..
+     ^^
+     source.ks punctuation.accessor.cascade.ks
+       x
+       ^
+       source.ks variable.other.property.object.ks
+         
+        ^
+        source.ks
+         +=
+         ^^
+         source.ks keyword.operator.assignment.compound.ks
+            
+           ^
+           source.ks
+            1
+            ^
+            source.ks constant.numeric.decimal.ks
+>
+>    ..y = x + p.x + p.y
+     
+ ^^^^
+ source.ks
+     ..
+     ^^
+     source.ks punctuation.accessor.cascade.ks
+       y
+       ^
+       source.ks variable.other.property.object.ks
+         
+        ^
+        source.ks
+         =
+         ^
+         source.ks keyword.operator.assignment.ks
+           
+          ^
+          source.ks
+           x
+           ^
+           source.ks variable.other.ks
+             
+            ^
+            source.ks
+             +
+             ^
+             source.ks keyword.operator.arithmetic.ks
+               
+              ^
+              source.ks
+               p
+               ^
+               source.ks variable.other.object.ks
+                .
+                ^
+                source.ks punctuation.accessor.object.ks
+                 x
+                 ^
+                 source.ks variable.other.property.object.ks
+                   
+                  ^
+                  source.ks
+                   +
+                   ^
+                   source.ks keyword.operator.arithmetic.ks
+                     
+                    ^
+                    source.ks
+                     p
+                     ^
+                     source.ks variable.other.object.ks
+                      .
+                      ^
+                      source.ks punctuation.accessor.object.ks
+                       y
+                       ^
+                       source.ks variable.other.property.object.ks

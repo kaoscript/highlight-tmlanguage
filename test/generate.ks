@@ -6,7 +6,7 @@ extern console
 var mut grammarFilePath: String = ''
 export func configure(file: String) {
 	grammarFilePath = file
-	
+
 	grammar = register.loadGrammarFromPathSync(grammarFilePath)
 }
 
@@ -42,11 +42,11 @@ export func generate(content: String, indentSize: Number = 4): String { # {{{
 		'-----------------------------------'
 	]
 
-	var mut tokens: Array? = null
+	var mut tokens: Array = []
 	var mut ruleStack = null
 
 	for var line, index in lines {
-		{tokens, ruleStack} = grammar?.tokenizeLine(line, ruleStack)
+		{ tokens, ruleStack } = grammar?.tokenizeLine(line, ruleStack)
 
 		output.push(`>`, `>\(line)`)
 

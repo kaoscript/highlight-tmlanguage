@@ -3,13 +3,13 @@ original file
 var mut view: UIView
 
 match view {
-    is UIImageView                                => console.log("It's an image view")
-    is UILabel        with label as UILabel        => console.log("It's a label")
-    is UITableView    with tblv as UITableView    {
+    is UIImageView                            => console.log("It's an image view")
+    is UILabel        with label: UILabel        => console.log("It's a label")
+    is UITableView    with mut tblv            {
         var dyn sectionCount = tblv.numberOfSections()
         console.log("It's a table view with \(sectionCount) sections")
     }
-    else                                        => console.log("It's some other UIView or subclass")
+    else                                    => console.log("It's some other UIView or subclass")
 }
 -----------------------------------
 
@@ -61,7 +61,7 @@ grammar: kaoscript.tmLanguage
             ^
             source.ks punctuation.definition.match.begin.bracket.curly.ks
 >
->    is UIImageView                                => console.log("It's an image view")
+>    is UIImageView                            => console.log("It's an image view")
      
  ^^^^
  source.ks
@@ -74,41 +74,41 @@ grammar: kaoscript.tmLanguage
         UIImageView
         ^^^^^^^^^^^
         source.ks entity.name.type.ks
-                                                   
-                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                                               
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
                    source.ks
-                                                   =>
-                                                   ^^
-                                                   source.ks keyword.control.match.arrow.ks
-                                                      
-                                                     ^
-                                                     source.ks
-                                                      console
-                                                      ^^^^^^^
-                                                      source.ks variable.other.object.ks
-                                                             .
+                                               =>
+                                               ^^
+                                               source.ks keyword.control.match.arrow.ks
+                                                  
+                                                 ^
+                                                 source.ks
+                                                  console
+                                                  ^^^^^^^
+                                                  source.ks variable.other.object.ks
+                                                         .
+                                                         ^
+                                                         source.ks punctuation.accessor.object.ks
+                                                          log
+                                                          ^^^
+                                                          source.ks entity.name.function.ks
+                                                             (
                                                              ^
-                                                             source.ks punctuation.accessor.object.ks
-                                                              log
-                                                              ^^^
-                                                              source.ks entity.name.function.ks
-                                                                 (
-                                                                 ^
-                                                                 source.ks punctuation.definition.arguments.begin.bracket.round.ks
-                                                                  "
-                                                                  ^
-                                                                  source.ks string.quoted.double.ks punctuation.definition.string.begin.ks
-                                                                   It's an image view
-                                                                   ^^^^^^^^^^^^^^^^^^
-                                                                   source.ks string.quoted.double.ks
-                                                                                     "
-                                                                                     ^
-                                                                                     source.ks string.quoted.double.ks punctuation.definition.string.end.ks
-                                                                                      )
-                                                                                      ^
-                                                                                      source.ks punctuation.definition.arguments.end.bracket.round.ks
+                                                             source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                                                              "
+                                                              ^
+                                                              source.ks string.quoted.double.ks punctuation.definition.string.begin.ks
+                                                               It's an image view
+                                                               ^^^^^^^^^^^^^^^^^^
+                                                               source.ks string.quoted.double.ks
+                                                                                 "
+                                                                                 ^
+                                                                                 source.ks string.quoted.double.ks punctuation.definition.string.end.ks
+                                                                                  )
+                                                                                  ^
+                                                                                  source.ks punctuation.definition.arguments.end.bracket.round.ks
 >
->    is UILabel        with label as UILabel        => console.log("It's a label")
+>    is UILabel        with label: UILabel        => console.log("It's a label")
      
  ^^^^
  source.ks
@@ -132,54 +132,51 @@ grammar: kaoscript.tmLanguage
                            source.ks
                             label
                             ^^^^^
-                            source.ks variable.other.ks
-                                  
+                            source.ks meta.definition.variable.ks variable.other.ks
+                                 :
                                  ^
-                                 source.ks
-                                  as
-                                  ^^
-                                  source.ks keyword.operator.type-casting.manual.default.long.ks
-                                     
-                                    ^
-                                    source.ks
-                                     UILabel
-                                     ^^^^^^^
-                                     source.ks entity.name.type.ks
-                                                    
-                                            ^^^^^^^^
-                                            source.ks
-                                                    =>
-                                                    ^^
-                                                    source.ks keyword.control.match.arrow.ks
-                                                       
-                                                      ^
-                                                      source.ks
-                                                       console
-                                                       ^^^^^^^
-                                                       source.ks variable.other.object.ks
-                                                              .
-                                                              ^
-                                                              source.ks punctuation.accessor.object.ks
-                                                               log
-                                                               ^^^
-                                                               source.ks entity.name.function.ks
-                                                                  (
-                                                                  ^
-                                                                  source.ks punctuation.definition.arguments.begin.bracket.round.ks
-                                                                   "
-                                                                   ^
-                                                                   source.ks string.quoted.double.ks punctuation.definition.string.begin.ks
-                                                                    It's a label
-                                                                    ^^^^^^^^^^^^
-                                                                    source.ks string.quoted.double.ks
-                                                                                "
-                                                                                ^
-                                                                                source.ks string.quoted.double.ks punctuation.definition.string.end.ks
-                                                                                 )
-                                                                                 ^
-                                                                                 source.ks punctuation.definition.arguments.end.bracket.round.ks
+                                 source.ks meta.type.annotation.ks keyword.operator.type.annotation.ks
+                                   
+                                  ^
+                                  source.ks meta.type.annotation.ks
+                                   UILabel
+                                   ^^^^^^^
+                                   source.ks meta.type.annotation.ks entity.name.type.ks
+                                                  
+                                          ^^^^^^^^
+                                          source.ks
+                                                  =>
+                                                  ^^
+                                                  source.ks keyword.control.match.arrow.ks
+                                                     
+                                                    ^
+                                                    source.ks
+                                                     console
+                                                     ^^^^^^^
+                                                     source.ks variable.other.object.ks
+                                                            .
+                                                            ^
+                                                            source.ks punctuation.accessor.object.ks
+                                                             log
+                                                             ^^^
+                                                             source.ks entity.name.function.ks
+                                                                (
+                                                                ^
+                                                                source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                                                                 "
+                                                                 ^
+                                                                 source.ks string.quoted.double.ks punctuation.definition.string.begin.ks
+                                                                  It's a label
+                                                                  ^^^^^^^^^^^^
+                                                                  source.ks string.quoted.double.ks
+                                                                              "
+                                                                              ^
+                                                                              source.ks string.quoted.double.ks punctuation.definition.string.end.ks
+                                                                               )
+                                                                               ^
+                                                                               source.ks punctuation.definition.arguments.end.bracket.round.ks
 >
->    is UITableView    with tblv as UITableView    {
+>    is UITableView    with mut tblv            {
      
  ^^^^
  source.ks
@@ -201,27 +198,21 @@ grammar: kaoscript.tmLanguage
                             
                            ^
                            source.ks
-                            tblv
-                            ^^^^
-                            source.ks variable.other.ks
-                                 
-                                ^
-                                source.ks
-                                 as
-                                 ^^
-                                 source.ks keyword.operator.type-casting.manual.default.long.ks
-                                    
-                                   ^
-                                   source.ks
-                                    UITableView
-                                    ^^^^^^^^^^^
-                                    source.ks entity.name.type.ks
-                                                   
-                                               ^^^^
-                                               source.ks
-                                                   {
-                                                   ^
-                                                   source.ks punctuation.definition.block.begin.bracket.curly.ks
+                            mut
+                            ^^^
+                            source.ks storage.type.readwrite.ks storage.modifier.mutable.ks
+                                
+                               ^
+                               source.ks
+                                tblv
+                                ^^^^
+                                source.ks meta.definition.variable.ks variable.other.ks
+                                                
+                                    ^^^^^^^^^^^^
+                                    source.ks
+                                                {
+                                                ^
+                                                source.ks punctuation.definition.block.begin.bracket.curly.ks
 >
 >        var dyn sectionCount = tblv.numberOfSections()
          
@@ -307,46 +298,46 @@ grammar: kaoscript.tmLanguage
      ^
      source.ks punctuation.definition.block.end.bracket.curly.ks
 >
->    else                                        => console.log("It's some other UIView or subclass")
+>    else                                    => console.log("It's some other UIView or subclass")
      
  ^^^^
  source.ks
      else
      ^^^^
      source.ks keyword.control.match.else.ks
-                                                 
-         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                                             
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
          source.ks
-                                                 =>
-                                                 ^^
-                                                 source.ks keyword.control.match.arrow.ks
-                                                    
-                                                   ^
-                                                   source.ks
-                                                    console
-                                                    ^^^^^^^
-                                                    source.ks variable.other.object.ks
-                                                           .
+                                             =>
+                                             ^^
+                                             source.ks keyword.control.match.arrow.ks
+                                                
+                                               ^
+                                               source.ks
+                                                console
+                                                ^^^^^^^
+                                                source.ks variable.other.object.ks
+                                                       .
+                                                       ^
+                                                       source.ks punctuation.accessor.object.ks
+                                                        log
+                                                        ^^^
+                                                        source.ks entity.name.function.ks
+                                                           (
                                                            ^
-                                                           source.ks punctuation.accessor.object.ks
-                                                            log
-                                                            ^^^
-                                                            source.ks entity.name.function.ks
-                                                               (
-                                                               ^
-                                                               source.ks punctuation.definition.arguments.begin.bracket.round.ks
-                                                                "
-                                                                ^
-                                                                source.ks string.quoted.double.ks punctuation.definition.string.begin.ks
-                                                                 It's some other UIView or subclass
-                                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-                                                                 source.ks string.quoted.double.ks
-                                                                                                   "
-                                                                                                   ^
-                                                                                                   source.ks string.quoted.double.ks punctuation.definition.string.end.ks
-                                                                                                    )
-                                                                                                    ^
-                                                                                                    source.ks punctuation.definition.arguments.end.bracket.round.ks
+                                                           source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                                                            "
+                                                            ^
+                                                            source.ks string.quoted.double.ks punctuation.definition.string.begin.ks
+                                                             It's some other UIView or subclass
+                                                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                                                             source.ks string.quoted.double.ks
+                                                                                               "
+                                                                                               ^
+                                                                                               source.ks string.quoted.double.ks punctuation.definition.string.end.ks
+                                                                                                )
+                                                                                                ^
+                                                                                                source.ks punctuation.definition.arguments.end.bracket.round.ks
 >
 >}
  }

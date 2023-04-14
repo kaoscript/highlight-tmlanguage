@@ -6,7 +6,7 @@ enum Kind {
     C
 }
 
-var dyn k = Kind::A
+var dyn k = Kind.A
 -----------------------------------
 
 grammar: kaoscript.tmLanguage
@@ -63,7 +63,7 @@ grammar: kaoscript.tmLanguage
  ^
  source.ks
 >
->var dyn k = Kind::A
+>var dyn k = Kind.A
  var 
  ^^^^
  source.ks storage.type.readwrite.ks
@@ -87,10 +87,10 @@ grammar: kaoscript.tmLanguage
             source.ks
              Kind
              ^^^^
-             source.ks variable.other.enum.ks
-                 ::
-                 ^^
-                 source.ks punctuation.accessor.enum.ks
-                   A
-                   ^
-                   source.ks variable.other.property.enum.ks
+             source.ks variable.other.object.ks
+                 .
+                 ^
+                 source.ks punctuation.accessor.object.ks
+                  A
+                  ^
+                  source.ks variable.other.property.object.ks

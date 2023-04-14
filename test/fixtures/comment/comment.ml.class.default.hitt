@@ -18,7 +18,7 @@ class Greetings {
     }
 }
 
-var hello = new Greetings('Hello world!')
+var hello = Greetings.new('Hello world!')
 
 expect(hello.greet('miss White')).to.equal('Hello world!\nIt\'s nice to meet you, miss White.')
 -----------------------------------
@@ -287,7 +287,7 @@ grammar: kaoscript.tmLanguage
  ^
  source.ks
 >
->var hello = new Greetings('Hello world!')
+>var hello = Greetings.new('Hello world!')
  var
  ^^^
  source.ks storage.type.constant.ks
@@ -306,15 +306,15 @@ grammar: kaoscript.tmLanguage
              
             ^
             source.ks
-             new
-             ^^^
-             source.ks keyword.operator.new.ks
-                 
-                ^
-                source.ks
-                 Greetings
-                 ^^^^^^^^^
-                 source.ks entity.name.type.ks
+             Greetings
+             ^^^^^^^^^
+             source.ks variable.other.object.ks
+                      .
+                      ^
+                      source.ks punctuation.accessor.object.ks
+                       new
+                       ^^^
+                       source.ks entity.name.function.ks
                           (
                           ^
                           source.ks punctuation.definition.arguments.begin.bracket.round.ks

@@ -1,0 +1,102 @@
+original file
+-----------------------------------
+var point = {
+    x: 1
+    y: 1
+    z: 1 unless _2d
+}
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>var point = {
+ var
+ ^^^
+ source.ks storage.type.constant.ks
+     
+    ^
+    source.ks
+     point
+     ^^^^^
+     source.ks meta.definition.variable.ks variable.other.ks
+           
+          ^
+          source.ks
+           =
+           ^
+           source.ks keyword.operator.assignment.ks
+             
+            ^
+            source.ks
+             {
+             ^
+             source.ks punctuation.definition.object.begin.bracket.curly.ks
+>
+>    x: 1
+     
+ ^^^^
+ source.ks
+     x
+     ^
+     source.ks meta.object.key.ks
+      :
+      ^
+      source.ks punctuation.separator.key-value.ks
+        
+       ^
+       source.ks
+        1
+        ^
+        source.ks constant.numeric.decimal.ks
+>
+>    y: 1
+     
+ ^^^^
+ source.ks
+     y
+     ^
+     source.ks meta.object.key.ks
+      :
+      ^
+      source.ks punctuation.separator.key-value.ks
+        
+       ^
+       source.ks
+        1
+        ^
+        source.ks constant.numeric.decimal.ks
+>
+>    z: 1 unless _2d
+     
+ ^^^^
+ source.ks
+     z
+     ^
+     source.ks meta.object.key.ks
+      :
+      ^
+      source.ks punctuation.separator.key-value.ks
+        
+       ^
+       source.ks
+        1
+        ^
+        source.ks constant.numeric.decimal.ks
+          
+         ^
+         source.ks
+          unless
+          ^^^^^^
+          source.ks keyword.control.conditional.unless.ks
+                 
+                ^
+                source.ks
+                 _2d
+                 ^^^
+                 source.ks variable.other.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.object.end.bracket.curly.ks

@@ -1,0 +1,48 @@
+original file
+-----------------------------------
+return unless unless lang == 'en'
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>return unless unless lang == 'en'
+ return
+ ^^^^^^
+ source.ks keyword.control.flow.return.ks
+        
+       ^
+       source.ks
+        unless
+        ^^^^^^
+        source.ks variable.other.ks
+               
+              ^
+              source.ks
+               unless
+               ^^^^^^
+               source.ks keyword.control.conditional.unless.ks
+                      
+                     ^
+                     source.ks
+                      lang
+                      ^^^^
+                      source.ks variable.other.ks
+                           
+                          ^
+                          source.ks
+                           ==
+                           ^^
+                           source.ks keyword.operator.comparison.ks
+                              
+                             ^
+                             source.ks
+                              '
+                              ^
+                              source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
+                               en
+                               ^^
+                               source.ks string.quoted.single.ks
+                                 '
+                                 ^
+                                 source.ks string.quoted.single.ks punctuation.definition.string.end.ks

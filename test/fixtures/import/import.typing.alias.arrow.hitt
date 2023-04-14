@@ -6,10 +6,10 @@ import 'chevrotain' {
     sealed class Parser
     sealed class Token
 } => {
-    createToken: createChevrotainToken
-    Lexer: ChevrotainLexer
-    Parser: ChevrotainParser
-    Token: ChevrotainToken
+    createToken % createChevrotainToken
+    Lexer % ChevrotainLexer
+    Parser % ChevrotainParser
+    Token % ChevrotainToken
 }
 -----------------------------------
 
@@ -130,73 +130,85 @@ grammar: kaoscript.tmLanguage
       ^
       source.ks punctuation.definition.binding-pattern.object.begin.bracket.curly.ks
 >
->    createToken: createChevrotainToken
+>    createToken % createChevrotainToken
      
  ^^^^
  source.ks
      createToken
      ^^^^^^^^^^^
      source.ks variable.other.ks
-                :
+                 
                 ^
-                source.ks punctuation.separator.key-value.ks
-                  
+                source.ks
+                 %
                  ^
-                 source.ks
-                  createChevrotainToken
-                  ^^^^^^^^^^^^^^^^^^^^^
-                  source.ks variable.other.ks
+                 source.ks keyword.operator.binding.label.ks
+                   
+                  ^
+                  source.ks
+                   createChevrotainToken
+                   ^^^^^^^^^^^^^^^^^^^^^
+                   source.ks variable.other.ks
 >
->    Lexer: ChevrotainLexer
+>    Lexer % ChevrotainLexer
      
  ^^^^
  source.ks
      Lexer
      ^^^^^
      source.ks variable.other.ks
-          :
+           
           ^
-          source.ks punctuation.separator.key-value.ks
-            
+          source.ks
+           %
            ^
-           source.ks
-            ChevrotainLexer
-            ^^^^^^^^^^^^^^^
-            source.ks variable.other.ks
+           source.ks keyword.operator.binding.label.ks
+             
+            ^
+            source.ks
+             ChevrotainLexer
+             ^^^^^^^^^^^^^^^
+             source.ks variable.other.ks
 >
->    Parser: ChevrotainParser
+>    Parser % ChevrotainParser
      
  ^^^^
  source.ks
      Parser
      ^^^^^^
      source.ks variable.other.ks
-           :
+            
            ^
-           source.ks punctuation.separator.key-value.ks
-             
+           source.ks
+            %
             ^
-            source.ks
-             ChevrotainParser
-             ^^^^^^^^^^^^^^^^
-             source.ks variable.other.ks
+            source.ks keyword.operator.binding.label.ks
+              
+             ^
+             source.ks
+              ChevrotainParser
+              ^^^^^^^^^^^^^^^^
+              source.ks variable.other.ks
 >
->    Token: ChevrotainToken
+>    Token % ChevrotainToken
      
  ^^^^
  source.ks
      Token
      ^^^^^
      source.ks variable.other.ks
-          :
+           
           ^
-          source.ks punctuation.separator.key-value.ks
-            
+          source.ks
+           %
            ^
-           source.ks
-            ChevrotainToken
-            ^^^^^^^^^^^^^^^
-            source.ks variable.other.ks
+           source.ks keyword.operator.binding.label.ks
+             
+            ^
+            source.ks
+             ChevrotainToken
+             ^^^^^^^^^^^^^^^
+             source.ks variable.other.ks
 >
 >}
  }

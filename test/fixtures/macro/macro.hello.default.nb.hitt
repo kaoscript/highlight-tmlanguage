@@ -2,7 +2,7 @@ original file
 -----------------------------------
 macro sayHello() => console.log('Hello!')
 
-sayHello!()
+sayHello()
 -----------------------------------
 
 grammar: kaoscript.tmLanguage
@@ -51,16 +51,13 @@ grammar: kaoscript.tmLanguage
  ^
  source.ks
 >
->sayHello!()
+>sayHello()
  sayHello
  ^^^^^^^^
  source.ks entity.name.function.ks
-         !
+         (
          ^
-         source.ks keyword.operator.function.macro.ks
-          (
+         source.ks punctuation.definition.arguments.begin.bracket.round.ks
+          )
           ^
-          source.ks punctuation.definition.arguments.begin.bracket.round.ks
-           )
-           ^
-           source.ks punctuation.definition.arguments.end.bracket.round.ks
+          source.ks punctuation.definition.arguments.end.bracket.round.ks

@@ -1,0 +1,156 @@
+original file
+-----------------------------------
+class Foobar {
+    foobar() {
+        var point = {
+            x: 1
+            y: 1
+            @z if _3d
+        }
+    }
+}
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>class Foobar {
+ class
+ ^^^^^
+ source.ks storage.type.class.ks
+       
+      ^
+      source.ks
+       Foobar
+       ^^^^^^
+       source.ks entity.name.type.class.ks
+              
+             ^
+             source.ks
+              {
+              ^
+              source.ks punctuation.definition.class.begin.bracket.curly.ks
+>
+>    foobar() {
+     
+ ^^^^
+ source.ks
+     foobar
+     ^^^^^^
+     source.ks entity.name.function.ks
+           (
+           ^
+           source.ks punctuation.definition.parameters.begin.bracket.round.ks
+            )
+            ^
+            source.ks punctuation.definition.parameters.end.bracket.round.ks
+              
+             ^
+             source.ks
+              {
+              ^
+              source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>        var point = {
+         
+ ^^^^^^^^
+ source.ks
+         var
+         ^^^
+         source.ks storage.type.constant.ks
+             
+            ^
+            source.ks
+             point
+             ^^^^^
+             source.ks meta.definition.variable.ks variable.other.ks
+                   
+                  ^
+                  source.ks
+                   =
+                   ^
+                   source.ks keyword.operator.assignment.ks
+                     
+                    ^
+                    source.ks
+                     {
+                     ^
+                     source.ks punctuation.definition.object.begin.bracket.curly.ks
+>
+>            x: 1
+             
+ ^^^^^^^^^^^^
+ source.ks
+             x
+             ^
+             source.ks meta.object.key.ks
+              :
+              ^
+              source.ks punctuation.separator.key-value.ks
+                
+               ^
+               source.ks
+                1
+                ^
+                source.ks constant.numeric.decimal.ks
+>
+>            y: 1
+             
+ ^^^^^^^^^^^^
+ source.ks
+             y
+             ^
+             source.ks meta.object.key.ks
+              :
+              ^
+              source.ks punctuation.separator.key-value.ks
+                
+               ^
+               source.ks
+                1
+                ^
+                source.ks constant.numeric.decimal.ks
+>
+>            @z if _3d
+             
+ ^^^^^^^^^^^^
+ source.ks
+             @
+             ^
+             source.ks storage.modifier.instance.ks
+              z
+              ^
+              source.ks variable.other.instance.ks
+                
+               ^
+               source.ks
+                if
+                ^^
+                source.ks keyword.control.conditional.if.ks
+                   
+                  ^
+                  source.ks
+                   _3d
+                   ^^^
+                   source.ks variable.other.ks
+>
+>        }
+         
+ ^^^^^^^^
+ source.ks
+         }
+         ^
+         source.ks punctuation.definition.object.end.bracket.curly.ks
+>
+>    }
+     
+ ^^^^
+ source.ks
+     }
+     ^
+     source.ks punctuation.definition.block.end.bracket.curly.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.class.end.bracket.curly.ks

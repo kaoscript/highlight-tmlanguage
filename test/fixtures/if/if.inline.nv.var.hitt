@@ -1,0 +1,114 @@
+original file
+-----------------------------------
+var x = if foo() {
+    pick qux()
+}
+else {
+    pick bar()
+}
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>var x = if foo() {
+ var
+ ^^^
+ source.ks storage.type.constant.ks
+     
+    ^
+    source.ks
+     x
+     ^
+     source.ks meta.definition.variable.ks variable.other.ks
+       
+      ^
+      source.ks
+       =
+       ^
+       source.ks keyword.operator.assignment.ks
+         
+        ^
+        source.ks
+         if
+         ^^
+         source.ks keyword.control.conditional.if.ks
+            
+           ^
+           source.ks
+            foo
+            ^^^
+            source.ks entity.name.function.ks
+               (
+               ^
+               source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                )
+                ^
+                source.ks punctuation.definition.arguments.end.bracket.round.ks
+                  
+                 ^
+                 source.ks
+                  {
+                  ^
+                  source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>    pick qux()
+     
+ ^^^^
+ source.ks
+     pick
+     ^^^^
+     source.ks keyword.control.flow.pick.ks
+          
+         ^
+         source.ks
+          qux
+          ^^^
+          source.ks entity.name.function.ks
+             (
+             ^
+             source.ks punctuation.definition.arguments.begin.bracket.round.ks
+              )
+              ^
+              source.ks punctuation.definition.arguments.end.bracket.round.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.block.end.bracket.curly.ks
+>
+>else {
+ else
+ ^^^^
+ source.ks keyword.control.conditional.else.ks
+      
+     ^
+     source.ks
+      {
+      ^
+      source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>    pick bar()
+     
+ ^^^^
+ source.ks
+     pick
+     ^^^^
+     source.ks keyword.control.flow.pick.ks
+          
+         ^
+         source.ks
+          bar
+          ^^^
+          source.ks entity.name.function.ks
+             (
+             ^
+             source.ks punctuation.definition.arguments.begin.bracket.round.ks
+              )
+              ^
+              source.ks punctuation.definition.arguments.end.bracket.round.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.block.end.bracket.curly.ks

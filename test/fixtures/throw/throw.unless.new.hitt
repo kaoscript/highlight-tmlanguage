@@ -1,0 +1,54 @@
+original file
+-----------------------------------
+throw Error.new('Not Defined') unless ?x
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>throw Error.new('Not Defined') unless ?x
+ throw
+ ^^^^^
+ source.ks keyword.control.try-catch.throw.ks
+       
+      ^
+      source.ks
+       Error
+       ^^^^^
+       source.ks variable.other.object.ks
+            .
+            ^
+            source.ks punctuation.accessor.object.ks
+             new
+             ^^^
+             source.ks entity.name.function.ks
+                (
+                ^
+                source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                 '
+                 ^
+                 source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
+                  Not Defined
+                  ^^^^^^^^^^^
+                  source.ks string.quoted.single.ks
+                             '
+                             ^
+                             source.ks string.quoted.single.ks punctuation.definition.string.end.ks
+                              )
+                              ^
+                              source.ks punctuation.definition.arguments.end.bracket.round.ks
+                                
+                               ^
+                               source.ks
+                                unless
+                                ^^^^^^
+                                source.ks keyword.control.conditional.unless.ks
+                                       
+                                      ^
+                                      source.ks
+                                       ?
+                                       ^
+                                       source.ks keyword.operator.existential.ks
+                                        x
+                                        ^
+                                        source.ks variable.other.ks

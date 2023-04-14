@@ -1,0 +1,714 @@
+original file
+-----------------------------------
+enum ANSIColor {
+    black
+    red
+    green
+    yellow
+    blue
+    magenta
+    cyan
+    white
+    default
+}
+
+func color(fg: ANSIColor, bg: ANSIColor): String {
+    var fg_code = match fg {
+        black => 30
+        red => 31
+        green => 32
+        yellow => 33
+        blue => 34
+        magenta => 35
+        cyan => 36
+        white => 37
+        else => 39
+    }
+
+    var bg_code = match bg {
+        black => 40
+        red => 41
+        green => 42
+        yellow => 44
+        blue => 44
+        magenta => 45
+        cyan => 46
+        white => 47
+        else => 49
+    }
+
+    return `\(fg_code);\(bg_code)m`
+}
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>enum ANSIColor {
+ enum
+ ^^^^
+ source.ks storage.type.enum.ks
+      
+     ^
+     source.ks
+      ANSIColor
+      ^^^^^^^^^
+      source.ks entity.name.type.enum.ks
+                
+               ^
+               source.ks
+                {
+                ^
+                source.ks punctuation.definition.enum.begin.bracket.curly.ks
+>
+>    black
+     
+ ^^^^
+ source.ks
+     black
+     ^^^^^
+     source.ks entity.name.variable.field.ks
+>
+>    red
+     
+ ^^^^
+ source.ks
+     red
+     ^^^
+     source.ks entity.name.variable.field.ks
+>
+>    green
+     
+ ^^^^
+ source.ks
+     green
+     ^^^^^
+     source.ks entity.name.variable.field.ks
+>
+>    yellow
+     
+ ^^^^
+ source.ks
+     yellow
+     ^^^^^^
+     source.ks entity.name.variable.field.ks
+>
+>    blue
+     
+ ^^^^
+ source.ks
+     blue
+     ^^^^
+     source.ks entity.name.variable.field.ks
+>
+>    magenta
+     
+ ^^^^
+ source.ks
+     magenta
+     ^^^^^^^
+     source.ks entity.name.variable.field.ks
+>
+>    cyan
+     
+ ^^^^
+ source.ks
+     cyan
+     ^^^^
+     source.ks entity.name.variable.field.ks
+>
+>    white
+     
+ ^^^^
+ source.ks
+     white
+     ^^^^^
+     source.ks entity.name.variable.field.ks
+>
+>    default
+     
+ ^^^^
+ source.ks
+     default
+     ^^^^^^^
+     source.ks entity.name.variable.field.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.enum.end.bracket.curly.ks
+>
+>
+ 
+ ^
+ source.ks
+>
+>func color(fg: ANSIColor, bg: ANSIColor): String {
+ func
+ ^^^^
+ source.ks storage.type.function.ks
+      
+     ^
+     source.ks
+      color
+      ^^^^^
+      source.ks entity.name.function.ks
+           (
+           ^
+           source.ks punctuation.definition.parameters.begin.bracket.round.ks
+            fg
+            ^^
+            source.ks variable.parameter.ks
+              :
+              ^
+              source.ks meta.type.annotation.ks keyword.operator.type.annotation.ks
+                
+               ^
+               source.ks meta.type.annotation.ks
+                ANSIColor
+                ^^^^^^^^^
+                source.ks meta.type.annotation.ks entity.name.type.ks
+                         ,
+                         ^
+                         source.ks punctuation.separator.comma.ks
+                           
+                          ^
+                          source.ks
+                           bg
+                           ^^
+                           source.ks variable.parameter.ks
+                             :
+                             ^
+                             source.ks meta.type.annotation.ks keyword.operator.type.annotation.ks
+                               
+                              ^
+                              source.ks meta.type.annotation.ks
+                               ANSIColor
+                               ^^^^^^^^^
+                               source.ks meta.type.annotation.ks entity.name.type.ks
+                                        )
+                                        ^
+                                        source.ks punctuation.definition.parameters.end.bracket.round.ks
+                                         :
+                                         ^
+                                         source.ks meta.function.return-type.ks keyword.operator.type.annotation.ks
+                                           
+                                          ^
+                                          source.ks meta.function.return-type.ks
+                                           String
+                                           ^^^^^^
+                                           source.ks meta.function.return-type.ks support.type.primitive.ks
+                                                  
+                                                 ^
+                                                 source.ks
+                                                  {
+                                                  ^
+                                                  source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>    var fg_code = match fg {
+     
+ ^^^^
+ source.ks
+     var
+     ^^^
+     source.ks storage.type.constant.ks
+         
+        ^
+        source.ks
+         fg_code
+         ^^^^^^^
+         source.ks meta.definition.variable.ks variable.other.ks
+                 
+                ^
+                source.ks
+                 =
+                 ^
+                 source.ks keyword.operator.assignment.ks
+                   
+                  ^
+                  source.ks
+                   match
+                   ^^^^^
+                   source.ks keyword.control.match.ks
+                         
+                        ^
+                        source.ks
+                         fg
+                         ^^
+                         source.ks variable.other.ks
+                            
+                           ^
+                           source.ks
+                            {
+                            ^
+                            source.ks punctuation.definition.match.begin.bracket.curly.ks
+>
+>        black => 30
+         
+ ^^^^^^^^
+ source.ks
+         black
+         ^^^^^
+         source.ks variable.other.ks
+               
+              ^
+              source.ks
+               =>
+               ^^
+               source.ks keyword.control.match.arrow.ks
+                  
+                 ^
+                 source.ks
+                  30
+                  ^^
+                  source.ks constant.numeric.decimal.ks
+>
+>        red => 31
+         
+ ^^^^^^^^
+ source.ks
+         red
+         ^^^
+         source.ks variable.other.ks
+             
+            ^
+            source.ks
+             =>
+             ^^
+             source.ks keyword.control.match.arrow.ks
+                
+               ^
+               source.ks
+                31
+                ^^
+                source.ks constant.numeric.decimal.ks
+>
+>        green => 32
+         
+ ^^^^^^^^
+ source.ks
+         green
+         ^^^^^
+         source.ks variable.other.ks
+               
+              ^
+              source.ks
+               =>
+               ^^
+               source.ks keyword.control.match.arrow.ks
+                  
+                 ^
+                 source.ks
+                  32
+                  ^^
+                  source.ks constant.numeric.decimal.ks
+>
+>        yellow => 33
+         
+ ^^^^^^^^
+ source.ks
+         yellow
+         ^^^^^^
+         source.ks variable.other.ks
+                
+               ^
+               source.ks
+                =>
+                ^^
+                source.ks keyword.control.match.arrow.ks
+                   
+                  ^
+                  source.ks
+                   33
+                   ^^
+                   source.ks constant.numeric.decimal.ks
+>
+>        blue => 34
+         
+ ^^^^^^^^
+ source.ks
+         blue
+         ^^^^
+         source.ks variable.other.ks
+              
+             ^
+             source.ks
+              =>
+              ^^
+              source.ks keyword.control.match.arrow.ks
+                 
+                ^
+                source.ks
+                 34
+                 ^^
+                 source.ks constant.numeric.decimal.ks
+>
+>        magenta => 35
+         
+ ^^^^^^^^
+ source.ks
+         magenta
+         ^^^^^^^
+         source.ks variable.other.ks
+                 
+                ^
+                source.ks
+                 =>
+                 ^^
+                 source.ks keyword.control.match.arrow.ks
+                    
+                   ^
+                   source.ks
+                    35
+                    ^^
+                    source.ks constant.numeric.decimal.ks
+>
+>        cyan => 36
+         
+ ^^^^^^^^
+ source.ks
+         cyan
+         ^^^^
+         source.ks variable.other.ks
+              
+             ^
+             source.ks
+              =>
+              ^^
+              source.ks keyword.control.match.arrow.ks
+                 
+                ^
+                source.ks
+                 36
+                 ^^
+                 source.ks constant.numeric.decimal.ks
+>
+>        white => 37
+         
+ ^^^^^^^^
+ source.ks
+         white
+         ^^^^^
+         source.ks variable.other.ks
+               
+              ^
+              source.ks
+               =>
+               ^^
+               source.ks keyword.control.match.arrow.ks
+                  
+                 ^
+                 source.ks
+                  37
+                  ^^
+                  source.ks constant.numeric.decimal.ks
+>
+>        else => 39
+         
+ ^^^^^^^^
+ source.ks
+         else
+         ^^^^
+         source.ks keyword.control.match.else.ks
+              
+             ^
+             source.ks
+              =>
+              ^^
+              source.ks keyword.control.match.arrow.ks
+                 
+                ^
+                source.ks
+                 39
+                 ^^
+                 source.ks constant.numeric.decimal.ks
+>
+>    }
+     
+ ^^^^
+ source.ks
+     }
+     ^
+     source.ks punctuation.definition.match.end.bracket.curly.ks
+>
+>
+ 
+ ^
+ source.ks
+>
+>    var bg_code = match bg {
+     
+ ^^^^
+ source.ks
+     var
+     ^^^
+     source.ks storage.type.constant.ks
+         
+        ^
+        source.ks
+         bg_code
+         ^^^^^^^
+         source.ks meta.definition.variable.ks variable.other.ks
+                 
+                ^
+                source.ks
+                 =
+                 ^
+                 source.ks keyword.operator.assignment.ks
+                   
+                  ^
+                  source.ks
+                   match
+                   ^^^^^
+                   source.ks keyword.control.match.ks
+                         
+                        ^
+                        source.ks
+                         bg
+                         ^^
+                         source.ks variable.other.ks
+                            
+                           ^
+                           source.ks
+                            {
+                            ^
+                            source.ks punctuation.definition.match.begin.bracket.curly.ks
+>
+>        black => 40
+         
+ ^^^^^^^^
+ source.ks
+         black
+         ^^^^^
+         source.ks variable.other.ks
+               
+              ^
+              source.ks
+               =>
+               ^^
+               source.ks keyword.control.match.arrow.ks
+                  
+                 ^
+                 source.ks
+                  40
+                  ^^
+                  source.ks constant.numeric.decimal.ks
+>
+>        red => 41
+         
+ ^^^^^^^^
+ source.ks
+         red
+         ^^^
+         source.ks variable.other.ks
+             
+            ^
+            source.ks
+             =>
+             ^^
+             source.ks keyword.control.match.arrow.ks
+                
+               ^
+               source.ks
+                41
+                ^^
+                source.ks constant.numeric.decimal.ks
+>
+>        green => 42
+         
+ ^^^^^^^^
+ source.ks
+         green
+         ^^^^^
+         source.ks variable.other.ks
+               
+              ^
+              source.ks
+               =>
+               ^^
+               source.ks keyword.control.match.arrow.ks
+                  
+                 ^
+                 source.ks
+                  42
+                  ^^
+                  source.ks constant.numeric.decimal.ks
+>
+>        yellow => 44
+         
+ ^^^^^^^^
+ source.ks
+         yellow
+         ^^^^^^
+         source.ks variable.other.ks
+                
+               ^
+               source.ks
+                =>
+                ^^
+                source.ks keyword.control.match.arrow.ks
+                   
+                  ^
+                  source.ks
+                   44
+                   ^^
+                   source.ks constant.numeric.decimal.ks
+>
+>        blue => 44
+         
+ ^^^^^^^^
+ source.ks
+         blue
+         ^^^^
+         source.ks variable.other.ks
+              
+             ^
+             source.ks
+              =>
+              ^^
+              source.ks keyword.control.match.arrow.ks
+                 
+                ^
+                source.ks
+                 44
+                 ^^
+                 source.ks constant.numeric.decimal.ks
+>
+>        magenta => 45
+         
+ ^^^^^^^^
+ source.ks
+         magenta
+         ^^^^^^^
+         source.ks variable.other.ks
+                 
+                ^
+                source.ks
+                 =>
+                 ^^
+                 source.ks keyword.control.match.arrow.ks
+                    
+                   ^
+                   source.ks
+                    45
+                    ^^
+                    source.ks constant.numeric.decimal.ks
+>
+>        cyan => 46
+         
+ ^^^^^^^^
+ source.ks
+         cyan
+         ^^^^
+         source.ks variable.other.ks
+              
+             ^
+             source.ks
+              =>
+              ^^
+              source.ks keyword.control.match.arrow.ks
+                 
+                ^
+                source.ks
+                 46
+                 ^^
+                 source.ks constant.numeric.decimal.ks
+>
+>        white => 47
+         
+ ^^^^^^^^
+ source.ks
+         white
+         ^^^^^
+         source.ks variable.other.ks
+               
+              ^
+              source.ks
+               =>
+               ^^
+               source.ks keyword.control.match.arrow.ks
+                  
+                 ^
+                 source.ks
+                  47
+                  ^^
+                  source.ks constant.numeric.decimal.ks
+>
+>        else => 49
+         
+ ^^^^^^^^
+ source.ks
+         else
+         ^^^^
+         source.ks keyword.control.match.else.ks
+              
+             ^
+             source.ks
+              =>
+              ^^
+              source.ks keyword.control.match.arrow.ks
+                 
+                ^
+                source.ks
+                 49
+                 ^^
+                 source.ks constant.numeric.decimal.ks
+>
+>    }
+     
+ ^^^^
+ source.ks
+     }
+     ^
+     source.ks punctuation.definition.match.end.bracket.curly.ks
+>
+>
+ 
+ ^
+ source.ks
+>
+>    return `\(fg_code);\(bg_code)m`
+     
+ ^^^^
+ source.ks
+     return
+     ^^^^^^
+     source.ks keyword.control.flow.return.ks
+            
+           ^
+           source.ks
+            `
+            ^
+            source.ks punctuation.definition.string.template.begin.ks
+             \(
+             ^^
+             source.ks punctuation.definition.template-expression.begin.ks
+               fg_code
+               ^^^^^^^
+               source.ks variable.other.ks
+                      )
+                      ^
+                      source.ks punctuation.definition.template-expression.end.ks
+                       ;
+                       ^
+                       source.ks string.template.ks
+                        \(
+                        ^^
+                        source.ks punctuation.definition.template-expression.begin.ks
+                          bg_code
+                          ^^^^^^^
+                          source.ks variable.other.ks
+                                 )
+                                 ^
+                                 source.ks punctuation.definition.template-expression.end.ks
+                                  m
+                                  ^
+                                  source.ks string.template.ks
+                                   `
+                                   ^
+                                   source.ks punctuation.definition.string.template.end.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.block.end.bracket.curly.ks

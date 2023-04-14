@@ -8,7 +8,7 @@ class Shape {
     constructor(@color)
 
     draw(canvas): string {
-        throw new Error('Not Implemented')
+        throw Error.new('Not Implemented')
     }
 }
 
@@ -22,7 +22,7 @@ class Rectangle extends Shape {
     }
 }
 
-var r = new Rectangle('black')
+var r = Rectangle.new('black')
 
 expect(r.draw()).to.equal('I\'m drawing a black rectangle.')
 -----------------------------------
@@ -163,7 +163,7 @@ grammar: kaoscript.tmLanguage
                           ^
                           source.ks punctuation.definition.block.begin.bracket.curly.ks
 >
->        throw new Error('Not Implemented')
+>        throw Error.new('Not Implemented')
          
  ^^^^^^^^
  source.ks
@@ -173,15 +173,15 @@ grammar: kaoscript.tmLanguage
                
               ^
               source.ks
-               new
-               ^^^
-               source.ks keyword.operator.new.ks
-                   
-                  ^
-                  source.ks
-                   Error
-                   ^^^^^
-                   source.ks entity.name.type.ks
+               Error
+               ^^^^^
+               source.ks variable.other.object.ks
+                    .
+                    ^
+                    source.ks punctuation.accessor.object.ks
+                     new
+                     ^^^
+                     source.ks entity.name.function.ks
                         (
                         ^
                         source.ks punctuation.definition.arguments.begin.bracket.round.ks
@@ -419,7 +419,7 @@ grammar: kaoscript.tmLanguage
  ^
  source.ks
 >
->var r = new Rectangle('black')
+>var r = Rectangle.new('black')
  var
  ^^^
  source.ks storage.type.constant.ks
@@ -438,15 +438,15 @@ grammar: kaoscript.tmLanguage
          
         ^
         source.ks
-         new
-         ^^^
-         source.ks keyword.operator.new.ks
-             
-            ^
-            source.ks
-             Rectangle
-             ^^^^^^^^^
-             source.ks entity.name.type.ks
+         Rectangle
+         ^^^^^^^^^
+         source.ks variable.other.object.ks
+                  .
+                  ^
+                  source.ks punctuation.accessor.object.ks
+                   new
+                   ^^^
+                   source.ks entity.name.function.ks
                       (
                       ^
                       source.ks punctuation.definition.arguments.begin.bracket.round.ks

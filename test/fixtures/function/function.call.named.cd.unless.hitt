@@ -1,0 +1,87 @@
+original file
+-----------------------------------
+foobar(
+    x: 1
+    y: 1
+    z: 1 unless _2d
+)
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>foobar(
+ foobar
+ ^^^^^^
+ source.ks entity.name.function.ks
+       (
+       ^
+       source.ks punctuation.definition.arguments.begin.bracket.round.ks
+>
+>    x: 1
+     
+ ^^^^
+ source.ks
+     x
+     ^
+     source.ks meta.argument.key.ks
+      :
+      ^
+      source.ks punctuation.separator.key-value.ks
+        
+       ^
+       source.ks
+        1
+        ^
+        source.ks constant.numeric.decimal.ks
+>
+>    y: 1
+     
+ ^^^^
+ source.ks
+     y
+     ^
+     source.ks meta.argument.key.ks
+      :
+      ^
+      source.ks punctuation.separator.key-value.ks
+        
+       ^
+       source.ks
+        1
+        ^
+        source.ks constant.numeric.decimal.ks
+>
+>    z: 1 unless _2d
+     
+ ^^^^
+ source.ks
+     z
+     ^
+     source.ks meta.argument.key.ks
+      :
+      ^
+      source.ks punctuation.separator.key-value.ks
+        
+       ^
+       source.ks
+        1
+        ^
+        source.ks constant.numeric.decimal.ks
+          
+         ^
+         source.ks
+          unless
+          ^^^^^^
+          source.ks keyword.control.conditional.unless.ks
+                 
+                ^
+                source.ks
+                 _2d
+                 ^^^
+                 source.ks variable.other.ks
+>
+>)
+ )
+ ^
+ source.ks punctuation.definition.arguments.end.bracket.round.ks

@@ -1,0 +1,117 @@
+original file
+-----------------------------------
+enum FontWeight {
+    Bold
+    Normal
+}
+
+var fontWeight: FontWeight = .Normal
+
+fontWeight = .Bold
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>enum FontWeight {
+ enum
+ ^^^^
+ source.ks storage.type.enum.ks
+      
+     ^
+     source.ks
+      FontWeight
+      ^^^^^^^^^^
+      source.ks entity.name.type.enum.ks
+                 
+                ^
+                source.ks
+                 {
+                 ^
+                 source.ks punctuation.definition.enum.begin.bracket.curly.ks
+>
+>    Bold
+     
+ ^^^^
+ source.ks
+     Bold
+     ^^^^
+     source.ks entity.name.variable.field.ks
+>
+>    Normal
+     
+ ^^^^
+ source.ks
+     Normal
+     ^^^^^^
+     source.ks entity.name.variable.field.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.enum.end.bracket.curly.ks
+>
+>
+ 
+ ^
+ source.ks
+>
+>var fontWeight: FontWeight = .Normal
+ var
+ ^^^
+ source.ks storage.type.constant.ks
+     
+    ^
+    source.ks
+     fontWeight
+     ^^^^^^^^^^
+     source.ks meta.definition.variable.ks variable.other.ks
+               :
+               ^
+               source.ks meta.type.annotation.ks keyword.operator.type.annotation.ks
+                 
+                ^
+                source.ks meta.type.annotation.ks
+                 FontWeight
+                 ^^^^^^^^^^
+                 source.ks meta.type.annotation.ks entity.name.type.ks
+                            
+                           ^
+                           source.ks
+                            =
+                            ^
+                            source.ks keyword.operator.assignment.ks
+                              
+                             ^
+                             source.ks
+                              .
+                              ^
+                              source.ks punctuation.accessor.object.ks
+                               Normal
+                               ^^^^^^
+                               source.ks variable.other.ks
+>
+>
+ 
+ ^
+ source.ks
+>
+>fontWeight = .Bold
+ fontWeight
+ ^^^^^^^^^^
+ source.ks variable.other.ks
+            
+           ^
+           source.ks
+            =
+            ^
+            source.ks keyword.operator.assignment.ks
+              
+             ^
+             source.ks
+              .
+              ^
+              source.ks punctuation.accessor.object.ks
+               Bold
+               ^^^^
+               source.ks variable.other.ks

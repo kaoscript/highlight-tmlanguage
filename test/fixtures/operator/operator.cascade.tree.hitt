@@ -1,0 +1,324 @@
+original file
+-----------------------------------
+var right = Node.new('e')
+var root = Node.new('root')
+    ..left = (Node.new('a')
+        ..left = (Node.new('b')
+            ..left = Node.new('c')
+        )
+        ..right = Node.new('d')
+    )
+    ..right = right
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>var right = Node.new('e')
+ var
+ ^^^
+ source.ks storage.type.constant.ks
+     
+    ^
+    source.ks
+     right
+     ^^^^^
+     source.ks meta.definition.variable.ks variable.other.ks
+           
+          ^
+          source.ks
+           =
+           ^
+           source.ks keyword.operator.assignment.ks
+             
+            ^
+            source.ks
+             Node
+             ^^^^
+             source.ks variable.other.object.ks
+                 .
+                 ^
+                 source.ks punctuation.accessor.object.ks
+                  new
+                  ^^^
+                  source.ks entity.name.function.ks
+                     (
+                     ^
+                     source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                      '
+                      ^
+                      source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
+                       e
+                       ^
+                       source.ks string.quoted.single.ks
+                        '
+                        ^
+                        source.ks string.quoted.single.ks punctuation.definition.string.end.ks
+                         )
+                         ^
+                         source.ks punctuation.definition.arguments.end.bracket.round.ks
+>
+>var root = Node.new('root')
+ var
+ ^^^
+ source.ks storage.type.constant.ks
+     
+    ^
+    source.ks
+     root
+     ^^^^
+     source.ks meta.definition.variable.ks variable.other.ks
+          
+         ^
+         source.ks
+          =
+          ^
+          source.ks keyword.operator.assignment.ks
+            
+           ^
+           source.ks
+            Node
+            ^^^^
+            source.ks variable.other.object.ks
+                .
+                ^
+                source.ks punctuation.accessor.object.ks
+                 new
+                 ^^^
+                 source.ks entity.name.function.ks
+                    (
+                    ^
+                    source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                     '
+                     ^
+                     source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
+                      root
+                      ^^^^
+                      source.ks string.quoted.single.ks
+                          '
+                          ^
+                          source.ks string.quoted.single.ks punctuation.definition.string.end.ks
+                           )
+                           ^
+                           source.ks punctuation.definition.arguments.end.bracket.round.ks
+>
+>    ..left = (Node.new('a')
+     
+ ^^^^
+ source.ks
+     ..
+     ^^
+     source.ks punctuation.accessor.cascade.ks
+       left
+       ^^^^
+       source.ks variable.other.property.object.ks
+            
+           ^
+           source.ks
+            =
+            ^
+            source.ks keyword.operator.assignment.ks
+              
+             ^
+             source.ks
+              (
+              ^
+              source.ks meta.brace.round.ks
+               Node
+               ^^^^
+               source.ks variable.other.object.ks
+                   .
+                   ^
+                   source.ks punctuation.accessor.object.ks
+                    new
+                    ^^^
+                    source.ks entity.name.function.ks
+                       (
+                       ^
+                       source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                        '
+                        ^
+                        source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
+                         a
+                         ^
+                         source.ks string.quoted.single.ks
+                          '
+                          ^
+                          source.ks string.quoted.single.ks punctuation.definition.string.end.ks
+                           )
+                           ^
+                           source.ks punctuation.definition.arguments.end.bracket.round.ks
+>
+>        ..left = (Node.new('b')
+         
+ ^^^^^^^^
+ source.ks
+         ..
+         ^^
+         source.ks punctuation.accessor.cascade.ks
+           left
+           ^^^^
+           source.ks variable.other.property.object.ks
+                
+               ^
+               source.ks
+                =
+                ^
+                source.ks keyword.operator.assignment.ks
+                  
+                 ^
+                 source.ks
+                  (
+                  ^
+                  source.ks meta.brace.round.ks
+                   Node
+                   ^^^^
+                   source.ks variable.other.object.ks
+                       .
+                       ^
+                       source.ks punctuation.accessor.object.ks
+                        new
+                        ^^^
+                        source.ks entity.name.function.ks
+                           (
+                           ^
+                           source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                            '
+                            ^
+                            source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
+                             b
+                             ^
+                             source.ks string.quoted.single.ks
+                              '
+                              ^
+                              source.ks string.quoted.single.ks punctuation.definition.string.end.ks
+                               )
+                               ^
+                               source.ks punctuation.definition.arguments.end.bracket.round.ks
+>
+>            ..left = Node.new('c')
+             
+ ^^^^^^^^^^^^
+ source.ks
+             ..
+             ^^
+             source.ks punctuation.accessor.cascade.ks
+               left
+               ^^^^
+               source.ks variable.other.property.object.ks
+                    
+                   ^
+                   source.ks
+                    =
+                    ^
+                    source.ks keyword.operator.assignment.ks
+                      
+                     ^
+                     source.ks
+                      Node
+                      ^^^^
+                      source.ks variable.other.object.ks
+                          .
+                          ^
+                          source.ks punctuation.accessor.object.ks
+                           new
+                           ^^^
+                           source.ks entity.name.function.ks
+                              (
+                              ^
+                              source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                               '
+                               ^
+                               source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
+                                c
+                                ^
+                                source.ks string.quoted.single.ks
+                                 '
+                                 ^
+                                 source.ks string.quoted.single.ks punctuation.definition.string.end.ks
+                                  )
+                                  ^
+                                  source.ks punctuation.definition.arguments.end.bracket.round.ks
+>
+>        )
+         
+ ^^^^^^^^
+ source.ks
+         )
+         ^
+         source.ks meta.brace.round.ks
+>
+>        ..right = Node.new('d')
+         
+ ^^^^^^^^
+ source.ks
+         ..
+         ^^
+         source.ks punctuation.accessor.cascade.ks
+           right
+           ^^^^^
+           source.ks variable.other.property.object.ks
+                 
+                ^
+                source.ks
+                 =
+                 ^
+                 source.ks keyword.operator.assignment.ks
+                   
+                  ^
+                  source.ks
+                   Node
+                   ^^^^
+                   source.ks variable.other.object.ks
+                       .
+                       ^
+                       source.ks punctuation.accessor.object.ks
+                        new
+                        ^^^
+                        source.ks entity.name.function.ks
+                           (
+                           ^
+                           source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                            '
+                            ^
+                            source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
+                             d
+                             ^
+                             source.ks string.quoted.single.ks
+                              '
+                              ^
+                              source.ks string.quoted.single.ks punctuation.definition.string.end.ks
+                               )
+                               ^
+                               source.ks punctuation.definition.arguments.end.bracket.round.ks
+>
+>    )
+     
+ ^^^^
+ source.ks
+     )
+     ^
+     source.ks meta.brace.round.ks
+>
+>    ..right = right
+     
+ ^^^^
+ source.ks
+     ..
+     ^^
+     source.ks punctuation.accessor.cascade.ks
+       right
+       ^^^^^
+       source.ks variable.other.property.object.ks
+             
+            ^
+            source.ks
+             =
+             ^
+             source.ks keyword.operator.assignment.ks
+               
+              ^
+              source.ks
+               right
+               ^^^^^
+               source.ks variable.other.ks

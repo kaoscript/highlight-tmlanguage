@@ -5,7 +5,7 @@ class Writer {
         _line: class
     }
     constructor(@line)
-    newLine(...args) => new @line(...args)
+    newLine(...args) => @line.new(...args)
 }
 -----------------------------------
 
@@ -88,7 +88,7 @@ grammar: kaoscript.tmLanguage
                       ^
                       source.ks punctuation.definition.parameters.end.bracket.round.ks
 >
->    newLine(...args) => new @line(...args)
+>    newLine(...args) => @line.new(...args)
      
  ^^^^
  source.ks
@@ -116,18 +116,18 @@ grammar: kaoscript.tmLanguage
                          
                         ^
                         source.ks
-                         new
-                         ^^^
-                         source.ks keyword.operator.new.ks
-                             
-                            ^
-                            source.ks
-                             @
-                             ^
-                             source.ks storage.modifier.instance.ks
-                              line
-                              ^^^^
-                              source.ks entity.name.function.ks
+                         @
+                         ^
+                         source.ks storage.modifier.instance.ks
+                          line
+                          ^^^^
+                          source.ks variable.other.instance.ks
+                              .
+                              ^
+                              source.ks punctuation.accessor.object.ks
+                               new
+                               ^^^
+                               source.ks entity.name.function.ks
                                   (
                                   ^
                                   source.ks punctuation.definition.arguments.begin.bracket.round.ks

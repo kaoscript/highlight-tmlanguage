@@ -16,13 +16,7 @@ foo^^(bar)
 
 foo^$(bar)
 
-foo^@(bar)
-
-foo**(bar)
-
 foo*$(bar)
-
-foo::bar
 
 foo:bar
 -----------------------------------
@@ -188,50 +182,6 @@ grammar: kaoscript.tmLanguage
  ^
  source.ks
 >
->foo^@(bar)
- foo
- ^^^
- source.ks entity.name.function.ks
-    ^@
-    ^^
-    source.ks keyword.operator.function.scope.ks
-      (
-      ^
-      source.ks punctuation.definition.arguments.begin.bracket.round.ks
-       bar
-       ^^^
-       source.ks variable.other.ks
-          )
-          ^
-          source.ks punctuation.definition.arguments.end.bracket.round.ks
->
->
- 
- ^
- source.ks
->
->foo**(bar)
- foo
- ^^^
- source.ks entity.name.function.ks
-    **
-    ^^
-    source.ks keyword.operator.function.scope.ks
-      (
-      ^
-      source.ks punctuation.definition.arguments.begin.bracket.round.ks
-       bar
-       ^^^
-       source.ks variable.other.ks
-          )
-          ^
-          source.ks punctuation.definition.arguments.end.bracket.round.ks
->
->
- 
- ^
- source.ks
->
 >foo*$(bar)
  foo
  ^^^
@@ -248,22 +198,6 @@ grammar: kaoscript.tmLanguage
           )
           ^
           source.ks punctuation.definition.arguments.end.bracket.round.ks
->
->
- 
- ^
- source.ks
->
->foo::bar
- foo
- ^^^
- source.ks variable.other.enum.ks
-    ::
-    ^^
-    source.ks punctuation.accessor.enum.ks
-      bar
-      ^^^
-      source.ks variable.other.property.enum.ks
 >
 >
  

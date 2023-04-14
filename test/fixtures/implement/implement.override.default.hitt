@@ -10,7 +10,7 @@ class Shape {
     }
 
     static makeBlue(): Shape {
-        return new Shape('blue')
+        return Shape.new('blue')
     }
 
     constructor(@color)
@@ -200,7 +200,7 @@ grammar: kaoscript.tmLanguage
                               ^
                               source.ks punctuation.definition.block.begin.bracket.curly.ks
 >
->        return new Shape('blue')
+>        return Shape.new('blue')
          
  ^^^^^^^^
  source.ks
@@ -210,15 +210,15 @@ grammar: kaoscript.tmLanguage
                 
                ^
                source.ks
-                new
-                ^^^
-                source.ks keyword.operator.new.ks
-                    
-                   ^
-                   source.ks
-                    Shape
-                    ^^^^^
-                    source.ks entity.name.type.ks
+                Shape
+                ^^^^^
+                source.ks variable.other.object.ks
+                     .
+                     ^
+                     source.ks punctuation.accessor.object.ks
+                      new
+                      ^^^
+                      source.ks entity.name.function.ks
                          (
                          ^
                          source.ks punctuation.definition.arguments.begin.bracket.round.ks

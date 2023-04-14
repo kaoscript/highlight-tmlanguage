@@ -1,0 +1,153 @@
+original file
+-----------------------------------
+var dyn left = 10
+var dyn right = 20
+
+if right > left {
+    [left, right] = [right, left]
+}
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>var dyn left = 10
+ var 
+ ^^^^
+ source.ks storage.type.readwrite.ks
+     dyn
+     ^^^
+     source.ks storage.type.readwrite.ks storage.modifier.dynamic.ks
+         
+        ^
+        source.ks
+         left
+         ^^^^
+         source.ks meta.definition.variable.ks variable.other.ks
+              
+             ^
+             source.ks
+              =
+              ^
+              source.ks keyword.operator.assignment.ks
+                
+               ^
+               source.ks
+                10
+                ^^
+                source.ks constant.numeric.decimal.ks
+>
+>var dyn right = 20
+ var 
+ ^^^^
+ source.ks storage.type.readwrite.ks
+     dyn
+     ^^^
+     source.ks storage.type.readwrite.ks storage.modifier.dynamic.ks
+         
+        ^
+        source.ks
+         right
+         ^^^^^
+         source.ks meta.definition.variable.ks variable.other.ks
+               
+              ^
+              source.ks
+               =
+               ^
+               source.ks keyword.operator.assignment.ks
+                 
+                ^
+                source.ks
+                 20
+                 ^^
+                 source.ks constant.numeric.decimal.ks
+>
+>
+ 
+ ^
+ source.ks
+>
+>if right > left {
+ if
+ ^^
+ source.ks keyword.control.conditional.if.ks
+    
+   ^
+   source.ks
+    right
+    ^^^^^
+    source.ks variable.other.ks
+          
+         ^
+         source.ks
+          >
+          ^
+          source.ks keyword.operator.comparison.ks
+            
+           ^
+           source.ks
+            left
+            ^^^^
+            source.ks variable.other.ks
+                 
+                ^
+                source.ks
+                 {
+                 ^
+                 source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>    [left, right] = [right, left]
+     
+ ^^^^
+ source.ks
+     [
+     ^
+     source.ks punctuation.definition.binding-pattern.array.begin.bracket.square.ks
+      left
+      ^^^^
+      source.ks variable.other.ks
+          ,
+          ^
+          source.ks punctuation.separator.comma.ks
+            
+           ^
+           source.ks
+            right
+            ^^^^^
+            source.ks variable.other.ks
+                 ]
+                 ^
+                 source.ks punctuation.definition.binding-pattern.array.end.bracket.square.ks
+                   
+                  ^
+                  source.ks
+                   =
+                   ^
+                   source.ks keyword.operator.assignment.ks
+                     
+                    ^
+                    source.ks
+                     [
+                     ^
+                     source.ks punctuation.definition.array.begin.bracket.square.ks
+                      right
+                      ^^^^^
+                      source.ks variable.other.ks
+                           ,
+                           ^
+                           source.ks punctuation.separator.comma.ks
+                             
+                            ^
+                            source.ks
+                             left
+                             ^^^^
+                             source.ks variable.other.ks
+                                 ]
+                                 ^
+                                 source.ks punctuation.definition.array.end.bracket.square.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.block.end.bracket.curly.ks

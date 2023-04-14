@@ -1,0 +1,93 @@
+original file
+-----------------------------------
+var node = TextNode(
+    text: 'some text'
+    style: Style(.Bold)
+)
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>var node = TextNode(
+ var
+ ^^^
+ source.ks storage.type.constant.ks
+     
+    ^
+    source.ks
+     node
+     ^^^^
+     source.ks meta.definition.variable.ks variable.other.ks
+          
+         ^
+         source.ks
+          =
+          ^
+          source.ks keyword.operator.assignment.ks
+            
+           ^
+           source.ks
+            TextNode
+            ^^^^^^^^
+            source.ks entity.name.function.ks
+                    (
+                    ^
+                    source.ks punctuation.definition.arguments.begin.bracket.round.ks
+>
+>    text: 'some text'
+     
+ ^^^^
+ source.ks
+     text
+     ^^^^
+     source.ks meta.argument.key.ks
+         :
+         ^
+         source.ks punctuation.separator.key-value.ks
+           
+          ^
+          source.ks
+           '
+           ^
+           source.ks string.quoted.single.ks punctuation.definition.string.begin.ks
+            some text
+            ^^^^^^^^^
+            source.ks string.quoted.single.ks
+                     '
+                     ^
+                     source.ks string.quoted.single.ks punctuation.definition.string.end.ks
+>
+>    style: Style(.Bold)
+     
+ ^^^^
+ source.ks
+     style
+     ^^^^^
+     source.ks meta.argument.key.ks
+          :
+          ^
+          source.ks punctuation.separator.key-value.ks
+            
+           ^
+           source.ks
+            Style
+            ^^^^^
+            source.ks entity.name.function.ks
+                 (
+                 ^
+                 source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                  .
+                  ^
+                  source.ks punctuation.accessor.object.ks
+                   Bold
+                   ^^^^
+                   source.ks variable.other.ks
+                       )
+                       ^
+                       source.ks punctuation.definition.arguments.end.bracket.round.ks
+>
+>)
+ )
+ ^
+ source.ks punctuation.definition.arguments.end.bracket.round.ks

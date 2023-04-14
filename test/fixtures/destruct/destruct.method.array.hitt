@@ -1,0 +1,912 @@
+original file
+-----------------------------------
+class Foobar {
+    foo([x, y, z]) {
+
+    }
+
+    foo([x: Number = 1, y: Number = 2, z: Number = 3] = []) {
+
+    }
+
+    foo([x = 1, y = 2, z = 3]: [Number, Number, Number] = []) {
+
+    }
+
+    foo([x = 1, y = 2, z = 3]: Array<Number> = []) {
+
+    }
+
+    foo([x, y, ...z]) {
+
+    }
+
+    foo([_, y, ...]) {
+
+    }
+
+    foo([name, [x = 0, y = 0, z = 0] = []] = []) {
+
+    }
+
+    foo([@x, [@y, [@z]]]) {
+
+    }
+}
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>class Foobar {
+ class
+ ^^^^^
+ source.ks storage.type.class.ks
+       
+      ^
+      source.ks
+       Foobar
+       ^^^^^^
+       source.ks entity.name.type.class.ks
+              
+             ^
+             source.ks
+              {
+              ^
+              source.ks punctuation.definition.class.begin.bracket.curly.ks
+>
+>    foo([x, y, z]) {
+     
+ ^^^^
+ source.ks
+     foo
+     ^^^
+     source.ks entity.name.function.ks
+        (
+        ^
+        source.ks punctuation.definition.parameters.begin.bracket.round.ks
+         [
+         ^
+         source.ks punctuation.definition.binding-pattern.array.begin.bracket.square.ks
+          x
+          ^
+          source.ks variable.parameter.ks
+           ,
+           ^
+           source.ks punctuation.separator.comma.ks
+             
+            ^
+            source.ks
+             y
+             ^
+             source.ks variable.parameter.ks
+              ,
+              ^
+              source.ks punctuation.separator.comma.ks
+                
+               ^
+               source.ks
+                z
+                ^
+                source.ks variable.parameter.ks
+                 ]
+                 ^
+                 source.ks punctuation.definition.binding-pattern.array.end.bracket.square.ks
+                  )
+                  ^
+                  source.ks punctuation.definition.parameters.end.bracket.round.ks
+                    
+                   ^
+                   source.ks
+                    {
+                    ^
+                    source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>
+ 
+ ^
+ source.ks
+>
+>    }
+     
+ ^^^^
+ source.ks
+     }
+     ^
+     source.ks punctuation.definition.block.end.bracket.curly.ks
+>
+>
+ 
+ ^
+ source.ks
+>
+>    foo([x: Number = 1, y: Number = 2, z: Number = 3] = []) {
+     
+ ^^^^
+ source.ks
+     foo
+     ^^^
+     source.ks entity.name.function.ks
+        (
+        ^
+        source.ks punctuation.definition.parameters.begin.bracket.round.ks
+         [
+         ^
+         source.ks punctuation.definition.binding-pattern.array.begin.bracket.square.ks
+          x
+          ^
+          source.ks variable.parameter.ks
+           :
+           ^
+           source.ks meta.type.annotation.ks keyword.operator.type.annotation.ks
+             
+            ^
+            source.ks meta.type.annotation.ks
+             Number
+             ^^^^^^
+             source.ks meta.type.annotation.ks support.type.primitive.ks
+                    
+                   ^
+                   source.ks
+                    =
+                    ^
+                    source.ks keyword.operator.assignment.ks
+                      
+                     ^
+                     source.ks
+                      1
+                      ^
+                      source.ks constant.numeric.decimal.ks
+                       ,
+                       ^
+                       source.ks punctuation.separator.comma.ks
+                         
+                        ^
+                        source.ks
+                         y
+                         ^
+                         source.ks variable.parameter.ks
+                          :
+                          ^
+                          source.ks meta.type.annotation.ks keyword.operator.type.annotation.ks
+                            
+                           ^
+                           source.ks meta.type.annotation.ks
+                            Number
+                            ^^^^^^
+                            source.ks meta.type.annotation.ks support.type.primitive.ks
+                                   
+                                  ^
+                                  source.ks
+                                   =
+                                   ^
+                                   source.ks keyword.operator.assignment.ks
+                                     
+                                    ^
+                                    source.ks
+                                     2
+                                     ^
+                                     source.ks constant.numeric.decimal.ks
+                                      ,
+                                      ^
+                                      source.ks punctuation.separator.comma.ks
+                                        
+                                       ^
+                                       source.ks
+                                        z
+                                        ^
+                                        source.ks variable.parameter.ks
+                                         :
+                                         ^
+                                         source.ks meta.type.annotation.ks keyword.operator.type.annotation.ks
+                                           
+                                          ^
+                                          source.ks meta.type.annotation.ks
+                                           Number
+                                           ^^^^^^
+                                           source.ks meta.type.annotation.ks support.type.primitive.ks
+                                                  
+                                                 ^
+                                                 source.ks
+                                                  =
+                                                  ^
+                                                  source.ks keyword.operator.assignment.ks
+                                                    
+                                                   ^
+                                                   source.ks
+                                                    3
+                                                    ^
+                                                    source.ks constant.numeric.decimal.ks
+                                                     ]
+                                                     ^
+                                                     source.ks punctuation.definition.binding-pattern.array.end.bracket.square.ks
+                                                       
+                                                      ^
+                                                      source.ks
+                                                       =
+                                                       ^
+                                                       source.ks keyword.operator.assignment.ks
+                                                         
+                                                        ^
+                                                        source.ks
+                                                         [
+                                                         ^
+                                                         source.ks punctuation.definition.array.begin.bracket.square.ks
+                                                          ]
+                                                          ^
+                                                          source.ks punctuation.definition.array.end.bracket.square.ks
+                                                           )
+                                                           ^
+                                                           source.ks punctuation.definition.parameters.end.bracket.round.ks
+                                                             
+                                                            ^
+                                                            source.ks
+                                                             {
+                                                             ^
+                                                             source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>
+ 
+ ^
+ source.ks
+>
+>    }
+     
+ ^^^^
+ source.ks
+     }
+     ^
+     source.ks punctuation.definition.block.end.bracket.curly.ks
+>
+>
+ 
+ ^
+ source.ks
+>
+>    foo([x = 1, y = 2, z = 3]: [Number, Number, Number] = []) {
+     
+ ^^^^
+ source.ks
+     foo
+     ^^^
+     source.ks entity.name.function.ks
+        (
+        ^
+        source.ks punctuation.definition.parameters.begin.bracket.round.ks
+         [
+         ^
+         source.ks punctuation.definition.binding-pattern.array.begin.bracket.square.ks
+          x
+          ^
+          source.ks variable.parameter.ks
+            
+           ^
+           source.ks
+            =
+            ^
+            source.ks keyword.operator.assignment.ks
+              
+             ^
+             source.ks
+              1
+              ^
+              source.ks constant.numeric.decimal.ks
+               ,
+               ^
+               source.ks punctuation.separator.comma.ks
+                 
+                ^
+                source.ks
+                 y
+                 ^
+                 source.ks variable.parameter.ks
+                   
+                  ^
+                  source.ks
+                   =
+                   ^
+                   source.ks keyword.operator.assignment.ks
+                     
+                    ^
+                    source.ks
+                     2
+                     ^
+                     source.ks constant.numeric.decimal.ks
+                      ,
+                      ^
+                      source.ks punctuation.separator.comma.ks
+                        
+                       ^
+                       source.ks
+                        z
+                        ^
+                        source.ks variable.parameter.ks
+                          
+                         ^
+                         source.ks
+                          =
+                          ^
+                          source.ks keyword.operator.assignment.ks
+                            
+                           ^
+                           source.ks
+                            3
+                            ^
+                            source.ks constant.numeric.decimal.ks
+                             ]
+                             ^
+                             source.ks punctuation.definition.binding-pattern.array.end.bracket.square.ks
+                              :
+                              ^
+                              source.ks meta.type.annotation.ks keyword.operator.type.annotation.ks
+                                
+                               ^
+                               source.ks meta.type.annotation.ks
+                                [
+                                ^
+                                source.ks meta.type.annotation.ks punctuation.definition.array.begin.bracket.square.ks
+                                 Number
+                                 ^^^^^^
+                                 source.ks meta.type.annotation.ks support.type.primitive.ks
+                                       ,
+                                       ^
+                                       source.ks meta.type.annotation.ks punctuation.separator.comma.ks
+                                         
+                                        ^
+                                        source.ks meta.type.annotation.ks
+                                         Number
+                                         ^^^^^^
+                                         source.ks meta.type.annotation.ks support.type.primitive.ks
+                                               ,
+                                               ^
+                                               source.ks meta.type.annotation.ks punctuation.separator.comma.ks
+                                                 
+                                                ^
+                                                source.ks meta.type.annotation.ks
+                                                 Number
+                                                 ^^^^^^
+                                                 source.ks meta.type.annotation.ks support.type.primitive.ks
+                                                       ]
+                                                       ^
+                                                       source.ks meta.type.annotation.ks punctuation.definition.array.end.bracket.square.ks
+                                                         
+                                                        ^
+                                                        source.ks
+                                                         =
+                                                         ^
+                                                         source.ks keyword.operator.assignment.ks
+                                                           
+                                                          ^
+                                                          source.ks
+                                                           [
+                                                           ^
+                                                           source.ks punctuation.definition.array.begin.bracket.square.ks
+                                                            ]
+                                                            ^
+                                                            source.ks punctuation.definition.array.end.bracket.square.ks
+                                                             )
+                                                             ^
+                                                             source.ks punctuation.definition.parameters.end.bracket.round.ks
+                                                               
+                                                              ^
+                                                              source.ks
+                                                               {
+                                                               ^
+                                                               source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>
+ 
+ ^
+ source.ks
+>
+>    }
+     
+ ^^^^
+ source.ks
+     }
+     ^
+     source.ks punctuation.definition.block.end.bracket.curly.ks
+>
+>
+ 
+ ^
+ source.ks
+>
+>    foo([x = 1, y = 2, z = 3]: Array<Number> = []) {
+     
+ ^^^^
+ source.ks
+     foo
+     ^^^
+     source.ks entity.name.function.ks
+        (
+        ^
+        source.ks punctuation.definition.parameters.begin.bracket.round.ks
+         [
+         ^
+         source.ks punctuation.definition.binding-pattern.array.begin.bracket.square.ks
+          x
+          ^
+          source.ks variable.parameter.ks
+            
+           ^
+           source.ks
+            =
+            ^
+            source.ks keyword.operator.assignment.ks
+              
+             ^
+             source.ks
+              1
+              ^
+              source.ks constant.numeric.decimal.ks
+               ,
+               ^
+               source.ks punctuation.separator.comma.ks
+                 
+                ^
+                source.ks
+                 y
+                 ^
+                 source.ks variable.parameter.ks
+                   
+                  ^
+                  source.ks
+                   =
+                   ^
+                   source.ks keyword.operator.assignment.ks
+                     
+                    ^
+                    source.ks
+                     2
+                     ^
+                     source.ks constant.numeric.decimal.ks
+                      ,
+                      ^
+                      source.ks punctuation.separator.comma.ks
+                        
+                       ^
+                       source.ks
+                        z
+                        ^
+                        source.ks variable.parameter.ks
+                          
+                         ^
+                         source.ks
+                          =
+                          ^
+                          source.ks keyword.operator.assignment.ks
+                            
+                           ^
+                           source.ks
+                            3
+                            ^
+                            source.ks constant.numeric.decimal.ks
+                             ]
+                             ^
+                             source.ks punctuation.definition.binding-pattern.array.end.bracket.square.ks
+                              :
+                              ^
+                              source.ks meta.type.annotation.ks keyword.operator.type.annotation.ks
+                                
+                               ^
+                               source.ks meta.type.annotation.ks
+                                Array
+                                ^^^^^
+                                source.ks meta.type.annotation.ks support.type.primitive.ks
+                                     <
+                                     ^
+                                     source.ks meta.type.annotation.ks punctuation.definition.typeparameters.begin.ks
+                                      Number
+                                      ^^^^^^
+                                      source.ks meta.type.annotation.ks support.type.primitive.ks
+                                            >
+                                            ^
+                                            source.ks meta.type.annotation.ks punctuation.definition.typeparameters.end.ks
+                                              
+                                             ^
+                                             source.ks
+                                              =
+                                              ^
+                                              source.ks keyword.operator.assignment.ks
+                                                
+                                               ^
+                                               source.ks
+                                                [
+                                                ^
+                                                source.ks punctuation.definition.array.begin.bracket.square.ks
+                                                 ]
+                                                 ^
+                                                 source.ks punctuation.definition.array.end.bracket.square.ks
+                                                  )
+                                                  ^
+                                                  source.ks punctuation.definition.parameters.end.bracket.round.ks
+                                                    
+                                                   ^
+                                                   source.ks
+                                                    {
+                                                    ^
+                                                    source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>
+ 
+ ^
+ source.ks
+>
+>    }
+     
+ ^^^^
+ source.ks
+     }
+     ^
+     source.ks punctuation.definition.block.end.bracket.curly.ks
+>
+>
+ 
+ ^
+ source.ks
+>
+>    foo([x, y, ...z]) {
+     
+ ^^^^
+ source.ks
+     foo
+     ^^^
+     source.ks entity.name.function.ks
+        (
+        ^
+        source.ks punctuation.definition.parameters.begin.bracket.round.ks
+         [
+         ^
+         source.ks punctuation.definition.binding-pattern.array.begin.bracket.square.ks
+          x
+          ^
+          source.ks variable.parameter.ks
+           ,
+           ^
+           source.ks punctuation.separator.comma.ks
+             
+            ^
+            source.ks
+             y
+             ^
+             source.ks variable.parameter.ks
+              ,
+              ^
+              source.ks punctuation.separator.comma.ks
+                
+               ^
+               source.ks
+                ...
+                ^^^
+                source.ks keyword.operator.rest.ks
+                   z
+                   ^
+                   source.ks variable.parameter.ks
+                    ]
+                    ^
+                    source.ks punctuation.definition.binding-pattern.array.end.bracket.square.ks
+                     )
+                     ^
+                     source.ks punctuation.definition.parameters.end.bracket.round.ks
+                       
+                      ^
+                      source.ks
+                       {
+                       ^
+                       source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>
+ 
+ ^
+ source.ks
+>
+>    }
+     
+ ^^^^
+ source.ks
+     }
+     ^
+     source.ks punctuation.definition.block.end.bracket.curly.ks
+>
+>
+ 
+ ^
+ source.ks
+>
+>    foo([_, y, ...]) {
+     
+ ^^^^
+ source.ks
+     foo
+     ^^^
+     source.ks entity.name.function.ks
+        (
+        ^
+        source.ks punctuation.definition.parameters.begin.bracket.round.ks
+         [
+         ^
+         source.ks punctuation.definition.binding-pattern.array.begin.bracket.square.ks
+          _
+          ^
+          source.ks variable.anonymous.ks
+           ,
+           ^
+           source.ks punctuation.separator.comma.ks
+             
+            ^
+            source.ks
+             y
+             ^
+             source.ks variable.parameter.ks
+              ,
+              ^
+              source.ks punctuation.separator.comma.ks
+                
+               ^
+               source.ks
+                ...
+                ^^^
+                source.ks keyword.operator.rest.ks
+                   ]
+                   ^
+                   source.ks punctuation.definition.binding-pattern.array.end.bracket.square.ks
+                    )
+                    ^
+                    source.ks punctuation.definition.parameters.end.bracket.round.ks
+                      
+                     ^
+                     source.ks
+                      {
+                      ^
+                      source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>
+ 
+ ^
+ source.ks
+>
+>    }
+     
+ ^^^^
+ source.ks
+     }
+     ^
+     source.ks punctuation.definition.block.end.bracket.curly.ks
+>
+>
+ 
+ ^
+ source.ks
+>
+>    foo([name, [x = 0, y = 0, z = 0] = []] = []) {
+     
+ ^^^^
+ source.ks
+     foo
+     ^^^
+     source.ks entity.name.function.ks
+        (
+        ^
+        source.ks punctuation.definition.parameters.begin.bracket.round.ks
+         [
+         ^
+         source.ks punctuation.definition.binding-pattern.array.begin.bracket.square.ks
+          name
+          ^^^^
+          source.ks variable.parameter.ks
+              ,
+              ^
+              source.ks punctuation.separator.comma.ks
+                
+               ^
+               source.ks
+                [
+                ^
+                source.ks punctuation.definition.binding-pattern.array.begin.bracket.square.ks
+                 x
+                 ^
+                 source.ks variable.parameter.ks
+                   
+                  ^
+                  source.ks
+                   =
+                   ^
+                   source.ks keyword.operator.assignment.ks
+                     
+                    ^
+                    source.ks
+                     0
+                     ^
+                     source.ks constant.numeric.decimal.ks
+                      ,
+                      ^
+                      source.ks punctuation.separator.comma.ks
+                        
+                       ^
+                       source.ks
+                        y
+                        ^
+                        source.ks variable.parameter.ks
+                          
+                         ^
+                         source.ks
+                          =
+                          ^
+                          source.ks keyword.operator.assignment.ks
+                            
+                           ^
+                           source.ks
+                            0
+                            ^
+                            source.ks constant.numeric.decimal.ks
+                             ,
+                             ^
+                             source.ks punctuation.separator.comma.ks
+                               
+                              ^
+                              source.ks
+                               z
+                               ^
+                               source.ks variable.parameter.ks
+                                 
+                                ^
+                                source.ks
+                                 =
+                                 ^
+                                 source.ks keyword.operator.assignment.ks
+                                   
+                                  ^
+                                  source.ks
+                                   0
+                                   ^
+                                   source.ks constant.numeric.decimal.ks
+                                    ]
+                                    ^
+                                    source.ks punctuation.definition.binding-pattern.array.end.bracket.square.ks
+                                      
+                                     ^
+                                     source.ks
+                                      =
+                                      ^
+                                      source.ks keyword.operator.assignment.ks
+                                        
+                                       ^
+                                       source.ks
+                                        [
+                                        ^
+                                        source.ks punctuation.definition.array.begin.bracket.square.ks
+                                         ]
+                                         ^
+                                         source.ks punctuation.definition.array.end.bracket.square.ks
+                                          ]
+                                          ^
+                                          source.ks punctuation.definition.binding-pattern.array.end.bracket.square.ks
+                                            
+                                           ^
+                                           source.ks
+                                            =
+                                            ^
+                                            source.ks keyword.operator.assignment.ks
+                                              
+                                             ^
+                                             source.ks
+                                              [
+                                              ^
+                                              source.ks punctuation.definition.array.begin.bracket.square.ks
+                                               ]
+                                               ^
+                                               source.ks punctuation.definition.array.end.bracket.square.ks
+                                                )
+                                                ^
+                                                source.ks punctuation.definition.parameters.end.bracket.round.ks
+                                                  
+                                                 ^
+                                                 source.ks
+                                                  {
+                                                  ^
+                                                  source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>
+ 
+ ^
+ source.ks
+>
+>    }
+     
+ ^^^^
+ source.ks
+     }
+     ^
+     source.ks punctuation.definition.block.end.bracket.curly.ks
+>
+>
+ 
+ ^
+ source.ks
+>
+>    foo([@x, [@y, [@z]]]) {
+     
+ ^^^^
+ source.ks
+     foo
+     ^^^
+     source.ks entity.name.function.ks
+        (
+        ^
+        source.ks punctuation.definition.parameters.begin.bracket.round.ks
+         [
+         ^
+         source.ks punctuation.definition.binding-pattern.array.begin.bracket.square.ks
+          @
+          ^
+          source.ks storage.modifier.at.ks
+           x
+           ^
+           source.ks variable.parameter.ks
+            ,
+            ^
+            source.ks punctuation.separator.comma.ks
+              
+             ^
+             source.ks
+              [
+              ^
+              source.ks punctuation.definition.binding-pattern.array.begin.bracket.square.ks
+               @
+               ^
+               source.ks storage.modifier.at.ks
+                y
+                ^
+                source.ks variable.parameter.ks
+                 ,
+                 ^
+                 source.ks punctuation.separator.comma.ks
+                   
+                  ^
+                  source.ks
+                   [
+                   ^
+                   source.ks punctuation.definition.binding-pattern.array.begin.bracket.square.ks
+                    @
+                    ^
+                    source.ks storage.modifier.at.ks
+                     z
+                     ^
+                     source.ks variable.parameter.ks
+                      ]
+                      ^
+                      source.ks punctuation.definition.binding-pattern.array.end.bracket.square.ks
+                       ]
+                       ^
+                       source.ks punctuation.definition.binding-pattern.array.end.bracket.square.ks
+                        ]
+                        ^
+                        source.ks punctuation.definition.binding-pattern.array.end.bracket.square.ks
+                         )
+                         ^
+                         source.ks punctuation.definition.parameters.end.bracket.round.ks
+                           
+                          ^
+                          source.ks
+                           {
+                           ^
+                           source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>
+ 
+ ^
+ source.ks
+>
+>    }
+     
+ ^^^^
+ source.ks
+     }
+     ^
+     source.ks punctuation.definition.block.end.bracket.curly.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.class.end.bracket.curly.ks

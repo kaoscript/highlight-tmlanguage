@@ -1,0 +1,54 @@
+original file
+-----------------------------------
+var [x, ...?] = foo()
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>var [x, ...?] = foo()
+ var
+ ^^^
+ source.ks storage.type.constant.ks
+     
+    ^
+    source.ks
+     [
+     ^
+     source.ks punctuation.definition.binding-pattern.array.begin.bracket.square.ks
+      x
+      ^
+      source.ks variable.other.ks
+       ,
+       ^
+       source.ks punctuation.separator.comma.ks
+         
+        ^
+        source.ks
+         ...
+         ^^^
+         source.ks keyword.operator.rest.ks
+            ?
+            ^
+            source.ks storage.modifier.nullable.ks
+             ]
+             ^
+             source.ks punctuation.definition.binding-pattern.array.end.bracket.square.ks
+               
+              ^
+              source.ks
+               =
+               ^
+               source.ks keyword.operator.assignment.ks
+                 
+                ^
+                source.ks
+                 foo
+                 ^^^
+                 source.ks entity.name.function.ks
+                    (
+                    ^
+                    source.ks punctuation.definition.arguments.begin.bracket.round.ks
+                     )
+                     ^
+                     source.ks punctuation.definition.arguments.end.bracket.round.ks

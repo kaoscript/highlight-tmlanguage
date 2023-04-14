@@ -113,7 +113,7 @@ grammar: kaoscript.tmLanguage
          source.ks
           [
           ^
-          source.ks punctuation.definition.array.begin.bracket.square.ks
+          source.ks punctuation.definition.binding-pattern.array.begin.bracket.square.ks
            first
            ^^^^^
            source.ks variable.other.ks
@@ -125,7 +125,7 @@ grammar: kaoscript.tmLanguage
                  source.ks
                   ...
                   ^^^
-                  source.ks keyword.operator.spread.ks
+                  source.ks keyword.operator.rest.ks
                      middle
                      ^^^^^^
                      source.ks variable.other.ks
@@ -140,7 +140,7 @@ grammar: kaoscript.tmLanguage
                              source.ks variable.other.ks
                                  ]
                                  ^
-                                 source.ks punctuation.definition.array.end.bracket.square.ks
+                                 source.ks punctuation.definition.binding-pattern.array.end.bracket.square.ks
                                       
                                   ^^^^
                                   source.ks

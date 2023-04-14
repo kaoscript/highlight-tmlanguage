@@ -1,0 +1,60 @@
+original file
+-----------------------------------
+if mode == .Foo | .Bar {
+}
+-----------------------------------
+
+grammar: kaoscript.tmLanguage
+-----------------------------------
+>
+>if mode == .Foo | .Bar {
+ if
+ ^^
+ source.ks keyword.control.conditional.if.ks
+    
+   ^
+   source.ks
+    mode
+    ^^^^
+    source.ks variable.other.ks
+         
+        ^
+        source.ks
+         ==
+         ^^
+         source.ks keyword.operator.comparison.ks
+            
+           ^
+           source.ks
+            .
+            ^
+            source.ks punctuation.accessor.object.ks
+             Foo
+             ^^^
+             source.ks variable.other.ks
+                 
+                ^
+                source.ks
+                 |
+                 ^
+                 source.ks keyword.operator.junctive.ks
+                   
+                  ^
+                  source.ks
+                   .
+                   ^
+                   source.ks punctuation.accessor.object.ks
+                    Bar
+                    ^^^
+                    source.ks variable.other.ks
+                        
+                       ^
+                       source.ks
+                        {
+                        ^
+                        source.ks punctuation.definition.block.begin.bracket.curly.ks
+>
+>}
+ }
+ ^
+ source.ks punctuation.definition.block.end.bracket.curly.ks
